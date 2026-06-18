@@ -1,0 +1,354 @@
+==========================================================
+PORTFOLIO OVERVIEW POPUP MODULE (v2) — README.TXT
+==========================================================
+MODULE NAME
+
+PortfolioOverviewPopup
+
+TYPE
+
+Tkinter GUI + Data Analytics Engine (Portfolio Reconstruction + FIFO PnL Engine)
+
+PURPOSE
+
+This module provides a desktop institutional-grade portfolio visualization and reconstruction tool. It loads a broker-exported CSV file and converts raw trade logs into:
+
+Open positions
+Closed positions
+Pending orders
+Realized PnL (FIFO-based)
+Portfolio-wide analytics
+Risk exposure summary
+Interactive tabular UI
+
+It is designed for trade journaling systems, execution tracking, and performance analytics dashboards.
+
+==========================================================
+CORE DESIGN PHILOSOPHY
+==========================================================
+
+This system is built on 5 institutional principles:
+
+1. IMMUTABLE DATA LAYER
+raw_df is never modified
+Ensures forensic traceability of original broker data
+2. WORKING NORMALIZATION LAYER
+df is a cleaned and standardized copy
+All transformations occur here
+3. POSITION RECONSTRUCTION ENGINE
+FIFO-based matching engine for Buy/Sell trades
+Rebuilds true realized PnL from execution history
+4. MULTI-LAYER OUTPUT MODEL
+Positions → structured per ticker
+Open / Closed / Pending segmentation
+Analytics derived from reconstructed positions
+5. UI AS A READOUT LAYER
+UI does NOT compute logic
+UI only renders computed analytical state
+==========================================================
+DEPENDENCIES
+==========================================================
+import tkinter as tk
+from tkinter import ttk, filedialog, messagebox
+import pandas as pd
+import numpy as np
+External Requirements
+Python 3.9+
+pandas
+numpy
+tkinter (built-in in standard Python builds)
+==========================================================
+INPUT DATA FORMAT (CSV EXPECTATION)
+==========================================================
+
+The module expects a broker-style trade export CSV with fields such as:
+
+REQUIRED OR COMMON COLUMNS
+Ticker
+Symbol (auto-renamed to Ticker if present)
+Side → Buy / Sell
+Status → Filled / Pending
+Filled
+Avg Price
+Price
+Placed Time
+Filled Time
+==========================================================
+DATA CLEANING PIPELINE
+==========================================================
+FUNCTION: clean_data()
+Responsibilities:
+1. Column Normalization
+Strips whitespace from column names
+
+Renames:
+
+Symbol → Ticker
+2. Numeric Sanitization
+
+Cleans and converts:
+
+Price
+Avg Price
+Filled
+Total Qty
+
+Removes:
+
+"@"
+non-numeric artifacts
+
+Ensures:
+
+pd.to_numeric(..., errors="coerce")
+3. Datetime Standardization
+
+Handles:
+
+EST / EDT suffix removal
+safe parsing via pd.to_datetime
+
+Prevents:
+
+timezone parsing warnings
+mixed datetime formats
+==========================================================
+CORE ENGINE — POSITION RECONSTRUCTION
+==========================================================
+FUNCTION: build_positions()
+TYPE
+
+FIFO (First-In First-Out) Trade Matching Engine
+
+PURPOSE
+
+Reconstruct true trading outcomes from raw executions.
+
+ALGORITHM
+
+For each ticker:
+
+Step 1: Filter Filled Trades
+filled = self.df[self.df["Status"] == "Filled"]
+Step 2: Sort by Fill Time
+
+Ensures chronological execution order.
+
+Step 3: FIFO QUEUE SYSTEM
+BUY LOGIC
+
+Each buy is pushed into a queue:
+
+queue.append([qty, price])
+SELL LOGIC
+
+Sells are matched against earliest buys:
+
+Sell Qty → matched against FIFO buy lots
+PnL = (Sell Price - Buy Price) * matched quantity
+Step 4: OUTPUT METRICS PER TICKER
+
+Each ticker produces:
+
+Field	Description
+Buy Qty	Total bought volume
+Sell Qty	Total sold volume
+Open Qty	Remaining position
+Avg Entry	Weighted FIFO entry price
+Realized PnL	Closed trade profit/loss
+Trades	Number of execution matches
+Status	OPEN / CLOSED
+Step 5: POSITION CLASSIFICATION
+OPEN → open_qty > 0
+CLOSED → open_qty == 0
+==========================================================
+PORTFOLIO SEGMENTATION OUTPUTS
+==========================================================
+
+After reconstruction:
+
+self.positions_df
+
+Full ticker-level portfolio state
+
+self.open_df
+
+Active holdings
+
+self.closed_df
+
+Fully realized positions
+
+self.pending_df
+
+Unfilled / resting orders
+
+==========================================================
+PERFORMANCE METRICS ENGINE
+==========================================================
+FUNCTION: calculate_metrics()
+
+Computes portfolio-level statistics:
+
+TOTAL PnL
+pnl.sum()
+WIN RATE
+(pnl > 0).mean() * 100
+AVERAGE WIN
+
+Mean of positive trades
+
+AVERAGE LOSS
+
+Mean of losing trades
+
+TOTAL TRADES
+
+Count of closed positions
+
+OPEN EXPOSURE
+
+Number of active positions
+
+==========================================================
+UI ARCHITECTURE
+==========================================================
+WINDOW CONFIGURATION
+Title: Institutional Portfolio Overview (v2)
+Size: 1800x950
+Theme: Dark Institutional UI (#111111 background)
+TABS (NOTEBOOK STRUCTURE)
+Tab	Purpose
+Summary	Portfolio KPIs
+Open	Active positions
+Closed	Realized trades
+Pending	Unfilled orders
+Analytics	Trade behavior classification
+Risk	Exposure summary
+Raw	Original dataset
+==========================================================
+TABLE SYSTEM (TREEVIEW)
+==========================================================
+
+Standard columns:
+
+Ticker | Side | Qty | Entry | Exit | PnL | Status | Placed | Filled
+Features:
+Click-to-refresh tables
+Search filtering across all tables
+Dynamic reattachment/detachment of rows
+==========================================================
+ANALYTICS ENGINE (LIGHTWEIGHT CLASSIFICATION)
+==========================================================
+FUNCTION: populate_analytics()
+
+Each ticker is labeled:
+
+RULE:
+if pnl > 0:
+    "Continuation"
+else:
+    "Distribution"
+PURPOSE:
+Simple regime-style classification
+Used for behavioral tagging (not predictive modeling)
+==========================================================
+RISK MODULE
+==========================================================
+FUNCTION: populate_risk()
+METRICS:
+Total Exposure (Buy Qty sum)
+Open Position Count
+Closed Position Count
+==========================================================
+USER INTERACTIONS
+==========================================================
+1. REFRESH
+
+Reloads CSV and rebuilds full portfolio state
+
+2. SAVE WORKING COPY
+
+Exports cleaned dataframe (df) to CSV
+
+3. EXPORT POSITIONS
+
+Exports reconstructed portfolio (positions_df)
+
+4. SEARCH FILTER
+
+Live filters all tables based on text match
+
+==========================================================
+SEARCH ENGINE BEHAVIOR
+==========================================================
+
+Search works across:
+
+ticker
+side
+quantities
+pnl
+status
+LOGIC:
+Match rows containing query substring
+Detach non-matching rows from TreeView
+Reattach matches dynamically
+==========================================================
+ARCHITECTURAL NOTES
+==========================================================
+STRENGTHS
+FIFO execution accuracy
+Clean separation of raw vs processed data
+Modular UI design
+Multi-tab institutional dashboard
+LIMITATIONS
+No real-time market integration
+No mark-to-market unrealized PnL
+No commission/slippage modeling
+No partial fill simulation beyond FIFO simplification
+No multi-account aggregation layer
+==========================================================
+EXTENSION POINTS (HIGH VALUE UPGRADES)
+==========================================================
+1. UNREALIZED PnL ENGINE
+
+Add mark-to-market pricing layer
+
+2. COMMISSION MODEL
+
+Subtract per-trade costs
+
+3. EQUITY CURVE ENGINE
+
+Track portfolio growth over time
+
+4. STRATEGY TAGGING SYSTEM
+
+Label trades:
+
+Wyckoff
+Breakout
+Mean reversion
+5. MULTI-ACCOUNT SUPPORT
+
+Aggregate portfolios
+
+6. RISK ENGINE v2
+
+Add:
+
+VaR
+Max drawdown
+Exposure by sector/ticker
+==========================================================
+INSTITUTIONAL USE CASES
+==========================================================
+Trade journal reconstruction
+Broker export validation
+Strategy performance auditing
+Execution quality analysis
+Portfolio decomposition
+==========================================================
+END OF FILE
+==========================================================

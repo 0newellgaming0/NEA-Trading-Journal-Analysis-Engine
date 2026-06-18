@@ -1,0 +1,268 @@
+README.txt — DatabaseBrowser Module
+🧠 Module Name
+
+DatabaseBrowser
+
+📌 Overview
+
+The DatabaseBrowser module is a repository-aligned database inspection and visualization tool for the NEA28 system.
+
+It provides a read-only analytical UI layer over the system’s core repositories, allowing structured inspection of:
+
+Stock OHLCV data
+Financial statements
+Watchlist tickers
+Webull order history
+
+This module is designed to be:
+
+UI-only, repository-driven, and database-agnostic at the presentation layer
+
+It does NOT manage database logic directly. All persistence operations are delegated to repository classes.
+
+🏗 Architecture Position
+
+This module sits at the top UI layer:
+
+Tkinter UI
+   ↓
+DatabaseBrowser
+   ↓
+Repository Layer
+   ↓
+SQLite Databases
+   ↓
+Path Resolver
+🔗 Dependencies
+Internal Modules
+StockDataRepository
+FinancialRepository
+WatchlistRepository
+WebullOrdersRepository
+System Services
+modules.path_resolver (indirect dependency via repositories)
+External Libraries
+tkinter
+pandas
+sqlite3
+🧩 Core Design Principles
+1. Repository-First Access
+
+The module does NOT:
+
+Open SQLite connections directly
+Define schema
+Manage file paths
+Perform ingestion or mutation logic
+
+Instead it:
+
+Calls repository methods such as:
+get_all()
+insert_*()
+direct controlled cursor queries (only when required)
+2. UI Separation
+
+The module is strictly responsible for:
+
+Rendering tables
+Displaying dataset previews
+Handling user-driven filtering (UI only)
+Formatting repository output
+
+No business logic is embedded in UI components.
+
+3. Read-Oriented System
+
+This browser is primarily:
+
+A data inspection and debugging interface
+
+Not a trading engine or ingestion system.
+
+📊 Supported Data Views
+📈 1. Stock Data Viewer
+
+Displays OHLCV records from:
+
+ohlcv_data table
+
+Features:
+
+Symbol-based lookup
+Timeframe-agnostic retrieval
+Pandas-based structured preview
+Live table rendering in Tkinter Treeview
+💰 2. Financial Statements Viewer
+
+Displays:
+
+JSON-encoded financial statements
+Stored metadata per ticker
+Period-based records
+
+Data Source:
+
+financial_statements table
+📋 3. Watchlist Viewer
+
+Displays all tracked tickers from:
+
+watchlist table
+
+Source:
+
+WatchlistRepository.get_all()
+
+Characteristics:
+
+Alphabetically sorted
+Unique tickers only
+Derived from system journal ingestion
+📊 4. Webull Orders Viewer
+
+Displays trading order history:
+
+Symbol
+Side
+Status
+Execution data
+Pricing fields
+
+Source:
+
+WebullOrdersRepository.get_all()
+⚙ Functional Flow
+1. Initialization
+
+When launched:
+
+Repositories are instantiated
+SQLite connections are opened internally by repos
+UI notebook tabs are created
+Data is pulled via repository methods
+2. Data Loading
+
+Example flow (Watchlist):
+
+UI request
+   ↓
+WatchlistRepository.get_all()
+   ↓
+SQLite query executed in repository
+   ↓
+Returned Python list
+   ↓
+Rendered in Tkinter Treeview
+3. Stock Data Loading
+
+Stock data follows a controlled query:
+
+ticker input → repository cursor query → DataFrame → UI table
+
+No file-based access is used inside this module.
+
+🧱 Internal Structure
+Class: DatabaseBrowser
+Constructor
+DatabaseBrowser(parent)
+
+Initializes:
+
+Repository instances
+UI parent reference
+Core Methods
+build()
+
+Creates the full notebook UI:
+
+Tabs include:
+
+Summary
+Webull
+Stock Data
+Financials
+load_stock_data(ticker)
+
+Retrieves OHLCV data:
+
+Uses StockDataRepository
+Returns Pandas DataFrame
+load_watchlist()
+
+Returns list of tickers:
+
+From WatchlistRepository
+load_webull_orders()
+
+Returns raw order rows:
+
+From WebullOrdersRepository
+_build_table(parent, columns)
+
+Creates reusable Treeview tables with scroll support.
+
+_load_table(tree, data, columns)
+
+Injects repository data into UI tables.
+
+🧪 Data Integrity Rules
+
+This module assumes:
+
+✔ Repositories are source of truth
+
+All data must originate from repository layer.
+
+✔ No direct SQL in UI layer (except controlled read queries)
+
+Only exception:
+
+read-only stock query via repository cursor
+✔ No file system access
+
+Except indirect CSV loading for stock preview (legacy compatibility)
+
+⚠ Known Limitations
+1. No live refresh engine
+Data is snapshot-based
+2. No mutation interface
+Cannot edit database entries from UI
+3. No async loading
+Large datasets may block UI briefly
+🚀 Intended Use Cases
+Debugging ingestion pipeline
+Inspecting stored OHLCV data
+Verifying watchlist integrity
+Reviewing Webull order sync
+Auditing financial statement ingestion
+🔐 Safety & Design Constraints
+
+This module MUST NOT:
+
+Modify database state directly
+Bypass repositories
+Implement trading logic
+Perform ingestion operations
+Cache external API data
+🧭 Future Extension Points
+
+Planned enhancements compatible with architecture:
+
+Live query console (read-only SQL viewer)
+Table schema inspector (sqlite_master)
+Repository health monitor
+Data diff viewer (watchlist changes over time)
+Export tools (CSV/JSON per table)
+📌 Summary
+
+The DatabaseBrowser is a:
+
+Repository-driven inspection layer for system-wide data transparency
+
+It enforces:
+
+clean architecture separation
+repository ownership of data
+UI-only responsibility model
+structured access to all core datasets

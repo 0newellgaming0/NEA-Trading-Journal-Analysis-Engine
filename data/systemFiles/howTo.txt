@@ -1,0 +1,194 @@
+```
+HOWTO.TXT
+RISK MANAGEMENT DASHBOARD - NEA28V1
+© 2026 Newell Trading Group. All rights reserved.
+
+=========================================================
+
+INTRODUCTION
+
+The NEA28V1 Risk Management Dashboard is a structured trading and analysis system designed to help traders identify, evaluate, and manage trade opportunities using a risk-defined, institutional-style framework.
+
+The system is not built around stock price alone. Instead, it focuses on structural conditions such as liquidity, float, participation, institutional positioning, and growth dynamics.
+
+Price is treated as a contextual variable, not a filter.
+
+=========================================================
+
+CORE CONCEPT
+
+Traditional retail screening focuses on:
+- Stock price
+- Simple technical indicators
+- Static “cheap vs expensive” assumptions
+
+This system focuses on:
+- Float structure
+- Liquidity expansion (RVOL)
+- Institutional accumulation
+- Revenue and EPS acceleration
+- Short interest dynamics
+- Catalyst strength
+- Ownership shifts
+
+A $0.80 stock and an $80 stock can behave identically if structural conditions align.
+
+The goal is to identify **structural imbalance before repricing occurs**.
+
+=========================================================
+
+STEP 1 — FINDING CANDIDATE STOCKS (UNIVERSE CREATION)
+
+Begin by building a broad watchlist of stocks that may exhibit institutional asymmetry behavior.
+
+Do NOT filter strictly by price.
+
+Instead, look for stocks that show:
+
+- Increasing volume activity
+- News or catalyst presence
+- Unusual relative volume spikes
+- Strong sector momentum
+- Emerging earnings growth stories
+- High short interest environments (optional)
+- Low float or tightening supply conditions
+
+Sources commonly used:
+- Finviz screener (primary)
+- Market news feeds
+- Earnings calendars
+- Sector momentum scans
+- Unusual volume lists
+
+The goal is to collect candidates — not finalize trades.
+
+=========================================================
+
+STEP 2 — STRUCTURAL SCREENING (INSTITUTIONAL FILTER LOGIC)
+
+Once a candidate list is created, evaluate each stock using structural conditions:
+
+Key structural metrics:
+
+- Float size (critical for volatility behavior)
+- Relative Volume (RVOL)
+- Shares outstanding
+- Revenue growth (Q/Q and YoY)
+- EPS growth (Q/Q and YoY)
+- Institutional ownership trends
+- Insider transaction direction
+- Debt-to-equity ratio
+- Current ratio (liquidity health)
+- Short float percentage
+
+Interpretation principle:
+Price alone is meaningless without structural context.
+
+=========================================================
+
+STEP 3 — PRICE AS A CONTEXTUAL SIGNAL
+
+Price is not used as a filter.
+
+Instead, it is interpreted within structure:
+
+- Low price may indicate early accumulation or dilution risk
+- Mid-range price often indicates institutional discovery phase
+- Higher price may indicate leadership or mature trend structure
+
+What matters is NOT price level, but:
+- How price behaves relative to float
+- How price reacts to volume expansion
+- Whether price reflects improving fundamentals yet
+
+=========================================================
+
+STEP 4 — CLASSIFYING OPPORTUNITY TYPE
+
+After screening, classify the stock into one of the following behavior zones:
+
+1. Early Accumulation
+- Low RVOL increasing
+- Improving fundamentals
+- Early institutional interest
+
+2. Momentum Expansion
+- Strong RVOL spike
+- Catalyst present
+- Rapid participation increase
+
+3. Continuation Phase
+- Stable RVOL
+- Strong earnings growth
+- Institutional trend support
+
+4. Squeeze / Imbalance Phase
+- High short float
+- Low float supply
+- Sudden RVOL expansion
+
+=========================================================
+
+STEP 5 — ENTRY INTO DASHBOARD
+
+Once a candidate passes structural review:
+
+1. Enter ticker into dashboard
+2. Set account size and risk percentage
+3. Define low and high price range (if applicable)
+4. Allow system to calculate:
+   - Risk per trade ($)
+   - Stop loss level
+   - Ladder entry prices
+   - Position sizing per level
+   - Total exposure
+   - Buy-now execution model
+
+The system will automatically structure risk and position sizing.
+
+=========================================================
+
+STEP 6 — ANALYSIS & JOURNALING
+
+For each selected trade:
+
+- Generate structured institutional analysis using the template system
+- Attach trade notes and reasoning
+- Review risk/reward structure
+- Save entry into journal (CSV-based persistence)
+
+Each entry becomes part of a historical trade database for review and refinement.
+
+=========================================================
+
+STEP 7 — ITERATIVE REVIEW
+
+Over time:
+
+- Review executed trades panel (e.g., Webull data import)
+- Compare expected vs actual outcomes
+- Adjust screening criteria based on performance
+- Refine structural understanding of setups
+
+This creates a feedback loop between:
+screening → execution → review → refinement
+
+=========================================================
+
+KEY PRINCIPLE SUMMARY
+
+This system is built on one core idea:
+
+The best trades are not found by price.
+They are found by structural imbalance.
+
+Meaning:
+- Liquidity expands before price fully adjusts
+- Institutional positioning shifts before momentum becomes obvious
+- Float constraints amplify movement potential
+- Fundamentals validate sustained repricing
+
+=========================================================
+
+END OF FILE
+```

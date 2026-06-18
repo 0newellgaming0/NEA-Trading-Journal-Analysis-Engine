@@ -1,0 +1,345 @@
+=========================================================
+INSTITUTIONAL LIQUIDITY PHASE ENGINE (V3 - AUCTION MODEL)
+README.TXT — SYSTEM DOCUMENTATION
+=========================================================
+
+MODULE NAME:
+Institutional Liquidity Phase Engine (V3)
+FILE TYPE:
+Python analytical engine (market structure + auction theory classifier)
+
+=========================================================
+1. OVERVIEW
+=========================================================
+
+The Institutional Liquidity Phase Engine is a multi-model market structure classification system designed to interpret price action as an auction process across liquidity states.
+
+Instead of treating price as directional movement, this engine treats the market as a dynamic liquidity auction transitioning through five structural phases:
+
+    • DISCOVERY
+    • EXPANSION
+    • ACCEPTANCE
+    • EXHAUSTION
+    • DISTRIBUTION
+
+Each phase represents a competing hypothesis of market structure, scored independently and aggregated into a unified regime classification.
+
+The system is designed for integration into institutional-style trading journals, dashboards, and multi-timeframe analysis pipelines.
+
+=========================================================
+2. ARCHITECTURE DESIGN
+=========================================================
+
+The engine is composed of three primary layers:
+
+---------------------------------------------------------
+(1) PHASE DETECTION LAYER
+---------------------------------------------------------
+
+Each phase is computed by a dedicated module:
+
+    • detect_discovery_phase()
+    • detect_expansion_phase()
+    • detect_acceptance_phase()
+    • detect_exhaustion_phase()
+    • detect_distribution_phase()
+
+These modules return:
+
+    {
+        "confidence": float (0.0 - 1.0),
+        "interpretation": str
+    }
+
+---------------------------------------------------------
+(2) REGIME CLASSIFICATION LAYER
+---------------------------------------------------------
+
+The phase outputs are normalized using wrap_phase(), then evaluated to determine:
+
+    • Active Phase (highest confidence score)
+    • Market Regime (macro structural classification)
+    • Structural Strength (weighted signal quality score)
+
+---------------------------------------------------------
+(3) CONTEXT SYNTHESIS LAYER
+---------------------------------------------------------
+
+Outputs are transformed into:
+
+    • Journal-safe text block (build_liquidity_block)
+    • Narrative interpretation block (build_phase_context_block)
+    • Structured JSON output for downstream systems
+
+=========================================================
+3. MARKET THEORY MODEL
+=========================================================
+
+This engine is based on AUCTION MARKET THEORY:
+
+Price is not directional — it is a negotiation between buyers and sellers competing for liquidity.
+
+---------------------------------------------------------
+PHASE INTERPRETATION MODEL:
+---------------------------------------------------------
+
+DISCOVERY PHASE
+    → Market probing inefficiency
+    → Low conviction expansion or early breakout attempts
+
+EXPANSION PHASE
+    → Strong directional movement
+    → Liquidity sweep + trend acceleration
+
+ACCEPTANCE PHASE
+    → Market equilibrium / consolidation
+    → Fair value acceptance zone
+
+EXHAUSTION PHASE
+    → Trend fatigue
+    → Reduced momentum, volatility compression
+
+DISTRIBUTION PHASE
+    → Smart money exit / liquidity redistribution
+    → Potential reversal or breakdown risk
+
+=========================================================
+4. REGIME CLASSIFICATION LOGIC
+=========================================================
+
+The system assigns a macro regime using weighted phase dominance:
+
+---------------------------------------------------------
+RULE SET:
+---------------------------------------------------------
+
+IF Acceptance ≥ 0.70:
+    → BALANCED_AUCTION
+
+IF Discovery ≥ Expansion:
+    → TRANSITION_DISCOVERY
+
+IF Expansion ≥ 0.70:
+    → TREND_EXPANSION
+
+IF Exhaustion ≥ 0.70:
+    → LATE_CYCLE_EXHAUSTION
+
+IF Distribution ≥ 0.70:
+    → DISTRIBUTION_RISK
+
+ELSE:
+    → TRANSITION_REGIME
+
+---------------------------------------------------------
+This ensures the system always resolves into a meaningful structural state.
+
+=========================================================
+5. ACTIVE PHASE SELECTION
+=========================================================
+
+The engine identifies the strongest structural hypothesis:
+
+    active_phase = phase with highest confidence score
+
+If no valid signals exist:
+    → NO_STRUCTURE
+
+This prevents false classification during low-liquidity or incomplete datasets.
+
+=========================================================
+6. TIMEFRAME CONTEXT SYSTEM
+=========================================================
+
+The engine normalizes timeframe metadata into structured institutional context:
+
+---------------------------------------------------------
+SUPPORTED MAPPINGS:
+---------------------------------------------------------
+
+15m → EXECUTION / MICRO STRUCTURE
+60m → TACTICAL STRUCTURE
+1D  → SWING STRUCTURE (ANCHOR)
+1W  → MACRO REGIME FILTER
+
+---------------------------------------------------------
+This ensures multi-timeframe consistency in journal integration.
+
+=========================================================
+7. STRUCTURAL STRENGTH MODEL
+=========================================================
+
+Structural Strength is a hybrid confidence metric:
+
+    structural_strength =
+        (active_phase_confidence × 0.7)
+        + (price_discovery_context × 0.3)
+
+Where:
+
+    • Active Phase Confidence = strongest detected structure
+    • Context Score = global price discovery validation layer
+
+This prevents over-reliance on a single phase detection model.
+
+=========================================================
+8. SAFE EXECUTION LAYER
+=========================================================
+
+The system includes defensive coding safeguards:
+
+---------------------------------------------------------
+safe_float(v):
+---------------------------------------------------------
+Converts invalid or missing values into stable numeric output:
+
+    • Invalid input → 0.0
+    • Prevents pipeline crashes
+    • Ensures journal stability
+
+---------------------------------------------------------
+wrap_phase(name, result):
+---------------------------------------------------------
+Normalizes all phase outputs into a consistent schema:
+
+    {
+        phase: str,
+        score: float,
+        status: PASS/FAIL,
+        interpretation: str
+    }
+
+Ensures compatibility across all phase modules.
+
+=========================================================
+9. REGIME OUTPUT STRUCTURE
+=========================================================
+
+Main engine output (run_liquidity_phase_engine):
+
+---------------------------------------------------------
+RAW OUTPUT:
+---------------------------------------------------------
+
+{
+    "liquidity_block": str,
+    "phase_context_block": str,
+
+    "timeframe": dict,
+    "regime": str,
+    "active_phase": str,
+    "confidence": float,
+    "context_score": float,
+    "structural_strength": float,
+
+    "raw": full analysis dictionary
+}
+
+---------------------------------------------------------
+This dual-output structure supports:
+
+    • UI dashboards
+    • Journal entries
+    • Backtesting engines
+    • Institutional reporting systems
+
+=========================================================
+10. JOURNAL INTEGRATION DESIGN
+=========================================================
+
+This module is explicitly designed for trading journal systems.
+
+Two primary outputs are provided:
+
+---------------------------------------------------------
+(1) LIQUIDITY BLOCK (UI READY)
+---------------------------------------------------------
+
+A formatted diagnostic report containing:
+
+    • Regime classification
+    • Phase breakdown
+    • Confidence scoring
+    • Structural interpretation
+
+---------------------------------------------------------
+(2) PHASE CONTEXT BLOCK (NARRATIVE READY)
+---------------------------------------------------------
+
+A structured text block designed for:
+
+    • Trade journals
+    • Entry logs
+    • Institutional reports
+
+Includes:
+    • Timeframe context
+    • Regime state
+    • Structural interpretation
+
+=========================================================
+11. SYSTEM DESIGN PRINCIPLES
+=========================================================
+
+This engine follows institutional-grade design constraints:
+
+---------------------------------------------------------
+1. NON-DETERMINISTIC STRUCTURE MODEL
+---------------------------------------------------------
+Market phases are hypotheses, not certainties.
+
+---------------------------------------------------------
+2. MULTI-PHASE COEXISTENCE
+---------------------------------------------------------
+Multiple structural states can exist simultaneously.
+
+---------------------------------------------------------
+3. CONFIDENCE WEIGHTING
+---------------------------------------------------------
+No binary signals — everything is probabilistic.
+
+---------------------------------------------------------
+4. JOURNAL SAFETY FIRST
+---------------------------------------------------------
+All outputs are stable, predictable, and non-breaking.
+
+---------------------------------------------------------
+5. TIMEFRAME AWARENESS
+---------------------------------------------------------
+All outputs are contextualized by structural timeframe role.
+
+=========================================================
+12. INTEGRATION NOTES
+=========================================================
+
+This module depends on external phase detectors:
+
+    modules.price_discovery_status
+    modules.discovery_phase
+    modules.expansion_phase
+    modules.acceptance_phase
+    modules.exhaustion_phase
+    modules.distribution_phase
+
+Each must return:
+
+    {
+        "confidence": float,
+        "interpretation": str
+    }
+
+=========================================================
+13. FAILURE HANDLING
+=========================================================
+
+If phase modules fail or return invalid outputs:
+
+    → Score defaults to 0.0
+    → Status = FAIL
+    → Interpretation = "Invalid module output"
+
+This ensures full journal system stability under partial failure conditions.
+
+=========================================================
+END OF DOCUMENT
+=========================================================

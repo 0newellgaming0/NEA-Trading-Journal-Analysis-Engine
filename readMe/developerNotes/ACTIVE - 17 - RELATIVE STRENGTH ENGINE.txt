@@ -1,0 +1,714 @@
+RELATIVE_STRENGTH_ENGINE_README.TXT
+
+=========================================================
+RELATIVE STRENGTH ENGINE
+BLOCK-BASED INSTITUTIONAL RELATIVE PERFORMANCE MODULE
+=====================================================
+
+AUTHOR:
+Newell Trading Group
+
+MODULE PURPOSE:
+relativeStrength.py
+
+This module provides a benchmark-relative performance analysis engine designed to measure how a stock is performing against major market indices and benchmark baskets.
+
+Unlike traditional price analysis modules that evaluate a stock in isolation, the Relative Strength Engine evaluates:
+
+```
+"How well is this asset performing relative to the broader market?"
+```
+
+The engine is designed to support:
+
+• Institutional Rotation Analysis
+• Relative Performance Measurement
+• Leadership Detection
+• Benchmark Sensitivity Mapping
+• Capital Flow Analysis
+• Risk-On / Risk-Off Participation Assessment
+• Sector and Index Rotation Monitoring
+• Journal Prompt Generation
+• Confluence Dashboard Integration
+
+The module outputs a structured institutional-style narrative that can be directly inserted into:
+
+• Journal Analysis
+• Trade Reports
+• Dashboard Panels
+• Institutional Research Notes
+• Confluence Engines
+• AI Prompt Builders
+
+---
+
+## CORE CONCEPT
+
+Price alone does not reveal whether a stock is outperforming or underperforming the market.
+
+Example:
+
+Stock A:
++20%
+
+SPY:
++30%
+
+Although Stock A gained 20%, it actually underperformed the market.
+
+Institutional traders continuously compare assets against benchmark baskets to determine:
+
+• Capital efficiency
+• Opportunity cost
+• Relative leadership
+• Rotation probability
+
+This module automates that process.
+
+---
+
+## MODULE ARCHITECTURE
+
+The engine consists of six major layers:
+
+1. Benchmark Definitions
+2. Data Loading Layer
+3. Column Resolution Layer
+4. Relative Strength Calculation Engine
+5. Rotation Classification Layer
+6. Institutional Interpretation Layer
+
+---
+
+1. BENCHMARK DEFINITIONS
+
+---
+
+BENCHMARK_GROUPS
+
+Defines benchmark baskets used for relative comparisons.
+
+Current configuration:
+
+MEGA CAP
+
+```
+SPY
+QQQ
+DIA
+```
+
+GROWTH
+
+```
+QQQ
+VUG
+```
+
+BROAD MARKET
+
+```
+SPY
+VTI
+```
+
+SMALL CAP
+
+```
+IWM
+IJR
+```
+
+Example:
+
+BENCHMARK_GROUPS = {
+"mega_cap": ["SPY", "QQQ", "DIA"],
+"growth": ["QQQ", "VUG"],
+"broad_market": ["SPY", "VTI"],
+"small_cap": ["IWM", "IJR"]
+}
+
+Purpose:
+
+Allows a stock to be compared across multiple liquidity regimes rather than a single benchmark.
+
+Institutional advantage:
+
+A stock can outperform growth benchmarks while underperforming small-cap benchmarks.
+
+This reveals rotational behavior that a single benchmark cannot detect.
+
+---
+
+2. DATA STORAGE STRUCTURE
+
+---
+
+Expected directory structure:
+
+modules/
+│
+├── stock_data/
+│   ├── daily/
+│   ├── weekly/
+│   ├── monthly/
+│   ├── intraday_60m/
+│   ├── intraday_30m/
+│   ├── intraday_15m/
+│   └── intraday_5m/
+
+Example:
+
+modules/stock_data/daily/AAPL.csv
+modules/stock_data/daily/SPY.csv
+modules/stock_data/daily/QQQ.csv
+
+---
+
+3. PATH RESOLUTION
+
+---
+
+Function:
+
+get_stock_data_path()
+
+Purpose:
+
+Generates standardized file paths.
+
+Example:
+
+get_stock_data_path("AAPL", "daily")
+
+Returns:
+
+modules/stock_data/daily/AAPL.csv
+
+Benefits:
+
+• Centralized path management
+• Easy migration
+• Consistent data retrieval
+
+---
+
+4. DATA LOADER
+
+---
+
+Function:
+
+load_history()
+
+Purpose:
+
+Loads ticker history from CSV.
+
+Example:
+
+df = load_history("AAPL")
+
+Features:
+
+• Automatic path resolution
+• Missing file handling
+• Exception protection
+• Returns pandas DataFrame
+
+Returns:
+
+DataFrame
+or
+None
+
+---
+
+5. COLUMN RESOLUTION SYSTEM
+
+---
+
+Function:
+
+get_close_column()
+
+Purpose:
+
+Locates normalized close-price columns.
+
+Expected format:
+
+close_aapl
+close_spy
+close_qqq
+
+Example:
+
+close_msft
+
+Benefits:
+
+• Prevents hard-coded column names
+• Supports normalized OHLCV architecture
+• Compatible with OHLCV normalization pipeline
+
+Returns:
+
+Column name string
+
+or
+
+None
+
+---
+
+6. RELATIVE STRENGTH CALCULATION ENGINE
+
+---
+
+Function:
+
+compute_rs()
+
+Purpose:
+
+Calculates benchmark-relative performance.
+
+Formula:
+
+RS = Asset Price / Benchmark Price
+
+Example:
+
+AAPL = 220
+
+SPY = 550
+
+RS = 220 / 550
+
+Interpretation:
+
+Higher values indicate stronger relative performance.
+
+---
+
+## TREND CALCULATION
+
+The engine measures RS momentum.
+
+Formula:
+
+Current RS - RS 10 Bars Ago
+
+Example:
+
+Current RS = 0.450
+
+Prior RS = 0.400
+
+Trend = +0.050
+
+Interpretation:
+
+Positive:
+Relative strength improving
+
+Negative:
+Relative strength deteriorating
+
+---
+
+## MINIMUM DATA REQUIREMENT
+
+The engine requires:
+
+20+ bars
+
+Reason:
+
+Short datasets produce unstable RS readings.
+
+If fewer than 20 observations exist:
+
+Returns None
+
+---
+
+7. BENCHMARK CLASSIFICATION
+
+---
+
+Function:
+
+classify_benchmark()
+
+Purpose:
+
+Maps benchmarks into liquidity categories.
+
+Example:
+
+QQQ
+
+Returns:
+
+growth
+
+Example:
+
+SPY
+
+Returns:
+
+mega_cap
+
+Used for:
+
+• Reporting
+• Dashboard labels
+• Institutional commentary
+
+---
+
+8. CORE ENGINE
+
+---
+
+Function:
+
+build_relative_strength_block()
+
+Primary entry point.
+
+Example:
+
+report = build_relative_strength_block(
+"AAPL",
+"daily"
+)
+
+Returns:
+
+Fully formatted institutional analysis report.
+
+---
+
+## ENGINE WORKFLOW
+
+STEP 1
+
+Load target ticker
+
+↓
+
+STEP 2
+
+Load benchmark basket
+
+↓
+
+STEP 3
+
+Calculate RS vs every benchmark
+
+↓
+
+STEP 4
+
+Store RS metrics
+
+↓
+
+STEP 5
+
+Compute structural averages
+
+↓
+
+STEP 6
+
+Evaluate leadership
+
+↓
+
+STEP 7
+
+Evaluate rotation
+
+↓
+
+STEP 8
+
+Generate institutional report
+
+---
+
+## STRUCTURAL METRICS
+
+Average Relative Strength
+
+avg_rs
+
+Represents:
+
+Overall benchmark-relative performance.
+
+Interpretation:
+
+Above 1.05
+
+Leadership
+
+0.98–1.05
+
+Neutral
+
+Below 0.98
+
+Lagging
+
+---
+
+## LEADERSHIP DETECTION
+
+Strongest Benchmark
+
+The benchmark against which the stock exhibits the highest relative performance.
+
+Used for:
+
+• Leadership mapping
+• Rotation analysis
+• Institutional concentration analysis
+
+---
+
+## WEAKEST BENCHMARK
+
+Identifies where performance is weakest.
+
+Useful for:
+
+• Detecting structural drag
+• Locating rotation outflows
+• Identifying underperforming market regimes
+
+---
+
+## ROTATION ANALYSIS
+
+Improving Count
+
+Benchmarks with positive RS trend
+
+Weakening Count
+
+Benchmarks with negative RS trend
+
+Example:
+
+Improving = 6
+
+Weakening = 2
+
+Interpretation:
+
+Positive rotational bias
+
+Institutional implication:
+
+Capital may be rotating into the asset.
+
+---
+
+## FLOW STATE CLASSIFICATION
+
+Positive Rotation Bias
+
+Improving > Weakening
+
+Negative Rotation Bias
+
+Weakening > Improving
+
+Balanced Rotation
+
+Improving == Weakening
+
+Used to evaluate:
+
+• Capital migration
+• Sector rotation
+• Relative momentum shifts
+
+---
+
+## REGIME CLASSIFICATION
+
+Leadership Regime
+
+avg_rs > 1.05
+
+Interpretation:
+
+Asset is outperforming benchmark basket.
+
+Neutral Regime
+
+0.98 < avg_rs <= 1.05
+
+Interpretation:
+
+Tracking market performance.
+
+Lagging Regime
+
+avg_rs <= 0.98
+
+Interpretation:
+
+Underperforming benchmark basket.
+
+---
+
+## INSTITUTIONAL INTERPRETATION ENGINE
+
+The final section converts raw metrics into institutional language.
+
+Outputs:
+
+• Structural Overview
+• Leadership Mapping
+• Weakness Mapping
+• Rotation Analysis
+• Flow Dynamics
+• Institutional Summary
+
+This layer is specifically designed for:
+
+• Trading Journals
+• AI Prompts
+• Dashboard Reports
+• Institutional Research Notes
+
+---
+
+## IMPORTANT LIMITATIONS
+
+This module does NOT:
+
+• Predict future price direction
+• Generate buy signals
+• Generate sell signals
+• Evaluate valuation
+• Evaluate fundamentals
+• Replace trend analysis
+
+It ONLY evaluates:
+
+Relative performance versus benchmark baskets.
+
+---
+
+## BEST PRACTICES
+
+Combine with:
+
+• Wyckoff Analysis
+• T-Line Analysis
+• Volume Analysis
+• CANSLIM Screening
+• Momentum Analysis
+• Institutional Accumulation Detection
+• Risk Management Engine
+• Supply/Demand Analysis
+
+Recommended Workflow:
+
+1. Relative Strength
+2. Volume Confirmation
+3. Trend Confirmation
+4. Institutional Participation
+5. Risk Assessment
+6. Trade Thesis Construction
+
+---
+
+## COMMON USE CASES
+
+Use Case 1
+
+Identify leadership stocks.
+
+Use Case 2
+
+Detect early institutional rotation.
+
+Use Case 3
+
+Rank stocks by benchmark-relative performance.
+
+Use Case 4
+
+Confirm breakout candidates.
+
+Use Case 5
+
+Filter weak stocks during market rallies.
+
+Use Case 6
+
+Measure participation in risk-on environments.
+
+---
+
+## INTEGRATION EXAMPLE
+
+from modules.relativeStrength import (
+build_relative_strength_block
+)
+
+report = build_relative_strength_block(
+ticker="NVDA",
+timeframe="daily"
+)
+
+print(report)
+
+---
+
+## DEPENDENCIES
+
+Required:
+
+pandas
+numpy
+os
+
+Internal:
+
+modules.ohlcv_normalizer
+
+Specifically:
+
+normalize_timestamp
+
+---
+
+## OUTPUT TYPE
+
+Returns:
+
+str
+
+A fully formatted institutional relative-strength report suitable for:
+
+• Journal.py
+• Dashboard Panels
+• Research Reports
+• Prompt Builders
+• Confluence Engines
+
+=========================================================
+END OF README
+=============

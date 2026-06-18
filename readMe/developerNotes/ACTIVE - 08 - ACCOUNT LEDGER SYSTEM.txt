@@ -1,0 +1,777 @@
+ACCOUNT LEDGER SYSTEM
+VERSION: 1.0
+AUTHOR: Newell Trading Group
+MODULE TYPE: Investor Equity Accounting, Capital Tracking, Ownership Allocation, Profit & Distribution Ledger
+FRAMEWORK: Python + Tkinter + CSV Persistence
+
+=========================================================
+OVERVIEW
+========
+
+The Account Ledger System is a complete investor accounting and equity management module designed to track:
+
+• Investor Capital Contributions
+• Investor Withdrawals
+• Internal Transfers
+• Trading Profit & Loss Adjustments
+• Investor Distributions
+• Fund Equity Growth
+• Ownership Percentage Calculations
+• Investor Net Equity Positions
+• Investor Gain/Loss Attribution
+
+The system functions as a lightweight fund administration and capital accounting engine.
+
+Every transaction entered into the ledger automatically updates:
+
+• Total Fund Equity
+• Investor Capital Accounts
+• Ownership Percentages
+• Net Investor Equity
+• Investor Gain/Loss Allocations
+
+The module uses a persistent CSV-based accounting ledger and provides a graphical Tkinter interface for entry management, auditing, editing, filtering, and investor reporting.
+
+=========================================================
+PRIMARY PURPOSE
+===============
+
+This module was created to solve a common problem found in:
+
+• Trading Partnerships
+• Hedge Fund Simulations
+• Family Investment Funds
+• Proprietary Trading Firms
+• Multi-Investor Accounts
+• Private Capital Pools
+
+Specifically:
+
+How much does each investor own?
+
+How much capital has each investor contributed?
+
+How much has each investor withdrawn?
+
+How much profit belongs to each investor?
+
+What percentage of the fund does each investor currently own?
+
+The system answers all of these questions automatically.
+
+=========================================================
+SYSTEM ARCHITECTURE
+===================
+
+Core Components:
+
+1. CSV Ledger Storage
+2. Equity Chain Engine
+3. Investor Snapshot Engine
+4. Ownership Calculation Engine
+5. Transaction Entry System
+6. Ledger Editing System
+7. Ledger Deletion System
+8. Investor Filter Engine
+9. Tkinter GUI Interface
+
+=========================================================
+DATA STORAGE
+============
+
+FILE:
+
+account_ledger.csv
+
+This file serves as the permanent accounting journal.
+
+Every transaction entered through the interface is written to this file.
+
+=========================================================
+LEDGER STRUCTURE
+================
+
+Fields Stored:
+
+id
+timestamp
+investor
+entry_class
+transaction_type
+debit
+credit
+gain_loss
+distribution
+equity_after
+ownership_pct
+notes
+
+=========================================================
+FIELD DEFINITIONS
+=================
+
+id
+
+Unique transaction identifier.
+
+Generated automatically using UUID.
+
+Example:
+
+A7F31C22
+
+---
+
+timestamp
+
+Date and time transaction was recorded.
+
+Example:
+
+2026-06-17T14:53:10
+
+---
+
+investor
+
+Investor name associated with transaction.
+
+Examples:
+
+John Smith
+Fund
+Partner A
+Investor 01
+
+---
+
+entry_class
+
+Internal accounting classification.
+
+Possible values:
+
+capital_in
+capital_out
+trade_pnl
+distribution
+
+---
+
+transaction_type
+
+User-facing transaction category.
+
+Possible values:
+
+Deposit
+Withdrawal
+Transfer
+Adjustment
+
+---
+
+debit
+
+Cash leaving the fund.
+
+Examples:
+
+Investor withdrawals
+Transfers out
+
+---
+
+credit
+
+Cash entering the fund.
+
+Examples:
+
+Capital contributions
+Deposits
+
+---
+
+gain_loss
+
+Profit or loss adjustment.
+
+Used for:
+
+Trading profits
+Trading losses
+Manual corrections
+
+---
+
+distribution
+
+Cash distributed to investors.
+
+Examples:
+
+Quarterly distributions
+Profit payouts
+
+---
+
+equity_after
+
+Running account equity after transaction processing.
+
+Automatically calculated.
+
+---
+
+ownership_pct
+
+Investor ownership percentage.
+
+Calculated dynamically by snapshot engine.
+
+---
+
+notes
+
+Free-form transaction notes.
+
+Examples:
+
+Initial Funding
+Q1 Distribution
+Trading Profit Allocation
+
+=========================================================
+TRANSACTION CLASSIFICATION ENGINE
+=================================
+
+The system automatically maps user transaction types into accounting classifications.
+
+Deposit
+-> capital_in
+
+Withdrawal
+-> capital_out
+
+Transfer
+-> capital_out
+
+Adjustment
+-> trade_pnl
+
+P&L
+-> trade_pnl
+
+This mapping is handled by:
+
+map_entry_class()
+
+=========================================================
+EQUITY CHAIN ENGINE
+===================
+
+Function:
+
+rebuild_equity_chain()
+
+Purpose:
+
+Reconstructs account equity from the first transaction through the most recent transaction.
+
+The ledger is treated as a chronological accounting journal.
+
+=========================================================
+EQUITY RULES
+============
+
+Capital Contribution
+
+running_equity += credit
+
+---
+
+Capital Withdrawal
+
+running_equity -= debit
+
+---
+
+Trading Profit/Loss
+
+running_equity += gain_loss
+
+---
+
+Distribution
+
+running_equity -= distribution
+
+=========================================================
+EXAMPLE
+=======
+
+Starting Equity
+
+0
+
+Deposit
+
++10,000
+
+Equity
+
+10,000
+
+Trading Profit
+
++2,000
+
+Equity
+
+12,000
+
+Distribution
+
+-1,000
+
+Equity
+
+11,000
+
+Withdrawal
+
+-500
+
+Equity
+
+10,500
+
+=========================================================
+LEDGER BALANCE ENGINE
+=====================
+
+Function:
+
+calculate_ledger_balance()
+
+Purpose:
+
+Returns current fund equity.
+
+Example:
+
+$152,437.51
+
+This value is always equal to:
+
+Last equity_after value in ledger.
+
+=========================================================
+INVESTOR EQUITY ENGINE
+======================
+
+Function:
+
+calculate_investor_equity()
+
+Purpose:
+
+Determines:
+
+• Capital Contributions
+• Withdrawals
+• Distributions
+• Net Capital
+• Ownership %
+• Net Equity
+• Investor Gain/Loss
+
+=========================================================
+NET CAPITAL FORMULA
+===================
+
+Net Capital
+
+=
+Contributions
+-------------
+
+## Withdrawals
+
+Distributions
+
+=========================================================
+OWNERSHIP FORMULA
+=================
+
+Ownership %
+
+=
+Investor Net Capital
+/
+Total Net Capital
+
+× 100
+
+=========================================================
+NET EQUITY FORMULA
+==================
+
+Net Equity
+
+=
+Total Fund Equity
+×
+Ownership %
+
+=========================================================
+GAIN/LOSS FORMULA
+=================
+
+Investor Gain/Loss
+
+=
+Net Equity
+----------
+
+Net Capital
+
+=========================================================
+EXAMPLE
+=======
+
+Investor A
+
+Contributed:
+
+10,000
+
+Investor B
+
+Contributed:
+
+5,000
+
+Total Capital
+
+15,000
+
+Ownership:
+
+A = 66.67%
+
+B = 33.33%
+
+---
+
+Fund Grows To:
+
+18,000
+
+Investor A Equity
+
+12,000
+
+Investor B Equity
+
+6,000
+
+---
+
+Investor Gain/Loss
+
+A = +2,000
+
+B = +1,000
+
+=========================================================
+INVESTOR SNAPSHOT ENGINE
+========================
+
+Function:
+
+build_investor_snapshot()
+
+Purpose:
+
+Creates a ranked investor report showing:
+
+Investor Name
+
+Contributions
+
+Withdrawals
+
+Distributions
+
+Current Equity
+
+Ownership %
+
+Gain/Loss
+
+=========================================================
+SPECIAL FUND HANDLING
+=====================
+
+Investor Name:
+
+FUND
+
+Receives special treatment.
+
+The FUND record is excluded from:
+
+Ownership calculations
+
+Snapshot reporting
+
+Investor allocation reports
+
+This allows operational entries to exist without impacting investor ownership metrics.
+
+=========================================================
+GUI SYSTEM
+==========
+
+Main Function:
+
+show_account_ledger_popup(root)
+
+Creates a full accounting dashboard.
+
+=========================================================
+INPUT PANEL
+===========
+
+Fields:
+
+Investor
+
+Transaction Type
+
+Debit
+
+Credit
+
+Gain/Loss
+
+Distribution
+
+Notes
+
+---
+
+Button:
+
+POST ENTRY
+
+Adds new transaction to ledger.
+
+=========================================================
+SNAPSHOT PANEL
+==============
+
+Displays:
+
+Total Account Value
+
+Investor Net Equity
+
+Investor Ownership %
+
+Updated automatically after every transaction.
+
+=========================================================
+LEDGER GRID
+===========
+
+Displays all transactions.
+
+Columns:
+
+ID
+Timestamp
+Investor
+Entry Class
+Transaction Type
+Debit
+Credit
+Gain/Loss
+Distribution
+Equity After
+Ownership %
+Notes
+
+=========================================================
+FILTERING SYSTEM
+================
+
+Supports filtering by:
+
+Investor
+
+Transaction Type
+
+Timestamp
+
+Search updates in real time.
+
+=========================================================
+INVESTOR DRILL-DOWN
+===================
+
+Clicking an investor in the snapshot panel:
+
+Automatically filters the ledger.
+
+Displays only transactions associated with that investor.
+
+=========================================================
+EDITING SYSTEM
+==============
+
+Double-click any ledger row.
+
+Edit window opens.
+
+Editable:
+
+Investor
+
+Transaction Type
+
+Debit
+
+Credit
+
+Gain/Loss
+
+Distribution
+
+Notes
+
+=========================================================
+SAVE CHANGES
+============
+
+Updates selected ledger entry.
+
+Recalculates:
+
+Equity Chain
+
+Investor Ownership
+
+Fund Equity
+
+=========================================================
+DELETE ENTRY
+============
+
+Deletes selected transaction.
+
+Automatically:
+
+Rebuilds equity chain
+
+Recalculates ownership
+
+Rewrites CSV ledger
+
+Refreshes GUI
+
+=========================================================
+ERROR HANDLING
+==============
+
+safe_float()
+
+Provides fault-tolerant numeric conversion.
+
+Protects against:
+
+Blank fields
+
+Null values
+
+Invalid numeric strings
+
+Corrupted data
+
+Returns:
+
+0.0
+
+when conversion fails.
+
+=========================================================
+AUTOMATIC RECALCULATION
+=======================
+
+The following actions automatically trigger a full accounting rebuild:
+
+New Entry
+
+Entry Edit
+
+Entry Delete
+
+Ledger Load
+
+Snapshot Refresh
+
+=========================================================
+ACCOUNTING BENEFITS
+===================
+
+Provides:
+
+✓ Investor Capital Accounting
+
+✓ Partnership Ownership Tracking
+
+✓ Fund Equity Calculation
+
+✓ Profit Attribution
+
+✓ Distribution Tracking
+
+✓ Audit Trail
+
+✓ Historical Ledger Preservation
+
+✓ Investor Reporting
+
+✓ CSV Persistence
+
+✓ Real-Time Ownership Calculations
+
+=========================================================
+IDEAL USE CASES
+===============
+
+• Trading Partnerships
+
+• Family Investment Funds
+
+• Proprietary Trading Firms
+
+• Hedge Fund Simulations
+
+• LLC Investment Vehicles
+
+• Real Estate Syndications
+
+• Capital Pool Management
+
+• Multi-Partner Trading Accounts
+
+=========================================================
+SUMMARY
+=======
+
+The Account Ledger System serves as the accounting backbone for a multi-investor trading operation. It maintains a permanent transaction journal, continuously calculates fund equity, allocates ownership percentages based on net capital contributions, attributes gains and losses proportionally, and provides a complete audit trail through a user-friendly Tkinter interface.
+
+The result is a self-contained investor accounting and equity management system capable of tracking the complete financial lifecycle of a trading fund or investment partnership.

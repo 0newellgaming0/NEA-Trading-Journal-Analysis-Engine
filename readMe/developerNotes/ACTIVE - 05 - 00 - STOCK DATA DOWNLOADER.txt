@@ -1,0 +1,304 @@
+Stock Data Downloader + Financial Ingestion System
+README.txt
+🧠 OVERVIEW
+
+This module is a multi-timeframe market data ingestion engine + financial statement pipeline + Tkinter dashboard UI built on top of:
+
+yfinance (market data + fundamentals)
+SQLite (primary structured storage layer)
+CSV (backup layer)
+Tkinter (manual control dashboard)
+Multi-threaded update engine
+
+It is designed as a core data backbone for a trading system, feeding:
+
+OHLCV datasets (multi-timeframe)
+Institutional-grade financial statements
+Watchlist-driven ticker updates
+Historical data repair + append logic
+🏗️ ARCHITECTURE
+🔹 Data Flow Pipeline
+watchlist.db (source of tickers)
+        ↓
+yfinance API (market + fundamentals)
+        ↓
+append/merge engine (OHLCV repair logic)
+        ↓
+StockDataRepository (SQLite PRIMARY storage)
+        ↓
+CSV backup files (secondary persistence)
+        ↓
+financials/ directory (fundamental JSON + DB storage)
+📁 DIRECTORY STRUCTURE CREATED
+
+On initialization, the module ensures:
+
+/modules/stock_data/
+    daily/
+    weekly/
+    monthly/
+    intraday_1m/
+    intraday_5m/
+    intraday_15m/
+    intraday_30m/
+    intraday_60m/
+
+ /financials/
+    AAPL/
+        metadata.json
+        income_statement
+        balance_sheet
+        cashflow
+        quarterly_*
+
+watchlist.db
+journal.csv (legacy reference only)
+⚙️ CORE CONFIGURATION
+Timeframes Supported
+Name	Interval	Period
+daily	1d	max
+weekly	1wk	max
+monthly	1mo	max
+intraday_1m	1m	7d
+intraday_5m	5m	60d
+intraday_15m	15m	60d
+intraday_30m	30m	60d
+intraday_60m	60m	730d
+🧩 DEPENDENCIES
+Required Packages
+pip install pandas yfinance tkinter sqlite3
+Internal Modules Required
+from modules.stock_data_db.repository import StockDataRepository, FinancialRepository
+from modules.stock_data_db.init_db import init_all
+🧠 DATABASE INITIALIZATION
+
+On startup:
+
+init_all()
+
+This ensures:
+
+OHLCV tables exist
+financial statement tables exist
+ingestion logs are ready
+schema consistency is enforced
+📊 WATCHLIST SYSTEM
+Source of truth:
+watchlist.db → table: watchlist
+Query:
+SELECT ticker FROM watchlist
+Behavior:
+Deduplicates tickers
+Normalizes to uppercase
+Sorted before processing
+📥 MARKET DATA INGESTION ENGINE
+Function:
+append_new_data(ticker, tf_name, cfg)
+Features:
+1. Live Data Pull
+
+Uses:
+
+yf.download()
+2. Intelligent Merge System
+
+Prevents data duplication using:
+
+last timestamp comparison
+overlap correction window (50 bars)
+incremental delta insertion
+duplicate-safe merge
+3. Repair Logic
+
+If overlap is detected:
+
+splits old dataset into stable + refresh zones
+merges new incremental data
+removes duplicates by timestamp
+4. Safety Trim
+if len(df) > 1500:
+    keep last 1500 rows
+
+Prevents database bloat.
+
+🧱 STORAGE LAYERS
+1. PRIMARY STORAGE (SQLite)
+
+Handled by:
+
+StockDataRepository.insert_ohlcv_df()
+
+Also logs ingestion:
+
+repo.log_ingestion(ticker, tf_name, row_count, status)
+2. SECONDARY STORAGE (CSV BACKUP)
+
+Saved to:
+
+/modules/stock_data/{timeframe}/{TICKER}.csv
+
+Used for:
+
+manual recovery
+debugging
+fallback persistence
+📊 FINANCIAL DATA PIPELINE
+Function:
+fetch_financials(ticker)
+Retrieves:
+income statement
+balance sheet
+cashflow statement
+quarterly equivalents
+Process:
+Pulls via yfinance.Ticker()
+Normalizes columns
+Saves metadata JSON
+Inserts into SQLite via:
+FinancialRepository.insert_statement()
+Output:
+financials/{TICKER}/metadata.json
+SQLite financial tables
+🧹 COLUMN NORMALIZATION
+normalize_columns(df)
+
+Ensures:
+
+lowercase headers
+underscore spacing
+tuple-safe flattening (multi-index support)
+🚀 UPDATE MODES
+🔁 Full Update
+_run_update_core()
+
+Behavior:
+
+loads all tickers
+iterates all timeframes
+updates OHLCV
+fetches fundamentals
+🎯 Single Ticker Update
+_run_update_single(ticker)
+
+Behavior:
+
+updates only selected ticker
+processes all timeframes
+fetches fundamentals
+🖥️ TKINTER DASHBOARD UI
+Main Window
+Title: Stock Data Downloader
+Log console (scrollable)
+Update button
+Update Preview Window
+
+Triggered by:
+
+run_update()
+
+Features:
+
+selectable ticker list
+"Start ALL" execution
+"Update Selected" execution
+threaded execution (non-blocking UI)
+🧵 THREADING MODEL
+
+All heavy operations run via:
+
+threading.Thread(..., daemon=True)
+
+Ensures:
+
+UI never freezes
+long downloads don't block Tkinter loop
+parallel-safe execution
+📡 LOGGING SYSTEM
+Function:
+log(msg)
+
+Supports:
+
+console fallback logging
+Tkinter UI log streaming
+timestamped entries
+
+Example:
+
+[14:22:31] ✔ AAPL [daily] saved (1200) [DB PRIMARY]
+🧠 ERROR HANDLING DESIGN
+
+The system is resilient to:
+
+missing watchlist.db
+yfinance API failures
+empty datasets
+DB insert failures
+CSV write failures
+
+Each failure:
+
+is logged
+does NOT crash full pipeline
+isolates per ticker/timeframe
+📉 DATA QUALITY STRATEGY
+
+The ingestion engine guarantees:
+
+no duplicate timestamps
+incremental updates only
+overlap correction
+final dataset trimming (1500 rows max)
+DB-first persistence strategy
+🔐 RELIABILITY LAYERS
+Layer	Role
+SQLite	Primary structured store
+CSV	Backup fallback
+yfinance	External source
+logging	Observability
+threading	UI stability
+⚠️ KNOWN ASSUMPTIONS
+watchlist.db contains table: watchlist
+ticker column is non-null
+yfinance data structure remains consistent
+SQLite schema handled externally via init_all()
+🔧 EXTENSION POINTS
+
+This module is designed to be extended with:
+
+real-time streaming feeds
+broker API integration (Webull / Alpaca)
+feature engineering pipeline
+ML training dataset export
+anomaly detection on OHLCV
+institutional flow tagging system
+🧠 DESIGN PHILOSOPHY
+
+This system is built on:
+
+DB-first architecture (not CSV-first)
+incremental data repair instead of overwrite
+multi-timeframe synchronization
+fault-tolerant ingestion
+UI-driven manual override capability
+🚀 ENTRY POINT
+
+Run module:
+
+python stock_downloader.py
+
+Or:
+
+main()
+📌 SUMMARY
+
+This module functions as a:
+
+Multi-timeframe institutional-grade market data ingestion engine with financial statement persistence and a manual control UI layer.
+
+It is designed for:
+
+trading system backends
+research pipelines
+institutional dataset building
+algorithmic strategy development

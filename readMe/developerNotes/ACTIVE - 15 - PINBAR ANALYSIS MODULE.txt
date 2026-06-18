@@ -1,0 +1,344 @@
+=========================================================
+PINBAR INSTITUTIONAL ANALYSIS MODULE
+=========================================================
+
+README.txt
+Version: 1.0
+Author: Trading Systems Framework
+Language: Python (Pandas + NumPy)
+
+=========================================================
+OVERVIEW
+
+This module implements a full institutional-grade Pin Bar detection and trade decision engine built on OHLCV market data.
+
+It is designed to:
+
+Detect bullish and bearish pin bars
+Classify rejection strength
+Track multi-day confirmation behavior
+Identify liquidity sweeps (Wyckoff logic)
+Evaluate trend, structure, and volume alignment
+Generate structured trade plans
+Output journal-ready institutional analysis reports
+
+The system is intended for systematic trading workflows, journaling systems, and algorithmic decision support engines.
+
+CORE DESIGN PHILOSOPHY
+
+This module treats price as:
+
+“A liquidity auction driven by institutional participation, rejection, and acceptance.”
+
+Key principles:
+
+Wick = liquidity search
+Close = acceptance or rejection
+Volume = institutional intent
+Structure = context validation
+Multi-candle behavior = confirmation logic
+INPUT REQUIREMENTS
+
+All functions expect a Pandas DataFrame with OHLCV data:
+
+Required columns:
+
+Open
+High
+Low
+Close
+Volume
+
+The module can also auto-normalize ticked datasets (e.g., close_AAPL, open_TSLA).
+
+CORE UTILITIES
+1. Safe Scalar Extractor
+f(x)
+
+Safely extracts scalar float values from:
+
+Pandas Series
+NaN values
+raw floats
+
+Ensures system stability across mixed data types.
+
+2. OHLCV NORMALIZATION
+normalize_ohlcv_columns(df, ticker=None)
+
+Converts ticker-based columns into standard format:
+
+open_<ticker> → Open
+high_<ticker> → High
+low_<ticker> → Low
+close_<ticker> → Close
+volume_<ticker> → Volume
+
+If ticker is not provided, it attempts auto-detection.
+
+enforce_schema(df)
+
+Ensures:
+
+numeric conversion
+removal of invalid OHLC rows
+clean analytical dataset
+VOLUME ANALYSIS ENGINE
+Relative Volume (RVOL)
+rvol(volume, period=20)
+
+Measures current volume vs rolling average.
+
+Volume Spike Detection
+detect_volume_spike(volume, threshold=1.5)
+
+Identifies abnormal institutional activity.
+
+Institutional Accumulation State
+institutional_accumulation_state(close, high, low, volume)
+
+Classifies market state into:
+
+Accumulation (low compression + high volume)
+Distribution (high compression + high volume)
+Neutral
+
+This is a simplified Wyckoff-style regime classifier.
+
+PIN BAR DETECTION ENGINE
+Core Function
+detect_pinbar(data)
+
+Detects bullish or bearish rejection candles using:
+
+wick-to-range ratio
+body-to-range ratio
+directional pressure
+Output Structure
+{
+  "detected": true/false,
+  "type": "Bullish" | "Bearish",
+  "strength": "strong rejection / moderate / weak",
+  "high": float,
+  "low": float,
+  "open": float,
+  "close": float
+}
+PINBAR MEMORY SYSTEM
+State Tracking
+pinbar_state_memory(df)
+
+Adds:
+
+pinbar_flag column tracking historical detection states
+Yesterday Pinbar Detection
+detect_yesterday_pinbar(df)
+
+Returns prior candle pinbar state for confirmation logic.
+
+CONFIRMATION LOGIC ENGINE
+confirm_pinbar_today()
+
+Evaluates whether today's price action:
+
+confirms breakout
+fails breakout
+rejects liquidity
+remains pending
+
+Outputs:
+
+CONFIRMED
+FAILED
+LIQUIDITY_REJECTION
+BULLISH/BEARISH_BREAK_ATTEMPT
+PENDING
+TREND ENGINE
+evaluate_trend(df)
+
+Uses:
+
+EMA 8
+EMA 21
+SMA 50
+Outputs:
+Bullish
+Bearish
+Neutral
+
+Also returns a trend confidence score.
+
+LIQUIDITY SWEEP DETECTION
+detect_liquidity_sweep(df)
+
+Detects Wyckoff-style events:
+
+Spring (bear trap below support)
+Upthrust (bull trap above resistance)
+STRUCTURE ENGINE
+evaluate_structure(df)
+
+Evaluates:
+
+proximity to support
+proximity to resistance
+
+Outputs:
+
+Near Support
+Near Resistance
+Neutral
+VOLUME CONFIRMATION ENGINE
+volume_confirmation(df)
+
+Combines:
+
+RVOL
+spike detection
+institutional accumulation state
+
+Outputs:
+
+confirmed boolean
+RVOL value
+institutional state
+score
+FIBONACCI ALIGNMENT ENGINE
+evaluate_fibonacci(df)
+
+Detects proximity to:
+
+38.2%
+50%
+61.8%
+78.6%
+
+Used for confluence scoring.
+
+PINBAR EVENT STATE ENGINE
+build_pinbar_event_state(df)
+
+Tracks:
+
+formation
+confirmation
+failure
+expiration
+
+Maintains multi-day lifecycle of pinbar setups.
+
+ACTIVE TRADE ENGINE
+Trade Activation Logic
+detect_active_trade()
+
+Ensures:
+
+previous pinbar exists
+confirmation = CONFIRMED only
+Trade Structure Builder
+build_active_trade_state()
+
+Generates:
+
+entry
+stop
+invalidation
+target1
+target2
+
+Based on wick range expansion model.
+
+TRADE PLAN ENGINE
+build_pinbar_trade_plan(...)
+
+Generates institutional trade logic:
+
+Modes:
+Active Pending Event
+Liquidity Rejection Failure
+Active Confirmed Trade
+Break Attempt (Bull/Bear)
+Formation Mode
+
+Outputs:
+
+Entry
+Stops (close + wick)
+Targets
+Interpretation
+Failure conditions
+MAIN ANALYSIS ENGINE
+analyze_pinbar(df)
+
+This is the primary orchestration function.
+
+Pipeline:
+Normalize OHLCV
+Enforce schema
+Detect today & yesterday pinbars
+Determine confirmation state
+Evaluate:
+trend
+liquidity sweep
+structure
+volume
+fibonacci
+Compute:
+intent score
+confirmation score
+Build event state
+Assign regime
+Generate trade plan
+Output journal prompt
+REGIME CLASSIFICATION
+
+The system assigns one of:
+
+INSTITUTIONAL_REVERSAL_CONTINUATION
+LIQUIDITY_FAILURE_EVENT
+FAILED_BREAKOUT_REJECTION
+BULLISH_ACCEPTANCE_PROBE
+BEARISH_ACCEPTANCE_PROBE
+PENDING_CONFIRMATION
+NEW_PINBAR_FORMATION
+NO_EDGE
+OUTPUT FORMAT
+Final Output:
+{
+  "journal_prompt": "Institutional analysis string"
+}
+
+This prompt includes:
+
+pinbar structure
+confirmation state
+regime classification
+volume/trend context
+trade plan
+institutional interpretation
+USE CASES
+
+This module is designed for:
+
+Algorithmic trading systems
+Institutional-style journaling tools
+Wyckoff-based analysis dashboards
+Multi-timeframe confluence engines
+Risk-managed breakout systems
+KEY STRENGTHS
+Multi-day confirmation tracking
+Liquidity-based decision logic
+Institutional accumulation modeling
+Fully structured trade planning
+Event lifecycle tracking (not just signals)
+Journal-ready output formatting
+LIMITATIONS
+Requires clean OHLCV data
+Sensitive to low-liquidity noise
+Not a predictive system (reactive model)
+Best used with multi-timeframe confirmation
+SUMMARY
+
+This module transforms raw OHLCV candles into a structured institutional narrative:
+
+From raw price → to liquidity behavior → to trade plan → to journal output.

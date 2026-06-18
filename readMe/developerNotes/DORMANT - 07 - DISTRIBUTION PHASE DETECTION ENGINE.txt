@@ -1,0 +1,301 @@
+DISTRIBUTION PHASE DETECTION ENGINE (INSTITUTIONAL FIXED)
+1. Overview
+
+The Distribution Phase Detection Engine is a market structure analytics module designed to identify institutional selling behavior at the end of an uptrend. It models how large participants (institutions, funds, liquidity providers) exit positions through:
+
+Trend exhaustion
+Volatility expansion
+Volume climax behavior
+Structural breakdown (lower highs)
+Momentum deterioration
+
+This module is built around Wyckoff-style distribution logic, enhanced with quantitative slope analysis, volatility comparison, and volume pressure scoring.
+
+Its primary output is a classification of market state into:
+
+DISTRIBUTION (confirmed institutional exit)
+TRANSITION (early warning / weakening structure)
+NONE (no meaningful distribution behavior detected)
+2. Core Philosophy
+
+This engine is based on a simplified institutional auction model:
+
+Price rises during accumulation → stalls during distribution → breaks during markdown
+
+Distribution is identified not by a single indicator, but by confluence of structural weakening signals:
+
+Trend maturity
+Momentum decay
+Volatility expansion after compression
+Volume climax behavior
+Failure to form higher highs
+
+The system assumes:
+
+Institutions do not exit randomly
+Exit behavior leaves structural footprints
+Those footprints are measurable using slope, range, and volume dynamics
+3. Input Requirements
+Required DataFrame Columns
+
+The engine requires a normalized OHLCV dataset:
+
+High
+Low
+Close
+Volume
+Minimum Data Requirement
+At least 60 candles required
+
+If insufficient:
+
+{
+    "phase": "NONE",
+    "confidence": 0.0,
+    "interpretation": "Insufficient structure for distribution analysis."
+}
+4. Data Normalization Layer
+
+Before analysis, the dataset is processed through:
+
+normalize_timestamp(df)
+
+This ensures:
+
+Time alignment consistency
+Clean OHLCV structure
+Proper chronological ordering
+
+This step is critical for institutional-grade consistency across timeframes.
+
+5. Structural Windows
+
+The engine evaluates price behavior across three rolling windows:
+
+Window	Purpose
+recent (-10)	Immediate market behavior
+mid (-20:-10)	Transition structure
+long (-60)	Trend context baseline
+
+These windows are used to compare:
+
+Momentum decay
+Volatility expansion
+Structural weakness evolution
+6. Signal Components
+6.1 Trend Maturity
+slope_long = np.polyfit(range(30), close[-30:], 1)[0]
+trend_strength = abs(slope_long)
+trend_mature = trend_strength > np.std(close[-30:]) * 0.10
+
+Meaning:
+
+Measures long-term directional exhaustion
+Compares slope stability vs volatility baseline
+
+Interpretation:
+
+Mature trend = late-stage move likely near exhaustion
+6.2 Momentum Fading
+momentum_fading = slope_recent < slope_mid
+
+Meaning:
+
+Recent slope weaker than prior slope
+
+Interpretation:
+
+Momentum is decaying
+Buyers are losing control
+6.3 Range Expansion (Volatility Expansion)
+recent_range > prior_range * 1.25
+
+Meaning:
+
+Price range expands significantly after contraction
+
+Interpretation:
+
+Institutional distribution often begins with volatility expansion
+Breaks prior tight structure
+6.4 Volume Distribution Pressure
+vol_expansion = volume[-1] > avg_vol * 1.6
+vol_climax = volume[-1] > mean(vol[-20:]) * 1.8
+
+Meaning:
+
+Sudden surge in volume at late stage
+
+Interpretation:
+
+Institutional exit activity
+Liquidity absorption phase
+6.5 Selling Pressure (Rejection Wicks)
+upper_wick = np.mean(high - close)
+rejection = upper_wick > std(close) * 0.55
+
+Meaning:
+
+Price repeatedly rejected at highs
+
+Interpretation:
+
+Supply absorption at elevated prices
+Aggressive selling into strength
+6.6 Structural Failure (Lower Highs)
+lower_highs = close[-1] < np.max(close[-10:-1])
+
+Meaning:
+
+Current price fails to break prior highs
+
+Interpretation:
+
+Breakdown of bullish structure
+First sign of distribution control shift
+7. Scoring Model
+
+Each condition contributes to a weighted institutional distribution score:
+
+Signal	Weight
+Momentum fading	+0.25
+Volume expansion	+0.20
+Rejection (wicks)	+0.15
+Lower highs	+0.15
+Range expansion	+0.15
+Trend maturity	+0.10
+Final Score Calculation
+confidence = min(score, 1.0)
+8. Phase Classification Logic
+🔴 DISTRIBUTION (Confirmed)
+if confidence >= 0.75 and lower_highs and vol_climax
+
+Conditions:
+
+High confidence score
+Structural breakdown present
+Volume climax confirmed
+
+Meaning:
+
+Institutional distribution is active
+Smart money is exiting aggressively
+Market is entering markdown risk zone
+🟡 TRANSITION (Early Warning)
+if confidence >= 0.45
+
+Meaning:
+
+Early distribution signals forming
+No full breakdown yet
+Market still structurally intact but weakening
+🟢 NONE (No Distribution)
+
+Default state when:
+
+Weak scoring
+No structural confirmation
+
+Meaning:
+
+No institutional exit behavior detected
+Trend is either healthy or neutral
+9. Output Structure
+Primary Output (detect_distribution_phase)
+{
+    "phase": "DISTRIBUTION | TRANSITION | NONE",
+    "confidence": float,
+    "interpretation": str
+}
+Wrapper Output (run_distribution_phase_engine)
+
+Provides formatted journal-ready blocks:
+
+1. Dominant Phase
+"dominant_phase": "TRANSITION"
+2. Confidence Score
+"confidence": 0.62
+3. Distribution Block (UI-ready)
+
+Multi-line formatted institutional report:
+
+📊 DISTRIBUTION PHASE ANALYSIS
+Phase: TRANSITION
+Confidence: 0.62
+Institutional Interpretation: ...
+4. Phase Context Block
+
+Extended journal narrative for dashboards and logs.
+
+10. Integration Use Cases
+
+This module is designed to plug into:
+
+Trading Journal Systems
+Pre-trade bias filter
+Exit timing confirmation
+Risk reduction signals
+Multi-Phase Market Engines
+
+Works alongside:
+
+Accumulation detection
+Discovery phase engine
+Markup/markdown classification systems
+Institutional Dashboards
+
+Can be embedded in:
+
+Tkinter UI dashboards
+Confluence scoring systems
+Multi-timeframe analysis engines
+11. Design Strengths
+✔ Multi-factor confirmation
+
+No single indicator determines output.
+
+✔ Structural logic over indicators
+
+Focuses on:
+
+Slope
+Range
+Volume
+Price structure
+✔ Noise-resistant scoring
+
+Weighted system avoids overreaction to single spikes.
+
+✔ Institutional realism
+
+Models real distribution behavior:
+
+Volatility expansion
+Late-stage volume surges
+Lower highs failure
+12. Failure Handling
+Safe Guards
+Missing columns → safe exit
+Insufficient data → neutral state
+Runtime errors → raised as RuntimeError
+raise RuntimeError("DISTRIBUTION MODULE FAILURE")
+13. Key Limitations
+Does not detect micro-distribution inside low-volume assets
+Requires sufficient historical structure (≥60 candles)
+Sensitive to bad OHLC normalization
+Not a predictive system—only structural classification
+14. Summary
+
+The Distribution Phase Detection Engine is a structured institutional behavior classifier that identifies:
+
+When upward price movement transitions into controlled institutional exit behavior.
+
+It does this by combining:
+
+Trend exhaustion (slope decay)
+Volatility expansion (range behavior)
+Volume climax detection
+Structural failure (lower highs)
+Rejection dynamics (wicks)
+
+Final output is a probabilistic classification of distribution risk, suitable for integration into advanced trading systems and journal workflows.

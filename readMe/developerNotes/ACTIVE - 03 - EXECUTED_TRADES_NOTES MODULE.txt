@@ -1,0 +1,492 @@
+EXECUTED_TRADES_NOTES.PY
+README.TXT
+
+=========================================================
+MODULE NAME
+===========
+
+executed_trades_notes.py
+
+=========================================================
+PURPOSE
+=======
+
+The executed_trades_notes.py module provides lightweight support
+for the Executed Trades subsystem within the Newell Trading Group
+trading platform.
+
+The module performs two primary responsibilities:
+
+1. Loading previously saved notes associated with executed trades.
+2. Synchronizing dashboard context when a user selects an executed
+   trade from the user interface.
+
+This module acts as a utility layer between the persistent storage
+of trade notes and the graphical user interface (GUI) components
+that display and manage executed trades.
+
+The design philosophy is intentionally simple:
+
+• Load data quickly.
+• Avoid unnecessary dependencies.
+• Remain compatible with CSV-based storage.
+• Provide safe UI context switching.
+• Support future migration to database-backed storage.
+
+=========================================================
+DEPENDENCIES
+============
+
+Standard Library Only
+
+Required Imports:
+
+import os
+import csv
+
+No third-party packages are required.
+
+=========================================================
+MODULE ARCHITECTURE
+===================
+
+The module contains two functions:
+
+1. load_executed_trade_notes()
+2. refresh_executed_trade_context()
+
+These functions are intentionally separated so that:
+
+• Data loading remains independent from UI operations.
+• Notes management can be reused elsewhere.
+• Future database implementations can replace the file
+loading layer without affecting UI logic.
+
+=========================================================
+FUNCTION REFERENCE
+==================
+
+---
+
+FUNCTION:
+load_executed_trade_notes()
+---------------------------
+
+Definition:
+
+load_executed_trade_notes(EXECUTED_TRADES_NOTES_FILE)
+
+Purpose:
+
+Loads all saved executed trade notes from a CSV file and
+returns them in a dictionary keyed by trade ID.
+
+This allows rapid lookup of notes associated with a specific
+executed trade.
+
+Parameters:
+
+EXECUTED_TRADES_NOTES_FILE (str)
+
+Path to the CSV file that stores executed trade notes.
+
+Example:
+
+executed_trades_notes.csv
+
+Expected CSV Structure:
+
+trade_id,note,author,timestamp
+12345,Initial entry,Admin,2026-01-15
+12346,Scaled out 50%,Admin,2026-01-16
+
+Return Type:
+
+dict
+
+Example Return:
+
+{
+"12345": {
+"trade_id": "12345",
+"note": "Initial entry",
+"author": "Admin",
+"timestamp": "2026-01-15"
+},
+
+```
+"12346": {
+    "trade_id": "12346",
+    "note": "Scaled out 50%",
+    "author": "Admin",
+    "timestamp": "2026-01-16"
+}
+```
+
+}
+
+Behavior:
+
+Step 1:
+Creates an empty dictionary.
+
+Step 2:
+Verifies that the CSV file exists.
+
+Step 3:
+Returns an empty dictionary if the file is missing.
+
+Step 4:
+Loads the CSV file using csv.DictReader.
+
+Step 5:
+Reads each row.
+
+Step 6:
+Extracts the trade_id field.
+
+Step 7:
+Stores the row using trade_id as the key.
+
+Step 8:
+Returns the completed dictionary.
+
+Advantages:
+
+• Fast lookup by trade ID.
+• Minimal memory footprint.
+• Simple integration with existing CSV workflows.
+• Easy migration to database systems.
+
+Example Usage:
+
+notes_map = load_executed_trade_notes(
+"executed_trade_notes.csv"
+)
+
+trade_notes = notes_map.get("12345")
+
+=========================================================
+DATA STRUCTURE DETAILS
+======================
+
+Dictionary Layout:
+
+{
+trade_id: row_data
+}
+
+Example:
+
+{
+"TRD001": {
+"trade_id": "TRD001",
+"note": "Added after breakout",
+"timestamp": "2026-06-01"
+}
+}
+
+Why This Structure?
+
+Dictionary access is O(1).
+
+Instead of scanning an entire list of notes each time a
+trade is selected, the application can instantly retrieve
+the note using:
+
+notes_map[trade_id]
+
+This becomes important when managing hundreds or thousands
+of executed trades.
+
+=========================================================
+FUNCTION:
+refresh_executed_trade_context()
+================================
+
+Definition:
+
+refresh_executed_trade_context(
+row_data,
+template_ticker_var,
+update_template_panel
+)
+
+Purpose:
+
+Updates dashboard context whenever an executed trade is
+selected by the user.
+
+This function synchronizes the ticker selection between the
+Executed Trades panel and the Prompt/Analysis Template panel.
+
+As a result, selecting a trade automatically loads the
+correct ticker into the trading workflow.
+
+Parameters:
+
+row_data (dict)
+
+Dictionary representing the selected executed trade.
+
+Example:
+
+{
+"Ticker": "PLUG",
+"Trade ID": "12345"
+}
+
+template_ticker_var
+
+Tkinter StringVar used by the template subsystem.
+
+Example:
+
+tk.StringVar()
+
+update_template_panel
+
+Callback function responsible for rebuilding or refreshing
+the template panel.
+
+Example:
+
+update_template_panel()
+
+=========================================================
+TICKER RESOLUTION LOGIC
+=======================
+
+The function supports multiple possible column names.
+
+Priority Order:
+
+1. Ticker
+2. Symbol
+
+Logic:
+
+ticker = (
+row_data.get("Ticker")
+or row_data.get("Symbol")
+or ""
+).strip()
+
+Examples:
+
+Case 1:
+
+{
+"Ticker": "PLUG"
+}
+
+Result:
+
+PLUG
+
+Case 2:
+
+{
+"Symbol": "PLUG"
+}
+
+Result:
+
+PLUG
+
+Case 3:
+
+{
+}
+
+Result:
+
+No action taken.
+
+This design improves compatibility with:
+
+• Broker exports
+• Journal exports
+• Legacy trade files
+• Third-party trade records
+
+=========================================================
+UI UPDATE WORKFLOW
+==================
+
+When a trade row is selected:
+
+1. User clicks trade.
+2. Trade data is passed to the function.
+3. Ticker symbol is extracted.
+4. StringVar is updated.
+5. Template panel refreshes.
+6. User immediately sees ticker-specific templates.
+
+Workflow Diagram:
+
+Executed Trade Selected
+│
+▼
+Extract Ticker
+│
+▼
+Update template_ticker_var
+│
+▼
+Call update_template_panel()
+│
+▼
+Refresh UI Content
+
+=========================================================
+ERROR HANDLING
+==============
+
+The function uses a protective try/except block.
+
+Example:
+
+try:
+template_ticker_var.set(ticker)
+update_template_panel()
+
+except Exception as e:
+print(
+"Executed trade context refresh error:",
+e
+)
+
+Benefits:
+
+• Prevents GUI crashes.
+• Protects user workflow.
+• Logs errors for debugging.
+• Allows application to continue running.
+
+=========================================================
+INTEGRATION WITH JOURNAL.PY
+===========================
+
+Typical Integration:
+
+When a user selects a row from the Executed Trades Treeview:
+
+selected_trade = trade_data
+
+refresh_executed_trade_context(
+selected_trade,
+template_ticker_var,
+update_template_panel
+)
+
+Result:
+
+The Template Panel automatically switches to the selected
+ticker's context.
+
+=========================================================
+PERFORMANCE CHARACTERISTICS
+===========================
+
+load_executed_trade_notes()
+
+Time Complexity:
+
+O(n)
+
+Where:
+
+n = number of saved notes
+
+Dictionary Lookup:
+
+O(1)
+
+Memory Usage:
+
+O(n)
+
+refresh_executed_trade_context()
+
+Time Complexity:
+
+O(1)
+
+Memory Usage:
+
+Negligible
+
+=========================================================
+DESIGN GOALS
+============
+
+The module was built to provide:
+
+✓ Fast note retrieval
+
+✓ Reliable trade selection handling
+
+✓ Automatic ticker synchronization
+
+✓ Minimal code complexity
+
+✓ Easy maintenance
+
+✓ Future database compatibility
+
+✓ GUI safety through exception handling
+
+✓ Compatibility with multiple trade file formats
+
+=========================================================
+FUTURE ENHANCEMENTS
+===================
+
+Potential upgrades include:
+
+1. SQLite Support
+   Replace CSV storage with a database backend.
+
+2. Note Version History
+   Maintain revision tracking.
+
+3. User Attribution
+   Track who created or edited notes.
+
+4. Rich Text Notes
+   Support formatted trade reviews.
+
+5. Search Indexing
+   Full-text note search.
+
+6. Trade Tagging
+   Add labels such as:
+
+   • Swing
+   • Position
+   • Earnings
+   • Breakout
+   • Wyckoff
+   • Momentum
+
+7. Trade Analytics Integration
+   Link notes directly to performance statistics.
+
+=========================================================
+SUMMARY
+=======
+
+executed_trades_notes.py is a lightweight utility module
+that provides:
+
+• Executed trade note loading.
+• Trade note indexing by trade ID.
+• Automatic ticker context synchronization.
+• Safe GUI refresh operations.
+• Efficient integration with Journal and Executed Trade
+management systems.
+
+It serves as the bridge between executed trade records,
+stored trade notes, and ticker-driven analysis workflows
+within the Newell Trading Group trading platform.

@@ -1,0 +1,312 @@
+SEC EDGAR Intelligence Module (Institutional Filings & Signals Engine)
+1. Overview
+
+This module is a lightweight institutional-grade SEC EDGAR ingestion and signal extraction pipeline designed to enrich a trading system with regulatory intelligence.
+
+It connects directly to the U.S. Securities and Exchange Commission’s EDGAR infrastructure and performs:
+
+Ticker → CIK resolution
+Filings ingestion (raw JSON)
+Persistence of raw + processed data
+Basic institutional signal extraction
+Journal-ready formatted intelligence output
+
+The system is intended to be embedded inside a larger trading framework (journal systems, scanners, regime engines, or confluence dashboards).
+
+It is not a full fundamental analysis engine. It is a filings event + structural risk signal extractor.
+
+2. Data Source
+
+The module interacts with:
+
+SEC Company Ticker Mapping API
+https://www.sec.gov/files/company_tickers.json
+EDGAR Submission Feed (CIK-based)
+https://data.sec.gov/submissions/CIK{CIK}.json
+
+These endpoints provide structured filing metadata including:
+
+10-K / 10-Q reports
+8-K corporate events
+S-1 / S-3 / 424B5 equity issuance filings
+3. Directory Structure
+
+Upon execution, the module creates:
+
+PROJECT_ROOT/
+│
+├── sec_filings/
+│   ├── AAPL/
+│   │   ├── filings.json
+│   │   ├── signals.json
+│   ├── TSLA/
+│   │   ├── filings.json
+│   │   ├── signals.json
+
+Each ticker maintains:
+
+filings.json → raw SEC EDGAR payload (full dataset snapshot)
+signals.json → extracted institutional signal summary
+4. Core Design Philosophy
+4.1 Event-Driven, Not Fundamental Modeling
+
+The system does NOT attempt valuation modeling.
+
+Instead it tracks:
+
+Filing frequency shifts
+Regulatory event clustering
+Dilution structure presence
+Earnings cycle timing
+
+This aligns with institutional trading workflows where:
+
+“The filing itself is a signal, not the content of the filing.”
+
+5. Function Breakdown
+5.1 get_cik_from_ticker(ticker)
+Purpose
+
+Maps a stock ticker to its SEC CIK identifier.
+
+Process
+Fetches SEC ticker database JSON
+Iterates lookup table
+Returns zero-padded 10-digit CIK
+Output
+"0000320193"  # Example: AAPL
+Failure Modes
+API downtime → returns None
+Missing ticker → returns None
+5.2 get_filings(cik)
+Purpose
+
+Retrieves full EDGAR submission history for a company.
+
+Endpoint
+https://data.sec.gov/submissions/CIK{cik}.json
+Returns
+
+Raw JSON containing:
+
+recent filings
+historical filings
+metadata arrays
+5.3 save_raw_data(ticker, cik, filings_json)
+Purpose
+
+Persists full SEC response for reproducibility.
+
+Stored Format
+{
+  "ticker": "TSLA",
+  "cik": "0001318605",
+  "timestamp": "2026-06-17T12:00:00",
+  "data": { ... full SEC JSON ... }
+}
+Design Intent
+Auditability
+Backtesting filings-based strategies
+Offline analysis capability
+5.4 analyze_filings(filings_json)
+Purpose
+
+Extracts structured institutional signals from EDGAR data.
+
+Input Structure
+filings_json["filings"]["recent"]
+
+Key arrays:
+
+form
+filingDate
+Extracted Signals
+Signal	Meaning
+last_10k	Most recent annual report
+last_10q	Most recent quarterly report
+recent_8k_count	Corporate event frequency
+dilution_events	Equity issuance / capital expansion pressure
+Dilution Event Detection Logic
+
+Triggered by forms:
+
+S-1 (IPO / registration)
+S-3 (shelf offerings)
+424B5 (prospectus supplement / ATM issuance)
+
+These are interpreted as:
+
+Structural share supply expansion risk
+
+8-K Interpretation
+
+8-K filings are counted as:
+
+Corporate events
+M&A updates
+leadership changes
+material announcements
+
+High frequency =
+
+Elevated event-driven volatility regime
+
+5.5 save_signals(ticker, signals)
+Purpose
+
+Stores processed institutional signals for downstream systems.
+
+Output file:
+sec_filings/{ticker}/signals.json
+5.6 analyze_ticker_sec(ticker)
+MAIN PIPELINE FUNCTION
+
+This is the orchestration layer.
+
+Execution Flow:
+Resolve ticker → CIK
+Fetch EDGAR filings
+Save raw data snapshot
+Run signal extraction
+Save signals
+Return structured object
+Output Format
+{
+  "ticker": "AAPL",
+  "cik": "0000320193",
+  "signals": {
+    "last_10k": "2025-11-02",
+    "last_10q": "2026-02-01",
+    "recent_8k_count": 4,
+    "dilution_events": 1,
+    "timestamp": "2026-06-17T12:00:00",
+    "source": "sec_edgar"
+  }
+}
+Failure Handling
+
+Returns None if:
+
+CIK not found
+SEC API fails
+No filings returned
+Unexpected exception occurs
+
+All failures are logged safely via log().
+
+5.7 format_sec_prompt(ticker)
+Purpose
+
+Transforms SEC signals into a journal-ready intelligence block.
+
+This is designed for:
+
+Trading journal UI injection
+Multi-factor confluence systems
+Institutional review dashboards
+Output Format
+
+Human-readable structured block:
+
+📑 SEC EDGAR INTELLIGENCE: TSLA
+
+CIK: 0001318605
+
+📌 Filing Snapshot:
+- Last 10-K: 2025-01-31
+- Last 10-Q: 2025-04-15
+- 8-K Event Count: 3
+
+⚠️ Institutional Risk Signals:
+- Dilution Filings (S-1/S-3/ATM): 1
+
+🧠 Interpretation:
+- Rising 8-K count = event-driven volatility
+- S-1/S-3 presence = share structure pressure
+- 10-Q recency = earnings cycle positioning
+
+Source: SEC EDGAR (live ingestion)
+Timestamp: 2026-06-17T12:00:00
+6. Institutional Interpretation Layer
+
+The system encodes a simplified behavioral thesis:
+
+6.1 Event Volatility Regime
+
+High 8-K frequency implies:
+
+News-driven price action
+Reduced technical reliability
+Wider intraday ranges
+6.2 Dilution Pressure Regime
+
+S-1 / S-3 / 424B5 implies:
+
+Increased float supply
+Potential sell pressure expansion
+Long-term valuation compression risk
+6.3 Earnings Cycle Positioning
+
+10-K / 10-Q timestamps indicate:
+
+Fundamental update timing
+Earnings proximity
+Narrative reset points
+7. SEC Compliance Considerations
+Required Header Usage
+
+The module correctly includes:
+
+User-Agent: NewellTradingSystem/1.0
+
+This is required by SEC infrastructure for:
+
+Rate limiting compliance
+Identification of non-abusive access
+Stable API response behavior
+8. Performance Characteristics
+Lightweight HTTP requests only
+No local caching layer (stateless by design)
+Single-pass parsing of EDGAR JSON
+Minimal pandas dependency (imported but unused here)
+9. Failure Modes & Risk Handling
+Common Failure Cases
+Issue	Behavior
+SEC API timeout	returns None
+invalid ticker	CIK resolution fails
+malformed JSON	safe exception handling
+missing filings keys	default empty signals
+10. Integration Points
+
+This module is designed to plug into:
+
+Journal systems (trade logging)
+Multi-factor confluence engines
+Institutional scanning dashboards
+Event-driven volatility models
+Regime classification systems
+11. Suggested Upgrades (Optional Enhancements)
+11.1 Data Enhancements
+Add insider trading (Form 4 ingestion)
+Add 13F institutional holdings
+Track shelf registration expiration windows
+11.2 Signal Enhancements
+Dilution intensity scoring
+Event clustering heatmap
+Filing velocity acceleration metric
+11.3 System Enhancements
+Redis caching layer for CIK lookup
+Async request batching
+Rate-limit backoff handler
+12. Summary
+
+This module functions as an institutional-grade SEC event intelligence layer that converts raw EDGAR filings into:
+
+Structured risk signals
+Event frequency metrics
+Dilution pressure indicators
+Journal-ready trading insights
+
+It is designed to complement technical analysis systems by adding:
+
+A regulatory and structural dimension to price interpretation

@@ -1,0 +1,290 @@
+Financial Analysis Engine Module
+Overview
+
+This module provides a lightweight but structured fundamental financial analysis engine designed to operate on locally stored financial statement CSV files. It is built to integrate directly into a larger trading or journal system (such as journal.py) and produces both:
+
+A structured analysis dictionary (analyze_financials)
+A formatted human-readable prompt block (format_financial_prompt)
+
+The system focuses on institutional-style financial quality assessment, combining income statement strength, balance sheet health, and cash flow stability into a simple 5-point scoring model.
+
+It is intentionally designed to be:
+
+Dependency-light (only os, pandas, datetime)
+Fail-safe (graceful handling of missing or malformed data)
+Integration-ready (returns structured outputs for dashboards and journal systems)
+Directory Structure Requirement
+
+The module expects the following project layout:
+
+PROJECT_ROOT/
+│
+├── financials/
+│   ├── TICKER_1/
+│   │   ├── income_statement.csv
+│   │   ├── balance_sheet.csv
+│   │   └── cashflow.csv
+│   │
+│   ├── TICKER_2/
+│   │   ├── income_statement.csv
+│   │   ├── balance_sheet.csv
+│   │   └── cashflow.csv
+
+Each ticker folder must contain three standardized CSV files.
+
+Data Format Expectations
+
+Each CSV is expected to be structured in a row-based financial statement format, where:
+
+Row index = financial metric name (string key)
+Column 0 = latest reported value (primary value used)
+
+Example:
+
+Metric	Value
+Total Revenue	1200000
+Net Income	250000
+
+The module always pulls the first column (iloc[0]) of each row.
+
+Core Functions
+1. load_csv(ticker, filename)
+
+Loads a financial statement CSV for a given ticker.
+
+Behavior:
+
+Builds path dynamically from FINANCIALS_DIR
+Returns pandas.DataFrame if file exists
+Returns None if missing or unreadable
+
+Failure handling:
+
+Safe fallback (None) prevents system crashes
+2. get_latest(df, row_name)
+
+Extracts the most recent value for a specific financial metric.
+
+Logic:
+
+Locates row by index name
+Returns first column value (iloc[0])
+Returns None if:
+DataFrame is missing
+Row does not exist
+Exception occurs
+
+This function acts as a universal safe extractor for financial statements.
+
+3. pct_change(new, old)
+
+Computes percentage change between two values.
+
+Pct Change=
+∣old∣
+new−old
+	​
+
+×100
+
+Safety rules:
+
+Returns None if:
+Division by zero risk
+Missing values
+NaN values
+Core Engine: analyze_financials(ticker)
+
+This is the primary analysis pipeline.
+
+Step 1: Data Loading
+
+Loads three datasets:
+
+Income Statement
+Balance Sheet
+Cash Flow
+
+If all are missing → returns None
+
+Step 2: Income Statement Analysis
+
+Extracts:
+
+Total Revenue
+Net Income
+Gross Profit
+Operating Income
+Margin Calculations:
+
+If revenue exists:
+
+Gross Margin
+
+Revenue
+Gross Profit
+	​
+
+×100
+
+Net Margin
+
+Revenue
+Net Income
+	​
+
+×100
+Step 3: Balance Sheet Analysis
+
+Extracts:
+
+Total Assets
+Total Liabilities
+Total Equity
+Debt-to-Equity Ratio:
+Total Equity
+Total Liabilities
+	​
+
+
+Only calculated if equity exists.
+
+Step 4: Cash Flow Analysis
+
+Extracts:
+
+Operating Cash Flow
+Free Cash Flow
+
+These are used as core institutional health signals:
+
+Positive operating cash flow → operational strength
+Free cash flow → capital flexibility
+Institutional Quality Score (5-Point System)
+
+The module computes a simplified fundamental strength score (0–5):
+
+Scoring Rules:
+
++1 if:
+
+Operating Cash Flow > 0
+Net Income > 0
+Revenue > 0
+Net Margin > 5%
+Debt-to-Equity < 2
+Interpretation:
+Score	Meaning
+0–1	Weak fundamentals
+2–3	Neutral / mixed quality
+4	Strong company
+5	Institutional-grade quality
+
+This is designed as a heuristic filter, not a valuation model.
+
+Output Structure
+
+analyze_financials(ticker) returns:
+
+{
+  "ticker": str,
+  "timestamp": ISO datetime,
+  "source": "yahoo_financials",
+
+  "revenue": float,
+  "net_income": float,
+  "gross_profit": float,
+  "operating_income": float,
+
+  "gross_margin": float,
+  "net_margin": float,
+
+  "total_assets": float,
+  "total_liabilities": float,
+  "total_equity": float,
+  "debt_to_equity": float,
+
+  "operating_cash_flow": float,
+  "free_cash_flow": float,
+
+  "quality_score_5": int
+}
+Prompt Formatter: format_financial_prompt(ticker)
+
+This function converts raw analysis into a journal-ready narrative block.
+
+Purpose:
+Direct integration into trading journal systems
+Human-readable institutional summary
+Standardized reporting format for dashboards
+Output Format:
+Revenue + Income summary
+Margin breakdown
+Balance sheet snapshot
+Cash flow review
+Final institutional score
+
+If no data exists:
+
+[Financials] TICKER: No data available.
+System Design Philosophy
+
+This module follows three core design principles:
+
+1. Fail-Safe Data Handling
+
+Every function gracefully degrades rather than throwing errors.
+
+2. Institutional Simplicity
+
+Instead of complex valuation models, it focuses on:
+
+Profitability
+Cash flow strength
+Leverage risk
+3. Journal Integration First
+
+Output is structured for:
+
+Trading journals
+Dashboard panels
+Strategy engines
+Backtesting systems
+Integration Notes (journal.py)
+
+This module is designed to plug directly into:
+
+Trade journal entry generation
+Ticker analysis pipelines
+Institutional scoring dashboards
+
+Typical usage:
+
+from financials_engine import format_financial_prompt
+
+print(format_financial_prompt("AAPL"))
+Limitations
+No real-time API fetching (CSV-based only)
+Assumes correct financial statement formatting
+Does not normalize currencies
+No multi-period trend analysis (single snapshot only)
+Extension Opportunities
+
+This module can be upgraded into a full institutional system by adding:
+
+Multi-quarter trend tracking
+YoY / QoQ growth metrics
+FCF yield vs market cap integration
+Piotroski F-score expansion
+Sector-based normalization
+Earnings quality decomposition
+Summary
+
+This module serves as a lightweight institutional fundamentals engine that transforms raw financial statement CSVs into:
+
+Structured analytics
+Risk-aware ratios
+A simplified institutional quality score
+Journal-ready narrative output
+
+It is optimized for trading system integration rather than accounting precision, prioritizing clarity, speed, and usability inside decision engines.

@@ -1,0 +1,350 @@
+==========================================================
+RISK ENGINE MODULE (Tkinter-Based Position Sizing System)
+==========================================================
+MODULE OVERVIEW
+
+This module implements a stateful trading risk engine built on top of tkinter.Variable objects. It is designed for integration into a GUI-based trading journal and execution system.
+
+The engine handles:
+
+Dynamic position sizing (risk-based allocation)
+Multi-entry ladder pricing system
+Automated stop-loss calculation (Wyckoff-style volatility model)
+Risk-to-reward target generation
+“Buy Now” execution sizing
+Full state synchronization with external journal systems
+Safe initialization guards for GUI lifecycle stability
+
+It is designed as a reactive computation engine, meaning all key outputs automatically update when inputs change.
+
+CORE DESIGN PRINCIPLES
+1. Reactive State System
+
+All variables are stored as tk.DoubleVar or tk.StringVar, enabling automatic UI binding.
+
+2. Risk-First Architecture
+
+Position sizing is always derived from:
+
+risk_dollar = account * risk_pct
+
+Everything downstream depends on this value.
+
+3. Ladder-Based Entry System
+
+The system supports 4 entry levels:
+
+ladder_prices[0–3]
+ladder_shares[0–3]
+ladder_totals[0–3]
+
+These are derived from Fibonacci-style extensions of the price range.
+
+4. Institutional Stop Logic
+
+Stop loss is not static—it is computed using:
+
+range compression
+shakeout buffer
+volatility scaling
+minimum loss constraints
+GLOBAL VARIABLES
+Core Inputs
+ticker → symbol being traded
+account → account size (capital base)
+low → session/structure low
+last_high → swing high reference
+risk_pct → percentage risk per trade
+risk_dollar → computed dollar risk
+stop → active stop loss price
+Ladder System
+
+Each is a list of 4 tk.DoubleVar objects:
+
+ladder_prices[] → entry prices
+ladder_shares[] → position sizes per entry
+ladder_totals[] → dollar allocation per entry
+Portfolio Outputs
+total_cost → total capital deployed
+total_shares → total shares across ladders
+rr_targets[] → take-profit targets per ladder
+Buy Now System
+buy_now_price
+buy_now_shares
+buy_now_total
+
+Includes manual override tracking:
+
+buy_now_manual
+buy_now_internal_update
+Stop Control Flags
+stop_manual → prevents auto override when user edits stop
+INITIALIZATION ENGINE
+initialize_risk_engine(root)
+
+Creates all tkinter variables bound to a GUI root.
+
+Also sets up event-driven recalculation triggers:
+
+Automatic triggers:
+account → recalculation
+risk_pct → recalculation
+buy_now_price → recalculation
+low → stop recalculation
+last_high → stop recalculation
+ladder_prices[0] → sync buy-now price
+stop → marks manual override
+SAFE UTILITY FUNCTIONS
+safe_float(value, default=0.0)
+
+Robust float conversion with:
+
+empty string protection
+whitespace handling
+exception fallback
+
+Used everywhere to prevent Tkinter string crashes.
+
+preview_text(text, limit=40)
+
+Creates UI-safe truncated strings for journal display.
+
+Used for:
+
+trade_notes
+analysis_notes
+management_notes
+build_preview_row(row)
+
+Applies preview formatting to journal dictionary rows.
+
+Ensures UI tables remain compact.
+
+STOP LOSS ENGINE
+auto_calc_stop(*args)
+
+This is the core institutional stop engine.
+
+Inputs:
+last_high
+low
+Step 1: Range calculation
+price_range = last_high - low
+Step 2: Shakeout model
+shakeout_level = low - (price_range * 0.075238)
+
+This simulates:
+
+liquidity sweep behavior
+Wyckoff-style spring logic
+Step 3: Volatility-based buffer
+
+Buffer scales dynamically:
+
+Range % of High	Buffer
+< 10%	6%
+< 20%	9%
+< 35%	12%
+> 35%	18%
+Step 4: Final stop
+calc_stop = shakeout_level - stop_buffer
+Step 5: Risk constraints
+Must not exceed 65% drawdown from low
+Must not go below zero
+If invalid → fallback to low * 0.50
+Output:
+stop.set(round(calc_stop, 4))
+MAIN CALCULATION ENGINE
+recalc(*args)
+
+This is the central financial engine.
+
+It recalculates EVERYTHING in real time.
+
+1. Risk Dollar Calculation
+risk_dollar = account * risk_pct
+
+This defines total capital at risk.
+
+2. Ladder Price Construction
+
+Uses Fibonacci-style extensions:
+
+fib_levels = [0.328, 0.238, 0.015, -0.075238]
+
+Each ladder price:
+
+price = low + (range * fib_level)
+
+Special case:
+
+negative extension is bounded to prevent invalid pricing
+3. Position Sizing Engine
+
+Allocation model:
+
+[0.25, 0.75, 0, 0]
+
+Meaning:
+
+1st ladder = 25% risk
+2nd ladder = 75% risk
+others unused by default
+Share Calculation:
+shares = (risk_allocated_dollars) / (entry_price - stop)
+
+Ensures:
+
+constant risk per trade
+dynamic position scaling
+4. Total Portfolio Metrics
+
+Computed:
+
+total_shares
+total_cost
+5. Risk-to-Reward Targets
+
+For each ladder:
+
+rr_target = entry + (entry - stop)
+
+This enforces a 1:1 risk-reward baseline
+
+6. Buy Now Engine
+risk_per_share = buy_now_price - stop
+shares = risk_dollar / risk_per_share
+
+Outputs:
+
+buy_now_shares
+buy_now_total
+AUTO SYNCHRONIZATION LOGIC
+auto_set_buy_now(*args)
+
+If not manually overridden:
+
+buy_now_price = ladder_prices[0]
+
+This ensures:
+
+entry ladder sync
+consistent execution pricing
+buy_now_edited(*args)
+
+Flags manual override:
+
+buy_now_manual = True
+
+Prevents auto overwriting.
+
+STATE MANAGEMENT API
+get_engine_state()
+
+Returns full engine snapshot:
+
+ticker
+account
+risk metrics
+ladder system
+stop values
+RR targets
+buy-now execution block
+
+Used for:
+
+journal persistence
+UI syncing
+backtesting export
+set_engine_state(state)
+
+Restores full engine state from journal entry.
+
+Handles:
+
+ladder arrays
+risk values
+execution values
+
+Automatically triggers:
+
+recalc()
+
+Ensures consistency after load.
+
+reset_engine()
+
+Resets system to defaults:
+
+clears ladder values
+resets stop
+resets account baseline
+clears overrides
+
+Used when:
+
+switching tickers
+starting new journal entry
+clearing UI session
+INITIALIZATION SAFETY SYSTEM
+_engine_initialized
+
+Prevents duplicate initialization.
+
+ensure_initialized()
+
+Guarantees:
+
+initialize_risk_engine()
+
+is called before calculations.
+
+safe_recalc(*args)
+
+Wrapper used by UI to prevent crashes when engine is uninitialized.
+
+Behavior:
+
+initializes engine if needed
+safely runs recalculation
+catches runtime errors
+SYSTEM ARCHITECTURE SUMMARY
+USER INPUTS
+   ↓
+Tkinter Variables (State Layer)
+   ↓
+auto_calc_stop / recalc triggers
+   ↓
+Risk Engine (pricing + sizing)
+   ↓
+Ladder System + Stop Engine
+   ↓
+RR Targets + Buy Now Engine
+   ↓
+Journal Sync API
+INTEGRATION NOTES (JOURNAL SYSTEM)
+
+This module is designed to plug into:
+
+journal.py (trade tracking system)
+Tkinter dashboard UI
+Multi-ticker workflow engine
+Expected usage pattern:
+initialize_risk_engine(root)
+user selects ticker
+system loads price context
+recalc() runs automatically
+journal pulls:
+get_engine_state()
+CRITICAL DESIGN BEHAVIOR
+Stop loss is ALWAYS dynamic unless manually edited
+Ladder system is risk-weighted, not equal-sized
+Buy Now follows ladder[0] unless overridden
+All calculations are reactive via Tkinter trace system
+Engine assumes institutional-style volatility modeling
+EXPORTS
+__all__ = ["initialize_risk_engine"]
+
+Primary entry point:
+
+initialize_risk_engine(root)

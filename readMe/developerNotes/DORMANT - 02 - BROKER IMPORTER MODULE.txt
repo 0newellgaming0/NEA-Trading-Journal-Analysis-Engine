@@ -1,0 +1,908 @@
+BROKER IMPORTER MODULE
+README.TXT
+
+=========================================================
+MODULE NAME
+===========
+
+broker_importer.py
+
+=========================================================
+PURPOSE
+=======
+
+The Broker Importer module provides automated synchronization
+between broker-exported execution data and the trading journal
+database.
+
+Its primary responsibility is importing executed trade history
+from a Webull CSV export and storing those executions inside the
+local SQLite trading database.
+
+The module also performs:
+
+• Duplicate prevention
+• Broker trade storage
+• Trade execution synchronization
+• Strategy-to-broker linkage
+• Data cleansing
+• User confirmation workflows
+• Database transaction management
+
+This allows the journal system to maintain an accurate record
+of actual broker executions while keeping internally generated
+trade plans synchronized with real market activity.
+
+=========================================================
+HIGH LEVEL WORKFLOW
+===================
+
+User Clicks:
+
+```
+Import Webull Trades
+
+        ↓
+```
+
+Confirmation Popup
+
+```
+        ↓
+```
+
+Select CSV File
+
+```
+        ↓
+```
+
+Load CSV Into DataFrame
+
+```
+        ↓
+```
+
+Loop Through Executions
+
+```
+        ↓
+```
+
+Deduplicate Existing Trades
+
+```
+        ↓
+```
+
+Insert New Broker Trades
+
+```
+        ↓
+```
+
+Auto-Link Strategy Trades
+
+```
+        ↓
+```
+
+Commit Database Changes
+
+```
+        ↓
+```
+
+Display Import Summary
+
+=========================================================
+DATABASE LOCATION
+=================
+
+The module automatically resolves the database path:
+
+```
+trading.db
+```
+
+using:
+
+```
+os.path.dirname()
+os.path.abspath()
+```
+
+This ensures the importer functions correctly regardless of
+where the application is launched from.
+
+Example:
+
+Project Root/
+│
+├── trading.db
+│
+└── modules/
+└── broker_importer.py
+
+Generated Path:
+
+```
+ProjectRoot/trading.db
+```
+
+=========================================================
+DEPENDENCIES
+============
+
+Required Libraries
+
+```
+sqlite3
+pandas
+os
+tkinter
+```
+
+Imports
+
+```
+import sqlite3
+import pandas as pd
+import os
+import tkinter as tk
+
+from tkinter import (
+    filedialog,
+    messagebox
+)
+```
+
+=========================================================
+CLASS OVERVIEW
+==============
+
+BrokerImporter
+
+Primary class responsible for:
+
+```
+• Database connection
+• CSV loading
+• Trade insertion
+• Deduplication
+• Auto-linking
+• Import reporting
+```
+
+=========================================================
+INITIALIZATION
+==============
+
+def **init**(self)
+
+Creates:
+
+```
+SQLite connection
+Cursor object
+```
+
+Code:
+
+```
+self.conn = sqlite3.connect(DB_PATH)
+self.cur = self.conn.cursor()
+```
+
+Purpose:
+
+Provides persistent database access throughout the import
+process.
+
+=========================================================
+MAIN IMPORT FUNCTION
+====================
+
+import_webull_csv()
+
+This function acts as the primary entry point.
+
+Typically called from:
+
+```
+Tkinter Button
+Menu Command
+Toolbar Action
+Import Wizard
+```
+
+Example:
+
+```
+importer = BrokerImporter()
+importer.import_webull_csv()
+```
+
+=========================================================
+STEP 1
+USER CONFIRMATION
+=================
+
+Before any file is imported, a confirmation dialog appears.
+
+Prompt:
+
+```
+Import Webull executed trades CSV?
+
+This will deduplicate and sync broker_trades.
+```
+
+Purpose:
+
+Prevents accidental imports.
+
+Possible Outcomes:
+
+YES
+Continue Import
+
+NO
+Exit Function
+
+=========================================================
+STEP 2
+FILE SELECTION
+==============
+
+User selects Webull CSV export.
+
+Uses:
+
+```
+filedialog.askopenfilename()
+```
+
+Filter:
+
+```
+*.csv
+```
+
+Example:
+
+```
+ExecutedTrades.csv
+```
+
+If user cancels:
+
+```
+Function exits safely.
+```
+
+=========================================================
+STEP 3
+CSV LOADING
+===========
+
+Selected CSV is loaded into pandas.
+
+Code:
+
+```
+df = pd.read_csv(file_path)
+```
+
+Purpose:
+
+Convert broker export into a DataFrame for processing.
+
+=========================================================
+EXPECTED WEBULL COLUMNS
+=======================
+
+The importer expects the following columns.
+
+Required:
+
+```
+Symbol
+Name
+Side
+Status
+Filled
+Total Qty
+Price
+Avg Price
+Time-in-Force
+Placed Time
+Filled Time
+```
+
+Example:
+
+```
+Symbol
+AAPL
+
+Name
+Apple Inc.
+
+Side
+Buy
+
+Status
+Filled
+
+Filled
+100
+
+Total Qty
+100
+
+Price
+@190.55
+
+Avg Price
+@190.52
+```
+
+=========================================================
+IMPORT LOOP
+===========
+
+The importer processes every row individually.
+
+Code:
+
+```
+for _, row in df.iterrows():
+```
+
+Each row represents a completed broker execution.
+
+=========================================================
+FIELD EXTRACTION
+================
+
+Key values extracted:
+
+```
+symbol
+placed_time
+filled_time
+```
+
+Purpose:
+
+These values are used for duplicate detection.
+
+Example:
+
+```
+AAPL
+2026-06-01 09:30:00
+2026-06-01 09:30:05
+```
+
+=========================================================
+DEDUPLICATION ENGINE
+====================
+
+Before insertion, the importer checks whether the execution
+already exists.
+
+Query:
+
+```
+SELECT id
+FROM broker_trades
+WHERE symbol = ?
+AND placed_time = ?
+AND filled_time = ?
+```
+
+Logic:
+
+If record exists:
+
+```
+Skip insertion
+```
+
+If record does not exist:
+
+```
+Insert trade
+```
+
+=========================================================
+WHY DEDUPLICATION MATTERS
+=========================
+
+Without duplicate detection:
+
+```
+Re-importing the same CSV
+```
+
+would create:
+
+```
+Multiple identical executions
+```
+
+causing:
+
+```
+Incorrect trade counts
+Distorted statistics
+Inaccurate P/L tracking
+Journal corruption
+```
+
+The deduplication engine prevents this.
+
+=========================================================
+BROKER TRADE INSERTION
+======================
+
+New executions are inserted into:
+
+```
+broker_trades
+```
+
+Fields Stored
+
+```
+name
+symbol
+side
+status
+filled_qty
+total_qty
+price
+avg_price
+time_in_force
+placed_time
+filled_time
+```
+
+=========================================================
+BROKER_TRADES TABLE EXAMPLE
+===========================
+
+id                  101
+
+name                Apple Inc.
+
+symbol              AAPL
+
+side                Buy
+
+status              Filled
+
+filled_qty          100
+
+total_qty           100
+
+price               190.55
+
+avg_price           190.52
+
+time_in_force       DAY
+
+placed_time         2026-06-01
+
+filled_time         2026-06-01
+
+=========================================================
+BROKER TRADE ID CAPTURE
+=======================
+
+After insertion:
+
+```
+broker_id = self.cur.lastrowid
+```
+
+Purpose:
+
+Capture the newly created execution record.
+
+This ID is later used for trade linkage.
+
+=========================================================
+AUTO-LINK ENGINE
+================
+
+One of the most important features.
+
+After insertion:
+
+The importer searches for the most recent strategy trade
+matching the ticker.
+
+Query:
+
+```
+SELECT id
+FROM trades
+WHERE ticker = ?
+ORDER BY id DESC
+LIMIT 1
+```
+
+=========================================================
+LINKING LOGIC
+=============
+
+If matching trade found:
+
+```
+trades.broker_trade_id
+```
+
+is updated with:
+
+```
+broker_id
+```
+
+Result:
+
+Strategy Trade
+↓
+Broker Execution
+
+become connected.
+
+=========================================================
+EXAMPLE LINKAGE
+===============
+
+Before
+
+trades
+
+id      ticker      broker_trade_id
+
+55      AAPL        NULL
+
+After
+
+trades
+
+id      ticker      broker_trade_id
+
+55      AAPL        101
+
+Now:
+
+Trade Plan
+↔
+Actual Broker Fill
+
+=========================================================
+LINKING BENEFITS
+================
+
+Enables:
+
+```
+Execution Verification
+Trade Auditing
+Slippage Analysis
+Strategy Performance Tracking
+Broker Fill Validation
+Journal Reconciliation
+```
+
+=========================================================
+TRANSACTION COMMIT
+==================
+
+After all rows are processed:
+
+```
+self.conn.commit()
+```
+
+Purpose:
+
+Persist all database changes.
+
+Without commit:
+
+```
+Insertions would be lost.
+```
+
+=========================================================
+IMPORT SUMMARY REPORT
+=====================
+
+At completion:
+
+A summary popup displays.
+
+Example:
+
+```
+Import Complete
+
+Inserted: 25 broker trades
+
+Linked: 22 strategy trades
+```
+
+Meaning:
+
+Inserted
+
+```
+New executions added.
+```
+
+Linked
+
+```
+Strategy trades connected to broker fills.
+```
+
+=========================================================
+PRICE CLEANING ENGINE
+=====================
+
+Function:
+
+```
+_clean_price()
+```
+
+Purpose:
+
+Normalize broker price formatting.
+
+=========================================================
+WHY IT EXISTS
+=============
+
+Webull exports often contain:
+
+```
+@190.55
+```
+
+instead of:
+
+```
+190.55
+```
+
+SQLite numeric fields require a clean float value.
+
+=========================================================
+CLEANING PROCESS
+================
+
+Input:
+
+```
+@190.55
+```
+
+Processing:
+
+```
+replace("@", "")
+strip()
+```
+
+Output:
+
+```
+190.55
+```
+
+Converted To:
+
+```
+float(190.55)
+```
+
+=========================================================
+NULL HANDLING
+=============
+
+If value is missing:
+
+```
+NaN
+```
+
+Function returns:
+
+```
+None
+```
+
+This prevents conversion failures.
+
+=========================================================
+DATABASE TABLE REQUIREMENTS
+===========================
+
+broker_trades
+
+Required Fields
+
+```
+id
+name
+symbol
+side
+status
+filled_qty
+total_qty
+price
+avg_price
+time_in_force
+placed_time
+filled_time
+```
+
+=========================================================
+TRADES TABLE REQUIREMENTS
+=========================
+
+Required Fields
+
+```
+id
+ticker
+broker_trade_id
+```
+
+=========================================================
+TYPICAL USER WORKFLOW
+=====================
+
+1. Execute trades through Webull
+
+2. Export execution history
+
+3. Open Journal
+
+4. Click:
+
+   ```
+   Import Webull Trades
+   ```
+
+5. Select CSV export
+
+6. Importer validates data
+
+7. New executions inserted
+
+8. Strategy trades linked
+
+9. Import report displayed
+
+=========================================================
+ERROR CONDITIONS TO CONSIDER
+============================
+
+Potential Issues
+
+Missing CSV Columns
+
+```
+KeyError
+```
+
+Corrupt CSV
+
+```
+ParserError
+```
+
+Database Locked
+
+```
+sqlite3.OperationalError
+```
+
+Invalid Price Data
+
+```
+ValueError
+```
+
+Missing Database
+
+```
+sqlite3.Error
+```
+
+=========================================================
+RECOMMENDED FUTURE ENHANCEMENTS
+===============================
+
+Institutional Grade Upgrades
+
+1. Import Log Table
+
+   Track:
+
+   * Import Date
+   * File Name
+   * Rows Imported
+
+2. Multi-Broker Support
+
+   Webull
+   Schwab
+   Fidelity
+   IBKR
+   TradeStation
+
+3. Fill Reconciliation
+
+   Compare:
+
+   Planned Entry
+   Actual Fill
+
+4. Slippage Analysis
+
+   Planned Price
+   vs
+   Actual Fill
+
+5. Partial Fill Aggregation
+
+   Combine multiple fills
+   into one execution event
+
+6. Import Rollback
+
+   Undo last import
+
+7. Validation Layer
+
+   Verify CSV schema before import
+
+8. Exception Logging
+
+   Write failures to logs/import_errors.log
+
+=========================================================
+SYSTEM ROLE INSIDE NEA JOURNAL
+==============================
+
+The Broker Importer serves as the bridge between:
+
+```
+Trade Planning
+```
+
+and
+
+```
+Actual Broker Execution
+```
+
+It ensures the journal reflects real-world fills rather than
+theoretical entries, enabling accurate performance tracking,
+trade auditing, strategy validation, and institutional-grade
+execution reconciliation.
+
+In the overall architecture, this module acts as the official
+execution synchronization layer between Webull and the
+trading journal database.
+
+END OF FILE

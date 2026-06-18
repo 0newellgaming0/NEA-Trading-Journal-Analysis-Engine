@@ -1,0 +1,258 @@
+Module: Unified Timestamp + Dynamic OHLCV Normalizer
+File: ohlcv_normalizer.py (or equivalent)
+1. Overview
+
+This module provides a robust, institution-grade preprocessing layer for OHLCV market data. Its primary responsibility is to:
+
+Normalize inconsistent timestamp formats into a unified UTC datetime index
+Dynamically detect OHLCV columns without relying on strict naming conventions
+Standardize market data into a clean schema:
+High, Low, Close, Volume
+Enforce strict data validation rules to prevent silent corruption in downstream trading engines
+
+It is designed to act as a mandatory preprocessing gate before any Wyckoff, momentum, liquidity phase, or institutional flow analysis.
+
+2. Design Philosophy
+
+This module follows three core principles:
+
+2.1 No Assumptions
+
+Market data sources are inconsistent. This module avoids hardcoded column names like:
+
+open
+high
+close
+volume
+
+Instead, it uses pattern-based detection.
+
+2.2 Fail Loud, Not Silent
+
+Unlike typical pandas pipelines, this module:
+
+Raises explicit exceptions on invalid data
+Rejects NaN contamination immediately
+Rejects insufficient history instead of padding or guessing
+
+This ensures downstream signals (Wyckoff phases, liquidity shifts, etc.) remain institutionally reliable.
+
+2.3 Canonical Output Schema
+
+All outputs are forced into a standardized format:
+
+Column	Type	Description
+High	float	Bar high price
+Low	float	Bar low price
+Close	float	Closing price
+Volume	float	Trading volume
+timestamp	datetime (UTC)	Sorted time index
+3. Function: normalize_timestamp(df)
+3.1 Signature
+def normalize_timestamp(df: pd.DataFrame) -> pd.DataFrame
+4. Input Requirements
+4.1 Input Type
+Must be a pandas.DataFrame
+4.2 Required Time Column (one of):
+
+The function automatically detects one of:
+
+timestamp
+datetime
+date
+
+All are converted into:
+
+UTC datetime (pandas datetime64[ns, UTC])
+4.3 OHLCV Columns
+
+The function dynamically searches for columns matching:
+
+Matching Logic:
+
+A column is valid if it:
+
+starts with "high", "low", "close", "volume"
+OR ends with "high", "low", "close", "volume"
+OR exactly equals the prefix (case-insensitive)
+Examples Supported:
+high
+high_rbbn
+rbbn_high
+closeTSLA
+volume_x
+x_volume
+5. Processing Pipeline
+Step 1 — Validation
+Reject if:
+- df is None
+- df is not a DataFrame
+Step 2 — Timestamp Normalization
+Detect time column
+Convert using:
+pd.to_datetime(..., errors="coerce", utc=True)
+Drop invalid timestamps
+Sort ascending
+Reset index
+Step 3 — Dynamic Column Detection
+
+Finds OHLCV columns using flexible pattern matching.
+
+If any are missing:
+
+Missing Field	Error Raised
+High	Missing High column
+Low	Missing Low column
+Close	Missing Close column
+Volume	Missing Volume column
+Step 4 — Standardization
+
+Creates canonical columns:
+
+df["High"]
+df["Low"]
+df["Close"]
+df["Volume"]
+
+All values are converted using:
+
+pd.to_numeric(errors="coerce")
+Step 5 — Hard Validation
+
+The system enforces strict integrity checks:
+
+1. NaN Check
+if df[required].isna().any().any()
+
+If any NaNs exist → Exception raised
+
+2. Minimum History Check
+if len(df) < 30:
+
+Rejects datasets with fewer than 30 bars.
+
+This ensures:
+
+Wyckoff phase detection stability
+Moving average validity
+Volume regime reliability
+6. Output
+
+Returns a cleaned and standardized DataFrame:
+
+return df
+Guaranteed Structure:
+Sorted by timestamp (ascending)
+UTC-normalized time index
+Clean OHLCV numeric fields
+No NaN values
+Minimum 30 bars of history
+7. Error Handling
+7.1 Invalid Input
+ValueError("OHLCV input is invalid")
+7.2 Missing Time Column
+ValueError(f"Missing time column. Got: {list(df.columns)}")
+7.3 Missing OHLCV Fields
+
+Examples:
+
+ValueError("Missing High column. Available: [...]")
+ValueError("Missing Low column. Available: [...]")
+ValueError("Missing Close column. Available: [...]")
+ValueError("Missing Volume column. Available: [...]")
+7.4 Data Integrity Failure
+ValueError("NaN detected after OHLCV normalization")
+7.5 Insufficient Data
+ValueError(f"Insufficient history (X bars)")
+8. Integration Use Cases
+
+This module is a required dependency layer for:
+
+8.1 Wyckoff Phase Engines
+Accumulation detection
+Distribution detection
+Spring / Upthrust validation
+8.2 Liquidity Phase Systems
+Discovery phase modeling
+Expansion / exhaustion cycles
+8.3 Volume Analysis Systems
+RVOL computation
+OBV / ADL slopes
+Institutional accumulation scoring
+8.4 Multi-Timeframe Trading Systems
+
+Ensures consistency across:
+
+1m / 5m / 15m / 1h / Daily datasets
+9. Design Strengths
+9.1 Exchange-Agnostic
+
+Works with:
+
+Yahoo Finance exports
+Broker CSV dumps
+Custom SQLite exports
+API streaming data
+9.2 Schema Resilient
+
+Handles:
+
+suffixed OHLCV columns (high_TSLA)
+prefixed OHLCV columns (TSLA_high)
+mixed naming conventions
+9.3 Institutional Safety Layer
+
+Prevents:
+
+Silent NaN propagation
+Misaligned time series
+Partial dataset bias
+Low-sample statistical distortion
+10. Example Usage
+import pandas as pd
+from modules.ohlcv_normalizer import normalize_timestamp
+
+df = pd.read_csv("TSLA_1h.csv")
+
+clean_df = normalize_timestamp(df)
+
+print(clean_df.head())
+11. Expected Input Example
+Raw Input:
+datetime, high_TSLA, low_TSLA, close_TSLA, volume_TSLA
+After Normalization:
+timestamp (UTC)
+High
+Low
+Close
+Volume
+12. Failure Mode Philosophy
+
+This module intentionally avoids:
+
+guesswork imputation
+forward-filling missing data
+smoothing corrupted series
+partial normalization
+
+Instead, it enforces:
+
+“If data integrity is not guaranteed, analysis is invalid.”
+
+13. Performance Notes
+Complexity: O(n × m) (m = number of columns)
+Suitable for:
+intraday streaming data
+large historical datasets
+Lightweight transformation layer (no heavy computation)
+14. Summary
+
+This module is a critical data integrity firewall for all downstream trading analytics.
+
+It ensures:
+
+Clean timestamps (UTC aligned)
+Standard OHLCV schema
+Strict validation rules
+No hidden data corruption
+Multi-source compatibility

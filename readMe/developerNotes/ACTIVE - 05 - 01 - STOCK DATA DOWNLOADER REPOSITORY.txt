@@ -1,0 +1,317 @@
+README.TXT — Stock & Financial Data Repository Module
+1. Overview
+
+This module provides a SQLite-based persistence layer for a trading system focused on:
+
+OHLCV market data storage (Open, High, Low, Close, Volume)
+Financial statement storage (serialized JSON)
+Ingestion logging and audit trail
+Standardized database path resolution via modules.path_resolver
+
+It is designed as a backend repository layer for a larger trading/journal system, ensuring that all market and fundamental data is stored consistently and traceably.
+
+2. Module Purpose
+
+The module centralizes all database writes into two primary domains:
+
+Market Data
+
+Stores time-series OHLCV data for multiple tickers and timeframes.
+
+Financial Data
+
+Stores structured financial statements (income statement, balance sheet, cash flow, etc.) in JSON format.
+
+Ingestion Tracking
+
+Logs every data ingestion event for debugging, monitoring, and historical audit.
+
+3. Architecture Overview
+modules/
+ ├── stock_data_db/
+ │    ├── repository.py   ← THIS FILE
+ ├── path_resolver.py     ← Provides DB file locations
+Databases Used
+Database	Purpose
+STOCK_DB_PATH	OHLCV time-series storage
+FIN_DB_PATH	Financial statement storage
+LOG_DB_PATH	Ingestion logs
+
+All paths are dynamically resolved:
+
+from modules.path_resolver import (
+    get_stock_db_path,
+    get_financial_db_path,
+    get_ingestion_db_path
+)
+
+This ensures portability across environments (local, production, testing).
+
+4. Dependencies
+Standard Library
+sqlite3
+os
+json
+datetime
+External Dependencies
+None directly required (expects prebuilt SQLite schema)
+System Dependency
+SQLite database files must exist with correct schema tables:
+ohlcv_data
+financial_statements
+ingestion_log
+5. Database Schema Requirements
+5.1 ohlcv_data
+
+Required structure:
+
+CREATE TABLE ohlcv_data (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ticker TEXT NOT NULL,
+    timeframe TEXT NOT NULL,
+    timestamp TEXT NOT NULL,
+
+    open REAL,
+    high REAL,
+    low REAL,
+    close REAL,
+    adj_close REAL,
+    volume REAL,
+
+    created_at TEXT
+);
+5.2 ingestion_log
+CREATE TABLE ingestion_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ticker TEXT,
+    timeframe TEXT,
+    action TEXT,
+    rows_added INTEGER,
+    status TEXT,
+    timestamp TEXT
+);
+5.3 financial_statements
+CREATE TABLE financial_statements (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ticker TEXT,
+    statement_type TEXT,
+    data_json TEXT,
+    period TEXT,
+    created_at TEXT
+);
+6. Core Classes
+6.1 StockDataRepository
+Purpose
+
+Handles:
+
+OHLCV insertion
+ingestion logging
+Initialization
+repo = StockDataRepository()
+Internal Connections
+self.conn → Stock database
+self.log_conn → Ingestion log database
+Method: insert_ohlcv_df()
+Purpose
+
+Inserts a pandas DataFrame of OHLCV data into the database.
+
+Signature
+insert_ohlcv_df(ticker, timeframe, df)
+Parameters
+Parameter	Type	Description
+ticker	str	Stock symbol (e.g., AAPL)
+timeframe	str	Data interval (1m, 5m, daily, etc.)
+df	pandas.DataFrame	Must contain OHLCV columns
+Expected DataFrame Columns
+datetime OR date
+open
+high
+low
+close
+adj_close
+volume
+Behavior
+Iterates row-by-row
+Extracts values using .get()
+Uses UTC timestamp for ingestion tracking
+Commits after full batch insert
+Example Usage
+repo = StockDataRepository()
+repo.insert_ohlcv_df("AAPL", "daily", df)
+Method: log_ingestion()
+Purpose
+
+Records ingestion activity into ingestion_log.
+
+Signature
+log_ingestion(ticker, timeframe, rows_added, status)
+Parameters
+Parameter	Type	Description
+ticker	str	Stock symbol
+timeframe	str	Data interval
+rows_added	int	Number of inserted rows
+status	str	success / failure / partial
+Example
+repo.log_ingestion("AAPL", "daily", 500, "success")
+Logged Action Type
+
+Always recorded as:
+
+ohlcv_update
+7. FinancialRepository
+Purpose
+
+Stores financial statement data as serialized JSON.
+
+Initialization
+fin_repo = FinancialRepository()
+
+Connects automatically to:
+
+FIN_DB_PATH
+Method: insert_statement()
+Purpose
+
+Stores a financial statement DataFrame as JSON.
+
+Signature
+insert_statement(ticker, statement_type, df)
+Parameters
+Parameter	Type	Description
+ticker	str	Stock symbol
+statement_type	str	income_statement / balance_sheet / cashflow
+df	pandas.DataFrame	Financial dataset
+Behavior
+Validates input (None or empty DataFrame is ignored)
+Converts DataFrame → dictionary → JSON string
+Stores as data_json
+Marks period as "latest"
+Uses UTC timestamp
+Example Usage
+fin_repo = FinancialRepository()
+fin_repo.insert_statement(
+    "AAPL",
+    "income_statement",
+    financial_df
+)
+8. Data Flow Architecture
+OHLCV Pipeline
+Data Source (Yahoo / API / CSV)
+        ↓
+Pandas DataFrame
+        ↓
+insert_ohlcv_df()
+        ↓
+SQLite: ohlcv_data
+        ↓
+log_ingestion()
+        ↓
+SQLite: ingestion_log
+Financial Pipeline
+Financial API / Scraper
+        ↓
+DataFrame
+        ↓
+insert_statement()
+        ↓
+JSON serialization
+        ↓
+SQLite: financial_statements
+9. Design Notes
+9.1 Row-by-Row Inserts
+
+The OHLCV insertion uses iterative inserts:
+
+Pros: simple, stable
+Cons: slower for large datasets
+
+Optimization option (future):
+
+bulk executemany()
+9.2 UTC Standardization
+
+All timestamps use:
+
+datetime.utcnow().isoformat()
+
+This ensures:
+
+No timezone drift
+Cross-system consistency
+9.3 Loose Schema Mapping
+
+The module uses:
+
+row.get("open")
+
+This allows:
+
+Flexible upstream DataFrames
+Reduced strict schema coupling
+10. Error Handling Behavior
+
+Currently minimal internal error handling:
+
+Assumes valid schema exists
+Assumes DataFrame columns are correct
+Relies on upstream validation
+Recommended Enhancements
+Add try/except around DB inserts
+Validate DataFrame schema before insert
+Add rollback support on batch failure
+11. Performance Considerations
+
+Current constraints:
+
+Row-by-row inserts may slow ingestion for large datasets
+No indexing logic defined in module
+No connection pooling
+
+Recommended upgrades:
+
+Batch inserts (executemany)
+WAL mode for SQLite
+Index on (ticker, timeframe, timestamp)
+12. Extension Points
+
+This module is designed to be extended into:
+
+12.1 Market Intelligence Layer
+Pattern detection outputs
+Signal storage
+Indicator snapshots
+12.2 Backtesting Engine
+Historical OHLCV queries
+Trade simulation logging
+12.3 Financial Analysis Layer
+Ratio extraction from stored JSON
+Quarterly comparison engine
+13. Common Issues
+Issue: Missing tables
+
+Cause: DB not initialized
+Fix: Ensure schema creation scripts are executed before repository use
+
+Issue: KeyError in DataFrame
+
+Cause: Missing OHLCV columns
+Fix: Normalize DataFrame before insertion
+
+Issue: Duplicate entries
+
+Cause: No uniqueness constraints defined
+Fix: Add unique index on:
+
+ticker + timeframe + timestamp
+14. Summary
+
+This module serves as the core persistence layer of a trading system, responsible for:
+
+Reliable OHLCV storage
+Structured financial data persistence
+Full ingestion audit logging
+Clean separation of stock vs financial databases
+
+It is intentionally lightweight, allowing higher-level modules (analysis, risk engine, journal system) to remain decoupled from database logic.

@@ -1,0 +1,285 @@
+README.TXT — Database Initialization Module (Stock Trading System)
+1. Overview
+
+This module is responsible for initializing all SQLite databases required by the trading system.
+
+It defines the database schema layer and ensures that all required tables and indexes exist before any data ingestion, analysis, or repository operations begin.
+
+It is the foundation layer of persistence for the entire system.
+
+2. Purpose
+
+This file handles three core responsibilities:
+
+1. Stock Market Data Storage
+
+Stores OHLCV (Open, High, Low, Close, Volume) time-series data.
+
+2. Financial Data Storage
+
+Stores structured financial statements as JSON blobs.
+
+3. Ingestion Logging
+
+Tracks all data ingestion events for auditing and debugging.
+
+3. File Architecture
+project_root/
+│
+├── stock_data.db        → OHLCV market data
+├── financials.db        → Financial statements
+├── ingestion.db         → ingestion logs
+│
+└── init_db.py           → THIS FILE
+4. Database File Locations
+
+All databases are stored relative to the module location:
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+Resulting Paths
+Database	File
+STOCK_DB	stock_data.db
+FIN_DB	financials.db
+LOG_DB	ingestion.db
+
+This ensures:
+
+Portable structure
+No external configuration required
+Consistent local environment setup
+5. Dependencies
+Standard Library Only
+sqlite3 → database engine
+os → path resolution
+
+No external dependencies are required.
+
+6. System Design Philosophy
+
+This module follows a "schema-first initialization" pattern:
+
+Databases are created automatically if missing
+Tables are created only if they do not exist
+System can safely reinitialize without data loss
+Idempotent execution (safe to run multiple times)
+7. Database Schemas
+7.1 STOCK DATABASE (OHLCV)
+Function: init_stock_db()
+
+Creates the primary market data table.
+
+Table: ohlcv_data
+CREATE TABLE ohlcv_data (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ticker TEXT,
+    timeframe TEXT,
+    timestamp TEXT,
+    open REAL,
+    high REAL,
+    low REAL,
+    close REAL,
+    adj_close REAL,
+    volume REAL,
+    created_at TEXT
+);
+Field Descriptions
+Field	Meaning
+ticker	Stock symbol (e.g., AAPL)
+timeframe	Data interval (1m, 5m, daily, etc.)
+timestamp	Candle timestamp
+open	Opening price
+high	High price
+low	Low price
+close	Closing price
+adj_close	Adjusted close (splits/dividends)
+volume	Trade volume
+created_at	Ingestion timestamp (UTC)
+Indexing Strategy
+CREATE INDEX idx_stock_lookup
+ON ohlcv_data (ticker, timeframe, timestamp);
+Purpose:
+
+Optimizes queries for:
+
+Historical price retrieval
+Multi-timeframe analysis
+Backtesting engines
+Indicator calculations
+Typical Query Pattern:
+SELECT *
+FROM ohlcv_data
+WHERE ticker = ?
+AND timeframe = ?
+ORDER BY timestamp;
+7.2 FINANCIAL DATABASE
+Function: init_financial_db()
+
+Stores fundamental financial statements.
+
+Table: financial_statements
+CREATE TABLE financial_statements (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ticker TEXT,
+    statement_type TEXT,
+    data_json TEXT,
+    period TEXT,
+    created_at TEXT
+);
+Field Descriptions
+Field	Meaning
+ticker	Stock symbol
+statement_type	income_statement, balance_sheet, cashflow
+data_json	Full structured financial dataset (JSON)
+period	Reporting period (e.g., quarterly, latest)
+created_at	Timestamp of ingestion
+Design Choice: JSON Storage
+
+Financial data is stored as:
+
+data_json
+Why JSON?
+Preserves full financial structure
+Supports nested metrics
+Avoids rigid schema redesigns
+Compatible with multiple data providers
+7.3 INGESTION LOG DATABASE
+Function: init_log_db()
+
+Tracks all ingestion activity across the system.
+
+Table: ingestion_log
+CREATE TABLE ingestion_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ticker TEXT,
+    timeframe TEXT,
+    action TEXT,
+    rows_added INTEGER,
+    status TEXT,
+    timestamp TEXT
+);
+Field Descriptions
+Field	Meaning
+ticker	Stock symbol
+timeframe	Data interval
+action	Type of ingestion (e.g., ohlcv_update)
+rows_added	Number of rows inserted
+status	success / failure / partial
+timestamp	UTC time of event
+Purpose of Logging Layer
+
+This table enables:
+
+Data ingestion auditing
+Debugging failed imports
+Monitoring pipeline health
+Historical ingestion reconstruction
+8. MASTER INITIALIZATION FUNCTION
+Function: init_all()
+def init_all():
+    init_stock_db()
+    init_financial_db()
+    init_log_db()
+Purpose
+
+This is the single entry point to initialize the entire database system.
+
+Behavior
+
+When called:
+
+Creates stock database + OHLCV table + index
+Creates financial database + statements table
+Creates ingestion log database + log table
+Recommended Usage
+
+Call ONCE at application startup:
+
+from modules.init_db import init_all
+
+init_all()
+9. System Startup Flow
+Application Start
+        ↓
+init_all()
+        ↓
+[stock_data.db] initialized
+[financials.db] initialized
+[ingestion.db] initialized
+        ↓
+Repositories become safe to use
+        ↓
+Data ingestion begins
+10. Design Characteristics
+10.1 Idempotent Initialization
+Safe to run multiple times
+Uses IF NOT EXISTS for all tables/indexes
+10.2 Separation of Concerns
+
+Each database has a single responsibility:
+
+DB	Responsibility
+stock_data.db	Market OHLCV data
+financials.db	Fundamental data
+ingestion.db	Logging & monitoring
+10.3 Lightweight Schema Strategy
+No foreign keys
+No relational coupling between DBs
+Optimized for speed and simplicity
+Designed for analytical rather than transactional workloads
+11. Performance Considerations
+Strengths
+Indexed OHLCV lookup table
+Lightweight schema design
+Minimal joins required
+Potential Enhancements
+
+Add WAL mode:
+
+PRAGMA journal_mode=WAL;
+Add compression layer for JSON financial data
+Partition OHLCV by year/month for large datasets
+12. Common Issues
+Issue: Database file not created
+
+Cause: init_all() not called
+Fix: Ensure startup initialization is executed
+
+Issue: Slow queries
+
+Cause: Missing or unused index
+Fix: Ensure (ticker, timeframe, timestamp) index exists
+
+Issue: Duplicate data
+
+Cause: No uniqueness constraints
+Fix: Consider adding:
+
+UNIQUE(ticker, timeframe, timestamp)
+13. Extension Points
+
+This module is designed to support:
+
+13.1 Trading Engine
+Real-time ingestion pipelines
+Indicator calculations
+13.2 Backtesting System
+Historical OHLCV retrieval
+Strategy simulation
+13.3 Financial Analytics Layer
+Ratio computation from JSON
+Fundamental screening engine
+13.4 Risk & Journal System
+Trade logging
+Performance tracking
+14. Summary
+
+This module is the core database bootstrap system for the entire trading architecture.
+
+It ensures:
+
+All databases exist before runtime
+Schema consistency across environments
+Safe and repeatable initialization
+Separation between market, financial, and logging data
+
+It acts as the foundation layer upon which all analytics, trading logic, and journaling systems depend.

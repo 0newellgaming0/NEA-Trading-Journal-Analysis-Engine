@@ -1,0 +1,360 @@
+=========================================================
+WATCHLIST MODULE - README.TXT
+Institutional Watchlist + Journal + Webull Integration System
+=========================================================
+
+Author: NEA Trading System (Institutional Pipeline)
+Type: Hybrid GUI + Database + Market Data Aggregation Module
+Core Dependency: tkinter, sqlite3, pandas, yfinance (optional)
+
+=========================================================
+1. OVERVIEW
+=========================================================
+
+This module implements a real-time institutional watchlist system designed for multi-source ticker aggregation and lightweight market state visualization.
+
+It functions as a unified “ticker intelligence layer” combining:
+
+- Journal-based trading activity (journal.csv)
+- Webull order history ingestion (Webull_Orders_Records.csv)
+- Persistent SQLite database storage (watchlist.db)
+- Live market snapshot enrichment (Yahoo Finance via yfinance)
+- Tkinter GUI dashboard for interactive monitoring
+
+The system is designed to support institutional-style workflow analysis, where tickers are not manually managed but automatically derived from trading activity and execution records.
+
+=========================================================
+2. CORE DESIGN PRINCIPLES
+=========================================================
+
+2.1 Source of Truth Architecture
+---------------------------------------------------------
+The SQLite database (watchlist.db) is the persistent layer that stores:
+
+- Watchlist tickers (unique universe of instruments)
+- Full Webull order history (normalized structured table)
+
+No CSV file is treated as authoritative at runtime. CSVs are ingestion sources only.
+
+2.2 Multi-Source Aggregation
+---------------------------------------------------------
+Tickers are automatically extracted from:
+
+A) Trading Journal
+   Path: /data/systemFiles/journal.csv
+   Field: ticker
+
+B) Webull Order Records
+   Path: /data/systemFiles/Webull_Orders_Records.csv
+   Field: Symbol
+
+Both sources are merged into a unified ticker universe.
+
+2.3 Dual Layer Data Model
+---------------------------------------------------------
+The system maintains two distinct datasets:
+
+1. WATCHLIST TABLE
+   - Lightweight ticker universe
+   - Used for UI display and market snapshots
+
+2. WEBULL_ORDERS TABLE
+   - Full transactional order history
+   - Preserves execution-level detail:
+     Name, Symbol, Side, Status, Filled, Qty, Price, Avg Price, TIF, timestamps
+
+=========================================================
+3. DATABASE SCHEMA
+=========================================================
+
+3.1 Database File
+---------------------------------------------------------
+File: watchlist.db
+
+3.2 Tables
+---------------------------------------------------------
+
+TABLE: watchlist
+-----------------------------------------
+Stores unique ticker universe.
+
+Columns:
+- id (INTEGER PRIMARY KEY)
+- ticker (TEXT UNIQUE)
+
+Purpose:
+- Drives GUI watchlist
+- Prevents duplicate tickers
+- Aggregated from multiple sources
+
+-----------------------------------------
+
+TABLE: webull_orders
+-----------------------------------------
+Stores full order execution history.
+
+Columns:
+- id (INTEGER PRIMARY KEY)
+- Name (TEXT)
+- Symbol (TEXT)
+- Side (TEXT)
+- Status (TEXT)
+- Filled (TEXT)
+- total_qty (REAL)
+- Price (REAL)
+- avg_price (REAL)
+- time_in_force (TEXT)
+- placed_time (TEXT)
+- filled_time (TEXT)
+
+Purpose:
+- Full reconstruction of trading activity
+- Backtesting / behavioral analysis
+- Execution tracking and review
+
+=========================================================
+4. DATA INGESTION PIPELINE
+=========================================================
+
+4.1 Journal Ingestion
+---------------------------------------------------------
+Function: extract_tickers_from_journal()
+
+- Reads journal.csv
+- Extracts "ticker" column
+- Normalizes to uppercase
+- Removes duplicates
+
+Output:
+- List[str] of tickers
+
+---------------------------------------------------------
+
+4.2 Webull Ingestion (Tickers)
+---------------------------------------------------------
+Function: extract_tickers_from_webull_orders()
+
+- Reads Webull_Orders_Records.csv
+- Extracts "Symbol" column
+- Normalizes to uppercase
+- Removes duplicates
+
+---------------------------------------------------------
+
+4.3 Webull Full Table Sync
+---------------------------------------------------------
+Function: sync_webull_orders_to_db()
+
+Behavior:
+- Loads full CSV
+- Validates required schema
+- Clears existing DB table (full refresh)
+- Inserts normalized rows into SQLite
+
+This ensures DB mirrors latest file state.
+
+=========================================================
+5. WATCHLIST SYNCHRONIZATION LOGIC
+=========================================================
+
+Function: sync_watchlist_from_sources()
+
+Pipeline:
+
+1. Extract tickers from journal
+2. Extract tickers from Webull orders
+3. Merge both sets
+4. Upsert into watchlist table
+5. Sync full Webull orders table
+
+Result:
+- Unified ticker universe
+- Fully refreshed execution history
+
+=========================================================
+6. MARKET DATA ENRICHMENT
+=========================================================
+
+Function: get_snapshot(ticker)
+
+Data source:
+- Yahoo Finance (yfinance)
+
+Returns:
+- Last close price
+- Percent change (last 2 trading days)
+- Volume
+
+Failure handling:
+- Returns None if API unavailable or insufficient data
+
+---------------------------------------------------------
+
+Market State Classification:
+Function: get_state(change_pct)
+
+States:
+
+- MARKUP     (> +2%)
+- MARKDOWN   (< -2%)
+- ACC/DIST   (±0.5%)
+- TRANSITION (everything else)
+
+Purpose:
+- Simplified Wyckoff-style regime labeling
+- Quick institutional bias classification
+
+=========================================================
+7. USER INTERFACE (Tkinter)
+=========================================================
+
+Class: WatchlistPopup(tk.Toplevel)
+
+7.1 UI Layout
+---------------------------------------------------------
+- Header bar (title + controls)
+- Treeview table (watchlist grid)
+- Columns:
+
+  ticker | price | change | volume | state
+
+7.2 Controls
+---------------------------------------------------------
+SYNC:
+- Triggers full ingestion from CSV sources
+- Updates SQLite + UI
+
+REFRESH:
+- Forces market snapshot refresh cycle
+
+7.3 Interaction
+---------------------------------------------------------
+Double-click on ticker:
+
+- Builds row context:
+  {
+    ticker,
+    account,
+    risk_dollar,
+    stop,
+    buy_now_price,
+    buy_now_shares,
+    buy_now_total
+  }
+
+- Passes to:
+  generate_signal_template(row)
+
+- Sends result to:
+  parent.show_analysis_panel()
+
+Note:
+This module assumes external integration with a journal/analysis engine.
+
+=========================================================
+8. REFRESH SYSTEM (LIVE LOOP)
+=========================================================
+
+Function: start_loop()
+
+Behavior:
+- Background thread
+- Refresh cycle every 6 hours
+- Limited to 4 updates per day
+- Resets daily automatically
+
+Purpose:
+- Prevents API overuse
+- Maintains lightweight live updates
+
+=========================================================
+9. SORTING SYSTEM
+=========================================================
+
+Function: sort_by(column)
+
+- Extracts Treeview column values
+- Attempts numeric conversion
+- Sorts ascending/descending toggle
+- Rearranges UI rows
+
+Supports sorting on:
+- ticker
+- price
+- change
+- volume
+- state
+
+=========================================================
+10. ERROR HANDLING STRATEGY
+=========================================================
+
+- CSV ingestion failures → safely ignored
+- Missing columns → silent skip
+- yfinance failure → returns None
+- DB connection always closed per transaction
+
+Design philosophy:
+Fail soft, not hard.
+
+=========================================================
+11. DEPENDENCY NOTES
+=========================================================
+
+Required:
+- tkinter
+- sqlite3
+- pandas
+
+Optional:
+- yfinance (market data enrichment)
+
+If yfinance is unavailable:
+- System still functions (watchlist + DB + UI remain intact)
+
+=========================================================
+12. FILE PATH CONFIGURATION
+=========================================================
+
+Journal File:
+- /data/systemFiles/journal.csv
+
+Webull Orders File:
+- /data/systemFiles/Webull_Orders_Records.csv
+
+Database:
+- watchlist.db (local execution directory)
+
+=========================================================
+13. SYSTEM BEHAVIOR SUMMARY
+=========================================================
+
+This module acts as a:
+
+- Ticker Aggregation Engine
+- Order History Normalizer
+- Lightweight Market State Dashboard
+- Institutional Watchlist Viewer
+
+It is NOT a trading execution system.
+
+It is designed to:
+
+- Consolidate trading activity signals
+- Provide real-time market context
+- Feed higher-level analysis systems (journal, signal engine)
+
+=========================================================
+14. INTEGRATION POINTS
+=========================================================
+
+This module expects external systems:
+
+- generate_signal_template(row)
+- parent.show_analysis_panel()
+
+These are NOT defined here and must exist in the parent application layer.
+
+=========================================================
+END OF README
+=========================================================

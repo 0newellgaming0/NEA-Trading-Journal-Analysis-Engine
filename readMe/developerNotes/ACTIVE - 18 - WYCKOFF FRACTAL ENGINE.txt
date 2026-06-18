@@ -1,0 +1,386 @@
+README.TXT
+Wyckoff Fractal Lifecycle & Cross-Timeframe Structural Engine (v3.1)
+1. Overview
+
+This module implements a multi-timeframe structural market engine based on fractal lifecycle modeling, volume-price interaction, and regime classification inspired by the Wyckoff Method framework.
+
+It transforms raw OHLCV data into:
+
+Structural market phases (Accumulation → Absorption → Markup → Transition)
+A fractal lifecycle state model
+Cross-timeframe regime alignment (60M / Daily / Weekly)
+An institutional strength score
+Journal-ready structured output
+
+The core objective is to approximate institutional behavior inference using statistical compression, slope dynamics, and volume-response asymmetry.
+
+2. Design Philosophy
+
+Markets are modeled as:
+
+A liquidity-driven adaptive system transitioning through compression and expansion cycles
+
+This engine assumes:
+
+Price movement is not random; it is state-dependent
+Volume is a proxy for institutional participation
+Compression precedes expansion
+Breakouts are valid only when supported by:
+absorption
+volatility contraction
+structural pressure buildup
+
+The model encodes these assumptions into continuous numeric state variables and then discretizes them into regime events.
+
+3. Data Requirements
+
+Input DataFrame must contain:
+
+Column	Required	Description
+High	Yes	Period high
+Low	Yes	Period low
+Close	Yes	Closing price
+Volume	Yes	Trading volume
+timestamp / date / datetime / index	Yes	Time index
+Accepted timestamp formats:
+timestamp
+date
+datetime
+DatetimeIndex
+
+The normalize_ohlcv() function standardizes all formats into a unified UTC timestamp.
+
+4. Core Pipeline Architecture
+STEP 1 — Normalization
+normalize_ohlcv(df)
+
+Responsibilities:
+
+Ensures consistent timestamp format
+Converts OHLCV columns to numeric
+Removes invalid rows
+Sorts chronologically
+STEP 2 — Resampling Engine
+
+Inside analyze_wyckoff_fractals():
+
+60M → "60min"
+Daily → "1D"
+Weekly → "1W"
+
+Each timeframe is independently processed.
+
+STEP 3 — Lifecycle State Model
+
+Function:
+
+compute_lifecycle_state(df)
+
+This is the core fractal intelligence engine.
+
+It computes 4 key latent variables:
+
+1. Accumulation Curve
+
+Measures compression + trend stagnation:
+
+High compression = potential accumulation zone
+Penalized by strong slope (trend already established)
+2. Absorption Saturation
+
+Measures volume efficiency:
+
+absorption=
+price response
+volume ratio
+	​
+
+
+Interpretation:
+
+High volume + low price movement → absorption
+3. Breakout Pressure
+
+Combination of:
+
+Accumulation
+Absorption
+
+Represents latent directional energy
+
+4. Efficiency Decay
+
+Measures:
+
+Price movement per unit volume
+
+High decay = inefficient movement (often institutional repositioning)
+
+5. Liquidity Sweep Detection
+
+Function:
+
+detect_liquidity_sweep()
+
+Detects engineered liquidity grabs:
+
+Bearish Sweep (UTAD-like behavior)
+
+Occurs when:
+
+Price breaks above range high
+Closes back inside range
+Volume confirms displacement
+Bullish Sweep (Spring-like behavior)
+
+Occurs when:
+
+Price breaks below range low
+Recovers back into range
+Volume confirms participation
+
+Outputs:
+
+{
+  "type": "BullishSweep / BearishSweep",
+  "confirmed": bool,
+  "penetration_pct": float,
+  "context": string
+}
+6. Structural Positioning
+
+Function:
+
+calculate_structural_position()
+
+Normalizes price within a range:
+
+position=
+high−low
+close−low
+	​
+
+
+Output:
+
+0 → bottom of range
+0.5 → midpoint
+1 → range high
+
+Used for regime interpretation.
+
+7. Sequence Classification Engine
+
+Function:
+
+classify_sequence()
+
+Uses state vectors:
+
+accumulation_curve
+absorption_saturation
+breakout_pressure
+Output regimes:
+Regime	Meaning
+ACCUMULATION	Compression dominant
+ABSORPTION	Volume absorption phase
+MARKUP	Expansion phase
+TRANSITION	Neutral / unclear structure
+8. Strength Vector Model
+
+Function:
+
+compute_strength_vector()
+
+Generates 4D structural vector:
+
+regime_pressure
+absorption_depth
+breakout_quality
+liquidity_displacement
+
+This vector is the fundamental representation of market state.
+
+9. Breakout Validation Logic
+
+Function:
+
+is_valid_breakout()
+
+A breakout is only valid if:
+
+breakout_quality ≥ 0.6
+absorption_depth ≥ 0.5
+liquidity_displacement ≤ 0.7
+
+This prevents false breakouts caused by:
+
+low liquidity spikes
+noise volatility
+weak institutional participation
+10. Timeframe Engine (Core State Machine)
+
+Function:
+
+run_tf(df)
+Responsibilities:
+Runs lifecycle model
+Generates phase transitions
+Captures regime changes as events
+Output:
+{
+  "events": [...],
+  "state": state_dict,
+  "final_score": float
+}
+Event Structure:
+{
+  "type": phase,
+  "index": i,
+  "price": float,
+  "strength_vector": dict,
+  "score": float,
+  "timestamp": datetime
+}
+
+Only the last 10 events are retained.
+
+11. Cross-Timeframe Solver
+
+Function:
+
+resolve_ctf()
+
+Aligns:
+
+Weekly bias
+Daily bias
+60M bias
+Mechanism:
+Extracts regime pressure from each timeframe
+Applies bounded propagation:
+Weekly constrains Daily
+Daily constrains 60M
+Purpose:
+
+Prevents lower timeframe noise from overriding macro structure.
+
+12. Institutional Scoring Model
+
+Computed in:
+
+analyze_wyckoff_fractals()
+
+Final score:
+
+mean(weekly_score, daily_score, m60_score)
+
+Represents:
+
+Overall institutional structural alignment strength
+
+13. Main Engine Flow
+Function:
+analyze_wyckoff_fractals(df)
+Pipeline:
+Normalize data
+Resample into 3 timeframes
+Run lifecycle engine per timeframe
+Apply cross-timeframe constraints
+Aggregate institutional score
+Return structured output
+Output:
+{
+  "timeframes": {
+    "60M": {...},
+    "Daily": {...},
+    "Weekly": {...}
+  },
+  "institutional_score": float
+}
+14. Journal Formatter
+
+Function:
+
+format_for_journal()
+
+Produces human-readable output:
+
+Example:
+WYCKOFF FRACTAL JOURNAL
+Ticker: XYZ
+
+Score: 0.7421
+
+- Weekly | ACCUMULATION | Score 0.81 | 52.30
+- Daily | MARKUP | Score 0.77 | 53.10
+- 60M | TRANSITION | Score 0.63 | 53.05
+
+Used for:
+
+trading journal entries
+dashboard reporting
+system logs
+15. Safety & Stability Design
+Defensive Programming Features:
+safe_float() prevents type crashes
+poly_slope() guards against NaNs
+All state arrays initialized with zeros
+All divisions protected with epsilon (1e-6)
+Extensive try/except fallback behavior
+16. Key Mathematical Concepts
+1. Compression Metric
+compression=1−
+close
+high−low
+	​
+
+2. Volume Efficiency
+absorption=
+price_change
+volume
+	​
+
+3. Breakout Pressure
+pressure=accumulation×absorption
+4. Efficiency Decay
+decay=
+volume
+price_change
+	​
+
+17. Edge Cases Handled
+Missing timestamps → auto-detection
+Empty DataFrame → safe fallback
+Zero range values → avoided division
+NaN-heavy datasets → filtered
+Flat markets → slope neutralization
+18. Performance Notes
+Complexity: O(n) per timeframe
+Resampling adds O(n log n)
+Designed for:
+intraday
+swing
+multi-timeframe systems
+19. Integration Points
+
+This module is designed to plug into:
+
+Trading journals
+Institutional dashboards
+Signal engines
+Multi-timeframe analyzers
+Wyckoff-based decision systems
+
+It outputs structured state, not signals directly.
+
+20. Summary
+
+This engine transforms raw OHLCV data into a multi-layered fractal representation of market structure, bridging:
+
+Volume analysis
+Price compression/expansion
+Regime detection
+Cross-timeframe alignment
+
+It is not a prediction model—it is a structural state interpreter for institutional behavior inference.

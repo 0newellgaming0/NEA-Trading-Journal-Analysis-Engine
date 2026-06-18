@@ -1,0 +1,449 @@
+==========================================================
+T-LINE INTRADAY ANALYSIS UTILITIES
+README.txt
+==========================================================
+
+1. OVERVIEW
+==========================================================
+
+The T-Line Intraday Analysis module is a comprehensive institutional-style market interpretation engine built around the EMA(8) "T-Line" framework.
+
+It is designed to:
+- Model short-term intraday trend structure using EMA8
+- Classify market state (Bullish / Bearish / Neutral)
+- Detect hold, break, reclaim, and failure behavior
+- Score trend strength using a weighted institutional model
+- Integrate Wyckoff phase logic for context awareness
+- Apply fractal-based overrides for liquidity events
+- Provide multi-timeframe confluence analysis (15M / 60M / Daily)
+
+This module is intended for systematic trading dashboards, journal systems, and algorithmic decision support tools.
+
+----------------------------------------------------------
+
+2. CORE CONCEPT: THE T-LINE (EMA8)
+----------------------------------------------------------
+
+The T-Line is defined as an Exponential Moving Average (EMA) with a period of 8.
+
+It represents:
+- Short-term institutional control line
+- Dynamic support/resistance in intraday structure
+- A real-time trend boundary for momentum and pullback behavior
+
+Key idea:
+    Price above EMA8 = bullish control
+    Price below EMA8 = bearish control
+
+----------------------------------------------------------
+
+3. MODULE FEATURES
+==========================================================
+
+3.1 Trend Classification
+- UPTREND / DOWNTREND / TRANSITION (state machine)
+- Bullish / Bearish / Neutral T-Line state
+- Regime detection (TREND_UP, TREND_DOWN, CHOP, TRANSITION)
+
+3.2 Intraday Behavior Modeling
+- Hold vs Break detection
+- Reclaim and breakdown detection
+- Trend failure signals
+
+3.3 Institutional Scoring System
+- T-Line strength score (0–100)
+- EMA position weighting
+- slope momentum weighting
+- structural alignment bonus
+
+3.4 Wyckoff Context Integration
+- Markup / Markdown / Range / Transition classification
+- Compression and equilibrium detection
+- Institutional accumulation/distribution inference
+
+3.5 Fractal Liquidity Engine Integration
+- Liquidity sweep detection override
+- Structural position evaluation
+- Sequence classification support
+
+3.6 Pattern Formation Detection
+- J-Hook setups
+- Flag patterns (Bull / Bear)
+- Squeeze (compression detection)
+- Reclaim traps
+- Structure ladders (higher lows / lower highs)
+- Momentum extensions
+- Trend failure persistence
+
+3.7 Multi-Timeframe Analysis
+- 15-minute intraday structure
+- 60-minute intermediate structure
+- Daily macro alignment
+- Cross-timeframe confluence scoring
+
+----------------------------------------------------------
+
+4. INPUT REQUIREMENTS
+==========================================================
+
+Primary input:
+    df: pandas.DataFrame
+
+Required columns:
+    close_<ticker>
+    high_<ticker>
+    low_<ticker>
+
+Optional:
+    tf column for multi-timeframe segmentation:
+        "15M", "60M", "Daily"
+
+Ticker parameter:
+    ticker: string (used for column resolution)
+
+----------------------------------------------------------
+
+5. CORE COMPUTATIONS
+==========================================================
+
+5.1 EMA8 Calculation
+    ema(series, window=8)
+
+5.2 EMA Slope
+    ema_slope(series)
+    - First-order difference of EMA8
+    - Used for momentum direction
+
+5.3 ATR (Volatility Baseline)
+    atr(high, low, close, period=14)
+    - Used for stop-loss calculation and volatility scaling
+
+5.4 T-Line Stop Logic
+    tline_stop_price()
+    - Dynamic stop based on EMA8 ± ATR buffer
+    - Adjusts depending on price position relative to EMA8
+
+----------------------------------------------------------
+
+6. STATE MACHINE LOGIC
+==========================================================
+
+6.1 Trend State Machine
+    trend_state_machine(close, ema8)
+
+Returns:
+    UPTREND
+    DOWNTREND
+    TRANSITION
+
+Logic:
+- Price above EMA8 + positive slope → UPTREND
+- Price below EMA8 + negative slope → DOWNTREND
+- Otherwise → TRANSITION
+
+----------------------------------------------------------
+
+6.2 Market Regime Engine
+    market_regime(close, ema8)
+
+Returns:
+    TREND_UP
+    TREND_DOWN
+    CHOP
+    TRANSITION
+
+Key logic layers:
+- Structure detection (higher lows / lower highs)
+- EMA cross behavior
+- Slope compression detection
+- Cross frequency rotation detection
+
+CHOP is triggered only when:
+- EMA slope is flat
+- price frequently crosses EMA8 (rotational behavior)
+
+----------------------------------------------------------
+
+7. FRACTAL OVERRIDE SYSTEM
+==========================================================
+
+Function:
+    fractal_regime_override()
+
+Purpose:
+- Overrides standard regime logic during liquidity events
+
+Triggers:
+- Structural position extreme (>0.6 or <0.4)
+- Liquidity sweep detection
+- Strong directional imbalance
+
+Outputs:
+- TREND_UP
+- TREND_DOWN
+- TRANSITION (on sweep events)
+
+This ensures that:
+    liquidity events > trend noise
+
+----------------------------------------------------------
+
+8. INTRADAY INTERPRETATION LAYER
+==========================================================
+
+8.1 T-Line State Interpretation
+    interpret_intraday_tline_state(state, slope)
+
+Explains:
+- Strength of bullish/bearish momentum
+- Transition conditions
+- Early reversal warnings
+
+Key logic:
+- Strong slope → expansion phase
+- Flat slope → consolidation
+- Opposite slope/state mismatch → hidden absorption risk
+
+----------------------------------------------------------
+
+8.2 Hold / Break Interpretation
+    interpret_intraday_hold_break(signal)
+
+Signals:
+- Bullish Hold → accumulation continuation
+- Bullish Reclaim → absorption + re-entry
+- Bearish Hold → distribution pressure
+- Bearish Breakdown → continuation selloff
+
+----------------------------------------------------------
+
+8.3 Wyckoff Interpretation Layer
+    interpret_intraday_wyckoff(state)
+
+Maps:
+- Markup → bullish expansion phase
+- Markdown → distribution phase
+- Range → equilibrium / compression
+- Transition → uncertainty / breakout preparation
+
+----------------------------------------------------------
+
+9. SCORING SYSTEM
+==========================================================
+
+Function:
+    tline_score(close, ema8)
+
+Score range:
+    0 – 100
+
+Components:
+- EMA position alignment (+/- 30)
+- EMA slope direction (+/- 25)
+- Structural alignment bonus (+25)
+- Penalty for misalignment (-10)
+
+Baseline normalization:
+    score + 60 shift
+
+Interpretation:
+- >75  → strong institutional trend
+- 50–75 → moderate trend
+- <50  → weak / unstable structure
+
+----------------------------------------------------------
+
+10. SIGNAL DETECTION ENGINE
+==========================================================
+
+10.1 Rejection Signals
+    rejection_signal(high, low, close, ema8)
+
+Detects:
+- Bullish rejection (wick below EMA8, close above)
+- Bearish rejection (wick above EMA8, close below)
+
+----------------------------------------------------------
+
+10.2 Pattern Detection Suite
+
+- detect_jhook()
+    → 3-bar reclaim structure above EMA8
+
+- detect_flag()
+    → trend continuation consolidation patterns
+
+- detect_squeeze()
+    → compression within 1% of EMA8
+
+- detect_reclaim_trap()
+    → false breakdown followed by reclaim
+
+- detect_structure_ladder()
+    → higher low / lower high formation tracking
+
+- detect_momentum_extension()
+    → price extended >5% from EMA8
+
+- trend_failure()
+    → persistent failure above/below EMA8
+
+----------------------------------------------------------
+
+11. WYCKOFF PHASE ENGINE
+==========================================================
+
+Function:
+    wyckoff_phase(close, ema8)
+
+Logic:
+- Spread relative to EMA8 determines phase
+
+Outputs:
+- Range / Balance → equilibrium
+- Markup → bullish expansion (> +5%)
+- Markdown → bearish expansion (< -5%)
+- Transition → neutral development zone
+
+----------------------------------------------------------
+
+12. MULTI-TIMEFRAME ANALYSIS
+==========================================================
+
+Function:
+    analyze_multi_timeframe()
+
+Breakdown:
+- 15M intraday structure
+- 60M intermediate structure
+- Daily macro structure
+
+Confluence engine:
+    compare_timeframes()
+
+Outputs:
+- alignment_score (0–1)
+- state mapping (BULL / BEAR / NEUTRAL)
+- conflict detection:
+    * 15M vs 60M divergence
+    * 60M vs Daily divergence
+    * full alignment detection
+
+----------------------------------------------------------
+
+13. MAIN ENGINE OUTPUT
+==========================================================
+
+Function:
+    analyze_tline_intraday(df, ticker, label)
+
+Returns a formatted report including:
+
+- T-Line State
+- EMA8 value
+- EMA8 slope
+- T-Line stop price
+- Trend state machine output
+- Regime classification
+- Score (0–100)
+- Wyckoff phase + interpretation
+- Pattern signals (J-Hook, squeeze, trap, etc.)
+- Rejection + failure signals
+- Meta consensus (multi-model agreement)
+- Conflict score (internal disagreement measure)
+
+----------------------------------------------------------
+
+14. META CONSENSUS SYSTEM
+==========================================================
+
+Combines:
+- Trend state machine
+- T-Line state
+- Market regime
+
+Produces:
+- BULLISH_META
+- BEARISH_META
+- MIXED_META
+
+Also calculates:
+- conflict_score → disagreement across models
+- consensus_sign → directional bias strength
+
+----------------------------------------------------------
+
+15. DESIGN PHILOSOPHY
+==========================================================
+
+This system is built on three core principles:
+
+1. Price = Structure, not noise
+   - EMA8 defines structural boundary
+
+2. Liquidity drives behavior
+   - Fractal overrides dominate in sweep conditions
+
+3. Confluence > single signal
+   - Multi-layer agreement determines confidence
+
+----------------------------------------------------------
+
+16. DEPENDENCIES
+==========================================================
+
+- pandas
+- numpy
+- modules.fractalEngine:
+    - detect_liquidity_sweep
+    - calculate_structural_position
+    - classify_sequence
+
+----------------------------------------------------------
+
+17. LIMITATIONS
+==========================================================
+
+- Requires clean OHLC data per ticker column format
+- Sensitive to missing or misaligned timeframes
+- EMA8 is short-term biased (not suitable for macro-only analysis)
+- Fractal override logic depends on external module accuracy
+
+----------------------------------------------------------
+
+18. EXAMPLE USAGE
+==========================================================
+
+df = load_intraday_data()
+
+result = analyze_tline_intraday(
+    df=df,
+    ticker="AAPL",
+    label="AAPL 15M"
+)
+
+print(result)
+
+Multi-timeframe:
+
+result = analyze_multi_timeframe(df, "AAPL", "AAPL")
+
+----------------------------------------------------------
+
+19. SUMMARY
+==========================================================
+
+This module provides a full institutional-grade intraday framework built around EMA8 (T-Line), combining:
+
+- Trend state modeling
+- Wyckoff structure analysis
+- Fractal liquidity detection
+- Pattern recognition
+- Multi-timeframe confluence
+- Risk-aware stop calculation
+
+It is designed to function as a core engine in advanced trading dashboards and journal systems.
+
+==========================================================
+END OF README
+==========================================================

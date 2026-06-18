@@ -1,0 +1,262 @@
+DISCOVERY PHASE ENGINE (INSTITUTIONAL GRADE)
+1. MODULE OVERVIEW
+
+This module implements a Discovery Phase Engine, designed to detect when a financial instrument transitions out of an accepted value range and begins entering a price discovery regime.
+
+In institutional trading theory, this aligns with the concept of market leaving equilibrium and entering expansion—where prior structure breaks and volatility, volume, and momentum begin aligning in a directional breakout state.
+
+The engine is built to be:
+
+Structure-driven (range + breakout logic)
+Volume-confirmation aware
+Momentum-sensitive
+Robust to low-quality or insufficient data
+Compatible with journal and dashboard systems
+2. CORE PURPOSE
+
+The primary objective is to classify market behavior into three states:
+
+DISCOVERY → Full breakout / expansion regime
+TRANSITION → Early structural pressure building
+NONE → Market still in acceptance / range-bound behavior
+
+This is not a predictive model. It is a regime classification system based on observable structural conditions.
+
+3. DEPENDENCIES
+Required Libraries
+numpy
+Internal Modules
+modules.ohlcv_normalizer.normalize_timestamp
+
+This ensures consistent OHLCV formatting before analysis.
+
+4. INPUT REQUIREMENTS
+Function:
+detect_discovery_phase(df)
+Required DataFrame Columns:
+High
+Low
+Close
+Volume
+Minimum Data Requirement:
+At least 60 candles
+
+If these conditions are not met, the engine returns:
+
+{
+  "phase": "NONE",
+  "confidence": 0.0,
+  "interpretation": "Insufficient structure for discovery evaluation."
+}
+5. DATA NORMALIZATION
+
+Before processing:
+
+df = normalize_timestamp(df)
+
+This ensures:
+
+Proper time alignment
+Clean OHLCV structure
+Standardized column naming
+6. ENGINE LOGIC ARCHITECTURE
+
+The system evaluates four core institutional signals:
+
+6.1 RANGE COMPRESSION / EXPANSION
+recent_range = mean(high[-20:] - low[-20:])
+prior_range  = mean(high[-60:-20] - low[-60:-20])
+
+Condition:
+
+compression_break = recent_range > prior_range * 1.35
+Interpretation:
+Measures volatility expansion relative to prior structure
+A key signal of regime shift initiation
+6.2 STRUCTURAL BREAKOUT DETECTION
+prior_high = max(prior window)
+recent_high = max(recent window)
+
+prior_low = min(prior window)
+recent_low = min(recent window)
+
+Signals:
+
+breakout_up
+breakout_down
+
+Condition:
+
+structural_break = breakout_up OR breakout_down
+Interpretation:
+
+This identifies whether price has exited prior established value boundaries.
+
+6.3 VOLUME EXPANSION FILTER
+recent_vol = mean(volume[-20:])
+prior_vol  = mean(volume[-60:-20])
+
+Condition:
+
+volume_expansion = recent_vol > prior_vol * 1.25
+Interpretation:
+Confirms participation increase
+Filters false breakouts with weak liquidity
+6.4 MOMENTUM SHIFT DETECTION
+slope = polyfit(close[-20:], degree=1)
+volatility = std(close[-20:])
+
+Condition:
+
+momentum_shift = abs(slope) > volatility * 0.15
+Interpretation:
+Detects directional acceleration
+Adjusts for noise using volatility normalization
+7. CONFIDENCE SCORING MODEL
+
+Each condition contributes to a weighted institutional score:
+
+Component	Weight
+Structural Break	0.40
+Compression Break	0.25
+Volume Expansion	0.20
+Momentum Shift	0.15
+Final Score:
+confidence = min(score, 1.0)
+8. PHASE CLASSIFICATION LOGIC
+🔴 8.1 DISCOVERY PHASE (HIGH CONVICTION)
+
+Conditions:
+
+confidence ≥ 0.75
+structural_break = True
+compression_break = True
+
+Output:
+
+{
+  "phase": "DISCOVERY",
+  "confidence": 0.75 - 1.0,
+  "interpretation": "True structural breakout detected..."
+}
+Meaning:
+Market has exited prior equilibrium
+Expansion + volatility release confirmed
+Institutional participation likely active
+🟡 8.2 TRANSITION PHASE
+
+Condition:
+
+confidence >= 0.45
+
+Output:
+
+{
+  "phase": "TRANSITION"
+}
+Meaning:
+Pre-breakout compression or early expansion
+Structural tension building
+No confirmed regime shift yet
+🟢 8.3 NONE (ACCEPTANCE / RANGE STATE)
+
+Default fallback.
+
+Confidence is inverted:
+
+confidence = max(0.2, 1.0 - score)
+Meaning:
+Market remains in equilibrium
+No meaningful breakout structure detected
+9. JOURNAL WRAPPER FUNCTION
+Function:
+run_discovery_phase_engine(df)
+Purpose:
+Wraps raw detection output into journal-ready format
+Produces formatted institutional analysis blocks
+Provides structured UI-friendly output
+Output Structure:
+{
+  "dominant_phase": "DISCOVERY | TRANSITION | NONE",
+  "confidence": float,
+  "discovery_block": str,
+  "phase_context_block": str
+}
+10. FORMATTED OUTPUT BLOCKS
+Example: Discovery Block
+📊 DISCOVERY PHASE ANALYSIS
+--------------------------
+Phase: DISCOVERY
+Confidence: 0.82
+
+Institutional Interpretation:
+True structural breakout detected...
+Example: Context Block
+===========================
+📊 DISCOVERY CONTEXT
+===========================
+
+Phase: TRANSITION
+Confidence: 0.52
+
+Building structural pressure...
+11. ERROR HANDLING
+
+All execution is wrapped in:
+
+try:
+    ...
+except Exception as e:
+    raise RuntimeError("DISCOVERY PHASE FAILURE")
+Failure Mode:
+Any runtime error is escalated
+Preserves traceability in journal system
+12. DESIGN PHILOSOPHY
+
+This module is built on institutional market principles:
+
+Core Concepts:
+Market as an auction process
+Price compression precedes expansion
+Volume confirms intent
+Breakouts require structure + participation
+Momentum validates direction
+
+This aligns closely with:
+
+Wyckoff-style structural analysis
+Liquidity expansion theory
+Volatility regime switching models
+13. PERFORMANCE NOTES
+O(1) window-based computation (fixed slices)
+No iterative loops over dataset
+Suitable for real-time journal integration
+Lightweight NumPy operations only
+14. LIMITATIONS
+Not predictive (only classification)
+Requires sufficient history (≥ 60 candles)
+Sensitive to poor-quality OHLCV feeds
+Does not account for macro news or external catalysts
+15. INTEGRATION USE CASES
+
+This engine is designed for:
+
+Trading journal systems
+Multi-timeframe dashboards
+Wyckoff/structural analysis pipelines
+Breakout confirmation modules
+Institutional behavior detection layers
+16. SUMMARY
+
+The Discovery Phase Engine acts as a regime classifier for structural breakout conditions, combining:
+
+Range expansion
+Structural breakouts
+Volume confirmation
+Momentum shifts
+
+It produces a confidence-weighted institutional interpretation that helps determine whether a market is:
+
+Still in acceptance
+Preparing to break out
+Already in discovery expansion

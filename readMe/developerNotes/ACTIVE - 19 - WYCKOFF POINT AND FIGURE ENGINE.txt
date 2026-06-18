@@ -1,0 +1,418 @@
+Wyckoff + Point & Figure Analysis Engine
+Institutional Structure, P&F Construction, and Multi-Timeframe Confluence System
+1. Overview
+
+This module is a complete institutional-grade market structure analysis engine that combines:
+
+Point & Figure (P&F) chart construction
+Wyckoff theory classification
+Volume structure confirmation
+Multi-timeframe trend confluence
+Target projection models (horizontal, vertical, count-based)
+Signal generation (breakout / breakdown / reversal / traps)
+Trade-ready journal formatting output
+
+It is designed to transform raw OHLCV data into a structured institutional narrative suitable for:
+
+Trading dashboards
+Algorithmic decision engines
+Trade journaling systems
+Multi-timeframe confluence scoring
+Wyckoff + P&F hybrid strategy execution
+2. Core Design Philosophy
+
+This system is built around 4 institutional principles:
+
+2.1 Market as Structure (Not Noise)
+
+Price is not random; it is modeled as:
+
+Columns (X/O)
+Congestion zones
+Breakout / breakdown structures
+2.2 Volume Confirms Intent
+
+Volume is used to validate:
+
+Breakouts
+Reversals
+Compression phases
+2.3 Multi-Timeframe Alignment = Institutional Bias
+
+No signal is isolated. All signals are validated across:
+
+Intraday
+Daily
+Weekly
+2.4 Wyckoff Phase Determines Context
+
+All P&F signals are filtered through:
+
+Accumulation
+Distribution
+Markup
+Markdown
+3. Module Architecture
+3.1 Data Layer
+
+Handles ingestion and normalization of OHLCV data.
+
+Key functions:
+
+load_data()
+load_multi_timeframe()
+normalize_ohlcv_columns()
+get_stock_data_path()
+3.2 Feature Engineering Layer
+
+Transforms raw data into:
+
+Volume regimes
+Price slopes
+Structural compression metrics
+
+Key functions:
+
+analyze_volume()
+poly_slope()
+analyze_wyckoff()
+3.3 Point & Figure Engine
+
+Core structural conversion engine:
+
+Converts OHLC into X/O columns
+Applies reversal logic
+Builds price structure matrix
+
+Key class:
+
+PointFigureEngine
+
+Key functions:
+
+build()
+_b() (box conversion helper)
+3.4 Pattern Recognition Layer
+
+Detects institutional patterns:
+
+Triple tops
+Triple bottoms
+Springs (false breakdowns)
+Upthrusts (false breakouts)
+
+Functions:
+
+detect_triple_top()
+detect_triple_bottom()
+detect_springs()
+detect_upthrusts()
+3.5 Target Projection Engine
+
+Projects future price objectives:
+
+Horizontal count projection
+Vertical expansion model
+Congestion-based breakout targets
+
+Functions:
+
+compute_pnf_targets()
+compute_horizontal_count()
+compute_vertical_count()
+3.6 Signal Engine
+
+Generates actionable P&F signals:
+
+BREAKOUT
+BREAKDOWN
+REVERSAL BULLISH
+REVERSAL BEARISH
+
+Function:
+
+detect_pnf_signals()
+3.7 Multi-Timeframe Engine
+
+Combines multiple timeframes into a unified bias:
+
+Functions:
+
+compute_confluence()
+analyze_timeframe()
+3.8 Master Analysis Engine
+
+Runs full system end-to-end:
+
+Function:
+
+run_wyckoff_pnf_analysis()
+3.9 Journal Formatter
+
+Transforms results into structured trading report text.
+
+Function:
+
+format_for_journal()
+4. Data Requirements
+4.1 Required Columns
+
+Each dataset must include:
+
+High
+Low
+Close
+Volume
+
+Optional:
+
+Open
+Adj Close
+4.2 File Structure
+
+Data is loaded from:
+
+/modules/stock_data/{timeframe}/{ticker}.csv
+
+Supported timeframes:
+
+daily
+weekly
+intraday_60m
+5. Point & Figure Construction Logic
+5.1 Core Concept
+
+P&F charts are built using:
+
+Box size (box_size)
+Reversal threshold (reversal)
+5.2 Column Types
+"X" → Rising demand column
+"O" → Falling supply column
+5.3 Reversal Rules
+
+A reversal occurs when price moves:
+
+Against current direction
+By at least reversal × box_size
+6. Pattern Detection Logic
+6.1 Springs (Bullish Trap Reversal)
+
+Definition:
+
+Price breaks below support (O column)
+Then quickly reverses upward (X column)
+
+Interpretation:
+
+Institutional accumulation signal
+Liquidity sweep
+6.2 Upthrusts (Bearish Trap Reversal)
+
+Definition:
+
+Price breaks above resistance (X column)
+Then fails and reverses downward (O column)
+
+Interpretation:
+
+Distribution phase
+False breakout trap
+6.3 Triple Top / Bottom
+Triple Top: repeated resistance failure breakout structure
+Triple Bottom: repeated support breakdown structure
+
+These indicate:
+
+Exhaustion of supply/demand zones
+7. Volume Intelligence System
+7.1 Volume States
+EXPANDING → institutional participation
+CONTRACTING → consolidation / absence of interest
+NORMAL → equilibrium
+7.2 Volume Trend Slope
+
+Computed using polynomial regression:
+
+poly_slope(volume_array)
+
+Used to detect:
+
+Accumulation (declining volume, stable price)
+Distribution (rising volume, weak price action)
+8. Wyckoff Phase Engine
+8.1 Phase Classification
+Condition	Phase
+Vol ↓ + Price ↑	Accumulation
+Vol ↓ + Price ↓	Distribution
+Vol ↑ + Price ↑	Markup
+Vol ↑ + Price ↓	Markdown
+8.2 Compression Metric
+compression = (High - Low) / Close
+
+Used to measure:
+
+volatility contraction
+breakout readiness
+9. Target Projection System
+9.1 Horizontal Target
+resistance + width
+9.2 Vertical Target
+resistance + (width × 1.5)
+9.3 Count Target
+resistance + (congestion columns × box_size)
+10. Signal Engine Logic
+10.1 BREAKOUT
+Price breaks above resistance in X column
+Strength = 0.9
+10.2 BREAKDOWN
+Price breaks below support in O column
+Strength = 0.9
+10.3 REVERSAL SIGNALS
+X after O → bullish reversal
+O after X → bearish reversal
+10.4 Volume Confirmation
+
+If volume confirms:
+
+Strength increases by +0.1 (max 1.0)
+11. Multi-Timeframe Confluence Engine
+11.1 Inputs
+Daily
+Weekly
+Intraday
+11.2 Outputs
+Alignment: BULLISH / BEARISH
+Confidence score
+Compression average
+Bull vs Bear timeframe count
+11.3 Logic
+Count bullish vs bearish timeframes
+Normalize confidence by total timeframes
+12. Institutional P&F Score
+
+Generated inside format_for_journal():
+
+Base Score: 50
+
+Adjusted by:
+
+Bullish Additions:
+Breakout: +15
+Markup phase: +10
+Accumulation: +10
+Springs: +10
+Triple tops: +10
+Bearish Penalties:
+Breakdown: -15
+Markdown phase: -10
+Distribution: -10
+Upthrusts: -10
+Triple bottoms: -10
+Final Range:
+0 → 100
+13. Trade Thesis Generator
+
+Automatically classifies:
+
+Score Range	Interpretation
+75–100	Strong institutional accumulation
+60–74	Moderately bullish
+40–59	Mixed / unclear structure
+25–39	Weak bullish / early distribution
+0–24	Strong bearish distribution
+14. Output Structure (run_wyckoff_pnf_analysis)
+
+Returns:
+
+{
+    "ticker": str,
+    "timeframe": str,
+    "box_size": float,
+    "reversal": int,
+    "timestamp": str,
+    "timeframes": {
+        "daily": {...},
+        "weekly": {...},
+        "intraday": {...}
+    },
+    "confluence": {...}
+}
+15. Journal Output System
+
+format_for_journal() produces:
+
+Sections:
+Timeframe breakdown
+Wyckoff phase analysis
+P&F structure metrics
+Support/resistance zones
+Target projections
+Signal classification
+Institutional score
+Trade thesis
+Pattern significance
+Purpose:
+
+Creates a ready-to-execute trading report for journaling systems.
+
+16. Key Strengths of This System
+16.1 Institutional Alignment
+
+Models:
+
+Wyckoff accumulation/distribution
+False breakouts (springs/upthrusts)
+16.2 Multi-Layer Confirmation
+
+Signals require alignment between:
+
+Price structure
+Volume behavior
+Timeframe agreement
+16.3 Hybrid Structure Model
+
+Combines:
+
+Continuous OHLC logic
+Discrete P&F representation
+16.4 Automated Trade Thesis
+
+Converts raw analytics into:
+
+directional bias
+confidence scoring
+risk narrative
+17. Limitations
+P&F construction is simplified (box approximation model)
+No real tick-level data handling
+Volume confirmation is heuristic-based
+No order flow or Level 2 data integration
+Sensitivity depends heavily on box size / reversal parameters
+18. Recommended Usage
+
+Best used in:
+
+Swing trading systems
+Institutional-style discretionary dashboards
+Algorithmic signal filters
+Multi-timeframe confirmation engines
+Trade journaling automation systems
+19. Suggested Enhancements (Future Upgrades)
+Adaptive box sizing (ATR-based)
+Machine learning classification layer
+Real order flow integration
+Liquidity heatmap overlays
+Market regime clustering
+Automated stop-loss engine integration
+20. Summary
+
+This module is a full institutional-grade hybrid analysis engine that:
+
+Converts price into structure (P&F)
+Interprets market behavior (Wyckoff)
+Confirms with volume dynamics
+Aligns across timeframes
+Outputs trade-ready intelligence
+
+It functions as a complete analytical backbone for systematic discretionary trading workflows.

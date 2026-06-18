@@ -1,0 +1,283 @@
+==========================================================
+Volume Analysis Utilities — README.txt
+==========================================================
+Overview
+
+This module provides a comprehensive toolkit for analyzing volume behavior in financial markets, with a focus on identifying institutional activity, trend confirmation, and liquidity behavior.
+
+It is designed to support multi-timeframe trading systems that rely on Wyckoff methodology, momentum confirmation, and accumulation/distribution detection.
+
+The module transforms raw OHLCV data into actionable volume intelligence through:
+
+Relative Volume analysis (RVOL)
+Volume expansion/contraction detection
+Up/Down volume pressure breakdown
+On-Balance Volume (OBV) trend analysis
+Accumulation/Distribution (A/D) line modeling
+Institutional classification logic (Accumulation vs Distribution)
+Core Design Philosophy
+
+Volume is treated as the footprint of institutional participation.
+
+Price alone is ambiguous.
+Volume provides confirmation of:
+
+Smart money accumulation
+Distribution phases
+Breakout validity
+Weak vs strong trend structure
+Liquidity expansion or exhaustion
+
+This module is built to answer one key question:
+
+“Is institutional participation increasing in alignment with price direction?”
+
+Dependencies
+pandas
+numpy
+
+Both are required for vectorized time-series computation.
+
+Function Reference
+1. Relative Volume (RVOL)
+rvol(volume: pd.Series, window: int = 20) -> pd.Series
+Description
+
+Calculates relative volume, comparing current volume against its rolling mean.
+
+Formula
+RVOL = Current Volume / Rolling Average Volume
+Interpretation
+
+1.0 → Above average activity
+
+1.5 → Institutional interest / breakout confirmation zone
+
+< 1.0 → Below average / quiet accumulation or lack of interest
+Usage
+
+Used as a foundational signal for all spike and contraction detection.
+
+2. Volume Spike Detection
+detect_volume_spike(volume, window=20, multiplier=1.5)
+Description
+
+Identifies periods of abnormally high volume activity.
+
+Logic
+Computes RVOL
+Flags True when:
+RVOL > multiplier
+Interpretation
+Breakout confirmation
+News-driven expansion
+Institutional entry or exit
+3. Volume Contraction Detection
+detect_volume_contraction(volume, window=20, threshold=0.8)
+Description
+
+Detects periods of below-average liquidity activity.
+
+Logic
+RVOL < threshold
+Interpretation
+Consolidation phase
+Pre-breakout compression
+Lack of participation
+Potential Wyckoff "spring compression zone"
+4. Up Volume Percentage
+up_volume_percentage(close, volume, window=20)
+Description
+
+Measures the percentage of volume occurring on up days.
+
+Logic
+Up day = close > previous close
+Aggregates volume over rolling window
+Computes percentage contribution of up-volume
+Interpretation
+
+55% → Bullish pressure / accumulation
+
+~50% → Neutral
+< 45% → Weak demand / distribution pressure
+5. Down Volume Percentage
+down_volume_percentage(close, volume, window=20)
+Description
+
+Measures percentage of volume occurring on down days.
+
+Interpretation
+
+55% → Bearish pressure / distribution
+
+< 45% → Weak selling pressure / absorption
+6. On-Balance Volume (OBV)
+obv(close, volume)
+Description
+
+Classic cumulative volume flow indicator.
+
+Logic
+Up day → +volume
+Down day → -volume
+Flat → 0
+Interpretation
+Rising OBV → accumulation
+Falling OBV → distribution
+Divergence vs price → early reversal signal
+7. OBV Slope
+obv_slope(close, volume, window=20)
+Description
+
+Measures rate of change of OBV trend.
+
+Logic
+(OBV[t] - OBV[t-window]) / window
+Interpretation
+Positive slope → strengthening accumulation
+Negative slope → accelerating distribution
+Flat → no institutional conviction
+8. Accumulation / Distribution Line (A/D)
+accumulation_distribution(high, low, close, volume)
+Description
+
+Measures where price closes within the candle range weighted by volume.
+
+Core Formula
+MFM = ((Close - Low) - (High - Close)) / (High - Low)
+MFV = MFM * Volume
+A/D = Cumulative MFV
+Interpretation
+Rising A/D → accumulation
+Falling A/D → distribution
+Divergence vs price → hidden institutional behavior
+9. A/D Slope
+ad_slope(high, low, close, volume, window=20)
+Description
+
+Measures directional strength of A/D line.
+
+Interpretation
+Positive → accumulation pressure increasing
+Negative → distribution accelerating
+10. Large Volume Up Days
+large_volume_up_days(close, volume, volume_window=20, multiplier=1.5)
+Description
+
+Flags high volume up closes.
+
+Condition:
+Close > previous close
+Volume > (average volume × multiplier)
+Interpretation
+Institutional buying days
+Breakout confirmation candles
+Momentum expansion
+11. Large Volume Down Days
+large_volume_down_days(close, volume, volume_window=20, multiplier=1.5)
+Description
+
+Flags high volume down closes.
+
+Interpretation
+Institutional selling
+Distribution events
+Stop runs / liquidation candles
+12. Institutional Accumulation State Classifier
+institutional_accumulation_state(close, high, low, volume, window=20)
+Description
+
+This is the core intelligence layer of the module.
+
+It classifies market condition into:
+
+"Active Accumulation"
+"Active Distribution"
+"Neutral"
+Features Used
+1. Up Volume Percentage
+up_pct > 55 → bullish pressure
+up_pct < 45 → bearish pressure
+2. OBV Slope
+> 0 → accumulation
+< 0 → distribution
+3. A/D Slope
+> 0 → accumulation
+< 0 → distribution
+4. Large Volume Balance
+lv_up > lv_down → accumulation bias
+lv_down > lv_up → distribution bias
+Classification Rules
+Active Accumulation
+
+All must align:
+
+up_pct > 55
+OBV slope > 0
+A/D slope > 0
+Large up volume > large down volume
+Active Distribution
+
+All must align:
+
+up_pct < 45
+OBV slope < 0
+A/D slope < 0
+Large down volume > large up volume
+Neutral
+
+Default state when no institutional dominance is detected.
+
+Output
+
+Returns a pd.Series:
+
+Index: Time series index
+Values:
+- "Active Accumulation"
+- "Active Distribution"
+- "Neutral"
+System Role in Trading Architecture
+
+This module acts as the Volume Intelligence Engine in a multi-layer trading system.
+
+It is typically combined with:
+
+Price structure analysis (Wyckoff phases)
+Trend systems (EMA / T-Line)
+Volatility filters (ATR / RVOL expansion)
+Liquidity models (breakout vs absorption zones)
+Key Insights Generated
+
+This module helps identify:
+
+Institutional accumulation before breakouts
+Distribution before major breakdowns
+False breakouts (volume mismatch)
+Compression phases before expansion
+Liquidity traps (high volume but no trend continuation)
+Recommended Usage Pipeline
+Load OHLCV data
+Compute RVOL
+Detect spike / contraction regimes
+Compute OBV + A/D lines
+Evaluate institutional state
+Combine with price structure (support/resistance / Wyckoff phase)
+Generate trade bias
+Strengths
+Fully vectorized (fast on large datasets)
+Multi-indicator confirmation system
+Institutional logic oriented (not retail indicators)
+Compatible with multi-timeframe systems
+Limitations
+Does not account for order book data (Level 2)
+Sensitive to low-volume illiquid assets
+Requires clean OHLCV data alignment
+Summary
+
+This module converts raw volume into a structured institutional behavior model, allowing traders to infer:
+
+“Who is in control — buyers or sellers — and is that control strengthening or weakening?”
+
+It is a core component for any Wyckoff-based or institutional asymmetry trading system.

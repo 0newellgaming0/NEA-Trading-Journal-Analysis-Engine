@@ -1,0 +1,360 @@
+==========================================================
+HISTORICAL ANALYSIS ENGINE
+PROFESSIONAL STRUCTURAL ANALYSIS + T-LINE FRAMEWORK
+==========================================================
+
+VERSION:
+1.0 (Institutional Structural Market Intelligence Engine)
+
+AUTHOR:
+Newell Gaming / Trading Systems Architecture
+
+==========================================================
+OVERVIEW
+==========================================================
+
+The Historical Analysis Engine is a comprehensive market intelligence
+module designed to transform raw OHLCV historical data into:
+
+- Institutional-grade trend classification
+- T-Line (EMA-8) structural analysis
+- Wyckoff phase estimation
+- Volatility / liquidity / compression regime detection
+- Momentum state classification
+- Risk-based ATR target mapping
+- Behavioral interpretation layer
+
+This module is designed for use in:
+- Trading dashboards
+- Journal systems
+- Multi-timeframe analysis engines
+- Institutional behavior simulation systems
+
+It is NOT a simple indicator calculator.
+It is a full market structure interpretation engine.
+
+==========================================================
+CORE DESIGN PHILOSOPHY
+==========================================================
+
+This engine is built on 4 structural principles:
+
+1. MARKET AS STRUCTURE (NOT RANDOM PRICE)
+   Price is treated as a structured auction process.
+
+2. T-LINE CENTRIC ANALYSIS
+   EMA-8 (T-Line) is the primary institutional reference line.
+
+3. MULTI-LAYER CONFIRMATION MODEL
+   Signals are validated through:
+   - Trend structure
+   - Momentum (RSI)
+   - Participation (RVOL)
+   - Volatility compression/expansion
+   - Liquidity flow
+
+4. WYCKOFF BEHAVIORAL CONTEXT
+   Price is interpreted as accumulation, distribution,
+   markup, or markdown behavior.
+
+==========================================================
+INPUT REQUIREMENTS
+==========================================================
+
+Function:
+    analyze_historical_data(df, ticker)
+
+REQUIRED DATAFRAME FORMAT:
+
+The input DataFrame MUST contain the following columns:
+
+- close_<ticker>
+- high_<ticker>
+- low_<ticker>
+- open_<ticker>
+- volume_<ticker>
+
+Example:
+    close_aapl, high_aapl, low_aapl, open_aapl, volume_aapl
+
+Ticker input is normalized internally to lowercase.
+
+==========================================================
+CORE MODULE STRUCTURE
+==========================================================
+
+The engine is divided into 6 analytical layers:
+
+----------------------------------------------------------
+1. DATA PREPROCESSING LAYER
+----------------------------------------------------------
+
+force_flat_columns(df)
+- Flattens MultiIndex columns
+- Normalizes column names to lowercase strings
+- Ensures compatibility across data sources
+
+f(x)
+- Safe scalar extractor
+- Handles pandas Series, NaN, and type conversion safely
+
+----------------------------------------------------------
+2. TECHNICAL INDICATORS LAYER
+----------------------------------------------------------
+
+Built-in indicators:
+
+SMA (Simple Moving Average)
+ema(series, window)
+- Trend smoothing
+
+RVOL (Relative Volume)
+- Measures participation vs historical average volume
+
+RSI (Relative Strength Index)
+- Momentum pressure gauge (0–100 scale)
+
+ATR (Average True Range)
+- Volatility and risk expansion measure
+
+Volatility
+- Annualized standard deviation of returns
+
+Liquidity Score
+- Combines volume + dollar flow stability
+
+Compression Score
+- Measures volatility contraction/expansion regime
+
+CLV (Close Location Value)
+- Measures where close sits within candle range
+
+EMA Slope
+- Measures directional momentum of T-Line
+
+----------------------------------------------------------
+3. T-LINE STRUCTURE ENGINE
+----------------------------------------------------------
+
+T-Line State:
+- Bullish Trend
+- Bearish Trend
+- Neutral / Weak Trend
+
+Based on:
+- Close position vs EMA8
+- EMA8 slope direction
+
+T-Line Hold / Break Logic:
+
+Bullish Hold:
+- Price above EMA8
+- Low remains above EMA8
+
+Bearish Hold:
+- Price below EMA8
+- High remains below EMA8
+
+Reclaim / Breakdown Detection:
+- Identifies structural failures and reversals
+
+T-Line Confidence Score:
+Range: -3 to +3
+Measures alignment of:
+- Price vs EMA8
+- EMA8 slope direction
+
+----------------------------------------------------------
+4. MARKET REGIME ENGINE
+----------------------------------------------------------
+
+Trend Structure Classification:
+
+- Momentum Expansion (strong bullish alignment)
+- Constructive Bullish Structure
+- Weakening Structure
+- Neutral Structure
+
+Participation States:
+- High Participation (RVOL > 2)
+- Normal Participation
+- Low Participation (RVOL < 0.8)
+
+Volatility Regimes:
+- Compression Regime
+- Expansion Regime
+- Normal Volatility
+
+Momentum States (RSI-based):
+- Overbought / Strong Momentum (>70)
+- Oversold / Weak Momentum (<30)
+- Neutral Momentum
+
+----------------------------------------------------------
+5. WYCKOFF BEHAVIORAL ENGINE
+----------------------------------------------------------
+
+Wyckoff Phase Estimation:
+
+Based on price distance from EMA8:
+
+- Phase B - Range (neutral compression near EMA8)
+- Phase C - Trap/Test (transition phase)
+- Phase D - Trend (active markup/markdown)
+- Phase E - Markup (strong expansion)
+- Markdown (strong bearish regime)
+
+This provides institutional behavior interpretation:
+NOT predictive signals.
+
+----------------------------------------------------------
+6. RISK & TARGET ENGINE
+----------------------------------------------------------
+
+ATR-based dynamic risk model:
+
+Outputs:
+- Bullish Stop (EMA8 - ATR)
+- Bearish Stop (EMA8 + ATR)
+- Bullish Target (Close + 2 * ATR)
+- Bearish Target (Close - 2 * ATR)
+
+This creates adaptive volatility-based trade planning.
+
+==========================================================
+INTERPRETATION LAYER (HUMAN READABLE INTELLIGENCE)
+==========================================================
+
+The engine includes a semantic interpretation system:
+
+interpret_tline_state()
+- Converts technical state into institutional narrative
+
+interpret_hold_break()
+- Explains structural behavior of price relative to T-Line
+
+build_tline_context()
+- Aggregates interpretation outputs for UI/dashboard use
+
+These outputs are designed for:
+- Journal entries
+- Dashboard panels
+- Trade thesis generation
+
+==========================================================
+MAIN OUTPUT STRUCTURE
+==========================================================
+
+analyze_historical_data() RETURNS:
+
+{
+    "ticker": STRING,
+    "dataframe": DATAFRAME (with indicators),
+    "trend": STRING,
+    "returns": DICT,
+    "latest_snapshot": DICT,
+    "prompt_summary": STRING (full report),
+    "tline_state": STRING,
+    "wyckoff_phase": STRING,
+    "targets": DICT
+}
+
+==========================================================
+FULL PROMPT SUMMARY OUTPUT
+==========================================================
+
+The engine generates a structured institutional report:
+
+Includes:
+
+- Trend structure alignment
+- SMA/EMA hierarchy
+- Performance (1D → 1Y returns)
+- Liquidity (RVOL + participation)
+- Volatility (ATR + compression regime)
+- Momentum (RSI state)
+- T-Line analysis (state, slope, confidence)
+- Wyckoff phase context
+- Risk management targets
+
+This output is designed for:
+- Journal export systems
+- AI trade copilots
+- Institutional reporting dashboards
+
+==========================================================
+ERROR HANDLING
+==========================================================
+
+All functions include:
+- try/except safety wrappers
+- fallback NaN outputs
+- logging via structured logger "historicalAnalysis"
+
+If failure occurs:
+- Engine returns safe default structure
+- Prevents dashboard crashes
+- Preserves system stability
+
+==========================================================
+LOGGING SYSTEM
+==========================================================
+
+Logger Name:
+    historicalAnalysis
+
+Format:
+    [HISTORICAL_ANALYSIS] LEVEL - MESSAGE
+
+Used for:
+- Indicator calculations
+- Trend classification steps
+- Failure diagnostics
+- Execution tracing
+
+==========================================================
+PERFORMANCE NOTES
+==========================================================
+
+Optimized for:
+- Pandas vectorization
+- Rolling window operations
+- Minimal iteration overhead
+
+Heavy operations:
+- RSI (rolling mean)
+- ATR (true range calculation)
+- Compression scoring (multi-step rolling)
+
+Suitable for:
+- Batch analysis
+- Real-time dashboard refresh (moderate frequency)
+- Historical backtesting systems
+
+==========================================================
+DEPENDENCIES
+==========================================================
+
+Required libraries:
+
+- pandas
+- numpy
+- logging
+- re (reserved for future pattern detection extensions)
+
+==========================================================
+EXTENSION POINTS
+==========================================================
+
+This engine is designed for expansion into:
+
+- Multi-timeframe fusion engine
+- Institutional flow detection (order imbalance)
+- Volume profile integration
+- AI-driven trade signal generator
+- Wyckoff phase machine learning classifier
+- Market regime clustering system
+
+==========================================================
+END OF README
+==========================================================

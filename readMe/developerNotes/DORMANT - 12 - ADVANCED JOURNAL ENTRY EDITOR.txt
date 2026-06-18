@@ -1,0 +1,287 @@
+ADVANCED JOURNAL ENTRY EDITOR (FIXED + SAFE PLUG-IN VERSION)
+README.TXT
+1. OVERVIEW
+
+The Advanced Journal Entry Editor is a modular Tkinter-based popup editor designed for modifying and managing trade journal entries in a structured CSV-backed trading system.
+
+It is built as a safe plug-in component intended to be integrated into a larger trading journal application (e.g., journal.py) and provides:
+
+Multi-tab trade editing interface
+Real-time position sizing recalculation
+Safe row-level update/delete operations
+CSV persistence layer integration
+Defensive UI validation to prevent corruption or crashes
+
+This module is designed specifically for institutional-style trade journaling workflows, where accuracy, traceability, and data integrity are critical.
+
+2. CORE DESIGN PHILOSOPHY
+2.1 Safety First Architecture
+
+The editor enforces strict validation before any UI or data operation:
+
+No silent failures on missing dependencies
+Explicit error messages for invalid selections
+Defensive row matching using timestamps
+Controlled CSV rewriting (no partial writes)
+2.2 Stateless UI Editing Layer
+
+The editor does not own persistent state. Instead it:
+
+Reads from journal_rows (in-memory dataset)
+Writes back through full CSV rewrite
+Relies on external loader (load_journal) for refresh
+2.3 Timestamp as Primary Key
+
+Each journal entry is uniquely identified by:
+
+timestamp (string)
+
+This is used as the primary lookup key for editing, updating, and deletion.
+
+3. FUNCTION: open_entry_editor()
+3.1 PURPOSE
+
+Opens a full-featured popup editor for a selected journal entry from a Tkinter Treeview.
+
+4. FUNCTION SIGNATURE
+open_entry_editor(
+    event=None,
+    tree=None,
+    root=None,
+    journal_rows=None,
+    CSV_FIELDS=None,
+    JOURNAL_FILE=None,
+    load_journal=None,
+    delete_journal_entry=None,
+    generate_signal_template=None
+)
+5. PARAMETER BREAKDOWN
+REQUIRED PARAMETERS
+Parameter	Type	Description
+tree	ttk.Treeview	UI table containing journal entries
+root	tk.Tk	Main application root window
+journal_rows	list[dict]	In-memory journal dataset
+CSV_FIELDS	list[str]	CSV column schema
+JOURNAL_FILE	str	Path to journal CSV file
+OPTIONAL CALLBACKS
+Parameter	Purpose
+load_journal	Reloads UI after update
+delete_journal_entry	Deletes entry from storage layer
+generate_signal_template	Reserved extension hook
+6. SAFETY VALIDATION LAYER
+
+Before any UI action:
+
+if tree is None or root is None or journal_rows is None:
+    raise ValueError("[JournalEditor] Missing required UI dependencies")
+
+Additional checks:
+
+Ensures selection exists in Treeview
+Validates row existence in dataset
+Prevents invalid or empty entry editing
+Stops execution on corrupted selection
+7. UI ARCHITECTURE
+
+The editor opens a Toplevel popup window:
+
+Trade Journal Entry - {ticker}
+
+Window size:
+
+800x650
+
+Background:
+
+#f2f2f2
+8. NOTEBOOK TAB SYSTEM
+
+The editor is divided into 4 functional tabs:
+
+8.1 TRADE TAB (CORE EXECUTION DATA)
+
+Contains structured trade execution fields:
+
+Fields Edited:
+ticker
+account
+risk_dollar
+stop
+ladder_1_price (Range High)
+ladder_2_price (Range Low)
+ladder_3_price (Wave 1 Retracement)
+ladder_4_price (Shakeout)
+buy_now_price
+buy_now_shares (auto-calculated)
+buy_now_total (auto-calculated)
+8.2 NOTES TAB
+
+A free-form journal entry system:
+
+Trade reasoning
+Emotional notes
+Execution commentary
+Observations
+
+Widget:
+
+ScrolledText (word wrap enabled)
+8.3 ANALYSIS TAB
+
+Stores structured analytical output:
+
+Technical analysis notes
+Institutional interpretation
+Wyckoff / momentum observations (if used externally)
+8.4 MANAGEMENT TAB
+
+Tracks trade lifecycle management:
+
+Stop adjustments
+Scaling plans
+Exit strategy notes
+Risk modifications
+9. LIVE RISK ENGINE (RECALCULATION SYSTEM)
+9.1 PURPOSE
+
+Automatically recalculates position sizing when:
+
+risk_dollar changes
+stop changes
+buy_now_price changes
+9.2 FORMULA LOGIC
+Risk Per Share
+risk_per_share = buy_now_price - stop
+Position Size
+shares = risk_dollar / risk_per_share
+Total Position Value
+total = shares * buy_now_price
+9.3 SAFETY CONDITIONS
+If risk_per_share ≤ 0 → recalculation is skipped
+All parsing wrapped in try/except (fail-safe mode)
+No UI crashes from invalid input
+10. DATA UPDATE SYSTEM
+10.1 update_current_entry()
+
+This function performs a full CSV rewrite update cycle:
+
+PROCESS FLOW:
+Iterate over all journal rows
+Match row by timestamp
+Replace only targeted row fields
+Preserve all other rows unchanged
+Rewrite full CSV file
+Reload UI via load_journal()
+10.2 FIELD MAPPING LOGIC
+Field Type	Source
+timestamp	Immutable
+trade_notes	notes_tab
+analysis_notes	analysis_tab
+management_notes	management_tab
+popup_vars fields	Trade tab inputs
+10.3 CSV WRITE SAFETY
+
+Uses:
+
+csv.DictWriter(..., fieldnames=CSV_FIELDS)
+
+Ensures:
+
+consistent schema
+no missing columns
+safe overwrite behavior
+11. DELETE ENTRY SYSTEM
+delete_current_entry()
+
+Delegates deletion to external handler:
+
+delete_journal_entry(entry_timestamp)
+
+On success:
+
+closes popup
+confirms deletion via messagebox
+12. UI CONTROL BAR
+
+Bottom action panel includes:
+
+Buttons:
+UPDATE CURRENT ENTRY
+DELETE ENTRY
+CLOSE
+
+Each button is bound to its respective function safely.
+
+13. DATA BINDING SYSTEM (TREEVIEW INTEGRATION)
+
+The editor is designed to be triggered from a Treeview double-click event:
+
+tree.bind("<Double-1>", lambda e: open_entry_editor(...))
+Expected behavior:
+User selects row in table
+Double click opens editor
+Entry is loaded by timestamp match
+14. ERROR HANDLING STRATEGY
+Hard Fail Conditions:
+Missing tree/root/journal_rows → ValueError
+Invalid selection → immediate return
+Missing row match → error dialog
+Soft Fail Conditions:
+Invalid numeric input → silent recalculation skip
+Trace errors in recalculation → ignored safely
+15. DEPENDENCIES
+Standard Library:
+tkinter
+csv
+os
+datetime
+UI Components:
+ttk.Notebook
+tk.Toplevel
+scrolledtext.ScrolledText
+messagebox
+16. INTEGRATION REQUIREMENTS
+
+To properly integrate this module into journal.py, you must provide:
+
+journal_rows (loaded dataset)
+CSV_FIELDS (schema definition)
+JOURNAL_FILE (persistent storage path)
+load_journal() callback
+delete_journal_entry() handler
+17. PERFORMANCE NOTES
+CSV rewrite is O(n) per update (acceptable for journal-scale datasets)
+No threading required
+UI is synchronous (Tkinter single-thread model)
+Designed for low-latency manual editing workflows
+18. EXTENSION POINTS
+
+This module is designed for future expansion:
+
+Possible upgrades:
+Auto-save debounce system
+Versioned journal history (undo/redo)
+Cloud sync (S3 / database backend)
+Trade snapshot export system
+Embedded chart preview per entry
+AI-generated analysis tab auto-fill
+19. DESIGN SUMMARY
+
+This module acts as a:
+
+Full-featured, safe, structured trade journal editor with real-time position sizing and CSV-backed persistence.
+
+It prioritizes:
+
+Data integrity
+UI clarity
+Institutional trade tracking workflows
+Safe failure handling
+20. FINAL NOTE
+
+This editor is intentionally designed to be:
+
+lightweight (no external dependencies)
+deterministic (no hidden state mutation)
+safe for production journaling workflows
+easily embedded into larger trading systems

@@ -1,0 +1,291 @@
+PRICE DISCOVERY STATUS ENGINE (INSTITUTIONAL REGIME CLASSIFIER)
+MODULE OVERVIEW
+
+This module implements a Price Discovery Status Engine, designed to classify market conditions into one of three structural regimes:
+
+ACCEPTANCE
+TRANSITION
+DISCOVERY
+
+Unlike phase-detection systems (Wyckoff phases, expansion phases, exhaustion phases, etc.), this engine does NOT attempt to predict lifecycle stages.
+
+Instead, it functions strictly as a:
+→ REGIME CLASSIFIER (macro structural market condition filter)
+
+Its primary purpose is to determine whether price is:
+
+Remaining within accepted value (equilibrium)
+Transitioning between regimes
+Actively breaking into new structural discovery (trend expansion / breakout behavior)
+CORE DESIGN PHILOSOPHY
+
+Markets are treated as an auction system:
+
+ACCEPTANCE = Efficient value distribution (range-bound equilibrium)
+TRANSITION = Early imbalance signals (uncertain structural shift)
+DISCOVERY = Inefficient expansion (breakout + participation surge)
+
+This avoids overfitting to classical “phase labeling” and instead focuses on:
+→ structural behavior changes across price, volatility, and volume
+
+INPUT REQUIREMENTS
+
+Function:
+calculate_price_discovery_status(df)
+
+Expected Input:
+df → pandas DataFrame containing OHLCV data
+
+Required Columns:
+- Open (optional but recommended)
+- High
+- Low
+- Close
+- Volume
+
+Minimum Data Requirement:
+- At least 60 rows of historical data
+
+If insufficient data is provided:
+→ System defaults to ACCEPTANCE regime with low confidence
+
+NORMALIZATION STEP
+
+Before processing, the dataframe is passed through:
+
+normalize_timestamp(df)
+
+This ensures:
+
+Time index consistency
+OHLCV alignment
+Standardized dataset structure across modules
+STRUCTURAL WINDOWING LOGIC
+
+The engine splits data into two comparative regimes:
+
+RECENT WINDOW:
+last 20 candles → df[-20:]
+
+PRIOR WINDOW:
+previous 40 candles → df[-60:-20]
+
+Purpose:
+Compare recent structural behavior vs prior equilibrium
+
+Fallback behavior:
+If dataset is exactly 60 rows or slightly inconsistent,
+windows are safely adjusted to prevent indexing failure.
+
+FEATURE ENGINEERING LOGIC
+PRICE STRUCTURE BREAKOUT DETECTION
+
+recent_high = max(high in recent window)
+prior_high = max(high in prior window)
+
+recent_low = min(low in recent window)
+prior_low = min(low in prior window)
+
+Signals:
+
+breakout_up → recent_high > prior_high
+breakout_down → recent_low < prior_low
+
+structure_break = breakout_up OR breakout_down
+
+Interpretation:
+
+Indicates structural inefficiency in prior accepted range
+Primary driver of DISCOVERY classification
+VOLATILITY EXPANSION REGIME
+
+recent_range = mean(high - low) over last 20 bars
+prior_range = mean(high - low) over prior 40 bars
+
+volatility_expanding = recent_range > prior_range * 1.25
+
+Interpretation:
+
+Measures expansion of price displacement per candle
+Filters out false breakouts with low participation
+VOLUME EXPANSION REGIME
+
+recent_vol = mean(volume over last 20 bars)
+prior_vol = mean(volume over prior 40 bars)
+
+volume_expanding = recent_vol > prior_vol * 1.20
+
+Interpretation:
+
+Confirms participation increase
+Distinguishes real breakouts from low-liquidity spikes
+TREND CONTEXT (SLOPE CONFIRMATION)
+
+slope = linear regression slope of last 20 closes:
+
+slope = np.polyfit(range(20), close[-20:], 1)[0]
+
+trend condition:
+
+trending = abs(slope) > std(close[-20:]) * 0.002
+
+Interpretation:
+
+Ensures directional movement has statistical structure
+Filters sideways noise during volatility expansion
+SCORING MODEL
+
+Each condition contributes to a structural confidence score:
+
+score = 0.0
+
+0.45 → structure_break
+0.25 → volatility_expanding
+0.20 → volume_expanding
+0.10 → trending
+
+Maximum score is capped at 1.0
+
+confidence = min(score, 1.0)
+
+REGIME CLASSIFICATION LOGIC
+🔴 1. DISCOVERY REGIME
+
+Condition:
+confidence >= 0.75
+
+Meaning:
+
+Strong structural breakout
+Volatility expansion confirmed
+Volume participation increasing
+Directional trend present
+
+Interpretation:
+"Structural breakout regime detected. Price is leaving accepted value with volatility expansion and participation increase."
+
+Use Case:
+
+Early trend identification
+Breakout confirmation
+Momentum-based strategy activation
+🟡 2. TRANSITION REGIME
+
+Condition:
+0.45 <= confidence < 0.75
+
+Meaning:
+
+Mixed signals
+Partial breakout structure
+Early expansion or failed breakout attempts
+
+Interpretation:
+"Market is transitioning between acceptance and expansion without confirmed breakout regime."
+
+Use Case:
+
+Caution zone
+Position scaling
+Watch for confirmation or rejection
+🟢 3. ACCEPTANCE REGIME (DEFAULT)
+
+Condition:
+confidence < 0.45
+
+Meaning:
+
+Market is in equilibrium
+No strong breakout structure
+Range-bound or rotational behavior
+
+Output adjustment:
+confidence = max(0.20, 1.0 - confidence)
+
+Interpretation:
+"Market in equilibrium. No confirmed structural breakout or expansion conditions."
+
+Use Case:
+
+Mean reversion strategies
+Range trading
+Low-risk environments
+OUTPUT STRUCTURE
+
+Function:
+run_price_discovery_status_engine(df)
+
+Returns dictionary:
+
+{
+"status": "ACCEPTANCE | TRANSITION | DISCOVERY",
+"confidence": float,
+
+"price_discovery_block": formatted string for UI display,
+
+"phase_context_block": formatted string for journal/log integration
+
+}
+
+JOURNAL INTEGRATION DESIGN
+
+The wrapper function is built for integration with:
+
+Trading journals
+Dashboard UI panels
+Institutional reporting logs
+
+Two formatted outputs:
+
+price_discovery_block
+→ Compact UI-friendly display
+phase_context_block
+→ Expanded narrative interpretation block
+
+Both preserve:
+
+status label
+confidence score
+institutional interpretation text
+ERROR HANDLING
+
+All execution is wrapped in:
+
+try:
+...
+except Exception as e:
+raise RuntimeError("PRICE DISCOVERY STATUS FAILURE: ...")
+
+Behavior:
+
+Prevents silent failures
+Forces upstream system awareness
+Ensures deterministic failure propagation
+KEY DESIGN ADVANTAGES
+NON-PHASE BIAS DESIGN
+Does not assume Wyckoff or Elliott structures
+Pure structural classification only
+MULTI-FACTOR CONFIRMATION
+Price + Volume + Volatility + Trend slope
+ANTI-FAKE BREAKOUT FILTER
+Requires participation + expansion, not price alone
+REGIME-FIRST LOGIC
+Designed for system routing (not prediction)
+COMMON USE CASES
+Institutional trading dashboards
+Multi-timeframe regime filtering
+Strategy activation gating
+Risk environment classification
+Liquidity expansion detection systems
+SUMMARY
+
+This module classifies market behavior into structural regimes using a weighted confirmation model across:
+
+Price structure breaks
+Volatility expansion
+Volume participation
+Trend slope confirmation
+
+It is designed to answer one question:
+
+"Is the market still in acceptance, transitioning, or actively discovering new price levels?"

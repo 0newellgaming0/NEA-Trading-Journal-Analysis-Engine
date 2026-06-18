@@ -1,0 +1,187 @@
+database_viewer.py — README.txt (In-Depth Module Documentation)
+Overview
+
+This module is a lightweight Tkinter launcher wrapper that initializes and displays the full Database Browser GUI system.
+
+It serves as the entry point for the database inspection interface, connecting the application window (Tk) to the DatabaseBrowser class responsible for rendering all database tabs and views.
+
+In short:
+
+This module does not implement logic or UI components directly — it acts as the bootstrap launcher for the database visualization dashboard.
+
+Core Purpose
+
+The primary responsibilities of this module are:
+
+Create the main Tkinter application window
+Set UI window configuration (title, size)
+Instantiate the DatabaseBrowser interface
+Delegate full UI rendering to DatabaseBrowser.build()
+Start the Tkinter event loop
+Dependencies
+Standard Library
+tkinter (aliased as tk) — GUI framework
+Internal Modules
+DatabaseBrowser from modules.database_browser
+Function: launch_database_viewer()
+def launch_database_viewer():
+Purpose
+
+This is the single entry-point function that launches the entire database GUI application.
+
+It acts as a controller/bootstrap function that connects backend data systems to the visual interface.
+
+Execution Flow
+
+When launch_database_viewer() is called, the following sequence occurs:
+
+1. Create Main Application Window
+win = tk.Tk()
+Initializes the root Tkinter window
+Acts as the top-level container for all UI elements
+2. Configure Window Properties
+win.title("Database Viewer")
+win.geometry("1300x800")
+Settings:
+Property	Value	Purpose
+Title	"Database Viewer"	Window label shown in OS taskbar
+Geometry	1300x800	Default window size (wide dashboard layout)
+3. Initialize Database Browser UI Layer
+app = DatabaseBrowser(win)
+What Happens Here:
+DatabaseBrowser is instantiated
+The Tkinter root (win) is passed as the parent container
+This binds the entire UI system to the main window
+4. Build Full UI
+app.build()
+Purpose:
+
+Triggers the construction of the entire database interface.
+
+This includes:
+
+Summary tab
+Webull data tab
+Trades journal tab
+Stock CSV viewer tab
+Ledger tab
+
+All UI components are created inside DatabaseBrowser.build().
+
+5. Start Event Loop
+win.mainloop()
+Purpose:
+Enters Tkinter’s event-driven loop
+Keeps the application window responsive
+Handles user interaction (clicks, input, scrolling)
+
+Without this call, the GUI would open and immediately close.
+
+ARCHITECTURE ROLE
+
+This module is part of a three-layer UI architecture:
+
+[ Launcher Layer ]
+database_viewer.py
+        │
+        ▼
+[ UI Controller Layer ]
+DatabaseBrowser
+        │
+        ▼
+[ Data Layer ]
+DatabaseManager + SQLite + CSV Stock Data
+DESIGN PHILOSOPHY
+1. Separation of Concerns
+
+This module deliberately contains no business logic.
+
+It only:
+
+Starts the application
+Delegates UI construction
+
+All logic resides in:
+
+DatabaseBrowser → UI rendering
+DatabaseManager → database access
+2. Minimal Bootstrap Pattern
+
+The design follows a clean entry-point pattern:
+
+One function = One responsibility = Launch application
+
+This ensures:
+
+Easy debugging
+Simple execution entry
+Clear program flow
+3. GUI Decoupling
+
+By isolating the launcher:
+
+UI logic is reusable
+Multiple launchers can be created (e.g., debug mode, full system mode)
+DatabaseBrowser can be embedded in other apps if needed
+USAGE
+Standard Execution
+from modules.database_viewer import launch_database_viewer
+
+launch_database_viewer()
+CLI Integration Example
+if __name__ == "__main__":
+    launch_database_viewer()
+UI CHARACTERISTICS
+
+When launched, the application provides:
+
+A resizable 1300x800 window
+Tabbed interface (via DatabaseBrowser)
+Scrollable tables for large datasets
+Stock CSV inspection tools
+Trading database visualization
+PERFORMANCE NOTES
+Lightweight Launcher
+No heavy computation occurs in this module
+Startup time is negligible
+Delegated Load
+All performance cost is in DatabaseBrowser.build()
+This keeps launcher responsiveness fast
+LIMITATIONS
+1. No Configuration Options
+Window size is hardcoded
+No theme or layout configuration
+2. No Error Handling
+Assumes DatabaseBrowser always initializes correctly
+No fallback UI if database fails
+3. No Multi-Window Support
+Single Tkinter root only
+Cannot spawn multiple independent viewers without modification
+EXTENSION OPPORTUNITIES
+1. Configurable Window Settings
+def launch_database_viewer(width=1300, height=800):
+2. Debug Mode Launcher
+Show SQL logs
+Enable performance tracing
+Highlight slow queries
+3. Multi-Tool Launcher Hub
+
+This module could evolve into a central system launcher:
+
+Database Viewer
+Journal Viewer
+Strategy Analyzer
+Market Scanner Dashboard
+4. Theming Support
+Dark mode toggle
+Custom UI scaling
+Font configuration
+SUMMARY
+
+This module is a simple but critical bootstrap layer that:
+
+Creates the Tkinter application window
+Instantiates the full database UI system
+Starts the event loop
+
+It acts as the entry gateway into the entire trading database visualization system, connecting all backend data structures to the user-facing interface in a clean, minimal, and maintainable way.

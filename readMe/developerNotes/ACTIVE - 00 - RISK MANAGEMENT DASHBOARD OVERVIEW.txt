@@ -1,0 +1,476 @@
+RISK MANAGEMENT DASHBOARD - NEA28V1
+
+© 2026 Newell Trading Group. All rights reserved.
+
+=========================================================
+
+OVERVIEW
+
+The NEA28V1 Risk Management Dashboard is a comprehensive desktop
+trading risk management, journaling, and institutional analysis tool
+designed for structured trade planning, execution tracking, and post-trade
+review.
+
+It integrates deterministic risk modeling, Fibonacci-based ladder entries,
+and a full trade journal system with editable records, AI analysis storage,
+and multi-tab trade review workflows.
+
+This system has evolved into a full trade lifecycle management platform:
+
+Pre-trade risk modeling
+Structured entry planning
+Trade execution journaling
+AI-driven institutional analysis storage
+Post-trade editing and updates
+Historical execution tracking (Webull import)
+Full CSV persistence layer
+
+=========================================================
+
+INSTALLATION
+
+Ensure Python 3.8+ is installed
+Tkinter is required (bundled with most Python installs)
+
+Linux:
+sudo apt-get install python3-tk
+
+Place the following in the same directory:
+journal.py (main application)
+journal.csv (auto-created if missing)
+README.txt (and optional README*.txt files)
+Run:
+python journal.py
+
+No external dependencies required.
+
+=========================================================
+
+CORE SYSTEM ARCHITECTURE
+
+The system is built around three core layers:
+
+Risk Calculation Engine (Left Panel)
+Trade Journal Database (CSV Persistence)
+Analysis & Review System (Popup Editor + Tabs)
+
+=========================================================
+
+LEFT PANEL (RISK ENGINE)
+
+Controls:
+
+Ticker Input
+Account Size
+Low Price
+Last High Price
+Risk Percentage
+Risk Dollar (auto-calculated)
+Stop Loss (auto-calculated but manually editable)
+Fibonacci Ladder System:
+Range High
+Range Low
+Wave 1 Retracement
+Shakeout Level
+
+Position Sizing:
+
+Ladder Shares per level
+Ladder Cost per level
+Total Shares
+Total Cost Exposure
+
+Buy Now System:
+
+Immediate execution price
+Auto-calculated share allocation
+Total capital requirement
+
+REAL-TIME FEATURES:
+
+All inputs trigger live recalculation
+Stop-loss auto-adjusts unless manually overridden
+Buy Now mirrors Ladder Level 1 unless edited
+Risk updates dynamically on any parameter change
+
+=========================================================
+
+RIGHT PANEL (JOURNAL + EXECUTION DATA)
+
+Journal Table:
+
+Displays full trade history from journal.csv
+Fully scrollable (horizontal + vertical)
+Click row to load into analysis generator
+Supports large datasets
+
+Executed Trades Panel:
+
+Imports Webull execution history
+Filters filled orders only
+Normalizes price formatting
+Removes irrelevant columns (Status cleanup)
+Generates dynamic trade context prompts
+
+=========================================================
+
+📊 ADVANCED TRADE POPUP SYSTEM (EXPANDED)
+
+Double-clicking a journal entry opens a full-feature editor.
+
+This popup contains FOUR tabs:
+
+TAB 1 — TRADE
+
+Editable Fields:
+
+Ticker
+Account Size
+Risk Dollar
+Stop Loss
+Ladder Prices
+Buy Now Price
+Buy Now Shares
+Buy Now Total
+
+FEATURES:
+
+Live recalculation inside popup
+Adjusting values instantly updates:
+Shares
+Total cost
+Risk exposure
+TAB 2 — NOTES
+Multi-line trade journal system
+Persistent trade reasoning storage
+Supports structured or free-form notes
+Saved as: trade_notes
+
+USE CASES:
+
+Entry reasoning
+Emotional state tracking
+Execution notes
+Post-trade reflection
+Strategy adjustments
+TAB 3 — ANALYSIS (AI / INSTITUTIONAL LAYER)
+Stores institutional-grade AI analysis per trade
+Accepts pasted generated prompts or reports
+Fully scrollable multi-line storage
+Saved as: analysis_notes
+
+FEATURES:
+
+Paste full AI-generated institutional reports
+Save structured trade breakdowns
+Retain historical analysis per entry
+Fully editable and persistent
+TAB 4 — MANAGEMENT (NEW)
+
+The Management tab provides operational control over trade lifecycle maintenance.
+
+FUNCTIONS:
+
+Trade lifecycle adjustments after execution
+Manual correction of trade metadata
+Structural adjustments to recorded trades
+Post-analysis tagging and classification
+Internal workflow labeling (e.g., “reviewed”, “invalidated”, “scaled”, “closed early”)
+
+USE CASES:
+
+Mark trades as reviewed after analysis
+Adjust classification after strategy refinement
+Add operational notes not part of trade thesis
+Track post-trade administrative decisions
+
+=========================================================
+
+💾 UPDATE CURRENT ENTRY SYSTEM
+
+The system now supports in-place modification of trades.
+
+UPDATE CURRENT ENTRY:
+
+Overwrites the selected journal row
+Preserves original timestamp (trade identity key)
+Updates:
+Trade fields
+Notes tab
+Analysis tab
+Management tab
+Immediately refreshes:
+Journal table
+Popup state
+Internal dataset
+
+BEHAVIOR:
+
+Before:
+SAVE ENTRY = creates new row
+
+Now:
+UPDATE CURRENT ENTRY = modifies existing row
+
+USE CASE:
+
+Adjust stop-loss after entry
+Update analysis after AI review
+Correct trade parameters post-execution
+Refine journal notes without duplication
+Add management classification post-trade
+
+=========================================================
+
+🗑️ DELETE ENTRY SYSTEM
+
+Each popup now includes:
+
+DELETE ENTRY BUTTON
+
+FUNCTIONALITY:
+
+Permanently removes selected trade entry
+Confirms before deletion
+Rewrites entire CSV safely
+Refreshes journal immediately
+
+SAFETY FEATURES:
+
+Confirmation dialog
+Timestamp-based deletion (unique identifier)
+Full CSV rebuild (prevents corruption)
+
+=========================================================
+
+CALCULATIONS & FORMULAS
+
+Risk Model:
+
+Risk ($) = Account Size × Risk %
+
+Ladder Range:
+
+Range = Last High − Low
+
+Fibonacci Ladder Levels:
+
+Wave 1 = Low + (Range × 0.31298)
+Wave 2 = Low + (Range × 0.45)
+Shakeout = Low + (Range × -0.238)
+
+Position Sizing:
+
+Shares = (Risk $ × Allocation) ÷ (Entry − Stop)
+
+Allocations:
+
+12.5%
+50%
+25%
+12.5%
+
+Buy Now Model:
+
+Shares = Risk $ ÷ (BuyNow − Stop)
+
+Risk/Reward:
+
+Target = Entry + (Entry − Stop)
+
+=========================================================
+
+JOURNAL FILE STRUCTURE
+
+journal.csv
+
+Columns:
+
+timestamp (unique ID)
+ticker
+account
+risk_dollar
+stop
+ladder_1_price
+ladder_2_price
+ladder_3_price
+ladder_4_price
+buy_now_price
+buy_now_shares
+buy_now_total
+trade_notes
+analysis_notes
+management_notes
+
+RULES:
+
+Each row represents a single trade snapshot
+UPDATE modifies existing rows
+SAVE creates new trade entry
+Analysis, Notes, and Management fields are fully persistent
+
+=========================================================
+
+📈 TEMPLATE / PROMPT GENERATOR SYSTEM
+
+The system includes a dynamic institutional prompt generator.
+
+FEATURES:
+
+Auto-builds full trade thesis
+Includes:
+Entry/exit logic
+Risk structure
+Fibonacci levels
+Institutional analysis framework
+Elliott Wave + Wyckoff structure
+Updates based on:
+Journal selection
+Executed trade selection
+
+NEW CAPABILITY:
+
+Can paste AI-generated institutional reports
+Store full analysis per trade entry
+Retrieve later from Analysis tab
+
+=========================================================
+
+📊 EXECUTED TRADE INTEGRATION (WEBULL)
+
+Imports execution history CSV
+Filters only filled trades
+Auto-formats pricing data
+Removes irrelevant metadata
+Allows conversion into structured trade thesis
+
+=========================================================
+
+📚 README POPUP SYSTEM
+
+FEATURES:
+
+Scrollable README viewer
+Supports multiple README*.txt files
+"Next README" navigation link
+Cycles through documentation files
+Does not close between navigation
+
+USE CASE:
+
+Documentation system expansion
+Modular strategy guides
+Version changelogs
+Trading framework references
+
+=========================================================
+
+FEATURE SUMMARY (UPDATED SYSTEM)
+
+✔ Real-time risk engine
+✔ Fibonacci ladder system
+✔ Dynamic position sizing
+✔ CSV-based trade journal
+✔ Executed trade import system
+✔ Institutional prompt generator
+✔ Multi-tab trade editor popup (TRADE / NOTES / ANALYSIS / MANAGEMENT)
+✔ Multi-line trade notes system
+✔ AI analysis storage per trade
+✔ UPDATE CURRENT ENTRY (in-place editing)
+✔ DELETE ENTRY system (safe CSV rewrite)
+✔ Live recalculation inside popup
+✔ Persistent structured trade lifecycle system
+✔ README multi-file navigation system
+
+=========================================================
+
+HOW TO USE (ORIGINAL)
+
+Enter ticker and risk parameters
+Review auto-generated ladder system
+Click SAVE ENTRY for new trade
+Double-click any journal entry to open editor
+Use tabs:
+Trade → adjust parameters
+Notes → log trade reasoning
+Analysis → paste AI institutional report
+Click:
+UPDATE CURRENT ENTRY → modify existing trade
+DELETE ENTRY → remove trade
+Select journal or executed trade for prompt generation
+Use README popup for documentation navigation
+
+=========================================================
+
+HOW TO USE (EXPANDED ADDENDUM — FULL SYSTEM COVERAGE)
+
+This section extends the original workflow to include all new panels, filters, and systems.
+
+LEFT PANEL — RISK ENGINE WORKFLOW
+Input ticker and account size first
+Define risk percentage
+Confirm automatic Risk Dollar calculation
+Set Stop Loss (auto-calculated or manual override)
+Configure Fibonacci range (High/Low)
+Review ladder levels before execution
+Adjust Buy Now system if immediate entry required
+RIGHT PANEL — JOURNAL TABLE WORKFLOW
+Review all historical trades
+Click any row to load full trade context
+Use horizontal scroll for full dataset review
+Use column sorting mentally (timestamp, ticker, account)
+Use selection for AI prompt generation workflows
+EXECUTED TRADE PANEL (WEBULL IMPORT)
+Import execution CSV from broker
+Filter only filled trades automatically
+Use for reconciliation against journal entries
+Convert execution history into structured thesis input
+TRADE POPUP — FULL WORKFLOW
+
+When opening a trade:
+
+TRADE TAB
+Adjust risk, ladder, and execution parameters
+Validate updated position sizing
+NOTES TAB
+Record reasoning before/after entry
+Track behavioral and strategic notes
+ANALYSIS TAB
+Store institutional AI reports
+Paste full multi-paragraph breakdowns
+MANAGEMENT TAB
+Tag trade lifecycle state
+Mark trade as reviewed, adjusted, invalidated, or completed
+Add operational post-trade metadata
+UPDATE / DELETE OPERATIONS
+UPDATE CURRENT ENTRY → modifies selected trade in-place
+DELETE ENTRY → permanently removes trade after confirmation
+FILTERING SYSTEM (JOURNAL)
+Filter by:
+investor
+transaction_type
+timestamp
+Dynamic refresh on input change
+Used to isolate trade clusters or execution periods
+INVESTOR SNAPSHOT SYSTEM
+View aggregated investor equity breakdown
+Click investor snapshot to filter ledger entries
+Analyze net exposure per investor
+Review ownership percentage distribution
+README NAVIGATION SYSTEM
+Cycle through multiple README files
+Use as modular documentation hub
+Store strategy evolution logs and system updates
+
+=========================================================
+
+LICENSE / DISCLAIMER
+
+© 2026 Newell Trading Group. All rights reserved.
+
+This software is provided for educational and analytical purposes only.
+No financial advice is provided. Trading carries risk of loss.
+
+Users assume full responsibility for all trading decisions.
+
+=========================================================

@@ -1,0 +1,412 @@
+=========================================================
+VOLUME ANALYSIS CONTEXT MODULE
+README.txt
+=========================================================
+MODULE NAME
+
+load_volume_analysis
+
+LOCATION (EXPECTED)
+
+Typically used within:
+
+modules/volume_analysis_context.py
+=========================================================
+OVERVIEW
+=========================================================
+
+This module is a full institutional-grade volume analytics engine designed to transform raw OHLCV market data into a structured order-flow + participation + institutional behavior report.
+
+It integrates:
+
+Volume expansion / contraction detection
+Relative volume (RVOL) modeling
+OBV (On-Balance Volume) slope analysis
+A/D (Accumulation/Distribution) slope modeling
+Institutional accumulation state classification
+Buyer vs seller dominance modeling
+Spike detection engine (standard → extreme)
+Compression and absorption detection
+Narrative interpretation layer (human-readable output)
+
+The final output is a complete institutional volume summary report used for:
+
+Trade confirmation
+Entry timing validation
+Wyckoff phase alignment
+Momentum confirmation
+Liquidity expansion detection
+=========================================================
+DEPENDENCIES
+=========================================================
+Python Libraries
+os
+pandas
+numpy
+Internal Modules
+1. Path Resolver
+
+modules.path_resolver
+
+Responsible for locating ticker datasets across structured directories.
+
+Key function:
+
+get_stock_data_path(ticker, timeframe)
+2. Volume Analysis Engine
+
+modules.volumeAnalysis
+
+Provides core institutional metrics:
+
+up_volume_percentage
+down_volume_percentage
+obv_slope
+ad_slope
+institutional_accumulation_state
+=========================================================
+FUNCTION SIGNATURE
+=========================================================
+load_volume_analysis(
+    ticker,
+    timeframe="intraday_60m",
+    limit=40
+)
+=========================================================
+INPUT PARAMETERS
+=========================================================
+ticker (str)
+
+Stock symbol (e.g., "AAPL", "TSLA")
+
+Used to locate:
+
+volume_<ticker>.csv
+timeframe (str)
+
+Defines dataset structure:
+
+Supported:
+intraday_1m
+intraday_5m
+intraday_15m
+intraday_30m
+intraday_60m
+daily
+weekly
+Behavior:
+Intraday → tighter rolling windows (10)
+Higher timeframe → broader windows (20)
+limit (int)
+
+Number of most recent rows analyzed.
+
+Default:
+
+40
+
+Used for:
+
+institutional state
+slicing recent market structure
+snapshot analysis
+=========================================================
+DATA REQUIREMENTS
+=========================================================
+
+CSV must contain at least:
+
+Required:
+volume
+close
+high
+low
+open
+Preferred structured format:
+volume_<ticker>
+close_<ticker>
+high_<ticker>
+low_<ticker>
+open_<ticker>
+
+Fallback supports generic:
+
+volume, close, high, low, open
+=========================================================
+CORE PIPELINE LOGIC
+=========================================================
+STEP 1 — DATA LOADING
+Loads CSV via resolved file path
+Trims dataset to last limit rows
+STEP 2 — TIMEFRAME LOGIC
+Intraday:
+rvol_window = 10
+vol_window  = 10
+Higher timeframe:
+rvol_window = 20
+vol_window  = 20
+
+This ensures:
+
+faster reaction for intraday noise
+smoother institutional context for daily data
+STEP 3 — COLUMN RESOLUTION SYSTEM
+
+Automatically resolves:
+
+volume_<ticker>
+close_<ticker>
+high_<ticker>
+low_<ticker>
+open_<ticker>
+
+Falls back to generic OHLCV columns if needed.
+
+STEP 4 — NUMERIC NORMALIZATION
+
+All OHLCV fields are coerced:
+
+pd.to_numeric(errors="coerce")
+
+Then:
+
+NaNs → 0
+Ensures safe rolling calculations
+=========================================================
+CORE METRICS ENGINE
+=========================================================
+RELATIVE VOLUME (RVOL)
+Short-term:
+rvol_5 = volume / rolling_mean(5)
+Institutional:
+rvol_20 = volume / rolling_mean(window)
+VOLUME STATISTICS
+vol_ma_5 → short-term average volume
+vol_ma_20 → institutional baseline volume
+vol_std_20 → volatility of volume
+vol_zscore → normalized volume deviation
+FLOW METRICS
+Up Volume %
+
+Percentage of volume on bullish candles.
+
+Down Volume %
+
+Percentage of volume on bearish candles.
+
+STRUCTURAL FLOW
+OBV Slope
+
+Tracks directional accumulation pressure.
+
+A/D Slope
+
+Tracks:
+
+accumulation
+distribution pressure
+institutional flow imbalance
+=========================================================
+INSTITUTIONAL MODEL
+=========================================================
+institutional_accumulation_state()
+
+Evaluates:
+
+accumulation
+distribution
+neutral compression
+institutional buildup
+
+Output is injected into:
+
+institutional_state
+=========================================================
+SPIKE DETECTION ENGINE
+=========================================================
+RVOL Thresholds
+Type	Condition
+spike	rvol_20 >= 1.5
+major spike	rvol_20 >= 2.5
+extreme spike	rvol_20 >= 4.0
+contraction	rvol_20 <= 0.8
+=========================================================
+PRICE ACTION INTEGRATION
+=========================================================
+
+Computes:
+
+price_change_pct
+
+Used for:
+
+bullish confirmation
+distribution detection
+compression detection
+=========================================================
+DIRECTIONAL VOLUME MODEL
+=========================================================
+Buyer Volume:
+close >= open
+Seller Volume:
+close < open
+
+Used to determine:
+
+dominant side of market flow
+absorption vs distribution behavior
+=========================================================
+ACCUMULATION / DISTRIBUTION VALUE MODEL
+=========================================================
+
+Uses:
+
+Money Flow Multiplier:
+
+Based on:
+
+close position in range
+high-low structure
+
+Generates:
+
+money_flow_volume
+ad_value = sum(money_flow_volume)
+
+This is a simplified institutional pressure proxy.
+
+=========================================================
+PARTICIPATION CLASSIFICATION
+=========================================================
+
+Based on RVOL:
+
+Condition	State
+>= 4.0	EXTREME INSTITUTIONAL PARTICIPATION
+>= 2.0	HEAVY INSTITUTIONAL PARTICIPATION
+>= 1.3	MODERATE EXPANSION
+<= 0.7	PARTICIPATION VACUUM
+else	NORMAL
+=========================================================
+INTERPRETATION ENGINE
+=========================================================
+
+The system builds a natural language institutional narrative:
+
+Examples:
+
+“Extreme volume expansion detected”
+“Distribution pressure detected”
+“Absorption/compression detected”
+“Buyer-dominant flow”
+“Seller-dominant flow”
+“Volume trend: EXPANDING / CONTRACTING”
+
+This layer is critical for:
+
+journal integration
+trade decision validation
+Wyckoff alignment confirmation
+=========================================================
+VOLUME TREND MODEL
+=========================================================
+EXPANDING   → vol_ma_5 > vol_ma_20
+CONTRACTING → vol_ma_5 < vol_ma_20
+NEUTRAL     → equal
+=========================================================
+OUTPUT STRUCTURE
+=========================================================
+
+The function returns a formatted string report containing:
+
+1. Core Metrics
+Close price
+Volume
+RVOL
+Z-score
+2. Participation State
+Institutional classification
+accumulation state
+3. Flow Metrics
+Up/Down volume %
+OBV slope
+A/D slope
+4. Order Flow
+Buyer volume
+Seller volume
+A/D value
+5. Event Detection
+spikes
+major spikes
+extreme spikes
+contraction count
+6. Interpretation Layer
+
+Human-readable trading signals
+
+7. Snapshots
+recent RVOL trend
+recent volume trend
+=========================================================
+ERROR HANDLING
+=========================================================
+
+Returns safe messages for:
+
+missing file
+empty dataset
+missing volume column
+runtime exceptions
+
+Example:
+
+No volume data file found at:
+<path>
+
+or
+
+Volume analysis error: <exception>
+=========================================================
+DESIGN PHILOSOPHY
+=========================================================
+
+This module is built around:
+
+1. Institutional Flow First
+
+Not price-first, but volume-driven structure
+
+2. Multi-Layer Confirmation
+RVOL
+OBV
+A/D
+Price change
+Directional volume
+3. Compression → Expansion Logic
+
+Detects:
+
+quiet accumulation
+explosive breakouts
+distribution phases
+4. Narrative Output Layer
+
+Designed for:
+
+trading journal ingestion
+dashboard display
+human interpretation
+=========================================================
+INTEGRATION USE CASES
+=========================================================
+
+This module is typically used in:
+
+Trading journal systems
+Wyckoff analysis engine
+Momentum confirmation systems
+Institutional liquidity scanners
+Multi-timeframe dashboards
+=========================================================
+END OF README
+=========================================================

@@ -1,0 +1,314 @@
+Module: Stop Loss Evaluation & T-Line Risk Engine
+Version: 1.0 (Institutional Risk Layer – Multi-Timeframe T-Line Integration)
+1. Overview
+
+This module implements a multi-layered institutional stop-loss evaluation engine designed for systematic trading workflows using:
+
+Structural stop levels (manual / strategy-defined risk)
+T-Line (EMA-8 based trend stop logic)
+Multi-timeframe confirmation (60-minute + Daily)
+Regime classification:
+VALID
+PULLBACK
+BREACHED
+
+It is intended to function as a final decision gate inside a trading journal, risk engine, or execution system, ensuring trades are continuously validated against both structural and trend-based risk frameworks.
+
+2. Core Philosophy
+
+This module is built on a hybrid of:
+
+Wyckoff-style structural risk control
+T-Line (EMA-8) momentum integrity
+Multi-timeframe confirmation hierarchy
+
+Instead of a single stop-loss, the system evaluates:
+
+“Is the trade structurally invalid, temporarily pulling back, or fully broken across timeframes?”
+
+This avoids premature exits during healthy pullbacks while still enforcing strict risk discipline during true breakdowns.
+
+3. Dependencies
+Required Libraries
+import pandas as pd
+import numpy as np
+import logging
+Internal Dependency
+from modules.tlineAnalysis import ema, tline_stop_price
+Expected functionality:
+ema(series, period)
+→ Returns exponential moving average series (used for EMA-8 T-Line)
+tline_stop_price(close, ema8, high, low)
+→ Computes institutional T-Line stop level based on:
+EMA-8 trend baseline
+volatility structure (high/low range)
+price interaction with trend
+4. Data Requirements
+
+All functions assume a pandas DataFrame with one of the following formats:
+
+Preferred format (ticker-specific columns)
+close_aapl
+high_aapl
+low_aapl
+Fallback format (generic OHLC)
+close
+high
+low
+Notes:
+Ticker is always normalized using .lower()
+Missing or malformed columns will cause safe failures or logged errors
+5. Function Breakdown
+5.1 get_latest_close(df, ticker)
+Purpose
+
+Safely extracts the latest closing price from a dataframe.
+
+Logic
+Looks for: close_{ticker}
+Returns last valid float value
+Handles NaN and missing columns safely
+Returns
+float | None
+Failure Modes
+Invalid DataFrame → returns None
+Missing column → logs error + returns None
+NaN last value → returns None
+5.2 _build_ohlc(df, ticker) (Internal Utility)
+Purpose
+
+Normalizes OHLC data for T-Line calculations.
+
+Output
+(close_series, high_series, low_series)
+Behavior
+Supports both:
+ticker-suffixed columns
+generic OHLC columns
+Converts all series to numeric (pd.to_numeric)
+Returns (None, None, None) if any critical component missing
+5.3 get_tline_stop(df, ticker)
+Purpose
+
+Computes the T-Line stop price using EMA-8 structure.
+
+Requirements
+Minimum 20 rows of data
+Valid OHLC structure
+Process
+Extract OHLC via _build_ohlc
+Clean NaN values
+
+Compute EMA-8:
+
+ema8 = ema(close, 8)
+
+Compute stop:
+
+tline_stop_price(close, ema8, high, low)
+Returns
+float
+Exceptions Raised
+Invalid DataFrame
+Missing OHLC data
+Insufficient dataset (< 20 bars)
+Computation failure / NaN result
+5.4 evaluate_stop_loss(latest_close, stop_val, df, daily_df, ticker)
+🔴 CORE ENGINE FUNCTION
+
+This is the primary risk decision engine.
+
+Inputs
+Parameter	Type	Description
+latest_close	float	Current market price
+stop_val	float	Structural stop level
+df	DataFrame	60-minute timeframe data
+daily_df	DataFrame	Daily timeframe data
+ticker	str	Symbol identifier
+Multi-Layer Evaluation System
+Layer 1 — Structural Stop
+structural_breached = latest_close < stop_val
+
+This represents:
+
+Hard invalidation level
+Strategy-defined risk point
+Layer 2 — 60M T-Line Stop
+tline_stop = get_tline_stop(df)
+tline_breached = latest_close < tline_stop
+
+Represents:
+
+Intraday trend breakdown
+Momentum failure on lower timeframe
+Layer 3 — Daily T-Line Stop
+daily_tline_stop = get_tline_stop(daily_df)
+daily_tline_breached = latest_close < daily_tline_stop
+
+Represents:
+
+Higher timeframe structural breakdown
+Institutional trend failure
+State Classification Logic
+
+The engine assigns one of three states:
+
+🟢 VALID
+
+Conditions:
+
+No structural break
+No higher timeframe breakdown
+
+Interpretation:
+
+Trend intact
+No risk trigger activated
+🟡 PULLBACK
+
+Condition:
+
+tline_breached == True
+AND daily_tline_breached == False
+
+Interpretation:
+
+Intraday weakness
+Higher timeframe structure intact
+Controlled retracement, NOT failure
+
+This is critical for:
+
+Avoiding premature exits
+Holding during normal volatility
+🚨 BREACHED
+
+Condition:
+
+structural_breached == True
+OR daily_tline_breached == True
+
+Interpretation:
+
+Full structural breakdown
+Institutional exit signal
+Risk containment required immediately
+Output Structure
+VALID / PULLBACK / BREACHED all return:
+{
+    "breached": bool,
+    "status": str,
+    "state": str,
+    "structural_breached": bool,
+    "tline_breached": bool,
+    "daily_tline_breached": bool,
+    "tline_stop": float | None,
+    "daily_tline_stop": float | None,
+    "block": str
+}
+6. Output "Block" System
+
+Each evaluation returns a formatted diagnostic string:
+
+🟢 VALID
+Shows all stops
+Confirms structure intact
+🟡 PULLBACK
+Highlights intraday weakness
+Confirms higher timeframe protection
+🚨 BREACHED
+Full breakdown report
+Displays all violated thresholds
+Includes monitoring guidance
+7. Logging Behavior
+
+The module uses Python logging:
+
+logger = logging.getLogger(__name__)
+Logged Events
+Invalid DataFrames
+Missing columns
+T-Line computation failures
+Daily/60M fallback issues
+
+This ensures:
+
+Silent failure prevention
+Debug traceability in journal systems
+8. Risk Model Interpretation
+
+This engine replaces a single stop-loss with a hierarchical risk model:
+
+Traditional Model:
+One stop = exit
+This Model:
+Structural Stop → Hard risk boundary
+60M T-Line → Momentum risk
+Daily T-Line → Institutional trend risk
+9. Trading System Integration
+
+This module is designed to plug into:
+
+Journal risk dashboards
+Execution engines
+Multi-timeframe scanners
+Wyckoff-based systems
+EMA-8 / T-Line frameworks
+
+Typical pipeline usage:
+
+Market Data → T-Line Engine → Stop Evaluation → Journal Decision Layer
+10. Example Usage
+from stop_loss_engine import evaluate_stop_loss
+
+result = evaluate_stop_loss(
+    latest_close=2.45,
+    stop_val=2.10,
+    df=intraday_df,
+    daily_df=daily_df,
+    ticker="AAPL"
+)
+
+print(result["status"])
+print(result["block"])
+11. Failure Handling Philosophy
+
+This module is intentionally designed to:
+
+Never silently crash critical workflows
+Fail safely with None or controlled exceptions
+Preserve decision integrity over computation completeness
+
+If data is insufficient:
+
+T-Line → skipped
+State → downgraded to safe evaluation
+Risk system remains operational
+12. Key Design Strengths
+Multi-timeframe confirmation logic
+Separation of structural vs momentum risk
+Explicit regime classification (VALID / PULLBACK / BREACHED)
+Safe OHLC normalization layer
+Built for institutional-style trading journals
+Fully extensible for additional risk layers (ATR, VWAP, liquidity)
+13. Potential Extensions
+
+Recommended upgrades:
+
+ATR-based dynamic stop blending
+VWAP regime filter
+Volume-confirmed T-Line breaks
+Wyckoff phase tagging inside PULLBACK state
+Risk score output (0–100 severity scale)
+Position sizing integration layer
+14. Summary
+
+This module acts as a multi-timeframe institutional risk decision engine, not just a stop-loss calculator.
+
+It answers three critical questions:
+
+Is the trade structurally invalid?
+Is this a normal pullback or real breakdown?
+Has institutional trend support failed?
+
+By combining structural risk + T-Line momentum logic, it produces a more realistic representation of trade survival conditions in active markets.

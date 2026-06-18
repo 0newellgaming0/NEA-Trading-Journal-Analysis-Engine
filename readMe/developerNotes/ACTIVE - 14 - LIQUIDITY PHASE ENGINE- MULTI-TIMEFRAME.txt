@@ -1,0 +1,436 @@
+=========================================================
+MULTI-TIMEFRAME LIQUIDITY PHASE ENGINE (INSTITUTIONAL CORE)
+README.TXT — SYSTEM DOCUMENTATION
+=========================================================
+
+MODULE NAME:
+Multi-Timeframe Liquidity Phase Engine (Institutional Core)
+
+TYPE:
+Hierarchical Market Structure Aggregation Engine
+
+PRIMARY PURPOSE:
+Multi-timeframe structural fusion of liquidity phase analysis
+into a unified institutional macro regime model.
+
+=========================================================
+1. OVERVIEW
+=========================================================
+
+This module acts as the institutional "orchestration layer"
+on top of the single-timeframe Liquidity Phase Engine.
+
+Instead of analyzing market structure in isolation, it:
+
+    • Runs multiple timeframe analyses in parallel
+    • Converts outputs into weighted structural influence
+    • Classifies macro regime bias (bullish / bearish / neutral)
+    • Generates unified institutional reporting blocks
+
+It is designed to replicate how institutional desks interpret
+market structure across stacked timeframes:
+
+    LOWER TIMEFRAMES → execution timing
+    HIGHER TIMEFRAMES → directional bias
+
+=========================================================
+2. SYSTEM ARCHITECTURE
+=========================================================
+
+The engine is composed of four primary layers:
+
+---------------------------------------------------------
+(1) TIMEFRAME EXECUTION LAYER
+---------------------------------------------------------
+
+Function:
+    analyze_timeframe()
+
+Purpose:
+    Safely executes single-timeframe liquidity analysis.
+
+Core dependency:
+    run_price_phase_analysis() from Liquidity Phase Engine
+
+Failure Handling:
+    If analysis fails:
+        → returns structured ERROR object
+        → prevents pipeline crash
+        → preserves journal stability
+
+Output Structure:
+    {
+        regime,
+        active_phase,
+        confidence,
+        context_score,
+        phases,
+        error (optional)
+    }
+
+---------------------------------------------------------
+(2) INFLUENCE WEIGHT LAYER
+---------------------------------------------------------
+
+Function:
+    compute_influence_layer()
+
+Purpose:
+    Converts raw timeframe outputs into weighted influence scores.
+
+---------------------------------------------------------
+DEFAULT TIMEFRAME WEIGHTS:
+---------------------------------------------------------
+
+    15m     → 0.15  (execution noise / microstructure)
+    60m     → 0.25  (tactical structure)
+    1D      → 0.40  (primary directional anchor)
+    weekly  → 0.20  (macro regime filter)
+
+---------------------------------------------------------
+STRENGTH FORMULA:
+---------------------------------------------------------
+
+    structural_strength =
+        (confidence × 0.7)
+        + (context_score × 0.3)
+
+Then:
+
+    weighted_influence = structural_strength × timeframe_weight
+
+Purpose:
+    Prevents low-timeframe noise from overpowering macro structure.
+
+=========================================================
+3. MACRO REGIME CLASSIFICATION ENGINE
+=========================================================
+
+Function:
+    classify_macro()
+
+Purpose:
+    Aggregates multi-timeframe structure into a single
+    institutional bias classification.
+
+---------------------------------------------------------
+INPUT SIGNALS:
+---------------------------------------------------------
+
+    bullish_score:
+        Derived from:
+            EXPANSION regimes
+            TREND regimes
+
+    bearish_score:
+        Derived from:
+            DISTRIBUTION regimes
+            EXHAUSTION regimes
+
+---------------------------------------------------------
+CLASSIFICATION RULES:
+---------------------------------------------------------
+
+IF bullish_score > bearish_score × 1.25:
+    → BULLISH_EXPANSION_BIAS
+
+IF bearish_score > bullish_score × 1.25:
+    → BEARISH_DISTRIBUTION_BIAS
+
+IF |bullish_score - bearish_score| < 0.05:
+    → BALANCED_AUCTION
+
+ELSE:
+    → TRANSITIONAL_STRUCTURE
+
+---------------------------------------------------------
+INTERPRETATION MODEL:
+---------------------------------------------------------
+
+The macro regime is NOT predictive — it is descriptive
+of structural dominance across timeframes.
+
+=========================================================
+4. MULTI-TIMEFRAME ORCHESTRATION ENGINE
+=========================================================
+
+Function:
+    run_liquidity_multi_timeframe_engine()
+
+Purpose:
+    Master controller that orchestrates full system execution.
+
+---------------------------------------------------------
+EXECUTION FLOW:
+---------------------------------------------------------
+
+STEP 1:
+    Run analyze_timeframe() for each timeframe
+
+STEP 2:
+    Build influence layer via compute_influence_layer()
+
+STEP 3:
+    Determine macro regime via classify_macro()
+
+STEP 4:
+    Build visualization outputs:
+        • liquidity_block
+        • phase_context_block
+
+STEP 5:
+    Return unified institutional dataset
+
+---------------------------------------------------------
+SUPPORTED TIMEFRAMES:
+---------------------------------------------------------
+
+    • 15m
+    • 60m
+    • 1D (Daily)
+    • weekly
+
+Note:
+    Missing or null timeframes are safely skipped.
+
+=========================================================
+5. SAFE EXECUTION DESIGN
+=========================================================
+
+---------------------------------------------------------
+safe_float(v)
+---------------------------------------------------------
+
+Purpose:
+    Ensures numeric stability across all pipeline inputs.
+
+Behavior:
+    Valid float → returned unchanged
+    Invalid input → 0.0
+
+Prevents:
+    • NaN propagation
+    • type errors
+    • journal breakdowns
+
+---------------------------------------------------------
+analyze_timeframe() ERROR HANDLING
+---------------------------------------------------------
+
+If execution fails:
+
+    {
+        "regime": "ERROR",
+        "active_phase": "ERROR",
+        "confidence": 0.0,
+        "context_score": 0.0,
+        "phases": []
+    }
+
+This ensures:
+    → system never crashes downstream
+    → macro engine remains stable
+
+=========================================================
+6. INFLUENCE MODEL THEORY
+=========================================================
+
+This engine models the market as a weighted hierarchy:
+
+---------------------------------------------------------
+INSTITUTIONAL ASSUMPTION:
+---------------------------------------------------------
+
+Not all timeframes matter equally.
+
+Higher timeframes define:
+    → structural bias
+
+Lower timeframes define:
+    → execution timing
+
+---------------------------------------------------------
+WEIGHTING LOGIC:
+---------------------------------------------------------
+
+    1D (40%) → primary structural truth
+    weekly (20%) → macro regime filter
+    60m (25%) → tactical structure
+    15m (15%) → execution noise
+
+---------------------------------------------------------
+PURPOSE:
+---------------------------------------------------------
+
+To eliminate overreaction to low-timeframe volatility
+while preserving entry-level precision.
+
+=========================================================
+7. LIQUIDITY BLOCK OUTPUT
+=========================================================
+
+Function:
+    build_liquidity_block()
+
+Purpose:
+    Generates human-readable institutional dashboard output.
+
+---------------------------------------------------------
+CONTENT PER TIMEFRAME:
+---------------------------------------------------------
+
+For each timeframe:
+
+    • Regime state
+    • Active phase
+    • Confidence score
+    • Context score
+
+---------------------------------------------------------
+USAGE:
+---------------------------------------------------------
+
+Designed for:
+
+    • Trading journal UI
+    • Dashboard visualization
+    • Reporting summaries
+
+=========================================================
+8. PHASE CONTEXT BLOCK OUTPUT
+=========================================================
+
+Function:
+    build_phase_context_block()
+
+Purpose:
+    Generates macro-level interpretive summary.
+
+---------------------------------------------------------
+INCLUDES:
+---------------------------------------------------------
+
+    • Macro regime classification
+    • Timeframe regime breakdown
+    • Institutional interpretation
+
+---------------------------------------------------------
+CORE INTERPRETATION MODEL:
+---------------------------------------------------------
+
+The market is treated as:
+
+    MULTI-LAYER AUCTION SYSTEM
+
+Where:
+
+    Lower timeframes → execution
+    Higher timeframes → structure
+
+=========================================================
+9. DATA FLOW SUMMARY
+=========================================================
+
+INPUT:
+    Dictionary of timeframes → DataFrames
+
+PROCESS:
+    For each timeframe:
+        → run single timeframe engine
+        → extract phase structure
+        → compute confidence + context
+
+AGGREGATION:
+    → compute weighted influence
+    → classify macro regime
+
+OUTPUT:
+    {
+        timeframes,
+        influence,
+        macro_interpretation,
+        liquidity_block,
+        phase_context_block
+    }
+
+=========================================================
+10. DESIGN PRINCIPLES
+=========================================================
+
+---------------------------------------------------------
+1. HIERARCHICAL MARKET MODEL
+---------------------------------------------------------
+Market is layered, not flat.
+
+---------------------------------------------------------
+2. STRUCTURE OVER PRICE
+---------------------------------------------------------
+Focus is on regime, not direction.
+
+---------------------------------------------------------
+3. PROBABILISTIC SIGNALS
+---------------------------------------------------------
+No binary buy/sell logic exists.
+
+---------------------------------------------------------
+4. TIMEFRAME DOMINANCE THEORY
+---------------------------------------------------------
+Higher timeframes override lower timeframes.
+
+---------------------------------------------------------
+5. FAILURE RESILIENCE
+---------------------------------------------------------
+System must never break journal pipelines.
+
+=========================================================
+11. INTEGRATION NOTES
+=========================================================
+
+This module depends on:
+
+    modules.liquidity_phase_engine
+
+Specifically:
+    run_price_phase_analysis()
+
+Expected output format:
+
+    {
+        regime,
+        active_phase,
+        confidence,
+        context_score,
+        phases
+    }
+
+---------------------------------------------------------
+IMPORTANT:
+---------------------------------------------------------
+
+All downstream systems assume:
+
+    • Consistent keys across timeframes
+    • Safe fallback error objects
+    • Numeric confidence scaling (0.0 - 1.0)
+
+=========================================================
+12. FAILURE HANDLING PHILOSOPHY
+=========================================================
+
+This system prioritizes stability over completeness.
+
+If a timeframe fails:
+
+    → It is excluded from influence computation
+    → It does NOT crash macro classification
+    → It returns neutral impact
+
+This ensures:
+
+    • Journal continuity
+    • Dashboard stability
+    • Backtest integrity
+
+=========================================================
+END OF DOCUMENT
+=========================================================

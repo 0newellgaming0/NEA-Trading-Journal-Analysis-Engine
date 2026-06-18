@@ -1,0 +1,715 @@
+# ACCEPTANCE_PHASE_ENGINE README
+
+## MODULE NAME
+
+acceptance_phase_engine.py
+
+## PURPOSE
+
+The Acceptance Phase Engine is an institutional market structure analysis module designed to identify periods of market equilibrium, value acceptance, and balanced auction behavior.
+
+Unlike traditional trend-following systems that focus on directional movement, this engine focuses on determining whether price is currently being accepted by market participants.
+
+The module is based on auction market theory concepts and institutional order-flow principles where markets alternate between:
+
+1. Discovery Phases
+2. Acceptance Phases
+3. Expansion Phases
+4. Distribution Phases
+5. Exhaustion Phases
+
+This engine specifically identifies ACCEPTANCE CONDITIONS.
+
+Acceptance occurs when buyers and sellers reach temporary agreement on value, producing:
+
+• Stable price behavior
+• Reduced directional conviction
+• Balanced participation
+• Contained volatility
+• Lack of breakout activity
+
+The engine is designed for use inside:
+
+• Trading Dashboards
+• Market Regime Engines
+• Institutional Analysis Systems
+• Journal Systems
+• Multi-Factor Confluence Models
+• Trade Filtering Frameworks
+
+=================================================================
+CORE PHILOSOPHY
+===============
+
+Institutional traders view markets as auctions.
+
+Price constantly searches for liquidity and fair value.
+
+Markets generally operate in two broad states:
+
+## DISCOVERY
+
+Price is actively searching for new value.
+
+Characteristics:
+
+• Trend expansion
+• Volatility expansion
+• Range extension
+• Breakouts
+• Aggressive directional movement
+
+## ACCEPTANCE
+
+Price has found temporary agreement.
+
+Characteristics:
+
+• Balance
+• Compression
+• Stable participation
+• Contained volatility
+• Two-sided trade
+
+This module attempts to determine when a market has shifted into the second state.
+
+=================================================================
+DEPENDENCIES
+============
+
+Required Packages:
+
+```
+numpy
+```
+
+Internal Dependencies:
+
+```
+modules.ohlcv_normalizer
+```
+
+Imported Functions:
+
+```
+normalize_timestamp()
+```
+
+The timestamp normalizer ensures all incoming data structures are aligned and standardized before analysis begins.
+
+=================================================================
+REQUIRED DATA FORMAT
+====================
+
+Input DataFrame must contain:
+
+```
+High
+Low
+Close
+Volume
+```
+
+Example:
+
+```
+Timestamp
+Open
+High
+Low
+Close
+Volume
+```
+
+Minimum Data Length:
+
+```
+60 bars
+```
+
+Reason:
+
+The engine compares:
+
+```
+Previous 40 bars
+Most Recent 20 bars
+```
+
+for structural analysis.
+
+Any dataset containing fewer than 60 rows will automatically fail validation.
+
+=================================================================
+PRIMARY FUNCTION
+================
+
+detect_acceptance_phase(df)
+
+Purpose:
+
+Performs complete institutional acceptance analysis.
+
+Returns:
+
+Dictionary
+
+Example:
+
+{
+"phase": "ACCEPTANCE",
+"confidence": 0.85,
+"interpretation": "True equilibrium regime detected..."
+}
+
+=================================================================
+ANALYSIS PIPELINE
+=================
+
+The engine evaluates five independent institutional conditions.
+
+Each condition contributes to a weighted confidence score.
+
+Maximum Score:
+
+```
+1.00
+```
+
+Minimum Score:
+
+```
+0.00
+```
+
+=================================================================
+STEP 1:
+RANGE EFFICIENCY ANALYSIS
+=========================
+
+Purpose:
+
+Determine whether volatility is compressing.
+
+Calculation:
+
+Recent Window:
+
+```
+Last 20 bars
+```
+
+Prior Window:
+
+```
+Previous 40 bars
+```
+
+Average Range:
+
+```
+High - Low
+```
+
+Logic:
+
+```
+recent_range < prior_range * 1.10
+```
+
+Interpretation:
+
+If recent volatility is similar to or lower than prior volatility, price may be stabilizing.
+
+Acceptance generally occurs when markets stop expanding and begin balancing.
+
+Weight:
+
+```
+25%
+```
+
+=================================================================
+STEP 2:
+VALUE AREA STABILITY
+====================
+
+Purpose:
+
+Measure auction balance.
+
+Process:
+
+1. Calculate Value Midpoint
+
+   Average Close
+
+2. Measure Distance Above Midpoint
+
+3. Measure Distance Below Midpoint
+
+4. Compare Symmetry
+
+Formula:
+
+balance_ratio =
+smaller_deviation /
+larger_deviation
+
+Condition:
+
+```
+balance_ratio > 0.65
+```
+
+Interpretation:
+
+Balanced auctions produce relatively equal excursions above and below perceived value.
+
+A highly asymmetrical auction indicates directional dominance and weak acceptance.
+
+Weight:
+
+```
+30%
+```
+
+Highest weighted factor in the model.
+
+=================================================================
+STEP 3:
+VOLUME STABILITY ANALYSIS
+=========================
+
+Purpose:
+
+Determine whether participation is stable.
+
+Calculation:
+
+Recent Average Volume
+
+vs
+
+Prior Average Volume
+
+Condition:
+
+Difference < 20%
+
+Logic:
+
+```
+abs(recent_vol - prior_vol) /
+prior_vol
+```
+
+Interpretation:
+
+Acceptance generally occurs without dramatic participation shifts.
+
+Volume spikes often signal:
+
+• Discovery
+• Breakouts
+• Distribution
+• Institutional repositioning
+
+Stable volume suggests fair-value trading.
+
+Weight:
+
+```
+20%
+```
+
+=================================================================
+STEP 4:
+TREND FLATNESS ANALYSIS
+=======================
+
+Purpose:
+
+Ensure equilibrium is not mistaken for trend.
+
+Calculation:
+
+Linear Regression Slope
+
+using:
+
+```
+np.polyfit()
+```
+
+against the last 20 closing prices.
+
+The slope is compared against realized volatility.
+
+Condition:
+
+```
+abs(slope) < volatility * 0.10
+```
+
+Interpretation:
+
+True acceptance should exhibit minimal directional bias.
+
+The engine avoids classifying slow trends as equilibrium.
+
+Weight:
+
+```
+15%
+```
+
+=================================================================
+STEP 5:
+BREAKOUT FILTER
+===============
+
+Purpose:
+
+Prevent breakout environments from being classified as acceptance.
+
+Calculation:
+
+Compare recent structure against prior structure.
+
+Condition:
+
+```
+value_high <= prior_high
+```
+
+AND
+
+```
+value_low >= prior_low
+```
+
+Interpretation:
+
+Price must remain contained inside the previously established range.
+
+If price escapes the prior range:
+
+```
+Acceptance is invalidated.
+```
+
+This is one of the most important institutional safeguards in the model.
+
+Weight:
+
+```
+10%
+```
+
+=================================================================
+CONFIDENCE MODEL
+================
+
+Scoring Table
+
+Range Compression        0.25
+Balanced Auction         0.30
+Volume Stability         0.20
+Flat Structure           0.15
+No Breakout              0.10
+
+Maximum Score:
+
+```
+1.00
+```
+
+Confidence:
+
+```
+round(score, 3)
+```
+
+=================================================================
+CLASSIFICATION ENGINE
+=====================
+
+The confidence score determines final phase assignment.
+
+=================================================
+ACCEPTANCE
+==========
+
+Threshold:
+
+```
+>= 0.75
+```
+
+Meaning:
+
+• Balanced market
+• Stable value area
+• Contained volatility
+• No directional dominance
+• Equilibrium established
+
+Returned As:
+
+{
+"phase": "ACCEPTANCE"
+}
+
+=================================================
+TRANSITION
+==========
+
+Threshold:
+
+```
+0.45 - 0.74
+```
+
+Meaning:
+
+• Partial balance
+• Developing equilibrium
+• Possible energy build-up
+• Direction not yet resolved
+
+Returned As:
+
+{
+"phase": "TRANSITION"
+}
+
+=================================================
+NONE
+====
+
+Threshold:
+
+```
+< 0.45
+```
+
+Meaning:
+
+• No acceptance
+• Market remains directional
+• Discovery may still be active
+• Structural equilibrium absent
+
+Returned As:
+
+{
+"phase": "NONE"
+}
+
+=================================================================
+JOURNAL INTEGRATION WRAPPER
+===========================
+
+run_acceptance_phase_engine(df)
+
+Purpose:
+
+Converts raw engine output into journal-ready blocks.
+
+Returns:
+
+dominant_phase
+
+confidence
+
+acceptance_block
+
+phase_context_block
+
+Example:
+
+{
+"dominant_phase": "ACCEPTANCE",
+"confidence": 0.85,
+"acceptance_block": "...",
+"phase_context_block": "..."
+}
+
+=================================================================
+JOURNAL OUTPUT EXAMPLE
+======================
+
+## 📊 ACCEPTANCE PHASE ANALYSIS
+
+Phase: ACCEPTANCE
+
+Confidence: 0.85
+
+Institutional Interpretation:
+
+True equilibrium regime detected.
+Market is operating inside a stable value area
+with balanced two-sided auction, compressed
+volatility, and no structural breakout pressure.
+
+=================================================================
+TRADING APPLICATIONS
+====================
+
+1. BREAKOUT PREPARATION
+
+---
+
+Acceptance frequently precedes expansion.
+
+Traders can monitor:
+
+• Volume expansion
+• Range expansion
+• Relative strength acceleration
+
+for breakout confirmation.
+
+2. RISK REDUCTION
+
+---
+
+Acceptance environments often reduce reward-to-risk
+for trend-following entries.
+
+The engine can prevent chasing late trends.
+
+3. POSITION MANAGEMENT
+
+---
+
+Existing positions entering acceptance may require:
+
+• Tightened stops
+• Partial profit-taking
+• Reduced expectations
+
+4. MARKET REGIME DETECTION
+
+---
+
+Can be combined with:
+
+• Wyckoff Engine
+• T-Line Engine
+• Volume Analysis
+• Relative Strength Engine
+• Liquidity Phase Engine
+
+to classify market conditions.
+
+=================================================================
+INSTITUTIONAL INTERPRETATION GUIDE
+==================================
+
+ACCEPTANCE
+
+Institutional Meaning:
+
+"Fair value agreement exists."
+
+Expect:
+
+• Rotation
+• Consolidation
+• Energy build-up
+
+TRANSITION
+
+Institutional Meaning:
+
+"Balance is forming."
+
+Expect:
+
+• Compression
+• Testing behavior
+• Potential directional resolution
+
+NONE
+
+Institutional Meaning:
+
+"Market remains directional."
+
+Expect:
+
+• Discovery
+• Trend continuation
+• Expansion behavior
+
+=================================================================
+ERROR HANDLING
+==============
+
+The engine includes protection against:
+
+• Missing DataFrames
+• Insufficient history
+• Missing OHLCV fields
+• Mathematical instability
+• Runtime failures
+
+Wrapper exceptions are raised as:
+
+RuntimeError(
+"ACCEPTANCE FAILURE: ..."
+)
+
+=================================================================
+DESIGN OBJECTIVES
+=================
+
+This engine was built to:
+
+✓ Detect true market equilibrium
+
+✓ Avoid false acceptance signals
+
+✓ Differentiate transition from acceptance
+
+✓ Filter breakout environments
+
+✓ Support institutional market structure analysis
+
+✓ Integrate directly into journal workflows
+
+✓ Provide confidence-based regime classification
+
+✓ Serve as a foundational component of larger
+auction-market and liquidity-phase frameworks
+
+=================================================================
+VERSION
+=======
+
+Acceptance Phase Engine
+Institutional Fixed Edition
+
+Classification States:
+
+```
+ACCEPTANCE
+TRANSITION
+NONE
+```
+
+Confidence Range:
+
+```
+0.00 → 1.00
+```
+
+Framework:
+
+```
+Auction Market Theory
+Institutional Market Structure
+Equilibrium Detection Engine
+```

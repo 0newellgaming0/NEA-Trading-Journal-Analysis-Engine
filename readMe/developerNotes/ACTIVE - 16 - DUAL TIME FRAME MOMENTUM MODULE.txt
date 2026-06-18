@@ -1,0 +1,295 @@
+=========================================================
+DUAL TIME FRAME MOMENTUM MODULE (DTFM)
+README.TXT — Institutional Technical Documentation
+=========================================================
+1. OVERVIEW
+
+The Dual Time Frame Momentum Module (DTFM) is an institutional-grade analytics engine designed to evaluate momentum, structure, volatility, and volume behavior across two key timeframes:
+
+60-Minute (Intraday Structure)
+Daily (Macro Structure)
+
+Its primary objective is to detect:
+
+Momentum alignment or divergence across timeframes
+Expansion vs contraction of volatility and participation
+Structural positioning within recent price ranges
+Early signals of trend continuation, exhaustion, or distribution risk
+
+The module outputs a fully formatted journal-ready analytical report suitable for trading dashboards, systematic workflows, or discretionary decision support systems.
+
+2. CORE CONCEPT
+
+The engine operates under a simple institutional principle:
+
+“True trend quality is only confirmed when lower timeframe momentum aligns with higher timeframe structure and participation.”
+
+It does not rely on indicators alone. Instead, it evaluates:
+
+Price momentum (returns + slope)
+Volatility expansion (range behavior)
+Volume expansion (participation shifts)
+Structural positioning (where price sits within range)
+Cross-timeframe regime alignment
+3. DEPENDENCIES
+Required Libraries
+import numpy as np
+Internal Dependencies
+from modules.ohlcv_normalizer import normalize_timestamp
+
+The module assumes standardized OHLCV data formatting via:
+
+normalize_timestamp(df)
+Column schema: close_<ticker>, high_<ticker>, low_<ticker>, volume_<ticker>
+4. FUNCTION INTERFACE
+Main Function
+analyze_dual_timeframe_momentum(df_60m, df_daily, ticker, timeframe_label="DTFM")
+Parameters
+Parameter	Type	Description
+df_60m	DataFrame	60-minute OHLCV dataset
+df_daily	DataFrame	Daily OHLCV dataset
+ticker	str	Asset symbol (auto-lowered internally)
+timeframe_label	str	Label for reporting (default: DTFM)
+5. DATA REQUIREMENTS
+
+Each DataFrame must contain:
+
+close_<ticker>
+high_<ticker>
+low_<ticker>
+volume_<ticker>
+Minimum Data Length
+60M dataset: ≥ 30 rows
+Daily dataset: ≥ 30 rows
+
+If insufficient, the engine returns a structured error report.
+
+6. PROCESS PIPELINE
+
+The engine executes the following analytical stages:
+
+6.1 NORMALIZATION STAGE
+Standardizes timestamps
+Normalizes ticker casing (lowercase)
+Ensures consistent OHLCV schema alignment
+6.2 DATA VALIDATION STAGE
+
+Checks for:
+
+Missing OHLCV columns (60M or Daily)
+Insufficient dataset length
+
+Fails fast with formatted diagnostic output if invalid.
+
+6.3 MOMENTUM CALCULATION
+20-Bar Return (Both Timeframes)
+Return=(
+P
+−20
+	​
+
+P
+current
+	​
+
+	​
+
+−1)×100
+
+Outputs:
+
+m60_return_20
+daily_return_20
+6.4 TREND SLOPE ANALYSIS
+
+Linear regression slope using last 20 periods:
+
+np.polyfit(range(20), prices[-20:], 1)[0]
+
+Outputs:
+
+m60_slope
+daily_slope
+
+This measures directional velocity, not just price change.
+
+6.5 RANGE EXPANSION ANALYSIS
+
+Measures volatility expansion:
+
+Range=High−Low
+
+Compares:
+
+Recent 10-bar range
+Prior 20-bar baseline range
+
+Outputs:
+
+range_ratio
+
+Interpretation:
+
+1.20 → expansion regime
+
+< 1.00 → compression regime
+6.6 VOLUME EXPANSION ANALYSIS
+
+Compares participation shifts:
+
+Recent 10-bar average volume
+Prior 20-bar baseline volume
+
+Outputs:
+
+vol_ratio
+
+Interpretation:
+
+1.20 → institutional participation increase
+
+< 1.00 → fading participation
+6.7 STRUCTURAL POSITIONING
+
+Determines where price sits within its 20-bar range:
+
+Position=
+High−Low
+Close−Low
+	​
+
+×100
+
+Outputs:
+
+m60_position
+daily_position
+
+Interpretation:
+
+80% → upper structural resistance zone
+
+< 20% → lower structural support zone
+6.8 CROSS-TIMEFRAME MOMENTUM DIVERGENCE
+Divergence=60MReturn−DailyReturn
+
+Used to detect:
+
+Short-term overheating
+Macro lagging confirmation
+Potential reversal zones
+7. REGIME CLASSIFICATION
+
+The engine assigns one of four structural regimes:
+
+7.1 BULLISH ALIGNMENT
+60M > 0 AND Daily > 0
+Indicates synchronized upward momentum
+7.2 BEARISH ALIGNMENT
+60M < 0 AND Daily < 0
+Indicates synchronized downward pressure
+7.3 COUNTERTREND RECOVERY
+60M > 0 AND Daily < 0
+Intraday bounce against macro trend
+7.4 DISTRIBUTION RISK
+60M ≤ 0 AND Daily ≥ 0
+Potential exhaustion or hidden selling pressure
+8. INTERPRETATION ENGINE
+
+The system generates qualitative insights based on thresholds:
+
+Momentum Signals
+60M outperforming Daily → short-term strength
+Participation Signals
+Volume ratio > 1.20 → institutional involvement increasing
+Volatility Signals
+Range ratio > 1.20 → expansion phase detected
+Structural Signals
+Position > 80% → price near upper boundary
+Position < 20% → price near lower boundary
+
+These are compiled into a journal-ready explanation block.
+
+9. OUTPUT FORMAT
+
+The function returns a formatted multi-section report string:
+
+Sections:
+Header
+60M Structure Metrics
+Daily Structure Metrics
+Cross-Timeframe Analysis
+Regime Classification
+Interpretation Notes
+End Marker
+10. ERROR HANDLING
+
+The module uses defensive returns instead of exceptions.
+
+Error Cases:
+Missing Column
+Identifies exact missing column
+Specifies timeframe (60M or Daily)
+Insufficient Data
+Requires ≥ 30 rows per timeframe
+Runtime Exception
+Captures and returns exception message safely
+
+All errors are returned as structured text blocks for dashboard compatibility.
+
+11. DESIGN PHILOSOPHY
+
+This module is built around institutional behavior modeling, specifically:
+
+Liquidity-driven momentum validation
+Multi-timeframe confirmation bias reduction
+Participation-based trend confirmation
+Structural positioning over indicator dependency
+
+It avoids:
+
+Overfitting indicators
+Single-timeframe bias
+Purely lagging signal systems
+12. INTEGRATION USE CASES
+
+The DTFM module is intended for:
+
+Trading journals (pre-trade validation)
+Momentum confirmation systems
+Wyckoff-style structural analysis pipelines
+Multi-timeframe confluence engines
+Institutional scanning dashboards
+
+It pairs well with:
+
+Volume analysis engines
+Liquidity phase models
+T-Line / EMA trend systems
+Wyckoff accumulation/distribution frameworks
+13. LIMITATIONS
+Requires clean OHLCV alignment across datasets
+Sensitive to missing or irregular timeframes
+Linear slope model may underrepresent nonlinear moves
+Does not independently detect macro news shocks
+14. EXTENSION OPPORTUNITIES
+
+Recommended upgrades:
+
+Add ATR-normalized momentum scoring
+Add regime persistence tracking
+Add session-based segmentation (pre/market/post)
+Add volatility clustering classifier
+Add machine learning regime classifier overlay
+Add multi-asset correlation filter
+15. SUMMARY
+
+The Dual Time Frame Momentum Module (DTFM) provides a structured, institutional-grade view of:
+
+Momentum strength
+Volatility expansion
+Participation flow
+Structural positioning
+Cross-timeframe alignment
+
+It functions as a bridge between intraday behavior and macro trend confirmation, enabling more informed trading decisions rooted in multi-layer market context.

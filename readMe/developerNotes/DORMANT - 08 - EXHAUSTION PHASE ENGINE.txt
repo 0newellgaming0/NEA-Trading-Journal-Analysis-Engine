@@ -1,0 +1,335 @@
+===========================================================
+EXHAUSTION PHASE ENGINE (INSTITUTIONAL FIXED)
+README.TXT
+===========================================================
+
+MODULE NAME:
+exhaustion_phase_engine.py (conceptual module)
+
+PRIMARY FUNCTION:
+- detect_exhaustion_phase(df)
+- run_exhaustion_phase_engine(df)
+
+===========================================================
+1. OVERVIEW
+===========================================================
+
+The Exhaustion Phase Engine is an institutional-grade market regime detection component designed to identify the final stage of a price trend where momentum degradation, volatility expansion, and volume climax conditions suggest a potential reversal or structural breakdown.
+
+This module is built around the concept of market cycle completion, specifically focusing on identifying when a trend transitions from continuation into fatigue and eventual exhaustion.
+
+In institutional terms, this represents the late-cycle behavior where liquidity is being absorbed and smart money distribution often begins.
+
+Core analytical pillars include:
+
+- Momentum decay (trend weakening over time)
+- Volume climax behavior (institutional distribution signals)
+- Volatility expansion after compression
+- Wick rejection pressure (failed continuation attempts)
+- Trend maturity assessment
+
+These signals are aggregated into a weighted exhaustion score.
+
+===========================================================
+2. INPUT REQUIREMENTS
+===========================================================
+
+The function expects a Pandas DataFrame with OHLCV structure:
+
+REQUIRED COLUMNS:
+- High
+- Low
+- Close
+- Volume
+
+OPTIONAL (ignored):
+- Timestamp (normalized internally)
+
+The module calls:
+- normalize_timestamp(df)
+  from modules.ohlcv_normalizer
+
+This ensures consistent time alignment before computation.
+
+===========================================================
+3. MINIMUM DATA REQUIREMENT
+===========================================================
+
+The engine requires at least:
+
+- 60 candles minimum
+
+If this condition is not met, the engine returns:
+
+{
+  "phase": "NONE",
+  "confidence": 0.0,
+  "interpretation": "Insufficient structure for exhaustion analysis."
+}
+
+Reason:
+Exhaustion detection requires multi-window structure:
+- short-term (10 bars)
+- mid-term (20 bars)
+- long-term (60 bars)
+
+===========================================================
+4. CORE THEORY (INSTITUTIONAL CONTEXT)
+===========================================================
+
+This engine is built on a hybrid of:
+
+- Market Cycle Theory
+- Volume Spread Analysis
+- Volatility Regime Shifts
+- Momentum Decay Modeling
+
+Key concepts:
+
+📉 Momentum (scientific_concept: Momentum)
+Momentum refers to the rate of change in price movement. In exhaustion states, momentum typically weakens before price structurally reverses.
+
+📊 Volume Analysis (scientific_concept: Volume Analysis)
+Volume is used as a proxy for participation. In exhaustion phases, volume often expands abnormally (climax behavior) while price fails to continue efficiently.
+
+🌊 Volatility Expansion (scientific_concept: Volatility)
+Volatility shifts from compression → expansion, signaling instability and potential trend termination.
+
+===========================================================
+5. ENGINE LOGIC BREAKDOWN
+===========================================================
+
+-----------------------------------------------------------
+5.1 MOMENTUM DECAY CURVE
+-----------------------------------------------------------
+
+slope_recent = slope of last 10 closes
+slope_mid    = slope of prior 10 closes
+
+momentum_decay = slope_recent < slope_mid
+
+INTERPRETATION:
+If recent slope is weaker than mid slope, momentum is deteriorating.
+
+This is a leading exhaustion indicator.
+
+-----------------------------------------------------------
+5.2 TREND MATURITY FILTER
+-----------------------------------------------------------
+
+slope_long = slope of last 30 closes
+long_volatility = standard deviation of last 30 closes
+
+trend_mature = abs(slope_long) > long_volatility * 0.15
+
+INTERPRETATION:
+Determines whether trend has extended far enough to be structurally mature.
+
+-----------------------------------------------------------
+5.3 VOLUME EXHAUSTION MODULE
+-----------------------------------------------------------
+
+recent_vol = mean(volume last 10 bars)
+prior_vol  = mean(volume prior 10 bars)
+
+volume_expansion = recent_vol > prior_vol * 1.6
+
+volume_climax = last volume > mean(last 20) * 1.8
+
+INTERPRETATION:
+- Expansion = increasing participation
+- Climax = final surge before exhaustion
+
+-----------------------------------------------------------
+5.4 WICK REJECTION PRESSURE
+-----------------------------------------------------------
+
+wick_size = mean(high - close over last 10 bars)
+
+wick_expansion = wick_size > std(close last 20) * 0.6
+
+INTERPRETATION:
+Large upper wicks indicate rejection of higher prices.
+
+This is a distribution signature.
+
+-----------------------------------------------------------
+5.5 VOLATILITY SHIFT DETECTION
+-----------------------------------------------------------
+
+recent_range = mean(high - low last 10)
+prior_range  = mean(high - low prior 10)
+
+volatility_expansion_after_contraction =
+    recent_range > prior_range * 1.3
+
+INTERPRETATION:
+Transition from compression → expansion is often seen at trend exhaustion points.
+
+===========================================================
+6. EXHAUSTION SCORING MODEL
+===========================================================
+
+The system builds a weighted confidence score:
+
+- Momentum decay: +0.30
+- Volume expansion: +0.25
+- Volume climax: +0.15
+- Wick expansion: +0.15
+- Volatility expansion: +0.10
+- Trend maturity: +0.05
+
+MAX SCORE = 1.0
+
+Confidence:
+confidence = min(score, 1.0)
+
+===========================================================
+7. PHASE CLASSIFICATION LOGIC
+===========================================================
+
+-----------------------------------------------------------
+7.1 EXHAUSTION PHASE (🔴 STRONG REVERSAL RISK)
+-----------------------------------------------------------
+
+Triggered when:
+- confidence >= 0.75
+AND
+- momentum_decay == True
+AND
+- volume_climax == True
+
+OUTPUT:
+{
+  "phase": "EXHAUSTION",
+  "confidence": x,
+  "interpretation": "True exhaustion regime detected..."
+}
+
+MEANING:
+High probability of:
+- trend reversal
+- distribution phase completion
+- institutional exit activity
+
+-----------------------------------------------------------
+7.2 TRANSITION PHASE (🟡 FATIGUE STATE)
+-----------------------------------------------------------
+
+Triggered when:
+- confidence >= 0.45
+
+MEANING:
+- Trend is weakening
+- Not yet confirmed reversal
+- Early warning state
+
+-----------------------------------------------------------
+7.3 NONE (🟢 STRUCTURALLY INTACT TREND)
+-----------------------------------------------------------
+
+Triggered when:
+- confidence < 0.45
+
+MEANING:
+- Trend still healthy
+- No exhaustion structure confirmed
+
+===========================================================
+8. OUTPUT STRUCTURE
+===========================================================
+
+detect_exhaustion_phase(df) returns:
+
+{
+  "phase": "EXHAUSTION | TRANSITION | NONE",
+  "confidence": float (0.0 - 1.0),
+  "interpretation": str
+}
+
+-----------------------------------------------------------
+
+run_exhaustion_phase_engine(df) returns:
+
+{
+  "dominant_phase": str,
+  "confidence": float,
+
+  "exhaustion_block": formatted string report,
+  "phase_context_block": formatted string report
+}
+
+These blocks are designed for:
+
+- Trading journal integration
+- UI dashboards
+- Institutional reporting systems
+
+===========================================================
+9. FAILURE HANDLING
+===========================================================
+
+If any exception occurs:
+
+Raises:
+RuntimeError("EXHAUSTION FAILURE: <error message>")
+
+This ensures:
+- Debug traceability
+- Pipeline integrity enforcement
+
+===========================================================
+10. INTEGRATION USE CASES
+===========================================================
+
+This module is designed for integration into:
+
+- Multi-phase Wyckoff-style analysis systems
+- Institutional trade journaling systems
+- Liquidity phase engines
+- Risk-off detection layers
+- Trend reversal scanners
+
+Typical pipeline position:
+
+1. Discovery Phase Engine
+2. Accumulation / Distribution Engines
+3. Expansion Phase Engine
+4. EXHAUSTION PHASE ENGINE  ← (this module)
+5. Risk / Exit Decision Engine
+
+===========================================================
+11. STRATEGIC INTERPRETATION
+===========================================================
+
+When EXHAUSTION is detected:
+
+COMMON MARKET BEHAVIOR:
+- late-stage breakout failure
+- liquidity absorption by institutional players
+- volatility spikes with weak continuation
+- distribution into strength
+
+TRADING IMPLICATION:
+- tighten stops
+- reduce exposure
+- prepare for reversal or consolidation
+- avoid new long entries in overheated trend
+
+===========================================================
+12. SUMMARY
+===========================================================
+
+This engine provides a structured, quantitative model for detecting the final phase of a trend cycle using:
+
+- Momentum decay analysis
+- Volume climax detection
+- Volatility regime shifts
+- Wick rejection behavior
+- Trend maturity scoring
+
+It is designed to identify institutional exhaustion before visible price collapse or distribution becomes obvious on traditional indicators.
+
+===========================================================
+END OF README
+===========================================================

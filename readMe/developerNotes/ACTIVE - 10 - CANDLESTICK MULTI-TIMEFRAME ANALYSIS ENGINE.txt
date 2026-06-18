@@ -1,0 +1,504 @@
+==========================================================
+📘 CANDLESTICK MULTI-TIMEFRAME ANALYSIS ENGINE
+==========================================================
+Version: 1.0 (Institutional Pattern + Trade Setup Engine)
+Language: Python 3.x
+Core Libraries: pandas, numpy, logging
+Type: Financial Market Structure / Candlestick Pattern Recognition System
+==========================================================
+1. OVERVIEW
+==========================================================
+
+This module is a complete institutional-grade candlestick analysis engine designed to:
+
+Normalize and clean OHLCV market data
+Detect single, two-candle, three-candle, and advanced candlestick patterns
+Classify patterns with interpretation + actionable trading logic
+Confirm patterns using volume + trend + follow-through price action
+Generate institutional trade setups (entry, stop, target)
+Evaluate pattern strength (Institutional Grade scoring system)
+Perform multi-timeframe alignment analysis (15M, 1H, DAILY)
+Produce journal-ready structured outputs
+
+It is built to function as a decision support layer for systematic trading systems, not just a pattern detector.
+
+==========================================================
+2. CORE DESIGN PHILOSOPHY
+==========================================================
+
+The engine is built around 5 institutional principles:
+
+1. Market is a liquidity auction
+
+Patterns are not signals alone — they represent:
+
+Liquidity grabs
+Reversals
+Continuation structures
+Distribution / accumulation behavior
+2. Confirmation matters more than detection
+
+Every pattern must pass:
+
+Volume confirmation
+Follow-through candle validation
+Trend alignment (SMA20)
+Failure detection logic
+3. Multi-timeframe alignment is required
+
+A pattern is only "high quality" when:
+
+15M + 1H + DAILY agree directionally
+4. Trade setups must be explicit
+
+Each pattern generates:
+
+Entry logic
+Stop-loss logic
+Target projection
+Context reasoning
+5. Institutional scoring system
+
+Patterns are graded:
+
+Weak
+Moderate
+Strong
+Institutional Grade
+==========================================================
+3. MODULE ARCHITECTURE
+==========================================================
+
+The system is composed of the following layers:
+
+1. Data Normalization Layer
+2. Candle Structure Engine
+3. Pattern Detection Engine
+4. Pattern Interpretation Engine
+5. Actionable Trade Engine
+6. Volume Confirmation Engine
+7. Institutional Confirmation Engine
+8. Trade Setup Generator
+9. Stop Evaluation Engine
+10. Multi-Timeframe Aggregation Engine
+11. Journal Output Engine
+==========================================================
+4. DATA NORMALIZATION PIPELINE
+==========================================================
+normalize_candlestick_ohlcv(df, ticker)
+
+Ensures all datasets conform to a standard OHLCV structure:
+
+Outputs:
+open
+high
+low
+close
+volume
+Features:
+Handles multiple naming conventions:
+Open / open / open_ticker
+Automatically converts all values to numeric
+Prevents missing column failures
+force_flat_columns(df)
+
+Flattens MultiIndex columns into lowercase single-level columns.
+
+Used when:
+
+Yahoo Finance multi-index outputs exist
+Aggregated datasets are passed in
+==========================================================
+5. CANDLE STRUCTURE ENGINE
+==========================================================
+candle_structure(open, high, low, close)
+
+Computes structural candle properties:
+
+Outputs:
+Body → absolute candle body size
+Range → high-low range
+BodyRatio → body/range ratio (strength indicator)
+UpperShadow → wick above body
+LowerShadow → wick below body
+Purpose:
+
+This is the foundation for:
+
+Doji detection
+Reversal classification
+Volatility analysis
+==========================================================
+6. PATTERN DETECTION ENGINE
+==========================================================
+
+The system uses a 4-layer detection hierarchy:
+
+Layer 1: Single Candle Patterns
+
+Function:
+
+detect_single_patterns(df)
+
+Detects:
+
+Hammer
+Hanging Man
+Inverted Hammer
+Shooting Star
+Marubozu
+Doji
+
+Logic is based on:
+
+Body ratio thresholds
+Wick dominance
+Direction (open vs close)
+Layer 2: Two Candle Patterns
+
+Function:
+
+detect_two_candle_patterns(df)
+
+Detects:
+
+Bullish Engulfing
+Bearish Engulfing
+Piercing Line
+Dark Cloud Cover
+
+Logic uses:
+
+Full body engulf comparison
+Midpoint rejection logic
+Layer 3: Three Candle Patterns
+
+Function:
+
+detect_three_candle_patterns(df)
+
+Detects:
+
+Morning Star
+Evening Star
+
+Logic includes:
+
+Trend candle → indecision candle → reversal candle structure
+Layer 4: Advanced Multi-Candle Patterns
+
+Function:
+
+detect_advanced_patterns(df)
+
+Detects institutional-grade structures:
+
+Indecision Patterns:
+Spinning Top
+High Wave Candle
+Rickshaw Man
+Four Price Doji
+Reversal Patterns:
+Morning/Evening Doji Star
+Harami / Harami Cross
+Tweezer Top/Bottom
+Continuation Patterns:
+Three White Soldiers
+Three Black Crows
+Rising/Falling Window (gaps)
+==========================================================
+7. PATTERN PRIORITY SYSTEM
+==========================================================
+
+Pattern selection follows this priority order:
+
+Advanced Patterns → Three Candle → Two Candle → Single Candle
+
+This ensures:
+
+Higher-quality signals override weaker ones
+Institutional structures are prioritized
+==========================================================
+8. INTERPRETATION ENGINE
+==========================================================
+interpret_pattern(pattern)
+
+Maps each detected pattern to:
+
+Market psychology explanation
+Structural meaning
+Behavioral interpretation
+
+Example:
+
+Hammer → rejection of lower prices
+Engulfing → momentum shift
+Doji → indecision
+
+This layer is purely informational.
+
+==========================================================
+9. ACTIONABLE ENGINE
+==========================================================
+actionable_pattern(pattern)
+
+Converts patterns into trade decision guidance
+
+Outputs include:
+
+Entry confirmation requirements
+Risk warnings
+Bias direction (LONG / SHORT / NO TRADE)
+Example logic:
+Hammer → wait for breakout confirmation
+Doji → stand aside
+Engulfing → momentum entry setup
+
+This is the decision layer for execution readiness.
+
+==========================================================
+10. TRADE SETUP ENGINE
+==========================================================
+build_trade_setup(pattern, direction, df)
+
+Generates institutional trade plans:
+
+Output structure:
+bias
+entry
+stop
+target
+context
+entry_price_hint
+stop_price_hint
+structure_high
+structure_low
+Example:
+Bullish Engulfing:
+Bias: LONG
+Entry: Break engulf high
+Stop: Below engulf low
+Target: Prior swing high
+Context: Liquidity shift
+Key Feature:
+
+Stops and entries are dynamically linked to:
+
+Candle high/low
+Close price reference
+Pattern structure
+==========================================================
+11. VOLUME CONFIRMATION ENGINE
+==========================================================
+volume_confirmation(volume, patterns)
+
+Validates whether pattern is supported by volume expansion.
+
+Rules:
+Bullish patterns → require volume > 20-period mean
+Bearish patterns → slightly lower threshold
+Neutral patterns → moderate threshold
+Purpose:
+
+Filters:
+
+Fake breakouts
+Low-liquidity signals
+Weak reversals
+==========================================================
+12. INSTITUTIONAL CONFIRMATION ENGINE
+==========================================================
+confirm_candlestick_patterns(df)
+
+This is the core scoring engine.
+
+Inputs:
+Pattern type
+Next candle behavior
+Volume
+SMA20 trend alignment
+Follow-through confirmation
+Outputs:
+PatternState:
+Institutional Grade
+Strong Confirmation
+Moderate Confirmation
+Weak Confirmation
+Failed
+Pending
+PatternScore (0–100)
+Direction (Bullish / Bearish / Neutral)
+Trigger & Failure levels
+Scoring logic:
+Condition	Points
+Breakout confirmation	+25
+Volume expansion	+25
+Trend alignment	+15
+Follow-through candle	+10
+==========================================================
+13. STOP LOSS EVALUATION ENGINE
+==========================================================
+evaluate_stop_state(df, signal_index, stop_price, direction)
+
+Evaluates whether stop loss is violated within future candles.
+
+Returns:
+VALID
+BREACHED
+UNKNOWN
+Logic:
+LONG → price breaks below stop
+SHORT → price breaks above stop
+
+Used for:
+
+Trade validation
+Risk simulation
+Backtesting
+==========================================================
+14. SINGLE TIMEFRAME ANALYSIS ENGINE
+==========================================================
+analyze_single_timeframe(df, ticker, label)
+
+This is the main processing pipeline for one timeframe.
+
+Pipeline Flow:
+Normalize OHLCV
+Compute SMA20
+Compute candle structure
+Detect all patterns
+Merge pattern hierarchy
+Apply volume confirmation
+Run institutional scoring engine
+Generate trade setup
+Evaluate stop state
+Build journal prompt
+Output includes:
+latest_pattern
+pattern_state
+pattern_score
+trade_setup
+actionable signal
+interpretation
+stop_state
+journal_prompt
+==========================================================
+15. MULTI-TIMEFRAME ENGINE
+==========================================================
+analyze_multitimeframe_candlesticks(df_15m, df_1h, df_daily, ticker)
+
+Runs full system across 3 timeframes:
+
+15 Minute
+1 Hour
+Daily
+Alignment Logic:
+
+Counts:
+
+bullish signals
+bearish signals
+confirmed institutional signals
+Alignment States:
+Institutional Bullish Alignment
+Institutional Bearish Alignment
+Partial Bullish Confirmation
+Partial Bearish Confirmation
+Rotational / Mixed
+Purpose:
+
+Determines macro directional bias across timeframes
+
+==========================================================
+16. JOURNAL ENGINE OUTPUT
+==========================================================
+format_candlestick_for_journal(result)
+
+Creates structured trading journal output:
+
+Includes:
+
+Pattern across all timeframes
+Reliability scores
+Interpretation
+Trade setups
+Entry/stop hints
+Volume confirmation
+build_candlestick_journal_prompt(result)
+
+Generates a compact AI-ready trade summary prompt:
+
+Includes:
+
+Pattern
+Context
+Entry/stop/target
+Volume confirmation
+Candle snapshot
+==========================================================
+17. DATA OUTPUT STRUCTURE
+==========================================================
+
+Each timeframe result contains:
+
+latest_pattern
+pattern_state
+pattern_score
+pattern_direction
+trade_setup
+interpretation
+actionable
+volume_confirmed
+stop_state
+latest_snapshot
+journal_prompt
+==========================================================
+18. INSTITUTIONAL USE CASES
+==========================================================
+
+This module is designed for:
+
+Trading Systems:
+Algorithmic trading engines
+Signal generation systems
+Risk management dashboards
+Analysis Systems:
+Multi-timeframe structure analysis
+Wyckoff-style interpretation layers
+Momentum confirmation systems
+Journaling Systems:
+Trade documentation
+Entry/exit validation
+Performance tracking
+==========================================================
+19. EXTENSIBILITY
+==========================================================
+
+You can extend this module by adding:
+
+New Pattern Sets:
+Wyckoff events (Spring, Upthrust)
+Liquidity sweeps
+Order block detection
+New Engines:
+ATR-based stop refinement
+Volume delta analysis
+Market structure shift detection
+AI Layer:
+Pattern clustering
+Probability scoring
+Reinforcement learning integration
+==========================================================
+20. SUMMARY
+==========================================================
+
+This module is a complete candlestick intelligence system, not just a pattern detector.
+
+It combines:
+
+Technical analysis
+Institutional confirmation logic
+Risk management
+Trade structuring
+Multi-timeframe validation
+Journal automation

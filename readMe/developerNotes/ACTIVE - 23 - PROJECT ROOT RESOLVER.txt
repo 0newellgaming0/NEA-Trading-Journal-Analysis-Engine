@@ -1,0 +1,253 @@
+README.TXT
+Module: path_resolver.py (Project Root + Data/DB Path Management)
+📌 Overview
+
+This module is a centralized path resolution utility for the entire trading system.
+It ensures that all file access (CSV market data, SQLite databases, logs, and ingestion pipelines) is:
+
+Consistent
+Portable across machines
+Independent of runtime working directory
+Easy to refactor without breaking imports or file access logic
+
+The module defines a single source of truth for filesystem structure, preventing hardcoded paths scattered across the project.
+
+🧠 Core Design Philosophy
+
+This module is built around three principles:
+
+1. Project Root Awareness
+
+Instead of relying on cwd (current working directory), the system always resolves paths relative to:
+
+journal/  ← TRUE PROJECT ROOT
+
+This prevents:
+
+Broken paths when launching from different scripts
+IDE vs terminal inconsistencies
+Deployment path issues
+2. Separation of Data Types
+
+The system distinguishes between:
+
+📊 Market data (CSV files)
+🗄️ Structured databases (SQLite)
+🔄 Ingestion/logging systems
+
+Each category has its own controlled access path.
+
+3. Centralized Control Layer
+
+All modules (UI, engines, scrapers, journal system) MUST use this resolver instead of constructing paths manually.
+
+📁 Folder Structure Assumed
+
+This module expects the following project layout:
+
+journal/
+│
+├── modules/
+│   ├── stock_data/
+│   │   ├── daily/
+│   │   ├── weekly/
+│   │   ├── intraday_1m/
+│   │   └── ...
+│   │
+│   ├── stock_data_db/
+│   │   ├── stock_data.db
+│   │   ├── financials.db
+│   │   └── ingestion.db
+│
+├── path_resolver.py   (THIS FILE)
+⚙️ Functions
+🧩 1. get_project_root()
+def get_project_root():
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+🔍 Purpose
+
+Returns the absolute root directory of the project.
+
+📌 How it works
+__file__ → current module file
+os.path.abspath() → converts to full path
+dirname() twice → moves up two levels:
+path_resolver.py
+modules/
+→ journal/ (root)
+📤 Output Example
+E:\work\NEA28v1\journal
+🚨 Why it matters
+
+This prevents fragile code like:
+
+open("../../data/file.csv")
+📊 2. get_stock_data_path(ticker, timeframe="daily")
+def get_stock_data_path(ticker, timeframe="daily"):
+🔍 Purpose
+
+Builds a standardized path to historical stock CSV data.
+
+📌 Output Structure
+journal/modules/stock_data/{timeframe}/{ticker}.csv
+📥 Parameters
+Parameter	Type	Description
+ticker	str	Stock symbol (e.g. AAPL, TSLA)
+timeframe	str	Data resolution folder
+📁 Supported Timeframes
+
+Common structure assumed:
+
+daily
+weekly
+monthly
+intraday_1m
+intraday_5m
+intraday_15m
+intraday_30m
+intraday_60m
+📤 Example Usage
+get_stock_data_path("AAPL", "daily")
+Output:
+journal/modules/stock_data/daily/AAPL.csv
+🧠 Why this exists
+
+This ensures:
+
+Every module reads data from identical structure
+No hardcoded file paths inside analysis engines
+Easy timeframe expansion
+🗄️ 3. get_database_path(db_name)
+def get_database_path(db_name):
+🔍 Purpose
+
+Generic resolver for all SQLite databases in the system.
+
+📁 Output Structure
+journal/modules/stock_data_db/{db_name}
+📥 Parameters
+Parameter	Type	Description
+db_name	str	Database filename
+📤 Example
+get_database_path("stock_data.db")
+Output:
+journal/modules/stock_data_db/stock_data.db
+🧠 Why this matters
+
+Instead of scattering DB paths like:
+
+sqlite3.connect("data.db")
+sqlite3.connect("../db/financials.db")
+
+Everything routes through a single controlled gateway.
+
+🏦 4. get_stock_db_path()
+def get_stock_db_path():
+    return get_database_path("stock_data.db")
+🔍 Purpose
+
+Returns the main market data database path.
+
+📦 Used for:
+OHLCV storage
+ticker aggregation
+price history indexing
+💰 5. get_financial_db_path()
+def get_financial_db_path():
+    return get_database_path("financials.db")
+🔍 Purpose
+
+Points to financial fundamentals database.
+
+📦 Intended for:
+Balance sheets
+Income statements
+Ratios
+Company fundamentals
+🔄 6. get_ingestion_db_path()
+def get_ingestion_db_path():
+    return get_database_path("ingestion.db")
+🔍 Purpose
+
+Tracks ingestion pipeline state.
+
+📦 Used for:
+Data fetch logs
+API ingestion status
+ETL tracking
+duplicate prevention systems
+🔗 System Integration
+
+This module is a core dependency layer used by:
+
+📊 Data Layer
+CSV loaders
+Yahoo/yfinance ingestion
+Historical analyzers
+🧠 Strategy Engines
+Wyckoff modules
+Volume analysis
+Elliott wave systems
+Risk engine
+🖥 UI Layer (Tkinter dashboard)
+Watchlist loading
+Journal system
+Real-time analysis triggers
+⚠️ Critical Rules
+❌ DO NOT:
+Hardcode file paths
+Use relative ../ navigation in other modules
+Bypass this resolver for DB access
+✅ ALWAYS:
+Import and use these functions
+Treat this as the filesystem authority layer
+🧪 Example Usage Across Project
+Load stock CSV
+from modules.path_resolver import get_stock_data_path
+
+path = get_stock_data_path("TSLA", "daily")
+Connect to database
+from modules.path_resolver import get_stock_db_path
+import sqlite3
+
+conn = sqlite3.connect(get_stock_db_path())
+Access ingestion logs
+from modules.path_resolver import get_ingestion_db_path
+
+log_db = get_ingestion_db_path()
+🧱 Benefits of This Architecture
+✔ Maintainability
+
+One change updates the entire system.
+
+✔ Portability
+
+Project can move drives or machines without breaking paths.
+
+✔ Scalability
+
+New databases/timeframes can be added safely.
+
+✔ Clean Architecture
+
+Separates:
+
+logic (analysis)
+storage (data)
+infrastructure (paths)
+🚀 Future Expansion Ideas
+
+This module can later support:
+
+Environment-based roots (DEV / PROD)
+Cloud storage switching (S3, Azure Blob)
+Config-driven directory mapping
+Multi-user workspace separation
+Dataset versioning system
+🧾 Summary
+
+This module is the filesystem backbone of the entire trading system.
+
+If this module breaks → everything breaks.
+
+If this module is solid → the entire architecture becomes stable, portable, and scalable.

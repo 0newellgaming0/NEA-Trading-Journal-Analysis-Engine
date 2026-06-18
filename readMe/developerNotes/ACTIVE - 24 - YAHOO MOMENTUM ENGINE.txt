@@ -1,0 +1,358 @@
+README.TXT
+Module: modules/yahoo_history.py
+Function: load_yahoo_history()
+1. Overview
+
+yahoo_history.py is a refined institutional-grade historical data loader designed for multi-timeframe market analysis. It ingests locally stored OHLCV data (previously sourced from Yahoo Finance or equivalent pipelines) and produces:
+
+Recent price/volume summary statistics
+Momentum analysis using Awesome Oscillator (AO) and Accelerator Oscillator (AC)
+Regime classification (trend state machine)
+Multi-timeframe momentum alignment (15m / 60m / daily)
+
+The module is optimized for trading dashboards, journal systems, and institutional-style market regime detection rather than raw data retrieval.
+
+2. Core Purpose
+
+This module is NOT a downloader. It is a:
+
+Post-ingestion market intelligence engine
+
+It assumes that historical CSV files already exist in:
+
+modules/stock_data/<timeframe>/<TICKER>.csv
+
+Its role is to transform that raw dataset into structured momentum and regime insights.
+
+3. Dependencies
+Standard Libraries
+os
+numpy
+pandas
+Internal Modules
+modules.path_resolver.get_stock_data_path
+
+This resolver is critical for maintaining consistent project-wide file structure.
+
+4. Function Signature
+load_yahoo_history(
+    ticker,
+    timeframe="daily",
+    limit=80,
+    debug=False
+)
+5. Parameters
+ticker (str)
+
+Stock symbol (e.g., "AAPL", "TSLA")
+
+timeframe (str)
+
+Defines dataset resolution:
+
+"daily" (default)
+"intraday_15m"
+"intraday_60m"
+other supported folders under modules/stock_data/
+limit (int)
+
+Number of most recent rows to analyze.
+
+Default: 80
+Used for rolling momentum context
+debug (bool)
+
+If True, prints multi-timeframe errors during processing.
+
+6. Data Loading Pipeline
+Step 1: File Resolution
+
+Uses centralized resolver:
+
+get_stock_data_path(ticker, timeframe)
+
+Ensures consistent project-wide structure.
+
+Step 2: File Validation
+
+The module validates:
+
+File existence
+Non-empty dataset
+
+Returns early if invalid:
+
+Missing file → path error message
+Empty file → warning string
+Step 3: Data Preprocessing
+
+All columns are force-converted:
+
+df[col] = pd.to_numeric(df[col], errors="coerce")
+
+This ensures:
+
+No string contamination
+Safe rolling calculations
+Stable AO/AC computation
+7. Column Resolution System
+
+The module supports dual-format datasets:
+
+Standard format:
+close, high, low, volume
+Prefixed format:
+close_aapl, high_aapl, etc.
+
+Resolution logic:
+
+resolve_col(df, base)
+
+Prioritizes:
+
+<base>_<ticker>
+→ fallback to <base>
+8. Core Market Metrics
+
+The module computes:
+
+Latest close
+Latest volume
+Period high (window-based)
+Period low (window-based)
+Last 5 closes (short-term memory vector)
+
+These serve as contextual micro-structure inputs.
+
+9. Momentum Engine (AO / AC)
+9.1 Definition
+
+The module implements a centralized:
+
+Awesome Oscillator (AO)
+Accelerator Oscillator (AC)
+9.2 Formula Logic
+
+Median price:
+
+median = (high + low) / 2
+
+AO:
+
+AO = SMA(5, median) - SMA(34, median)
+
+AC:
+
+AC = AO - SMA(5, AO)
+9.3 Interpretation Layers
+AO State
+Positive AO → short-term strength above equilibrium
+Negative AO → short-term weakness below equilibrium
+Zero → neutral balance
+AO Trend
+Rising AO → momentum expansion improving
+Falling AO → momentum contraction increasing
+Flat → equilibrium
+AC State
+Positive AC → acceleration building
+Negative AC → deceleration present
+Neutral → no acceleration bias
+10. Regime Classification Engine
+
+The module converts AO/AC into structured market regimes:
+
+Bullish Expansion
+AO > 0 and AC > 0
+
+→ Trend strengthening
+
+Bullish Pullback / Risk
+AO > 0 and AC < 0
+
+Sub-classified into:
+
+Re-acceleration setup
+Momentum weakening
+Bearish Expansion
+AO < 0 and AC < 0
+
+→ Strong downtrend continuation
+
+Bearish Exhaustion
+AO < 0 and AC > 0
+
+→ Potential reversal / recovery phase
+
+Neutral / Transition
+
+Fallback state when structure is unclear.
+
+11. AO/AC Confirmation Signal
+
+The system generates a binary confirmation:
+
+ao_ac_confirm
+
+Triggered when:
+
+AO rising + AC positive
+OR
+AO falling + AC negative
+
+This represents:
+
+Momentum continuity confirmation
+
+12. Multi-Timeframe Engine
+Purpose
+
+The module evaluates AO/AC across:
+
+15m
+60m
+Daily
+
+to establish fractal momentum alignment.
+
+Function: tf_engine(tf)
+
+Each timeframe:
+
+Loads CSV
+Converts numeric columns
+Computes AO/AC
+Classifies regime
+
+Returns:
+
+{
+    "ao": float,
+    "ac": float,
+    "regime": str
+}
+Timeframe Output Labels
+15m
+Expanding bullish momentum
+Slowing bullish momentum
+Expanding bearish momentum
+Recovering bearish momentum
+60m
+
+Same classification logic as 15m, used for mid-structure validation.
+
+Daily
+
+Represents dominant macro regime bias.
+
+13. Multi-Timeframe Alignment Output
+
+The final output includes:
+
+15m momentum snapshot
+60m momentum snapshot
+Daily trend regime
+
+This is used to detect:
+
+Continuation setups
+Reversal divergence
+Compression across timeframes
+14. Output Structure
+
+The function returns a formatted analytical report string, containing:
+
+A. Price/Volume Summary
+Rows loaded
+Latest close
+Latest volume
+High/Low range
+Last 5 closes
+B. Momentum Engine Output
+AO value
+AC value
+AO state
+AO trend
+AC state
+C. Regime Classification
+Bullish expansion
+Bearish expansion
+Exhaustion
+Transition states
+D. Alignment Signal
+AO/AC confirmation status
+E. Multi-Timeframe Snapshot
+15m AO/AC/regime
+60m AO/AC/regime
+Daily AO/AC/regime
+15. Error Handling
+File Not Found
+
+Returns:
+
+No historical data file found at: <path>
+Empty Dataset
+
+Returns:
+
+Historical file exists but is empty.
+Runtime Exception
+
+Returns:
+
+History load error: <exception>
+
+With optional debug logging per timeframe.
+
+16. Design Philosophy
+
+This module is built around:
+
+1. Deterministic Structure
+
+No probabilistic guessing—only computed states.
+
+2. Institutional Momentum Logic
+
+AO/AC used as:
+
+Trend confirmation tools
+Acceleration detectors
+Regime classifiers
+3. Multi-Timeframe Confluence
+
+Every signal is validated across multiple resolutions.
+
+4. Data Normalization First
+
+All raw inputs are coerced into numeric format for reliability.
+
+17. Typical Use Case
+
+Example usage inside a dashboard or journal system:
+
+report = load_yahoo_history("AAPL", timeframe="daily", limit=80)
+print(report)
+18. Integration Context
+
+This module is commonly used as:
+
+Journal analysis backend
+Trade decision support engine
+Momentum dashboard feed
+Multi-timeframe alignment validator
+19. Key Output Value
+
+The primary output is not price data—it is:
+
+Structured momentum interpretation across multiple timeframes using AO/AC regime logic
+
+20. Summary
+
+yahoo_history.py transforms raw historical CSV data into:
+
+Market regime classification
+Momentum acceleration/deceleration mapping
+Multi-timeframe alignment context
+Institutional-grade structured output
+
+It functions as a fractal momentum intelligence layer inside a larger trading system.
