@@ -1,0 +1,392 @@
+🧠 Hammer Candlestick Institutional Analysis Engine
+
+A high-precision candlestick pattern detection and liquidity interpretation engine designed to identify, classify, and operationalize the Hammer candlestick pattern using institutional price-action logic.
+
+This module treats Hammer candles not as isolated signals, but as:
+
+Liquidity sweep → Rejection → Potential reversal or continuation depending on trend context
+
+It is built for integration into trading journals, multi-timeframe dashboards, and systematic execution frameworks.
+
+📌 Core Concept
+
+A Hammer candle is defined as:
+
+Small real body near the top of the candle range
+Long lower wick (typically 2–3× body size)
+Little to no upper wick
+Appears after price decline or during support reactions
+Institutional Interpretation:
+
+A Hammer is not just a “bullish reversal candle.”
+
+It represents:
+
+Liquidity sweep below support
+Stop-loss raid on weak longs
+Aggressive rejection of lower prices
+Potential absorption by buyers (demand emergence)
+
+Hammer = Sell-side liquidity grab + potential bullish absorption
+
+🧠 System Architecture
+Data Input (OHLCV DataFrame)
+↓
+Normalization Layer
+↓
+Schema Enforcement
+↓
+Hammer Detection Engine
+↓
+Liquidity Classification Engine
+↓
+Trend Context Filter
+↓
+Reversal Probability Engine
+↓
+Trade Plan Generator
+↓
+Journal Formatter
+↓
+Structured Output (Decision Block)
+📦 Module Components
+1. Safe Scalar Extractor
+f(x)
+
+A defensive utility ensuring numerical stability across all calculations.
+
+Features:
+Extracts scalar from Pandas Series
+Handles NaN safely
+Forces float conversion
+Prevents runtime breakdowns in live pipelines
+Institutional Purpose:
+
+Financial datasets are inconsistent — this function ensures analysis continuity under imperfect data conditions.
+
+2. OHLCV Normalization Engine
+normalize_ohlcv_columns(df, ticker=None)
+
+Standardizes OHLCV data into a unified schema for pattern detection.
+
+Supported Inputs:
+open_AAPL, high_AAPL, low_AAPL, close_AAPL
+Output Schema:
+Open | High | Low | Close | Volume
+Features:
+Multi-ticker support
+Auto ticker detection
+Clean transformation for downstream engines
+3. Schema Enforcement Layer
+enforce_schema(df)
+
+Ensures data integrity before analysis.
+
+Responsibilities:
+Converts OHLC columns to numeric
+Removes corrupted or incomplete rows
+Eliminates NaN contamination
+Guarantee:
+
+Only clean price-action data enters the detection engine.
+
+🧠 4. Hammer Detection Engine
+detect_hammer(df, wick_ratio=2.0, body_threshold=0.35)
+
+Identifies Hammer candles using structural liquidity rules.
+
+📐 Definition Logic
+
+A candle is classified as a Hammer if:
+
+Conditions:
+Lower wick ≥ wick_ratio × body size
+Real body is small relative to range
+Upper wick is minimal
+Formalization:
+body = abs(close - open)
+range = high - low
+lower_wick = min(open, close) - low
+upper_wick = high - max(open, close)
+Hammer Condition:
+lower_wick >= wick_ratio * body
+AND
+body / range <= body_threshold
+AND
+upper_wick <= body * 0.5
+📊 Output Example
+{
+  "detected": true,
+  "type": "Hammer",
+  "body_size": 0.42,
+  "lower_wick": 1.38,
+  "upper_wick": 0.08,
+  "wick_ratio": 3.28,
+  "location": "Support Reaction"
+}
+🧠 Institutional Interpretation
+Strong lower wick = liquidity sweep
+Weak closing = rejection of downside
+Context matters (trend + support zones)
+⚖️ 5. Liquidity Classification Engine
+classify_hammer_context(df, hammer)
+
+Interprets Hammer candles within market structure.
+
+🟢 Bullish Reversal Context
+
+Conditions:
+
+Downtrend prior to hammer
+Hammer forms at support or demand zone
+Follow-through bullish close
+
+Output:
+
+BULLISH_REVERSAL_CONFIRMED
+⚠️ Liquidity Trap (Failed Hammer)
+
+Conditions:
+
+Price breaks hammer low after formation
+No follow-through buying
+Continuation of downtrend
+
+Output:
+
+BEARISH_CONTINUATION_INVALID_HAMMER
+🔴 Bearish Continuation Context
+
+Conditions:
+
+Hammer forms in strong downtrend
+No structural support
+Weak close recovery
+
+Output:
+
+BEARISH_CONTINUATION
+🟡 Neutral / Pending
+
+Output:
+
+PENDING_CONFIRMATION
+📈 6. Trend Context Filter
+evaluate_trend_context(df)
+
+Hammer signals are filtered through trend structure:
+
+Factors:
+EMA slope (e.g., EMA-8 / T-Line alignment)
+Higher high / lower low structure
+Support/resistance proximity
+Momentum compression
+Output:
+UPTREND / DOWNTREND / RANGE / TRANSITION
+🧠 7. Reversal Probability Engine
+hammer_reversal_score(hammer, trend_context, volume)
+
+Assigns probabilistic confidence score (0–100).
+
+Weighted Inputs:
+Wick strength (liquidity sweep magnitude)
+Trend exhaustion signals
+Volume spike confirmation (RVOL)
+Support zone alignment
+Example Output:
+{
+  "reversal_score": 78,
+  "confidence": "HIGH",
+  "drivers": [
+    "Strong lower wick sweep",
+    "Support zone reaction",
+    "Volume expansion"
+  ]
+}
+📊 8. Trade Plan Generator
+build_hammer_trade_plan(hammer, context)
+
+Generates structured execution logic.
+
+📈 Bullish Hammer Setup
+
+Entry:
+
+Above hammer high confirmation
+
+Stop Loss:
+
+Below hammer low
+
+Targets:
+
+1R expansion
+2R extension
+Liquidity gap fill (optional)
+📉 Bearish Continuation Setup
+
+If hammer fails:
+
+Entry:
+
+Breakdown below hammer low
+
+Stop:
+
+Above hammer high
+
+Targets:
+
+Prior support liquidity zones
+⚠️ False Hammer Reversal Model
+
+If liquidity sweep fails:
+
+Entry:
+
+Rejection high re-entry
+
+Stop:
+
+Above wick extreme
+
+Targets:
+
+Opposite range boundary
+
+“Every hammer is either absorption or continuation disguised as strength.”
+
+🧾 9. Main Analysis Engine
+analyze_hammer(df)
+
+Full pipeline orchestration:
+
+Steps:
+Normalize OHLCV
+Enforce schema integrity
+Detect hammer formation
+Evaluate trend context
+Classify liquidity behavior
+Generate reversal score
+Build trade plan
+Format journal output
+Output:
+{
+  "journal_prompt": "institutional hammer analysis report"
+}
+🧾 10. Journal Formatter Layer
+format_hammer_journal_prompt(result)
+
+Generates structured institutional reporting.
+
+Sections:
+📌 Hammer Detection Summary
+Pattern confirmation
+Wick strength metrics
+Location context
+⚠️ Liquidity Interpretation
+Sweep vs rejection classification
+Trap detection
+📊 Trend Alignment
+Contextual bias (bullish/bearish/neutral)
+🎯 Trade Plan
+Entry / Stop / Targets
+Invalidations
+🧠 Institutional Insight
+
+Explains:
+
+Who got trapped (retail shorts/late longs)
+Whether liquidity was harvested
+Whether absorption is likely occurring
+🧠 Institutional Logic Model
+
+The engine models Hammer candles as:
+
+1. Liquidity Sweep Phase
+
+Price moves aggressively downward to trigger stops.
+
+2. Rejection Phase
+
+Buyers absorb liquidity → price closes higher.
+
+3. Decision Phase
+
+Market chooses:
+
+Continue downtrend (failure)
+Reverse upward (absorption)
+Range consolidation (indecision)
+📊 Example Workflow
+result = analyze_hammer(df)
+print(result["journal_prompt"])
+Example Output Interpretation
+HAMMER DETECTED
+
+WICK RATIO: 3.1
+LOCATION: SUPPORT REACTION
+
+LIQUIDITY STATE:
+Bullish rejection of downside sweep
+
+TREND CONTEXT:
+Downtrend exhaustion
+
+TRADE PLAN:
+Long above hammer high
+Stop below wick low
+Target 2R expansion
+
+INTERPRETATION:
+Stop hunt completed, buyers absorbing liquidity
+🔧 Integration Use Cases
+📒 Trading Journals
+Auto-generate structured trade notes
+Pre-fill execution logs
+📊 Dashboard Systems
+Real-time hammer alerts
+Liquidity sweep visualization
+🧪 Backtesting Engines
+Reversal probability testing
+Win-rate classification
+⚙️ Institutional Systems
+Liquidity modeling layer
+Multi-timeframe confirmation engine
+🚀 Key Strengths
+
+✔ Liquidity-based interpretation (not retail pattern matching)
+✔ Trend-aware filtering system
+✔ Built-in probability scoring engine
+✔ Trade plan automation
+✔ Journal-ready structured output
+✔ Multi-layer confirmation logic
+
+⚠️ Limitations
+Requires clean OHLCV data
+Works best in liquid instruments
+Must be combined with trend context (EMA / structure)
+Not a standalone strategy
+🧠 Recommended Enhancements
+Multi-timeframe hammer alignment engine
+RVOL confirmation filter
+ATR-based adaptive wick thresholds
+Machine learning reversal classifier
+Institutional order flow proxy integration
+Probability calibration per asset class
+📌 Summary
+
+This module transforms the Hammer candlestick from a simple chart pattern into a:
+
+Liquidity-driven decision engine for institutional-grade market interpretation
+
+It does not simply detect Hammers — it interprets them as:
+
+Liquidity sweeps
+Reversal attempts
+Trap formations
+Trend continuation failures
+
+At its core:
+
+Every Hammer is a question the market asks — this engine attempts to answer it.

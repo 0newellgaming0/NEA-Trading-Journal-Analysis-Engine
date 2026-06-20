@@ -90,118 +90,153 @@ def institutional_accumulation_state(close, high, low, volume, period=20):
     return state
 
 # =========================================================
-# PINBAR DETECTION (CLASSIFICATION FIXED)
+# ENGULFING DETECTION
 # =========================================================
-def detect_pinbar(data):
+def detect_engulfing(data):
 
     if isinstance(data, pd.DataFrame):
-        candle = data.iloc[-1]
+
+        if len(data) < 2:
+            return {
+                "detected": False,
+                "type": None,
+                "strength": "None",
+                "engulf_ratio": 0
+            }
+
+        prev = data.iloc[-2]
+        curr = data.iloc[-1]
+
     else:
-        candle = data
+        raise ValueError("detect_engulfing() requires the last two candles")
 
-    high = f(candle["High"])
-    low = f(candle["Low"])
-    open_ = f(candle["Open"])
-    close = f(candle["Close"])
+    prev_open = f(prev["Open"])
+    prev_close = f(prev["Close"])
 
-    rng = high - low
+    curr_open = f(curr["Open"])
+    curr_close = f(curr["Close"])
+
+    high = f(curr["High"])
+    low = f(curr["Low"])
+
+    prev_body = abs(prev_close - prev_open)
+    curr_body = abs(curr_close - curr_open)
 
     base = {
         "high": high,
         "low": low,
-        "open": open_,
-        "close": close,
-        "mid": (high + low) / 2
+        "open": curr_open,
+        "close": curr_close,
+        "detected": False,
+        "type": None,
+        "strength": "Weak",
+        "engulf_ratio": 0
     }
 
-    if rng <= 0:
-        base.update({
-            "detected": False,
-            "type": None,
-            "strength": "weak rejection"
-        })
+    if prev_body <= 0 or curr_body <= 0:
         return base
 
-    body = abs(close - open_)
-    upper = high - max(open_, close)
-    lower = min(open_, close) - low
+    engulf_ratio = curr_body / prev_body
 
-    lower_ratio = lower / rng
-    upper_ratio = upper / rng
-    body_ratio = body / rng
+    # 🔧 FIX: filter micro/invalid engulfing
+    if engulf_ratio < 1.2:
+        return base
 
-    # =====================================================
-    # REJECTION CLASSIFICATION
-    # =====================================================
+    if engulf_ratio >= 2.0:
+        strength = "Institutional"
+    elif engulf_ratio >= 1.5:
+        strength = "Strong"
+    else:
+        strength = "Standard"
 
-    def classify_rejection(ratio, body_ratio):
-        if ratio >= 0.75 and body_ratio <= 0.25:
-            return "strong rejection (pinbar)"
-        elif ratio >= 0.55 and body_ratio <= 0.40:
-            return "moderate rejection"
-        elif ratio > 0:
-            return "weak rejection"
-        return "weak rejection"
+    bullish = (
+        prev_close < prev_open and
+        curr_close > curr_open and
+        curr_open <= prev_close and
+        curr_close >= prev_open
+    )
 
-    bull_strength = classify_rejection(lower_ratio, body_ratio)
-    bear_strength = classify_rejection(upper_ratio, body_ratio)
+    bearish = (
+        prev_close > prev_open and
+        curr_close < curr_open and
+        curr_open >= prev_close and
+        curr_close <= prev_open
+    )
 
-    is_bull = lower_ratio >= 0.55 and body_ratio <= 0.40
-    is_bear = upper_ratio >= 0.55 and body_ratio <= 0.40
-
-    if is_bull:
+    if bullish:
         base.update({
             "detected": True,
             "type": "Bullish",
-            "strength": bull_strength
+            "strength": strength,
+            "engulf_ratio": round(engulf_ratio, 2)
         })
 
-    elif is_bear:
+    elif bearish:
         base.update({
             "detected": True,
             "type": "Bearish",
-            "strength": bear_strength
-        })
-
-    else:
-        base.update({
-            "detected": False,
-            "type": None,
-            "strength": "weak rejection"
+            "strength": strength,
+            "engulf_ratio": round(engulf_ratio, 2)
         })
 
     return base
 
+def detect_expansion_candle(df):
+    prev = df.iloc[-2]
+    curr = df.iloc[-1]
+
+    body = abs(curr["Close"] - curr["Open"])
+    prev_body = abs(prev["Close"] - prev["Open"])
+
+    volume_spike = curr["Volume"] > prev["Volume"] * 2
+    strong_move = body > prev_body * 1.5
+
+    direction = "Bullish" if curr["Close"] > curr["Open"] else "Bearish"
+
+    if volume_spike and strong_move:
+        return {
+            "detected": True,
+            "type": direction,
+            "strength": "Institutional Expansion"
+        }
+
+    return {"detected": False}
+    
 # =========================================================
-# 🧠 NEW: PINBAR STATE MEMORY (CORE ADDITION)
+# 🧠 NEW: ENGULFING STATE MEMORY (CORE ADDITION)
 # =========================================================
-def pinbar_state_memory(df):
+def engulfing_state_memory(df):
 
     states = []
 
-    for _, row in df.iterrows():
-        res = detect_pinbar(row)
+    for i in range(len(df)):
+
+        if i == 0:
+            states.append(False)
+            continue
+
+        res = detect_engulfing(df.iloc[i-1:i+1])
         states.append(res["detected"])
 
     out = df.copy()
-    out["pinbar_flag"] = states
+    out["engulfing_flag"] = states
 
     return out
 
 
 # =========================================================
-# 🧠 NEW: DETECT YESTERDAY PINBAR
+# 🧠 NEW: DETECT YESTERDAY ENGULFING
 # =========================================================
-def detect_yesterday_pinbar(df):
+def detect_yesterday_engulfing(df):
     if len(df) < 2:
         return None
 
-    return detect_pinbar(df.iloc[-2])
+    return detect_engulfing(df.iloc[-2])
 
 # =========================================================
-# 🧠 NEW: CONFIRM TODAY AGAINST YESTERDAY PINBAR
+# 🧠 NEW: CONFIRM TODAY AGAINST YESTERDAY ENGULFING
 # =========================================================
-def confirm_pinbar_today(today_candle, y_pin):
+def confirm_engulfing_today(today_candle, y_pin):
 
     if not y_pin or not y_pin.get("detected"):
         return "NONE"
@@ -219,7 +254,7 @@ def confirm_pinbar_today(today_candle, y_pin):
         return "NONE"
 
     # =====================================================
-    # BULLISH PINBAR
+    # BULLISH ENGULFING
     # =====================================================
     if y_pin["type"] == "Bullish":
 
@@ -262,7 +297,7 @@ def confirm_pinbar_today(today_candle, y_pin):
         return "PENDING"
 
     # =====================================================
-    # BEARISH PINBAR
+    # BEARISH ENGULFING
     # =====================================================
     if y_pin["type"] == "Bearish":
 
@@ -319,12 +354,23 @@ def evaluate_trend(df):
     ema21 = f(close.ewm(span=21).mean().iloc[-1])
     sma50 = f(close.rolling(50).mean().iloc[-1])
 
+    # -----------------------------
+    # FIX: less rigid classification
+    # -----------------------------
+    if ema8 > ema21:
+        trend_state = "Bullish"
+    elif ema8 < ema21:
+        trend_state = "Bearish"
+    else:
+        trend_state = "Neutral"
+
+    # score remains unchanged (keeps compatibility)
     if ema8 > ema21 and ema21 > sma50:
         return {"trend": "Bullish", "score": 15}
     if ema8 < ema21 and ema21 < sma50:
         return {"trend": "Bearish", "score": 15}
 
-    return {"trend": "Neutral", "score": 5}
+    return {"trend": trend_state, "score": 5}
 
 
 # =========================================================
@@ -375,7 +421,8 @@ def evaluate_structure(df):
         "near_support": near_support,
         "near_resistance": near_resistance,
         "score": 15 if (near_support or near_resistance) else 0,
-        "label": label
+        "label": label,
+        "zone": "Support" if near_support else "Resistance" if near_resistance else "Mid"
     }
 
 
@@ -392,13 +439,22 @@ def volume_confirmation(df):
     spike = detect_volume_spike(volume)
     inst = institutional_accumulation_state(close, high, low, volume)
 
+    expansion = detect_expansion_candle(df)
+
     confirmed = rv.iloc[-1] > 1.5 and spike.iloc[-1]
+
+    score = 10 if confirmed else 0
+
+    # 🔧 FIX: expansion adds institutional confirmation weight
+    if expansion.get("detected"):
+        score += 5
 
     return {
         "confirmed": confirmed,
         "rvol": round(rv.iloc[-1], 2),
         "institutional_state": str(inst.iloc[-1]),
-        "score": 10 if confirmed else 0
+        "expansion": expansion,
+        "score": score
     }
 
 
@@ -428,9 +484,9 @@ def evaluate_fibonacci(df):
 
 
 # =========================================================
-# 🧠 PINBAR STATE ENGINE (BOTH CANDLES ACTIVE)
+# 🧠 ENGULFING STATE ENGINE (BOTH CANDLES ACTIVE)
 # =========================================================
-def analyze_pinbar(df):
+def analyze_engulfing(df):
 
     df = normalize_ohlcv_columns(df)
     df = enforce_schema(df)
@@ -441,12 +497,12 @@ def analyze_pinbar(df):
     today_candle = df.iloc[-1]
     yesterday_candle = df.iloc[-2]
 
-    today_pinbar = detect_pinbar(today_candle)
-    yesterday_pinbar = detect_pinbar(yesterday_candle)
+    today_engulfing = detect_engulfing(df.iloc[-2:])
+    yesterday_engulfing = detect_engulfing(df.iloc[-3:-1])
 
-    confirmation_state = confirm_pinbar_today(
+    confirmation_state = confirm_engulfing_today(
         today_candle,
-        yesterday_pinbar
+        yesterday_engulfing
     )
 
     trend = evaluate_trend(df)
@@ -455,8 +511,10 @@ def analyze_pinbar(df):
     volume = volume_confirmation(df)
     fib = evaluate_fibonacci(df)
 
+    expansion = volume.get("expansion", {})
+
     intent = (
-        (10 if today_pinbar["detected"] else 0)
+        (10 if today_engulfing["detected"] else 0)
         + sweep["score"]
         + structure["score"]
     )
@@ -464,15 +522,12 @@ def analyze_pinbar(df):
     confirm_score = (
         volume["score"]
         + trend["score"]
+        + (5 if expansion.get("detected") else 0)
     )
 
-    events, active_event = build_pinbar_event_state(df)
+    events, active_event = build_engulfing_event_state(df)
 
-    # =====================================================
-    # CURRENT MARKET STATE FIRST
-    # =====================================================
-
-    if yesterday_pinbar.get("detected"):
+    if yesterday_engulfing.get("detected"):
 
         if confirmation_state == "CONFIRMED":
             regime = "INSTITUTIONAL_REVERSAL_CONTINUATION"
@@ -489,36 +544,21 @@ def analyze_pinbar(df):
         elif confirmation_state == "BEARISH_BREAK_ATTEMPT":
             regime = "BEARISH_ACCEPTANCE_PROBE"
 
-        elif confirmation_state == "PENDING":
+        else:
             regime = "PENDING_CONFIRMATION"
 
-        else:
-            regime = "NO_EDGE"
+    elif today_engulfing.get("detected"):
+        regime = "NEW_ENGULFING_FORMATION"
 
-    # =====================================================
-    # TODAY FORMED A NEW PINBAR
-    # =====================================================
-    elif today_pinbar.get("detected"):
-
-        regime = "NEW_PINBAR_FORMATION"
-
-    # =====================================================
-    # OLDER UNRESOLVED EVENT
-    # =====================================================
     elif active_event:
-
         regime = "PENDING_CONFIRMATION"
 
-    # =====================================================
-    # NO CURRENT EVENT
-    # =====================================================
     else:
-
         regime = "NO_EDGE"
 
-    trade_plan = build_pinbar_trade_plan(
-        today_pinbar,
-        yesterday_pinbar,
+    trade_plan = build_engulfing_trade_plan(
+        today_engulfing,
+        yesterday_engulfing,
         confirmation_state,
         trend["trend"],
         sweep["sweep"],
@@ -527,33 +567,36 @@ def analyze_pinbar(df):
     )
 
     return {
-        "journal_prompt": format_pinbar_journal_prompt({
-            "today_pinbar": today_pinbar,
-            "yesterday_pinbar": yesterday_pinbar,
+        "journal_prompt": format_engulfing_journal_prompt({
+            "today_engulfing": today_engulfing,
+            "yesterday_engulfing": yesterday_engulfing,
             "confirmation_state": confirmation_state,
             "trend": trend["trend"],
             "liquidity_sweep": sweep["sweep"],
             "structure": structure["label"],
             "volume": volume["confirmed"],
             "institutional_state": volume["institutional_state"],
+            "expansion": expansion,
             "fibonacci": fib["label"],
             "intent": intent,
             "confirm_score": confirm_score,
             "context": fib["score"],
             "regime": regime,
-            "trade_plan": trade_plan
+            "trade_plan": trade_plan,
+            "today_candle": today_candle.to_dict(),
+            "yesterday_candle": yesterday_candle.to_dict()
         })
     }
 
-def build_pinbar_event_state(df, max_confirm_days=5):
+def build_engulfing_event_state(df, max_confirm_days=5):
 
     events = []
     active = None
 
     for i in range(len(df)):
 
-        candle = df.iloc[i]
-        detected = detect_pinbar(candle)
+        candle_window = df.iloc[max(0, i-1):i+1]
+        detected = detect_engulfing(candle_window)
 
         # =====================================================
         # START NEW EVENT
@@ -583,7 +626,7 @@ def build_pinbar_event_state(df, max_confirm_days=5):
         if i <= active["start_index"]:
             continue
 
-        close = f(candle["Close"])
+        close = f(candle_window.iloc[-1]["Close"])
 
         active["days_active"] = i - active["start_index"]
 
@@ -621,29 +664,25 @@ def build_pinbar_event_state(df, max_confirm_days=5):
         # =====================================================
         # CLOSE EVENT
         # =====================================================
-        if active["status"] in (
-            "CONFIRMED",
-            "FAILED",
-            "EXPIRED"
-        ):
+        if active["status"] in ("CONFIRMED", "FAILED", "EXPIRED"):
             events.append(active.copy())
             active = None
 
     return events, active
     
     
-def detect_active_trade(today_pinbar, yesterday_pinbar, confirmation_state):
+def detect_active_trade(today_engulfing, yesterday_engulfing, confirmation_state):
 
-    if yesterday_pinbar is None:
+    if yesterday_engulfing is None:
         return False
 
-    if not isinstance(yesterday_pinbar, dict):
+    if not isinstance(yesterday_engulfing, dict):
         return False
 
-    if not yesterday_pinbar.get("detected", False):
+    if not yesterday_engulfing.get("detected", False):
         return False
 
-    if yesterday_pinbar.get("type") is None:
+    if yesterday_engulfing.get("type") is None:
         return False
 
     # 🔧 FIX: must be confirmed ONLY
@@ -688,10 +727,10 @@ def build_active_trade_state(y_pin):
     return None
     
 # =========================================================
-# INSTITUTIONAL PINBAR INTERPRETATION ENGINE
+# INSTITUTIONAL ENGULFING INTERPRETATION ENGINE
 # =========================================================
-def build_pinbar_trade_plan(today_pinbar,
-                            yesterday_pinbar,
+def build_engulfing_trade_plan(today_engulfing,
+                            yesterday_engulfing,
                             confirmation_state,
                             trend,
                             sweep,
@@ -701,27 +740,27 @@ def build_pinbar_trade_plan(today_pinbar,
     # =====================================================
     # 🔥 FORCE ACTIVE EVENT STATE (CORE FIX)
     # =====================================================
-    if yesterday_pinbar and yesterday_pinbar.get("detected"):
+    if yesterday_engulfing and yesterday_engulfing.get("detected"):
 
         if confirmation_state == "PENDING":
 
             return {
-                "setup": "ACTIVE PENDING PINBAR EVENT",
-                "entry": yesterday_pinbar["high"] if yesterday_pinbar["type"] == "Bullish" else yesterday_pinbar["low"],
-                "stop_close": yesterday_pinbar["low"] if yesterday_pinbar["type"] == "Bullish" else yesterday_pinbar["high"],
-                "stop_wick": yesterday_pinbar["low"] if yesterday_pinbar["type"] == "Bullish" else yesterday_pinbar["high"],
+                "setup": "ACTIVE PENDING ENGULFING EVENT",
+                "entry": yesterday_engulfing["high"] if yesterday_engulfing["type"] == "Bullish" else yesterday_engulfing["low"],
+                "stop_close": yesterday_engulfing["low"] if yesterday_engulfing["type"] == "Bullish" else yesterday_engulfing["high"],
+                "stop_wick": yesterday_engulfing["low"] if yesterday_engulfing["type"] == "Bullish" else yesterday_engulfing["high"],
                 "target1": None,
                 "target2": None,
                 "failure": "Waiting for breakout or breakdown",
-                "interpretation": "Pinbar event is ACTIVE and unresolved. System is tracking continuation or failure."
+                "interpretation": "Engulfing event is ACTIVE and unresolved. System is tracking continuation or failure."
             }
         
     # =====================================================
     # 🔥 ACTIVE TRADE MODE (FIX)
     # =====================================================
     active_trade = detect_active_trade(
-        today_pinbar,
-        yesterday_pinbar,
+        today_engulfing,
+        yesterday_engulfing,
         confirmation_state
     )
 
@@ -729,15 +768,15 @@ def build_pinbar_trade_plan(today_pinbar,
     # LIQUIDITY REJECTION STATE
     # =====================================================
     if (
-        yesterday_pinbar
-        and yesterday_pinbar.get("detected")
+        yesterday_engulfing
+        and yesterday_engulfing.get("detected")
         and confirmation_state == "LIQUIDITY_REJECTION"
     ):
 
-        pin_type = yesterday_pinbar["type"]
+        pin_type = yesterday_engulfing["type"]
 
-        high = yesterday_pinbar["high"]
-        low = yesterday_pinbar["low"]
+        high = yesterday_engulfing["high"]
+        low = yesterday_engulfing["low"]
 
         rng = high - low
 
@@ -752,7 +791,7 @@ def build_pinbar_trade_plan(today_pinbar,
                 "target2": None,
                 "failure": f"Close below {low}",
                 "interpretation": (
-                    "Price traded above the bullish pinbar high "
+                    "Price traded above the bullish engulfing high "
                     "but failed to maintain acceptance. "
                     "Institutional liquidity was likely harvested "
                     "above resistance. Monitor for compression, "
@@ -771,7 +810,7 @@ def build_pinbar_trade_plan(today_pinbar,
                 "target2": None,
                 "failure": f"Close above {high}",
                 "interpretation": (
-                    "Price traded below the bearish pinbar low "
+                    "Price traded below the bearish engulfing low "
                     "but failed to maintain acceptance. "
                     "Institutional liquidity was likely harvested "
                     "below support. Monitor for compression, "
@@ -781,7 +820,7 @@ def build_pinbar_trade_plan(today_pinbar,
             
     if active_trade:
 
-        trade = build_active_trade_state(yesterday_pinbar)
+        trade = build_active_trade_state(yesterday_engulfing)
 
         if trade:
             return {
@@ -793,7 +832,7 @@ def build_pinbar_trade_plan(today_pinbar,
                 "target2": trade["target2"],
                 "failure": f"Invalidation at {trade['invalidation']}",
                 "interpretation": (
-                    "Confirmed pinbar has transitioned into active trade state. "
+                    "Confirmed engulfing has transitioned into active trade state. "
                     "Price is now in execution phase, not formation phase."
                 )
             }
@@ -802,21 +841,21 @@ def build_pinbar_trade_plan(today_pinbar,
     # BULLISH BREAK ATTEMPT
     # =====================================================
     if (
-        yesterday_pinbar
-        and yesterday_pinbar.get("detected")
+        yesterday_engulfing
+        and yesterday_engulfing.get("detected")
         and confirmation_state == "BULLISH_BREAK_ATTEMPT"
     ):
 
         return {
             "setup": "BULLISH BREAK ATTEMPT",
-            "entry": yesterday_pinbar["high"],
-            "stop_close": yesterday_pinbar["low"],
-            "stop_wick": yesterday_pinbar["low"],
+            "entry": yesterday_engulfing["high"],
+            "stop_close": yesterday_engulfing["low"],
+            "stop_wick": yesterday_engulfing["low"],
             "target1": None,
             "target2": None,
-            "failure": "Close below pinbar low",
+            "failure": "Close below engulfing low",
             "interpretation": (
-                "Price exceeded the bullish pinbar high and "
+                "Price exceeded the bullish engulfing high and "
                 "closed green, but failed to achieve acceptance "
                 "above resistance. Buyers remain active but "
                 "confirmation has not yet occurred."
@@ -827,21 +866,21 @@ def build_pinbar_trade_plan(today_pinbar,
     # BEARISH BREAK ATTEMPT
     # =====================================================
     if (
-        yesterday_pinbar
-        and yesterday_pinbar.get("detected")
+        yesterday_engulfing
+        and yesterday_engulfing.get("detected")
         and confirmation_state == "BEARISH_BREAK_ATTEMPT"
     ):
 
         return {
             "setup": "BEARISH BREAK ATTEMPT",
-            "entry": yesterday_pinbar["low"],
-            "stop_close": yesterday_pinbar["high"],
-            "stop_wick": yesterday_pinbar["high"],
+            "entry": yesterday_engulfing["low"],
+            "stop_close": yesterday_engulfing["high"],
+            "stop_wick": yesterday_engulfing["high"],
             "target1": None,
             "target2": None,
-            "failure": "Close above pinbar high",
+            "failure": "Close above engulfing high",
             "interpretation": (
-                "Price exceeded the bearish pinbar low and "
+                "Price exceeded the bearish engulfing low and "
                 "closed red, but failed to achieve acceptance "
                 "below support. Sellers remain active but "
                 "confirmation has not yet occurred."
@@ -850,10 +889,10 @@ def build_pinbar_trade_plan(today_pinbar,
     # =====================================================
     # 📊 FORMATION MODE (NO ACTIVE TRADE)
     # =====================================================
-    if not today_pinbar.get("detected") and not yesterday_pinbar.get("detected"):
+    if not today_engulfing.get("detected") and not yesterday_engulfing.get("detected"):
 
         return {
-            "setup": "No Active Pin Bar",
+            "setup": "No Active Engulfing Bar",
             "entry": None,
             "stop_close": None,
             "stop_wick": None,
@@ -866,20 +905,20 @@ def build_pinbar_trade_plan(today_pinbar,
         }
 
     # =====================================================
-    # NORMAL PINBAR MODE (TODAY FORMING)
+    # NORMAL ENGULFING MODE (TODAY FORMING)
     # =====================================================
-    pin_type = today_pinbar["type"]
+    pin_type = today_engulfing["type"]
 
-    high = today_pinbar["high"]
-    low = today_pinbar["low"]
-    close = today_pinbar["close"]
+    high = today_engulfing["high"]
+    low = today_engulfing["low"]
+    close = today_engulfing["close"]
 
     rng = high - low
 
     if pin_type == "Bullish":
 
         return {
-            "setup": "FORMING BULLISH PINBAR",
+            "setup": "FORMING BULLISH ENGULFING",
             "entry": high,
             "stop_close": close - (rng * 0.10),
             "stop_wick": low,
@@ -894,7 +933,7 @@ def build_pinbar_trade_plan(today_pinbar,
     else:
 
         return {
-            "setup": "FORMING BEARISH PINBAR",
+            "setup": "FORMING BEARISH ENGULFING",
             "entry": low,
             "stop_close": close + (rng * 0.10),
             "stop_wick": high,
@@ -909,28 +948,42 @@ def build_pinbar_trade_plan(today_pinbar,
 # =========================================================
 # FORMATTER
 # =========================================================
-def format_pinbar_journal_prompt(result: dict):
+def format_engulfing_journal_prompt(result: dict):
 
-    t = result.get("today_pinbar", {})
-    y = result.get("yesterday_pinbar", {})
+    t = result.get("today_engulfing", {})
+    y = result.get("yesterday_engulfing", {})
     state = result.get("confirmation_state", "NONE")
     tp = result.get("trade_plan", {})
+    today_candle = result.get("today_candle", {})
+    yesterday_candle = result.get("yesterday_candle", {})
 
     return f"""
 # ==================================================
-📌 INSTITUTIONAL PIN BAR ANALYSIS (CONFIRMATION MODEL)
+📌 INSTITUTIONAL ENGULFING PATTERN ANALYSIS (CONFIRMATION MODEL)
 # ==================================================
 
 TODAY:
-- Pinbar Detected: {t.get('detected')}
+- Engulfing Detected: {t.get('detected')}
 - Type: {t.get('type')}
-- High: {t.get('high')}
-- Low: {t.get('low')}
+
+📈 RAW CANDLE DATA:
+- Open: {today_candle.get('Open')}
+- High: {today_candle.get('High')}
+- Low: {today_candle.get('Low')}
+- Close: {today_candle.get('Close')}
+- Volume: {today_candle.get('Volume')}
 
 YESTERDAY:
-- Pinbar Exists: {y.get('detected')}
+- Engulfing Exists: {y.get('detected')}
 - Type: {y.get('type')}
 - Confirmation State: {state}
+
+📈 RAW CANDLE DATA:
+- Open: {yesterday_candle.get('Open')}
+- High: {yesterday_candle.get('High')}
+- Low: {yesterday_candle.get('Low')}
+- Close: {yesterday_candle.get('Close')}
+- Volume: {yesterday_candle.get('Volume')}
 
 --------------------------------------------------
 📊 CONTEXT:
@@ -950,10 +1003,8 @@ YESTERDAY:
 
 - Setup Quality:  {tp.get('setup')}
 - Entry Trigger:  {tp.get('entry')}
-
 - Aggressive Stop:  {tp.get('stop_close')}
 - Conservative Stop:  {tp.get('stop_wick')}
-
 - Target 1:  {tp.get('target1')}
 - Target 2:  {tp.get('target2')}
 
