@@ -60,6 +60,13 @@ from modules.dtfm_analysis import analyze_dual_timeframe_momentum
 from modules.relative_strength_engine import build_relative_strength_block
 from modules.risk_engine import get_latest_close, evaluate_stop_loss
 from modules.pinbarAnalysis import analyze_pinbar
+from modules.engulfingAnalysis import analyze_engulfing
+from modules.insideBarAnalysis import analyze_inside_bar
+from modules.hammerAnalysis import analyze_hammer
+from modules.marubozuAnalysis import analyze_marubozu
+from modules.starAnalysis import analyze_star_pattern
+from modules.haramiAnalysis import analyze_harami_pattern
+from modules.dccplAnalysis import analyze_reversal_patterns
 from modules.watchlist_popup import WatchlistPopup
 from modules.path_resolver import get_stock_data_path, get_project_root
 from modules.yahoo_history import load_yahoo_history
@@ -301,7 +308,13 @@ historical_block = ""
 pnf_block = ""
 fractal_block = ""
 pinbar_result = ""
-
+engulfing_result = ""
+inside_bar_result = ""
+hammer_result = ""
+marubozu_result = ""
+analyze_reversal_patterns_result = "" 
+star_pattern_result = ""
+harami_pattern_result = ""
 
 if not os.path.exists(JOURNAL_FILE):
     with open(JOURNAL_FILE, "w", newline="", encoding="utf-8") as f:
@@ -1065,7 +1078,50 @@ def generate_signal_template(row):
         "journal_prompt",
         "Pin bar analysis unavailable."
     )
+    
+        
+    engulfing_result = analyze_engulfing(daily_df)
+    engulfing_block = engulfing_result.get(
+        "journal_prompt",
+        "Engulfing pattern analysis unavailable."
+    )
 
+    inside_bar_result = analyze_inside_bar(daily_df)
+    inside_bar_block = inside_bar_result.get(
+        "journal_prompt",
+        "Inside Bar pattern analysis unavailable."
+    )
+
+    hammer_result = analyze_hammer(daily_df)
+    hammer_block = hammer_result.get(
+        "journal_prompt",
+        "Hammer pattern analysis unavailable."
+    )
+
+    marubozu_result = analyze_marubozu(daily_df)
+    marubozu_block = marubozu_result.get(
+        "journal_prompt",
+        "Maruubozu pattern analysis unavailable."
+    )    
+
+    star_pattern_result = analyze_star_pattern(daily_df)
+    star_pattern_block = star_pattern_result.get(
+        "journal_prompt",
+        "Star pattern analysis unavailable."
+    )    
+    
+    harami_pattern_result = analyze_harami_pattern(daily_df)
+    harami_pattern_block = harami_pattern_result.get(
+        "journal_prompt",
+        "Harami pattern analysis unavailable."
+    )    
+    reversal_result = analyze_reversal_patterns(daily_df)
+
+    reversal_block = reversal_result.get(
+        "journal_prompt",
+        "Reversal pattern analysis unavailable."
+    )    
+    
     # =====================================================
     # FRACTAL STRUCTURE ANALYSIS (SAFE FIX)
     # =====================================================
@@ -1171,6 +1227,13 @@ def generate_signal_template(row):
 {stop_block}
 {candlestick_block}
 {pinbar_block}
+{engulfing_block}
+{inside_bar_block}
+{hammer_block}
+{marubozu_block}
+{star_pattern_block}
+{harami_pattern_block}
+{reversal_block}
 {financial_block}
 {historical_results}
 {intraday_60m_prompt }

@@ -3,12 +3,14 @@ from tkinter import ttk
 import sqlite3
 import threading
 import time
+import os
 import pandas as pd
 from datetime import datetime, timedelta
 
 from modules.path_resolver import (
     get_watchlist_db_path,
-    get_webull_db_path
+    get_webull_db_path,
+    get_project_root
 )
 
 try:
@@ -24,9 +26,9 @@ except Exception:
 WATCHLIST_DB = get_watchlist_db_path()
 WEBULL_DB = get_webull_db_path()
 
-JOURNAL_PATH = "/data/systemFiles/journal.csv"
+JOURNAL_PATH = os.path.join(get_project_root(), "data", "systemFiles", "journal.csv")
 
-
+last_mtime = 0
 # =========================================================
 # WATCHLIST DB (ONLY TICKERS FROM JOURNAL)
 # =========================================================
@@ -101,6 +103,32 @@ def sync_watchlist_from_journal():
         db_upsert(t)
 
 
+def watch_journal_file(app):
+    global last_mtime
+
+    if not os.path.exists(JOURNAL_PATH):
+        app.after(2000, lambda: watch_journal_file(app))
+        return
+
+    try:
+        mtime = os.path.getmtime(JOURNAL_PATH)
+
+        if mtime != last_mtime:
+            last_mtime = mtime
+
+            # sync journal → DB
+            sync_watchlist_from_journal()
+
+            # reload DB
+            app.watchlist = db_load()
+            app.load_table()
+            app.refresh()
+
+    except Exception as e:
+        print("watch error:", e)
+
+    app.after(2000, lambda: watch_journal_file(app))
+    
 # =========================================================
 # WEBULL DB (SOURCE OF TRUTH = webull.db ONLY)
 # =========================================================
@@ -217,7 +245,7 @@ class WatchlistPopup(tk.Toplevel):
         self.schedule_auto_refresh()
 
         self.protocol("WM_DELETE_WINDOW", self.close)
-        
+        self.after(2000, lambda: watch_journal_file(self))
 
     def schedule_auto_refresh(self):
         now = datetime.now()

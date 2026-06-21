@@ -1,0 +1,267 @@
+📌 ENGULFING PATTERN ANALYSIS ENGINE (INSTITUTIONAL GRADE)
+🧠 Overview
+
+This module implements an institutional-grade candlestick analysis engine focused on:
+
+Engulfing pattern detection (bullish & bearish)
+Multi-candle confirmation logic
+Liquidity-based validation (sweeps, rejection, acceptance)
+Volume + expansion confirmation
+Trend alignment filtering
+Trade planning + journaling output
+
+It is designed for systematic trading decision automation, not visual pattern recognition alone.
+
+⚙️ Core Philosophy
+
+Unlike basic candlestick scanners, this engine does NOT rely only on:
+
+Body engulfing alone
+Single-candle signals
+Static pattern definitions
+
+Instead, it evaluates:
+
+✔ Market Context First
+Trend direction (EMA 8 / EMA 21 / SMA 50)
+Structure location (support/resistance proximity)
+Liquidity behavior (sweeps & traps)
+Volume participation (RVOL + spikes + expansion)
+✔ Then Signal Validation
+True body engulfing (with filtering)
+Strength scaling (Standard / Strong / Institutional)
+Multi-candle confirmation (yesterday vs today logic)
+✔ Then Execution State
+Pending → Confirmed → Failed → Rejection → Break attempt
+📊 Key Features
+1. 🧾 OHLCV Normalization Layer
+
+Handles inconsistent datasets:
+
+normalize_ohlcv_columns(df, ticker=None)
+enforce_schema(df)
+
+✔ Auto-detects ticker from column structure
+✔ Standardizes OHLCV format
+✔ Removes invalid rows
+
+2. 📉 Safe Scalar Engine
+f(x)
+
+Ensures robust numeric extraction from:
+
+Pandas Series
+NaN values
+Missing data
+3. 📊 Volume Intelligence Module
+
+Includes institutional volume detection:
+
+Functions:
+rvol() → Relative volume
+detect_volume_spike() → Abnormal participation
+institutional_accumulation_state() → Market regime classification
+detect_expansion_candle() → Momentum + participation surge
+Volume Regimes:
+Accumulation
+Distribution
+Neutral
+4. 🕯 Engulfing Detection Engine
+detect_engulfing(df)
+Requirements:
+
+A valid engulfing must satisfy:
+
+✔ Opposite candle direction
+✔ Full body engulfment
+✔ Minimum strength threshold (filter micro signals)
+✔ Engulf ratio ≥ 1.2
+
+Strength Classification:
+Ratio	Strength
+≥ 2.0	Institutional
+≥ 1.5	Strong
+≥ 1.2	Standard
+< 1.2	Ignored
+Pattern Types:
+Bullish Engulfing
+Bearish Engulfing
+5. ⚡ Expansion Candle Detection
+detect_expansion_candle(df)
+
+Detects institutional momentum candles:
+
+✔ Volume spike (2x prior)
+✔ Body expansion (1.5x prior candle)
+✔ Directional classification
+
+Used as confirmation weight in volume scoring.
+
+6. 🧠 Trend Engine
+evaluate_trend(df)
+
+Uses:
+
+EMA 8
+EMA 21
+SMA 50
+Output:
+Bullish
+Bearish
+Neutral
+Scoring:
+Strong alignment → 15
+Weak alignment → 5
+7. ⚠ Liquidity Sweep Detection
+detect_liquidity_sweep(df)
+
+Detects:
+
+Spring (false breakdown below support)
+Upthrust (false breakout above resistance)
+
+Used for institutional trap detection.
+
+8. 📐 Structure Engine
+evaluate_structure(df)
+
+Identifies:
+
+Near Support
+Near Resistance
+Neutral Zone
+
+Based on 50-period structure bands.
+
+9. 📊 Fibonacci Alignment Engine
+evaluate_fibonacci(df)
+
+Detects confluence near:
+
+38.2%
+50%
+61.8%
+78.6%
+
+Adds score when price aligns within 1%.
+
+10. 🧠 Engulfing Confirmation System
+confirm_engulfing_today(today_candle, y_pin)
+
+Tracks lifecycle of previous engulfing:
+
+States:
+Bullish Context:
+CONFIRMED → Break above high
+FAILED → Break below low
+LIQUIDITY_REJECTION → Wick sweep failure
+BULLISH_BREAK_ATTEMPT → Partial breakout
+Bearish Context:
+CONFIRMED → Breakdown
+FAILED → Break above high
+BEARISH_BREAK_ATTEMPT → Weak continuation
+LIQUIDITY_REJECTION → Trap reversal
+11. 🔁 Event State Engine
+build_engulfing_event_state(df)
+
+Tracks historical engulfing lifecycle:
+
+Start detection
+Active tracking
+Confirmation / failure / expiration
+Multi-day validity window
+12. 💼 Trade State Generator
+build_engulfing_trade_plan(...)
+
+Generates execution-ready trade plans:
+
+Modes:
+🟡 Active Pending Event
+No confirmation yet
+Monitoring breakout/breakdown
+🔴 Liquidity Rejection
+Trap detected
+False breakout confirmed
+🟢 Active Confirmed Trade
+Entry executed
+Targets active
+🔵 Break Attempt
+Early breakout without acceptance
+⚪ Formation Mode
+Pattern still forming
+13. 📈 Active Trade State Engine
+build_active_trade_state(y_pin)
+
+Defines:
+
+Entry
+Stop
+Invalidation
+Target 1 / Target 2
+
+Based on volatility range expansion.
+
+🧠 Full Analysis Pipeline
+Main function:
+analyze_engulfing(df)
+Execution Flow:
+Normalize data
+Enforce schema
+Detect engulfing (today & yesterday)
+Confirm state transition
+Evaluate:
+Trend
+Sweep
+Structure
+Volume
+Expansion
+Fibonacci
+Compute:
+Intent score
+Confirmation score
+Build:
+Regime classification
+Trade plan
+Output journal report
+📌 Regime Types
+Regime	Meaning
+NEW_ENGULFING_FORMATION	Fresh signal
+PENDING_CONFIRMATION	Awaiting validation
+INSTITUTIONAL_REVERSAL_CONTINUATION	Confirmed move
+LIQUIDITY_FAILURE_EVENT	Trap detected
+FAILED_BREAKOUT_REJECTION	False breakout
+NO_EDGE	No tradable structure
+📊 Output
+Primary Output:
+{
+    "journal_prompt": "Formatted institutional report"
+}
+
+Includes:
+
+Candle data
+Pattern detection
+Volume confirmation
+Trend alignment
+Regime state
+Trade plan
+Interpretation
+🔥 Key Design Strengths
+
+✔ Multi-layer confirmation (not single-candle logic)
+✔ Liquidity-aware decision model
+✔ Institutional volume filtering
+✔ Expansion candle integration
+✔ Trade lifecycle tracking
+✔ Structured journal output
+
+⚠ Important Notes
+This module is NOT a generic candlestick detector.
+It is designed for systematic trading decision frameworks.
+Signals are only valid when supported by:
+Trend alignment
+Volume confirmation
+Structural context
+🧠 Core Trading Philosophy
+
+“An engulfing candle is not a signal by itself — it is only meaningful when it represents liquidity displacement inside a structured market context.”

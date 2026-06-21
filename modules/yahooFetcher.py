@@ -26,7 +26,12 @@ init_all()
 WATCHLIST_DB = get_watchlist_db_path()
 WEBULL_DB = get_webull_db_path()
 
-JOURNAL_FILE = None  # ❌ removed dependency (DB is source now)
+JOURNAL_FILE = os.path.join(
+    get_project_root(),
+    "data",
+    "systemFiles",
+    "journal.csv"
+)
 
 OUTPUT_DIR = os.path.join(
     get_project_root(),
@@ -60,6 +65,8 @@ TIMEFRAMES = {
 dashboard = None
 dashboard_log = None
 
+cached_tickers = []
+last_journal_mtime = 0
 
 # =========================================================
 # LOGGING
@@ -104,8 +111,57 @@ def load_tickers_from_watchlist():
     except Exception as e:
         log(f"❌ Watchlist DB error: {e}")
         return []
+        
+# =========================================================
+# JOURNAL SOURCE (MISSING PIECE)
+# =========================================================
 
+def load_tickers_from_journal():
+    try:
+        if not os.path.exists(JOURNAL_FILE):
+            return []
 
+        df = pd.read_csv(JOURNAL_FILE)
+
+        if "ticker" not in df.columns:
+            return []
+
+        return sorted(
+            set(df["ticker"].dropna().astype(str).str.upper())
+        )
+
+    except Exception as e:
+        log(f"❌ Journal load error: {e}")
+        return []
+        
+def watch_journal_changes():
+    global cached_tickers, last_journal_mtime
+
+    try:
+        if not os.path.exists(JOURNAL_FILE):
+            dashboard.after(2000, watch_journal_changes)
+            return
+
+        mtime = os.path.getmtime(JOURNAL_FILE)
+
+        if mtime != last_journal_mtime:
+            last_journal_mtime = mtime
+
+            new_tickers = load_tickers_from_journal()
+
+            if set(new_tickers) != set(cached_tickers):
+                cached_tickers = new_tickers
+
+                log(f"🔄 Journal updated → {len(new_tickers)} tickers detected")
+
+                # 🔥 AUTO TRIGGER DATA REFRESH
+                threading.Thread(target=_run_update_core, daemon=True).start()
+
+    except Exception as e:
+        log(f"Journal watch error: {e}")
+
+    dashboard.after(2000, watch_journal_changes)
+    
 # =========================================================
 # DATA NORMALIZATION
 # =========================================================
@@ -332,6 +388,8 @@ def main():
     dashboard_log = scrolledtext.ScrolledText(dashboard, height=30)
     dashboard_log.pack(fill=tk.BOTH, expand=True)
 
+    dashboard.after(2000, watch_journal_changes)
+    
     dashboard.mainloop()
 
 
