@@ -94,37 +94,39 @@ def institutional_accumulation_state(close, high, low, volume, period=20):
 # =========================================================
 def detect_engulfing(data):
 
-    if isinstance(data, pd.DataFrame):
+    if not isinstance(data, pd.DataFrame) or len(data) < 2:
+        return {
+            "detected": False,
+            "type": None,
+            "strength": "None",
+            "engulf_ratio": 0
+        }
 
-        if len(data) < 2:
-            return {
-                "detected": False,
-                "type": None,
-                "strength": "None",
-                "engulf_ratio": 0
-            }
-
-        prev = data.iloc[-2]
-        curr = data.iloc[-1]
-
-    else:
-        raise ValueError("detect_engulfing() requires the last two candles")
+    prev = data.iloc[-2]
+    curr = data.iloc[-1]
 
     prev_open = f(prev["Open"])
     prev_close = f(prev["Close"])
+    prev_high = f(prev["High"])
+    prev_low = f(prev["Low"])
 
     curr_open = f(curr["Open"])
     curr_close = f(curr["Close"])
+    curr_high = f(curr["High"])
+    curr_low = f(curr["Low"])
 
-    high = f(curr["High"])
-    low = f(curr["Low"])
+    prev_body_high = max(prev_open, prev_close)
+    prev_body_low = min(prev_open, prev_close)
+
+    curr_body_high = max(curr_open, curr_close)
+    curr_body_low = min(curr_open, curr_close)
 
     prev_body = abs(prev_close - prev_open)
     curr_body = abs(curr_close - curr_open)
 
     base = {
-        "high": high,
-        "low": low,
+        "high": curr_high,
+        "low": curr_low,
         "open": curr_open,
         "close": curr_close,
         "detected": False,
@@ -133,13 +135,39 @@ def detect_engulfing(data):
         "engulf_ratio": 0
     }
 
-    if prev_body <= 0 or curr_body <= 0:
+    if prev_body <= 1e-9 or curr_body <= 1e-9:
         return base
 
-    engulf_ratio = curr_body / prev_body
+    engulf_ratio = curr_body / max(prev_body, 1e-9)
 
-    # 🔧 FIX: filter micro/invalid engulfing
-    if engulf_ratio < 1.2:
+    # =====================================================
+    # 🔥 STRICT INSTITUTIONAL FILTER (NEW CRITICAL FIX)
+    # =====================================================
+    true_engulf = (
+        curr_body_high >= prev_body_high and
+        curr_body_low <= prev_body_low
+    )
+
+    # must engulf AND have displacement
+    if not true_engulf or engulf_ratio < 1.25:
+        return base
+
+    # =====================================================
+    # DIRECTIONAL CLASSIFICATION (TIGHTER)
+    # =====================================================
+    bullish = (
+        prev_close < prev_open and
+        curr_close > curr_open and
+        curr_close > prev_high  # prevents weak inside-up candles
+    )
+
+    bearish = (
+        prev_close > prev_open and
+        curr_close < curr_open and
+        curr_close < prev_low   # prevents weak inside-down candles
+    )
+
+    if not bullish and not bearish:
         return base
 
     if engulf_ratio >= 2.0:
@@ -148,20 +176,6 @@ def detect_engulfing(data):
         strength = "Strong"
     else:
         strength = "Standard"
-
-    bullish = (
-        prev_close < prev_open and
-        curr_close > curr_open and
-        curr_open <= prev_close and
-        curr_close >= prev_open
-    )
-
-    bearish = (
-        prev_close > prev_open and
-        curr_close < curr_open and
-        curr_open >= prev_close and
-        curr_close <= prev_open
-    )
 
     if bullish:
         base.update({
@@ -182,17 +196,22 @@ def detect_engulfing(data):
     return base
 
 def detect_expansion_candle(df):
+
+    if len(df) < 2:
+        return {"detected": False}
+
     prev = df.iloc[-2]
     curr = df.iloc[-1]
 
     body = abs(curr["Close"] - curr["Open"])
     prev_body = abs(prev["Close"] - prev["Open"])
 
-    volume_spike = curr["Volume"] > prev["Volume"] * 2
-    strong_move = body > prev_body * 1.5
+    volume_spike = curr["Volume"] > prev["Volume"] * 2.2
+    strong_move = body > prev_body * 1.6
 
     direction = "Bullish" if curr["Close"] > curr["Open"] else "Bearish"
 
+    # 🔥 FIX: require BOTH displacement + volume expansion
     if volume_spike and strong_move:
         return {
             "detected": True,
@@ -206,6 +225,9 @@ def detect_expansion_candle(df):
 # 🧠 NEW: ENGULFING STATE MEMORY (CORE ADDITION)
 # =========================================================
 def engulfing_state_memory(df):
+
+    if df is None or not isinstance(df, pd.DataFrame) or df.empty:
+        return pd.DataFrame()
 
     states = []
 
@@ -243,7 +265,6 @@ def confirm_engulfing_today(today_candle, y_pin):
 
     close = f(today_candle["Close"])
     open_ = f(today_candle["Open"])
-
     high = f(today_candle["High"])
     low = f(today_candle["Low"])
 
@@ -254,87 +275,40 @@ def confirm_engulfing_today(today_candle, y_pin):
         return "NONE"
 
     # =====================================================
-    # BULLISH ENGULFING
+    # BULLISH
     # =====================================================
     if y_pin["type"] == "Bullish":
 
-        # ---------------------------------
-        # CONFIRMED
-        # ---------------------------------
         if close > y_high:
             return "CONFIRMED"
 
-        # ---------------------------------
-        # FAILED
-        # ---------------------------------
         if close < y_low:
             return "FAILED"
 
-        # ---------------------------------
-        # HIGH BROKEN
-        # GREEN CLOSE
-        # NO ACCEPTANCE
-        # ---------------------------------
-        if (
-            high > y_high
-            and close > open_
-            and close <= y_high
-        ):
+        # 🔥 FIX: must show rejection only if real displacement occurred
+        if high > y_high and close < y_high and close > open_:
             return "BULLISH_BREAK_ATTEMPT"
 
-        # ---------------------------------
-        # HIGH BROKEN
-        # RED CLOSE
-        # REJECTION
-        # ---------------------------------
-        if (
-            high > y_high
-            and close < open_
-            and close <= y_high
-        ):
+        if high > y_high and close < open_:
             return "LIQUIDITY_REJECTION"
 
         return "PENDING"
 
     # =====================================================
-    # BEARISH ENGULFING
+    # BEARISH
     # =====================================================
     if y_pin["type"] == "Bearish":
 
-        # ---------------------------------
-        # CONFIRMED
-        # ---------------------------------
         if close < y_low:
             return "CONFIRMED"
 
-        # ---------------------------------
-        # FAILED
-        # ---------------------------------
         if close > y_high:
             return "FAILED"
 
-        # ---------------------------------
-        # LOW BROKEN
-        # RED CLOSE
-        # NO ACCEPTANCE
-        # ---------------------------------
-        if (
-            low < y_low
-            and close < open_
-            and close >= y_low
-        ):
+        if low < y_low and close > y_low and close < open_:
             return "BEARISH_BREAK_ATTEMPT"
 
-        # ---------------------------------
-        # LOW BROKEN
-        # GREEN CLOSE
-        # REJECTION
-        # ---------------------------------
-        if (
-            low < y_low
-            and close > open_
-            and close >= y_low
-        ):
+        if low < y_low and close > open_:
             return "LIQUIDITY_REJECTION"
 
         return "PENDING"
@@ -430,6 +404,7 @@ def evaluate_structure(df):
 # VOLUME CONFIRMATION
 # =========================================================
 def volume_confirmation(df):
+
     volume = df["Volume"]
     close = df["Close"]
     high = df["High"]
@@ -441,11 +416,10 @@ def volume_confirmation(df):
 
     expansion = detect_expansion_candle(df)
 
-    confirmed = rv.iloc[-1] > 1.5 and spike.iloc[-1]
+    confirmed = (rv.iloc[-1] > 1.6) and bool(spike.iloc[-1])
 
     score = 10 if confirmed else 0
 
-    # 🔧 FIX: expansion adds institutional confirmation weight
     if expansion.get("detected"):
         score += 5
 
@@ -488,10 +462,14 @@ def evaluate_fibonacci(df):
 # =========================================================
 def analyze_engulfing(df):
 
+    # 🔧 FIX: prevent None / invalid dataframe crash BEFORE normalization
+    if df is None or not isinstance(df, pd.DataFrame) or df.empty:
+        return {"journal_prompt": "Invalid or missing dataframe"}
+
     df = normalize_ohlcv_columns(df)
     df = enforce_schema(df)
 
-    if len(df) < 2:
+    if df is None or df.empty or len(df) < 2:
         return {"journal_prompt": "Insufficient data"}
 
     today_candle = df.iloc[-1]
@@ -531,19 +509,14 @@ def analyze_engulfing(df):
 
         if confirmation_state == "CONFIRMED":
             regime = "INSTITUTIONAL_REVERSAL_CONTINUATION"
-
         elif confirmation_state == "FAILED":
             regime = "LIQUIDITY_FAILURE_EVENT"
-
         elif confirmation_state == "LIQUIDITY_REJECTION":
             regime = "FAILED_BREAKOUT_REJECTION"
-
         elif confirmation_state == "BULLISH_BREAK_ATTEMPT":
             regime = "BULLISH_ACCEPTANCE_PROBE"
-
         elif confirmation_state == "BEARISH_BREAK_ATTEMPT":
             regime = "BEARISH_ACCEPTANCE_PROBE"
-
         else:
             regime = "PENDING_CONFIRMATION"
 
@@ -590,17 +563,22 @@ def analyze_engulfing(df):
 
 def build_engulfing_event_state(df, max_confirm_days=5):
 
+    if df is None or not isinstance(df, pd.DataFrame) or df.empty:
+        return [], None
+
     events = []
     active = None
 
     for i in range(len(df)):
 
         candle_window = df.iloc[max(0, i-1):i+1]
+
+        # 🔧 FIX: guard empty window
+        if candle_window is None or candle_window.empty or len(candle_window) < 2:
+            continue
+
         detected = detect_engulfing(candle_window)
 
-        # =====================================================
-        # START NEW EVENT
-        # =====================================================
         if active is None and detected["detected"]:
 
             active = {
@@ -614,15 +592,9 @@ def build_engulfing_event_state(df, max_confirm_days=5):
 
             continue
 
-        # =====================================================
-        # NO ACTIVE EVENT
-        # =====================================================
         if active is None:
             continue
 
-        # =====================================================
-        # DO NOT CONFIRM ON ORIGIN BAR
-        # =====================================================
         if i <= active["start_index"]:
             continue
 
@@ -630,40 +602,26 @@ def build_engulfing_event_state(df, max_confirm_days=5):
 
         active["days_active"] = i - active["start_index"]
 
-        # =====================================================
-        # BULLISH EVENT
-        # =====================================================
         if active["type"] == "Bullish":
 
             if close > active["high"]:
                 active["status"] = "CONFIRMED"
-
             elif close < active["low"]:
                 active["status"] = "FAILED"
 
-        # =====================================================
-        # BEARISH EVENT
-        # =====================================================
         else:
 
             if close < active["low"]:
                 active["status"] = "CONFIRMED"
-
             elif close > active["high"]:
                 active["status"] = "FAILED"
 
-        # =====================================================
-        # TIME EXPIRATION
-        # =====================================================
         if (
             active["status"] == "PENDING"
             and active["days_active"] >= max_confirm_days
         ):
             active["status"] = "EXPIRED"
 
-        # =====================================================
-        # CLOSE EVENT
-        # =====================================================
         if active["status"] in ("CONFIRMED", "FAILED", "EXPIRED"):
             events.append(active.copy())
             active = None

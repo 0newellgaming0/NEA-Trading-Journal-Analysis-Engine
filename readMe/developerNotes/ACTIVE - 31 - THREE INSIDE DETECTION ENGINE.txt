@@ -1,0 +1,250 @@
+📘 Three Inside Pattern Detection Module
+Overview
+
+The Three Inside Pattern Detection Module is a quantitative candlestick analysis engine designed to identify, classify, and generate trade plans for the Three Inside Up / Three Inside Down candlestick formation.
+
+This module is built for algorithmic trading systems that require:
+
+Institutional-grade candlestick validation
+Multi-stage pattern detection (Forming → Pending → Confirmed)
+Automated trade plan generation
+Robust OHLC normalization across ticker formats
+Safe numeric extraction from Pandas structures
+
+It is optimized for noisy real-world market data where OHLC columns may be inconsistent or multi-ticker formatted.
+
+📌 Core Features
+✔ Multi-Stage Pattern Recognition
+
+The module identifies the Three Inside structure in three phases:
+
+FORMING → early harami structure detected
+PENDING_CONFIRMATION → structure valid but breakout not confirmed
+CONFIRMED → breakout candle validates directional expansion
+✔ Institutional Candle Validation
+
+The system filters weak or invalid signals using:
+
+Body strength thresholds
+Trend direction validation (Candle 1 filter)
+True harami containment logic
+Breakout expansion requirement
+✔ Automated Trade Planning
+
+Once confirmed, the module generates:
+
+Entry triggers (long/short)
+Stop-loss levels
+Target projections (1R and 2R extensions)
+Directional bias (bullish / bearish)
+✔ Robust Data Handling
+
+Supports messy or multi-ticker datasets:
+
+Auto ticker detection from column suffixes
+Safe OHLC extraction from nested Pandas structures
+Missing column fallback handling
+Numeric coercion and cleanup
+📂 Module Architecture
+1. Data Preprocessing Layer
+normalize_ohlcv_columns(df, ticker)
+enforce_schema(df)
+f(x) safe scalar extractor
+2. Candle Utility Layer
+body(c) → candle body size
+rng(c) → candle range (safe division protection)
+is_bull(c) / is_bear(c)
+is_inside(c1, c2) → containment logic
+3. Pattern Logic Layer
+Candle 1 Trend Filter
+
+Validates whether the initial candle has institutional strength:
+
+Requires body ratio > 0.45
+Determines bullish or bearish bias
+True Harami Validation
+
+Ensures Candle 2 is fully contained inside Candle 1 body:
+
+Strict body containment (no wick-based noise)
+Center Candle Classifier
+
+Classifies Candle 2:
+
+Type	Condition
+Doji	body ≤ 10% of range
+Balanced	body ≤ 30% + wick symmetry
+Weak	body ≤ 40%
+Invalid	otherwise rejected
+Breakout Validation
+
+Candle 3 must:
+
+Break above Candle 1 high (bullish)
+OR break below Candle 1 low (bearish)
+AND show expansion (>60% of Candle 1 range)
+🧠 Detection Engine
+detect_three_inside_pattern(df)
+
+Core state machine returning:
+
+➤ NONE
+
+No valid structure detected
+
+➤ PENDING_CONFIRMATION
+
+Valid harami + trend filter passed but no breakout yet
+
+{
+  "state": "PENDING_CONFIRMATION",
+  "stage": 3,
+  "type": "ThreeInside",
+  "direction": "NEUTRAL"
+}
+➤ CONFIRMED
+
+Breakout validated with expansion
+
+{
+  "state": "CONFIRMED",
+  "stage": 4,
+  "type": "ThreeInsideUp / ThreeInsideDown",
+  "direction": "bullish / bearish",
+  "high": ...,
+  "low": ...,
+  "close": ...
+}
+🔍 Forming Detector
+detect_three_inside_forming(df)
+
+Lightweight early detection using last 2 candles:
+
+Detects harami structure only
+Returns FORMING state for early alert systems
+💰 Trade Plan Generator
+build_three_inside_trade_plan(pattern)
+
+Converts detected structure into actionable trading levels.
+
+✔ CONFIRMED SETUP
+Three Inside Up
+LONG trigger → breakout high
+Stop-loss → pattern low
+Targets:
+1R: range expansion
+2R: extended momentum
+Three Inside Down
+SHORT trigger → breakdown low
+Stop-loss → pattern high
+Same target structure (inverse direction)
+✔ PENDING SETUP
+Breakout triggers based on Candle 1 range
+No targets assigned (awaiting confirmation)
+📊 Main Engine
+analyze_three_inside_pattern(df)
+
+End-to-end pipeline:
+
+Steps:
+Normalize OHLCV structure
+Enforce numeric schema
+Extract last 3 candles
+Detect pattern state
+Check forming condition
+Generate trade plan
+Build journal prompt
+Output:
+{
+  "journal_prompt": "<formatted trading report>"
+}
+📝 Journal Output System
+format_three_inside_journal_prompt(result)
+
+Generates a structured institutional-style report:
+
+Includes:
+Pattern state & type
+Direction bias
+Stage classification
+Last 3 candles breakdown
+Trade plan (entry/stop/targets)
+Final interpretation block
+Example Output Sections:
+📌 THREE INSIDE PATTERN ANALYSIS
+
+PATTERN:
+- State: CONFIRMED
+- Type: ThreeInsideUp
+- Direction: bullish
+
+🎯 TRADE PLAN
+- LONG_TRIGGER: 18.25
+- LONG_STOP: 16.80
+- Target1: 19.70
+- Target2: 21.15
+⚙️ Core Design Philosophy
+1. Institutional Filtering First
+
+Weak signals are eliminated early via:
+
+Body strength thresholds
+Trend validation
+Range expansion confirmation
+2. Multi-Stage State Machine
+
+The system avoids binary classification:
+
+FORMING → structure awareness
+PENDING → breakout anticipation
+CONFIRMED → execution-ready signal
+3. Expansion-Based Confirmation
+
+Breakouts are only valid if:
+
+Price expansion confirms participation (not noise)
+
+4. Body-Only Structural Integrity
+
+Harami detection is based strictly on:
+
+Candle body containment (not wicks)
+🧩 Dependencies
+import numpy as np
+import pandas as pd
+📌 Expected Input Format
+
+DataFrame must contain either:
+
+Standard Format:
+Open, High, Low, Close, Volume
+Or Ticker-Suffixed Format:
+open_AAPL, high_AAPL, low_AAPL, close_AAPL, volume_AAPL
+⚠️ Important Notes
+The module assumes chronological ordering (oldest → newest).
+Always uses the last 3 candles for pattern detection.
+All numeric conversions are safely handled to prevent runtime crashes.
+Designed for integration into larger trading systems (journal, dashboard, scanners).
+🚀 Integration Use Cases
+
+This module is ideal for:
+
+Algorithmic trading bots
+Institutional pattern scanners
+Wyckoff-based systems
+Multi-timeframe confluence engines
+Trading journal automation systems
+Real-time signal generation dashboards
+🧠 Final Summary
+
+This module transforms raw OHLC data into a:
+
+multi-stage institutional candlestick intelligence system
+
+It does not simply detect patterns — it:
+
+Validates structure
+Filters weak setups
+Waits for confirmation
+Builds executable trade plans
+Outputs journal-ready analysis

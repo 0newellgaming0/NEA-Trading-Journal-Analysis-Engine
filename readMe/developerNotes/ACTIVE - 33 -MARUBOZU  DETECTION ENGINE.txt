@@ -1,0 +1,342 @@
+📘 Institutional Marubozu Analysis Engine — README
+Overview
+
+This module implements a multi-layer institutional candlestick analysis system centered around the Marubozu candlestick pattern, enriched with:
+
+Trend structure validation (EMA/SMA alignment)
+Liquidity sweep detection (Wyckoff-style behavior)
+Volume confirmation (RVOL + spikes + institutional state)
+Market structure proximity (support/resistance)
+Regime classification (active / contextual / no edge)
+Automated trade planning (entry, stop, targets)
+
+It is designed for algorithmic trading workflows where candlestick signals must be validated through institutional confluence, not isolated pattern detection.
+
+🧠 Core Design Philosophy
+
+Unlike traditional candlestick detectors, this module treats price action as:
+
+A liquidity-driven auction process, not a pattern catalog
+
+A Marubozu candle is only meaningful when confirmed by:
+
+Trend alignment
+Volume expansion
+Liquidity context
+Structural positioning
+Follow-through or rejection behavior
+📦 Dependencies
+import numpy as np
+import pandas as pd
+
+No external trading libraries are required. All logic is implemented using pandas/numpy primitives.
+
+📊 Data Requirements
+
+Input DataFrame must contain OHLCV data in one of two formats:
+
+Case A (Normalized)
+Open, High, Low, Close, Volume
+Case B (Ticker-Suffixed Columns)
+open_AAPL, high_AAPL, low_AAPL, close_AAPL, volume_AAPL
+
+The module automatically detects and normalizes structure.
+
+🧰 Core Utilities
+1. Safe Scalar Extractor — f(x)
+Purpose
+
+Ensures robust scalar extraction from:
+
+pandas Series
+NaN values
+malformed inputs
+Behavior
+f(pd.Series) → last value
+f(NaN) → 0.0
+f(float/int) → float
+Why it matters
+
+Prevents:
+
+NaN propagation in trade logic
+Type errors in float arithmetic
+Series misalignment bugs
+2. OHLCV Normalization
+normalize_ohlcv_columns(df, ticker=None)
+Purpose
+
+Converts mixed-format market data into standardized OHLCV schema.
+
+Features
+Auto-detects ticker from column names
+Maps:
+open_x → Open
+high_x → High
+low_x → Low
+close_x → Close
+volume_x → Volume
+Output Schema
+Open, High, Low, Close, Volume
+3. Schema Enforcement — enforce_schema(df)
+
+Ensures:
+
+Numeric conversion of OHLCV
+Removal of invalid rows
+NaN-safe dataset for downstream logic
+📈 Volume Analytics Module
+4. Relative Volume — rvol(volume, period=20)
+
+Measures:
+
+Current volume relative to rolling average
+
+Output:
+RVOL = Volume / RollingMean(20)
+5. Volume Spike Detection
+detect_volume_spike(volume, threshold=1.5)
+
+Flags:
+
+Institutional participation bursts
+Breakout confirmation events
+6. Institutional Accumulation State
+institutional_accumulation_state(close, high, low, volume)
+Logic Classification:
+State	Condition
+Accumulation	High volume + low compression
+Distribution	High volume + high compression
+Neutral	Otherwise
+Interpretation:
+Accumulation → Smart money entry
+Distribution → Smart money exit
+🕯 Marubozu Detection Engine
+7. detect_marubozu(data)
+Definition
+
+A Marubozu is defined as:
+
+Large real body (≥ 75% of candle range)
+Minimal wicks (≤ 10%)
+Directional dominance (bullish or bearish)
+Output Structure
+{
+  "detected": bool,
+  "type": "Bullish" | "Bearish",
+  "strength": "Institutional | Strong | Standard | Weak",
+  "range": float,
+  "body_ratio": float,
+  "high": float,
+  "low": float,
+  "open": float,
+  "close": float
+}
+Strength Classification
+Body Ratio	Strength
+≥ 0.90	Institutional
+≥ 0.80	Strong
+≥ 0.75	Standard
+< 0.75	Weak (rejected)
+8. Marubozu State Memory
+marubozu_state_memory(df)
+
+Adds:
+
+marubozu_flag (boolean)
+
+Tracks previous candle influence across sequence.
+
+9. Yesterday Marubozu Detection
+detect_yesterday_marubozu(df)
+
+Returns prior candle pattern for confirmation logic.
+
+🔁 Confirmation Engine
+10. confirm_marubozu_today(today, y_pin)
+Purpose
+
+Determines whether yesterday’s Marubozu is:
+
+State	Meaning
+CONFIRMED	Follow-through continuation
+FAILED	Breakdown against direction
+LIQUIDITY_REJECTION	Wick-through + rejection
+PENDING	No decisive outcome
+Logic Core
+Bullish Marubozu:
+Close > high → CONFIRMED
+Close < low → FAILED
+Wick above high + close back inside → REJECTION
+Bearish Marubozu:
+Reverse logic
+📉 Trend Engine
+11. evaluate_trend(df)
+
+Uses:
+
+EMA 8
+EMA 21
+SMA 50
+Trend Conditions
+Condition	Trend
+EMA8 > EMA21 > SMA50	Bullish
+EMA8 < EMA21 < SMA50	Bearish
+Else	Neutral
+Output:
+{"trend": "...", "score": int}
+💧 Liquidity Sweep Detection
+12. detect_liquidity_sweep(df, lookback=20)
+
+Detects Wyckoff-style:
+
+Patterns:
+Spring
+Break below support → immediate recovery
+Upthrust
+Break above resistance → rejection
+Output:
+{"sweep": bool, "type": "Spring|Upthrust", "score": 25}
+📊 Market Structure Engine
+13. evaluate_structure(df)
+
+Evaluates proximity to:
+
+50-bar support
+50-bar resistance
+Labels:
+Near Support
+Near Resistance
+Neutral
+🔊 Volume Confirmation System
+14. volume_confirmation(df)
+
+Combines:
+
+RVOL > 1.5
+Volume spike
+Institutional state
+Output:
+{
+  "confirmed": bool,
+  "rvol": float,
+  "institutional_state": str
+}
+🧠 Main Engine
+15. analyze_marubozu(df)
+Workflow Pipeline:
+Normalize OHLCV
+Enforce schema
+Detect today + yesterday Marubozu
+Confirm follow-through state
+Evaluate:
+Trend
+Liquidity sweep
+Structure
+Volume
+Assign regime:
+ACTIVE_MARUBOZU
+PRIOR_MARUBOZU_CONTEXT
+NO_EDGE
+Build trade plan
+Generate journal output
+⚙️ Regime Logic
+Regime	Meaning
+ACTIVE_MARUBOZU	Current signal candle
+PRIOR_MARUBOZU_CONTEXT	Follow-up analysis
+NO_EDGE	No actionable setup
+📈 Trade Plan Engine
+16. build_marubozu_trade_plan()
+Only triggers if:
+Marubozu detected today OR yesterday
+Entry Model
+Bullish:
+Entry = Close
+Stop = Low
+Targets:
+T1 = 1R
+T2 = 2R
+Bearish:
+Entry = Close
+Stop = High
+Failure Conditions
+Direction	Failure Rule
+Long	Break below low
+Short	Break above high
+Setup Labels
+CONFIRMED MARUBOZU CONTINUATION
+FAILED MARUBOZU REVERSAL
+LIQUIDITY REJECTION
+ACTIVE SETUP
+🧾 Journal Output Generator
+17. format_marubozu_journal_prompt()
+
+Produces a structured report:
+
+Sections:
+📌 Pattern Detection
+Today Marubozu
+Yesterday Marubozu
+📊 Context Layer
+Trend
+Sweep
+Structure
+Volume
+⚠️ Regime State
+Market condition classification
+🎯 Trade Plan (if active)
+Entry
+Stop
+Targets
+Failure conditions
+🧪 Example Usage
+import pandas as pd
+
+df = pd.read_csv("AAPL_daily.csv")
+
+result = analyze_marubozu(df)
+
+print(result["journal_prompt"])
+🧩 Output Example (Conceptual)
+📌 INSTITUTIONAL MARUBOZU PATTERN ANALYSIS
+
+TODAY:
+Detected: True
+Type: Bullish
+Strength: Institutional
+
+CONTEXT:
+Trend: Bullish
+Sweep: True
+Structure: Near Support
+Volume: True
+
+⚠️ REGIME:
+ACTIVE_MARUBOZU
+
+🎯 TRADE PLAN:
+Entry: 187.25
+Stop: 184.10
+Target 1: 190.40
+Target 2: 193.55
+⚠️ Limitations
+Does not account for news/events
+No multi-timeframe aggregation (single-frame only)
+Requires clean OHLCV structure
+Volume logic assumes consistent scaling
+No slippage or execution modeling
+🚀 Strengths
+Fully self-contained
+Institutional-style logic layering
+Combines:
+Price action
+Volume behavior
+Liquidity theory
+Trend structure
+Produces actionable trade plans
+Journal-ready output formatting
+🧠 Final Summary
+
+This module transforms a simple Marubozu candle detector into a:
+
+Full institutional decision engine combining Wyckoff logic, trend structure, and liquidity behavior into a structured trading thesis system.

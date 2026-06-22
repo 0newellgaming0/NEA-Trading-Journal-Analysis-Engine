@@ -49,12 +49,30 @@ def enforce_schema(df):
         df[col] = pd.to_numeric(df[col], errors="coerce")
     return df.dropna(subset=["Open", "High", "Low", "Close"])
 
+
 # =========================================================
-# 🧠 HAMMER DETECTION ENGINE
+# TREND HELPER
+# =========================================================
+def get_trend(df, lookback=5):
+    if df is None or len(df) < lookback + 1:
+        return "UNKNOWN"
+
+    closes = df["Close"].iloc[-lookback:]
+    prior = df["Close"].iloc[-(lookback * 2):-lookback]
+
+    if closes.mean() > prior.mean():
+        return "UPTREND"
+    elif closes.mean() < prior.mean():
+        return "DOWNTREND"
+    return "RANGE"
+
+
+# =========================================================
+# HAMMER DETECTION ENGINE
 # =========================================================
 def detect_hammer(
     df,
-    strict_wick_ratio=2.5,
+    strict_wick_ratio=2.0,
     strict_body_threshold=0.35,
     lazy_wick_ratio=1.25,
     lazy_body_threshold=0.55
@@ -77,46 +95,23 @@ def detect_hammer(
     upper_wick = h - max(o, c)
 
     body_pct = body / rng
-
-    wick_ratio_actual = (
-        lower_wick / max(body, 1e-9)
-    )
+    wick_ratio_actual = lower_wick / max(body, 1e-9)
 
     # =====================================================
-    # STRICT HAMMER
+    # STRICT HAMMER RULES (UPDATED PER YOUR SPEC)
     # =====================================================
-    strict_small_body = (
-        body_pct <= strict_body_threshold
-    )
 
-    strict_lower_wick = (
-        wick_ratio_actual >= strict_wick_ratio
-    )
-
-    strict_upper_wick = (
-        upper_wick <= body * 0.60
-    )
+    strict_lower_wick = lower_wick >= 2 * body
+    strict_upper_wick = upper_wick <= 0.25 * rng
 
     strict_hammer = (
-        strict_small_body
-        and strict_lower_wick
-        and strict_upper_wick
+        strict_lower_wick and
+        strict_upper_wick
     )
 
-    # =====================================================
-    # LAZY HAMMER
-    # =====================================================
-    lazy_small_body = (
-        body_pct <= lazy_body_threshold
-    )
-
-    lazy_lower_wick = (
-        wick_ratio_actual >= lazy_wick_ratio
-    )
-
-    lazy_upper_wick = (
-        upper_wick <= body
-    )
+    lazy_small_body = body_pct <= lazy_body_threshold
+    lazy_lower_wick = wick_ratio_actual >= lazy_wick_ratio
+    lazy_upper_wick = upper_wick <= body
 
     lazy_hammer = (
         lazy_small_body
@@ -130,7 +125,6 @@ def detect_hammer(
     if strict_hammer:
         detected = True
         hammer_class = "INSTITUTIONAL_HAMMER"
-
     elif lazy_hammer:
         detected = True
         hammer_class = "LAZY_HAMMER"
@@ -152,20 +146,23 @@ def detect_hammer(
         "upper_wick": round(upper_wick, 4),
 
         "body_pct": round(body_pct, 4),
-
-        "wick_ratio": round(
-            wick_ratio_actual,
-            3
-        ),
+        "wick_ratio": round(wick_ratio_actual, 3),
 
         "strict_hammer": strict_hammer,
         "lazy_hammer": lazy_hammer,
 
-        "location": "Potential Liquidity Sweep Zone"
+        "location": "Potential Liquidity Sweep Zone",
+
+        "entry": h,
+        "stop": l,
+        "target1": round(h + rng, 4),
+        "target2": round(h + (2 * rng), 4),
+        "range_size": rng
     }
 
+
 # =========================================================
-# 🧠 SHOOTING STAR DETECTION ENGINE (ADDED - NON-BREAKING)
+# SHOOTING STAR DETECTION ENGINE
 # =========================================================
 def detect_shooting_star(
     df,
@@ -195,19 +192,21 @@ def detect_shooting_star(
     wick_ratio_actual = upper_wick / max(body, 1e-9)
 
     strict = (
-        body_pct <= strict_body_threshold and
-        wick_ratio_actual >= strict_wick_ratio and
-        lower_wick <= body * 0.6
+        body_pct <= strict_body_threshold
+        and wick_ratio_actual >= strict_wick_ratio
+        and lower_wick <= body * 0.6
     )
 
     lazy = (
-        body_pct <= lazy_body_threshold and
-        wick_ratio_actual >= lazy_wick_ratio and
-        lower_wick <= body
+        body_pct <= lazy_body_threshold
+        and wick_ratio_actual >= lazy_wick_ratio
+        and lower_wick <= body
     )
 
+    detected = strict or lazy
+
     return {
-        "detected": strict or lazy,
+        "detected": detected,
         "classification": (
             "INSTITUTIONAL_SHOOTING_STAR" if strict else
             "LAZY_SHOOTING_STAR" if lazy else None
@@ -226,11 +225,19 @@ def detect_shooting_star(
         "body_pct": round(body_pct, 4),
         "wick_ratio": round(wick_ratio_actual, 3),
 
-        "location": "Potential Distribution Sweep Zone"
+        "location": "Potential Distribution Sweep Zone",
+
+        # TRADE STRUCTURE LOCK
+        "entry": l,
+        "stop": h,
+        "target1": round(l - rng, 4),
+        "target2": round(l - (2 * rng), 4),
+        "range_size": rng
     }
 
+
 # =========================================================
-# 🧠 INVERTED HAMMER DETECTION (ADDED)
+# INVERTED HAMMER DETECTION
 # =========================================================
 def detect_inverted_hammer(
     df,
@@ -259,20 +266,30 @@ def detect_inverted_hammer(
     body_pct = body / rng
     wick_ratio_actual = upper_wick / max(body, 1e-9)
 
+    strict_small_body = body_pct <= strict_body_threshold
+    strict_upper_wick = wick_ratio_actual >= strict_wick_ratio
+    strict_lower_wick = lower_wick <= body * 0.60
+
+    lazy_small_body = body_pct <= lazy_body_threshold
+    lazy_upper_wick = wick_ratio_actual >= lazy_wick_ratio
+    lazy_lower_wick = lower_wick <= body
+
     strict = (
-        body_pct <= strict_body_threshold and
-        wick_ratio_actual >= strict_wick_ratio and
-        lower_wick <= body * 0.6
+        strict_small_body
+        and strict_upper_wick
+        and strict_lower_wick
     )
 
     lazy = (
-        body_pct <= lazy_body_threshold and
-        wick_ratio_actual >= lazy_wick_ratio and
-        lower_wick <= body
+        lazy_small_body
+        and lazy_upper_wick
+        and lazy_lower_wick
     )
 
+    detected = strict or lazy
+
     return {
-        "detected": strict or lazy,
+        "detected": detected,
         "classification": (
             "INSTITUTIONAL_INVERTED_HAMMER" if strict else
             "LAZY_INVERTED_HAMMER" if lazy else None
@@ -289,11 +306,93 @@ def detect_inverted_hammer(
         "upper_wick": round(upper_wick, 4),
         "lower_wick": round(lower_wick, 4),
         "body_pct": round(body_pct, 4),
-        "wick_ratio": round(wick_ratio_actual, 3)
+        "wick_ratio": round(wick_ratio_actual, 3),
+
+        "entry": h,
+        "stop": l,
+        "target1": round(h + rng, 4),
+        "target2": round(h + (2 * rng), 4),
+        "range_size": rng
     }
-    
+
+
 # =========================================================
-# 🧠 BREAKOUT CLASSIFICATION (FIXED ORDER + SAFETY)
+# HANGING MAN DETECTION
+# =========================================================
+def detect_hanging_man(
+    df,
+    strict_wick_ratio=2.5,
+    strict_body_threshold=0.35,
+    lazy_wick_ratio=1.25,
+    lazy_body_threshold=0.55
+):
+
+    if df is None or len(df) < 1:
+        return {"detected": False}
+
+    candle = df.iloc[-1]
+
+    o = f(candle.get("Open"))
+    h = f(candle.get("High"))
+    l = f(candle.get("Low"))
+    c = f(candle.get("Close"))
+
+    rng = max(h - l, 1e-9)
+    body = abs(c - o)
+
+    lower_wick = min(o, c) - l
+    upper_wick = h - max(o, c)
+
+    body_pct = body / rng
+    wick_ratio = lower_wick / max(body, 1e-9)
+
+    strict = (
+        body_pct <= strict_body_threshold
+        and wick_ratio >= strict_wick_ratio
+        and upper_wick <= body * 0.60
+    )
+
+    lazy = (
+        body_pct <= lazy_body_threshold
+        and wick_ratio >= lazy_wick_ratio
+        and upper_wick <= body
+    )
+
+    detected = strict or lazy
+
+    return {
+        "detected": detected,
+        "classification": (
+            "INSTITUTIONAL_HANGING_MAN" if strict else
+            "LAZY_HANGING_MAN" if lazy else None
+        ),
+        "type": "HangingMan",
+
+        "open": o,
+        "high": h,
+        "low": l,
+        "close": c,
+
+        "body": round(body, 4),
+        "range": round(rng, 4),
+        "lower_wick": round(lower_wick, 4),
+        "upper_wick": round(upper_wick, 4),
+        "body_pct": round(body_pct, 4),
+        "wick_ratio": round(wick_ratio, 3),
+
+        "location": "Potential Distribution (Uptrend Exhaustion)",
+
+        # TRADE STRUCTURE LOCK
+        "entry": l,
+        "stop": h,
+        "target1": round(l - rng, 4),
+        "target2": round(l - (2 * rng), 4),
+        "range_size": rng
+    }
+
+
+# =========================================================
+# BREAKOUT CLASSIFICATION
 # =========================================================
 def classify_hammer_breakout(df, hammer):
 
@@ -312,14 +411,12 @@ def classify_hammer_breakout(df, hammer):
     if h_high is None or h_low is None:
         return "NONE"
 
-    # CONFIRMATION FIRST
     if close > h_high:
         return "BULLISH_REVERSAL_CONFIRMED"
 
     if close < h_low:
         return "BEARISH_CONTINUATION_CONFIRMED"
 
-    # LIQUIDITY EVENTS SECOND
     if high > h_high and close <= h_high:
         return "BULLISH_FALSE_BREAK_REJECTION"
 
@@ -330,7 +427,7 @@ def classify_hammer_breakout(df, hammer):
 
 
 # =========================================================
-# 🧠 EVENT STATE ENGINE (FIXED PERSISTENCE + ORDER)
+# EVENT STATE ENGINE
 # =========================================================
 def build_hammer_event_state(df, max_hold=5):
 
@@ -339,10 +436,9 @@ def build_hammer_event_state(df, max_hold=5):
 
     for i in range(len(df)):
 
-        window = df.iloc[max(0, i-1):i+1]
+        window = df.iloc[max(0, i - 1):i + 1]
         hammer = detect_hammer(window)
 
-        # START EVENT
         if active is None and hammer.get("detected"):
             active = {
                 "start": i,
@@ -361,17 +457,12 @@ def build_hammer_event_state(df, max_hold=5):
         high = f(candle.get("High"))
         low = f(candle.get("Low"))
 
-        # ORDERED STATE MACHINE (FIXED PRIORITY)
-
         if close > active["high"]:
             active["status"] = "CONFIRMED_BULLISH"
-
         elif close < active["low"]:
             active["status"] = "CONFIRMED_BEARISH"
-
         elif high > active["high"] and close <= active["high"]:
             active["status"] = "LIQUIDITY_REJECTION_BULL"
-
         elif low < active["low"] and close >= active["low"]:
             active["status"] = "LIQUIDITY_REJECTION_BEAR"
 
@@ -384,13 +475,11 @@ def build_hammer_event_state(df, max_hold=5):
 
     return events, active
 
+
 # =========================================================
-# 🧠 HAMMER CONFIRMATION ENGINE
+# CONFIRMATION ENGINE
 # =========================================================
-def confirm_hammer_today(
-    today_candle,
-    yesterday_hammer
-):
+def confirm_hammer_today(today_candle, yesterday_hammer):
 
     if not yesterday_hammer:
         return "NONE"
@@ -409,61 +498,27 @@ def confirm_hammer_today(
     if h_high is None or h_low is None:
         return "NONE"
 
-    # ==========================================
-    # CONFIRMED REVERSAL
-    # ==========================================
     if close > h_high:
         return "CONFIRMED"
 
-    # ==========================================
-    # FAILED HAMMER
-    # ==========================================
     if close < h_low:
         return "FAILED"
 
-    # ==========================================
-    # BREAK ATTEMPT
-    # ==========================================
-    if (
-        high > h_high
-        and close > open_
-        and close <= h_high
-    ):
+    if high > h_high and close > open_ and close <= h_high:
         return "BULLISH_BREAK_ATTEMPT"
 
-    # ==========================================
-    # REJECTION
-    # ==========================================
-    if (
-        high > h_high
-        and close < open_
-        and close <= h_high
-    ):
+    if high > h_high and close < open_ and close <= h_high:
         return "LIQUIDITY_REJECTION"
 
     return "PENDING"
-    
-# =========================================================
-# 🧠 TRADE PLAN GENERATOR
-# =========================================================
-def build_hammer_trade_plan(
-    hammer,
-    breakout_state,
-    confirmation_state="NONE"
-):
 
-    if not hammer:
-        return {
-            "setup": "NO SIGNAL",
-            "entry": None,
-            "stop": None,
-            "target1": None,
-            "target2": None,
-            "failure": None,
-            "interpretation": "No hammer detected."
-        }
 
-    if not hammer.get("detected"):
+# =========================================================
+# TRADE PLAN GENERATOR (FIXED CARRYOVER)
+# =========================================================
+def build_hammer_trade_plan(hammer, breakout_state, confirmation_state="NONE"):
+
+    if not hammer or not hammer.get("detected"):
         return {
             "setup": "NO SIGNAL",
             "entry": None,
@@ -476,103 +531,66 @@ def build_hammer_trade_plan(
 
     h = hammer["high"]
     l = hammer["low"]
+    rng = max(h - l, 1e-9)
+    classification = hammer.get("classification", "HAMMER")
 
-    rng = max(
-        h - l,
-        1e-9
-    )
-
-    classification = hammer.get(
-        "classification",
-        "HAMMER"
-    )
-
-    # =====================================================
-    # CONFIRMED REVERSAL
-    # =====================================================
-    if (
-        confirmation_state == "CONFIRMED"
-        or breakout_state == "BULLISH_REVERSAL_CONFIRMED"
-    ):
+    if confirmation_state == "CONFIRMED" or breakout_state == "BULLISH_REVERSAL_CONFIRMED":
         return {
             "setup": f"{classification} CONFIRMED LONG",
-            "entry": h,
-            "stop": l,
-            "target1": round(h + rng, 4),
-            "target2": round(h + (2 * rng), 4),
+            "entry": hammer.get("entry", h),
+            "stop": hammer.get("stop", l),
+            "target1": hammer.get("target1", round(h + rng, 4)),
+            "target2": hammer.get("target2", round(h + (2 * rng), 4)),
             "failure": "Close below hammer low",
-            "interpretation":
-                "Hammer confirmed. Buyers achieved acceptance above the hammer high."
+            "interpretation": "Hammer confirmed. Buyers achieved acceptance above the hammer high."
         }
 
-    # =====================================================
-    # FAILED HAMMER
-    # =====================================================
-    if (
-        confirmation_state == "FAILED"
-        or breakout_state == "BEARISH_CONTINUATION_CONFIRMED"
-    ):
+    if confirmation_state == "FAILED" or breakout_state == "BEARISH_CONTINUATION_CONFIRMED":
         return {
             "setup": f"{classification} FAILURE SHORT",
-            "entry": l,
-            "stop": h,
-            "target1": round(l - rng, 4),
-            "target2": round(l - (2 * rng), 4),
+            "entry": hammer.get("stop", l),
+            "stop": hammer.get("entry", h),
+            "target1": hammer.get("target1", round(l - rng, 4)),
+            "target2": hammer.get("target2", round(l - (2 * rng), 4)),
             "failure": "Reclaim above hammer high",
-            "interpretation":
-                "Hammer failed. Sellers achieved acceptance below the hammer low."
+            "interpretation": "Hammer failed. Sellers achieved acceptance below the hammer low."
         }
 
-    # =====================================================
-    # REJECTION
-    # =====================================================
-    if (
-        confirmation_state == "LIQUIDITY_REJECTION"
-        or breakout_state == "BULLISH_FALSE_BREAK_REJECTION"
-    ):
+    if confirmation_state == "LIQUIDITY_REJECTION" or breakout_state == "BULLISH_FALSE_BREAK_REJECTION":
         return {
             "setup": "HAMMER REJECTION SHORT",
-            "entry": h,
+            "entry": hammer.get("entry", h),
             "stop": round(h + (rng * 0.10), 4),
-            "target1": l,
+            "target1": hammer.get("stop", l),
             "target2": round(l - rng, 4),
             "failure": "Acceptance above hammer high",
-            "interpretation":
-                "The hammer high was swept but rejected."
+            "interpretation": "The hammer high was swept but rejected."
         }
 
-    # =====================================================
-    # BREAK ATTEMPT
-    # =====================================================
     if confirmation_state == "BULLISH_BREAK_ATTEMPT":
         return {
             "setup": "HAMMER BREAK ATTEMPT",
-            "entry": h,
-            "stop": l,
-            "target1": round(h + rng, 4),
-            "target2": round(h + (2 * rng), 4),
+            "entry": hammer.get("entry", h),
+            "stop": hammer.get("stop", l),
+            "target1": hammer.get("target1", round(h + rng, 4)),
+            "target2": hammer.get("target2", round(h + (2 * rng), 4)),
             "failure": "Close below hammer low",
-            "interpretation":
-                "Buyers attempted a breakout but have not yet achieved acceptance."
+            "interpretation": "Buyers attempted a breakout but have not yet achieved acceptance."
         }
 
-    # =====================================================
-    # VALID HAMMER / WAITING FOR NEXT BAR
-    # =====================================================
     return {
         "setup": f"{classification} LONG SETUP",
-        "entry": round(h, 4),
-        "stop": round(l, 4),
-        "target1": round(h + rng, 4),
-        "target2": round(h + (2 * rng), 4),
+        "entry": hammer.get("entry", h),
+        "stop": hammer.get("stop", l),
+        "target1": hammer.get("target1", round(h + rng, 4)),
+        "target2": hammer.get("target2", round(h + (2 * rng), 4)),
         "failure": f"Close below {round(l,4)}",
-        "interpretation":
-            "A valid hammer has formed. The pattern is complete. Await next-bar confirmation above the hammer high or failure below the hammer low."
+        "interpretation": "A valid hammer has formed. Await confirmation."
     }
 
 
 # =========================================================
-# 🧠 MAIN ENGINE
+# MAIN ENGINE
 # =========================================================
 def analyze_hammer(df):
 
@@ -582,13 +600,10 @@ def analyze_hammer(df):
     if len(df) < 1:
         return {"journal_prompt": "Insufficient data"}
 
-    # =====================================================
-    # TODAY PATTERN
-    # =====================================================
-
     hammer_today = detect_hammer(df.iloc[-1:])
     shooting_star_today = detect_shooting_star(df.iloc[-1:])
     inverted_hammer_today = detect_inverted_hammer(df.iloc[-1:])
+    hanging_man_today = detect_hanging_man(df.iloc[-1:])
 
     last = df.iloc[-1]
 
@@ -596,7 +611,6 @@ def analyze_hammer(df):
         "detected": False,
         "type": None,
         "classification": None,
-
         "open": f(last["Open"]),
         "high": f(last["High"]),
         "low": f(last["Low"]),
@@ -605,16 +619,12 @@ def analyze_hammer(df):
 
     if shooting_star_today.get("detected"):
         pattern_today = shooting_star_today
-
     elif inverted_hammer_today.get("detected"):
         pattern_today = inverted_hammer_today
-
     elif hammer_today.get("detected"):
         pattern_today = hammer_today
-
-    # =====================================================
-    # YESTERDAY PATTERN
-    # =====================================================
+    elif hanging_man_today.get("detected"):
+        pattern_today = hanging_man_today
 
     pattern_yesterday = {
         "detected": False,
@@ -633,159 +643,85 @@ def analyze_hammer(df):
             "close": f(prev["Close"])
         })
 
-    if len(df) >= 2:
-
         y_hammer = detect_hammer(df.iloc[-2:-1])
         y_star = detect_shooting_star(df.iloc[-2:-1])
         y_inv = detect_inverted_hammer(df.iloc[-2:-1])
+        y_hang = detect_hanging_man(df.iloc[-2:-1])
 
         if y_star.get("detected"):
             pattern_yesterday = y_star
-
         elif y_inv.get("detected"):
             pattern_yesterday = y_inv
-
         elif y_hammer.get("detected"):
             pattern_yesterday = y_hammer
-
-    # =====================================================
-    # CONFIRMATION ENGINE
-    # =====================================================
+        elif y_hang.get("detected"):
+            pattern_yesterday = y_hang
 
     confirmation_state = "NONE"
 
     if pattern_yesterday.get("detected"):
 
         close = f(df.iloc[-1]["Close"])
-
         y_high = pattern_yesterday["high"]
         y_low = pattern_yesterday["low"]
 
         if pattern_yesterday["type"] == "Hammer":
-
             if close > y_high:
                 confirmation_state = "CONFIRMED"
-
             elif close < y_low:
                 confirmation_state = "FAILED"
-
             else:
                 confirmation_state = "PENDING"
-
         else:
-
             if close < y_low:
                 confirmation_state = "CONFIRMED"
-
             elif close > y_high:
                 confirmation_state = "FAILED"
-
             else:
                 confirmation_state = "PENDING"
-
-    # =====================================================
-    # REGIME
-    # =====================================================
 
     regime = "NO_EDGE"
 
     if pattern_today.get("detected"):
-
         if pattern_today["type"] == "Hammer":
             regime = "ACTIVE_HAMMER_EVENT"
-
         elif pattern_today["type"] == "ShootingStar":
             regime = "ACTIVE_SHOOTING_STAR_EVENT"
-
         elif pattern_today["type"] == "InvertedHammer":
             regime = "ACTIVE_INVERTED_HAMMER_EVENT"
-
+        elif pattern_today["type"] == "HangingMan":
+            regime = "ACTIVE_HANGING_MAN_EVENT"
     elif confirmation_state == "CONFIRMED":
         regime = "CONFIRMED"
-
     elif confirmation_state == "FAILED":
         regime = "FAILED"
-
     elif confirmation_state == "PENDING":
         regime = "PENDING_CONFIRMATION"
 
-    # =====================================================
-    # TRADE PLAN
-    # =====================================================
-
-    trade_plan = {
-        "setup": "NO ACTIVE PATTERN",
-        "entry": None,
-        "stop": None,
-        "target1": None,
-        "target2": None,
-        "failure": None,
-        "interpretation":
-            "No active formation or execution state present."
-    }
-
-    if pattern_today.get("detected"):
-
-        h = pattern_today["high"]
-        l = pattern_today["low"]
-
-        trade_plan = {
-            "setup": f"ACTIVE {pattern_today['type'].upper()}",
-            "entry": h if pattern_today["type"] == "Hammer" else l,
-            "stop": l if pattern_today["type"] == "Hammer" else h,
-            "target1": None,
-            "target2": None,
-            "failure": "Waiting for breakout or breakdown",
-            "interpretation":
-                f"{pattern_today['type']} detected. Awaiting confirmation."
-        }
-
-    elif confirmation_state == "CONFIRMED":
-
-        trade_plan = {
-            "setup": "CONFIRMED EXECUTION STATE",
-            "entry": f(df.iloc[-1]["Close"]),
-            "stop": pattern_yesterday["low"],
-            "target1": None,
-            "target2": None,
-            "failure": "Loss of confirmation level",
-            "interpretation":
-                "Yesterday's pattern has confirmed."
-        }
-
-    elif confirmation_state == "FAILED":
-
-        trade_plan = {
-            "setup": "FAILED PATTERN",
-            "entry": f(df.iloc[-1]["Close"]),
-            "stop": pattern_yesterday["high"],
-            "target1": None,
-            "target2": None,
-            "failure": "Reclaim prior structure",
-            "interpretation":
-                "Yesterday's pattern failed."
-        }
+    trade_plan = build_hammer_trade_plan(
+        pattern_today,
+        classify_hammer_breakout(df, pattern_today) if pattern_today.get("detected") else "NONE",
+        confirmation_state
+    )
 
     return {
         "journal_prompt": format_hammer_journal_prompt({
-
             "pattern_today": pattern_today,
             "pattern_yesterday": pattern_yesterday,
-
             "confirmation_state": confirmation_state,
             "regime": regime,
             "trade_plan": trade_plan
         })
     }
 
+
 # =========================================================
-# 📊 JOURNAL FORMATTER
+# JOURNAL FORMATTER
 # =========================================================
 def format_hammer_journal_prompt(result):
 
     today = result.get("pattern_today") or {}
     yesterday = result.get("pattern_yesterday") or {}
-
     tp = result.get("trade_plan") or {}
 
     return f"""

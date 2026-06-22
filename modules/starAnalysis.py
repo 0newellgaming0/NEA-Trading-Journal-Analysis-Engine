@@ -136,77 +136,53 @@ def classify_star_center_candle(candle):
     }
     
 # =========================================================
-# ⭐ STAR DETECTION (3-BAR CORE LOGIC)
+# ⭐ STAR DETECTION (FIXED TRUE MORNING/EVENING STAR LOGIC)
 # =========================================================
 def detect_star_pattern(df):
 
     if len(df) < 3:
         return {"detected": False, "type": None}
 
-    c1 = df.iloc[-3]
-    c2 = df.iloc[-2]
-    c3 = df.iloc[-1]
+    c1, c2, c3 = df.iloc[-3], df.iloc[-2], df.iloc[-1]
 
-    o1 = f(c1["Open"])
-    h1 = f(c1["High"])
-    l1 = f(c1["Low"])
-    cl1 = f(c1["Close"])
+    o1, h1, l1, cl1 = f(c1["Open"]), f(c1["High"]), f(c1["Low"]), f(c1["Close"])
+    o2, h2, l2, cl2 = f(c2["Open"]), f(c2["High"]), f(c2["Low"]), f(c2["Close"])
+    o3, h3, l3, cl3 = f(c3["Open"]), f(c3["High"]), f(c3["Low"]), f(c3["Close"])
 
-    o2 = f(c2["Open"])
-    h2 = f(c2["High"])
-    l2 = f(c2["Low"])
-
-    o3 = f(c3["Open"])
-    cl3 = f(c3["Close"])
-    h3 = f(c3["High"])
-    l3 = f(c3["Low"])
-
-    # ================================
-    # CENTER CANDLE VALIDATION
-    # ================================
     center = classify_star_center_candle(c2)
 
     if center["strength"] == "Invalid":
         return {"detected": False, "type": None}
 
-    # ================================
-    # GAP LOGIC (CRITICAL FIX)
-    # ================================
-    gap_down = (h2 < l1) or (o2 < cl1)
-    gap_up   = (l2 > h1) or (o2 > cl1)
+    midpoint1 = (o1 + cl1) / 2
 
-    # ================================
-    # MIDPOINT (STRUCTURE FILTER)
-    # ================================
-    midpoint = (o1 + cl1) / 2
+    candle1_body = cl1 - o1
 
-    # ================================
-    # PATTERN CONDITIONS
-    # ================================
+    # =====================================================
+    # MORNING STAR (TRUE STRUCTURE)
+    # =====================================================
     bullish = (
-        cl1 < o1 and               # Candle 1 bearish
-        cl3 > o3 and               # Candle 3 bullish
-        cl3 > midpoint and         # reclaim structure
-        gap_down                   # REQUIRED gap validation
+        candle1_body < 0 and
+        center["type"] in ("Doji", "Spinning Top", "Small Body") and
+        cl3 > midpoint1 and
+        cl3 > o1
     )
 
+    # =====================================================
+    # EVENING STAR (TRUE STRUCTURE)
+    # =====================================================
     bearish = (
-        cl1 > o1 and               # Candle 1 bullish
-        cl3 < o3 and               # Candle 3 bearish
-        cl3 < midpoint and
-        gap_up                     # REQUIRED gap validation
+        candle1_body > 0 and
+        center["type"] in ("Doji", "Spinning Top", "Small Body") and
+        cl3 < midpoint1 and
+        cl3 < o1
     )
-
-    strength = classify_star_strength(c1, c2, c3)
-
-    if strength == "INVALID":
-        return {"detected": False, "type": None}
 
     if bullish:
         return {
             "detected": True,
             "type": "MorningStar",
-            "strength": strength,
+            "strength": "VALID",
             "center_type": center["type"],
             "high": h3,
             "low": l3,
@@ -217,7 +193,7 @@ def detect_star_pattern(df):
         return {
             "detected": True,
             "type": "EveningStar",
-            "strength": strength,
+            "strength": "VALID",
             "center_type": center["type"],
             "high": h3,
             "low": l3,
@@ -226,70 +202,52 @@ def detect_star_pattern(df):
 
     return {"detected": False, "type": None}
 
+
 # =========================================================
-# STAR FORMATION TRACKER
+# STAR FORMING (FIXED STRICTER FILTER)
 # =========================================================
 def detect_star_forming(df):
 
     if len(df) < 2:
         return None
 
-    c1 = df.iloc[-2]
-    c2 = df.iloc[-1]
+    c1, c2 = df.iloc[-2], df.iloc[-1]
 
-    o1 = f(c1["Open"])
-    h1 = f(c1["High"])
-    l1 = f(c1["Low"])
-    cl1 = f(c1["Close"])
-
-    o2 = f(c2["Open"])
-    h2 = f(c2["High"])
-    l2 = f(c2["Low"])
+    o1, h1, l1, cl1 = f(c1["Open"]), f(c1["High"]), f(c1["Low"]), f(c1["Close"])
+    o2, h2, l2 = f(c2["Open"]), f(c2["High"]), f(c2["Low"])
 
     center = classify_star_center_candle(c2)
 
     if center["strength"] == "Invalid":
         return None
 
-    # ================================
-    # GAP EXPECTATION (FORMING PHASE)
-    # ================================
-    expected_gap_down = (o2 < cl1 or h2 < l1)
-    expected_gap_up   = (o2 > cl1 or l2 > h1)
+    bearish_first = cl1 < o1
+    bullish_first = cl1 > o1
 
-    # ================================
-    # FORMING MORNING STAR
-    # ================================
-    if cl1 < o1 and expected_gap_down:
-
+    # stricter forming validation
+    if bearish_first and (o2 < cl1 and l2 <= h1):
         return {
             "forming": True,
             "expected": "MorningStar",
             "center_type": center["type"],
-            "gap_valid": True,
             "status": "AWAITING_CANDLE_3"
         }
 
-    # ================================
-    # FORMING EVENING STAR
-    # ================================
-    if cl1 > o1 and expected_gap_up:
-
+    if bullish_first and (o2 > cl1 and h2 >= l1):
         return {
             "forming": True,
             "expected": "EveningStar",
             "center_type": center["type"],
-            "gap_valid": True,
             "status": "AWAITING_CANDLE_3"
         }
 
     return None
-    
+
+
+# =========================================================
+# STAR STRENGTH (UNCHANGED LOGIC OK)
+# =========================================================
 def classify_star_strength(c1, c2, c3):
-    """
-    Returns: STRONG / WEAK / INVALID
-    based on middle candle quality + structure symmetry
-    """
 
     o1, h1, l1, c1c = f(c1["Open"]), f(c1["High"]), f(c1["Low"]), f(c1["Close"])
     o2, h2, l2, c2c = f(c2["Open"]), f(c2["High"]), f(c2["Low"]), f(c2["Close"])
@@ -298,16 +256,13 @@ def classify_star_strength(c1, c2, c3):
     body2 = abs(c2c - o2)
     range2 = max(h2 - l2, 1e-9)
 
-    # core star quality metric
     body_ratio = body2 / range2
 
-    # structure symmetry checks
     left_drop = abs(c1c - o1)
     right_rise = abs(c3c - o3)
 
     symmetry = min(left_drop, right_rise) / (max(left_drop, right_rise) + 1e-9)
 
-    # classification rules
     if body_ratio <= 0.20 and symmetry > 0.7:
         return "STRONG"
     elif body_ratio <= 0.35:
@@ -477,7 +432,7 @@ def build_star_event_state(df, max_confirm_days=5):
 # =========================================================
 def build_star_trade_plan(star, trend, sweep, structure, volume):
 
-    if not star.get("detected"):
+    if not star or not star.get("detected"):
         return {
             "setup": "NO STAR",
             "entry": None,
@@ -489,23 +444,65 @@ def build_star_trade_plan(star, trend, sweep, structure, volume):
 
     rng = star["high"] - star["low"]
 
+    # =====================================================
+    # FILTER: Only allow reversal trades in aligned context
+    # =====================================================
+    trend_dir = trend.get("trend")
+
     if star["type"] == "MorningStar":
+        entry = star["high"]
+        stop = star["low"]
+
+        # optional alignment filter (no structural change to outputs)
+        if trend_dir == "Bearish":
+            return {
+                "setup": "MORNING STAR REVERSAL",
+                "entry": entry,
+                "stop": stop,
+                "target1": entry + rng,
+                "target2": entry + (2 * rng),
+                "interpretation": "Bullish reversal after exhaustion."
+            }
+
         return {
-            "setup": "MORNING STAR REVERSAL",
-            "entry": star["high"],
-            "stop": star["low"],
-            "target1": star["high"] + rng,
-            "target2": star["high"] + 2 * rng,
-            "interpretation": "Bullish reversal after exhaustion."
+            "setup": "MORNING STAR REVERSAL (COUNTER-TREND)",
+            "entry": entry,
+            "stop": stop,
+            "target1": entry + rng,
+            "target2": entry + (2 * rng),
+            "interpretation": "Bullish reversal forming against trend."
+        }
+
+    if star["type"] == "EveningStar":
+        entry = star["low"]
+        stop = star["high"]
+
+        if trend_dir == "Bullish":
+            return {
+                "setup": "EVENING STAR REVERSAL",
+                "entry": entry,
+                "stop": stop,
+                "target1": entry - rng,
+                "target2": entry - (2 * rng),
+                "interpretation": "Bearish reversal after exhaustion."
+            }
+
+        return {
+            "setup": "EVENING STAR REVERSAL (COUNTER-TREND)",
+            "entry": entry,
+            "stop": stop,
+            "target1": entry - rng,
+            "target2": entry - (2 * rng),
+            "interpretation": "Bearish reversal forming against trend."
         }
 
     return {
-        "setup": "EVENING STAR REVERSAL",
-        "entry": star["low"],
-        "stop": star["high"],
-        "target1": star["low"] - rng,
-        "target2": star["low"] - 2 * rng,
-        "interpretation": "Bearish reversal after exhaustion."
+        "setup": "NO STAR",
+        "entry": None,
+        "stop": None,
+        "target1": None,
+        "target2": None,
+        "interpretation": "No valid star pattern."
     }
 
 
@@ -653,74 +650,49 @@ def evaluate_fibonacci(df):
 
 def build_star_status(df):
 
-    if len(df) < 2:
-        return {
-            "state": "NONE"
-        }
+    if len(df) < 3:
+        return {"state": "NONE"}
 
-    # --------------------------------------------------
-    # PRIORITY 1:
-    # Check completed pattern FIRST
-    # --------------------------------------------------
+    detected = detect_star_pattern(df.iloc[-3:])
 
-    if len(df) >= 3:
+    if detected.get("detected"):
 
-        detected = detect_star_pattern(df.iloc[-3:])
+        high = detected["high"]
+        low = detected["low"]
+        close = f(df.iloc[-1]["Close"])
 
-        if detected.get("detected"):
-
-            high = detected["high"]
-            low = detected["low"]
-
-            close = f(df.iloc[-1]["Close"])
-
-            if detected["type"] == "MorningStar":
-
-                if close > high:
-                    state = "CONFIRMED"
-
-                elif close < low:
-                    state = "FAILED"
-
-                else:
-                    state = "PENDING"
-
+        if detected["type"] == "MorningStar":
+            if close > high:
+                state = "CONFIRMED"
+            elif close < low:
+                state = "FAILED"
             else:
+                state = "PENDING"
+        else:
+            if close < low:
+                state = "CONFIRMED"
+            elif close > high:
+                state = "FAILED"
+            else:
+                state = "PENDING"
 
-                if close < low:
-                    state = "CONFIRMED"
-
-                elif close > high:
-                    state = "FAILED"
-
-                else:
-                    state = "PENDING"
-
-            return {
-                "state": state,
-                "type": detected["type"],
-                "strength": detected["strength"],
-                "center_type": detected["center_type"]
-            }
-
-    # --------------------------------------------------
-    # PRIORITY 2:
-    # Check developing setup
-    # --------------------------------------------------
+        return {
+            "state": state,
+            "type": detected["type"],
+            "strength": detected["strength"],
+            "center_type": detected["center_type"]
+        }
 
     forming = detect_star_forming(df.iloc[-2:])
 
     if forming:
-
         return {
             "state": "FORMING",
             "expected": forming["expected"],
             "center_type": forming["center_type"]
         }
 
-    return {
-        "state": "NONE"
-    }
+    return {"state": "NONE"}
     
 # =========================================================
 # ⭐ STAR ANALYSIS ENGINE (FIXED + EVENT TRACKING + 3 BAR OUTPUT)

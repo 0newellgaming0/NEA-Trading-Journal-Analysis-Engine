@@ -1,0 +1,332 @@
+📘 Institutional Reversal Engine — README
+Overview
+
+This module implements a candlestick-based institutional reversal detection system focused on two classic price action patterns:
+
+🌩 Dark Cloud Cover (bearish reversal)
+☀️ Piercing Line (bullish reversal)
+
+It is designed for institutional-style signal detection, combining:
+
+OHLC normalization
+Pattern recognition
+State memory tracking
+Multi-day event confirmation logic
+Trade plan generation
+Journal-ready output formatting
+
+The system is built for integration into trading dashboards, quant research pipelines, and journal automation tools.
+
+🧠 Core Design Philosophy
+
+This module treats price action as:
+
+An auction of liquidity transitioning between institutional control zones
+
+Rather than simple candlestick detection, it introduces:
+
+Stateful reversal tracking
+Confirmation / failure logic
+Time-decayed signal validity
+Trade planning based on structure, not emotion
+📦 Module Structure
+1. Safe Scalar Extraction (f)
+Purpose
+
+Ensures robust extraction of numeric values from:
+
+pandas Series
+scalars
+NaN values
+Behavior
+f(x) -> float
+Logic
+If input is a Series → takes last value
+If NaN → returns 0.0
+If invalid → safely returns 0.0
+Why it matters
+
+Prevents:
+
+Type crashes in OHLC pipelines
+NaN propagation in pattern logic
+Broken comparisons in candle detection
+2. OHLC Normalization Engine
+Function
+normalize_ohlcv_columns(df, ticker=None)
+Purpose
+
+Converts ticker-specific columns into standardized OHLCV format:
+
+Standard	Input Pattern
+Open	open_{ticker}
+High	high_{ticker}
+Low	low_{ticker}
+Close	close_{ticker}
+Volume	volume_{ticker}
+Key Features
+Auto-detects ticker from column names
+Supports multi-ticker dataframes
+Creates missing columns as NaN series (safe fallback)
+3. Schema Enforcement
+Function
+enforce_schema(df)
+Purpose
+
+Ensures data consistency before analysis
+
+Actions:
+Converts OHLCV columns to numeric
+Drops rows missing critical OHLC values
+Output guarantee:
+
+✔ Clean float-based OHLC dataset
+✔ No NaN in core price fields
+
+🌩 4. Dark Cloud Cover Detection
+Function
+detect_dark_cloud_cover(df)
+Pattern Logic
+
+A bearish reversal pattern requiring:
+
+Conditions:
+Previous candle is bullish
+Current candle is bearish
+Gap up opening above prior high
+Close penetrates below midpoint of previous candle
+Close remains above previous open
+Midpoint Formula
+midpoint = prev_open + (prev_close - prev_open) * 0.5
+Output Example
+{
+  "detected": true,
+  "type": "DarkCloudCover",
+  "strength": "Institutional Reversal",
+  "high": 10.4,
+  "low": 9.8
+}
+☀️ 5. Piercing Line Detection
+Function
+detect_piercing_line(df)
+Pattern Logic
+
+A bullish reversal pattern requiring:
+
+Conditions:
+Previous candle is bearish
+Current candle is bullish
+Gap down below prior low
+Close penetrates above midpoint
+Close remains below previous open
+Output mirrors Dark Cloud Cover structure:
+{
+  "detected": true,
+  "type": "PiercingLine",
+  "strength": "Institutional Reversal"
+}
+🧠 6. Reversal State Memory Engine
+Function
+reversal_state_memory(df)
+Purpose
+
+Adds historical awareness across candles.
+
+Output:
+
+Adds column:
+
+reversal_flag (bool)
+Logic:
+
+For each candle:
+
+Checks last 2-candle window
+Detects either pattern
+Flags TRUE if reversal exists
+Why it matters
+
+Enables:
+
+Backtesting reversal frequency
+Signal clustering detection
+Regime analysis overlays
+⚙️ 7. Event Engine (State Machine)
+Function
+build_reversal_event_state(df, max_confirm_days=5)
+Purpose
+
+Transforms raw signals into multi-day institutional events
+
+Event Lifecycle
+1. PENDING
+
+Triggered when pattern appears
+
+2. CONFIRMATION RULES
+Dark Cloud Cover:
+CONFIRMED → price breaks BELOW low
+FAILED → price breaks ABOVE high
+Piercing Line:
+CONFIRMED → price breaks ABOVE high
+FAILED → price breaks BELOW low
+3. EXPIRATION RULE
+
+If no resolution within:
+
+max_confirm_days = 5
+
+Event → EXPIRED
+
+Output
+events = [
+  {
+    "type": "DarkCloudCover",
+    "status": "CONFIRMED",
+    "start_index": 10,
+    "days_active": 3
+  }
+]
+📊 8. Trade Plan Engine
+Function
+build_reversal_trade_plan(today, yesterday, state)
+Purpose
+
+Generates structured trade setups based on:
+
+Pattern type
+Confirmation state
+Price range (high-low structure)
+Trade Logic
+🟡 Pending Event
+Entry = breakout boundary
+Stop = opposite extreme
+No targets yet (uncertain state)
+🌩 Dark Cloud Cover (bearish)
+Entry = low of signal candle
+Stop = high of signal candle
+Targets = downward extensions
+☀️ Piercing Line (bullish)
+Entry = high of signal candle
+Stop = low of signal candle
+Targets = upward extensions
+Example Output
+{
+  "setup": "FORMING PIERCING LINE",
+  "entry": 10.50,
+  "stop_close": 9.80,
+  "target1": 11.20,
+  "target2": 11.90
+}
+🚀 9. Main Analysis Engine
+Function
+analyze_reversal_patterns(df)
+Pipeline Flow
+Normalize OHLCV structure
+Enforce numeric schema
+Detect:
+Today's pattern
+Yesterday's pattern
+Determine state:
+CONFIRMED
+PENDING
+NONE
+Build trade plan
+Generate journal output
+State Logic
+Condition	State
+Today + Yesterday signal	CONFIRMED
+Only Yesterday signal	PENDING
+No signal	NONE
+🧾 10. Journal Formatter
+Function
+format_reversal_journal(result)
+Purpose
+
+Creates a trading journal-ready report
+
+Output Sections
+📌 Detection Summary
+Today signal
+Yesterday signal
+⚠️ State
+CONFIRMED / PENDING / NONE
+🎯 Trade Plan
+Entry
+Stop
+Targets
+Failure condition
+🧠 Interpretation
+
+Narrative explanation of market structure
+
+Example Output Block
+📌 INSTITUTIONAL REVERSAL ENGINE
+
+TODAY:
+- Detected: True
+- Type: DarkCloudCover
+
+YESTERDAY:
+- Detected: False
+
+STATE: PENDING
+
+TRADE PLAN:
+- Entry: 10.20
+- Stop: 10.80
+- Target 1: 9.50
+
+INTERPRETATION:
+Bearish reversal pressure forming.
+🔥 Strengths of This Module
+✔ Institutional structure modeling
+
+Not just candle detection — includes lifecycle tracking.
+
+✔ Multi-day confirmation logic
+
+Prevents false signals from single candles.
+
+✔ Robust OHLC handling
+
+Safe extraction and normalization layer.
+
+✔ Trade-ready output
+
+Direct integration into:
+
+trading journals
+dashboards
+automation systems
+⚠️ Limitations
+Does not include volume confirmation
+No trend filter (e.g., EMA / VWAP)
+No multi-timeframe alignment
+No volatility filtering (ATR-based)
+🔧 Suggested Enhancements
+
+To upgrade this module into a full institutional-grade system, consider:
+
+1. Trend Filter
+EMA 20 / EMA 50 alignment
+2. Volume Confirmation
+RVOL spike validation
+3. Market Regime Filter
+Trending vs ranging detection
+4. Multi-timeframe confirmation
+15M / 1H / Daily alignment scoring
+5. Risk Engine Integration
+Position sizing
+ATR-based stops
+🧠 Final Summary
+
+This module is a structured institutional reversal detection system that:
+
+Normalizes messy OHLC data
+Detects two key reversal patterns
+Tracks them across time
+Converts them into trade-ready logic
+Outputs structured journal reports
+
+It bridges the gap between candlestick theory and executable trading logic.

@@ -1,0 +1,357 @@
+📊 Harami Pattern Institutional Trading Engine
+Overview
+
+This module is a comprehensive institutional-grade candlestick analysis engine focused on detecting, validating, and generating trade plans around the Harami candlestick pattern within a broader market context.
+
+It integrates:
+
+Candlestick pattern recognition (Harami detection)
+Volume-based institutional behavior analysis
+Liquidity sweep detection (Wyckoff logic)
+Trend + structure evaluation
+Fibonacci alignment checks
+Automated trade planning (entry/stop/targets)
+Journal-ready formatted outputs
+
+The system is designed for multi-factor confirmation trading, not standalone pattern signals.
+
+🧠 Core Philosophy
+
+This engine is built around the principle:
+
+No pattern is valid without institutional confirmation.
+
+A Harami pattern is only actionable when aligned with:
+
+Trend structure (EMA / SMA alignment)
+Volume confirmation (RVOL + spikes)
+Liquidity behavior (sweeps / traps)
+Market location (support / resistance)
+Compression / expansion dynamics
+📦 Module Architecture
+1. Data Normalization Layer
+normalize_ohlcv_columns(df, ticker=None)
+
+Standardizes multi-ticker datasets into:
+
+Open, High, Low, Close, Volume
+
+Supports datasets structured as:
+
+open_AAPL, close_AAPL, volume_AAPL
+enforce_schema(df)
+
+Ensures:
+
+Numeric conversion
+Removal of invalid OHLC rows
+Clean dataset for downstream logic
+2. Utility Layer
+f(x)
+
+Safe scalar extractor:
+
+Handles pandas Series
+Handles NaN values
+Prevents propagation of invalid types
+safe(v, default=0.0)
+
+Lightweight fallback for missing values.
+
+📊 Volume Intelligence Engine
+Key Functions
+rvol(volume, period=20)
+
+Relative Volume:
+
+RVOL = Volume / Rolling Mean Volume
+
+Used to detect institutional participation.
+
+detect_volume_spike(volume)
+
+Identifies abnormal volume expansion:
+
+Default threshold: 1.5x average
+institutional_accumulation_state(close, high, low, volume)
+
+Classifies market regime:
+
+State	Meaning
+Accumulation	High volume + tight compression
+Distribution	High volume + wide expansion
+Neutral	No institutional footprint
+volume_confirmation(df)
+
+Combines:
+
+RVOL
+Volume spike detection
+Expansion candle detection
+Institutional state
+
+Outputs:
+
+{
+    confirmed: bool,
+    rvol: float,
+    institutional_state: str,
+    expansion: dict,
+    score: int
+}
+🕯️ Harami Pattern Detection System
+Core Detection
+detect_harami_pattern(df)
+
+Detects classic Harami structure:
+
+Conditions:
+
+Inside candle fully contained within mother candle body
+Valid directional bias
+
+Returns:
+
+{
+    detected: bool,
+    type: BullishHarami | BearishHarami,
+    high, low,
+    body_high, body_low,
+    inside_high, inside_low
+}
+Strength Classification
+classify_harami_strength(c1, c2)
+
+Measures:
+
+body_ratio = inside_body / mother_body
+Ratio	Strength
+≤ 0.35	STRONG
+≤ 0.75	WEAK
+🚀 Expansion Candle Detection
+detect_expansion_candle(df)
+
+Identifies institutional momentum candles:
+
+Conditions:
+
+Volume spike (>2x previous)
+Body expansion (>1.5x previous candle)
+
+Output:
+
+{
+    detected: True,
+    type: Bullish/Bearish,
+    strength: Institutional Expansion
+}
+⚡ Market Structure Intelligence
+Trend Engine
+evaluate_trend(df)
+
+Uses:
+
+EMA 8
+EMA 21
+SMA 50
+
+Classification:
+
+Condition	Trend
+EMA8 > EMA21 > SMA50	Bullish
+EMA8 < EMA21 < SMA50	Bearish
+Otherwise	Neutral
+Liquidity Sweep Detection (Wyckoff Logic)
+detect_liquidity_sweep(df)
+
+Detects:
+
+Spring (bear trap)
+Upthrust (bull trap)
+
+Logic:
+
+Breaks prior swing high/low
+Closes back inside range
+
+Output:
+
+{
+    sweep: bool,
+    type: Spring | Upthrust,
+    score: 25
+}
+Market Structure Evaluation
+evaluate_structure(df)
+
+Detects proximity to:
+
+Support
+Resistance
+
+Based on 50-period extremes.
+
+📐 Fibonacci Alignment Engine
+evaluate_fibonacci(df)
+
+Checks alignment with:
+
+38.2%
+50%
+61.8%
+78.6%
+
+If price is within 1% of level → signal granted.
+
+🧬 Harami State Engine
+build_harami_status(df)
+
+Generates structured classification:
+
+{
+    today: {
+        detected, type, strength, range
+    },
+    yesterday: {
+        state: CONFIRMED | PENDING | FAILED
+    }
+}
+
+Includes:
+
+Compression ratio
+Structural validation
+Confirmation logic
+📈 Trade Planning Engine
+build_harami_trade_plan()
+
+Generates full trade logic:
+
+States:
+1. PENDING
+Await breakout confirmation
+2. CONFIRMED
+Trade activated
+3. FAILED
+Pattern invalidated
+Output Structure:
+{
+    setup,
+    entry,
+    stop,
+    target1,
+    target2,
+    failure,
+    interpretation
+}
+🎯 Active Trade Logic
+build_active_trade_state(harami)
+
+Converts pattern into executable trade:
+
+LONG:
+
+Entry: High
+Stop: Below low - buffer
+Targets: Range extensions
+
+SHORT:
+
+Entry: Low
+Stop: Above high + buffer
+Targets: Downward extensions
+detect_active_trade()
+
+Validates:
+
+Pattern existence
+Confirmation state
+Trade readiness
+📊 Confluence System
+
+The engine assigns weighted scoring from:
+
+Component	Weight
+Trend	15
+Structure	15
+Liquidity Sweep	25
+Volume	10
+Fibonacci	5
+🧠 Engine Pipeline
+analyze_harami_pattern(df)
+Full execution flow:
+Normalize OHLCV
+Enforce schema integrity
+Detect Harami state
+Evaluate:
+Trend
+Structure
+Liquidity sweep
+Volume confirmation
+Build trade plan
+Generate journal prompt
+Final Output:
+{
+    journal_prompt: str
+}
+📝 Journal Output System
+format_harami_journal_prompt()
+
+Produces institutional-grade report:
+
+Includes:
+
+Pattern classification
+Trade setup
+Entry / Stop / Targets
+Failure conditions
+Confirmation state
+Narrative interpretation
+Example Output Sections:
+📌 HARAMI PATTERN ANALYSIS
+
+PATTERN:
+- Detected: True
+- Type: BullishHarami
+- Strength: STRONG
+
+🎯 TRADE SETUP
+- Entry: ...
+- Stop: ...
+- Target 1: ...
+- Target 2: ...
+⚙️ Dependencies
+numpy
+pandas
+🧩 Integration Use Cases
+
+This module is designed to plug into:
+
+Trading dashboards (Tkinter / Streamlit)
+Journal systems
+Institutional scanners
+Multi-timeframe analysis engines
+Wyckoff-based strategy frameworks
+🔥 Key Strengths
+Fully automated pattern-to-trade pipeline
+Institutional confirmation layering
+Liquidity-aware signal filtering
+Multi-factor confluence scoring
+Journal-ready output formatting
+Robust missing-data handling
+⚠️ Limitations
+Requires clean OHLCV structure
+Best performance on liquid instruments
+Not a standalone predictive system (confirmation required)
+Sensitive to data quality (volume accuracy critical)
+📌 Summary
+
+This module transforms a basic Harami candlestick into a multi-layer institutional trade thesis engine, combining:
+
+Price action
+Volume behavior
+Liquidity structure
+Trend regime
+Fibonacci alignment
+
+into a single actionable trading decision system.

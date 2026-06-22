@@ -88,107 +88,56 @@ def institutional_accumulation_state(close, high, low, volume, period=20):
             state.iloc[i] = "Neutral"
 
     return state
-    
+
+
 # =========================================================
-# HARAMI DETECTION
+# HARAMI DETECTION (STRICT BODY + STRUCTURE RULES)
 # =========================================================
 def detect_harami_pattern(df):
 
     if df is None or len(df) < 2:
-        return {"detected": False, "type": None}
+        return {"detected": False}
 
-    c1 = df.iloc[-2]
-    c2 = df.iloc[-1]
+    mother = df.iloc[-2]
+    inside = df.iloc[-1]
 
-    o1, h1, l1, cl1 = f(c1["Open"]), f(c1["High"]), f(c1["Low"]), f(c1["Close"])
-    o2, h2, l2, cl2 = f(c2["Open"]), f(c2["High"]), f(c2["Low"]), f(c2["Close"])
+    o1, c1 = f(mother["Open"]), f(mother["Close"])
+    o2, c2 = f(inside["Open"]), f(inside["Close"])
 
-    if any(np.isnan([o1, h1, l1, cl1, o2, h2, l2, cl2])):
-        return {"detected": False, "type": None}
+    h1, l1 = f(mother["High"]), f(mother["Low"])
+    h2, l2 = f(inside["High"]), f(inside["Low"])
 
-    body1_high, body1_low = max(o1, cl1), min(o1, cl1)
-    body2_high, body2_low = max(o2, cl2), min(o2, cl2)
+    mother_body_high = max(o1, c1)
+    mother_body_low = min(o1, c1)
 
-    body1_size = abs(cl1 - o1)
-    body2_size = abs(cl2 - o2)
+    inside_body_high = max(o2, c2)
+    inside_body_low = min(o2, c2)
 
-    # containment check
-    if not (body2_high <= body1_high and body2_low >= body1_low):
-        return {"detected": False, "type": None}
-
-    strength = classify_harami_strength(c1, c2)
-    if strength == "INVALID":
-        return {"detected": False, "type": None}
-
-    is_bull = cl1 < o1 and body2_size < body1_size * 0.6
-    is_bear = cl1 > o1 and body2_size < body1_size * 0.6
-
-    if is_bull:
-        return {
-            "detected": True,
-            "type": "BullishHarami",
-            "strength": strength,
-            "high": h2,
-            "low": l2,
-            "close": cl2
-        }
-
-    if is_bear:
-        return {
-            "detected": True,
-            "type": "BearishHarami",
-            "strength": strength,
-            "high": h2,
-            "low": l2,
-            "close": cl2
-        }
-
-    return {"detected": False, "type": None}
-
-# =========================================================
-# HARAMI FORMATION TRACKER
-# =========================================================
-def detect_harami_forming(df):
-
-    if len(df) < 2:
-        return None
-
-    c1 = df.iloc[-2]
-    c2 = df.iloc[-1]
-
-    o1 = f(c1["Open"])
-    c1c = f(c1["Close"])
-
-    body1_high = max(o1, c1c)
-    body1_low = min(o1, c1c)
-
-    o2 = f(c2["Open"])
-    c2c = f(c2["Close"])
-
-    body2_high = max(o2, c2c)
-    body2_low = min(o2, c2c)
-
-    if (
-        body2_high <= body1_high and
-        body2_low >= body1_low
+    if not (
+        inside_body_high <= mother_body_high and
+        inside_body_low >= mother_body_low
     ):
+        return {"detected": False}
 
-        if c1c < o1:
-            return {
-                "forming": True,
-                "expected": "BullishHarami",
-                "status": "AWAITING_CLOSE"
-            }
+    if c1 < o1:
+        h_type = "BullishHarami"
+    elif c1 > o1:
+        h_type = "BearishHarami"
+    else:
+        return {"detected": False}
 
-        if c1c > o1:
-            return {
-                "forming": True,
-                "expected": "BearishHarami",
-                "status": "AWAITING_CLOSE"
-            }
+    return {
+        "detected": True,
+        "type": h_type,
+        "high": h1,
+        "low": l1,
+        "body_high": mother_body_high,
+        "body_low": mother_body_low,
+        "inside_high": h2,
+        "inside_low": l2,
+    }
 
-    return None
-    
+
 # =========================================================
 # HARAMI STRENGTH
 # =========================================================
@@ -196,7 +145,6 @@ def classify_harami_strength(c1, c2):
 
     o1 = f(c1["Open"])
     c1c = f(c1["Close"])
-
     o2 = f(c2["Open"])
     c2c = f(c2["Close"])
 
@@ -205,14 +153,17 @@ def classify_harami_strength(c1, c2):
 
     ratio = body2 / max(body1, 1e-9)
 
-    if ratio <= 0.30:
+    if ratio <= 0.35:
         return "STRONG"
-
-    if ratio <= 0.60:
+    if ratio <= 0.75:
         return "WEAK"
 
-    return "INVALID"
-        
+    return "WEAK"
+
+
+# =========================================================
+# EXPANSION CANDLE
+# =========================================================
 def detect_expansion_candle(df):
     prev = df.iloc[-2]
     curr = df.iloc[-1]
@@ -234,29 +185,9 @@ def detect_expansion_candle(df):
 
     return {"detected": False}
 
-# =========================================================
-# HARAMI MEMORY STATE
-# =========================================================
-def harami_state_memory(df):
-    states = []
-
-    for i in range(len(df)):
-        if i < 1:
-            states.append(False)
-            continue
-
-        window = df.iloc[i-1:i+1]  # correct 2-candle window
-        res = detect_harami_pattern(window)
-
-        states.append(res.get("detected", False))
-
-    out = df.copy()
-    out["harami_flag"] = states
-    return out
-
 
 # =========================================================
-# ⭐ ACTIVE TRADE CHECK (UNCHANGED STRUCTURE)
+# ACTIVE TRADE CHECK
 # =========================================================
 def detect_active_trade(today_star, yesterday_star, confirmation_state):
 
@@ -279,7 +210,7 @@ def detect_active_trade(today_star, yesterday_star, confirmation_state):
 
 
 # =========================================================
-# ⭐ ACTIVE TRADE STATE (UNCHANGED STRUCTURE)
+# ACTIVE TRADE STATE
 # =========================================================
 def build_active_trade_state(harami):
 
@@ -318,45 +249,92 @@ def build_active_trade_state(harami):
 # =========================================================
 # HARAMI TRADE PLAN
 # =========================================================
-def build_harami_trade_plan(
-    harami,
-    trend,
-    sweep,
-    structure,
-    volume
-):
+def build_harami_trade_plan(harami, trend, sweep, structure, volume):
 
-    if not harami.get("detected"):
+    if not harami or not harami.get("detected"):
+        return _no_harami()
+
+    state = harami.get("state", "NONE")
+    h_type = harami.get("type")
+
+    high = harami["high"]
+    low = harami["low"]
+
+    rng = max(high - low, 1e-9)
+
+    if state == "PENDING":
+
+        if h_type == "BullishHarami":
+            return {
+                "setup": "BULLISH HARAMI PENDING",
+                "status": "PENDING_CONFIRMATION",
+                "trigger": f"Close above {high}",
+                "entry": high,
+                "stop": low,
+                "target1": high + rng,
+                "target2": high + (2 * rng),
+                "failure": f"Close below {low}",
+                "interpretation": "Bullish Harami detected. Awaiting upside confirmation."
+            }
 
         return {
-            "setup": "NO HARAMI",
+            "setup": "BEARISH HARAMI PENDING",
+            "status": "PENDING_CONFIRMATION",
+            "trigger": f"Close below {low}",
+            "entry": low,
+            "stop": high,
+            "target1": low - rng,
+            "target2": low - (2 * rng),
+            "failure": f"Close above {high}",
+            "interpretation": "Bearish Harami detected. Awaiting downside confirmation."
+        }
+
+    if state == "CONFIRMED":
+
+        if h_type == "BullishHarami":
+            return {
+                "setup": "BULLISH HARAMI CONFIRMED",
+                "entry": high,
+                "stop": low,
+                "target1": high + rng,
+                "target2": high + (2 * rng),
+                "failure": f"Close below {low}",
+                "interpretation": "Bullish breakout confirmed from Harami compression."
+            }
+
+        return {
+            "setup": "BEARISH HARAMI CONFIRMED",
+            "entry": low,
+            "stop": high,
+            "target1": low - rng,
+            "target2": low - (2 * rng),
+            "failure": f"Close above {high}",
+            "interpretation": "Bearish breakdown confirmed from Harami compression."
+        }
+
+    if state == "FAILED":
+
+        return {
+            "setup": f"{h_type.upper()} FAILED",
             "entry": None,
             "stop": None,
             "target1": None,
             "target2": None,
-            "interpretation": "No valid Harami pattern."
+            "failure": "Pattern invalidated",
+            "interpretation": f"{h_type} failed before confirmation."
         }
 
-    rng = harami["high"] - harami["low"]
+    return _no_harami()
 
-    if harami["type"] == "BullishHarami":
 
-        return {
-            "setup": "BULLISH HARAMI REVERSAL",
-            "entry": harami["high"],
-            "stop": harami["low"],
-            "target1": harami["high"] + rng,
-            "target2": harami["high"] + (2 * rng),
-            "interpretation": "Potential bullish reversal after selling exhaustion."
-        }
-
+def _no_harami(msg="No valid Harami pattern."):
     return {
-        "setup": "BEARISH HARAMI REVERSAL",
-        "entry": harami["low"],
-        "stop": harami["high"],
-        "target1": harami["low"] - rng,
-        "target2": harami["low"] - (2 * rng),
-        "interpretation": "Potential bearish reversal after buying exhaustion."
+        "setup": "NO HARAMI",
+        "entry": None,
+        "stop": None,
+        "target1": None,
+        "target2": None,
+        "interpretation": msg
     }
 
 
@@ -369,27 +347,16 @@ def evaluate_trend(df):
 
     close = pd.to_numeric(df["Close"], errors="coerce").dropna()
 
-    ema8_series = close.ewm(span=8).mean()
-    ema21_series = close.ewm(span=21).mean()
-    sma50_series = close.rolling(50).mean()
-
-    ema8 = float(ema8_series.iloc[-1])
-    ema21 = float(ema21_series.iloc[-1])
-    sma50 = float(sma50_series.iloc[-1])
-
-    if ema8 > ema21:
-        trend_state = "Bullish"
-    elif ema8 < ema21:
-        trend_state = "Bearish"
-    else:
-        trend_state = "Neutral"
+    ema8 = close.ewm(span=8).mean().iloc[-1]
+    ema21 = close.ewm(span=21).mean().iloc[-1]
+    sma50 = close.rolling(50).mean().iloc[-1]
 
     if ema8 > ema21 and ema21 > sma50:
         return {"trend": "Bullish", "score": 15}
     if ema8 < ema21 and ema21 < sma50:
         return {"trend": "Bearish", "score": 15}
 
-    return {"trend": trend_state, "score": 5}
+    return {"trend": "Neutral", "score": 5}
 
 
 # =========================================================
@@ -429,18 +396,11 @@ def evaluate_structure(df):
     near_support = abs(current["Close"] - support) / current["Close"] < 0.03
     near_resistance = abs(current["Close"] - resistance) / current["Close"] < 0.03
 
-    if near_support:
-        label = "Near Support"
-    elif near_resistance:
-        label = "Near Resistance"
-    else:
-        label = "Neutral"
-
     return {
         "near_support": near_support,
         "near_resistance": near_resistance,
         "score": 15 if (near_support or near_resistance) else 0,
-        "label": label,
+        "label": "Near Support" if near_support else "Near Resistance" if near_resistance else "Neutral",
         "zone": "Support" if near_support else "Resistance" if near_resistance else "Mid"
     }
 
@@ -463,8 +423,6 @@ def volume_confirmation(df):
     confirmed = rv.iloc[-1] > 1.5 and spike.iloc[-1]
 
     score = 10 if confirmed else 0
-
-    # 🔧 FIX: expansion adds institutional confirmation weight
     if expansion.get("detected"):
         score += 5
 
@@ -501,76 +459,111 @@ def evaluate_fibonacci(df):
 
     return {"score": 0, "label": "No Alignment"}
 
+
+def safe(v, default=0.0):
+    return default if v is None else v
+
+
 # =========================================================
 # HARAMI STATUS
 # =========================================================
 def build_harami_status(df):
 
-    if len(df) < 2:
-        return {"state": "NONE"}
+    if df is None or len(df) < 2:
+        return empty_state()
 
-    detected = detect_harami_pattern(df.iloc[-2:])
+    mother = df.iloc[-2]
+    inside = df.iloc[-1]
 
-    if detected.get("detected"):
+    o1, c1 = f(mother["Open"]), f(mother["Close"])
+    o2, c2 = f(inside["Open"]), f(inside["Close"])
 
-        high = detected["high"]
-        low = detected["low"]
+    mother_high = max(o1, c1)
+    mother_low = min(o1, c1)
 
-        close = f(df.iloc[-1]["Close"])
+    inside_high = max(o2, c2)
+    inside_low = min(o2, c2)
 
-        if detected["type"] == "BullishHarami":
+    eps = abs(mother_high - mother_low) * 0.01 + 1e-9
 
-            if close > high:
-                state = "CONFIRMED"
-            elif close < low:
-                state = "FAILED"
-            else:
-                state = "PENDING"
+    contained = (
+        inside_high <= mother_high + eps and
+        inside_low >= mother_low - eps
+    )
 
-        else:
+    if not contained:
+        return empty_state()
 
-            if close < low:
-                state = "CONFIRMED"
-            elif close > high:
-                state = "FAILED"
-            else:
-                state = "PENDING"
+    h_type = "BullishHarami" if c1 < o1 else "BearishHarami" if c1 > o1 else None
+    if h_type is None:
+        return empty_state()
 
-        return {
-            "state": state,
-            "type": detected["type"],
-            "strength": detected["strength"]
-        }
-
-    forming = detect_harami_forming(df.iloc[-2:])
-
-    if forming:
-
-        return {
-            "state": "FORMING",
-            "expected": forming["expected"]
-        }
+    if h_type == "BullishHarami":
+        state = "CONFIRMED" if c2 > mother_high else "FAILED" if c2 < mother_low else "PENDING"
+    else:
+        state = "CONFIRMED" if c2 < mother_low else "FAILED" if c2 > mother_high else "PENDING"
 
     return {
-        "state": "NONE"
+        "today": {
+            "detected": True,
+            "type": h_type,
+            "strength": classify_harami_strength(mother, inside),
+            "compression_ratio": round(abs(c2 - o2) / max(abs(c1 - o1), 1e-9), 3),
+            "high": mother_high,
+            "low": mother_low,
+            "range": mother_high - mother_low
+        },
+        "yesterday": {
+            "detected": True,
+            "state": state,
+            "type": h_type,
+            "strength": classify_harami_strength(mother, inside),
+            "high": mother_high,
+            "low": mother_low,
+            "range": mother_high - mother_low
+        }
     }
-    
+
+
+def empty_state():
+    return {
+        "today": {
+            "detected": False,
+            "type": None,
+            "strength": None,
+            "range": None,
+            "high": None,
+            "low": None
+        },
+        "yesterday": {
+            "state": "NONE",
+            "type": None,
+            "strength": None,
+            "range": None,
+            "high": None,
+            "low": None
+        }
+    }
+
+
 # =========================================================
-# HARAMI ANALYSIS ENGINE
+# ENGINE
 # =========================================================
 def analyze_harami_pattern(df):
 
-    df = normalize_ohlcv_columns(df)
+    required_cols = {"Open", "High", "Low", "Close", "Volume"}
+
+    if not required_cols.issubset(df.columns):
+        df = normalize_ohlcv_columns(df)
+
     df = enforce_schema(df)
 
     if len(df) < 2:
         return {"journal_prompt": "Insufficient data"}
 
-    last2 = df.iloc[-2:].copy()
-
-    harami = detect_harami_pattern(last2)
     status = build_harami_status(df)
-    forming = detect_harami_forming(df.iloc[-2:])
+
+    active_harami = status["yesterday"]
 
     trend = evaluate_trend(df)
     sweep = detect_liquidity_sweep(df)
@@ -578,7 +571,7 @@ def analyze_harami_pattern(df):
     volume = volume_confirmation(df)
 
     trade_plan = build_harami_trade_plan(
-        harami,
+        active_harami,
         trend,
         sweep,
         structure,
@@ -587,19 +580,16 @@ def analyze_harami_pattern(df):
 
     return {
         "journal_prompt": format_harami_journal_prompt({
-            "harami": harami,
+            "harami": status["today"],
             "status": status,
-            "forming": forming,
-            "trend": trend["trend"],
-            "liquidity_sweep": sweep["sweep"],
-            "structure": structure["label"],
-            "volume": volume["confirmed"],
-            "trade_plan": trade_plan,
-            "candle_1": last2.iloc[0].to_dict(),
-            "candle_2": last2.iloc[1].to_dict(),
+            "trade_plan": trade_plan
         })
     }
 
+
+# =========================================================
+# FORMATTERS
+# =========================================================
 def format_candle(candle, label="CANDLE"):
     return f"""
 {label}:
@@ -611,68 +601,63 @@ def format_candle(candle, label="CANDLE"):
 - Volume: {candle.get('Volume')}
 """
 
-# =========================================================
-# HARAMI FORMATTER
-# =========================================================
+
 def format_harami_journal_prompt(result):
 
-    h = result.get("harami", {})
-    s = result.get("status", {})
+    harami = result.get("harami", {})
     tp = result.get("trade_plan", {})
 
-    c1 = result.get("candle_1", {})
-    c2 = result.get("candle_2", {})
-
-    def fmt(c, label):
-        return f"""
-{label}:
-- Open: {c.get('Open')}
-- High: {c.get('High')}
-- Low: {c.get('Low')}
-- Close: {c.get('Close')}
-- Volume: {c.get('Volume')}
-"""
-
-    status_block = f"""
-- State: {s.get('state')}
-- Type: {s.get('type')}
-- Strength: {s.get('strength')}
-"""
-
-    return f"""
+    base = f"""
 # ==================================================
-📌 INSTITUTIONAL HARAMI PATTERN ANALYSIS
+📌 HARAMI PATTERN ANALYSIS
 # ==================================================
 
-HARAMI:
-- Detected: {h.get('detected')}
-- Type: {h.get('type')}
-- Strength: {h.get('strength')}
-
-{status_block}
+PATTERN:
+- Detected: {harami.get('detected')}
+- Type: {harami.get('type')}
+- Strength: {harami.get('strength')}
 
 --------------------------------------------------
-📊 LAST 2 CANDLES
+🎯 TRADE SETUP
+"""
 
-{fmt(c1, "CANDLE 1")}
-{fmt(c2, "CANDLE 2")}
+    if tp.get("status") == "PENDING_CONFIRMATION":
+
+        return base + f"""
+- Setup: {tp.get('setup')}
+- Trigger: {tp.get('trigger')}
+- Entry: {tp.get('entry')}
+- Stop: {tp.get('stop')}
+- Target 1: {tp.get('target1')}
+- Target 2: {tp.get('target2')}
+- Failure Condition:
+  {tp.get('failure')}
 
 --------------------------------------------------
-📊 CONTEXT
-- Trend: {result.get('trend')}
-- Sweep: {result.get('liquidity_sweep')}
-- Structure: {result.get('structure')}
-- Volume: {result.get('volume')}
+STATUS:
+PENDING
 
 --------------------------------------------------
-🎯 TRADE PLAN
+INTERPRETATION:
+
+{tp.get('interpretation')}
+"""
+
+    return base + f"""
 - Setup: {tp.get('setup')}
 - Entry: {tp.get('entry')}
 - Stop: {tp.get('stop')}
-- Target1: {tp.get('target1')}
-- Target2: {tp.get('target2')}
+- Target 1: {tp.get('target1')}
+- Target 2: {tp.get('target2')}
+- Failure:
+  {tp.get('failure')}
 
 --------------------------------------------------
-🧠 INTERPRETATION
+STATUS:
+{tp.get('setup')}
+
+--------------------------------------------------
+INTERPRETATION:
+
 {tp.get('interpretation')}
 """

@@ -21,20 +21,31 @@ def f(x):
 def normalize_ohlcv_columns(df, ticker=None):
     df = df.copy()
 
+    # -----------------------------------------------------
+    # AUTO-DETECT TICKER FROM COLUMN NAMES
+    # -----------------------------------------------------
     if ticker is None:
         for col in df.columns:
-            if col.startswith("close_"):
+            if isinstance(col, str) and col.startswith("close_"):
                 ticker = col.split("_")[-1]
                 break
 
     if ticker is None:
         raise ValueError("Cannot detect ticker from dataframe columns")
 
-    t = ticker.lower()
+    t = str(ticker).lower()
 
-    def pick(col):
-        return df[col] if col in df.columns else pd.Series(np.nan, index=df.index)
+    # -----------------------------------------------------
+    # SAFE COLUMN PICKER (NO SCALAR CONVERSION HERE)
+    # -----------------------------------------------------
+    def pick(col_name):
+        if col_name in df.columns:
+            return df[col_name]
+        return pd.Series(np.nan, index=df.index)
 
+    # -----------------------------------------------------
+    # MAP OHLCV USING RAW COLUMN STRINGS (FIXED BUG)
+    # -----------------------------------------------------
     df["Open"] = pick(f"open_{t}")
     df["High"] = pick(f"high_{t}")
     df["Low"] = pick(f"low_{t}")
@@ -42,7 +53,6 @@ def normalize_ohlcv_columns(df, ticker=None):
     df["Volume"] = pick(f"volume_{t}")
 
     return df
-
 
 def enforce_schema(df):
     for col in ["Open", "High", "Low", "Close", "Volume"]:
@@ -90,7 +100,7 @@ def institutional_accumulation_state(close, high, low, volume, period=20):
     return state
 
 # =========================================================
-# PINBAR DETECTION (CLASSIFICATION FIXED)
+# PINBAR DETECTION (FIXED + CONSISTENT LOGIC)
 # =========================================================
 def detect_pinbar(data):
 
@@ -118,7 +128,7 @@ def detect_pinbar(data):
         base.update({
             "detected": False,
             "type": None,
-            "strength": "weak rejection"
+            "strength": "invalid range"
         })
         return base
 
@@ -126,49 +136,39 @@ def detect_pinbar(data):
     upper = high - max(open_, close)
     lower = min(open_, close) - low
 
-    lower_ratio = lower / rng
-    upper_ratio = upper / rng
-    body_ratio = body / rng
+    # ==============================
+    # CORE PIN BAR RULES
+    # ==============================
 
-    # =====================================================
-    # REJECTION CLASSIFICATION
-    # =====================================================
+    wick_body_ratio = lower / max(body, 1e-9)
 
-    def classify_rejection(ratio, body_ratio):
-        if ratio >= 0.75 and body_ratio <= 0.25:
-            return "strong rejection (pinbar)"
-        elif ratio >= 0.55 and body_ratio <= 0.40:
-            return "moderate rejection"
-        elif ratio > 0:
-            return "weak rejection"
-        return "weak rejection"
+    close_position = (close - low) / rng  # 0 = low, 1 = high
 
-    bull_strength = classify_rejection(lower_ratio, body_ratio)
-    bear_strength = classify_rejection(upper_ratio, body_ratio)
+    # Bullish pinbar requirement
+    valid_bull_pinbar = (
+        wick_body_ratio >= 2.5 and
+        close_position >= 0.75 and
+        lower > upper
+    )
 
-    is_bull = lower_ratio >= 0.55 and body_ratio <= 0.40
-    is_bear = upper_ratio >= 0.55 and body_ratio <= 0.40
+    base.update({
+        "body": body,
+        "upper_wick": upper,
+        "lower_wick": lower,
+        "range": rng,
+        "body_ratio": body / rng,
 
-    if is_bull:
-        base.update({
-            "detected": True,
-            "type": "Bullish",
-            "strength": bull_strength
-        })
+        "wick_body_ratio": wick_body_ratio,
+        "close_position": close_position,
 
-    elif is_bear:
-        base.update({
-            "detected": True,
-            "type": "Bearish",
-            "strength": bear_strength
-        })
+        "detected": valid_bull_pinbar,
+        "type": "BullishPinbar" if valid_bull_pinbar else None,
 
-    else:
-        base.update({
-            "detected": False,
-            "type": None,
-            "strength": "weak rejection"
-        })
+        "strength": (
+            "strong pinbar"
+            if valid_bull_pinbar else "no pinbar"
+        )
+    })
 
     return base
 
@@ -699,6 +699,25 @@ def build_pinbar_trade_plan(today_pinbar,
                             volume):
 
     # =====================================================
+    # 🚨 HARD BLOCK: FAILED STATE (NO TRADE ALLOWED)
+    # =====================================================
+    if confirmation_state == "FAILED":
+        return {
+            "setup": "FAILED PINBAR - NO TRADE",
+            "entry": None,
+            "stop_close": None,
+            "stop_wick": None,
+            "target1": None,
+            "target2": None,
+            "failure": "Pattern invalidated - trade canceled",
+            "interpretation": (
+                "Pinbar setup failed confirmation. "
+                "No continuation or reversal trade is valid. "
+                "Market has rejected the signal."
+            )
+        }
+
+    # =====================================================
     # 🔥 FORCE ACTIVE EVENT STATE (CORE FIX)
     # =====================================================
     if yesterday_pinbar and yesterday_pinbar.get("detected"):
@@ -715,7 +734,7 @@ def build_pinbar_trade_plan(today_pinbar,
                 "failure": "Waiting for breakout or breakdown",
                 "interpretation": "Pinbar event is ACTIVE and unresolved. System is tracking continuation or failure."
             }
-        
+
     # =====================================================
     # 🔥 ACTIVE TRADE MODE (FIX)
     # =====================================================
@@ -724,6 +743,12 @@ def build_pinbar_trade_plan(today_pinbar,
         yesterday_pinbar,
         confirmation_state
     )
+
+    # =====================================================
+    # SAFETY: NEVER ALLOW ACTIVE TRADE IN FAILED CONTEXT
+    # =====================================================
+    if confirmation_state != "CONFIRMED":
+        active_trade = False
 
     # =====================================================
     # LIQUIDITY REJECTION STATE
@@ -735,11 +760,8 @@ def build_pinbar_trade_plan(today_pinbar,
     ):
 
         pin_type = yesterday_pinbar["type"]
-
         high = yesterday_pinbar["high"]
         low = yesterday_pinbar["low"]
-
-        rng = high - low
 
         if pin_type == "Bullish":
 
@@ -755,8 +777,7 @@ def build_pinbar_trade_plan(today_pinbar,
                     "Price traded above the bullish pinbar high "
                     "but failed to maintain acceptance. "
                     "Institutional liquidity was likely harvested "
-                    "above resistance. Monitor for compression, "
-                    "retest, or reversal."
+                    "above resistance. Monitor for compression, retest, or reversal."
                 )
             }
 
@@ -774,11 +795,13 @@ def build_pinbar_trade_plan(today_pinbar,
                     "Price traded below the bearish pinbar low "
                     "but failed to maintain acceptance. "
                     "Institutional liquidity was likely harvested "
-                    "below support. Monitor for compression, "
-                    "retest, or reversal."
+                    "below support. Monitor for compression, retest, or reversal."
                 )
             }
-            
+
+    # =====================================================
+    # ACTIVE CONFIRMED TRADE
+    # =====================================================
     if active_trade:
 
         trade = build_active_trade_state(yesterday_pinbar)
@@ -816,10 +839,8 @@ def build_pinbar_trade_plan(today_pinbar,
             "target2": None,
             "failure": "Close below pinbar low",
             "interpretation": (
-                "Price exceeded the bullish pinbar high and "
-                "closed green, but failed to achieve acceptance "
-                "above resistance. Buyers remain active but "
-                "confirmation has not yet occurred."
+                "Price exceeded the bullish pinbar high and closed green, "
+                "but failed to achieve acceptance above resistance."
             )
         }
 
@@ -841,14 +862,13 @@ def build_pinbar_trade_plan(today_pinbar,
             "target2": None,
             "failure": "Close above pinbar high",
             "interpretation": (
-                "Price exceeded the bearish pinbar low and "
-                "closed red, but failed to achieve acceptance "
-                "below support. Sellers remain active but "
-                "confirmation has not yet occurred."
+                "Price exceeded the bearish pinbar low and closed red, "
+                "but failed to achieve acceptance below support."
             )
         }
+
     # =====================================================
-    # 📊 FORMATION MODE (NO ACTIVE TRADE)
+    # FORMATION MODE (NO ACTIVE TRADE)
     # =====================================================
     if not today_pinbar.get("detected") and not yesterday_pinbar.get("detected"):
 
@@ -860,13 +880,11 @@ def build_pinbar_trade_plan(today_pinbar,
             "target1": None,
             "target2": None,
             "failure": None,
-            "interpretation": (
-                "No active formation or execution state present."
-            )
+            "interpretation": "No active formation or execution state present."
         }
 
     # =====================================================
-    # NORMAL PINBAR MODE (TODAY FORMING)
+    # NORMAL FORMATION MODE
     # =====================================================
     pin_type = today_pinbar["type"]
 
@@ -886,9 +904,7 @@ def build_pinbar_trade_plan(today_pinbar,
             "target1": high + rng,
             "target2": high + (2 * rng),
             "failure": f"Failure below {low}",
-            "interpretation": (
-                "Bullish rejection forming. Await confirmation or breakdown."
-            )
+            "interpretation": "Bullish rejection forming. Await confirmation or breakdown."
         }
 
     else:
@@ -901,9 +917,7 @@ def build_pinbar_trade_plan(today_pinbar,
             "target1": low - rng,
             "target2": low - (2 * rng),
             "failure": f"Failure above {high}",
-            "interpretation": (
-                "Bearish rejection forming. Await confirmation or breakout."
-            )
+            "interpretation": "Bearish rejection forming. Await confirmation or breakout."
         }
     
 # =========================================================
