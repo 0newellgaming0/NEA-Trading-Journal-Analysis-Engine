@@ -18,11 +18,13 @@ modules/financials/
 
 data/analysis/
 data/backupData/
+data/candlestickAnalysis/
 
 **/data/systemFiles/account_ledger.csv
 **/data/systemFiles/executed_trade_notes.csv
 **/data/systemFiles/journal.csv
 **/data/systemFiles/Webull_Orders_Records.csv
+readMe/developerNotes/MAIN - 00 - REPO STRUCTURE.txt
 
 # IDE
 .vscode/
