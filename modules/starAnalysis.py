@@ -445,55 +445,81 @@ def build_star_trade_plan(star, trend, sweep, structure, volume):
     rng = star["high"] - star["low"]
 
     # =====================================================
-    # FILTER: Only allow reversal trades in aligned context
+    # INSTITUTIONAL CONTEXT SCORING (ADDED FIX)
     # =====================================================
+    quality_score = 0
+
+    if sweep and sweep.get("sweep"):
+        quality_score += 1
+
+    if structure and (structure.get("near_support") or structure.get("near_resistance")):
+        quality_score += 1
+
+    if volume and volume.get("confirmed"):
+        quality_score += 1
+
     trend_dir = trend.get("trend")
 
+    # =====================================================
+    # MORNING STAR
+    # =====================================================
     if star["type"] == "MorningStar":
         entry = star["high"]
         stop = star["low"]
 
-        # optional alignment filter (no structural change to outputs)
+        base_setup = "MORNING STAR REVERSAL"
+
         if trend_dir == "Bearish":
-            return {
-                "setup": "MORNING STAR REVERSAL",
-                "entry": entry,
-                "stop": stop,
-                "target1": entry + rng,
-                "target2": entry + (2 * rng),
-                "interpretation": "Bullish reversal after exhaustion."
-            }
+            setup = base_setup
+            interpretation = "Bullish reversal after exhaustion."
+        else:
+            setup = base_setup + " (COUNTER-TREND)"
+            interpretation = "Bullish reversal forming against trend."
+
+        # ENHANCED CONTEXT LABEL
+        if quality_score == 3:
+            interpretation = "HIGH QUALITY institutional reversal (sweep + structure + volume alignment). " + interpretation
+        elif quality_score == 2:
+            interpretation = "MODERATE quality setup with partial institutional confirmation. " + interpretation
 
         return {
-            "setup": "MORNING STAR REVERSAL (COUNTER-TREND)",
+            "setup": setup,
             "entry": entry,
             "stop": stop,
             "target1": entry + rng,
             "target2": entry + (2 * rng),
-            "interpretation": "Bullish reversal forming against trend."
+            "interpretation": interpretation
         }
 
+    # =====================================================
+    # EVENING STAR
+    # =====================================================
     if star["type"] == "EveningStar":
         entry = star["low"]
         stop = star["high"]
 
+        base_setup = "EVENING STAR REVERSAL"
+
         if trend_dir == "Bullish":
-            return {
-                "setup": "EVENING STAR REVERSAL",
-                "entry": entry,
-                "stop": stop,
-                "target1": entry - rng,
-                "target2": entry - (2 * rng),
-                "interpretation": "Bearish reversal after exhaustion."
-            }
+            setup = base_setup
+            interpretation = "Bearish reversal after exhaustion."
+        else:
+            setup = base_setup + " (COUNTER-TREND)"
+            interpretation = "Bearish reversal forming against trend."
+
+        # ENHANCED CONTEXT LABEL
+        if quality_score == 3:
+            interpretation = "HIGH QUALITY institutional reversal (sweep + structure + volume alignment). " + interpretation
+        elif quality_score == 2:
+            interpretation = "MODERATE quality setup with partial institutional confirmation. " + interpretation
 
         return {
-            "setup": "EVENING STAR REVERSAL (COUNTER-TREND)",
+            "setup": setup,
             "entry": entry,
             "stop": stop,
             "target1": entry - rng,
             "target2": entry - (2 * rng),
-            "interpretation": "Bearish reversal forming against trend."
+            "interpretation": interpretation
         }
 
     return {
@@ -504,7 +530,6 @@ def build_star_trade_plan(star, trend, sweep, structure, volume):
         "target2": None,
         "interpretation": "No valid star pattern."
     }
-
 
 
 # =========================================================

@@ -1,6 +1,7 @@
 ﻿import modules.journal_filters as jf
 import modules.executed_trades_notes as etn
 import modules.risk_grid_engine as rge
+
 from modules.risk_grid_engine import (
     initialize_risk_engine,
     recalc,
@@ -14,18 +15,22 @@ from modules.risk_grid_engine import (
     last_high,
     safe_float
 )
+
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 import tkinter.font as tkFont
+import tkinter.scrolledtext as st
+
 import csv
 import os
 from datetime import datetime
 import yfinance as yf
-import webbrowser
-import tkinter.scrolledtext as st
-from tkinter import messagebox
-from modules import yahooFetcher
 import pandas as pd
+import webbrowser
+import uuid
+
+from modules import yahooFetcher
+
 from modules.volumeAnalysis import (
     rvol,
     detect_volume_spike,
@@ -40,197 +45,73 @@ from modules.volumeAnalysis import (
     large_volume_down_days,
     institutional_accumulation_state
 )
+
 from modules.financialAnalysis import format_financial_prompt
 from modules.historicalAnalysis import analyze_historical_data
 from modules.tlineAnalysis import analyze_tline_intraday
-import uuid
+
 from modules.portfolio_overview import PortfolioOverviewPopup
 from modules.pointFigureWyckoff import run_wyckoff_pnf_analysis, format_for_journal as format_pnf_for_journal
 from modules.fractalEngine import analyze_wyckoff_fractals, format_for_journal as format_fractal_for_journal
+
 from modules.accountLedger import show_account_ledger_popup
+
 from modules.candlestickAnalysis import (
     analyze_multitimeframe_candlesticks,
     format_candlestick_for_journal
 )
-from modules.liquidity_phase_engine import run_liquidity_phase_engine
-from modules.liquidity_multi_timeframe_engine import (
-    run_liquidity_multi_timeframe_engine
-)
+
+from modules.liquidity_multi_timeframe_engine import run_liquidity_multi_timeframe_engine
 from modules.dtfm_analysis import analyze_dual_timeframe_momentum
 from modules.relative_strength_engine import build_relative_strength_block
 from modules.risk_engine import get_latest_close, evaluate_stop_loss
+
 from modules.watchlist_popup import WatchlistPopup
+
+# ✅ PATH RESOLVER (ONLY SOURCE OF TRUTH NOW)
 from modules.path_resolver import get_stock_data_path, get_project_root
 from modules.yahoo_history import load_yahoo_history
 from modules.volume_context import load_volume_analysis
 from modules.candlestick_state_engine import CandlestickInstitutionalStateEngine
 
+import logging
+
 # =========================================================
-# LOAD DAILY + INTRADAY CONTEXT
-# =========================================================
-def load_market_context(ticker):
-    ticker = ticker.upper()
-
-    daily_path = get_stock_data_path(ticker, "daily")
-    intraday_path = get_stock_data_path(ticker, "intraday_60m")
-    weekly_path = get_stock_data_path(ticker, "weekly")
-
-    daily_df = pd.read_csv(daily_path) if os.path.exists(daily_path) else None
-    intraday_df = pd.read_csv(intraday_path) if os.path.exists(intraday_path) else None
-    weekly_df = pd.read_csv(weekly_path) if os.path.exists(weekly_path) else None
-
-    for df in [intraday_df, weekly_df]:
-        if df is not None and "datetime" in df.columns:
-            df["datetime"] = pd.to_datetime(df["datetime"], utc=True, errors="coerce")
-
-    return daily_df, intraday_df, weekly_df
-
-def load_intraday_15m(ticker):
-    path = get_stock_data_path(ticker, "intraday_15m")
-
-    if os.path.exists(path):
-        df = pd.read_csv(path)
-
-        if "datetime" in df.columns:
-            df["datetime"] = pd.to_datetime(df["datetime"], errors="coerce")
-
-        return df
-
-    return None
-
-
-def load_intraday_60m(ticker):
-    path = get_stock_data_path(ticker, "intraday_60m")
-
-    if os.path.exists(path):
-        df = pd.read_csv(path)
-
-        if "datetime" in df.columns:
-            df["datetime"] = pd.to_datetime(df["datetime"], errors="coerce")
-
-        return df
-
-    return None
-
-def load_weekly(ticker):
-    path = get_stock_data_path(ticker, "weekly")
-
-    if os.path.exists(path):
-        df = pd.read_csv(path)
-
-        if "datetime" in df.columns:
-            df["datetime"] = pd.to_datetime(df["datetime"], errors="coerce")
-
-        return df
-
-    return None
-    
-# =========================================================
-# INTRADAY STRUCTURE CONTEXT
+# CONFIG (PATH-RESOLVER ALIGNED)
 # =========================================================
 
-def build_intraday_context(ticker, intraday_df):
-    if intraday_df is None or intraday_df.empty:
-        return "No intraday data available."
+BASE_DIR = get_project_root()
 
-    ticker = ticker.lower()
+LOG_DIR = os.path.join(BASE_DIR, "logs")
+os.makedirs(LOG_DIR, exist_ok=True)
 
-    close_col = f"close_{ticker}"
-    high_col = f"high_{ticker}"
-    low_col = f"low_{ticker}"
-    volume_col = f"volume_{ticker}"
+LOG_FILE = os.path.join(LOG_DIR, "nea28.log")
 
-    required = [close_col, high_col, low_col, volume_col]
-
-    for col in required:
-        if col not in intraday_df.columns:
-            return f"Missing intraday column: {col}"
-
-    latest = intraday_df.iloc[-1]
-
-    prev = (
-        intraday_df.iloc[-2]
-        if len(intraday_df) > 1
-        else latest
-    )
-
-    latest_close = latest[close_col]
-    prev_close = prev[close_col]
-
-    bar_change = latest_close - prev_close
-    bar_pct = ((bar_change / prev_close) * 100) if prev_close else 0
-
-    rolling_vol = intraday_df[volume_col].rolling(10).mean().iloc[-1]
-
-    volume_spike = (
-        latest[volume_col] > rolling_vol
-        if pd.notna(rolling_vol)
-        else False
-    )
-
-    session_high = intraday_df[high_col].max()
-    session_low = intraday_df[low_col].min()
-
-    return {
-        "last_close": round(latest_close, 2),
-        "bar_change": round(bar_change, 2),
-        "bar_pct": round(bar_pct, 2),
-        "volume_spike": volume_spike,
-        "session_high": round(session_high, 2),
-        "session_low": round(session_low, 2),
-    }
-    
-# ==========================================================
-# CONFIG
-# ==========================================================
-README_DIR = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
-    "readMe"
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(name)s | %(message)s",
+    handlers=[
+        logging.FileHandler(LOG_FILE, encoding="utf-8"),
+        logging.StreamHandler()
+    ]
 )
 
+logger = logging.getLogger(__name__)
+
+README_DIR = os.path.join(BASE_DIR, "readMe")
+PLAN_DIR = os.path.join(BASE_DIR, "plan")
+
+SYSTEM_FILES_DIR = os.path.join(BASE_DIR, "data", "systemFiles")
+ANALYSIS_DIR = os.path.join(BASE_DIR, "data", "analysis")
 
 os.makedirs(README_DIR, exist_ok=True)
-
-PLAN_DIR = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
-    "plan"
-)
-
 os.makedirs(PLAN_DIR, exist_ok=True)
-
-SYSTEM_FILES_DIR = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
-    "data",
-    "systemFiles"
-)
-
-os.makedirs(SYSTEM_FILES_DIR, exist_ok=True)
-
-# =========================
-# SYSTEM FILE PATH HELPERS
-# =========================
-
-def get_system_files_dir():
-    return SYSTEM_FILES_DIR
-
-# =========================================================
-# SYSTEM FILES + ANALYSIS DIRECTORY (NEW STRUCTURE)
-# =========================================================
-
-SYSTEM_FILES_DIR = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
-    "data",
-    "systemFiles"
-)
-
-ANALYSIS_DIR = os.path.join(
-    os.path.dirname(os.path.abspath(__file__)),
-    "data",
-    "analysis"
-)
-
 os.makedirs(SYSTEM_FILES_DIR, exist_ok=True)
 os.makedirs(ANALYSIS_DIR, exist_ok=True)
+
+# =========================================================
+# SYSTEM FILES (NO HARDCODED RELATIVE PATHS OUTSIDE RESOLVER)
+# =========================================================
 
 JOURNAL_FILE = os.path.join(SYSTEM_FILES_DIR, "journal.csv")
 WEBULL_FILE = os.path.join(SYSTEM_FILES_DIR, "Webull_Orders_Records.csv")
@@ -310,43 +191,216 @@ star_pattern_result = ""
 harami_pattern_result = ""
 three_inside_pattern_result = ""
 
+# =========================================================
+# SAFE FILE INIT (UNCHANGED LOGIC, CLEAN PATHS)
+# =========================================================
+
 if not os.path.exists(JOURNAL_FILE):
     with open(JOURNAL_FILE, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=CSV_FIELDS)
-        writer.writeheader()
+        csv.DictWriter(f, fieldnames=CSV_FIELDS).writeheader()
 
 if not os.path.exists(LEDGER_FILE):
-
-    with open(
-        LEDGER_FILE,
-        "w",
-        newline="",
-        encoding="utf-8"
-    ) as f:
-
-        writer = csv.DictWriter(
-            f,
-            fieldnames=LEDGER_FIELDS
-        )
-
-        writer.writeheader()
+    with open(LEDGER_FILE, "w", newline="", encoding="utf-8") as f:
+        csv.DictWriter(f, fieldnames=LEDGER_FIELDS).writeheader()
 
 if not os.path.exists(EXECUTED_TRADES_NOTES_FILE):
+    with open(EXECUTED_TRADES_NOTES_FILE, "w", newline="", encoding="utf-8") as f:
+        csv.DictWriter(f, fieldnames=EXECUTED_TRADE_NOTE_FIELDS).writeheader()
 
-    with open(
-        EXECUTED_TRADES_NOTES_FILE,
-        "w",
-        newline="",
-        encoding="utf-8"
-    ) as f:
+# =========================================================
+# ANALYSIS EXPORTER
+# =========================================================
+def export_analysis_md(ticker, analysis_blocks):
 
-        writer = csv.DictWriter(
-            f,
-            fieldnames=EXECUTED_TRADE_NOTE_FIELDS
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+    folder = os.path.join(ANALYSIS_DIR, ticker.upper())
+    os.makedirs(folder, exist_ok=True)
+
+    path = os.path.join(folder, f"{ticker}_{timestamp}.md")
+
+    def normalize_content(content):
+        """
+        Forces everything into clean markdown text.
+        Prevents CSV/DataFrame leaks into output.
+        """
+
+        # If pandas DataFrame sneaks in → convert properly
+        if isinstance(content, pd.DataFrame):
+            sections = []
+
+            for _, row in content.iterrows():
+                module = row.get("module", "MODULE")
+                prompt = row.get("journal_prompt", "")
+
+                sections.append(
+                    f"""## {module}
+
+{prompt}
+"""
+                )
+
+            return "\n\n---\n\n".join(sections)
+
+        # If dict-like row
+        if isinstance(content, dict):
+            return str(content.get("journal_prompt", content))
+
+        # Default: string cleanup (kills CSV headers accidentally passed in)
+        text = str(content)
+
+        # remove accidental CSV header leaks
+        if text.strip().lower().startswith("ticker,module"):
+            return ""
+
+        return text
+
+    with open(path, "w", encoding="utf-8") as f:
+
+        # =========================
+        # CLEAN HEADER (FIXED)
+        # =========================
+        f.write(f"""# {ticker} Institutional Analysis Report
+
+Generated: {datetime.now():%Y-%m-%d %H:%M:%S}
+
+---
+
+> Analysis generated by NEA28  
+> Work in Progress  
+> Not Financial Advice  
+
+---
+""")
+
+        # =========================
+        # BLOCK OUTPUT
+        # =========================
+        for name, content in analysis_blocks.items():
+
+            clean = normalize_content(content)
+
+            if not clean:
+                continue
+
+            f.write(f"## {name.replace('_', ' ').title()}\n\n")
+            f.write(clean)
+            f.write("\n\n---\n\n")
+
+    return path
+    
+# =========================================================
+# MARKET DATA LOADING (NOW FULLY PATH_RESOLVER-BASED)
+# =========================================================
+
+def load_market_context(ticker):
+    ticker = ticker.upper()
+
+    daily_path = get_stock_data_path(ticker, "daily")
+    intraday_path = get_stock_data_path(ticker, "intraday_60m")
+    weekly_path = get_stock_data_path(ticker, "weekly")
+
+    daily_df = pd.read_csv(daily_path) if os.path.exists(daily_path) else None
+    intraday_df = pd.read_csv(intraday_path) if os.path.exists(intraday_path) else None
+    weekly_df = pd.read_csv(weekly_path) if os.path.exists(weekly_path) else None
+
+    for df in [intraday_df, weekly_df]:
+        if df is not None and "datetime" in df.columns:
+            df["datetime"] = pd.to_datetime(df["datetime"], errors="coerce")
+
+    return daily_df, intraday_df, weekly_df
+
+
+def load_intraday_15m(ticker):
+    path = get_stock_data_path(ticker, "intraday_15m")
+    return pd.read_csv(path) if os.path.exists(path) else None
+
+
+def load_intraday_60m(ticker):
+    path = get_stock_data_path(ticker, "intraday_60m")
+    return pd.read_csv(path) if os.path.exists(path) else None
+
+
+def load_weekly(ticker):
+    path = get_stock_data_path(ticker, "weekly")
+    return pd.read_csv(path) if os.path.exists(path) else None
+    
+# =========================================================
+# INTRADAY STRUCTURE CONTEXT
+# =========================================================
+
+def build_intraday_context(ticker, intraday_df):
+    if intraday_df is None or intraday_df.empty:
+        return "No intraday data available."
+
+    ticker = ticker.lower()
+
+    close_col = f"close_{ticker}"
+    high_col = f"high_{ticker}"
+    low_col = f"low_{ticker}"
+    volume_col = f"volume_{ticker}"
+
+    required = [close_col, high_col, low_col, volume_col]
+
+    for col in required:
+        if col not in intraday_df.columns:
+            return f"Missing intraday column: {col}"
+
+    latest = intraday_df.iloc[-1]
+
+    prev = (
+        intraday_df.iloc[-2]
+        if len(intraday_df) > 1
+        else latest
+    )
+
+    latest_close = latest[close_col]
+    prev_close = prev[close_col]
+
+    bar_change = latest_close - prev_close
+    bar_pct = ((bar_change / prev_close) * 100) if prev_close else 0
+
+    rolling_vol = intraday_df[volume_col].rolling(10).mean().iloc[-1]
+
+    volume_spike = (
+        latest[volume_col] > rolling_vol
+        if pd.notna(rolling_vol)
+        else False
+    )
+
+    session_high = intraday_df[high_col].max()
+    session_low = intraday_df[low_col].min()
+
+    return {
+        "last_close": round(latest_close, 2),
+        "bar_change": round(bar_change, 2),
+        "bar_pct": round(bar_pct, 2),
+        "volume_spike": volume_spike,
+        "session_high": round(session_high, 2),
+        "session_low": round(session_low, 2),
+    }
+# =========================================================
+# PROMPT ROW BUILDER (ENGINE INTEGRATION LAYER)
+# =========================================================
+def build_prompt_row(row_data):
+
+    snapshot = rge.get_trade_snapshot()
+
+    return {
+        **row_data,
+
+        "buy_now_price": snapshot.get("entry_price"),
+        "buy_now_shares": snapshot.get("shares"),
+        "buy_now_total": snapshot.get("trade_total"),
+
+        "account": snapshot.get("account"),
+        "risk_dollar": snapshot.get("risk_dollar"),
+
+        "stop": snapshot.get(
+            "stop_loss",
+            snapshot.get("stop", row_data.get("stop", ""))
         )
-
-        writer.writeheader()
-
+    }
     
 # ==========================================================
 # ROOT
@@ -478,7 +532,6 @@ right.pack_propagate(False)
 
 def open_folder_viewer(folder_path, title="File Viewer", geometry="900x700"):
 
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     target_dir = os.path.join(BASE_DIR, folder_path)
 
     if not os.path.exists(target_dir):
@@ -728,14 +781,7 @@ def open_portfolio_overview():
 def show_watchlist_popup():
     global root
     WatchlistPopup(root)
-    
-# ==========================================================
-# UI HELPERS
-# ==========================================================
-def box(parent,label,var,bg,row,col):
-    tk.Label(parent,text=label,font=("Arial",12,"bold")).grid(row=row,column=col,padx=5)
-    tk.Entry(parent,textvariable=var,font=("Arial",14,"bold"),
-             bg=bg,width=10,justify="center").grid(row=row+1,column=col,padx=5)
+
 # ==========================================================
 # HEADER
 # ==========================================================
@@ -806,41 +852,39 @@ box(grid, "BUY Total $$", rge.buy_now_total, "#aed581", 14, 2)
 # ==========================================================
 def save():
 
-    row = [
-        datetime.now().isoformat(),
-        rge.ticker.get(),
-        rge.account.get(),
-        rge.risk_dollar.get(),
-        safe_float(rge.stop.get()),
+    # 🔥 SINGLE SOURCE OF TRUTH
+    snapshot = rge.get_trade_snapshot()
 
-        rge.ladder_prices[0].get(),
-        rge.ladder_shares[0].get(),
-        rge.ladder_totals[0].get(),
+    row = {
+        "timestamp": datetime.now().isoformat(),
+        "ticker": rge.ticker.get(),
 
-        rge.ladder_prices[1].get(),
-        rge.ladder_shares[1].get(),
-        rge.ladder_totals[1].get(),
+        "account": snapshot.get("account", ""),
+        "risk_dollar": snapshot.get("risk_dollar", ""),
+        "stop": snapshot.get("stop", snapshot.get("stop_loss", "")),
 
-        rge.ladder_prices[2].get(),
+        "ladder_1_price": snapshot["ladder"][0]["price"],
+        "ladder_1_shares": snapshot["ladder"][0]["shares"],
+        "ladder_1_total": snapshot["ladder"][0]["total"],
 
-        rge.ladder_prices[3].get(),
+        "ladder_2_price": snapshot["ladder"][1]["price"],
+        "ladder_2_shares": snapshot["ladder"][1]["shares"],
+        "ladder_2_total": snapshot["ladder"][1]["total"],
 
-        rge.buy_now_price.get(),
-        rge.buy_now_shares.get(),
-        rge.buy_now_total.get(),
+        "ladder_3_price": snapshot["ladder"][2]["price"],
+        "ladder_4_price": snapshot["ladder"][3]["price"],
 
-        "",
-        "",
-        ""
-    ]
+        "buy_now_price": snapshot.get("entry_price", ""),
+        "buy_now_shares": snapshot.get("shares", ""),
+        "buy_now_total": snapshot.get("trade_total", ""),
 
-    with open(
-        JOURNAL_FILE,
-        "a",
-        newline="",
-        encoding="utf-8"
-    ) as f:
-        writer = csv.writer(f)
+        "trade_notes": "",
+        "analysis_notes": "",
+        "management_notes": ""
+    }
+
+    with open(JOURNAL_FILE, "a", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=CSV_FIELDS)
         writer.writerow(row)
 
     load_journal()
@@ -915,19 +959,36 @@ def generate_signal_template(row):
         "daily"
     )
 
+    logger.info(f"[{ticker}] Starting analysis pipeline")
+
     # =====================================================
     # LOAD DATASETS
     # =====================================================
     daily_df, intraday_df, weekly_df = load_market_context(ticker)
 
+    logger.info(
+        f"[{ticker}] Data loaded | "
+        f"Daily={daily_df is not None} "
+        f"60M={intraday_df is not None} "
+        f"Weekly={weekly_df is not None}"
+    )
+
     intraday_15m_df = load_intraday_15m(ticker)
     intraday_60m_df = load_intraday_60m(ticker)
     weekly_df = load_weekly(ticker)
-    
+
+    logger.info(
+        f"[{ticker}] Additional datasets loaded | "
+        f"15M={intraday_15m_df is not None} "
+        f"60M={intraday_60m_df is not None}"
+    )
+
     # =====================================================
     # LOAD FINANCIAL ANALYSIS BLOCK
     # =====================================================
     financial_block = "[FUNDAMENTALS]\n" + format_financial_prompt(ticker)
+
+    logger.info(f"[{ticker}] Financial block complete")
 
     # =====================================================
     # DAILY CONTEXT
@@ -937,8 +998,12 @@ def generate_signal_template(row):
         timeframe="daily",
         limit=80
     )
-    
+
+    logger.info(f"[{ticker}] Daily history loaded")
+
     try:
+        logger.info(f"[{ticker}] Running risk engine")
+
         stop_val = float(row.get("stop", 0))
 
         latest_close = get_latest_close(
@@ -957,11 +1022,19 @@ def generate_signal_template(row):
         stop_breached = risk_state["breached"]
         stop_block = risk_state["block"]
 
+        logger.info(
+            f"[{ticker}] Risk engine completed | "
+            f"Breached={stop_breached}"
+        )
 
-    except Exception as e:
-        stop_block = f"⚠️ Risk engine error: {e}"
+    except Exception:
+        logger.exception(
+            f"[{ticker}] Risk engine FAILED"
+        )
+
+        stop_block = "⚠️ Risk engine error. See log."
         stop_breached = False
-    
+
     # =====================================================
     # WEEKLY CONTEXT
     # =====================================================
@@ -970,7 +1043,9 @@ def generate_signal_template(row):
         timeframe="weekly",
         limit=80
     )
-    
+
+    logger.info(f"[{ticker}] Weekly history loaded")
+
     # =====================================================
     # DAILY VOLUME CONTEXT
     # =====================================================
@@ -979,6 +1054,8 @@ def generate_signal_template(row):
         timeframe="daily",
         limit=80
     )
+
+    logger.info(f"[{ticker}] Daily volume analysis complete")
 
     # =====================================================
     # INTRADAY CONTEXT
@@ -995,24 +1072,50 @@ def generate_signal_template(row):
         limit=40
     )
 
+    logger.info(f"[{ticker}] Intraday context complete")
+
     # =====================================================
     # T-LINE ANALYSIS
     # =====================================================
-    intraday_15m_prompt = analyze_tline_intraday(intraday_15m_df, ticker, "15M")
-    intraday_60m_prompt = analyze_tline_intraday(intraday_60m_df, ticker, "60M")
+    try:
+        logger.info(f"[{ticker}] Running T-Line analysis")
 
-    dtfm_prompt = analyze_dual_timeframe_momentum(
-        intraday_60m_df,
-        daily_df,
-        ticker,
-        "DTFM"
-    )
-        
+        intraday_15m_prompt = analyze_tline_intraday(
+            intraday_15m_df,
+            ticker,
+            "15M"
+        )
+
+        intraday_60m_prompt = analyze_tline_intraday(
+            intraday_60m_df,
+            ticker,
+            "60M"
+        )
+
+        dtfm_prompt = analyze_dual_timeframe_momentum(
+            intraday_60m_df,
+            daily_df,
+            ticker,
+            "DTFM"
+        )
+
+        logger.info(f"[{ticker}] T-Line analysis complete")
+
+    except Exception:
+        logger.exception(
+            f"[{ticker}] T-Line analysis FAILED"
+        )
+
+        intraday_15m_prompt = "T-Line 15M unavailable."
+        intraday_60m_prompt = "T-Line 60M unavailable."
+        dtfm_prompt = "DTFM unavailable."
+
     # =====================================================
     # CANDLESTICK MULTI-TIMEFRAME ENGINE
     # =====================================================
-
     try:
+        logger.info(f"[{ticker}] Running candlestick engine")
+
         candlestick_result = analyze_multitimeframe_candlesticks(
             intraday_15m_df,
             intraday_60m_df,
@@ -1020,15 +1123,28 @@ def generate_signal_template(row):
             ticker
         )
 
-        candlestick_block = format_candlestick_for_journal(candlestick_result)
+        candlestick_block = format_candlestick_for_journal(
+            candlestick_result
+        )
 
-    except Exception as e:
-        candlestick_block = f"Candlestick analysis unavailable: {str(e)}" 
- 
+        logger.info(f"[{ticker}] Candlestick engine complete")
+
+    except Exception:
+        logger.exception(
+            f"[{ticker}] Candlestick engine FAILED"
+        )
+
+        candlestick_block = (
+            "Candlestick analysis unavailable. "
+            "See log."
+        )
+
     # =====================================================
-    # LIQUIDITY ENGINE (FIXED SAFETY LAYER)
+    # LIQUIDITY ENGINE
     # =====================================================
     try:
+        logger.info(f"[{ticker}] Running liquidity engine")
+
         liquidity_output = run_liquidity_multi_timeframe_engine({
             "15m": intraday_15m_df,
             "60m": intraday_60m_df,
@@ -1036,7 +1152,6 @@ def generate_signal_template(row):
             "weekly": weekly_df
         })
 
-        # SAFE EXTRACTION (NO MORE KEY ERRORS)
         phase_context_block = liquidity_output.get(
             "phase_context_block",
             "Liquidity phase context unavailable."
@@ -1047,39 +1162,87 @@ def generate_signal_template(row):
             "Liquidity block unavailable."
         )
 
-    except Exception as e:
-        phase_context_block = f"Liquidity engine error: {e}"
-        liquidity_block = f"Liquidity engine error: {e}"
-    
+        logger.info(f"[{ticker}] Liquidity engine complete")
+
+    except Exception:
+        logger.exception(
+            f"[{ticker}] Liquidity engine FAILED"
+        )
+
+        phase_context_block = "Liquidity engine failed."
+        liquidity_block = "Liquidity engine failed."
+
     # =====================================================
     # WYCKOFF PNF ANALYSIS
     # =====================================================
     try:
+        logger.info(f"[{ticker}] Running PnF engine")
+
         pnf_result = run_wyckoff_pnf_analysis(
             ticker=ticker,
             timeframe="daily",
             box_size=1.0,
             reversal=3
         )
-        pnf_block = format_pnf_for_journal(pnf_result)
 
-    except Exception as e:
-        pnf_block = f"PnF analysis unavailable: {str(e)}"
+        pnf_block = format_pnf_for_journal(
+            pnf_result
+        )
 
-    engine = CandlestickInstitutionalStateEngine(ticker)
+        logger.info(f"[{ticker}] PnF engine complete")
 
-    candlestick_df, filepath = engine.export(daily_df)
+    except Exception:
+        logger.exception(
+            f"[{ticker}] PnF engine FAILED"
+        )
 
-    candlestick_block1 = "\n\n".join(
-        f"""
-    ==================================================
-    MODULE: {row['module'].upper()}
-    ==================================================
+        pnf_block = "PnF analysis unavailable."
 
-    {row['journal_prompt']}
-    """
-        for _, row in candlestick_df.iterrows()
-    )
+    # =====================================================
+    # INSTITUTIONAL CANDLE ENGINE
+    # =====================================================
+    try:
+        logger.info(
+            f"[{ticker}] Running institutional candle engine"
+        )
+
+        engine = CandlestickInstitutionalStateEngine(
+            ticker
+        )
+
+        candlestick_df = engine.run(
+            daily_df
+        )
+
+        candlestick_modules_report = []
+
+        for _, row in candlestick_df.iterrows():
+
+            candlestick_modules_report.append(
+                f"""
+# {row['module']}
+
+{row['journal_prompt']}
+"""
+            )
+
+        candlestick_block1 = "\n\n---\n\n".join(
+            candlestick_modules_report
+        )
+
+        logger.info(
+            f"[{ticker}] Institutional candle engine complete"
+        )
+
+    except Exception:
+        logger.exception(
+            f"[{ticker}] Institutional candle engine FAILED"
+        )
+
+        candlestick_block1 = (
+            "Institutional candlestick analysis unavailable."
+        )
+
         
     # =====================================================
     # FRACTAL STRUCTURE ANALYSIS (SAFE FIX)
@@ -1151,43 +1314,42 @@ def generate_signal_template(row):
     except:
         rr_target = fmt("ladder_2_price")
 
-
-    template = f"""    ==================================================
-    POTENTIAL SINGLE ENTRY
-    ==================================================
-
-    Evaluate whether {row.get("buy_now_price","")} represents a valid entry point using information now available, and determine whether that entry location aligns with institutional structure, along with a stop loss at {row.get("stop","")}. 
-
-    Account Size: {row.get("account","")}
-    Risk Dollar: {row.get("risk_dollar","")}
-
-    Journal Entry Shares: {row.get("buy_now_shares","")}
-    Journal Entry Total: {row.get("buy_now_total","")}
-
-    ==================================================
-    POTENTIAL DOUBLE ENTRY
-    ==================================================
+    analysis_blocks = {
+        "risk_engine": stop_block,
+        "candlestick_summary": candlestick_block,
+        "candlestick_modules": candlestick_block1,
+        "fundamentals": financial_block,
+        "historical": historical_block,
+        "tline_15m": intraday_15m_prompt,
+        "tline_60m": intraday_60m_prompt,
+        "weekly_context": weekly_block,
+        "daily_context": history_block,
+        "daily_volume": daily_volume_block,
+        "intraday_context": intraday_block,
+        "intraday_volume": volume_block,
+        "dual_timeframe_momentum": dtfm_prompt,
+        "point_and_figure": pnf_block,
+        "fractal": fractal_block,
+        "liquidity_phase": phase_context_block,
+        "liquidity_engine": liquidity_block,
+        "relative_strength": rs_block
+    }
     
-    Range High Price: {row.get("ladder_1_price","")}
-    Shares: {row.get("ladder_1_shares","")}
-    Trade Total: {row.get("ladder_1_total","")}
+    export_path = export_analysis_md(
+        ticker,
+        analysis_blocks
+    )    
 
-    Range Low Price: {row.get("ladder_2_price","")}
-    Shares: {row.get("ladder_2_shares","")}
-    Trade Total: {row.get("ladder_2_total","")}  
-    
-    ==================================================
- 
-    
+    template = f"""==================================================
 📅Today's Date: {datetime.now().isoformat()}
 📅Journal Entry Date: {row.get('timestamp','').split('T')[0]}
 📈Ticker: {row.get('ticker','')}
-
-{stop_block}
+==================================================
 {candlestick_block}
 {candlestick_block1}
 {financial_block}
 {historical_results}
+{stop_block}
 {intraday_60m_prompt }
 {intraday_15m_prompt }
 {weekly_block}
@@ -1830,8 +1992,22 @@ def open_entry_editor(event=None):
     if ticker_name:
 
         def copy_prompt():
+            
+            enriched_row = row_data.copy()
 
-            generated_prompt = generate_signal_template(row_data)
+            snapshot = rge.get_trade_snapshot()
+
+            enriched_row["buy_now_price"] = snapshot.get("entry_price", enriched_row.get("buy_now_price", ""))
+            enriched_row["buy_now_shares"] = snapshot.get("shares", enriched_row.get("buy_now_shares", ""))
+            enriched_row["buy_now_total"] = snapshot.get("trade_total", enriched_row.get("buy_now_total", ""))
+
+            enriched_row["account"] = snapshot.get("account", enriched_row.get("account", ""))
+            enriched_row["risk_dollar"] = snapshot.get("risk_dollar", enriched_row.get("risk_dollar", ""))
+            enriched_row["stop"] = snapshot.get("stop", snapshot.get("stop_loss", enriched_row.get("stop", "")))            
+
+            generated_prompt = generate_signal_template(
+                build_prompt_row(row_data)
+            )
 
             popup.clipboard_clear()
             popup.clipboard_append(generated_prompt)

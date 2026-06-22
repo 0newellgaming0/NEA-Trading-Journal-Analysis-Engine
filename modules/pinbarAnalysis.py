@@ -100,7 +100,7 @@ def institutional_accumulation_state(close, high, low, volume, period=20):
     return state
 
 # =========================================================
-# PINBAR DETECTION (FIXED + CONSISTENT LOGIC)
+# PINBAR DETECTION (BULLISH + BEARISH)
 # =========================================================
 def detect_pinbar(data):
 
@@ -133,41 +133,83 @@ def detect_pinbar(data):
         return base
 
     body = abs(close - open_)
+
     upper = high - max(open_, close)
     lower = min(open_, close) - low
 
-    # ==============================
-    # CORE PIN BAR RULES
-    # ==============================
+    body_ratio = body / rng
 
-    wick_body_ratio = lower / max(body, 1e-9)
+    bull_ratio = lower / max(body, 1e-9)
+    bear_ratio = upper / max(body, 1e-9)
 
-    close_position = (close - low) / rng  # 0 = low, 1 = high
+    close_position = (close - low) / rng
 
-    # Bullish pinbar requirement
-    valid_bull_pinbar = (
-        wick_body_ratio >= 2.5 and
-        close_position >= 0.75 and
-        lower > upper
+    # =====================================================
+    # BULLISH PINBAR
+    # =====================================================
+    bullish_pinbar = (
+        bull_ratio >= 2.5 and
+        close_position >= 0.70 and
+        lower > upper and
+        body_ratio <= 0.35
     )
+
+    # =====================================================
+    # BEARISH PINBAR
+    # =====================================================
+    bearish_pinbar = (
+        bear_ratio >= 2.5 and
+        close_position <= 0.30 and
+        upper > lower and
+        body_ratio <= 0.35
+    )
+
+    detected = bullish_pinbar or bearish_pinbar
+
+    pin_type = None
+
+    if bullish_pinbar:
+        pin_type = "Bullish"
+
+    elif bearish_pinbar:
+        pin_type = "Bearish"
+
+    # =====================================================
+    # STRENGTH
+    # =====================================================
+    if bullish_pinbar:
+
+        if bull_ratio >= 4:
+            strength = "strong bullish pinbar"
+        else:
+            strength = "bullish pinbar"
+
+    elif bearish_pinbar:
+
+        if bear_ratio >= 4:
+            strength = "strong bearish pinbar"
+        else:
+            strength = "bearish pinbar"
+
+    else:
+
+        strength = "no pinbar"
 
     base.update({
         "body": body,
         "upper_wick": upper,
         "lower_wick": lower,
         "range": rng,
-        "body_ratio": body / rng,
+        "body_ratio": body_ratio,
 
-        "wick_body_ratio": wick_body_ratio,
-        "close_position": close_position,
+        "bull_ratio": round(bull_ratio, 2),
+        "bear_ratio": round(bear_ratio, 2),
 
-        "detected": valid_bull_pinbar,
-        "type": "BullishPinbar" if valid_bull_pinbar else None,
+        "close_position": round(close_position, 3),
 
-        "strength": (
-            "strong pinbar"
-            if valid_bull_pinbar else "no pinbar"
-        )
+        "detected": detected,
+        "type": pin_type,
+        "strength": strength
     })
 
     return base

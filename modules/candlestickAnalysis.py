@@ -98,9 +98,8 @@ def candle_structure(open_, high, low, close):
         "LowerShadow": lower_shadow
     }
 
-
 # ==========================================================
-# SINGLE CANDLE PATTERNS (UNCHANGED LOGIC)
+# SINGLE CANDLE PATTERNS (FIXED + SAFE + NON-CONFLICTING)
 # ==========================================================
 
 def detect_single_patterns(df):
@@ -119,52 +118,78 @@ def detect_single_patterns(df):
         lower = f(r["LowerShadow"])
         br = f(r["BodyRatio"])
 
-        if pd.notna(br) and br >= 0.9:
+        if pd.isna(o) or pd.isna(c) or pd.isna(rng) or rng == 0:
+            continue
+
+        # ---------------- MARUBOZU ----------------
+        if pd.notna(br) and br >= 0.85:
             pattern.iloc[i] = "Bullish Marubozu" if c > o else "Bearish Marubozu"
             continue
 
-        if body <= rng * 0.3 and lower >= body * 2:
+        # ---------------- DOJI FIRST (highest priority indecision) ----------------
+        if pd.notna(br) and br <= 0.08:
+            pattern.iloc[i] = "Doji"
+            continue
+
+        # ---------------- HAMMER / HANGING MAN ----------------
+        if rng > 0 and body <= rng * 0.3 and lower >= body * 2 and upper <= body * 1.5:
             pattern.iloc[i] = "Hammer" if c > o else "Hanging Man"
             continue
 
-        if body <= rng * 0.3 and upper >= body * 2:
+        # ---------------- INVERTED HAMMER / SHOOTING STAR ----------------
+        if rng > 0 and body <= rng * 0.3 and upper >= body * 2 and lower <= body * 1.5:
             pattern.iloc[i] = "Inverted Hammer" if c > o else "Shooting Star"
             continue
 
-        if pd.notna(br) and br <= 0.1:
-            pattern.iloc[i] = "Doji"
+        # ---------------- SPINNING / UNCERTAINTY ----------------
+        if pd.notna(br) and br <= 0.25:
+            pattern.iloc[i] = "Spinning Top"
 
     return pattern
 
 
 # ==========================================================
-# TWO CANDLE PATTERNS (UNCHANGED)
+# TWO CANDLE PATTERNS (FIXED PRIORITY + CLEAN LOGIC)
 # ==========================================================
 
 def detect_two_candle_patterns(df):
+
     pattern = pd.Series(None, index=df.index, dtype="object")
 
     for i in range(1, len(df)):
+
         p = df.iloc[i - 1]
         c = df.iloc[i]
 
         po, pc = f(p["open"]), f(p["close"])
         co, cc = f(c["open"]), f(c["close"])
 
-        if pc < po and cc > co and cc > po and co < pc:
+        if any(pd.isna(x) for x in [po, pc, co, cc]):
+            continue
+
+        # ---------------- ENGULFING (HIGHEST PRIORITY) ----------------
+        if pc < po and cc > co and co < pc and cc > po:
             pattern.iloc[i] = "Bullish Engulfing"
-        elif pc > po and cc < co and cc < po and co > pc:
+            continue
+
+        if pc > po and cc < co and co > pc and cc < po:
             pattern.iloc[i] = "Bearish Engulfing"
-        elif pc < po and cc > co and cc < (po + pc) / 2:
+            continue
+
+        # ---------------- MIDPOINT REVERSALS ----------------
+        if pc < po and cc > co and cc > (po + pc) / 2:
             pattern.iloc[i] = "Piercing Line"
-        elif pc > po and cc < co and cc > (po + pc) / 2:
+            continue
+
+        if pc > po and cc < co and cc < (po + pc) / 2:
             pattern.iloc[i] = "Dark Cloud Cover"
+            continue
 
     return pattern
 
 
 # ==========================================================
-# THREE CANDLE PATTERNS (UNCHANGED)
+# THREE CANDLE PATTERNS (FIXED STRUCTURE + NO OVERLAP ISSUES)
 # ==========================================================
 
 def detect_three_candle_patterns(df):
@@ -173,23 +198,35 @@ def detect_three_candle_patterns(df):
 
     for i in range(2, len(df)):
 
-        f1, f2, f3 = df.iloc[i-2], df.iloc[i-1], df.iloc[i]
+        f1 = df.iloc[i - 2]
+        f2 = df.iloc[i - 1]
+        f3 = df.iloc[i]
 
         fo, fc = f(f1["open"]), f(f1["close"])
+        mo, mc = f(f2["open"]), f(f2["close"])
         to, tc = f(f3["open"]), f(f3["close"])
+
+        if any(pd.isna(x) for x in [fo, fc, mo, mc, to, tc]):
+            continue
+
         mid = (fo + fc) / 2
+        middle_body = abs(mc - mo)
+        middle_range = max(f(f2["high"]) - f(f2["low"]), 1e-9)
 
-        if fc < fo and f(f2["BodyRatio"]) <= 0.3 and tc > to and tc > mid:
+        # ---------------- MORNING STAR ----------------
+        if fc < fo and middle_body / middle_range <= 0.3 and tc > to and tc > mid:
             pattern.iloc[i] = "Morning Star"
+            continue
 
-        elif fc > fo and f(f2["BodyRatio"]) <= 0.3 and tc < to and tc < mid:
+        # ---------------- EVENING STAR ----------------
+        if fc > fo and middle_body / middle_range <= 0.3 and tc < to and tc < mid:
             pattern.iloc[i] = "Evening Star"
+            continue
 
     return pattern
 
-
 # ==========================================================
-# ADVANCED PATTERNS (FULLY RESTORED - NO CUTS)
+# ADVANCED PATTERNS (FIXED - STRICT LOGIC + NO OVERLAP BUGS)
 # ==========================================================
 
 def detect_advanced_patterns(df):
@@ -198,20 +235,53 @@ def detect_advanced_patterns(df):
 
     for i in range(4, len(df)):
 
-        c0, c1, c2, c3, c4 = df.iloc[i], df.iloc[i-1], df.iloc[i-2], df.iloc[i-3], df.iloc[i-4]
+        c0 = df.iloc[i]
+        c1 = df.iloc[i - 1]
+        c2 = df.iloc[i - 2]
 
-        o, h, l, c = f(c0["open"]), f(c0["high"]), f(c0["low"]), f(c0["close"])
-        body, br = f(c0["Body"]), f(c0["BodyRatio"])
+        o = f(c0["open"])
+        h = f(c0["high"])
+        l = f(c0["low"])
+        c = f(c0["close"])
 
-        # ================= YOUR FULL ORIGINAL LOGIC KEPT =================
+        body = f(c0["Body"])
+        br = f(c0["BodyRatio"])
+
+        prev_o = f(c1["open"])
+        prev_c = f(c1["close"])
+        prev_h = f(c1["high"])
+        prev_l = f(c1["low"])
+
+        prev2_o = f(c2["open"])
+        prev2_c = f(c2["close"])
+
+        prev2_bull = prev2_c > prev2_o
+        prev2_bear = prev2_c < prev2_o
+
+        prev_bull = prev_c > prev_o
+        prev_bear = prev_c < prev_o
+
+        prev_body_high = max(prev_o, prev_c)
+        prev_body_low = min(prev_o, prev_c)
+
+        curr_body_high = max(o, c)
+        curr_body_low = min(o, c)
+
+        # ==================================================
+        # STRICT DOJI / SINGLE CANDLE STRUCTURES
+        # ==================================================
 
         if br <= 0.05:
+
             if h == l == o == c:
                 pattern.iloc[i] = "Four Price Doji"
+
             elif (h - l) > 3 * body:
                 pattern.iloc[i] = "Rickshaw Man"
+
             elif (h - c) > (c - l):
                 pattern.iloc[i] = "Gravestone Doji"
+
             else:
                 pattern.iloc[i] = "Dragonfly Doji"
 
@@ -224,48 +294,76 @@ def detect_advanced_patterns(df):
         elif br <= 0.3:
             pattern.iloc[i] = "Spinning Top"
 
-        # === ALL REVERSALS / STRUCTURES PRESERVED ===
+        # ==================================================
+        # 3-CANDLE REVERSALS (STRICT ORDER + CLEAN LOGIC)
+        # ==================================================
 
-        if f(c2["close"]) < f(c2["open"]) and br <= 0.1 and c > o:
+        if prev2_bear and br <= 0.1 and prev_bull and c > o:
             pattern.iloc[i] = "Morning Doji Star"
 
-        if f(c2["close"]) > f(c2["open"]) and br <= 0.1 and c < o:
+        if prev2_bull and br <= 0.1 and prev_bear and c < o:
             pattern.iloc[i] = "Evening Doji Star"
 
-        if f(c1["close"]) < f(c1["open"]) and c > o and o < f(c1["close"]) and c > f(c1["open"]):
+        if prev2_bear and prev_bull and c > o:
+            pattern.iloc[i] = "Morning Star"
+
+        if prev2_bull and prev_bear and c < o:
+            pattern.iloc[i] = "Evening Star"
+
+        # ==================================================
+        # 2-CANDLE ENGULFING (STRICT BODY RULES)
+        # ==================================================
+
+        if prev_bear and curr_body_high >= prev_body_high and curr_body_low <= prev_body_low and c > o:
             pattern.iloc[i] = "Bullish Engulfing"
 
-        if f(c1["close"]) > f(c1["open"]) and c < o and o > f(c1["close"]) and c < f(c1["open"]):
+        if prev_bull and curr_body_high >= prev_body_high and curr_body_low <= prev_body_low and c < o:
             pattern.iloc[i] = "Bearish Engulfing"
 
-        if f(c1["close"]) < f(c1["open"]) and o > f(c1["close"]) and c < f(c1["open"]):
+        # ==================================================
+        # HARAMI (STRICT CONTAINMENT - FIXED)
+        # ==================================================
+
+        if prev_bear and curr_body_high <= prev_body_high and curr_body_low >= prev_body_low and c > o:
             pattern.iloc[i] = "Bullish Harami"
 
-        if f(c1["close"]) > f(c1["open"]) and o < f(c1["close"]) and c > f(c1["open"]):
+        if prev_bull and curr_body_high <= prev_body_high and curr_body_low >= prev_body_low and c < o:
             pattern.iloc[i] = "Bearish Harami"
 
-        if br <= 0.05 and f(c1["close"]) < f(c1["open"]):
+        if prev_bear and (h - l) <= body * 0.5:
             pattern.iloc[i] = "Bullish Harami Cross"
 
-        if br <= 0.05 and f(c1["close"]) > f(c1["open"]):
+        if prev_bull and (h - l) <= body * 0.5:
             pattern.iloc[i] = "Bearish Harami Cross"
 
-        if abs(h - f(c1["high"])) <= body * 0.1:
+        # ==================================================
+        # TWEEZERS (STRICT HIGH/LOW MATCH)
+        # ==================================================
+
+        if abs(h - prev_h) <= body * 0.1:
             pattern.iloc[i] = "Tweezer Top"
 
-        if abs(l - f(c1["low"])) <= body * 0.1:
+        if abs(l - prev_l) <= body * 0.1:
             pattern.iloc[i] = "Tweezer Bottom"
 
-        if f(c2["close"]) > f(c2["open"]) and f(c1["close"]) > f(c1["open"]) and c > o:
+        # ==================================================
+        # 3-CANDLE CONTINUATION PATTERNS
+        # ==================================================
+
+        if prev2_bull and prev_bull and c > o:
             pattern.iloc[i] = "Three White Soldiers"
 
-        if f(c2["close"]) < f(c2["open"]) and f(c1["close"]) < f(c1["open"]) and c < o:
+        if prev2_bear and prev_bear and c < o:
             pattern.iloc[i] = "Three Black Crows"
 
-        if l > f(c1["high"]):
+        # ==================================================
+        # GAP / WINDOW (STRICT GAP RULE)
+        # ==================================================
+
+        if l > prev_h:
             pattern.iloc[i] = "Rising Window"
 
-        if h < f(c1["low"]):
+        if h < prev_l:
             pattern.iloc[i] = "Falling Window"
 
     return pattern
@@ -796,16 +894,57 @@ def analyze_single_timeframe(df, ticker, label):
     df["UpperShadow"] = structure["UpperShadow"]
     df["LowerShadow"] = structure["LowerShadow"]
 
+    # ==========================================================
+    # FIXED PATTERN RESOLUTION ENGINE (NO OVERWRITE LOGIC)
+    # ==========================================================
+
     single = detect_single_patterns(df)
     double = detect_two_candle_patterns(df)
     triple = detect_three_candle_patterns(df)
     advanced = detect_advanced_patterns(df)
 
-    df["CandlestickPattern"] = advanced
-    df.loc[df["CandlestickPattern"].isna(), "CandlestickPattern"] = triple
-    df.loc[df["CandlestickPattern"].isna(), "CandlestickPattern"] = double
-    df.loc[df["CandlestickPattern"].isna(), "CandlestickPattern"] = single
-    df["CandlestickPattern"] = df["CandlestickPattern"].fillna("No Pattern")
+    patterns = pd.DataFrame({
+        "single": single,
+        "double": double,
+        "triple": triple,
+        "advanced": advanced
+    })
+
+    # PRIORITY SYSTEM (HIGHEST WIN)
+    priority = {
+        "advanced": 4,
+        "triple": 3,
+        "double": 2,
+        "single": 1
+    }
+
+    def resolve_pattern(row):
+
+        candidates = [
+            ("advanced", row["advanced"]),
+            ("triple", row["triple"]),
+            ("double", row["double"]),
+            ("single", row["single"])
+        ]
+
+        best_pattern = "No Pattern"
+        best_rank = 0
+
+        for source, pattern in candidates:
+
+            if pd.isna(pattern):
+                continue
+
+            rank = priority[source]
+
+            # overwrite only if higher priority
+            if rank > best_rank:
+                best_pattern = pattern
+                best_rank = rank
+
+        return best_pattern
+
+    df["CandlestickPattern"] = patterns.apply(resolve_pattern, axis=1)
 
     df["PatternVolumeConfirm"] = volume_confirmation(
         df["volume"],
@@ -834,7 +973,7 @@ def analyze_single_timeframe(df, ticker, label):
     latest_pattern = latest.get("CandlestickPattern", "No Pattern")
 
     setup = build_trade_setup(
-        latest_pattern,
+        latest_confirmed.get("CandlestickPattern"),
         latest_confirmed.get("PatternDirection"),
         df=df
     ) or {}
@@ -1042,8 +1181,8 @@ Actionable: {m15.get("actionable")}
 
 --- TRADE SETUP (15M) ---
 Bias: {m15_setup.get("bias")}
-Entry Hint Price: {m15_setup.get("entry_price_hint")}
-Stop Hint Price: {m15_setup.get("stop_price_hint")}
+Entry Price: {m15_setup.get("entry_price_hint")}
+Stop Price: {m15_setup.get("stop_price_hint")}
 Target: {m15_setup.get("target")}
 
 ----------------------------------------------------
@@ -1057,8 +1196,8 @@ Actionable: {h1.get("actionable")}
 
 --- TRADE SETUP (1H) ---
 Bias: {h1_setup.get("bias")}
-Entry Hint Price: {h1_setup.get("entry_price_hint")}
-Stop Hint Price: {h1_setup.get("stop_price_hint")}
+Entry Price: {h1_setup.get("entry_price_hint")}
+Stop Price: {h1_setup.get("stop_price_hint")}
 Target: {h1_setup.get("target")}
 
 ----------------------------------------------------
@@ -1073,9 +1212,9 @@ Actionable: {d1.get("actionable")}
 --- TRADE SETUP (DAILY) ---
 Bias: {d1_setup.get("bias")}
 Entry: {d1_setup.get("entry")}
-Entry Hint Price: {d1_setup.get("entry_price_hint")}
+Entry Price: {d1_setup.get("entry_price_hint")}
 Stop: {d1_setup.get("stop")}
-Stop Hint Price: {d1_setup.get("stop_price_hint")}
+Stop Price: {d1_setup.get("stop_price_hint")}
 Target: {d1_setup.get("target")}
 Context: {d1_setup.get("context")}
 

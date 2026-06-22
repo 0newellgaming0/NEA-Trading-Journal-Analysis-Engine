@@ -16,6 +16,11 @@ def get_stock_data_path(ticker, timeframe="daily"):
         f"{ticker}.csv"
     )
 
+# =========================================================
+# FINANCIALS ROOT (SINGLE SOURCE OF TRUTH)
+# =========================================================
+def get_financials_root():
+    return os.path.join(get_project_root(), "modules", "stock_data_db", "financials")
 
 # =========================================================
 # DATABASE ROOT (SINGLE SOURCE OF TRUTH)
@@ -26,8 +31,7 @@ def get_database_root():
         "modules",
         "stock_data_db"
     )
-
-
+    
 # =========================================================
 # GENERIC DB RESOLVER
 # =========================================================

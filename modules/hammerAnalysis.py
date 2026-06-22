@@ -516,7 +516,11 @@ def confirm_hammer_today(today_candle, yesterday_hammer):
 # =========================================================
 # TRADE PLAN GENERATOR (FIXED CARRYOVER)
 # =========================================================
-def build_hammer_trade_plan(hammer, breakout_state, confirmation_state="NONE"):
+def build_hammer_trade_plan(
+    hammer,
+    breakout_state,
+    confirmation_state="NONE"
+):
 
     if not hammer or not hammer.get("detected"):
         return {
@@ -526,68 +530,177 @@ def build_hammer_trade_plan(hammer, breakout_state, confirmation_state="NONE"):
             "target1": None,
             "target2": None,
             "failure": None,
-            "interpretation": "No hammer detected."
+            "interpretation": "No pattern detected."
         }
 
     h = hammer["high"]
     l = hammer["low"]
+
     rng = max(h - l, 1e-9)
-    classification = hammer.get("classification", "HAMMER")
 
-    if confirmation_state == "CONFIRMED" or breakout_state == "BULLISH_REVERSAL_CONFIRMED":
+    pattern_type = hammer.get("type")
+    classification = hammer.get("classification", pattern_type)
+
+    bullish_patterns = (
+        "Hammer",
+        "InvertedHammer"
+    )
+
+    bearish_patterns = (
+        "ShootingStar",
+        "HangingMan"
+    )
+
+    is_bullish = pattern_type in bullish_patterns
+    is_bearish = pattern_type in bearish_patterns
+
+    # =====================================================
+    # CONFIRMED
+    # =====================================================
+    if confirmation_state == "CONFIRMED":
+
+        if is_bullish:
+
+            return {
+                "setup": f"{classification} CONFIRMED LONG",
+                "entry": h,
+                "stop": l,
+                "target1": h + rng,
+                "target2": h + (2 * rng),
+                "failure": f"Close below {l}",
+                "interpretation":
+                    "Bullish reversal confirmed. "
+                    "Acceptance achieved above pattern high."
+            }
+
+        if is_bearish:
+
+            return {
+                "setup": f"{classification} CONFIRMED SHORT",
+                "entry": l,
+                "stop": h,
+                "target1": l - rng,
+                "target2": l - (2 * rng),
+                "failure": f"Close above {h}",
+                "interpretation":
+                    "Bearish reversal confirmed. "
+                    "Acceptance achieved below pattern low."
+            }
+
+    # =====================================================
+    # FAILED
+    # =====================================================
+    if confirmation_state == "FAILED":
+
+        if is_bullish:
+
+            return {
+                "setup": f"{classification} FAILURE SHORT",
+                "entry": l,
+                "stop": h,
+                "target1": l - rng,
+                "target2": l - (2 * rng),
+                "failure": f"Reclaim above {h}",
+                "interpretation":
+                    "Bullish reversal failed. "
+                    "Sellers gained control."
+            }
+
+        if is_bearish:
+
+            return {
+                "setup": f"{classification} FAILURE LONG",
+                "entry": h,
+                "stop": l,
+                "target1": h + rng,
+                "target2": h + (2 * rng),
+                "failure": f"Close below {l}",
+                "interpretation":
+                    "Bearish reversal failed. "
+                    "Buyers regained control."
+            }
+
+    # =====================================================
+    # LIQUIDITY REJECTION
+    # =====================================================
+    if (
+        confirmation_state == "LIQUIDITY_REJECTION"
+        or breakout_state in (
+            "BULLISH_FALSE_BREAK_REJECTION",
+            "BEARISH_FALSE_BREAK_REJECTION"
+        )
+    ):
+
         return {
-            "setup": f"{classification} CONFIRMED LONG",
-            "entry": hammer.get("entry", h),
-            "stop": hammer.get("stop", l),
-            "target1": hammer.get("target1", round(h + rng, 4)),
-            "target2": hammer.get("target2", round(h + (2 * rng), 4)),
-            "failure": "Close below hammer low",
-            "interpretation": "Hammer confirmed. Buyers achieved acceptance above the hammer high."
+            "setup": f"{classification} LIQUIDITY REJECTION",
+            "entry": None,
+            "stop": None,
+            "target1": None,
+            "target2": None,
+            "failure": None,
+            "interpretation":
+                "Liquidity sweep occurred but acceptance failed. "
+                "Monitor for reversal or compression."
         }
 
-    if confirmation_state == "FAILED" or breakout_state == "BEARISH_CONTINUATION_CONFIRMED":
+    # =====================================================
+    # BREAK ATTEMPT
+    # =====================================================
+    if confirmation_state in (
+        "BULLISH_BREAK_ATTEMPT",
+        "BEARISH_BREAK_ATTEMPT"
+    ):
+
         return {
-            "setup": f"{classification} FAILURE SHORT",
-            "entry": hammer.get("stop", l),
-            "stop": hammer.get("entry", h),
-            "target1": hammer.get("target1", round(l - rng, 4)),
-            "target2": hammer.get("target2", round(l - (2 * rng), 4)),
-            "failure": "Reclaim above hammer high",
-            "interpretation": "Hammer failed. Sellers achieved acceptance below the hammer low."
+            "setup": f"{classification} BREAK ATTEMPT",
+            "entry": None,
+            "stop": None,
+            "target1": None,
+            "target2": None,
+            "failure": None,
+            "interpretation":
+                "Breakout probe detected. "
+                "Await acceptance confirmation."
         }
 
-    if confirmation_state == "LIQUIDITY_REJECTION" or breakout_state == "BULLISH_FALSE_BREAK_REJECTION":
+    # =====================================================
+    # FORMING PATTERN
+    # =====================================================
+    if is_bullish:
+
         return {
-            "setup": "HAMMER REJECTION SHORT",
-            "entry": hammer.get("entry", h),
-            "stop": round(h + (rng * 0.10), 4),
-            "target1": hammer.get("stop", l),
-            "target2": round(l - rng, 4),
-            "failure": "Acceptance above hammer high",
-            "interpretation": "The hammer high was swept but rejected."
+            "setup": f"FORMING {pattern_type.upper()}",
+            "entry": h,
+            "stop": l,
+            "target1": h + rng,
+            "target2": h + (2 * rng),
+            "failure": f"Close below {l}",
+            "interpretation":
+                "Bullish rejection forming. Await confirmation."
         }
 
-    if confirmation_state == "BULLISH_BREAK_ATTEMPT":
+    if is_bearish:
+
         return {
-            "setup": "HAMMER BREAK ATTEMPT",
-            "entry": hammer.get("entry", h),
-            "stop": hammer.get("stop", l),
-            "target1": hammer.get("target1", round(h + rng, 4)),
-            "target2": hammer.get("target2", round(h + (2 * rng), 4)),
-            "failure": "Close below hammer low",
-            "interpretation": "Buyers attempted a breakout but have not yet achieved acceptance."
+            "setup": f"FORMING {pattern_type.upper()}",
+            "entry": l,
+            "stop": h,
+            "target1": l - rng,
+            "target2": l - (2 * rng),
+            "failure": f"Close above {h}",
+            "interpretation":
+                "Bearish rejection forming. Await confirmation."
         }
 
     return {
-        "setup": f"{classification} LONG SETUP",
-        "entry": hammer.get("entry", h),
-        "stop": hammer.get("stop", l),
-        "target1": hammer.get("target1", round(h + rng, 4)),
-        "target2": hammer.get("target2", round(h + (2 * rng), 4)),
-        "failure": f"Close below {round(l,4)}",
-        "interpretation": "A valid hammer has formed. Await confirmation."
+        "setup": "UNKNOWN PATTERN",
+        "entry": None,
+        "stop": None,
+        "target1": None,
+        "target2": None,
+        "failure": None,
+        "interpretation": "Pattern classification unavailable."
     }
-
 
 # =========================================================
 # MAIN ENGINE
@@ -772,8 +885,8 @@ YESTERDAY:
 --------------------------------------------------
 🧭 STATES:
 
-CONFIRMED → continuation
-FAILED → reversal
+CONFIRMED → acceptance beyond trigger
+FAILED → acceptance beyond invalidation
 PENDING → waiting next candle
 
 ==================================================

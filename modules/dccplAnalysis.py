@@ -2,6 +2,12 @@ import numpy as np
 import pandas as pd
 
 # =========================================================
+# REVERSAL ENGINE CONSTANTS
+# =========================================================
+
+STRICT_MIDPOINT_BUFFER = 0.10  # 10% of previous candle body
+
+# =========================================================
 # SAFE SCALAR EXTRACTOR
 # =========================================================
 def f(x):
@@ -50,7 +56,9 @@ def enforce_schema(df):
         df[col] = pd.to_numeric(df[col], errors="coerce")
     return df.dropna(subset=["Open", "High", "Low", "Close"])
 
-
+def midpoint(open_, close_):
+    return (open_ + close_) / 2
+    
 # =========================================================
 # 🌩 DARK CLOUD COVER
 # =========================================================
@@ -61,31 +69,36 @@ def detect_dark_cloud_cover(df):
     prev = df.iloc[-2]
     curr = df.iloc[-1]
 
-    prev_open, prev_close = f(prev["Open"]), f(prev["Close"])
-    curr_open, curr_close = f(curr["Open"]), f(curr["Close"])
+    po, pc = f(prev["Open"]), f(prev["Close"])
+    co, cc = f(curr["Open"]), f(curr["Close"])
+    ph = f(prev["High"])
+    pl = f(prev["Low"])
 
-    prev_high, prev_low = f(prev["High"]), f(prev["Low"])
+    prev_bull = pc > po
+    curr_bear = cc < co
 
-    prev_bull = prev_close > prev_open
-    curr_bear = curr_close < curr_open
+    mid = midpoint(po, pc)
+    body = abs(pc - po)
 
-    midpoint = prev_open + (prev_close - prev_open) * 0.5  # FIXED
+    penetration_ok = (
+        cc < mid and
+        cc > po and
+        cc < (mid - body * STRICT_MIDPOINT_BUFFER)
+    )
 
-    valid_gap_up = curr_open > prev_high
-    penetration = curr_close < midpoint and curr_close > prev_open
+    structure_ok = co > ph
 
-    if prev_bull and curr_bear and valid_gap_up and penetration:
+    if prev_bull and curr_bear and structure_ok and penetration_ok:
         return {
             "detected": True,
             "type": "DarkCloudCover",
-            "high": prev_high,
-            "low": prev_low,
-            "open": curr_open,
-            "close": curr_close,
-            "strength": "Institutional Reversal"
+            "high": ph,
+            "low": pl,
+            "open": co,
+            "close": cc,
         }
 
-    return {"detected": False, "type": None, "high": None, "low": None, "open": None, "close": None}
+    return {"detected": False, "type": None}
 
 
 # =========================================================
@@ -98,33 +111,53 @@ def detect_piercing_line(df):
     prev = df.iloc[-2]
     curr = df.iloc[-1]
 
-    prev_open, prev_close = f(prev["Open"]), f(prev["Close"])
-    curr_open, curr_close = f(curr["Open"]), f(curr["Close"])
+    po, pc = f(prev["Open"]), f(prev["Close"])
+    co, cc = f(curr["Open"]), f(curr["Close"])
+    ph = f(prev["High"])
+    pl = f(prev["Low"])
 
-    prev_high, prev_low = f(prev["High"]), f(prev["Low"])
+    prev_bear = pc < po
+    curr_bull = cc > co
 
-    prev_bear = prev_close < prev_open
-    curr_bull = curr_close > curr_open
+    mid = midpoint(po, pc)
+    body = abs(pc - po)
 
-    midpoint = prev_open + (prev_close - prev_open) * 0.5  # FIXED
+    penetration_ok = (
+        cc > mid and
+        cc < po and
+        cc > (mid + body * STRICT_MIDPOINT_BUFFER)
+    )
 
-    valid_gap_down = curr_open < prev_low
-    penetration = curr_close > midpoint and curr_close < prev_open
+    structure_ok = co < pl
 
-    if prev_bear and curr_bull and valid_gap_down and penetration:
+    if prev_bear and curr_bull and structure_ok and penetration_ok:
         return {
             "detected": True,
             "type": "PiercingLine",
-            "high": prev_high,
-            "low": prev_low,
-            "open": curr_open,
-            "close": curr_close,
-            "strength": "Institutional Reversal"
+            "high": ph,
+            "low": pl,
+            "open": co,
+            "close": cc,
         }
 
-    return {"detected": False, "type": None, "high": None, "low": None, "open": None, "close": None}
+    return {"detected": False, "type": None}
 
+def resolve_state(prev_detected, curr_detected, close, high, low):
 
+    if not prev_detected and not curr_detected:
+        return "NONE"
+
+    if prev_detected and not curr_detected:
+        return "PENDING"
+
+    if prev_detected and curr_detected:
+        return "CONFIRMED"
+
+    if close > high or close < low:
+        return "INVALIDATED"
+
+    return "WEAKENING"
+    
 # =========================================================
 # MEMORY ENGINE
 # =========================================================
@@ -271,20 +304,24 @@ def analyze_reversal_patterns(df):
         return {"journal_prompt": "Insufficient data"}
 
     today_dcc = detect_dark_cloud_cover(df.iloc[-2:])
+    today_pl = detect_piercing_line(df.iloc[-2:])
+
+    today = today_dcc if today_dcc["detected"] else today_pl
+
     yesterday_dcc = detect_dark_cloud_cover(df.iloc[-3:-1])
+    yesterday_pl = detect_piercing_line(df.iloc[-3:-1])
 
-    today_pierce = detect_piercing_line(df.iloc[-2:])
-    yesterday_pierce = detect_piercing_line(df.iloc[-3:-1])
+    yesterday = yesterday_dcc if yesterday_dcc["detected"] else yesterday_pl
 
-    today = today_dcc if today_dcc["detected"] else today_pierce
-    yesterday = yesterday_dcc if yesterday_dcc["detected"] else yesterday_pierce
+    last_close = f(df.iloc[-1]["Close"])
 
-    if yesterday["detected"] and today["detected"]:
-        state = "CONFIRMED"
-    elif yesterday["detected"]:
-        state = "PENDING"
-    else:
-        state = "NONE"
+    state = resolve_state(
+        yesterday.get("detected"),
+        today.get("detected"),
+        last_close,
+        today.get("high", 0),
+        today.get("low", 0)
+    )
 
     trade_plan = build_reversal_trade_plan(today, yesterday, state)
 

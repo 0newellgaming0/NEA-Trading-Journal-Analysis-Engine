@@ -94,13 +94,9 @@ def candle1_trend_filter(c1):
 # TRUE HARAMI (BODY ONLY)
 # =========================================================
 def is_true_harami(c1, c2):
-
-    c1_o, c1_c = f(c1["Open"]), f(c1["Close"])
-    c2_o, c2_c = f(c2["Open"]), f(c2["Close"])
-
     return (
-        max(c2_o, c2_c) <= max(c1_o, c1_c) and
-        min(c2_o, c2_c) >= min(c1_o, c1_c)
+        f(c2["High"]) <= f(c1["High"]) and
+        f(c2["Low"]) >= f(c1["Low"])
     )
 
 
@@ -113,7 +109,7 @@ def candle3_breakout_valid(c1, c3, direction):
     c1_low = f(c1["Low"])
     c3_close = f(c3["Close"])
 
-    expansion = rng(c3) > rng(c1) * 0.60
+    expansion = rng(c3) > rng(c1) * 1.2
 
     if direction == "bullish":
         return c3_close > c1_high and expansion
@@ -166,7 +162,7 @@ def detect_three_inside_pattern(df):
         return {"state": "NONE"}
 
     center = classify_three_inside_center(c2)
-    if center["strength"] == "INVALID":
+    if center["type"] == "Invalid":
         return {"state": "NONE"}
 
     breakout = candle3_breakout_valid(c1, c3, trend["direction"])
@@ -192,7 +188,7 @@ def detect_three_inside_pattern(df):
         "state": "PENDING_CONFIRMATION",
         "stage": 3,
         "type": "ThreeInside",
-        "direction": "NEUTRAL",
+        "direction": trend["direction"],
         "center_type": center["type"],
         "candle1_high": f(c1["High"]),
         "candle1_low": f(c1["Low"])

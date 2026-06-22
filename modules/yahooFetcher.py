@@ -11,7 +11,8 @@ import sqlite3
 from modules.path_resolver import (
     get_watchlist_db_path,
     get_webull_db_path,
-    get_project_root
+    get_project_root,
+    get_financials_root
 )
 
 from modules.stock_data_db.repository import StockDataRepository, FinancialRepository
@@ -38,9 +39,9 @@ OUTPUT_DIR = os.path.join(
     "modules",
     "stock_data"
 )
-FINANCIALS_DIR = os.path.join(os.path.dirname(__file__), "financials")
 
-# >>> FIX: ensure cache directory exists
+FINANCIALS_DIR = get_financials_root()
+
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 # =========================================================
@@ -87,13 +88,14 @@ def log(msg):
 
     dashboard.after(0, _write)
 
-
 # =========================================================
 # WATCHLIST SOURCE (DB ONLY)
 # =========================================================
 
 def load_tickers_from_watchlist():
     try:
+        log("🔍 Loading tickers from watchlist DB...")
+
         if not os.path.exists(WATCHLIST_DB):
             log(f"❌ Watchlist DB not found: {WATCHLIST_DB}")
             return []
@@ -106,34 +108,41 @@ def load_tickers_from_watchlist():
 
         conn.close()
 
-        return sorted({r[0].strip().upper() for r in rows if r and r[0]})
+        tickers = sorted({r[0].strip().upper() for r in rows if r and r[0]})
+
+        log(f"✅ Watchlist loaded ({len(tickers)} tickers)")
+        return tickers
 
     except Exception as e:
         log(f"❌ Watchlist DB error: {e}")
         return []
-        
+
 # =========================================================
 # JOURNAL SOURCE (MISSING PIECE)
 # =========================================================
 
 def load_tickers_from_journal():
     try:
+        log("🔍 Loading tickers from journal...")
+
         if not os.path.exists(JOURNAL_FILE):
+            log("⚠ Journal file missing")
             return []
 
         df = pd.read_csv(JOURNAL_FILE)
 
         if "ticker" not in df.columns:
+            log("⚠ Journal missing ticker column")
             return []
 
-        return sorted(
-            set(df["ticker"].dropna().astype(str).str.upper())
-        )
+        tickers = sorted(set(df["ticker"].dropna().astype(str).str.upper()))
+        log(f"✅ Journal tickers loaded ({len(tickers)})")
+        return tickers
 
     except Exception as e:
         log(f"❌ Journal load error: {e}")
         return []
-        
+
 def watch_journal_changes():
     global cached_tickers, last_journal_mtime
 
@@ -154,35 +163,38 @@ def watch_journal_changes():
 
                 log(f"🔄 Journal updated → {len(new_tickers)} tickers detected")
 
-                # 🔥 AUTO TRIGGER DATA REFRESH
                 threading.Thread(target=_run_update_core, daemon=True).start()
 
     except Exception as e:
         log(f"Journal watch error: {e}")
 
     dashboard.after(2000, watch_journal_changes)
-    
+
 # =========================================================
 # DATA NORMALIZATION
 # =========================================================
 
 def normalize_columns(df):
-    df.columns = [
-        "_".join([str(x) for x in col if x]).replace(" ", "_").lower()
-        if isinstance(col, tuple)
-        else col.replace(" ", "_").lower()
-        for col in df.columns
-    ]
-    return df
-
+    try:
+        df.columns = [
+            "_".join([str(x) for x in col if x]).replace(" ", "_").lower()
+            if isinstance(col, tuple)
+            else col.replace(" ", "_").lower()
+            for col in df.columns
+        ]
+        return df
+    except Exception as e:
+        log(f"❌ Column normalization failed: {e}")
+        return df
 
 # =========================================================
-# DISK CACHE (RESTORED FEATURE)
+# DISK CACHE
 # =========================================================
 
 def cache_to_disk(ticker, tf_name, df):
     try:
         if df is None or df.empty:
+            log(f"⚠ Cache skipped (empty df): {ticker} [{tf_name}]")
             return
 
         tf_dir = os.path.join(OUTPUT_DIR, tf_name)
@@ -191,17 +203,19 @@ def cache_to_disk(ticker, tf_name, df):
         file_path = os.path.join(tf_dir, f"{ticker}.csv")
 
         df.to_csv(file_path, index=False)
+        log(f"💾 Cache written: {file_path}")
 
     except Exception as e:
         log(f"⚠ Cache write failed {ticker} [{tf_name}]: {e}")
 
-
 # =========================================================
-# FINANCIALS (REPOSITORY LAYER)
+# FINANCIALS
 # =========================================================
 
 def fetch_financials(ticker):
     try:
+        log(f"📊 Starting financial fetch: {ticker}")
+
         tk_obj = yf.Ticker(ticker)
 
         os.makedirs(FINANCIALS_DIR, exist_ok=True)
@@ -219,9 +233,18 @@ def fetch_financials(ticker):
 
         def safe_df(df):
             if df is None or df.empty:
+                log("⚠ Safe DF skipped empty dataset")
                 return None
-            df = df.copy().reset_index()
-            df.columns = [str(c).strip().lower().replace(" ", "_") for c in df.columns]
+
+            df = df.copy()
+            df = df.reset_index()
+
+            df.columns = [
+                str(c).strip().replace(" ", "_").lower()
+                for c in df.columns
+            ]
+
+            log(f"📄 Dataset normalized shape={df.shape}")
             return df
 
         datasets = {
@@ -237,25 +260,34 @@ def fetch_financials(ticker):
         saved = 0
 
         for name, df in datasets.items():
-            if df is not None:
-                repo.insert_statement(ticker, name, df)
-                saved += 1
+            if df is None:
+                log(f"⚠ Skipping {name} (None)")
+                continue
 
-        log(f"📊 {ticker} financials saved ({saved}/6) [DB]")
+            repo.insert_statement(ticker, name, df)
+            log(f"🧠 DB write success: {name}")
 
+            csv_path = os.path.join(base_dir, f"{name}.csv")
+            df.to_csv(csv_path, index=False)
+
+            log(f"💾 CSV saved: {csv_path}")
+            saved += 1
+
+        log(f"📊 {ticker} financials saved ({saved}/6) [DB + CSV]")
         return True
 
     except Exception as e:
         log(f"❌ Financial error {ticker}: {e}")
         return False
 
-
 # =========================================================
-# DATA INGESTION (DB PRIMARY + RESTORED CSV CACHE)
+# DATA INGESTION
 # =========================================================
 
 def append_new_data(ticker, tf_name, cfg):
     try:
+        log(f"📡 Fetching {ticker} [{tf_name}]...")
+
         repo = StockDataRepository()
 
         df_new = yf.download(
@@ -268,20 +300,24 @@ def append_new_data(ticker, tf_name, cfg):
         )
 
         if df_new is None or df_new.empty:
-            log(f"⚠ {ticker} [{tf_name}] no data")
+            log(f"⚠ No data returned: {ticker} [{tf_name}]")
             return False
+
+        log(f"📥 Raw data received: {ticker} [{tf_name}] shape={df_new.shape}")
 
         df_new.reset_index(inplace=True)
         df_new = normalize_columns(df_new)
 
-        # DB WRITE (PRIMARY)
+        log(f"🔧 Normalized data: {ticker} [{tf_name}] shape={df_new.shape}")
+
         repo.insert_ohlcv_df(ticker, tf_name, df_new)
         repo.log_ingestion(ticker, tf_name, len(df_new), "success")
 
-        # CSV CACHE WRITE (RESTORED FEATURE)
+        log(f"🧠 DB write complete: {ticker} [{tf_name}]")
+
         cache_to_disk(ticker, tf_name, df_new)
 
-        log(f"✔ {ticker} [{tf_name}] saved ({len(df_new)}) [DB + CSV]")
+        log(f"✔ Completed: {ticker} [{tf_name}] ({len(df_new)})")
 
         return True
 
@@ -289,9 +325,8 @@ def append_new_data(ticker, tf_name, cfg):
         log(f"❌ {ticker} [{tf_name}] error: {e}")
         return False
 
-
 # =========================================================
-# CORE UPDATE ENGINE
+# CORE ENGINE
 # =========================================================
 
 def _run_update_core():
@@ -301,7 +336,7 @@ def _run_update_core():
     total = len(tickers)
 
     for i, ticker in enumerate(tickers, 1):
-        log(f"📊 {ticker} ({i}/{total})")
+        log(f"📊 Processing {ticker} ({i}/{total})")
 
         for tf_name, cfg in TIMEFRAMES.items():
             append_new_data(ticker, tf_name, cfg)
@@ -309,7 +344,6 @@ def _run_update_core():
         fetch_financials(ticker)
 
     log("✅ Full update complete")
-
 
 def _run_update_single(ticker):
     log(f"🚀 Single update: {ticker}")
@@ -320,7 +354,6 @@ def _run_update_single(ticker):
     fetch_financials(ticker)
 
     log(f"✅ Done: {ticker}")
-
 
 # =========================================================
 # UI ENTRY
@@ -369,7 +402,6 @@ def run_update():
     except Exception as e:
         log(f"Preview error: {e}")
 
-
 # =========================================================
 # MAIN UI
 # =========================================================
@@ -389,7 +421,7 @@ def main():
     dashboard_log.pack(fill=tk.BOTH, expand=True)
 
     dashboard.after(2000, watch_journal_changes)
-    
+
     dashboard.mainloop()
 
 

@@ -2,6 +2,9 @@ import sqlite3
 import json
 from datetime import datetime
 
+import pandas as pd
+import numpy as np
+
 from modules.path_resolver import (
     get_stock_db_path,
     get_financial_db_path,
@@ -104,7 +107,7 @@ class StockDataRepository:
 
 
 # =========================================================
-# FINANCIAL REPOSITORY
+# FINANCIAL REPOSITORY (FIXED)
 # =========================================================
 
 class FinancialRepository:
@@ -113,10 +116,54 @@ class FinancialRepository:
         self.conn = sqlite3.connect(FIN_DB_PATH)
         self.cursor = self.conn.cursor()
 
+    # -----------------------------
+    # SAFE JSON SERIALIZER
+    # -----------------------------
+    def _safe_json(self, obj):
+
+        if isinstance(obj, dict):
+            return {str(k): self._safe_json(v) for k, v in obj.items()}
+
+        if isinstance(obj, list):
+            return [self._safe_json(v) for v in obj]
+
+        if isinstance(obj, (pd.Timestamp, datetime)):
+            return obj.isoformat()
+
+        if isinstance(obj, (np.integer, np.floating)):
+            return obj.item()
+
+        return obj
+
     def insert_statement(self, ticker, statement_type, df):
 
         if df is None or df.empty:
             return
+
+        df = df.copy()
+
+        # =========================
+        # FIX 1: REMOVE DUPLICATE COLUMNS (ROOT CAUSE OF WARNING)
+        # =========================
+        df = df.loc[:, ~df.columns.duplicated()]
+
+        # =========================
+        # FIX 2: RESET INDEX SAFELY
+        # =========================
+        df = df.reset_index()
+
+        # =========================
+        # FIX 3: FORCE ALL COLUMN NAMES TO STR
+        # =========================
+        df.columns = [str(c) for c in df.columns]
+
+        # =========================
+        # FIX 4: SAFE SERIALIZATION (NO pd.Timestamp, NO numpy issues)
+        # =========================
+        data_json = json.dumps(
+            df.astype(str).to_dict(orient="records"),
+            default=str
+        )
 
         self.cursor.execute("""
             INSERT INTO financial_statements (
@@ -130,7 +177,7 @@ class FinancialRepository:
         """, (
             ticker,
             statement_type,
-            json.dumps(df.to_dict()),
+            data_json,
             "latest",
             datetime.utcnow().isoformat()
         ))

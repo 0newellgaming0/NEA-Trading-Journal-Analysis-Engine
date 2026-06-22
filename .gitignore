@@ -25,6 +25,8 @@ data/candlestickAnalysis/
 **/data/systemFiles/journal.csv
 **/data/systemFiles/Webull_Orders_Records.csv
 readMe/developerNotes/MAIN - 00 - REPO STRUCTURE.txt
+.github/workflows/
+
 
 # IDE
 .vscode/

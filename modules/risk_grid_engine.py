@@ -1,6 +1,21 @@
 import tkinter as tk
+import logging
 
+# ==========================================================
+# RISK ENGINE LOGGING SETUP
+# ==========================================================
 
+logger = logging.getLogger("risk_grid_engine")
+logger.setLevel(logging.DEBUG)
+
+if not logger.handlers:
+    handler = logging.StreamHandler()
+    formatter = logging.Formatter(
+        "[RISK_ENGINE] %(levelname)s | %(message)s"
+    )
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    
 # ==========================================================
 # VARIABLES
 # ==========================================================
@@ -44,47 +59,57 @@ def initialize_risk_engine(root):
     global total_cost, total_shares
     global rr_targets
     global buy_now_price, buy_now_shares, buy_now_total
+    global _engine_initialized, _engine_root
 
-    ticker = tk.StringVar(root, value="")
-    account = tk.DoubleVar(root, value=1000)
-    low = tk.DoubleVar(root, value=0.92)
-    risk_pct = tk.DoubleVar(root, value=0.01)
-    risk_dollar = tk.DoubleVar(root)
+    logger.info("Initializing risk engine...")
 
-    stop = tk.DoubleVar(root, value=0.55358)
-    last_high = tk.DoubleVar(root, value=2.47)
+    try:
+        _engine_root = root
+        _engine_initialized = True
 
-    ladder_prices = [tk.DoubleVar(root) for _ in range(4)]
-    ladder_shares = [tk.DoubleVar(root) for _ in range(4)]
-    ladder_totals = [tk.DoubleVar(root) for _ in range(4)]
+        ticker = tk.StringVar(root, value="")
+        account = tk.DoubleVar(root, value=1000)
+        low = tk.DoubleVar(root, value=0.92)
+        risk_pct = tk.DoubleVar(root, value=0.01)
+        risk_dollar = tk.DoubleVar(root)
 
-    total_cost = tk.DoubleVar(root)
-    total_shares = tk.DoubleVar(root)
+        stop = tk.DoubleVar(root, value=0.55358)
+        last_high = tk.DoubleVar(root, value=2.47)
 
-    rr_targets = [tk.DoubleVar(root) for _ in range(4)]
+        ladder_prices = [tk.DoubleVar(root) for _ in range(4)]
+        ladder_shares = [tk.DoubleVar(root) for _ in range(4)]
+        ladder_totals = [tk.DoubleVar(root) for _ in range(4)]
 
-    buy_now_price = tk.DoubleVar(root, value=1.716)
-    buy_now_shares = tk.DoubleVar(root)
-    buy_now_total = tk.DoubleVar(root)
+        total_cost = tk.DoubleVar(root)
+        total_shares = tk.DoubleVar(root)
 
-    # traces
-    for v in [account, risk_pct, buy_now_price]:
-        v.trace_add("write", recalc)
+        rr_targets = [tk.DoubleVar(root) for _ in range(4)]
 
-    low.trace_add("write", auto_calc_stop)
-    last_high.trace_add("write", auto_calc_stop)
-    ladder_prices[0].trace_add("write", auto_set_buy_now)
-    stop.trace_add("write", stop_edited)
-    buy_now_price.trace_add("write", buy_now_edited)
+        buy_now_price = tk.DoubleVar(root, value=1.716)
+        buy_now_shares = tk.DoubleVar(root)
+        buy_now_total = tk.DoubleVar(root)
+
+        for v in [account, risk_pct, buy_now_price]:
+            v.trace_add("write", recalc)
+
+        low.trace_add("write", auto_calc_stop)
+        last_high.trace_add("write", auto_calc_stop)
+        ladder_prices[0].trace_add("write", auto_set_buy_now)
+        stop.trace_add("write", stop_edited)
+        buy_now_price.trace_add("write", buy_now_edited)
+
+        logger.info("Risk engine initialized successfully")
+
+    except Exception as e:
+        logger.exception(f"Failed to initialize risk engine: {e}")
+        _engine_initialized = False
     
 # ==========================================================
 # SAFE FLOAT
 # ==========================================================
-
 def safe_float(value, default=0.0):
 
     try:
-
         value = str(value).strip()
 
         if value == "":
@@ -92,9 +117,9 @@ def safe_float(value, default=0.0):
 
         return float(value)
 
-    except:
+    except Exception as e:
+        logger.warning(f"safe_float failed for value={value}: {e}")
         return default
-
 
 # ==========================================================
 # PREVIEW TEXT
@@ -142,89 +167,61 @@ def build_preview_row(row):
 
 def auto_calc_stop(*args):
 
+    logger.info("auto_calc_stop triggered")
+
     try:
 
-        lh_raw = str(
-            safe_float(last_high.get())
-        ).strip()
+        lh_raw = str(safe_float(last_high.get())).strip()
+        lo_raw = str(safe_float(low.get())).strip()
 
-        lo_raw = str(
-            safe_float(low.get())
-        ).strip()
+        logger.debug(f"last_high={lh_raw}, low={lo_raw}")
 
         if lh_raw == "" or lo_raw == "":
+            logger.warning("auto_calc_stop aborted: empty values")
             return
 
         lh = float(lh_raw)
         lo = float(lo_raw)
 
         if lh <= lo:
+            logger.warning(f"Invalid range: last_high <= low ({lh} <= {lo})")
             return
 
         price_range = lh - lo
-
-        shakeout_level = lo - (
-            price_range * 0.075238
-        )
-
+        shakeout_level = lo - (price_range * 0.075238)
         range_percent = price_range / lh
 
+        logger.debug(f"range={price_range}, shakeout={shakeout_level}, range%={range_percent}")
+
         if range_percent < 0.10:
-
-            stop_buffer = (
-                price_range * 0.06
-            )
-
+            stop_buffer = price_range * 0.06
         elif range_percent < 0.20:
-
-            stop_buffer = (
-                price_range * 0.09
-            )
-
+            stop_buffer = price_range * 0.09
         elif range_percent < 0.35:
-
-            stop_buffer = (
-                price_range * 0.12
-            )
-
+            stop_buffer = price_range * 0.12
         else:
+            stop_buffer = price_range * 0.18
 
-            stop_buffer = (
-                price_range * 0.18
-            )
-
-        calc_stop = (
-            shakeout_level - stop_buffer
-        )
-
+        calc_stop = shakeout_level - stop_buffer
         max_loss_threshold = lo * 0.65
 
         if calc_stop < max_loss_threshold:
-
+            logger.debug("Stop adjusted to max_loss_threshold")
             calc_stop = max_loss_threshold
 
         if calc_stop <= 0:
-
+            logger.warning("Stop invalid (<=0), fallback applied")
             calc_stop = lo * 0.50
 
-        stop.set(
-            round(calc_stop, 4)
-        )
+        stop.set(round(calc_stop, 4))
+
+        logger.info(f"Stop calculated: {calc_stop}")
 
         stop_manual["value"] = False
-
         recalc()
 
-    except ValueError:
-
-        pass
-
     except Exception as e:
-
-        print(
-            "auto_calc_stop error:",
-            e
-        )
+        logger.exception(f"auto_calc_stop error: {e}")
 
 
 def stop_edited(*args):
@@ -237,146 +234,83 @@ def stop_edited(*args):
 # ==========================================================
 # CALCULATION ENGINE
 # ==========================================================
+_recalc_lock = False
+
 
 def recalc(*args):
 
+    global _recalc_lock
+
+    if _recalc_lock:
+        return
+
+    _recalc_lock = True
+
     try:
+        logger.info("recalc triggered")
 
-        r_dollar = (
-            account.get()
-            * risk_pct.get()
-        )
+        r_dollar = account.get() * risk_pct.get()
+        risk_dollar.set(round(r_dollar, 2))
 
-        risk_dollar.set(
-            round(r_dollar, 2)
-        )
+        price_range = safe_float(last_high.get()) - safe_float(low.get())
 
-        price_range = (
-            safe_float(last_high.get())
-            - safe_float(low.get())
-        )
-
-        fib_levels = [
-            0.328,
-            0.238,
-            0.015,
-            -0.075238
-        ]
+        fib_levels = [0.328, 0.238, 0.015, -0.075238]
 
         for i, fib in enumerate(fib_levels):
 
-            val = (
-                safe_float(low.get())
-                + (price_range * fib)
-            )
+            val = safe_float(low.get()) + (price_range * fib)
 
             if i == 3 and val <= 0:
+                val = safe_float(low.get()) * 0.88
 
-                val = (
-                    safe_float(low.get())
-                    * 0.88
-                )
+            ladder_prices[i].set(round(val, 4))
 
-            ladder_prices[i].set(
-                round(val, 4)
-            )
-
-        allocations = [
-            0.25,
-            0.750,
-            0,
-            0
-        ]
+        allocations = [0.25, 0.750, 0, 0]
 
         total_sh = 0
         total_cost_val = 0
 
         for i in range(4):
 
-            risk_per_share = (
-                ladder_prices[i].get()
-                - safe_float(stop.get())
-            )
+            risk_per_share = ladder_prices[i].get() - safe_float(stop.get())
 
-            sh = (
-                (
-                    r_dollar
-                    * allocations[i]
-                )
-                / risk_per_share
-                if risk_per_share > 0
-                else 0
-            )
+            if risk_per_share <= 0:
+                sh = 0
+            else:
+                sh = (r_dollar * allocations[i]) / risk_per_share
 
-            ladder_shares[i].set(
-                round(sh, 2)
-            )
-
-            ladder_totals[i].set(
-                round(
-                    sh
-                    * ladder_prices[i].get(),
-                    2
-                )
-            )
+            ladder_shares[i].set(round(sh, 2))
+            ladder_totals[i].set(round(sh * ladder_prices[i].get(), 2))
 
             total_sh += sh
+            total_cost_val += sh * ladder_prices[i].get()
 
-            total_cost_val += (
-                sh
-                * ladder_prices[i].get()
-            )
-
-        total_shares.set(
-            round(total_sh, 2)
-        )
-
-        total_cost.set(
-            round(total_cost_val, 2)
-        )
+        total_shares.set(round(total_sh, 2))
+        total_cost.set(round(total_cost_val, 2))
 
         for i in range(4):
-
             rr_targets[i].set(
                 round(
                     ladder_prices[i].get()
-                    + (
-                        ladder_prices[i].get()
-                        - safe_float(stop.get())
-                    ),
+                    + (ladder_prices[i].get() - safe_float(stop.get())),
                     5
                 )
             )
 
-        risk_ps = (
-            buy_now_price.get()
-            - safe_float(stop.get())
-        )
+        risk_ps = buy_now_price.get() - safe_float(stop.get())
 
-        bn_sh = (
-            r_dollar / risk_ps
-            if risk_ps > 0
-            else 0
-        )
+        if risk_ps > 0:
+            bn_sh = r_dollar / risk_ps
+        else:
+            bn_sh = 0
 
-        buy_now_shares.set(
-            round(bn_sh, 2)
-        )
+        buy_now_shares.set(round(bn_sh, 2))
+        buy_now_total.set(round(bn_sh * buy_now_price.get(), 4))
 
-        buy_now_total.set(
-            round(
-                bn_sh
-                * buy_now_price.get(),
-                4
-            )
-        )
+        logger.info("recalc complete")
 
-    except Exception as e:
-
-        print(
-            "recalc error:",
-            e
-        )
+    finally:
+        _recalc_lock = False
 
 
 def auto_set_buy_now(*args):
@@ -413,35 +347,69 @@ def buy_now_edited(*args):
 # ==========================================================
 
 def get_engine_state():
-    """
-    Returns full risk engine state for journal.py sync.
-    """
-    return {
-        "ticker": ticker.get() if ticker else "",
-        "account": account.get() if account else 0,
-        "low": low.get() if low else 0,
-        "risk_pct": risk_pct.get() if risk_pct else 0,
-        "risk_dollar": risk_dollar.get() if risk_dollar else 0,
-        "stop": stop.get() if stop else 0,
-        "last_high": last_high.get() if last_high else 0,
-        "ladder_prices": [v.get() for v in ladder_prices],
-        "ladder_shares": [v.get() for v in ladder_shares],
-        "ladder_totals": [v.get() for v in ladder_totals],
-        "total_cost": total_cost.get() if total_cost else 0,
-        "total_shares": total_shares.get() if total_shares else 0,
-        "rr_targets": [v.get() for v in rr_targets],
-        "buy_now_price": buy_now_price.get() if buy_now_price else 0,
-        "buy_now_shares": buy_now_shares.get() if buy_now_shares else 0,
-        "buy_now_total": buy_now_total.get() if buy_now_total else 0
-    }
 
-
-def set_engine_state(state: dict):
-    """
-    Syncs journal entry → risk engine (used when opening editor)
-    """
     try:
+        logger.debug("get_engine_state called")
+
+        state = {
+            "ticker": ticker.get() if ticker else "",
+            "account": account.get() if account else 0,
+            "low": low.get() if low else 0,
+            "risk_pct": risk_pct.get() if risk_pct else 0,
+            "risk_dollar": risk_dollar.get() if risk_dollar else 0,
+            "stop": stop.get() if stop else 0,
+            "last_high": last_high.get() if last_high else 0,
+
+            "ladder_prices": [v.get() for v in ladder_prices],
+            "ladder_shares": [v.get() for v in ladder_shares],
+            "ladder_totals": [v.get() for v in ladder_totals],
+
+            "total_cost": total_cost.get() if total_cost else 0,
+            "total_shares": total_shares.get() if total_shares else 0,
+
+            "rr_targets": [v.get() for v in rr_targets],
+
+            "buy_now_price": buy_now_price.get() if buy_now_price else 0,
+            "buy_now_shares": buy_now_shares.get() if buy_now_shares else 0,
+            "buy_now_total": buy_now_total.get() if buy_now_total else 0,
+        }
+
+        logger.debug(f"engine state snapshot created: keys={len(state)}")
+
+        return state
+
+    except Exception as e:
+        logger.exception(f"get_engine_state error: {e}")
+        return {}
+
+def get_trade_snapshot():
+    return {
+        "entry_price": buy_now_price.get(),
+        "stop_loss": stop.get(),
+        "risk_dollar": risk_dollar.get(),
+        "account": account.get(),
+        "shares": buy_now_shares.get(),
+        "trade_total": buy_now_total.get(),
+        "range_high": last_high.get(),
+        "range_low": low.get(),
+        "ladder": [
+            {
+                "price": ladder_prices[i].get(),
+                "shares": ladder_shares[i].get(),
+                "total": ladder_totals[i].get()
+            }
+            for i in range(4)
+        ]
+    }
+    
+def set_engine_state(state: dict):
+
+    logger.info("set_engine_state called")
+
+    try:
+
         if not state:
+            logger.warning("set_engine_state received empty state")
             return
 
         if ticker and "ticker" in state:
@@ -465,46 +433,21 @@ def set_engine_state(state: dict):
         if last_high and "last_high" in state:
             last_high.set(state["last_high"])
 
+        logger.debug("scalar fields synced")
+
         if "ladder_prices" in state:
             for i, v in enumerate(state["ladder_prices"]):
                 if i < len(ladder_prices):
                     ladder_prices[i].set(v)
 
-        if "ladder_shares" in state:
-            for i, v in enumerate(state["ladder_shares"]):
-                if i < len(ladder_shares):
-                    ladder_shares[i].set(v)
+        logger.debug("ladder_prices synced")
 
-        if "ladder_totals" in state:
-            for i, v in enumerate(state["ladder_totals"]):
-                if i < len(ladder_totals):
-                    ladder_totals[i].set(v)
-
-        if total_cost and "total_cost" in state:
-            total_cost.set(state["total_cost"])
-
-        if total_shares and "total_shares" in state:
-            total_shares.set(state["total_shares"])
-
-        if "rr_targets" in state:
-            for i, v in enumerate(state["rr_targets"]):
-                if i < len(rr_targets):
-                    rr_targets[i].set(v)
-
-        if buy_now_price and "buy_now_price" in state:
-            buy_now_price.set(state["buy_now_price"])
-
-        if buy_now_shares and "buy_now_shares" in state:
-            buy_now_shares.set(state["buy_now_shares"])
-
-        if buy_now_total and "buy_now_total" in state:
-            buy_now_total.set(state["buy_now_total"])
-
-        # force recalculation after sync
         recalc()
 
+        logger.info("set_engine_state complete")
+
     except Exception as e:
-        print("set_engine_state error:", e)
+        logger.exception(f"set_engine_state error: {e}")
 
 
 def reset_engine():
@@ -552,29 +495,40 @@ def reset_engine():
 # ==========================================================
 
 _engine_initialized = False
+_engine_root = None
 
 
 def ensure_initialized():
     """
-    Prevents journal.py from calling engine before initialize_risk_engine().
+    Prevents journal.py from calling engine before initialize_risk_engine(root).
+    Does NOT auto-create a Tk root (avoids crashing headless or embedded contexts).
     """
     global _engine_initialized
 
     if not _engine_initialized:
-        initialize_risk_engine()
-        _engine_initialized = True
+        print("[RISK_ENGINE] WARNING: engine not initialized. Call initialize_risk_engine(root) first.")
+        return False
+
+    return True
 
 
 def safe_recalc(*args):
     """
-    Wrapper used by journal UI to avoid NoneType crashes
-    before initialization.
+    Wrapper used by journal UI to avoid NoneType crashes.
     """
     try:
-        ensure_initialized()
+        if not ensure_initialized():
+            return
         recalc()
     except Exception as e:
-        print("safe_recalc error:", e)        
+        print("safe_recalc error:", e)      
         
         
-__all__ = ["initialize_risk_engine"]        
+__all__ = [
+    "initialize_risk_engine",
+    "get_engine_state",
+    "set_engine_state",
+    "safe_recalc",
+    "recalc",
+    "reset_engine"
+]       
