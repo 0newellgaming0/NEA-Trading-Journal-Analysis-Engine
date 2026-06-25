@@ -480,15 +480,23 @@ def analyze_pinbar(df):
     if len(df) < 2:
         return {"journal_prompt": "Insufficient data"}
 
+    events, active_event = build_pinbar_event_state(df)
+
+    active_trade = None
+    if active_event and active_event.get("status") == "CONFIRMED":
+        active_trade = build_active_trade_state(active_event)
+
     today_candle = df.iloc[-1]
     yesterday_candle = df.iloc[-2]
 
     today_pinbar = detect_pinbar(today_candle)
-    yesterday_pinbar = detect_pinbar(yesterday_candle)
 
-    confirmation_state = confirm_pinbar_today(
-        today_candle,
-        yesterday_pinbar
+    yesterday_pinbar = active_event if active_event else detect_pinbar(df.iloc[-2])
+
+    confirmation_state = (
+        active_event["status"]
+        if active_event else
+        confirm_pinbar_today(today_candle, yesterday_pinbar)
     )
 
     trend = evaluate_trend(df)
@@ -508,13 +516,68 @@ def analyze_pinbar(df):
         + trend["score"]
     )
 
-    events, active_event = build_pinbar_event_state(df)
-
     # =====================================================
-    # CURRENT MARKET STATE FIRST
+    # 🟢 ACTIVE TRADE OVERRIDE (HIGHEST PRIORITY)
     # =====================================================
 
-    if yesterday_pinbar.get("detected"):
+    if active_trade:
+
+        regime = "ACTIVE_TRADE_MANAGEMENT"
+
+        trade_plan = {
+            "setup": "ACTIVE CONFIRMED TRADE",
+            "entry": active_trade["entry"],
+            "stop_close": active_trade["stop"],
+            "stop_wick": active_trade["invalidation"],
+            "target1": active_trade["target1"],
+            "target2": active_trade["target2"],
+            "failure": f"Invalidation at {active_trade['invalidation']}",
+            "interpretation": "Trade is ACTIVE. Monitoring continuation or failure."
+        }
+
+        return {
+            "journal_prompt": format_pinbar_journal_prompt({
+                "today_pinbar": today_pinbar,
+                "yesterday_pinbar": active_event,
+                "confirmation_state": "CONFIRMED",
+                "trend": trend["trend"],
+                "liquidity_sweep": sweep["sweep"],
+                "structure": structure["label"],
+                "volume": volume["confirmed"],
+                "institutional_state": volume["institutional_state"],
+                "fibonacci": fib["label"],
+                "intent": intent,
+                "confirm_score": confirm_score,
+                "context": fib["score"],
+                "regime": regime,
+                "trade_plan": trade_plan
+            })
+        }
+
+    # =====================================================
+    # CURRENT MARKET STATE FIRST (EVENT-DRIVEN REGIME)
+    # =====================================================
+
+    if active_event:
+
+        status = active_event.get("status")
+
+        if status == "CONFIRMED":
+            regime = "INSTITUTIONAL_REVERSAL_CONTINUATION"
+
+        elif status == "FAILED":
+            regime = "LIQUIDITY_FAILURE_EVENT"
+
+        elif status == "PENDING":
+            regime = "PENDING_CONFIRMATION"
+
+        elif status == "EXPIRED":
+            regime = "NO_EDGE"
+
+        else:
+            regime = "NO_EDGE"
+
+    elif yesterday_pinbar.get("detected"):
 
         if confirmation_state == "CONFIRMED":
             regime = "INSTITUTIONAL_REVERSAL_CONTINUATION"
@@ -540,22 +603,22 @@ def analyze_pinbar(df):
     # =====================================================
     # TODAY FORMED A NEW PINBAR
     # =====================================================
-    elif today_pinbar.get("detected"):
 
+    elif today_pinbar.get("detected"):
         regime = "NEW_PINBAR_FORMATION"
 
     # =====================================================
     # OLDER UNRESOLVED EVENT
     # =====================================================
-    elif active_event:
 
+    elif active_event:
         regime = "PENDING_CONFIRMATION"
 
     # =====================================================
     # NO CURRENT EVENT
     # =====================================================
-    else:
 
+    else:
         regime = "NO_EDGE"
 
     trade_plan = build_pinbar_trade_plan(

@@ -55,12 +55,16 @@ def normalize_timestamp(df):
                 return c
 
         return None
-
+        
+    open_col = find_col("open")
     high_col = find_col("high")
     low_col = find_col("low")
     close_col = find_col("close")
     volume_col = find_col("volume")
 
+    if open_col is None:
+        raise ValueError(f"Missing Open column. Available: {list(df.columns)}")
+        
     if high_col is None:
         raise ValueError(f"Missing High column. Available: {list(df.columns)}")
 
@@ -77,6 +81,7 @@ def normalize_timestamp(df):
     # STANDARDIZED OUTPUT COLUMNS
     # =====================================================
 
+    df["Open"] = pd.to_numeric(df[open_col], errors="coerce")
     df["High"] = pd.to_numeric(df[high_col], errors="coerce")
     df["Low"] = pd.to_numeric(df[low_col], errors="coerce")
     df["Close"] = pd.to_numeric(df[close_col], errors="coerce")

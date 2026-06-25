@@ -73,13 +73,14 @@ from modules.path_resolver import get_stock_data_path, get_project_root
 from modules.yahoo_history import load_yahoo_history
 from modules.volume_context import load_volume_analysis
 from modules.candlestick_state_engine import CandlestickInstitutionalStateEngine
+from modules.eventEngine import EventStore
 
 import logging
 
 # =========================================================
 # CONFIG (PATH-RESOLVER ALIGNED)
 # =========================================================
-
+GLOBAL_EVENT_STORE = EventStore()
 BASE_DIR = get_project_root()
 
 LOG_DIR = os.path.join(BASE_DIR, "logs")
@@ -1207,7 +1208,8 @@ def generate_signal_template(row):
         )
 
         engine = CandlestickInstitutionalStateEngine(
-            ticker
+            ticker,
+            GLOBAL_EVENT_STORE
         )
 
         candlestick_df = engine.run(
@@ -1345,8 +1347,8 @@ def generate_signal_template(row):
 📅Journal Entry Date: {row.get('timestamp','').split('T')[0]}
 📈Ticker: {row.get('ticker','')}
 ==================================================
-{candlestick_block}
 {candlestick_block1}
+{candlestick_block}
 {financial_block}
 {historical_results}
 {stop_block}
