@@ -1,0 +1,250 @@
+FRACTAL ENGINE (NEA PLUGIN) — README
+
+Version: 2.1 FIXED
+Type: Fractal Pivot + Fractal Break Event System
+Framework: NEA Event Architecture
+Classification: Microstructure Event Trigger Engine
+Author: Newell Trading Group
+
+🧠 1. OVERVIEW
+
+The Bill Williams Fractal Engine is a microstructure event detection system designed to identify liquidity pivots and capture actionable fractal breakouts in real time.
+
+Unlike traditional indicator-based systems that rely on lagging signals or smoothing functions, this module operates as a:
+
+Event-driven structural detector of market turning points and break confirmations.
+
+It implements a strict interpretation of Bill Williams fractal theory, while extending it into a modern NEA event lifecycle framework.
+
+🎯 2. CORE PURPOSE
+
+The module has two primary responsibilities:
+
+🔹 A) Detect Fractal Pivots (Liquidity Extremes)
+
+Identify local market structure turning points where liquidity is:
+
+absorbed
+rejected
+or exhausted
+🔹 B) Detect Fractal Break Events
+
+Confirm when price:
+
+breaks above a bullish pivot high → LONG trigger
+breaks below a bearish pivot low → SHORT trigger
+🧩 3. SYSTEM DESIGN PHILOSOPHY
+
+This module treats price not as a trend, but as:
+
+A sequence of liquidity imbalances forming pivot structures and break events.
+
+Key Philosophy Rules:
+Fractals are not signals
+Fractals are reference structures
+Breaks are the actual trade triggers
+Failure is structural invalidation
+🏗️ 4. ARCHITECTURE
+
+The system is composed of four layers:
+
+1. Safe Helpers
+2. Fractal Pivot Detector (Structure Identification)
+3. Fractal Break Detector (Event Confirmation)
+4. Trade Builder (Execution Model)
+5. Analyzer (Event Lifecycle Engine)
+📍 5. FRACTAL PIVOT DETECTION
+Function:
+detect_fractal_pivot(df, i, window=2)
+🔹 Purpose
+
+Detects adaptive liquidity extremes using a dynamic window rather than a fixed 5-bar structure.
+
+🔹 Logic
+
+A candle is classified as a fractal pivot if:
+
+🟢 Bullish Pivot (Liquidity Low)
+Current low is the lowest within surrounding window
+🔴 Bearish Pivot (Liquidity High)
+Current high is the highest within surrounding window
+🔹 Output Structure
+{
+  "type": "FRACTAL_PIVOT",
+  "direction": "BullishPivot | BearishPivot",
+  "high": float,
+  "low": float,
+  "index": int
+}
+🧠 Interpretation
+Pivot Type	Meaning
+Bullish Pivot	Liquidity sweep below structure
+Bearish Pivot	Liquidity sweep above structure
+⚡ 6. FRACTAL BREAK DETECTION
+Function:
+detect_fractal_break(event, high, low)
+🔹 Purpose
+
+Evaluates whether price has violated the fractal structure, triggering either:
+
+breakout continuation
+or structural failure
+🔹 Rules
+🟢 Bullish Pivot
+BREAK_UP → high > fractal_high
+FAIL → low < fractal_low
+🔴 Bearish Pivot
+BREAK_DOWN → low < fractal_low
+FAIL → high > fractal_high
+🧠 Key Principle
+
+A fractal is only meaningful when it is broken or invalidated.
+
+No break = no trade.
+
+💰 7. TRADE MODEL (FRACTAL BREAK EXECUTION)
+Function:
+build_bw_trade(event)
+🔹 Trade Type
+
+All trades generated are classified as:
+
+FRACTAL_BREAK
+🔹 Bullish Trade Structure
+
+Triggered when a BullishPivot breaks upward
+
+{
+  "direction": "LONG",
+  "entry": fractal_high,
+  "stop": fractal_low - 0.1R,
+  "invalidation": fractal_low,
+  "target1": fractal_high + R,
+  "target2": fractal_high + 2R
+}
+🔹 Bearish Trade Structure
+
+Triggered when a BearishPivot breaks downward
+
+{
+  "direction": "SHORT",
+  "entry": fractal_low,
+  "stop": fractal_high + 0.1R,
+  "invalidation": fractal_high,
+  "target1": fractal_low - R,
+  "target2": fractal_low - 2R
+}
+🧠 Trade Logic Summary
+Entry = breakout level
+Stop = opposite fractal boundary
+Targets = measured structural expansion (R multiples)
+Invalidated when structure fails
+🔁 8. EVENT LIFECYCLE ENGINE
+Function:
+analyze_bw_fractals(df, event_store)
+🔹 STEP 1 — Pivot Discovery
+
+The system scans backward in time:
+
+Most recent valid fractal pivot is selected.
+
+Event is initialized as:
+
+{
+  "status": "PENDING",
+  "status_reason": "Fractal pivot registered"
+}
+🔹 STEP 2 — Break Monitoring
+
+After pivot detection, forward scanning begins:
+
+Outcomes:
+Condition	Result
+Break Up / Down	CONFIRMED
+Opposite break	FAILED
+No action	remains pending
+🔹 STEP 3 — Resolution
+
+Event transitions:
+
+🟡 PENDING
+
+→ waiting for break
+
+🟢 CONFIRMED
+
+→ breakout occurred
+
+🔴 FAILED
+
+→ invalidation occurred
+
+📊 9. OUTPUT STRUCTURE
+Final Return Format:
+{
+  "event": {...},
+  "trade": {...},
+  "regime": "FRACTAL_BREAK_CONFIRMED | PENDING"
+}
+🧠 10. REGIME LOGIC
+Regime	Meaning
+PENDING	Fractal formed, no break yet
+CONFIRMED	Breakout occurred
+FAILED	Structure invalidated
+🧩 11. INSTITUTIONAL ROLE IN NEA SYSTEM
+
+This module functions as:
+
+🔹 Microstructure Trigger Layer
+
+It does NOT:
+
+model volume regimes
+compute absorption
+define accumulation phases
+perform Wyckoff classification
+
+It ONLY:
+
+identifies structural pivots
+detects breakout execution points
+🔗 12. SYSTEM INTEGRATION
+Compatible With:
+Event Engine (event_store)
+Journal System (extract_event_date)
+Trade Builder Layer
+Dashboard Visualization Layer
+Multi-timeframe analyzers
+🧠 13. DESIGN PRINCIPLES
+✔ Strict separation of concerns:
+Pivot detection ≠ trade logic ≠ regime modeling
+✔ Event-driven architecture:
+All outputs are stateful events, not indicators
+✔ Deterministic behavior:
+Same input → same fractal classification
+✔ No smoothing or lag indicators:
+Pure structural detection only
+🚨 14. WHAT THIS MODULE IS NOT
+
+This system is NOT:
+
+❌ Wyckoff engine
+❌ volume-based system
+❌ trend-following system
+❌ J-hook model
+❌ indicator oscillator system
+🔥 15. STRATEGIC VALUE
+
+This module is used for:
+
+identifying liquidity turning points
+detecting breakout initiation zones
+generating high-confidence structural trade entries
+anchoring higher-level institutional models (Wyckoff / T-Line / Three Methods)
+📌 16. SUMMARY
+
+The Bill Williams Fractal Engine is a:
+
+Pure structural pivot + breakout event system designed to convert price extremes into actionable trade triggers.
+
+It does not interpret the market — it detects structural truth points where interpretation begins.

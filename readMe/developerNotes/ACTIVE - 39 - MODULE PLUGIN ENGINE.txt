@@ -1,0 +1,317 @@
+📊 Candlestick State Engine
+Overview
+
+The Candlestick Institutional State Engine is a modular multi-pattern candlestick analysis framework designed to detect, normalize, and structure institutional-grade price action signals across multiple candlestick systems.
+
+It integrates multiple independent pattern detectors into a unified execution pipeline that produces:
+
+Structured journal-ready prompts
+Standardized analysis outputs
+Time-stamped historical records
+CSV exports organized by ticker and time partition
+
+The system is designed for multi-timeframe trading workflows, especially those focused on:
+
+Wyckoff-style interpretation
+Liquidity-based price action
+Institutional candlestick behavior
+Reversal and continuation pattern recognition
+🧠 Core Design Philosophy
+
+This engine follows a 3-layer architecture:
+
+1. Raw Module Layer
+
+Each candlestick module runs independently:
+
+Pinbar
+Hammer
+Engulfing
+Inside Bar
+Marubozu
+Star patterns
+Harami
+Three Inside patterns
+DCCPL reversal systems
+
+Each module returns:
+
+Either a dictionary
+A string
+Or a raw object
+2. Normalization Layer
+
+The system standardizes all outputs into:
+
+{
+    "ticker": str,
+    "module": str,
+    "journal_prompt": str,
+    "timestamp": ISO_UTC
+}
+
+This ensures:
+
+Cross-module compatibility
+UI consistency
+Database-ready structure
+CSV export integrity
+3. Persistence Layer
+
+Outputs are saved into structured CSV files:
+
+/data/candlestickAnalysis/<TICKER>/<YYYY-MM>/
+
+Each file contains:
+
+Full multi-module analysis snapshot
+Timestamped execution record
+Journal-ready interpretation prompts
+📦 Module Registry
+
+The engine dynamically executes all registered candlestick modules:
+
+Module Name	Function
+Pinbar	analyze_pinbar
+Engulfing	analyze_engulfing
+Inside Bar	analyze_inside_bar
+Hammer	analyze_hammer
+Marubozu	analyze_marubozu
+Star Pattern	analyze_star_pattern
+Harami	analyze_harami_pattern
+Three Inside	analyze_three_inside_pattern
+DCCPL	analyze_reversal_patterns
+
+Each module is executed independently and contributes to the final dataset.
+
+⚙️ Core Components
+🔹 get_project_root()
+def get_project_root()
+
+Returns the absolute root directory of the project.
+
+Purpose:
+Ensures portability across environments
+Avoids hardcoded file paths
+Standardizes project structure resolution
+🔹 get_analysis_data_path()
+def get_analysis_data_path()
+
+Returns the base /data directory used for storage.
+
+🔹 base_empty()
+def base_empty(ticker, module_name)
+
+Creates a fallback structure when a module:
+
+Returns None
+Fails execution
+Raises an exception
+
+Ensures the pipeline never breaks.
+
+🔹 normalize_output()
+def normalize_output(ticker, module_name, raw)
+Purpose:
+
+Converts inconsistent module outputs into a unified schema.
+
+Handles:
+Dictionary outputs
+String outputs
+Exception fallback outputs
+Output Schema:
+{
+    "ticker": "AAPL",
+    "module": "Pinbar",
+    "journal_prompt": "...",
+    "timestamp": "2026-06-21T..."
+}
+🏗️ CandlestickInstitutionalStateEngine
+🔹 Constructor
+def __init__(self, ticker)
+Purpose:
+
+Initializes the engine for a specific ticker.
+
+Features:
+Normalizes ticker to uppercase
+Builds module registry
+Prepares execution pipeline
+🔹 Module Registry
+
+Stored in:
+
+self.registry
+
+Example:
+
+{
+    "Pinbar": analyze_pinbar,
+    "Engulfing": analyze_engulfing,
+    ...
+}
+
+Each key:
+
+Represents a candlestick model
+Maps to an independent analysis function
+🔹 run(df)
+Purpose:
+
+Executes all candlestick modules against a dataset.
+
+Workflow:
+Iterates through registry
+Runs each module
+Normalizes output
+Captures errors safely
+Returns unified DataFrame
+Output:
+pd.DataFrame([
+    {
+        "ticker": "AAPL",
+        "module": "Pinbar",
+        "journal_prompt": "...",
+        "timestamp": "..."
+    }
+])
+Error Handling
+
+If a module fails:
+
+"journal_prompt": f"ERROR: {str(e)}"
+
+This ensures:
+
+No pipeline crashes
+Full diagnostic traceability
+💾 export(df, filename=None)
+Purpose:
+
+Persists analysis results to disk.
+
+📁 Storage Structure
+/data/candlestickAnalysis/<TICKER>/<YYYY-MM>/
+
+Example:
+
+/data/candlestickAnalysis/AAPL/2026-06/
+🧾 File Naming
+
+If no filename is provided:
+
+AAPL_candlestick_analysis_20260621_153000.csv
+
+Includes:
+
+Ticker
+Date
+Time
+Analysis type
+🧠 Execution Flow
+Run full analysis
+Generate monthly partition
+Create directory if missing
+Write CSV
+Return:
+DataFrame
+File path
+Return Value
+(out_df, filepath)
+📄 build_report(df)
+Purpose:
+
+Generates a human-readable consolidated report.
+
+Output Format:
+==================================================
+TICKER: AAPL
+MODULE: PINBAR
+==================================================
+
+{journal_prompt}
+Use Cases:
+Trading journal export
+Manual review
+Strategy validation
+Backtesting interpretation
+🧩 System Workflow
+Full Execution Pipeline:
+Input DataFrame
+        ↓
+Run All Modules
+        ↓
+Normalize Outputs
+        ↓
+Create Structured DataFrame
+        ↓
+Generate Journal Prompts
+        ↓
+Export CSV (ticker/month partition)
+        ↓
+Return dataset + file path
+📊 Key Features
+✔ Multi-Module Analysis
+
+Runs 9 independent candlestick systems simultaneously.
+
+✔ Standardized Output Layer
+
+Ensures all outputs are compatible across UI and storage layers.
+
+✔ Safe Failure Handling
+
+No module can break the system.
+
+✔ Institutional Storage Structure
+
+Ticker-based + monthly partitioned dataset storage.
+
+✔ Journal Integration Ready
+
+Outputs are directly formatted for trading journal systems.
+
+📁 Data Architecture
+journal/
+└── data/
+    └── candlestickAnalysis/
+        ├── AAPL/
+        │   ├── 2026-06/
+        │   ├── 2026-07/
+        ├── TSLA/
+        ├── NVDA/
+⚠️ Design Notes
+This system prioritizes interpretability over raw indicators
+Each module is treated as an independent signal generator
+The engine is intentionally non-ML and rule-based
+Designed for hybrid discretionary + systematic trading workflows
+🚀 Future Upgrade Paths
+
+Recommended enhancements:
+
+1. Signal Scoring Layer
+
+Add weighted confidence per module
+
+2. Cross-Module Confluence Engine
+
+Detect when multiple patterns agree
+
+3. Backtest Integration Layer
+
+Replay CSV outputs as historical strategy simulation
+
+4. Real-time Streaming Mode
+
+Convert engine into live candle processor
+
+🧠 Summary
+
+The Candlestick Institutional State Engine is a multi-pattern institutional analysis pipeline that:
+
+Runs multiple candlestick models in parallel
+Normalizes all outputs into a unified schema
+Generates journal-ready interpretations
+Stores results in structured ticker/month partitions
+Provides a scalable foundation for trading analytics systems

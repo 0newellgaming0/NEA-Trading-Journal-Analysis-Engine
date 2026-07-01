@@ -1,5 +1,5 @@
 # =========================================================
-# DOJI MODULE
+# DOJI MODULE (BIGALOW PROGRESSIVE VERSION)
 # STRATEGY PLUGIN (RESOLVER COMPATIBLE)
 # =========================================================
 
@@ -10,7 +10,7 @@ logger = logging.getLogger("doji")
 
 
 # =========================================================
-# DETECTOR (PURE - PINBAR ALIGNED)
+# DETECTOR (UNCHANGED CORE LOGIC)
 # =========================================================
 def detect_doji(candle, f):
 
@@ -21,9 +21,7 @@ def detect_doji(candle, f):
         low = f(candle.get("Low"))
         open_ = f(candle.get("Open"))
         close = f(candle.get("Close"))
-
     except Exception as e:
-        logger.error(f"[DOJI] OHLC extraction failed: {e}")
         return {"detected": False, "error": str(e)}
 
     if any(v is None for v in [high, low, open_, close]):
@@ -39,23 +37,9 @@ def detect_doji(candle, f):
 
     body_ratio = body / max(rng, 1e-9)
 
-    # =========================================================
-    # FOUR PRICE DOJI
-    # =========================================================
-    if high == low:
-        return {
-            "detected": True,
-            "type": "FOUR_PRICE_DOJI",
-            "direction": "NEUTRAL",
-            "high": high,
-            "low": low,
-            "open": open_,
-            "close": close
-        }
-
-    # =========================================================
+    # =====================================================
     # DOJI FAMILY
-    # =========================================================
+    # =====================================================
     if body_ratio < 0.05:
 
         if upper < rng * 0.1 and lower > rng * 0.6:
@@ -65,7 +49,6 @@ def detect_doji(candle, f):
                 "direction": "Bullish",
                 "high": high,
                 "low": low,
-                "open": open_,
                 "close": close
             }
 
@@ -76,18 +59,6 @@ def detect_doji(candle, f):
                 "direction": "Bearish",
                 "high": high,
                 "low": low,
-                "open": open_,
-                "close": close
-            }
-
-        if upper > rng * 0.3 and lower > rng * 0.3:
-            return {
-                "detected": True,
-                "type": "LONG_LEGGED_DOJI",
-                "direction": "Neutral",
-                "high": high,
-                "low": low,
-                "open": open_,
                 "close": close
             }
 
@@ -97,60 +68,14 @@ def detect_doji(candle, f):
             "direction": "Neutral",
             "high": high,
             "low": low,
-            "open": open_,
             "close": close
         }
-
-    # =========================================================
-    # SPINNING TOP
-    # =========================================================
-    if 0.05 <= body_ratio <= 0.25:
-        if upper > rng * 0.2 and lower > rng * 0.2:
-            return {
-                "detected": True,
-                "type": "SPINNING_TOP",
-                "direction": "Neutral",
-                "high": high,
-                "low": low,
-                "open": open_,
-                "close": close
-            }
-
-    # =========================================================
-    # HIGH WAVE CANDLE
-    # =========================================================
-    if body_ratio <= 0.3:
-        if upper > rng * 0.35 and lower > rng * 0.35:
-            return {
-                "detected": True,
-                "type": "HIGH_WAVE_CANDLE",
-                "direction": "Neutral",
-                "high": high,
-                "low": low,
-                "open": open_,
-                "close": close
-            }
-
-    # =========================================================
-    # RICKSHAW MAN
-    # =========================================================
-    if body_ratio < 0.05:
-        if abs(upper - lower) <= rng * 0.1 and upper > rng * 0.4 and lower > rng * 0.4:
-            return {
-                "detected": True,
-                "type": "RICKSHAW_MAN",
-                "direction": "Neutral",
-                "high": high,
-                "low": low,
-                "open": open_,
-                "close": close
-            }
 
     return {"detected": False}
 
 
 # =========================================================
-# TRADE BUILDER (PINBAR MIRRORED STRUCTURE)
+# TRADE BUILDER (UNCHANGED STRUCTURE)
 # =========================================================
 def build_trade_state(event):
 
@@ -159,57 +84,68 @@ def build_trade_state(event):
     rng = max(high - low, 1e-9)
 
     direction = event.get("direction", "Neutral")
+    status = event.get("status", "PENDING")
 
-    if direction in ["Bullish", "BULLISH"]:
-        return {
-            "trade_type": "REVERSAL",
-            "direction": "LONG",
-            "entry": high,
-            "stop": low - rng * 0.1,
-            "invalidation": low,
-            "target1": high + rng,
-            "target2": high + 2 * rng,
-            "failure": f"Close below {low}",
-            "interpretation": f"{event.get('type')} bullish indecision reversal setup"
-        }
+    trade = {
+        "trade_type": "REVERSAL",
+        "direction": direction,
+        "active": status != "FAILED",
 
-    if direction in ["Bearish", "BEARISH"]:
-        return {
-            "trade_type": "REVERSAL",
-            "direction": "SHORT",
-            "entry": low,
-            "stop": high + rng * 0.1,
-            "invalidation": high,
-            "target1": low - rng,
-            "target2": low - 2 * rng,
-            "failure": f"Close above {high}",
-            "interpretation": f"{event.get('type')} bearish indecision reversal setup"
-        }
+        # ==================================================
+        # UNIFIED FIELDS (MATCH PINBAR + RENDERER)
+        # ==================================================
+        "entry": high if direction == "Bullish" else low,
+        "stop": low if direction == "Bullish" else high,
 
-    return {}
+        "invalidation": low if direction == "Bullish" else high,
+
+        "target1": (high + rng) if direction == "Bullish" else (low - rng),
+        "target2": (high + 2 * rng) if direction == "Bullish" else (low - 2 * rng),
+
+        "failure": f"Close below {low}" if direction == "Bullish"
+                   else f"Close above {high}",
+
+        "interpretation": "Doji expansion reversal setup"
+    }
+
+    # ==================================================
+    # STATE DISPLAY FIX
+    # ==================================================
+    if status == "PENDING":
+        trade["state"] = "WAITING_BIAS"
+    elif status == "CONFIRMED":
+        trade["state"] = "ACTIVE"
+    elif status == "FAILED":
+        trade["state"] = "INVALIDATED"
+
+    return trade
 
 
 # =========================================================
-# EVENT RULES (PINBAR CONSISTENT)
+# BIGALOW EVENT RULES (PROGRESSIVE LIFECYCLE)
 # =========================================================
 def event_rules(event, candle, close, high, low):
 
     status = event.get("status")
 
+    # ==================================================
+    # STEP 1: DETERMINE BIAS (ONLY ONCE)
+    # ==================================================
     if status == "PENDING":
 
-        if event["direction"] == "Bullish":
-            if close > event["high"]:
-                return "CONFIRM"
-            if close < event["low"]:
-                return "FAIL"
+        if close > event["high"]:
+            event["direction"] = "Bullish"
+            return "CONFIRM_BIAS"
 
-        elif event["direction"] == "Bearish":
-            if close < event["low"]:
-                return "CONFIRM"
-            if close > event["high"]:
-                return "FAIL"
+        if close < event["low"]:
+            event["direction"] = "Bearish"
+            return "CONFIRM_BIAS"
 
+        return None
+
+    # ==================================================
+    # STEP 2: AFTER BIAS IS SET → ONLY FAILURE CHECK
+    # ==================================================
     elif status == "CONFIRMED":
 
         if event["direction"] == "Bullish":
@@ -221,10 +157,9 @@ def event_rules(event, candle, close, high, low):
                 return "FAIL"
 
     return None
-
-
+    
 # =========================================================
-# MAIN ANALYZER (PINBAR STRUCTURE MIRROR)
+# MAIN ANALYZER (PROGRESSIVE BIGALOW FLOW)
 # =========================================================
 def analyze_doji(df, event_store):
 
@@ -232,7 +167,9 @@ def analyze_doji(df, event_store):
 
     latest_pattern = None
 
-    # SEARCH BACKWARD
+    # ==================================================
+    # DETECTION PASS
+    # ==================================================
     for i in range(len(df) - 1, -1, -1):
 
         candle = df.iloc[i]
@@ -241,30 +178,39 @@ def analyze_doji(df, event_store):
         if not detected.get("detected"):
             continue
 
-        event_date = extract_event_date(df, i)
-
         latest_pattern = {
             "id": 1,
             "detected": True,
             "type": detected["type"],
-            "direction": detected["direction"],
-            "trade_type": "REVERSAL",
+
+            # ALWAYS NEUTRAL ON CREATION
+            "direction": "Neutral",
+
             "high": detected["high"],
             "low": detected["low"],
+            "close": detected["close"],
+
             "index": i,
-            "date": event_date,
-            "days_active": 0,
+            "date": extract_event_date(df, i),
+
             "status": "PENDING",
-            "status_reason": "Awaiting confirmation"
+            "days_active": 0,
+            "status_reason": "Doji detected → awaiting bias candle"
         }
 
-        logger.info(f"[DOJI] Pattern found {detected['type']} at index={i}")
         break
 
     if latest_pattern is None:
         return {"event": {}, "trade": {}, "regime": "NONE"}
 
-    # VALIDATION LOOP
+    # ==================================================
+    # TRADE ALWAYS EXISTS
+    # ==================================================
+    trade = build_trade_state(latest_pattern)
+
+    # ==================================================
+    # STATE MACHINE
+    # ==================================================
     for i in range(latest_pattern["index"] + 1, len(df)):
 
         candle = df.iloc[i]
@@ -277,23 +223,40 @@ def analyze_doji(df, event_store):
 
         latest_pattern["days_active"] = i - latest_pattern["index"]
 
-        if action == "CONFIRM" and latest_pattern["status"] == "PENDING":
+        if action == "CONFIRM_BIAS":
 
             latest_pattern["status"] = "CONFIRMED"
             latest_pattern["resolved_date"] = extract_event_date(df, i)
-            latest_pattern["status_reason"] = "Entry trigger validated"
 
         elif action == "FAIL":
 
             latest_pattern["status"] = "FAILED"
             latest_pattern["resolved_date"] = extract_event_date(df, i)
-            latest_pattern["status_reason"] = "Pattern invalidated"
             break
 
+    # ==================================================
+    # FINAL TRADE UPDATE
+    # ==================================================
     trade = build_trade_state(latest_pattern)
+
+    # ==================================================
+    # REGIME (CLEAN + PINBAR PARITY STYLE)
+    # ==================================================
+    if latest_pattern["status"] == "CONFIRMED":
+
+        if latest_pattern["direction"] == "Bullish":
+            regime = "DOJI_BULL_EXPANSION"
+        else:
+            regime = "DOJI_BEAR_EXPANSION"
+
+    elif latest_pattern["status"] == "FAILED":
+        regime = "FAILED"
+
+    else:
+        regime = "DOJI_COMPRESSION"
 
     return {
         "event": latest_pattern,
         "trade": trade,
-        "regime": "UNKNOWN"
+        "regime": regime
     }

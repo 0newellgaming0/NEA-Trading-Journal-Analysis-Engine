@@ -1,0 +1,245 @@
+=========================================================
+THREE CANDLE FAMILY MODULE — README
+=========================================================
+Overview
+
+The Three Candle Family Module is a strategy plugin (resolver-compatible) designed to detect and manage three-candle structural patterns in price action.
+
+It implements a dual-phase detection system:
+
+Full Pattern Detection (Confirmation Phase)
+Seed Detection (Early Structure Phase)
+
+This enables both:
+
+Historical backward detection of completed patterns
+Forward-looking identification of developing structures
+Supported Patterns
+🔵 Continuation Patterns
+Three White Soldiers (Bullish momentum expansion)
+Three Black Crows (Bearish momentum expansion)
+🔴 Reversal Patterns
+Three Inside Up (bullish reversal)
+Three Inside Down (bearish reversal)
+Three Outside Up (bullish engulf + continuation break)
+Three Outside Down (bearish engulf + continuation break)
+Architecture Design Philosophy
+
+This module follows the same institutional event lifecycle model used across your system:
+
+BACKWARD SCAN
+     ↓
+FULL PATTERN FOUND  OR  SEED STRUCTURE FOUND
+     ↓
+EVENT CREATION
+     ↓
+LIFECYCLE TRACKING
+     ↓
+CONFIRMED / FAILED / EXPIRED
+Event Lifecycle Model
+
+Each detected pattern passes through a standardized lifecycle:
+
+1. SEED (Early Structure)
+Optional fallback detection phase
+Identifies developing 3-candle structure
+No breakout required yet
+Used for early positioning awareness
+status = "SEED"
+2. PENDING (Full Pattern Detected)
+Full 3-candle structure confirmed
+Awaiting breakout validation
+Entry logic becomes active
+status = "PENDING"
+3. CONFIRMED
+Breakout condition satisfied
+Trade is now active
+status = "CONFIRMED"
+4. FAILED
+Structure invalidated before confirmation
+Opposite breakout or breakdown occurred
+5. EXPIRED
+No validation occurred within lifecycle window
+Detection Engine
+Full Pattern Detection
+
+Function:
+
+detect_three_candle_pattern(c1, c2, c3, f)
+Responsibilities:
+Identifies complete 3-candle structures
+Validates:
+Momentum alignment
+Body progression
+Structural engulf / breakout conditions
+Output:
+{
+    "detected": True,
+    "type": "Three Inside Up",
+    "direction": "Bullish",
+    "high": ...,
+    "low": ...,
+    "close": ...
+}
+Seed Detection Engine (MANDATORY)
+
+Function:
+
+detect_three_candle_seed(c1, c2, c3, f)
+Purpose:
+
+Detects early formation of structure BEFORE confirmation
+
+Characteristics:
+No breakout required
+Detects momentum alignment
+Detects directional compression or continuation bias
+Used For:
+Early institutional positioning awareness
+Pre-breakout tracking
+Progressive event initialization
+Output Example:
+{
+    "detected": True,
+    "type": "Three Candle Seed (Bullish)",
+    "direction": "Bullish",
+    "high": ...,
+    "low": ...
+}
+Trade Construction Logic
+
+Function:
+
+build_three_candle_trade_state(event)
+Trade Classification Logic:
+CONTINUATION:
+Three White Soldiers
+Three Black Crows
+REVERSAL:
+Three Inside Up/Down
+Three Outside Up/Down
+Trade Structure:
+{
+    "trade_type": "CONTINUATION / REVERSAL",
+    "direction": "LONG / SHORT",
+    "entry": ...,
+    "stop": ...,
+    "invalidation": ...,
+    "target1": ...,
+    "target2": ...,
+    "failure": "...",
+    "interpretation": "..."
+}
+Event Rule Engine
+
+Function:
+
+three_candle_event_rules(event, candle, close, high, low)
+Supports:
+SEED STATE
+Early structure validation
+Breakout confirmation or failure
+PENDING STATE
+Full pattern waiting for confirmation
+CONFIRMED STATE
+Post-breakout invalidation monitoring
+Rule Logic:
+Bullish Events:
+CONFIRM → close breaks above structure high
+FAIL → close breaks below structure low
+Bearish Events:
+CONFIRM → close breaks below structure low
+FAIL → close breaks above structure high
+Analyzer Engine
+
+Function:
+
+analyze_three_candle_patterns(df, event_store, f=float)
+Execution Flow
+PASS 1 — Full Pattern Scan
+
+Backward scan:
+
+detect_three_candle_pattern()
+
+If found:
+
+Create event
+Set status = PENDING
+Enter lifecycle tracking
+PASS 2 — Seed Scan (MANDATORY FALLBACK)
+
+If no full pattern exists:
+
+detect_three_candle_seed()
+
+If found:
+
+Create event
+Set status = SEED
+Begin early lifecycle tracking
+Backward Search Architecture
+
+The module uses reverse chronological scanning:
+
+Newest Candle → Oldest Candle
+
+This ensures:
+
+Latest institutional activity is prioritized
+Most recent pattern is selected
+No duplicate overlapping events
+Event Structure
+
+Each event contains:
+
+{
+    "id": 1,
+    "detected": True,
+    "type": "Three Inside Up",
+    "direction": "Bullish",
+    "high": float,
+    "low": float,
+    "index": int,
+    "date": str,
+    "status": "SEED | PENDING | CONFIRMED | FAILED | EXPIRED",
+    "days_active": int,
+    "status_reason": str
+}
+Design Consistency Rules
+
+This module is aligned with all institutional pattern modules:
+
+Mirrors:
+Pinbar Module (event lifecycle)
+Tasuki Gap Module (seed + full dual-pass)
+Rising/Falling Three Methods (3-phase continuation logic)
+Key Design Principles
+1. No Inline Engine Logic
+All detection remains inside module
+Event engine remains generic
+2. Mandatory Seed Awareness
+Even 3-candle patterns have early structure detection
+3. Backward Compatibility
+Works with existing EventStore system
+Requires no engine modification
+4. Deterministic Outputs
+Pure functions only
+No external state mutation inside detectors
+Why This Module Matters
+
+This module enables:
+
+Early detection of institutional momentum shifts
+Transition tracking from compression → expansion
+Cleaner multi-pattern stacking across symbols
+Unified lifecycle behavior across all pattern families
+Future Expansion Compatibility
+
+This architecture supports:
+
+4-candle patterns
+5-candle patterns
+Hybrid pattern fusion systems
+Multi-pattern confluence engines
+AI-driven probability scoring layers

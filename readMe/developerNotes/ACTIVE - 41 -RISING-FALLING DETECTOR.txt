@@ -1,0 +1,529 @@
+RISING / FALLING THREE METHODS MODULE
+Strategy Plugin (Resolver Compatible)
+Progressive Event Architecture with Early Structure Seeding
+Module Overview
+
+The Rising / Falling Three Methods Module is a continuation-pattern strategy plugin designed for the NEA Event Architecture.
+
+Unlike traditional candlestick scanners that only recognize completed patterns after the final breakout candle has formed, this module supports:
+
+Historical Pattern Detection
+Progressive Pattern Detection
+Early Structure Recognition
+Event Lifecycle Tracking
+Trade Plan Generation
+Resolver Integration
+Journal Integration
+Dashboard Integration
+
+The module operates as a complete event-driven strategy component rather than a simple pattern detector.
+
+Purpose
+
+The objective of the module is to identify:
+
+Bullish Continuation
+
+Rising Three Methods
+
+and
+
+Bearish Continuation
+
+Falling Three Methods
+
+while also recognizing the structure before the final breakout candle appears.
+
+This allows the framework to monitor developing continuation setups in real time rather than discovering them only after completion.
+
+Why Progressive Detection Matters
+
+Most candlestick systems behave like this:
+
+Day 1
+Day 2
+Day 3
+Day 4
+Day 5
+
+Pattern Completed
+Pattern Detected
+
+This creates a lagging signal.
+
+The NEA architecture improves this by detecting the pattern while it is forming.
+
+Instead of waiting for Candle 5:
+
+Day 1
+Day 2
+Day 3
+Day 4
+
+Seed Event Created
+
+The module begins tracking the setup immediately.
+
+When Candle 5 arrives:
+
+Pattern Completed
+Pattern Confirmed
+Trade State Generated
+
+This enables proactive monitoring rather than reactive discovery.
+
+Supported Patterns
+Rising Three Methods
+
+Bullish Continuation Pattern
+
+Structure
+Candle 1
+Large bearish impulse candle
+
+Candle 2
+Small consolidation candle
+
+Candle 3
+Small consolidation candle
+
+Candle 4
+Small consolidation candle
+
+Candle 5
+Bullish breakout candle
+
+Visual Example
+
+|
+|
+|      █
+|     ███
+|      █
+
+   █
+  ███
+   █
+
+   █
+  ███
+   █
+
+   █
+  ███
+   █
+
+██████████
+██████████
+██████████
+
+Interpretation
+
+The market experiences a strong move.
+
+Participants temporarily pause.
+
+The pullback remains contained inside the original range.
+
+The breakout candle demonstrates that trend control remains intact.
+
+Falling Three Methods
+
+Bearish Continuation Pattern
+
+Structure
+Candle 1
+Large bullish impulse candle
+
+Candle 2
+Small consolidation candle
+
+Candle 3
+Small consolidation candle
+
+Candle 4
+Small consolidation candle
+
+Candle 5
+Bearish breakdown candle
+
+Interpretation
+
+The market pauses after a strong move.
+
+Countertrend activity remains weak.
+
+The final candle resumes trend dominance.
+
+Module Architecture
+
+The module follows the standard strategy architecture.
+
+Detector Layer
+        │
+        ▼
+Seed Detector
+        │
+        ▼
+Event Creation
+        │
+        ▼
+Event Lifecycle
+        │
+        ▼
+Trade Builder
+        │
+        ▼
+Structured Output
+Detector Layer
+Full Pattern Detector
+
+Function:
+
+detect_three_methods()
+
+Purpose:
+
+Detect completed five-candle formations.
+
+Returns:
+
+{
+    "detected": True,
+    "type": "Rising Three Methods",
+    "direction": "Bullish"
+}
+
+or
+
+{
+    "detected": True,
+    "type": "Falling Three Methods",
+    "direction": "Bearish"
+}
+Early Structure Detector
+
+Function:
+
+detect_three_methods_seed()
+
+Purpose:
+
+Identify incomplete Three Methods structures before Candle 5 exists.
+
+This detector is mandatory.
+
+It is not optional.
+
+Rising Three Methods Seed
+
+The system recognizes:
+
+Candle 1
+Strong impulse candle
+
+Candle 2
+Contained pullback
+
+Candle 3
+Contained pullback
+
+Candle 4
+Contained pullback
+
+Before Candle 5 appears.
+
+Falling Three Methods Seed
+
+The system recognizes:
+
+Candle 1
+Strong impulse candle
+
+Candle 2
+Contained rally
+
+Candle 3
+Contained rally
+
+Candle 4
+Contained rally
+
+Before Candle 5 appears.
+
+Event Lifecycle
+
+The module extends the standard lifecycle.
+
+Traditional modules:
+
+PENDING
+│
+├─ CONFIRMED
+├─ FAILED
+└─ EXPIRED
+
+Three Methods modules:
+
+SEED
+│
+├─ CONFIRMED
+├─ FAILED
+└─ EXPIRED
+SEED State
+
+Purpose:
+
+Track incomplete structures.
+
+Example:
+
+Candle 1 Complete
+Candle 2 Complete
+Candle 3 Complete
+Candle 4 Complete
+
+Seed Event Created
+
+The pattern is forming.
+
+The breakout candle has not yet appeared.
+
+CONFIRMED State
+
+Occurs when:
+
+Bullish
+
+close > event["high"]
+
+Bearish
+
+close < event["low"]
+
+Meaning:
+
+The continuation breakout has occurred.
+
+FAILED State
+
+Occurs when:
+
+Bullish
+
+close < event["low"]
+
+Bearish
+
+close > event["high"]
+
+Meaning:
+
+The continuation thesis has broken.
+
+EXPIRED State
+
+Occurs when:
+
+Maximum monitoring window exceeded
+
+without confirmation.
+
+Event Object Structure
+
+Generated event:
+
+{
+    "id": 1,
+    "detected": True,
+    "type": "Rising Three Methods",
+    "direction": "Bullish",
+    "trade_type": "CONTINUATION",
+    "high": 100,
+    "low": 90,
+    "index": 150,
+    "date": "2026-01-01",
+    "status": "SEED",
+    "status_reason": "Three Methods structure forming"
+}
+Trade Builder
+
+Function:
+
+build_three_methods_trade_state()
+
+Purpose:
+
+Transform pattern information into a structured trade plan.
+
+Bullish Trade Plan
+
+Returns:
+
+{
+    "trade_type": "CONTINUATION",
+    "direction": "LONG",
+    "entry": high,
+    "stop": low - 0.1R,
+    "invalidation": low,
+    "target1": high + 1.5R,
+    "target2": high + 3.0R
+}
+Bearish Trade Plan
+
+Returns:
+
+{
+    "trade_type": "CONTINUATION",
+    "direction": "SHORT",
+    "entry": low,
+    "stop": high + 0.1R,
+    "invalidation": high,
+    "target1": low - 1.5R,
+    "target2": low - 3.0R
+}
+Backward Search Logic
+
+The analyzer always searches newest first.
+
+for i in range(len(df)-1, 3, -1)
+
+Benefits:
+
+Most recent signal wins
+Historical compatibility preserved
+No Event Engine modifications required
+Progressive Detection Workflow
+Historical Pattern Exists
+Scan
+↓
+Full Pattern Found
+↓
+Create Pending Event
+↓
+Lifecycle Monitoring
+↓
+Trade Plan
+Pattern Still Building
+Scan
+↓
+No Full Pattern
+↓
+Seed Structure Found
+↓
+Create Seed Event
+↓
+Monitor Future Candles
+↓
+Pattern Completion
+↓
+Confirmation
+Output Structure
+
+The module always returns:
+
+{
+    "event": event,
+    "trade": trade,
+    "regime": "UNKNOWN"
+}
+No Signal Return
+{
+    "event": {},
+    "trade": {},
+    "regime": "NONE"
+}
+Dashboard Integration
+
+Recommended Columns
+
+Column	Description
+Pattern	Rising/Falling Three Methods
+Direction	Bullish/Bearish
+Status	Seed / Confirmed / Failed
+Entry	Trade Trigger
+Stop	Risk Level
+Target1	First Objective
+Target2	Second Objective
+Days Active	Event Age
+Journal Integration
+
+The module exposes:
+
+trade["interpretation"]
+
+Example:
+
+Rising Three Methods bullish continuation expansion structure.
+
+or
+
+Falling Three Methods bearish continuation expansion structure.
+
+These interpretations can be consumed directly by:
+
+Journal.py
+AI Commentary
+Trade Reports
+Dashboard Narratives
+Resolver Compatibility
+
+Compatible with:
+
+EventStore
+reconcile_event_store()
+update_event_status()
+find_latest_unresolved_pattern()
+
+No modifications to Event Engine are required.
+
+The module handles all progressive detection internally.
+
+Design Philosophy
+
+The module treats Three Methods patterns as evolving market events.
+
+Instead of asking:
+
+Did the pattern occur?
+
+it asks:
+
+Is the pattern currently forming?
+
+This aligns with institutional event tracking and transforms the pattern from a static historical observation into a monitored continuation opportunity.
+
+Framework Compliance Checklist
+[X] Detector implemented
+[X] Seed detector implemented
+[X] Backward search enabled
+[X] Progressive detection enabled
+[X] Trade builder implemented
+[X] Event rules implemented
+[X] Lifecycle tracking implemented
+[X] Resolver compatible
+[X] Dashboard compatible
+[X] Journal compatible
+[X] Event Engine compatible
+[X] Structured return format
+[X] No Event Engine modifications required
+Module Version
+
+Version: 2.0
+
+Architecture: Progressive Event Architecture
+
+Pattern Family: Continuation
+
+Signals:
+
+Rising Three Methods
+Falling Three Methods
+
+Framework: NEA Event Architecture
+
+Author: Newell Trading Group
+
+Status: Production Ready
+
+Classification: Institutional Continuation Pattern Module with Mandatory Early Structure Seeding and Backward Historical Detection.

@@ -1,6 +1,6 @@
 # =========================================================
 # ENGULFING MODULE
-# STRATEGY PLUGIN (RESOLVER COMPATIBLE)
+# STRATEGY PLUGIN (RESOLVER COMPATIBLE - PINBAR PARITY FIXED)
 # =========================================================
 
 import logging
@@ -8,8 +8,9 @@ from modules.eventEngine import extract_event_date
 
 logger = logging.getLogger("engulfing")
 
+
 # =========================================================
-# DETECTOR (PINBAR + INSTITUTIONAL HYBRID CORE)
+# DETECTOR (PURE - PINBAR STYLE)
 # =========================================================
 def detect_engulfing(prev_candle, curr_candle, f):
 
@@ -30,118 +31,57 @@ def detect_engulfing(prev_candle, curr_candle, f):
         logger.error(f"[ENGULFING] OHLC extraction failed: {e}")
         return {"detected": False, "error": str(e)}
 
-    if any(v is None for v in [po, pc, ph, pl, o, c, h, l]):
+    if None in [po, pc, ph, pl, o, c, h, l]:
         return {"detected": False}
 
     if ph <= pl or h <= l:
         return {"detected": False}
 
-    # =========================================================
-    # STRUCTURE BASELINES
-    # =========================================================
     prev_high = max(po, pc)
     prev_low = min(po, pc)
 
     curr_high = max(o, c)
     curr_low = min(o, c)
 
-    prev_body = abs(pc - po)
-    curr_body = abs(c - o)
-
-    # avoid divide errors
-    if prev_body <= 1e-9 or curr_body <= 1e-9:
-        return {"detected": False}
-
-    engulf_ratio = curr_body / max(prev_body, 1e-9)
-
-    true_engulf = (
+    # =========================================================
+    # CORE ENGULFING CONDITION (STRUCTURAL ONLY)
+    # =========================================================
+    is_engulfing = (
         curr_high >= prev_high and
         curr_low <= prev_low
     )
 
-    # =========================================================
-    # 🔥 INSTITUTIONAL FILTER LAYER (NEW CORE)
-    # =========================================================
-
-    # 1. Must be real displacement engulfing
-    if not true_engulf:
+    if not is_engulfing:
         return {"detected": False}
 
-    # 2. Minimum displacement threshold (institutional strength gate)
-    if engulf_ratio < 1.25:
-        return {"detected": False}
-
-    # 3. Directional pressure validation (STRICT)
-    bullish_pressure = (
-        pc < po and
-        c > o and
-        c > ph   # closes above previous high (key upgrade)
-    )
-
-    bearish_pressure = (
-        pc > po and
-        c < o and
-        c < pl   # closes below previous low (key upgrade)
-    )
-
     # =========================================================
-    # OUTSIDE BAR (INSTITUTIONAL VERSION)
+    # DIRECTION (SIMPLE + PINBAR PARITY STYLE)
     # =========================================================
-    outside_bar = (h > ph and l < pl)
+    body_prev = pc - po
+    body_curr = c - o
 
-    # =========================================================
-    # STRENGTH CLASSIFICATION
-    # =========================================================
-    if engulf_ratio >= 2.0:
-        strength = "INSTITUTIONAL"
-    elif engulf_ratio >= 1.5:
-        strength = "STRONG"
+    bullish = body_curr > 0 and c >= max(po, pc)
+    bearish = body_curr < 0 and c <= min(po, pc)
+
+    direction = None
+    if bullish:
+        direction = "Bullish"
+    elif bearish:
+        direction = "Bearish"
     else:
-        strength = "STANDARD"
+        direction = "Neutral"
 
-    # =========================================================
-    # FINAL CLASSIFICATION
-    # =========================================================
-    if bullish_pressure:
-        return {
-            "detected": True,
-            "type": "BULLISH_ENGULFING",
-            "direction": "Bullish",
-            "strength": strength,
-            "engulf_ratio": round(engulf_ratio, 2),
-            "high": h,
-            "low": l,
-            "open": o,
-            "close": c
-        }
+    return {
+        "detected": True,
+        "type": "Engulfing",
+        "direction": direction,
 
-    if bearish_pressure:
-        return {
-            "detected": True,
-            "type": "BEARISH_ENGULFING",
-            "direction": "Bearish",
-            "strength": strength,
-            "engulf_ratio": round(engulf_ratio, 2),
-            "high": h,
-            "low": l,
-            "open": o,
-            "close": c
-        }
+        "high": h,
+        "low": l,
 
-    if outside_bar and (bullish_pressure or bearish_pressure):
-        return {
-            "detected": True,
-            "type": "OUTSIDE_BAR_ENGULFING",
-            "direction": "Bullish" if c > o else "Bearish",
-            "strength": strength,
-            "engulf_ratio": round(engulf_ratio, 2),
-            "high": h,
-            "low": l,
-            "open": o,
-            "close": c
-        }
-
-    return {"detected": False}
+        "prev_high": ph,
+        "prev_low": pl
+    }
 
 
 # =========================================================
@@ -159,29 +99,40 @@ def build_trade_state(event):
         return {
             "trade_type": "REVERSAL",
             "direction": "LONG",
+
             "entry": high,
             "stop": low - rng * 0.1,
             "invalidation": low,
+
             "target1": high + rng,
             "target2": high + 2 * rng,
+
             "failure": f"Close below {low}",
-            "interpretation": "Bullish engulfing structural reversal setup"
+            "interpretation": "Bullish engulfing = displacement + control shift"
         }
 
     if direction == "Bearish":
         return {
             "trade_type": "REVERSAL",
             "direction": "SHORT",
+
             "entry": low,
             "stop": high + rng * 0.1,
             "invalidation": high,
+
             "target1": low - rng,
             "target2": low - 2 * rng,
+
             "failure": f"Close above {high}",
-            "interpretation": "Bearish engulfing structural reversal setup"
+            "interpretation": "Bearish engulfing = displacement + control shift"
         }
 
-    return {}
+    return {
+        "trade_type": "REVERSAL",
+        "direction": "NONE",
+        "failure": "No directional confirmation",
+        "interpretation": "Neutral engulfing structure"
+    }
 
 
 # =========================================================
@@ -251,24 +202,23 @@ def analyze_engulfing(df, event_store):
         if not detected.get("detected"):
             continue
 
-        event_date = extract_event_date(df, i)
-
         latest_pattern = {
             "id": 1,
             "detected": True,
             "type": detected["type"],
             "direction": detected["direction"],
-            "trade_type": "REVERSAL",
+
             "high": detected["high"],
             "low": detected["low"],
+
             "index": i,
-            "date": event_date,
+            "date": extract_event_date(df, i),
+
             "days_active": 0,
             "status": "PENDING",
             "status_reason": "Awaiting confirmation"
         }
 
-        logger.info(f"[ENGULFING] Found {detected['type']} at index={i}")
         break
 
     if latest_pattern is None:

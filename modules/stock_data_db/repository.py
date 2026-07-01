@@ -100,6 +100,58 @@ class StockDataRepository:
         ))
 
         self.log_conn.commit()
+        
+    def load_ohlcv_df(self, ticker, timeframe="daily", limit=600):
+        """
+        Load OHLCV history from stock.db.
+
+        Returns oldest -> newest so indicators calculate correctly.
+        """
+
+        query = """
+            SELECT
+                timestamp,
+                open,
+                high,
+                low,
+                close,
+                adj_close,
+                volume
+            FROM ohlcv_data
+            WHERE ticker = ?
+              AND timeframe = ?
+            ORDER BY timestamp DESC
+            LIMIT ?
+        """
+
+        df = pd.read_sql_query(
+            query,
+            self.conn,
+            params=(ticker.upper(), timeframe, limit)
+        )
+
+        if df.empty:
+            return df
+
+        # restore chronological order
+        df = df.iloc[::-1].reset_index(drop=True)
+
+        # normalize types
+        df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
+
+        numeric_cols = [
+            "open",
+            "high",
+            "low",
+            "close",
+            "adj_close",
+            "volume",
+        ]
+
+        for col in numeric_cols:
+            df[col] = pd.to_numeric(df[col], errors="coerce")
+
+        return df        
 
     def close(self):
         self.conn.close()

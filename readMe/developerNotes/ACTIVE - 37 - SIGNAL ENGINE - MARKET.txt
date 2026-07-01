@@ -1,0 +1,402 @@
+📌 Signal Engine Module — README
+Overview
+
+The Signal Engine is a modular, multi-factor market context evaluation system designed to transform raw OHLCV data into a structured institutional-grade context pack.
+
+It is not a strategy engine.
+
+It is not a signal generator.
+
+It is a:
+
+Multi-layer market intelligence compression layer
+
+It converts raw price data into a structured decision context used by downstream systems such as:
+
+Event engines
+Trade journals
+Pattern detectors (Pinbar, Wyckoff, etc.)
+Execution logic
+🧠 Core Philosophy
+
+The Signal Engine is built on three principles:
+
+1. Decomposition of Market Reality
+
+Market structure is broken into independent analytical dimensions:
+
+Trend
+Liquidity behavior
+Structural positioning
+Fibonacci alignment
+Volume confirmation
+2. No Cross-Contamination of Logic
+
+Each module is independent:
+
+Trend logic does not influence volume logic
+Fibonacci does not affect structure detection
+Each component is isolated and deterministic
+3. Context Pack Abstraction
+
+All outputs are compiled into a single unified object:
+
+Context Pack = compressed market state snapshot
+
+This is the only object downstream systems should consume.
+
+🏗️ Architecture
+              +----------------------+
+              |     OHLCV Data       |
+              +----------+-----------+
+                         |
+                         v
+        +----------------------------------+
+        |   Signal Engine Layer            |
+        |----------------------------------|
+        | Trend Evaluation                 |
+        | Liquidity Sweep Detection       |
+        | Structure Evaluation            |
+        | Fibonacci Alignment            |
+        | Volume Confirmation             |
+        +----------------------------------+
+                         |
+                         v
+              +----------------------+
+              |   Context Pack       |
+              | (Single Contract API)|
+              +----------+-----------+
+                         |
+                         v
+        +----------------------------------+
+        | Event Engine / Journal / AI      |
+        +----------------------------------+
+📦 Core Functions
+1. Trend Evaluation
+Function:
+evaluate_trend(df, f)
+Purpose
+
+Determines macro directional bias using:
+
+EMA 8
+EMA 21
+SMA 50
+Requirements
+Minimum 50 candles
+Must contain Close column
+Logic
+Condition	Trend
+EMA8 > EMA21 > SMA50	Bullish
+EMA8 < EMA21 < SMA50	Bearish
+Otherwise	Neutral
+Output
+{
+    "trend": "Bullish",
+    "score": 15
+}
+Interpretation
+Score 15 = strong directional alignment
+Score 5 = consolidation / indecision
+2. Liquidity Sweep Detection
+Function:
+detect_liquidity_sweep(df)
+Purpose
+
+Detects Wyckoff-style liquidity events:
+
+Spring (bear trap)
+Upthrust (bull trap)
+Logic
+Swing Calculation
+Swing High = max previous Highs
+Swing Low = min previous Lows
+Patterns
+Spring
+Current Low < swing_low
+AND Close > swing_low
+
+→ Price sweeps liquidity below support then reclaims it
+
+Upthrust
+Current High > swing_high
+AND Close < swing_high
+
+→ Price breaks resistance then fails
+
+Output
+{
+    "sweep": True,
+    "type": "Spring",
+    "score": 25
+}
+Interpretation
+Type	Meaning
+Spring	Accumulation signal
+Upthrust	Distribution signal
+3. Market Structure Evaluation
+Function:
+evaluate_structure(df)
+Purpose
+
+Identifies positional context relative to:
+
+Support
+Resistance
+Logic
+
+Uses:
+
+50-period rolling low (support)
+50-period rolling high (resistance)
+Conditions
+Near Support
+|Close - Support| / Close < 3%
+Near Resistance
+|Close - Resistance| / Close < 3%
+Output
+{
+    "score": 15,
+    "label": "Near Support"
+}
+Interpretation
+Label	Meaning
+Near Support	Accumulation zone
+Near Resistance	Distribution zone
+Neutral	No structural edge
+4. Volume Confirmation Engine
+Function:
+volume_confirmation(df, rvol, detect_volume_spike, institutional_accumulation_state)
+Purpose
+
+Validates whether price action is supported by:
+
+Relative volume expansion
+Institutional activity
+Volume spikes
+Required Columns
+Volume
+Close
+High
+Low
+Inputs (External Dependencies)
+
+This module is intentionally plug-in based:
+
+Function	Purpose
+rvol	Relative volume calculation
+detect_volume_spike	Detect abnormal volume
+institutional_accumulation_state	Detect institutional behavior
+Confirmation Logic
+RVOL > 1.5
+AND Volume spike = True
+Output
+{
+    "confirmed": True,
+    "rvol": 2.13,
+    "institutional_state": "ACCUMULATION",
+    "score": 10
+}
+Interpretation
+Condition	Meaning
+Confirmed	Institutional participation present
+Not confirmed	Weak participation / retail noise
+5. Fibonacci Alignment Engine
+Function:
+evaluate_fibonacci(df)
+Purpose
+
+Detects price alignment with major Fibonacci retracement levels.
+
+Levels Used
+
+From last 50 candles:
+
+38.2%
+50%
+61.8%
+78.6%
+Logic
+
+If price is within 1% proximity of any level:
+
+→ Signal alignment
+
+Output
+{
+    "score": 5,
+    "label": "Aligned @ 1.618"
+}
+Interpretation
+Condition	Meaning
+Alignment	Reaction zone active
+No alignment	No fib confluence
+🧾 Formatter Layer (Critical Design Layer)
+Purpose
+
+Prevents raw dictionary leakage into downstream systems.
+
+Ensures:
+
+ONLY formatted strings/numbers are passed forward.
+
+Format Functions
+Function	Output
+fmt_trend	"Bullish (Strength: 15)"
+fmt_sweep	"Spring / Upthrust / None"
+fmt_structure	"Near Support / Resistance"
+fmt_fib	"Aligned @ X"
+fmt_volume	score (int)
+Why This Matters
+
+This enforces:
+
+UI safety
+Journal consistency
+Engine decoupling
+Clean AI prompt ingestion
+📦 Context Pack (CORE OUTPUT CONTRACT)
+Function:
+build_context_pack(...)
+Purpose
+
+This is the single contract output of the entire module.
+
+It merges all analytical dimensions into one structured object.
+
+Output Structure
+{
+    "trend": "Bullish (Strength: 15)",
+    "liquidity_sweep": "Spring",
+    "structure": "Near Support",
+    "fibonacci": "Aligned @ 0.618",
+    "volume": 10,
+    "institutional_state": "ACCUMULATION",
+
+    "_trend_raw": {...},
+    "_sweep_raw": {...},
+    "_structure_raw": {...},
+    "_fib_raw": {...},
+    "_volume_raw": {...}
+}
+Key Design Rule
+🔴 Downstream systems should ONLY use:
+trend
+liquidity_sweep
+structure
+fibonacci
+volume
+institutional_state
+🟡 Raw fields are for debugging only:
+_prefixed with "_"
+Logging Behavior
+
+The engine logs:
+
+Trend output
+Sweep detection
+Structure state
+Fibonacci alignment
+Volume confirmation
+Final pack summary
+
+This enables:
+
+audit trails
+debugging signal mismatches
+institutional transparency
+🔁 Data Flow Summary
+OHLCV Data
+    ↓
+Trend Evaluation
+    ↓
+Liquidity Sweep Detection
+    ↓
+Structure Evaluation
+    ↓
+Fibonacci Engine
+    ↓
+Volume Confirmation
+    ↓
+Formatter Layer
+    ↓
+Context Pack Output
+🧠 System Design Strengths
+1. Fully Modular Intelligence Layers
+
+Each signal component is independent.
+
+2. Plug-in Architecture
+
+External systems injected:
+
+rvol()
+volume spike detection
+institutional state models
+3. Deterministic Output
+
+No stochastic behavior.
+
+Same input → same output.
+
+4. Journal Ready Format
+
+Designed for:
+
+trading journal UI
+AI analysis prompts
+institutional dashboards
+5. Multi-Dimensional Market Compression
+
+This engine compresses:
+
+Domain	Signal
+Trend	EMA structure
+Liquidity	Stop hunts
+Structure	Support/resistance
+Fibonacci	Reaction zones
+Volume	Participation quality
+⚠️ Limitations
+Requires clean OHLCV data
+No intraday regime switching logic
+No adaptive thresholds (static percentages)
+No multi-timeframe aggregation
+🚀 Recommended Enhancements
+1. Multi-Timeframe Context Packs
+
+Merge:
+
+1m / 5m / 1h / 1D
+2. Institutional Scoring Layer
+
+Weighted scoring:
+
+Trend: 25%
+Volume: 30%
+Sweep: 20%
+Structure: 15%
+Fib: 10%
+3. Event Engine Integration
+
+Feed context pack directly into:
+
+EventStore lifecycle system
+4. Regime Classifier
+
+Add:
+
+Trending
+Ranging
+Distribution
+Accumulation
+5. Compression Score
+
+Measure:
+
+volatility compression
+breakout readiness
+🧾 Summary
+
+The Signal Engine is a:
+
+multi-factor market intelligence compression layer that transforms raw OHLCV data into a structured institutional context pack for downstream decision systems.

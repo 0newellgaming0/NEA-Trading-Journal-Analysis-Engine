@@ -64,3 +64,6 @@ def get_watchlist_db_path():
 
 def get_candlestick_analysis_db_path():
     return get_database_path("candlestickAnalysis.db")
+    
+def get_signals_db_path():
+    return get_database_path("signals.db")   

@@ -1,0 +1,263 @@
+# =========================================================
+# MAT HOLD MODULE — TECHNICAL README
+# STRATEGY PLUGIN (RESOLVER COMPATIBLE)
+# PROGRESSIVE EVENT SYSTEM (SEED → CONFIRMATION FLOW)
+# =========================================================
+
+## OVERVIEW
+
+The Mat Hold module is a continuation-based candlestick pattern engine designed to detect structured trend continuation after an impulsive expansion leg followed by a controlled consolidation phase.
+
+It is built around institutional behavior modeling, where:
+- Strong directional impulse candles establish imbalance
+- Multi-candle pullbacks represent controlled absorption
+- Final breakout confirms continuation of trend dominance
+
+This module is designed for:
+- Multi-timeframe trading systems
+- Institutional behavior detection frameworks
+- Wyckoff-aligned continuation analysis
+- Event-driven trade journaling systems
+
+---
+
+## CORE CONCEPT
+
+A Mat Hold structure is defined as:
+
+1. **Impulse Candle (Trend Initiation)**
+   - Strong directional candle (bullish or bearish)
+   - Establishes price imbalance
+
+2. **Controlled Pullback (Consolidation Phase)**
+   - Multiple candles remain within structural bounds
+   - Retracement is shallow and non-disruptive
+   - No full reversal of impulse move
+
+3. **Continuation Candle (Breakout / Breakdown)**
+   - Price resumes original direction
+   - Confirms continuation of institutional trend flow
+
+---
+
+## EVENT LIFECYCLE
+
+The module follows a strict event lifecycle:
+
+### 1. SEED
+- Early structural formation detected
+- Pullback is forming but not complete
+- No confirmation yet
+
+### 2. PENDING
+- Full Mat Hold structure identified
+- Awaiting directional validation
+
+### 3. CONFIRMED
+- Price breaks structure boundary
+- Continuation validated
+
+### 4. FAILED
+- Structure invalidated by reversal
+- Opposite boundary violated
+
+### 5. EXPIRED
+- No resolution within allowed timeframe (default: 15 bars)
+
+---
+
+## DETECTION LOGIC
+
+### FULL PATTERN DETECTOR
+
+The full detector validates:
+
+#### Impulse Candle
+- Body size ≥ 60% of range
+- Establishes directional bias
+
+#### Pullback Conditions
+Bullish:
+- Pullback candles stay above impulse low
+- Highs remain below impulse high (controlled compression)
+- No deep retracement into impulse body
+
+Bearish:
+- Pullback candles stay below impulse high
+- Lows remain above impulse low
+- No structural break of impulse zone
+
+#### Continuation Candle
+Bullish:
+- Final candle closes above impulse high
+
+Bearish:
+- Final candle closes below impulse low
+
+---
+
+### SEED DETECTOR
+
+The seed detector identifies early-stage structures:
+- Detects impulse + partial pullback formation
+- Does not require completion candle
+- Used for early positioning and monitoring
+
+---
+
+## LOOSENED SYMMETRY MODEL (IMPORTANT EXTENSION)
+
+Unlike strict harmonic patterns, Mat Hold uses **loose symmetry rules**:
+
+### Key Principle:
+> Structure matters more than candle uniformity
+
+### Allowed Variability:
+- Pullback candle sizes may vary
+- No requirement for equal-bodied candles
+- No strict Fibonacci retracement enforcement
+
+### Required Constraints:
+- Price must remain within impulse structure
+- Directional bias must remain intact
+- No full reversal of impulse leg
+
+---
+
+## INSTITUTIONAL BEHAVIOR MODEL
+
+The module interprets Mat Hold as:
+
+### Bullish Case:
+- Buyers absorb selling pressure during pullback
+- No meaningful retracement of impulse leg
+- Accumulation occurs inside consolidation
+
+### Bearish Case:
+- Sellers absorb buying pressure during pullback
+- No meaningful rally against impulse leg
+- Distribution occurs inside consolidation
+
+---
+
+## EVENT RULE ENGINE
+
+The validation system processes real-time price action:
+
+### SEED STATE RULES
+- Break above structure → CONFIRM (bullish)
+- Break below structure → CONFIRM (bearish)
+- Opposite break → FAIL
+
+### PENDING STATE RULES
+- Same logic as SEED but with higher confidence threshold
+
+### CONFIRMED STATE RULES
+- Only invalidation occurs if structure is violated
+  - Bullish FAIL: close below low
+  - Bearish FAIL: close above high
+
+### EXPIRATION RULE
+- If `days_active > 15` → EXPIRE
+
+---
+
+## TRADE MODEL OUTPUT
+
+Each confirmed Mat Hold generates a continuation trade plan:
+
+### Bullish Setup
+- Entry: Break above structure high
+- Stop: Below structure low (buffered)
+- Targets:
+  - Target 1: 1R expansion
+  - Target 2: 2R extension
+
+### Bearish Setup
+- Entry: Break below structure low
+- Stop: Above structure high (buffered)
+- Targets:
+  - Target 1: 1R expansion
+  - Target 2: 2R extension
+
+---
+
+## INTERPRETATION ENGINE
+
+The interpretation system explains:
+
+### Structural Logic
+- Impulse → Pullback → Continuation
+- No reversal confirmation inside structure
+- Trend remains dominant
+
+### Market Psychology
+- Pullback = absorption phase
+- Not distribution unless structure breaks
+- Continuation = dominance reassertion
+
+### Loose Symmetry Insight
+- Pullback does NOT need geometric symmetry
+- Only structural containment matters
+
+---
+
+## DATA STRUCTURE (EVENT OBJECT)
+
+```json
+{
+  "id": 1,
+  "detected": true,
+  "type": "Rising Mat Hold",
+  "direction": "Bullish",
+  "high": 2.41,
+  "low": 2.14,
+  "index": 124,
+  "date": "2026-01-22",
+  "detected_date": "2026-01-22",
+  "status": "CONFIRMED",
+  "days_active": 7,
+  "resolved_date": "2026-01-22",
+  "status_reason": "Mat Hold structure confirmed"
+}
+REGIME CLASSIFICATION
+NONE → No structure found
+SEED → Early formation
+PENDING → Structure complete, awaiting trigger
+CONFIRMED → Continuation validated
+FAILED → Breakdown of structure
+EXPIRED → Time-based invalidation
+INTEGRATION NOTES
+
+This module is designed to integrate with:
+
+candlestick_engine (event routing)
+eventEngine (date extraction)
+journal system (trade logging)
+renderer (UI display layer)
+COMMON FAILURE MODES
+False Positives
+Choppy consolidation mistaken as Mat Hold
+Weak impulse candle misclassified as trend leg
+False Negatives
+Strong continuation missed due to tight body threshold
+Late breakout not linked to structure
+PERFORMANCE INTENT
+
+The system prioritizes:
+
+Structural integrity over precision symmetry
+Institutional flow over retail candle patterns
+Continuation bias over reversal bias
+SUMMARY
+
+The Mat Hold module is a trend continuation detection engine built around:
+
+Impulse → Compression → Expansion logic
+Institutional accumulation/distribution interpretation
+Loose structural constraints (not rigid pattern matching)
+Event-driven lifecycle state machine
+
+It is designed to capture:
+
+“Controlled consolidation inside a dominant trend before continuation.”

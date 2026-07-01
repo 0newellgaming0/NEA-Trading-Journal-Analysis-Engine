@@ -1,0 +1,842 @@
+# STRATEGY MODULE TEMPLATE
+
+## Event-Driven Trading Module Architecture Standard
+
+**Module Type:** Strategy Plugin
+**Framework:** Event-Driven Analysis Engine
+**Compatibility:** Resolver Framework, Journal Framework, Dashboard Framework, Event Lifecycle Framework
+
+---
+
+# Purpose
+
+This document serves as the master template for all strategy modules within the trading framework.
+
+It defines the standardized architecture, lifecycle, naming conventions, event structures, trade structures, and integration requirements used by every pattern, indicator, signal, or strategy module.
+
+Examples include:
+
+* Pinbar
+* Inside Bar
+* Engulfing
+* Breakout
+* Supply & Demand
+* Wyckoff Events
+* Liquidity Sweeps
+* T-Line Signals
+* Bill Williams Signals
+* Elliott Wave Events
+* Institutional Accumulation Signals
+
+Every strategy module should conform to this specification to ensure seamless interoperability with:
+
+* Event Engine
+* Journal Engine
+* Dashboard Engine
+* Alert Engine
+* Strategy Resolver
+* Portfolio Manager
+* Risk Manager
+* Institutional Context Builder
+
+---
+
+# Core Philosophy
+
+A strategy module is not merely a detector.
+
+A strategy module represents a complete event lifecycle.
+
+The module must:
+
+1. Detect an event
+2. Create an event record
+3. Monitor the event
+4. Resolve the event
+5. Generate a trade state
+6. Return structured output
+
+This architecture transforms static pattern recognition into dynamic event tracking.
+
+---
+
+# Standard Module Architecture
+
+```text
+Strategy Module
+│
+├── Imports
+│
+├── Detector Layer
+│
+├── Trade Builder Layer
+│
+├── Event Rule Layer
+│
+├── Main Analyzer Layer
+│
+└── Return Structure
+```
+
+---
+
+# File Layout
+
+```python
+strategyModule.py
+```
+
+Recommended Structure:
+
+```python
+# =========================================================
+# MODULE HEADER
+# =========================================================
+
+imports
+
+logger
+
+# =========================================================
+# DETECTOR
+# =========================================================
+
+detect_signal()
+
+# =========================================================
+# TRADE BUILDER
+# =========================================================
+
+build_trade_state()
+
+# =========================================================
+# EVENT RULES
+# =========================================================
+
+event_rules()
+
+# =========================================================
+# MAIN ANALYZER
+# =========================================================
+
+analyze_signal()
+```
+
+---
+
+# Module Header
+
+Every module should begin with:
+
+```python
+# =========================================================
+# MODULE NAME
+# STRATEGY PLUGIN (RESOLVER COMPATIBLE)
+# =========================================================
+```
+
+Example:
+
+```python
+# =========================================================
+# INSIDE BAR MODULE
+# STRATEGY PLUGIN (RESOLVER COMPATIBLE)
+# =========================================================
+```
+
+---
+
+# Imports
+
+## Required
+
+```python
+import logging
+```
+
+Recommended:
+
+```python
+from modules.eventEngine import extract_event_date
+```
+
+Optional:
+
+```python
+from modules.institutional_context_builder import (
+    build_institutional_context
+)
+```
+
+```python
+from modules.signalEngine import (
+    evaluate_trend,
+    evaluate_structure
+)
+```
+
+```python
+from modules.volumeAnalysis import (
+    rvol,
+    detect_volume_spike
+)
+```
+
+---
+
+# Logger Standard
+
+Each module must define:
+
+```python
+logger = logging.getLogger("<module_name>")
+```
+
+Example:
+
+```python
+logger = logging.getLogger("insidebar")
+```
+
+---
+
+# Detector Layer
+
+## Purpose
+
+Responsible for identifying a specific pattern, signal, condition, or event.
+
+The detector should:
+
+* Be pure
+* Have no side effects
+* Perform no file operations
+* Perform no UI operations
+* Perform no event storage
+
+---
+
+## Signature
+
+```python
+def detect_signal(candle, f):
+```
+
+or
+
+```python
+def detect_signal(df):
+```
+
+depending on strategy requirements.
+
+---
+
+## Responsibilities
+
+The detector should only answer:
+
+```text
+Did a signal occur?
+```
+
+and
+
+```text
+What type of signal occurred?
+```
+
+---
+
+# Standard Detector Return
+
+Signal Found:
+
+```python
+{
+    "detected": True,
+    "type": "SignalType",
+    "direction": "Bullish"
+}
+```
+
+Signal Not Found:
+
+```python
+{
+    "detected": False
+}
+```
+
+Error State:
+
+```python
+{
+    "detected": False,
+    "error": str(error)
+}
+```
+
+---
+
+# Trade Builder Layer
+
+## Purpose
+
+Converts a detected event into a structured trade plan.
+
+This separates detection logic from execution logic.
+
+---
+
+## Signature
+
+```python
+def build_trade_state(event):
+```
+
+---
+
+## Responsibilities
+
+Calculate:
+
+* Entry
+* Stop
+* Invalidation
+* Targets
+* Failure conditions
+* Interpretation
+
+---
+
+# Standard Trade State
+
+```python
+{
+    "trade_type": "REVERSAL",
+    "direction": "LONG",
+    "entry": 0.0,
+    "stop": 0.0,
+    "invalidation": 0.0,
+    "target1": 0.0,
+    "target2": 0.0,
+    "failure": "",
+    "interpretation": ""
+}
+```
+
+---
+
+# Event Rules Layer
+
+## Purpose
+
+Controls event progression through its lifecycle.
+
+---
+
+## Signature
+
+```python
+def event_rules(
+    event,
+    candle,
+    close,
+    high,
+    low
+):
+```
+
+---
+
+# Event Lifecycle
+
+Every event should move through:
+
+```text
+PENDING
+   │
+   ├── CONFIRMED
+   │
+   ├── FAILED
+   │
+   └── EXPIRED
+```
+
+---
+
+# Valid Rule Actions
+
+```python
+"CONFIRM"
+```
+
+Signal validated.
+
+---
+
+```python
+"FAIL"
+```
+
+Signal invalidated.
+
+---
+
+```python
+"EXPIRE"
+```
+
+Signal exceeded maximum life.
+
+---
+
+```python
+None
+```
+
+No change.
+
+---
+
+# Event Object Standard
+
+Every strategy module should produce an event object.
+
+---
+
+## Required Fields
+
+```python
+{
+    "id": 1,
+    "detected": True,
+    "type": "",
+    "direction": "",
+    "trade_type": "",
+    "date": "",
+    "index": 0,
+    "status": "PENDING",
+    "status_reason": "",
+    "days_active": 0
+}
+```
+
+---
+
+# Recommended Fields
+
+```python
+{
+    "resolved_date": "",
+    "confidence": 0,
+    "regime": "",
+    "notes": ""
+}
+```
+
+---
+
+# Event Status Definitions
+
+## PENDING
+
+Signal detected.
+
+Awaiting validation.
+
+---
+
+## CONFIRMED
+
+Signal triggered.
+
+Trade setup validated.
+
+---
+
+## FAILED
+
+Signal invalidated.
+
+No longer actionable.
+
+---
+
+## EXPIRED
+
+Signal never confirmed.
+
+Opportunity has passed.
+
+---
+
+# Main Analyzer Layer
+
+## Purpose
+
+Master orchestration function.
+
+This is the only public-facing entry point.
+
+---
+
+## Signature
+
+```python
+def analyze_signal(
+    df,
+    event_store
+):
+```
+
+---
+
+# Analyzer Workflow
+
+```text
+Load Data
+    │
+    ▼
+Detect Signal
+    │
+    ▼
+Create Event
+    │
+    ▼
+Monitor Future Candles
+    │
+    ▼
+Apply Event Rules
+    │
+    ▼
+Update Event State
+    │
+    ▼
+Build Trade Plan
+    │
+    ▼
+Return Result
+```
+
+---
+
+# Step 1 — Signal Search
+
+Most modules scan backward:
+
+```python
+for i in range(
+    len(df)-1,
+    -1,
+    -1
+):
+```
+
+Newest signal wins.
+
+---
+
+# Step 2 — Event Creation
+
+Example:
+
+```python
+event = {
+    "id": 1,
+    "detected": True,
+    "type": signal_type,
+    "direction": direction,
+    "status": "PENDING"
+}
+```
+
+---
+
+# Step 3 — Validation Loop
+
+Monitor all candles after signal creation.
+
+```python
+for i in range(
+    event["index"] + 1,
+    len(df)
+):
+```
+
+---
+
+# Step 4 — Lifecycle Management
+
+Apply:
+
+```python
+event_rules()
+```
+
+to determine state transitions.
+
+---
+
+# Step 5 — Trade Construction
+
+Generate final trade state.
+
+```python
+trade = build_trade_state(event)
+```
+
+---
+
+# Return Structure Standard
+
+Every strategy module should return:
+
+```python
+{
+    "event": event,
+    "trade": trade,
+    "regime": regime
+}
+```
+
+---
+
+# No Signal Return
+
+```python
+{
+    "event": {},
+    "trade": {},
+    "regime": "NONE"
+}
+```
+
+---
+
+# Regime Integration Standard
+
+Strategy modules should not determine market regime directly unless specifically designed to do so.
+
+Instead they should accept regime information from higher-level systems.
+
+Examples:
+
+```python
+"BULLISH"
+```
+
+```python
+"BEARISH"
+```
+
+```python
+"RANGE"
+```
+
+```python
+"VOLATILE"
+```
+
+```python
+"ACCUMULATION"
+```
+
+```python
+"DISTRIBUTION"
+```
+
+---
+
+# Event Store Integration
+
+Modules should be compatible with a centralized Event Store.
+
+Recommended Methods:
+
+```python
+event_store.add_event()
+```
+
+```python
+event_store.update_event()
+```
+
+```python
+event_store.resolve_event()
+```
+
+---
+
+# Journal Compatibility
+
+Every module should provide human-readable output.
+
+Example:
+
+```python
+trade["interpretation"]
+```
+
+Used by:
+
+* Journal.py
+* Trade Reports
+* AI Commentary
+* Dashboard Panels
+
+---
+
+# Dashboard Compatibility
+
+Modules should expose:
+
+```python
+event
+```
+
+for status display.
+
+and
+
+```python
+trade
+```
+
+for execution planning.
+
+Recommended dashboard columns:
+
+| Column    | Description      |
+| --------- | ---------------- |
+| Signal    | Pattern Name     |
+| Direction | Bullish/Bearish  |
+| Status    | Event State      |
+| Entry     | Trigger          |
+| Stop      | Risk Level       |
+| Target1   | First Objective  |
+| Target2   | Second Objective |
+| Age       | Days Active      |
+
+---
+
+# Logging Standards
+
+Use:
+
+```python
+logger.debug()
+```
+
+Detailed diagnostics.
+
+---
+
+```python
+logger.info()
+```
+
+Normal workflow events.
+
+---
+
+```python
+logger.warning()
+```
+
+Unexpected but recoverable conditions.
+
+---
+
+```python
+logger.error()
+```
+
+Failures.
+
+---
+
+# Design Rules
+
+Every strategy module should:
+
+✔ Be deterministic
+
+✔ Be testable
+
+✔ Be stateless
+
+✔ Avoid UI logic
+
+✔ Avoid file I/O
+
+✔ Avoid direct database writes
+
+✔ Avoid dashboard dependencies
+
+✔ Return structured dictionaries
+
+✔ Support Event Engine lifecycle tracking
+
+✔ Support Journal Engine output generation
+
+✔ Support Resolver Framework integration
+
+---
+
+# Recommended Extensions
+
+Future modules may add:
+
+* Confidence Scoring
+* Multi-Timeframe Alignment
+* Volume Confirmation
+* Institutional Context
+* Liquidity Analysis
+* Wyckoff Phase Analysis
+* Trend Analysis
+* Relative Strength Analysis
+* Regime Classification
+* AI Commentary
+
+without changing the core architecture.
+
+---
+
+# Framework Compliance Checklist
+
+Before deployment, every strategy module should satisfy:
+
+```text
+[ ] Detector implemented
+[ ] Trade Builder implemented
+[ ] Event Rules implemented
+[ ] Main Analyzer implemented
+[ ] Returns event object
+[ ] Returns trade object
+[ ] Supports lifecycle tracking
+[ ] Uses logger
+[ ] Resolver compatible
+[ ] Journal compatible
+[ ] Dashboard compatible
+[ ] Event Engine compatible
+```
+
+---
+
+# Template Version
+
+Version: 1.0
+
+Purpose:
+Universal strategy module specification for all event-driven trading plugins.
+
+Framework:
+NEA Event Architecture
+
+Author:
+Newell Trading Group
+
+Status:
+Production Template Standard

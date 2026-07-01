@@ -2,6 +2,8 @@ import os
 import pandas as pd
 from datetime import datetime
 import logging
+from modules.path_resolver import get_signals_db_path
+from modules.signals_repository import SignalsRepository
 
 from modules.marubozu import analyze_marubozu
 from modules.harami import analyze_harami
@@ -11,8 +13,35 @@ from modules.lines import analyze_candle_cluster
 from modules.tweezers import analyze_tweezer
 from modules.hammer import analyze_hammer
 from modules.doji import analyze_doji
+from modules.tline import analyze_tline
 from modules.threesCompany import analyze_three_candle_patterns
-from modules.engulfing import analyze_engulfing
+from modules.star import analyze_star_patterns
+from modules.threeMethods import analyze_three_methods 
+from modules.dojiSandwich import analyze_doji_sandwich
+from modules.thrustDelib import analyze_thrust_deliberation
+from modules.tasuki import analyze_tasuki_gap
+from modules.engulfing import analyze_engulfing 
+from modules.insideBar import analyze_insidebar 
+from modules.stochastics import analyze_stoch
+from modules.alligator import analyze_alligator 
+from modules.spring import analyze_wyckoff_c
+from modules.test import analyze_wyckoff_t 
+from modules.lps import analyze_wyckoff_expansion 
+from modules.volume import analyze_extreme_volume 
+from modules.rsi import analyze_rsi  
+from modules.macd import analyze_macd  
+from modules.vwap import analyze_vwap  
+from modules.kickers import analyze_kickers
+from modules.ema20 import analyze_ema20
+from modules.ema50 import analyze_ema50
+from modules.ema200 import analyze_ema200
+from modules.flag import analyze_pullback
+from modules.fibonacci import analyze_fibonacci
+from modules.candle import analyze_candle_over_candle
+from modules.kikkake import analyze_kikkake
+from modules.matHold import analyze_mat_hold
+
+
 from modules.ohlcv_normalizer import normalize_timestamp
 from modules.renderer import format_event_journal_prompt
 
@@ -105,24 +134,57 @@ def validate_ohlcv(df):
 # =========================================================
 class CandlestickInstitutionalStateEngine:
 
-    def __init__(self, ticker, event_store):
+    def __init__(self, ticker, event_store, signals_repo=None):
 
         self.ticker = str(ticker).upper()
         self.event_store = event_store
 
+        # 🔥 FORCE SIGNALS DB CREATION IF NOT PROVIDED
+        if signals_repo is None:
+            db_path = get_signals_db_path()
+            signals_repo = SignalsRepository(db_path)
+
+        self.signals_repo = signals_repo
+
         logger.info(f"[ENGINE] Initialized ticker={self.ticker}")
 
-        self.registry = {
-            "Pinbar": analyze_pinbar,
-            "Hammer": analyze_hammer,
+        self.registry = { 
+            "EMA 200": analyze_ema200,
+            "EMA 50": analyze_ema50,
+            "EMA 20": analyze_ema20,
+            "T Line": analyze_tline, 
+            "Fibonacci": analyze_fibonacci,
+            "Flags": analyze_pullback, 
+            "Alligator": analyze_alligator, 
+            "Volume": analyze_extreme_volume,
+            "RSI 50": analyze_rsi, 
+            "Stochastics": analyze_stoch, 
+            "MACD": analyze_macd, 
+            "VWAP": analyze_vwap, 
+            "Mat Hold": analyze_mat_hold,
+            "Kikakke": analyze_kikkake,
+            "Candle Over Candle": analyze_candle_over_candle,
             "Doji": analyze_doji,
+            "Doji Sandwiches": analyze_doji_sandwich,
+            "Kickers": analyze_kickers,
+            "Three Methods": analyze_three_methods,
+            "Threes Company": analyze_three_candle_patterns,
+            "Stars": analyze_star_patterns,
+            "Tasuki Gaps": analyze_tasuki_gap,
             "Harami": analyze_harami,
             "Marubozu": analyze_marubozu,
             "Lines": analyze_candle_cluster,
             "Engulfing": analyze_engulfing,
+            "Inside Bars": analyze_insidebar,
             "Tweezers": analyze_tweezer,
             "Dark Cloud/Piercing Lines": analyze_piercing_dcc,
-            "Threes Company": analyze_three_candle_patterns,
+            "Hammer": analyze_hammer,
+            "Thrust/Deliberation": analyze_thrust_deliberation,
+            "Spring Detector": analyze_wyckoff_c,
+            "Test Detector": analyze_wyckoff_t, 
+            "LPS Detector": analyze_wyckoff_expansion,
+            "Pinbar": analyze_pinbar,
+
         }
 
         logger.info(f"[ENGINE] Registered modules={list(self.registry.keys())}")
@@ -145,16 +207,58 @@ class CandlestickInstitutionalStateEngine:
             logger.info(f"[ENGINE] Running module={module_name}")
 
             try:
-                raw_result = analyzer(
-                    df,
-                    self.event_store
-                )
+                raw_result = analyzer(df, self.event_store)
 
                 normalized = normalize_output(
                     self.ticker,
                     module_name,
                     raw_result
                 )
+
+                # =====================================================
+                # SIGNALS PERSISTENCE HOOK (NON-BREAKING)
+                # =====================================================
+                if self.signals_repo is not None:
+
+                    event = normalized.get("event", {}) or {}
+                    trade = normalized.get("trade", {}) or {}
+
+                    try:
+                        self.signals_repo.insert_signal(
+
+                            ticker=self.ticker,
+                            timeframe="AUTO",
+                            module=module_name,
+
+                            # EVENT FIELDS
+                            detected=event.get("detected"),
+                            detected_date=event.get("date"),
+                            direction=event.get("direction"),
+                            event_type=event.get("type"),
+                            status=event.get("status"),
+                            resolved_date=event.get("resolved_date"),
+                            bars_active=event.get("days_active"),
+                            high=event.get("high"),
+                            low=event.get("low"),
+                            trade_type=event.get("trade_type"),
+
+                            # TRADE FIELDS
+                            entry=trade.get("entry"),
+                            stop=trade.get("stop"),
+                            wick_stop=trade.get("invalidation"),
+                            target1=trade.get("target1"),
+                            target2=trade.get("target2"),
+                            failure_condition=trade.get("failure"),
+
+                            # STATE + REGIME
+                            state=normalized.get("state", "UNKNOWN"),
+                            regime=normalized.get("regime"),
+
+                            timestamp=normalized.get("timestamp")
+                        )
+
+                    except Exception:
+                        logger.exception(f"[SIGNALS DB] insert failed for {module_name}")
 
                 normalized.setdefault("journal_prompt", "")
                 normalized.setdefault("ticker", self.ticker)

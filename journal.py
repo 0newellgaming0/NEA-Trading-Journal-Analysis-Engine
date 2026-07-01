@@ -30,6 +30,7 @@ import webbrowser
 import uuid
 
 from modules import yahooFetcher
+import modules.webull.webullDownloader as webullDownloader
 
 from modules.volumeAnalysis import (
     rvol,
@@ -67,9 +68,10 @@ from modules.relative_strength_engine import build_relative_strength_block
 from modules.risk_engine import get_latest_close, evaluate_stop_loss
 
 from modules.watchlist_popup import WatchlistPopup
+from modules.signals_popup import open_signals_popup
 
 # ✅ PATH RESOLVER (ONLY SOURCE OF TRUTH NOW)
-from modules.path_resolver import get_stock_data_path, get_project_root
+from modules.path_resolver import get_stock_data_path, get_project_root, get_watchlist_db_path
 from modules.yahoo_history import load_yahoo_history
 from modules.volume_context import load_volume_analysis
 from modules.candlestick_state_engine import CandlestickInstitutionalStateEngine
@@ -172,6 +174,7 @@ CSV_FIELDS = [
     "analysis_notes",
     "management_notes"
 ]
+
 
 financial_block = ""
 history_block = ""
@@ -670,11 +673,9 @@ def show_developer_notes_popup():
 def show_analysis_files_popup():
     import sqlite3
 
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
     def load_tickers():
         tickers = set()
-        db_path = os.path.join(BASE_DIR, "watchlist.db")
+        db_path = get_watchlist_db_path()
 
         if not os.path.exists(db_path):
             return ["NO DATA"]
@@ -763,6 +764,12 @@ def run_yahoo_update():
         yahooFetcher.run_update()  # now handles preview + execution internally
     except Exception as e:
         messagebox.showerror("Update Error", str(e))
+        
+def run_webull_update():
+    try:
+        webullDownloader.run_update()  # same pattern as yahooFetcher
+    except Exception as e:
+        messagebox.showerror("Webull Update Error", str(e))        
 
 def open_portfolio_overview():
 
@@ -782,7 +789,11 @@ def open_portfolio_overview():
 def show_watchlist_popup():
     global root
     WatchlistPopup(root)
-
+    
+def show_signals_popup():
+    global root
+    open_signals_popup(root)
+    
 # ==========================================================
 # HEADER
 # ==========================================================
@@ -1317,11 +1328,11 @@ def generate_signal_template(row):
         rr_target = fmt("ladder_2_price")
 
     analysis_blocks = {
-        "risk_engine": stop_block,
-        "candlestick_summary": candlestick_block,
         "candlestick_modules": candlestick_block1,
+        "candlestick_summary": candlestick_block,
         "fundamentals": financial_block,
         "historical": historical_block,
+        "risk_engine": stop_block,
         "tline_15m": intraday_15m_prompt,
         "tline_60m": intraday_60m_prompt,
         "weekly_context": weekly_block,
@@ -1347,122 +1358,25 @@ def generate_signal_template(row):
 📅Journal Entry Date: {row.get('timestamp','').split('T')[0]}
 📈Ticker: {row.get('ticker','')}
 ==================================================
+{historical_results}
+{dtfm_prompt}
+{stop_block}
 {candlestick_block1}
 {candlestick_block}
 {financial_block}
-{historical_results}
-{stop_block}
-{intraday_60m_prompt }
-{intraday_15m_prompt }
 {weekly_block}
 {history_block}
 {daily_volume_block}
 {intraday_block}
 {volume_block}
-{dtfm_prompt}
 {pnf_block}
 {fractal_block}
 {phase_context_block}
 {liquidity_block}
 {rs_block}
+{intraday_15m_prompt }
+{intraday_60m_prompt }
 
-Include detailed tline information targeted toward the possibility of j hook continuations and/or other tline specific patterns.
-Analyze momentum indicators in context with short term daily trend direction.
-
-📊 Under/Overvalue Determination
-📈 Earnings Growth Rate (Aggressive, Moderate, Passive)
-
-📌 Conduct a thorough William O'Neal Analysis (Do a true institutional-grade O’Neil teardown:
-✅ {row.get('ticker','')} Current Exact Quarterly Earnings/Share vs Previous Exact Quarterly Earnings/Share % Change - +40% or more is GREAT!
-✅ {row.get('ticker','')} Consensus Earnings Estimates Next few Quarters/Next 2 Years, if available
-✅ {row.get('ticker','')} Annual Earnings Increases over last 3 years +25%, 50% or more is GREAT!
-✅ {row.get('ticker','')} Annual Cash Flow/Share > Annual Earnings/Share +20% or more is GREAT!
-✅ {row.get('ticker','')} Earnings Stability Numbers
-✅ New Management/Products/Services, etc.(Earnings Catalysts)
-✅ Supply/Demand - Share Outstanding + Big Volume Demand
-✅ Leader or Lagger
-✅ Institutional Sponsorship - 12 Month Quality Check - Public institutional ownership (13F summaries where visible, 1+ important) 
---Analyze sponsorship quality - validate sponsors past 36 month performance
---Increasing sponsorship over past quarters
-✅ Market Direction
-
-🧠 Institutional Rationale Summary
-
-1) Strategic Entry Setup — Deep Value + Structural Support
-- Entry confirmation based on technical/fundamental triggers
-- Stop-loss levels and risk tolerance
-- Position sizing based on risk per trade
-- Reward-to-risk ratio verification
-- Profit-taking levels and scaling strategy
-- Scenario analysis: best-case, base-case, worst-case
-- Contingency plan for trade failure
-
-2) Fundamental Catalysts
-- Income statement trends: revenue, net income, EPS
-- Balance sheet overview: assets, liabilities, equity, debt ratios
-- Cash flow analysis: operating and free cash flow, capital expenditures
-- Key ratios: ROE, ROA, gross margin, net margin, P/E, PEG, P/B, EV/EBITDA, current ratio, debt/equity, asset turnover
-- Historical and forecasted growth rates
-- Management quality and track record
-- Competitive advantages and market positioning
-- Regulatory, legal, or macroeconomic risks
-- Strategic initiatives: M&A, partnerships, product launches
-
-3) Macro & Competitive Tailwinds
-- Recent news, press releases, earnings reports
-- Insider and institutional buying/selling activity
-- Analyst ratings, upgrades/downgrades, and price targets
-- Sector and macroeconomic trends impacting the stock
-- Social media and forum sentiment analysis
-- Options market activity and unusual volume
-
-4) Risk Considerations (Validated by Street Commentary)
-🧩 Technical & Behavioral Context
-- Identify long-term, medium-term, and short-term trends
-- Key support and resistance levels
-- Trendlines, channels, and Fibonacci retracement levels
-- Chart patterns: head & shoulders, triangles, double/triple tops/bottoms
-- Wyckoff phases: accumulation, distribution, markup, markdown
-- Candlestick pattern recognition
-- Indicators: SMA, EMA, MACD, RSI, Stochastic, ADX
-- Volume analysis: OBV, accumulation/distribution, volume spikes
-- Volatility measures: ATR, beta, implied volatility
-
-🟧 Supply & Demand Zone Mapping
-
-✅ Trade Logic, Stop Management & Thesis
-- Document rationale for entry and exit
-- Use relevant ticker ATR combined with float size, relative volume, volatility regime, short interest, and catalyst classification to assess and analyze stop placement. 
-- Assess correctness of technical/fundamental assumptions
-- Adjust future trade strategy based on information attained
-- Explain adjustments suggestions in detail and reasoning.
-
-🌳 Scenario Tree (Probability‑Weighted)
-
-⚖️ Risk vs Opportunity Assessment
-
-===========================
-
-📌 Advanced Analysis
-- Multi-timeframe Wyckoff or Elliott Wave overlays
-- Correlation vs sector/index ETFs
-- Algorithmic scoring or ranking
-- Monte Carlo simulations for probability-weighted outcomes
-- Wyckoff Cause and Effect PnF Analysis
-- Fractal Analysis (Breakouts, Breakdowns)
-
-===========================
-
-📊 Summary View
-
-📌 Investment Takeaway
-
-Output:
---------
-- Provide a structured report suitable for dashboard panels
-- Include charts, calculations, and textual analysis where applicable
-- Highlight key trade signals, risk/reward, and actionable insights
-- Create a visual image flyer displaying this information. do not include the following in the visual flyer : point and figure chart, no charts for momentum, only data display, no share amounts for trade should be included, only entry, stop placements and risk allocation percentage.
 """
     return template
 
@@ -1835,14 +1749,14 @@ def open_entry_editor(event=None):
     notebook = ttk.Notebook(popup)
     notebook.pack(fill="both", expand=True, padx=5, pady=5)
 
+    analysis_tab = tk.Frame(notebook, bg="#f2f2f2")
     trade_tab = tk.Frame(notebook, bg="#f2f2f2")
     notes_tab = tk.Frame(notebook, bg="#f2f2f2")
-    analysis_tab = tk.Frame(notebook, bg="#f2f2f2")
     management_tab = tk.Frame(notebook, bg="#f2f2f2")    
 
+    notebook.add(analysis_tab, text="Analysis")
     notebook.add(trade_tab, text="Trade")
     notebook.add(notes_tab, text="Notes")
-    notebook.add(analysis_tab, text="Analysis")
     notebook.add(management_tab, text="Management")
 
     # ======================================================
@@ -2592,8 +2506,10 @@ def create_link_label(parent, text, url=None, callback=None):
     lbl.pack(side="left", padx=5)
     lbl.bind("<Button-1>", on_click)
 
+create_link_label(links_frame, "Webull Data", callback=run_webull_update)
 create_link_label(links_frame, "Update Data", callback=run_yahoo_update)
 create_link_label(links_frame, "Watchlist", callback=show_watchlist_popup)
+create_link_label(links_frame, "Signals DB", callback=show_signals_popup)
 create_link_label(links_frame, "Analysis Directory", callback=show_analysis_files_popup)
 create_link_label(links_frame, "Scraper Files", callback=show_scraper_files_popup)
 create_link_label(links_frame, "Account Ledger", callback=lambda: show_account_ledger_popup(root))

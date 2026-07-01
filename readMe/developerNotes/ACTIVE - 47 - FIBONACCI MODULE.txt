@@ -1,0 +1,269 @@
+📘 Fibonacci Pullback Module (Swing-Based Institutional Version)
+Technical Strategy Plugin — Resolver Compatible Event Engine
+1. Overview
+
+The Fibonacci Pullback Module is a structured institutional swing-retracement system designed to detect trend-continuation pullbacks using Fibonacci zones derived from dynamic swing structure.
+
+Unlike static Fibonacci tools used in retail charting, this module builds a real-time swing engine + trend classifier + liquidity-aware retracement model.
+
+Its purpose is not just to “draw fib levels”, but to:
+
+Identify active institutional trend structure
+Detect first meaningful retracement into value zones
+Confirm continuation or failure via structural invalidation
+Convert fib behavior into a trade-state machine
+2. Core Philosophy
+
+This module is built around three institutional principles:
+
+2.1 Market as Swing Auction
+
+Price is assumed to move in:
+
+Expansion → Distribution → Retracement → Re-accumulation → Continuation
+
+Fib levels represent:
+
+Probability zones of re-entry, not static support/resistance
+2.2 Trend Precedes Fibonacci
+
+Fib is only valid if:
+
+Trend structure exists (HH/HL or LL/LH)
+Swing structure supports directional bias
+
+No trend = no valid fib signal.
+
+2.3 Pullbacks Are Liquidity Events
+
+Pullbacks are interpreted as:
+
+Stop hunts
+Repricing zones
+Institutional re-entry zones
+
+The module explicitly seeks:
+
+“First meaningful retracement into institutional discount/premium zones”
+
+3. System Architecture
+
+The module is divided into five functional layers:
+
+Layer 1 — Trend Engine
+get_trend(df, i)
+
+Detects:
+
+BULLISH → Higher High + Higher Low structure
+BEARISH → Lower Low + Lower High structure
+RANGE → No directional structure
+
+Purpose:
+Establish directional bias BEFORE fib is applied.
+
+Layer 2 — Swing Engine (Dynamic)
+get_latest_swing(df, i)
+
+This is NOT a static high/low system.
+
+It dynamically adjusts swing structure based on:
+
+Lookback range (25 bars)
+Recent micro-structure (5 bars)
+Breakout behavior
+Modes:
+EXPANSION_UP
+Price breaks above swing high
+Uses recent highs for refinement
+EXPANSION_DOWN
+Price breaks below swing low
+Uses recent lows for refinement
+RANGE
+Normal swing range context
+
+Purpose:
+Builds institutional-grade swing anchoring instead of retail static fibs.
+
+Layer 3 — Fibonacci Engine
+get_fib_levels()
+
+Standard retracement grid:
+
+0.0 → Swing High
+0.236 → Early pullback
+0.382 → First institutional dip zone
+0.5 → Equilibrium zone
+0.618 → Primary institutional entry zone
+0.786 → Deep retracement / stress zone
+1.0 → Swing Low
+
+Key Level:
+
+0.618 = primary continuation trigger zone
+
+4. Detection Logic (Core Signal Engine)
+detect_fib_pullback()
+4.1 Seed Condition (MOST IMPORTANT)
+
+A Fibonacci pullback seed is triggered when:
+
+Bullish Setup:
+Trend = BULLISH
+Price closes BELOW 0.382 retracement
+Bearish Setup:
+Trend = BEARISH
+Price closes ABOVE 0.618 retracement
+Interpretation:
+
+This represents:
+
+First meaningful violation of equilibrium
+Early liquidity pullback into fib zone
+Potential institutional re-entry trigger
+5. Entry Logic (Activation Phase)
+detect_fib_entry()
+Entry Trigger Rule:
+Bullish: close ≤ 0.618 level
+Bearish: close ≥ 0.618 level
+Meaning:
+
+This is NOT a reversal signal.
+
+It is:
+
+“Price has reached institutional discount/premium zone inside trend”
+
+6. Confirmation Logic (Continuation Validation)
+detect_fib_confirmation()
+Bullish Confirmation:
+Close > swing high
+Bearish Confirmation:
+Close < swing low
+Meaning:
+
+This is:
+
+Breakout continuation of prior swing direction
+Full resumption of trend expansion
+7. Failure Logic (Critical Structural Invalidations)
+detect_fib_failure()
+Bullish Failure:
+Close < swing_low
+Bearish Failure:
+Close > swing_high
+Meaning:
+
+This represents:
+
+Trend invalidation
+Structural breakdown of swing logic
+Institutional exit / reversal environment
+8. Event State Machine
+
+The system operates as a 3-stage progression model:
+
+🟡 SEED
+
+Initial detection phase
+
+Trend exists
+Fib pullback begins
+No entry yet confirmed
+🔵 ENTRY_TRIGGER
+
+Price enters institutional fib zone
+
+0.618 level engaged
+Retest or reaction expected
+🟢 CONFIRMED
+
+Trend continuation validated
+
+Break of swing high/low
+Full directional resumption
+🔴 FAILED
+
+Structure invalidated
+
+Swing low/high breached
+Trend no longer valid
+9. Trade Construction Model
+build_fib_trade_state()
+Bullish Trade:
+Entry: 0.618 retracement
+Stop: swing_low
+Target 1: swing_high
+Target 2: swing_high + swing range
+Bearish Trade:
+Entry: 0.618 retracement
+Stop: swing_high
+Target 1: swing_low
+Target 2: swing_low - swing range
+10. Key Institutional Concepts Embedded
+10.1 Discount / Premium Logic
+0.382 → early discount
+0.618 → institutional entry zone
+10.2 Liquidity Mapping
+Swing high/low = liquidity pools
+Fib zones = liquidity re-entry regions
+10.3 Expansion Continuation Theory
+Pullback ≠ reversal
+Pullback = re-accumulation phase
+11. Analyzer Pipeline
+analyze_fibonacci(df)
+Step 1:
+
+Scan historical candles → detect first fib seed
+
+Step 2:
+
+Lock swing + fib structure
+
+Step 3:
+
+Run forward state machine:
+
+ENTRY_TRIGGER
+CONFIRMED
+FAILED
+Step 4:
+
+Build final trade state
+
+12. Regime Output
+
+Always returns:
+
+"regime": "FIBONACCI_PULLBACK"
+
+Meaning:
+
+Active trend continuation structure detected
+Fib-based retracement is in play
+13. Strengths of This Model
+✔ Institutional-grade swing logic
+✔ Dynamic fib anchoring (not static)
+✔ State machine validation (seed → entry → confirm)
+✔ Trend-first architecture
+✔ Liquidity-aware failure detection
+14. Limitations (Intentional Design Constraints)
+No multi-timeframe fusion (single timeframe only)
+No volume confirmation layer
+No volatility normalization (ATR not used)
+Trend detection is simple structural heuristic
+15. Summary
+
+This module is designed to answer one question:
+
+“Is this pullback a liquidity retracement inside an existing institutional trend, or a structural failure?”
+
+It is NOT:
+
+A generic Fibonacci retracement tool
+A reversal detector
+A standalone signal generator
+
+It IS:
+
+A trend continuation validation engine using Fibonacci as structure mapping

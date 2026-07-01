@@ -1,0 +1,252 @@
+📘 Bull / Bear Pullback Module (T-Line Parity Fixed)
+EMA8 Institutional Pullback Continuation Engine
+1. Overview
+
+The Bull / Bear Pullback Module is a structured trend-continuation system built around the EMA8 (T-Line) framework, institutional trend filters, and controlled pullback behavior.
+
+Its primary purpose is to detect:
+
+“High-probability continuation setups that occur when price temporarily displaces away from the EMA8 inside a confirmed trend regime.”
+
+Unlike generic EMA crossover systems, this module is designed as a state-driven pullback engine, not a signal indicator.
+
+2. Core Philosophy
+
+This module is built on three institutional assumptions:
+
+2.1 Trend Structure Dominates Everything
+
+Pullbacks are only valid if:
+
+EMA8 is aligned with SMA50
+SMA50 is aligned with SMA200
+Market is in a directional regime
+
+No alignment = no valid pullback signal.
+
+2.2 Pullbacks Are Displacement Events
+
+A pullback is not a reversal.
+
+It is:
+
+Temporary deviation from EMA8
+Liquidity capture against trend direction
+Preparation phase for continuation expansion
+2.3 EMA8 is the Execution Trigger Line
+
+The EMA8 (T-Line) represents:
+
+Institutional short-term control line
+Dynamic equilibrium between momentum and retracement
+
+Price interaction with EMA8 defines state transitions.
+
+3. System Architecture
+
+The module is structured into five logical layers:
+
+Layer 1 — Trend Engine
+bullish_trend = ema8 > sma50 and sma50 >= sma200
+bearish_trend = ema8 < sma50 and sma50 <= sma200
+Trend Conditions:
+Bullish Regime
+EMA8 above SMA50
+SMA50 above SMA200
+Bearish Regime
+EMA8 below SMA50
+SMA50 below SMA200
+Layer 2 — Primary Levels Engine
+get_primary_levels()
+
+Computes short-term structure:
+
+Support = lowest low in lookback window
+Resistance = highest high in lookback window
+Range = structural volatility
+Midpoint = equilibrium zone
+Purpose:
+Contextualizes pullback depth
+Defines structural bounds for invalidation
+Layer 3 — Pullback Seed Detection
+detect_pullback()
+SEED Condition (Critical Concept)
+
+A seed is triggered when:
+
+Bullish Trend:
+Price is BELOW EMA8
+Candle closes bearish (close < open)
+Bearish Trend:
+Price is ABOVE EMA8
+Candle closes bullish (close > open)
+Interpretation:
+
+This represents:
+
+First meaningful displacement against trend
+Early retracement phase
+Momentum exhaustion at EMA8 boundary
+
+Not a reversal — a continuation setup in formation
+
+4. Entry Logic (Continuation Displacement)
+detect_pullback_entry()
+Entry Rule:
+Bullish continuation → close < EMA8
+Bearish continuation → close > EMA8
+Meaning:
+
+This is not a reclaim signal.
+
+It represents:
+
+“Price has extended into displacement territory relative to EMA8 control line”
+
+5. Confirmation Logic (Trend Resumption)
+detect_pullback_confirmation()
+Bullish Confirmation:
+Close > seed high AND bullish candle
+Bearish Confirmation:
+Close < seed low AND bearish candle
+Meaning:
+
+This confirms:
+
+Momentum resumption in trend direction
+End of pullback phase
+Start of continuation expansion
+6. Failure Logic (Structural Break)
+detect_pullback_failure()
+Bullish Failure:
+Close < seed low
+Bearish Failure:
+Close > seed high
+Meaning:
+
+This indicates:
+
+Trend structure has been violated
+Pullback became reversal
+Institutional control lost
+7. State Machine Model
+
+The module operates as a 3-stage progression system:
+
+🟡 SEED
+
+Initial pullback formation
+
+Trend is active
+EMA8 displacement begins
+Structure still forming
+🔵 ENTRY_TRIGGER
+
+Displacement confirmed
+
+Price interacting with EMA8 zone
+Continuation setup active
+🟢 CONFIRMED
+
+Trend continuation validated
+
+Structural breakout resumes
+Momentum expansion begins
+🔴 FAILED
+
+Invalid pullback
+
+Trend structure broken
+Reversal environment detected
+8. Trade Construction Logic
+build_pullback_trade_state()
+Bullish Trade Model
+Entry: entry_high (seed displacement high)
+Stop: entry_low − buffer
+Invalidation: entry_low
+Target 1: +1R expansion
+Target 2: +2R expansion
+Bearish Trade Model
+Entry: entry_low
+Stop: entry_high + buffer
+Invalidation: entry_high
+Target 1: −1R expansion
+Target 2: −2R expansion
+9. Primary Level Integration
+
+The module integrates local structure via:
+
+get_primary_levels()
+
+Used for:
+
+Support mapping
+Resistance mapping
+Range context
+Midpoint equilibrium detection
+10. Analyzer Pipeline
+analyze_pullback(df)
+Step 1 — Detection Scan
+Iterate backward through candles
+Identify first valid pullback seed
+Step 2 — Structure Lock
+Store EMA8 + trend context
+Capture entry boundaries
+Store structural levels
+Step 3 — Forward State Machine
+ENTRY_TRIGGER
+CONFIRMED
+FAILED
+EXPIRED
+Step 4 — Trade Construction
+Final risk/reward model generated
+Institutional continuation structure defined
+11. Regime Output
+
+Always returns:
+
+"regime": "PULLBACK_REGIME"
+
+Meaning:
+
+Active EMA-based continuation structure detected
+Market is in pullback → continuation cycle
+12. Institutional Concepts Embedded
+12.1 EMA8 as Control Line
+Acts as dynamic short-term equilibrium
+Defines displacement zones
+12.2 SMA Alignment Filter
+Ensures macro trend agreement
+Prevents countertrend noise trades
+12.3 Pullback = Liquidity Repricing
+Not reversal behavior
+Temporary deviation from trend control
+12.4 Structural Invalidation Logic
+Uses swing-based extremes
+Prevents premature exits
+13. Strengths
+✔ Multi-layer trend confirmation
+✔ EMA + SMA hierarchical alignment
+✔ Clean state machine architecture
+✔ Institutional pullback interpretation
+✔ Structural invalidation logic
+14. Limitations (Design Constraints)
+No volume confirmation layer
+No ATR volatility scaling
+No multi-timeframe alignment
+EMA8 function assumed external correctness
+15. Summary
+
+This module is designed to answer:
+
+“Is this EMA-based pullback a continuation opportunity inside a structured trend, or a breakdown of trend control?”
+
+It is NOT:
+
+A crossover system
+A reversal detector
+A momentum oscillator
+
+It IS:
+
+A trend-displacement continuation engine built around EMA8 institutional behavior

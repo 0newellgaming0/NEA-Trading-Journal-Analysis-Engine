@@ -305,10 +305,20 @@ def append_new_data(ticker, tf_name, cfg):
 
         log(f"📥 Raw data received: {ticker} [{tf_name}] shape={df_new.shape}")
 
+        # reset index first
         df_new.reset_index(inplace=True)
+
+        # normalize columns
         df_new = normalize_columns(df_new)
 
-        log(f"🔧 Normalized data: {ticker} [{tf_name}] shape={df_new.shape}")
+        # =========================================================
+        # HARD LIMIT: KEEP ONLY LAST 600 ROWS (EMA200 SAFE WINDOW)
+        # =========================================================
+        if len(df_new) > 600:
+            df_new = df_new.tail(600).reset_index(drop=True)
+            log(f"✂ Trimmed dataset to last 600 rows: {ticker} [{tf_name}]")
+
+        log(f"🔧 Final dataset ready: {ticker} [{tf_name}] shape={df_new.shape}")
 
         repo.insert_ohlcv_df(ticker, tf_name, df_new)
         repo.log_ingestion(ticker, tf_name, len(df_new), "success")

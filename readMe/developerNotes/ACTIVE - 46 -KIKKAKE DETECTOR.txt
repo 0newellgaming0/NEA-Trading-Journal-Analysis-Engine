@@ -1,0 +1,325 @@
+# =========================================================
+# KIKKAKE MODULE — TECHNICAL README
+# STRATEGY PLUGIN (RESOLVER COMPATIBLE)
+# PROGRESSIVE EVENT SYSTEM (SEED → CONFIRMATION FLOW)
+# =========================================================
+
+## OVERVIEW
+
+The Kikkake module is a **liquidity trap reversal engine** designed to detect failed breakouts and failed breakdowns that immediately reverse back into the prior consolidation range.
+
+It is based on the Japanese "Kikkake" concept:
+> A breakout attempt that fails, traps liquidity, and reverses direction.
+
+Unlike continuation systems (Mat Hold), Kikkake is a:
+- ❌ Reversal-first structure
+- ❌ Liquidity sweep detection system
+- ❌ False breakout / false breakdown engine
+
+It identifies:
+- Stop hunts
+- Liquidity grabs
+- Failed momentum expansions
+- Immediate structural rejections
+
+---
+
+## CORE CONCEPT
+
+A Kikkake structure forms when:
+
+### 1. Compression Phase (Inside Bar)
+- Market enters tight consolidation
+- Range contraction occurs
+- Liquidity builds above and below structure
+
+### 2. Liquidity Sweep (False Break)
+- Price breaks above or below structure
+- Stops are triggered (retail liquidity is taken)
+
+### 3. Failure of Acceptance
+- Price fails to hold breakout direction
+- Rapid return into prior range
+
+### 4. Reversal Confirmation
+- Price closes back inside structure
+- Opposite directional pressure emerges
+
+---
+
+## MARKET INTENT MODEL
+
+Kikkake represents:
+
+### Bullish Kikkake
+- False downside breakdown
+- Stops below structure are taken
+- Price reclaims structure → bullish reversal
+
+### Bearish Kikkake
+- False upside breakout
+- Stops above structure are taken
+- Price rejects and falls back into range → bearish reversal
+
+---
+
+## EVENT LIFECYCLE
+
+The system follows a strict event state machine:
+
+### 1. SEED
+- Early liquidity trap forming
+- Inside bar present
+- First directional probe detected
+
+### 2. PENDING
+- Full Kikkake structure formed
+- Waiting for confirmation or failure
+
+### 3. CONFIRMED
+- False breakout validated
+- Reversal direction confirmed
+
+### 4. FAILED
+- Breakout sustained beyond structure
+- Trap invalidated
+
+### 5. EXPIRED
+- No resolution within timeframe (typically 15 bars)
+
+---
+
+## DETECTION LOGIC
+
+### STRUCTURAL REQUIREMENTS
+
+#### Inside Bar (Compression Core)
+- `High(c2) < High(c1)`
+- `Low(c2) > Low(c1)`
+
+This defines:
+- Liquidity compression zone
+- Pre-breakout equilibrium
+
+---
+
+## FULL PATTERN DETECTOR
+
+A full Kikkake requires:
+
+### Bullish Kikkake (False Breakdown)
+1. Bearish mother candle
+2. Inside bar compression
+3. False breakdown below inside bar low
+4. Rapid reclaim into range
+5. Close remains within structure
+
+**Interpretation:**
+- Downside liquidity sweep
+- Immediate rejection
+- Reversal upward pressure
+
+---
+
+### Bearish Kikkake (False Breakout)
+1. Bullish mother candle
+2. Inside bar compression
+3. False breakout above inside bar high
+4. Sharp rejection back into range
+5. Close remains inside structure
+
+**Interpretation:**
+- Upside liquidity sweep
+- Failed breakout
+- Reversal downward pressure
+
+---
+
+## SEED DETECTOR (EARLY WARNING SYSTEM)
+
+The seed detector identifies:
+
+- Inside bar exists (compression confirmed)
+- First liquidity probe begins
+- No full breakout confirmation yet
+
+### Bullish Seed:
+- Downward probe into lows
+- Immediate recovery back into range
+
+### Bearish Seed:
+- Upward probe into highs
+- Immediate rejection back into range
+
+---
+
+## LIQUIDITY ENGINE BEHAVIOR
+
+Kikkake is fundamentally a **liquidity hunting system**:
+
+### What it detects:
+- Stop-loss sweeps
+- Fake breakouts
+- Engineered liquidity grabs
+
+### What it ignores:
+- Clean continuation breaks
+- Strong directional follow-through
+- Sustained acceptance outside range
+
+---
+
+## EVENT RULE ENGINE
+
+### SEED STATE
+- Bullish:
+  - Confirm if price breaks above structure
+  - Fail if price breaks below structure
+
+- Bearish:
+  - Confirm if price breaks below structure
+  - Fail if price breaks above structure
+
+---
+
+### PENDING STATE
+- Same logic as SEED but with higher confidence requirement
+
+---
+
+### CONFIRMED STATE
+- Only fails if structure is completely violated
+  - Bullish fails if close < low
+  - Bearish fails if close > high
+
+---
+
+## TRADE MODEL OUTPUT
+
+Kikkake is a **reversal trading system**
+
+---
+
+### Bullish Kikkake Setup
+
+- Entry: Break above structure high (reclaim)
+- Stop: Below structure low (liquidity sweep low)
+- Wick Stop: Inside sweep extreme
+- Targets:
+  - Target 1: Structure expansion
+  - Target 2: Extended reversal continuation
+
+---
+
+### Bearish Kikkake Setup
+
+- Entry: Break below structure low (breakdown continuation)
+- Stop: Above structure high (liquidity sweep high)
+- Wick Stop: Inside rejection extreme
+- Targets:
+  - Target 1: Breakdown extension
+  - Target 2: Trend continuation lower
+
+---
+
+## INTERPRETATION ENGINE
+
+The interpretation system emphasizes:
+
+### Core Narrative
+- Liquidity sweep occurred
+- Market failed to accept breakout direction
+- Price reverted into prior equilibrium zone
+
+---
+
+### Psychological Model
+
+Kikkake reflects:
+
+- Stop hunting behavior
+- Retail trap execution
+- Institutional reversal positioning
+
+---
+
+### Bullish Context
+- Sellers trapped on breakdown
+- Absorption below support
+- Reversal momentum upward
+
+---
+
+### Bearish Context
+- Buyers trapped on breakout
+- Distribution at highs
+- Reversal momentum downward
+
+---
+
+## DATA STRUCTURE (EVENT OBJECT)
+
+```json
+{
+  "id": 1,
+  "detected": true,
+  "type": "Bullish Kikkake",
+  "direction": "Bullish",
+  "high": 2.41,
+  "low": 2.14,
+  "index": 55,
+  "date": "2026-01-22",
+  "detected_date": "2026-01-22",
+  "status": "CONFIRMED",
+  "days_active": 7,
+  "resolved_date": "2026-01-22",
+  "status_reason": "Kikkake confirmed"
+}
+REGIME CLASSIFICATION
+NONE → No structure detected
+SEED → Early liquidity trap forming
+PENDING → Full structure active
+CONFIRMED → Reversal validated
+FAILED → Breakout sustained (trap invalid)
+EXPIRED → No resolution in time window
+INTEGRATION LAYER
+
+This module integrates with:
+
+candlestick_engine (pattern routing)
+eventEngine (date resolution)
+renderer (UI visualization)
+journal system (trade logging)
+multi-timeframe analysis engine
+COMMON FAILURE MODES
+False Positives
+Normal breakout mislabeled as trap
+Weak inside bars without real liquidity
+False Negatives
+Strong reversal without perfect inside bar structure
+Fast liquidity sweeps missed in low timeframe data
+PERFORMANCE INTENT
+
+Kikkake prioritizes:
+
+Liquidity behavior over candle shape
+Trap detection over continuation
+Structural rejection over momentum persistence
+SUMMARY
+
+The Kikkake module is a:
+
+Liquidity trap reversal detection system built on failed breakouts and failed breakdowns.
+
+It identifies where:
+
+Market appears to break out
+But actually traps participants
+And reverses aggressively in the opposite direction
+
+Unlike continuation systems (Mat Hold), Kikkake is designed to:
+
+Catch reversals early
+Detect engineered liquidity sweeps
+Exploit failed momentum expansions
+=========================================================

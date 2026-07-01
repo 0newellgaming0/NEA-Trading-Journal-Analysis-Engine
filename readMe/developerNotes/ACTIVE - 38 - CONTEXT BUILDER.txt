@@ -1,0 +1,354 @@
+📌 Institutional Context Builder Module — README
+Overview
+
+The Institutional Context Builder is a presentation-safe orchestration layer that sits directly on top of the signalEngine module.
+
+It is responsible for:
+
+Converting raw analytical outputs into a clean, UI-safe, renderer-ready institutional context contract
+
+This module does NOT perform analysis.
+
+Instead, it acts as a:
+
+Signal aggregator
+Formatting safety layer
+Contract enforcement system
+Downstream compatibility bridge
+🧠 Core Philosophy
+
+This module is built around three strict design rules:
+
+1. Analysis is External
+
+All intelligence comes from:
+
+signalEngine
+
+This module does NOT compute:
+
+trend logic
+liquidity logic
+volume logic
+fib logic
+
+It only orchestrates results
+
+2. UI Must Never Receive Raw Dictionaries
+
+A critical design constraint:
+
+❌ No raw dicts in renderer layer
+❌ No nested analysis objects in UI layer
+✅ Only formatted primitives (strings, ints)
+
+3. Context Pack is a Contract, Not a Suggestion
+
+The returned object is a:
+
+strict schema contract between engine → UI → journal system
+
+Any deviation breaks downstream rendering consistency.
+
+🏗️ Architecture
+        +----------------------+
+        |   signalEngine       |
+        | (pure analysis layer)|
+        +----------+-----------+
+                   |
+                   v
+        +----------------------+
+        | Context Builder      |
+        | (this module)        |
+        |----------------------|
+        | - formatting layer   |
+        | - orchestration      |
+        | - safety enforcement  |
+        +----------+-----------+
+                   |
+                   v
+        +----------------------+
+        | UI / Journal Engine  |
+        | / Renderer           |
+        +----------------------+
+📦 Inputs
+Main Function
+build_institutional_context(df, f=float, volume_funcs=None)
+Parameters
+Parameter	Type	Description
+df	DataFrame	OHLCV market data
+f	callable	Numeric coercion function (default float)
+volume_funcs	tuple	Optional plug-in volume system
+Volume Plugin Contract
+
+If provided:
+
+(rvol, detect_volume_spike, institutional_state)
+
+Where:
+
+rvol → relative volume function
+detect_volume_spike → spike detector
+institutional_state → institutional classification function
+🧠 Processing Pipeline
+
+The module executes a fixed deterministic pipeline:
+
+1. Trend Evaluation
+evaluate_trend(df, f)
+
+Outputs:
+
+trend direction (Bullish / Bearish / Neutral)
+strength score
+2. Liquidity Sweep Detection
+detect_liquidity_sweep(df)
+
+Detects:
+
+Spring (bear trap)
+Upthrust (bull trap)
+3. Structure Evaluation
+evaluate_structure(df)
+
+Detects:
+
+Near Support
+Near Resistance
+Neutral
+4. Fibonacci Alignment
+evaluate_fibonacci(df)
+
+Detects:
+
+price alignment zones (38.2 / 50 / 61.8 / 78.6)
+5. Volume Confirmation Layer
+
+Two execution modes:
+
+A. Default Mode (No Volume Plugin)
+
+If volume_funcs is None:
+
+{
+    "confirmed": False,
+    "score": 0,
+    "rvol": 0.0,
+    "institutional_state": "UNKNOWN"
+}
+B. Active Volume Mode
+
+If plugin provided:
+
+volume_confirmation(
+    df,
+    rvol,
+    detect_volume_spike,
+    inst_state
+)
+🎨 Formatter Layer (CRITICAL SAFETY SYSTEM)
+Purpose
+
+The formatter layer ensures:
+
+❌ No raw dictionaries leak into UI
+❌ No structural objects reach renderer
+✅ Only safe primitives are exposed
+
+Format Functions
+Trend Formatter
+"{trend} (Strength: {score})"
+
+Example:
+
+Bullish (Strength: 15)
+Sweep Formatter
+
+Returns:
+
+"Spring"
+"Upthrust"
+"None"
+Structure Formatter
+
+Returns:
+
+"Near Support"
+"Near Resistance"
+Fibonacci Formatter
+
+Returns:
+
+"Aligned @ X.XX"
+"No Alignment"
+Volume Formatter
+
+Returns:
+
+numeric score only (0–10+)
+📦 Output Contract (CORE SYSTEM OUTPUT)
+Function Output
+build_institutional_context(...)
+Returned Schema
+🟢 SAFE RENDER FIELDS (UI LAYER)
+Key	Type	Example
+trend	str	"Bullish (Strength: 15)"
+liquidity_sweep	str	"Spring"
+structure	str	"Near Support"
+fibonacci	str	"Aligned @ 0.618"
+volume	int	10
+institutional_state	str	"ACCUMULATION"
+🔴 DEBUG FIELDS (ENGINE ONLY)
+
+These must NEVER be used in UI:
+
+_trend_raw
+_sweep_raw
+_structure_raw
+_fib_raw
+_volume_raw
+Purpose of Raw Fields
+
+They exist for:
+
+debugging analysis inconsistencies
+auditing signal engine outputs
+backtesting validation
+journal reconstruction
+🔁 Execution Flow Diagram
+OHLCV Data
+    ↓
+signalEngine.evaluate_trend
+    ↓
+signalEngine.detect_liquidity_sweep
+    ↓
+signalEngine.evaluate_structure
+    ↓
+signalEngine.evaluate_fibonacci
+    ↓
+volume_confirmation (optional plugin)
+    ↓
+formatter layer (UI safety)
+    ↓
+institutional context pack
+🧠 Design Strengths
+1. Strict Separation of Concerns
+Layer	Responsibility
+signalEngine	raw analytics
+context builder	orchestration + safety
+UI	rendering only
+2. UI-Safe Guarantee
+
+This module guarantees:
+
+The renderer will NEVER receive unsafe structures.
+
+3. Plug-and-Play Volume System
+
+Volume logic is fully injectable:
+
+RVOL implementations
+Institutional accumulation models
+Spike detectors
+
+No changes required in core engine.
+
+4. Deterministic Output Contract
+
+Same input always produces:
+
+identical structure
+identical formatting
+identical downstream behavior
+5. Backtest Ready Architecture
+
+Because it is deterministic:
+
+works in historical simulation
+works in replay engines
+works in journal reconstruction systems
+📊 Data Abstraction Model
+
+This module compresses market data into:
+
+Trend Bias
++ Liquidity Behavior
++ Structural Position
++ Fibonacci Context
++ Volume Participation
+= Institutional Context State
+⚠️ System Constraints
+1. Requires Clean OHLC Data
+
+Must include:
+
+Open
+High
+Low
+Close
+Volume (if used)
+2. No Strategy Logic
+
+This module does NOT:
+
+generate buy/sell signals
+define entries/exits
+execute trades
+3. UI Safety Enforcement Is Strict
+
+If raw dicts leak:
+
+downstream rendering breaks immediately
+
+🚀 Recommended Enhancements
+1. Add Weighted Institutional Score
+
+Example:
+
+Trend: 30%
+Volume: 30%
+Sweep: 20%
+Structure: 10%
+Fib: 10%
+2. Add Regime Classification
+
+Add:
+
+Trending
+Ranging
+Accumulation
+Distribution
+3. Multi-Timeframe Context Merge
+
+Extend:
+
+1m
+5m
+1h
+Daily
+4. Event Engine Integration
+
+Feed context directly into:
+
+EventStore lifecycle system
+pattern confirmation pipeline
+5. Compression Score Engine
+
+Measure:
+
+volatility contraction
+breakout readiness
+liquidity tension
+🧾 Summary
+
+The Institutional Context Builder is:
+
+a deterministic orchestration and safety layer that transforms raw analytical outputs into a structured, UI-safe institutional context contract.
+
+It is not a strategy engine.
+
+It is not an analyzer.
+
+It is:
+
+the final transformation layer between market intelligence and human-readable system output

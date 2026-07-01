@@ -1,0 +1,276 @@
+=========================================================
+T-LINE STRATEGY MODULE (NEA PLUGIN)
+Version: 2.0 (PINBAR PARITY FIXED)
+Type: EMA8 TREND CONTINUATION EVENT ENGINE
+=========================================================
+📘 MODULE OVERVIEW
+
+The T-Line Strategy Module is a Pinbar-compatible event-driven trading plugin designed to detect and manage trend continuation setups based on the T-Line methodology (EMA-8 framework) as described in Stephen Bigalow’s candlestick trading system.
+
+This module converts EMA-based trend behavior into a structured event lifecycle system, enabling:
+
+Real-time trend continuation detection
+EMA8 alignment monitoring
+Institutional-grade event lifecycle tracking
+Resolver-compatible trade generation
+Journal + dashboard integration
+🧠 CORE PHILOSOPHY
+
+The T-Line system is based on one fundamental principle:
+
+Price relative to the 8 EMA defines trend control.
+
+Above EMA8 → Buyers control trend (bullish bias)
+Below EMA8 → Sellers control trend (bearish bias)
+
+When combined with structural validation (high/low extremes), this creates a continuation framework rather than a predictive indicator system.
+
+⚙️ SYSTEM ARCHITECTURE
+
+The module follows strict NEA Event Architecture:
+
+Detector Layer
+      ↓
+Event Creation
+      ↓
+Event Lifecycle Engine
+      ↓
+Trade Builder
+      ↓
+Structured Output
+
+This architecture mirrors the Pinbar Module exactly, ensuring full compatibility across the strategy ecosystem.
+
+📊 SUPPORTED SIGNAL TYPE
+✔ T-LINE CONTINUATION EVENT
+Type	Description
+Bullish T-Line	Price above EMA8 → continuation of uptrend
+Bearish T-Line	Price below EMA8 → continuation of downtrend
+🔍 DETECTION LOGIC
+📌 EMA8 ALIGNMENT RULE
+
+The core detection condition:
+
+Bullish Setup → Close > EMA8
+Bearish Setup → Close < EMA8
+
+EMA8 is calculated internally during analysis only (not inside detector).
+
+📌 DETECTOR BEHAVIOR (PURE LOGIC)
+
+Function:
+
+detect_tline(candle, df, i)
+Responsibilities:
+Extract OHLC values
+Compute EMA8 snapshot
+Determine directional bias
+Output:
+{
+    "detected": true,
+    "type": "TLINE",
+    "direction": "Bullish",
+    "high": 100,
+    "low": 95,
+    "close": 98
+}
+❗ RULE:
+
+Detector must NOT include:
+
+trend engines
+fib logic
+structure analysis
+
+This preserves Pinbar parity compliance.
+
+🔄 EVENT LIFECYCLE SYSTEM
+
+The module uses a state machine identical to Pinbar architecture:
+
+STATES
+1. PENDING
+
+Initial detection state after EMA8 alignment.
+
+2. CONFIRMED
+
+EMA continuation validated.
+
+3. FAILED
+
+EMA structure broken.
+
+4. EXPIRED
+
+No resolution within lifecycle window.
+
+EVENT RULE ENGINE
+
+Function:
+
+tline_event_rules(event, close, ema8)
+Logic:
+Bullish Case:
+CONFIRM → Close remains above EMA8
+FAIL → Close breaks below EMA8
+Bearish Case:
+CONFIRM → Close remains below EMA8
+FAIL → Close breaks above EMA8
+🧾 EVENT OBJECT STRUCTURE
+
+Each event follows strict NEA schema:
+
+{
+    "id": 1,
+    "detected": true,
+    "type": "TLINE",
+    "direction": "Bullish",
+    "high": 105,
+    "low": 98,
+    "close": 102,
+    "index": 150,
+    "date": "2026-01-01",
+    "status": "PENDING",
+    "status_reason": "EMA8 alignment detected",
+    "days_active": 0,
+    "resolved_date": null
+}
+💰 TRADE GENERATION SYSTEM
+
+Function:
+
+build_tline_trade_state(event)
+📈 BULLISH TRADE STRUCTURE
+Entry: Break continuation high
+Stop: Below structural low
+Target 1: +1R extension
+Target 2: +2R extension
+{
+    "trade_type": "TREND_CONTINUATION",
+    "direction": "LONG",
+    "entry": 105,
+    "stop": 97,
+    "invalidation": 98,
+    "target1": 112,
+    "target2": 118
+}
+📉 BEARISH TRADE STRUCTURE
+Entry: Breakdown continuation low
+Stop: Above structural high
+Target 1: -1R extension
+Target 2: -2R extension
+🔁 ANALYZER ENGINE
+
+Function:
+
+analyze_tline(df, event_store)
+STEP 1 — BACKWARD SEARCH
+
+The system scans from newest → oldest:
+
+latest valid EMA8 alignment event wins
+
+This ensures:
+
+no lagging signals
+most recent structure is prioritized
+historical compatibility is preserved
+STEP 2 — LIFECYCLE MONITORING
+
+After detection:
+
+Each candle updates state
+EMA8 is recalculated per candle
+event_rules determines lifecycle progression
+📊 REGIME OUTPUT
+
+The module returns:
+
+"regime": "CONFIRMED" | "PENDING"
+
+✔ NOT trend-based
+✔ NOT indicator-based
+✔ ONLY event lifecycle based
+
+This ensures consistency with Pinbar + BW Fractal modules.
+
+📡 OUTPUT STRUCTURE
+
+Final module output:
+
+{
+    "event": {...},
+    "trade": {...},
+    "regime": "CONFIRMED"
+}
+📊 DASHBOARD INTEGRATION
+
+Recommended columns:
+
+Column	Description
+Pattern	T-Line
+Direction	Bullish / Bearish
+Status	Pending / Confirmed / Failed
+Entry	EMA continuation entry
+Stop	Structural invalidation
+Target1	First extension
+Target2	Second extension
+Days Active	Event duration
+📓 JOURNAL INTEGRATION
+
+The module supports:
+
+event["status_reason"]
+trade["interpretation"]
+Example:
+"EMA8 continuation confirmed"
+"Bearish T-Line continuation (EMA resistance)"
+
+These feed directly into:
+
+journal.py
+AI commentary engine
+trade reporting system
+🔗 PINBAR PARITY COMPLIANCE
+
+This module is fully aligned with Pinbar architecture:
+
+✔ backward scanning engine
+✔ event object structure identical
+✔ lifecycle system (PENDING/CONFIRMED/FAILED/EXPIRED)
+✔ separate detector / rule / builder layers
+✔ resolver-compatible output
+✔ no embedded analytics engines
+
+⚠️ DESIGN GUARANTEE
+
+This module guarantees:
+
+No hidden indicator logic inside detector
+No multi-layer analytical coupling
+No cross-strategy contamination
+Clean plug-and-play event engine behavior
+🧠 DESIGN PHILOSOPHY
+
+The T-Line module treats EMA8 not as a signal generator, but as:
+
+A structural boundary for trend control
+
+This transforms EMA from:
+
+❌ indicator system
+into:
+✔ event-driven structural regime filter
+🚀 MODULE VERSIONING
+Version	Description
+1.0	Initial T-Line detection
+2.0	Pinbar parity compliance (current)
+🧩 FRAMEWORK COMPATIBILITY
+
+✔ EventEngine compatible
+✔ Resolver compatible
+✔ Journal system compatible
+✔ Dashboard compatible
+✔ Multi-timeframe extensible
+✔ Confluence-ready

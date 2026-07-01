@@ -1,0 +1,362 @@
+📌 Event Engine Module — README
+Overview
+
+The Event Engine is a lightweight, store-driven lifecycle management system designed to track, update, and resolve trading or analytical “events” over time using streaming market data.
+
+It is intentionally built as a pure event-state system:
+
+No embedded detection logic
+No recomputation of signals
+No coupling to indicators or strategies
+Fully decoupled rule engine via event_rules
+
+This makes it ideal as a backend lifecycle layer for:
+
+Candlestick pattern systems (pinbars, inside bars, etc.)
+Wyckoff events (springs, upthrusts, SOS/SC)
+Signal tracking engines
+Trade journaling systems
+Any stateful market event tracking
+🧠 Core Philosophy
+
+The Event Engine follows a strict separation of concerns:
+
+1. Event Creation (External)
+
+Events are created elsewhere (analysis modules) and inserted into the store.
+
+2. Event Storage (Truth Layer)
+
+The EventStore is the single source of truth.
+
+3. Event Resolution (Pure Scan)
+
+The engine only:
+
+Iterates historical candles
+Applies external rules
+Updates status
+4. No Hidden Intelligence
+
+All intelligence lives in event_rules.
+
+This ensures:
+
+“The engine does not think — it only applies state transitions.”
+
+🏗️ Architecture
++----------------------+
+| Analysis Modules     |
+| (Pinbar / Wyckoff)   |
++----------+-----------+
+           |
+           v
++----------------------+
+| EventStore           |  <-- SOURCE OF TRUTH
+| - events[]           |
+| - next_id            |
++----------+-----------+
+           |
+           v
++----------------------+
+| Event Engine         |
+| update_event_status  |
+| find_latest_unresolved|
++----------+-----------+
+           |
+           v
++----------------------+
+| event_rules (PLUG-IN)|
+| user-defined logic   |
++----------------------+
+📦 Components
+1. EventStore (Source of Truth)
+Purpose
+
+A minimal in-memory database for events.
+
+Class Definition
+class EventStore:
+Fields
+Field	Type	Description
+events	list[dict]	All stored events
+next_id	int	Auto-incrementing event ID
+Methods
+add_event(event: dict) -> dict
+
+Adds an event to the store.
+
+Behavior:
+
+Copies input event
+Assigns unique incremental ID
+Appends to store
+Returns enriched event
+
+Example:
+
+store.add_event({
+    "type": "PINBAR",
+    "status": "PENDING",
+    "ticker": "AAPL"
+})
+
+Output:
+
+{
+    "type": "PINBAR",
+    "status": "PENDING",
+    "ticker": "AAPL",
+    "id": 1
+}
+get_history() -> list
+
+Returns full event history.
+
+history = store.get_history()
+2. Event Resolver (Read-Only Scanner)
+Function: find_latest_unresolved_pattern(history)
+Purpose
+
+Finds the most recent unresolved event.
+
+Behavior
+Scans history backward
+Does NOT modify data
+Does NOT compute signals
+Only returns existing event state
+Resolution Rules
+
+Ignored statuses:
+
+FAILED
+EXPIRED
+CONFIRMED
+
+Valid return:
+
+First event with PENDING
+Example
+event = find_latest_unresolved_pattern(store.get_history())
+Output:
+{
+    "id": 12,
+    "type": "PINBAR",
+    "status": "PENDING"
+}
+Design Intent
+
+This function is:
+
+A pure state inspector — not a detector.
+
+It is used for:
+
+UI dashboards
+Journal tracking
+Execution pipelines
+3. Lifecycle Updater (Core Engine)
+Function: update_event_status(store, event_rules, df, f=float)
+Purpose
+
+This is the execution engine that updates event states based on market data.
+
+It:
+
+Iterates over candles
+Applies rules
+Mutates event status
+Inputs
+Parameter	Type	Description
+store	EventStore	Event database
+event_rules	function	External rule engine
+df	DataFrame	OHLCV market data
+f	callable	Type coercion function (default float)
+Expected DataFrame Format
+
+Must contain:
+
+Open
+High
+Low
+Close
+Execution Flow
+
+For each candle:
+
+Extract OHLC
+Convert to float safely
+Loop through all PENDING events
+Apply event_rules
+Update status based on return value
+Rule Engine Contract
+
+The event_rules function must return:
+
+Return Value	Meaning
+"CONFIRM"	Event is validated
+"FAIL"	Event is invalid
+"EXPIRE"	Event timed out
+None	No change
+Example Rule Function
+def event_rules(event, candle, close, high, low):
+
+    if event["type"] == "PINBAR":
+
+        if close > high:
+            return "CONFIRM"
+
+        if low < event["invalid_level"]:
+            return "FAIL"
+
+    return None
+Status Transitions
+Current	Action	New State
+PENDING	CONFIRM	CONFIRMED
+PENDING	FAIL	FAILED
+PENDING	EXPIRE	EXPIRED
+Error Handling
+
+The engine is fault-tolerant:
+
+OHLC errors → logged, skipped candle
+Rule errors → logged with traceback
+Event errors → isolated per event
+🔁 Event Lifecycle Model
+PENDING
+   ↓
+CONFIRMED
+   ↓
+(terminal)
+
+OR
+
+PENDING
+   ↓
+FAILED
+
+OR
+
+PENDING
+   ↓
+EXPIRED
+⚙️ Design Strengths
+1. Fully Decoupled Intelligence
+Engine = execution
+Rules = logic
+Store = memory
+2. Plug-and-Play Strategy Layer
+
+You can swap:
+
+Pinbar rules
+Wyckoff rules
+Breakout rules
+Volume spike rules
+
+without touching engine code.
+
+3. Backtest Compatible
+
+Because it uses historical iteration:
+
+for i in range(len(df)):
+
+It can simulate:
+
+tick-by-tick evolution
+candle-by-candle validation
+4. Journal System Ready
+
+Perfect integration with:
+
+trade journals
+event logs
+analysis dashboards
+5. Multi-Strategy Support
+
+Single store can hold:
+
+Candlestick events
+Wyckoff events
+Volume events
+Momentum events
+📊 Logging System
+
+Logger namespace:
+
+logging.getLogger("event_engine")
+Log Events
+Backward scan operations
+OHLC parsing issues
+Rule evaluation errors
+🚀 Example Usage
+store = EventStore()
+
+store.add_event({
+    "type": "PINBAR",
+    "status": "PENDING",
+    "invalid_level": 1.25
+})
+
+update_event_status(
+    store=store,
+    event_rules=event_rules,
+    df=price_data
+)
+
+latest = find_latest_unresolved_pattern(store.get_history())
+🔌 Integration Use Cases
+1. Candlestick Engine
+Pinbars
+Engulfing
+Doji
+2. Wyckoff Engine
+Springs
+Upthrusts
+SOS/SC phases
+3. Volume Engine
+Spike confirmation
+Distribution detection
+4. Trade Journal
+Entry validation
+Exit confirmation
+Signal lifecycle tracking
+🧱 Limitations
+In-memory only (no persistence layer)
+Linear scan (not optimized for large-scale HFT)
+No concurrency safety
+No event indexing
+🧭 Recommended Enhancements
+
+If expanding this system:
+
+1. Add Event Indexing
+by_ticker = {}
+by_type = {}
+2. Add Persistence Layer
+SQLite
+Parquet logs
+Journal integration
+3. Add Event TTL System
+
+Automatic expiry based on:
+
+candle count
+time window
+4. Add Async Engine Mode
+
+For real-time feeds
+
+🧾 Summary
+
+The Event Engine is a:
+
+lightweight, deterministic, rule-driven lifecycle system for managing market events over time.
+
+It is designed to be:
+
+extensible
+strategy-agnostic
+journal-integrated
+production-safe for modular trading systems

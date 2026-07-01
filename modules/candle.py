@@ -1,19 +1,19 @@
 # =========================================================
-# HARAMI FAMILY MODULE (STRATEGY PLUGIN - RESOLVER COMPATIBLE)
+# CANDLE OVER CANDLE MODULE (STRATEGY PLUGIN - RESOLVER COMPATIBLE)
 # =========================================================
 
 import logging
 from modules.eventEngine import extract_event_date
 
-logger = logging.getLogger("harami")
+logger = logging.getLogger("candle_over_candle")
 
 
 # =========================================================
 # DETECTOR (PURE)
 # =========================================================
-def detect_harami(candle, prev_candle, f):
+def detect_candle_over_candle(candle, prev_candle, f):
 
-    logger.debug("[HARAMI] detect_harami() called")
+    logger.debug("[CANDLE OVER CANDLE] detect_candle_over_candle() called")
 
     try:
         high = f(candle.get("High"))
@@ -27,7 +27,7 @@ def detect_harami(candle, prev_candle, f):
         pc = f(prev_candle.get("Close"))
 
     except Exception as e:
-        logger.error(f"[HARAMI] OHLC extraction failed: {e}")
+        logger.error(f"[CANDLE OVER CANDLE] OHLC extraction failed: {e}")
         return {"detected": False, "error": str(e)}
 
     if any(v is None for v in [high, low, open_, close, ph, pl, po, pc]):
@@ -37,7 +37,15 @@ def detect_harami(candle, prev_candle, f):
         return {"detected": False}
 
     # ---------------------------------------------------------
-    # BODY CALCULATIONS
+    # OUTSIDE BAR (CANDLE OVER CANDLE RANGE EXPANSION)
+    # ---------------------------------------------------------
+    full_over = (high > ph) and (low < pl)
+
+    if not full_over:
+        return {"detected": False}
+
+    # ---------------------------------------------------------
+    # BODY CONTEXT
     # ---------------------------------------------------------
     prev_body_high = max(po, pc)
     prev_body_low = min(po, pc)
@@ -45,14 +53,9 @@ def detect_harami(candle, prev_candle, f):
     curr_body_high = max(open_, close)
     curr_body_low = min(open_, close)
 
-    inside_body = (
-        curr_body_high < prev_body_high and
-        curr_body_low > prev_body_low
-    )
+    body_over = (curr_body_high > prev_body_high) and (curr_body_low < prev_body_low)
 
-    if not inside_body:
-        return {"detected": False}
-
+    # Directional pressure
     prev_bullish = pc > po
     prev_bearish = pc < po
 
@@ -63,58 +66,59 @@ def detect_harami(candle, prev_candle, f):
     rng = max(high - low, 1e-9)
     body_ratio = body / rng
 
-    # Harami Cross (doji-like compression)
-    is_doji = body_ratio < 0.1
+    is_strong_expansion = body_ratio > 0.6
 
     # ---------------------------------------------------------
-    # BULLISH HARAMI
+    # BULLISH OVER BAR
     # ---------------------------------------------------------
-    if prev_bearish and curr_bullish:
+    if curr_bullish and (prev_bearish or body_over):
+
         return {
             "detected": True,
-            "type": "Harami",
+            "type": "Candle Over Candle",
             "direction": "Bullish",
             "high": high,
             "low": low,
             "open": open_,
-            "close": close
+            "close": close,
+            "strength": "EXPANSION" if is_strong_expansion else "MODERATE"
         }
 
     # ---------------------------------------------------------
-    # BEARISH HARAMI
+    # BEARISH OVER BAR
     # ---------------------------------------------------------
-    if prev_bullish and curr_bearish:
+    if curr_bearish and (prev_bullish or body_over):
+
         return {
             "detected": True,
-            "type": "Harami",
+            "type": "Candle Over Candle",
             "direction": "Bearish",
             "high": high,
             "low": low,
             "open": open_,
-            "close": close
+            "close": close,
+            "strength": "EXPANSION" if is_strong_expansion else "MODERATE"
         }
 
     # ---------------------------------------------------------
-    # HARAMI CROSS (neutral compression)
+    # NEUTRAL OUTSIDE BAR (FULL RANGE EXPANSION / EQUILIBRIUM BREAK)
     # ---------------------------------------------------------
-    if is_doji:
-        return {
-            "detected": True,
-            "type": "Harami Cross",
-            "direction": "Neutral",
-            "high": high,
-            "low": low,
-            "open": open_,
-            "close": close
-        }
-
-    return {"detected": False}
+    return {
+        "detected": True,
+        "type": "Candle Over Candle",
+        "direction": "Neutral",
+        "high": high,
+        "low": low,
+        "open": open_,
+        "close": close,
+        "strength": "RANGE_EXPANSION"
+    }
 
 
 # =========================================================
 # TRADE BUILDER (BIGALOW PROGRESSIVE)
 # =========================================================
-def build_harami_trade_state(event):
+def build_candle_over_candle_trade_state(event):
 
     high = event["high"]
     low = event["low"]
@@ -124,13 +128,13 @@ def build_harami_trade_state(event):
     status = event.get("status", "PENDING")
 
     # ==================================================
-    # PENDING HARAMI CROSS
+    # NEUTRAL EXPANSION (OUTSIDE BAR COMPRESSION BREAK)
     # ==================================================
     if direction == "Neutral" and status == "PENDING":
 
         return {
 
-            "trade_type": "COMPRESSION",
+            "trade_type": "COMPRESSION_BREAK",
             "direction": "BOTH",
             "active": True,
 
@@ -150,20 +154,18 @@ def build_harami_trade_state(event):
             "failure_short": f"Close above {high}",
 
             "interpretation": (
-                "Harami Cross represents volatility compression after an "
-                "expansion candle. Neither buyers nor sellers currently "
-                "control the auction. Institutional participants typically "
-                "wait for a decisive close outside the Harami range before "
-                "committing capital. A close above the pattern high activates "
-                "bullish expansion, while a close below the pattern low "
-                "activates bearish expansion."
+                "Candle Over Candle (Outside Bar) represents volatility expansion "
+                "where price fully engulfs the prior candle range. This signals "
+                "liquidity sweep conditions and institutional participation. "
+                "Direction is not confirmed until price breaks and closes beyond "
+                "the expansion extremes."
             ),
 
-            "state": "COMPRESSION_ACTIVE"
+            "state": "EXPANSION_ACTIVE"
         }
 
     # ==================================================
-    # BULLISH
+    # BULLISH EXPANSION
     # ==================================================
     if direction == "Bullish":
 
@@ -183,19 +185,18 @@ def build_harami_trade_state(event):
             "failure": f"Close below {low}",
 
             "interpretation": (
-                "Bullish Harami reflects seller exhaustion following a bearish "
-                "expansion. The smaller inside candle signals absorption of "
-                "supply and improving buyer participation. Confirmation occurs "
-                "only after a close above the Harami high, indicating "
-                "institutional accumulation and the beginning of bullish "
-                "expansion. Failure occurs on a close below the Harami low."
+                "Bullish Candle Over Candle signals aggressive buyer dominance "
+                "through full range expansion above prior structure. This reflects "
+                "liquidity absorption on the downside and strong institutional "
+                "accumulation behavior. Continuation is expected if price holds "
+                "above the expansion low."
             ),
 
             "state": "BULLISH_ACTIVE"
         }
 
     # ==================================================
-    # BEARISH
+    # BEARISH EXPANSION
     # ==================================================
     if direction == "Bearish":
 
@@ -215,12 +216,10 @@ def build_harami_trade_state(event):
             "failure": f"Close above {high}",
 
             "interpretation": (
-                "Bearish Harami reflects buyer exhaustion following a bullish "
-                "expansion. The smaller inside candle signals demand "
-                "absorption and increasing seller control. Confirmation occurs "
-                "only after a close below the Harami low, indicating "
-                "institutional distribution and the beginning of bearish "
-                "expansion. Failure occurs on a close above the Harami high."
+                "Bearish Candle Over Candle signals aggressive seller dominance "
+                "through full range breakdown below prior structure. This reflects "
+                "liquidity rejection and institutional distribution behavior. "
+                "Continuation is expected if price holds below the expansion high."
             ),
 
             "state": "BEARISH_ACTIVE"
@@ -241,7 +240,7 @@ def build_harami_trade_state(event):
 
         "failure": "",
 
-        "interpretation": "No active Harami trade.",
+        "interpretation": "No active Candle Over Candle trade.",
 
         "state": "INVALID"
     }
@@ -250,12 +249,12 @@ def build_harami_trade_state(event):
 # =========================================================
 # EVENT RULES
 # =========================================================
-def harami_event_rules(event, candle, close, high, low):
+def candle_over_candle_event_rules(event, candle, close, high, low):
 
     status = event["status"]
 
     # ---------------------------------------------
-    # Neutral Compression
+    # Pending Expansion
     # ---------------------------------------------
     if status == "PENDING":
 
@@ -288,7 +287,7 @@ def harami_event_rules(event, candle, close, high, low):
                 return "FAIL"
 
     # ---------------------------------------------
-    # Confirmed
+    # Confirmed State
     # ---------------------------------------------
     elif status == "CONFIRMED":
 
@@ -306,23 +305,23 @@ def harami_event_rules(event, candle, close, high, low):
 
 
 # =========================================================
-# MAIN ANALYZER (CONTEXT REMOVED - PINBAR MIRROR)
+# MAIN ANALYZER
 # =========================================================
-def analyze_harami(df, event_store, f=float):
+def analyze_candle_over_candle(df, event_store, f=float):
 
-    logger.info("[HARAMI] analyze_harami() called")
+    logger.info("[CANDLE OVER CANDLE] analyze_candle_over_candle() called")
 
     latest_pattern = None
 
     # ==================================================
-    # DETECTION PASS (MOST RECENT HARAMI)
+    # DETECTION PASS
     # ==================================================
     for i in range(len(df) - 1, 0, -1):
 
         candle = df.iloc[i]
         prev_candle = df.iloc[i - 1]
 
-        detected = detect_harami(candle, prev_candle, f)
+        detected = detect_candle_over_candle(candle, prev_candle, f)
 
         if not detected.get("detected"):
             continue
@@ -332,12 +331,10 @@ def analyze_harami(df, event_store, f=float):
             "detected": True,
             "type": detected["type"],
             "direction": detected["direction"],
+            "strength": detected.get("strength", "UNKNOWN"),
 
-            # Initial strategy classification.
-            # Neutral Harami Cross begins as compression and is
-            # promoted to REVERSAL once directional confirmation occurs.
             "trade_type": (
-                "COMPRESSION"
+                "COMPRESSION_BREAK"
                 if detected["direction"] == "Neutral"
                 else "REVERSAL"
             ),
@@ -351,11 +348,11 @@ def analyze_harami(df, event_store, f=float):
 
             "status": "PENDING",
             "days_active": 0,
-            "status_reason": "Awaiting confirmation"
+            "status_reason": "Awaiting expansion confirmation"
         }
 
         logger.info(
-            f"[HARAMI] Latest pattern found "
+            f"[CANDLE OVER CANDLE] Pattern found "
             f"date={latest_pattern['date']} "
             f"type={latest_pattern['type']} "
             f"direction={latest_pattern['direction']}"
@@ -371,9 +368,9 @@ def analyze_harami(df, event_store, f=float):
         }
 
     # ==================================================
-    # INITIAL TRADE (COMPRESSION OR DIRECTIONAL)
+    # INITIAL TRADE
     # ==================================================
-    trade = build_harami_trade_state(latest_pattern)
+    trade = build_candle_over_candle_trade_state(latest_pattern)
 
     # ==================================================
     # PROGRESSIVE STATE MACHINE
@@ -386,11 +383,9 @@ def analyze_harami(df, event_store, f=float):
         high = float(candle["High"])
         low = float(candle["Low"])
 
-        latest_pattern["days_active"] = (
-            i - latest_pattern["index"]
-        )
+        latest_pattern["days_active"] = i - latest_pattern["index"]
 
-        action = harami_event_rules(
+        action = candle_over_candle_event_rules(
             latest_pattern,
             candle,
             close,
@@ -398,53 +393,31 @@ def analyze_harami(df, event_store, f=float):
             low
         )
 
-        # ----------------------------------------------
-        # CONFIRMATION
-        # ----------------------------------------------
-        if (
-            action == "CONFIRM"
-            and latest_pattern["status"] == "PENDING"
-        ):
+        if action == "CONFIRM" and latest_pattern["status"] == "PENDING":
 
             latest_pattern["status"] = "CONFIRMED"
             latest_pattern["resolved_date"] = extract_event_date(df, i)
 
-            # Neutral Harami Cross has now resolved into
-            # a directional institutional reversal.
             latest_pattern["trade_type"] = "REVERSAL"
 
             if latest_pattern["direction"] == "Bullish":
-                latest_pattern["status_reason"] = (
-                    "Bullish breakout above Harami range confirmed."
-                )
+                latest_pattern["status_reason"] = "Bullish expansion confirmed."
 
             elif latest_pattern["direction"] == "Bearish":
-                latest_pattern["status_reason"] = (
-                    "Bearish breakdown below Harami range confirmed."
-                )
+                latest_pattern["status_reason"] = "Bearish expansion confirmed."
 
-            # Immediately rebuild the trade so downstream
-            # renderers receive LONG/SHORT instead of COMPRESSION.
-            trade = build_harami_trade_state(latest_pattern)
+            trade = build_candle_over_candle_trade_state(latest_pattern)
 
-        # ----------------------------------------------
-        # FAILURE
-        # ----------------------------------------------
         elif action == "FAIL":
 
             latest_pattern["status"] = "FAILED"
             latest_pattern["resolved_date"] = extract_event_date(df, i)
-            latest_pattern["status_reason"] = (
-                "Harami confirmation failed."
-            )
+            latest_pattern["status_reason"] = "Expansion failed."
 
-            trade = build_harami_trade_state(latest_pattern)
+            trade = build_candle_over_candle_trade_state(latest_pattern)
             break
 
-    # ==================================================
-    # FINAL TRADE STATE
-    # ==================================================
-    trade = build_harami_trade_state(latest_pattern)
+    trade = build_candle_over_candle_trade_state(latest_pattern)
 
     # ==================================================
     # REGIME ENGINE
@@ -452,21 +425,19 @@ def analyze_harami(df, event_store, f=float):
     if latest_pattern["status"] == "CONFIRMED":
 
         if latest_pattern["direction"] == "Bullish":
-            regime = "HARAMI_BULL_EXPANSION"
+            regime = "COC_BULL_EXPANSION"
 
         elif latest_pattern["direction"] == "Bearish":
-            regime = "HARAMI_BEAR_EXPANSION"
+            regime = "COC_BEAR_EXPANSION"
 
         else:
-            regime = "HARAMI_NEUTRAL_EXPANSION"
+            regime = "COC_NEUTRAL_EXPANSION"
 
     elif latest_pattern["status"] == "FAILED":
-
         regime = "FAILED"
 
     else:
-
-        regime = "HARAMI_COMPRESSION"
+        regime = "COC_COMPRESSION"
 
     return {
         "event": latest_pattern,

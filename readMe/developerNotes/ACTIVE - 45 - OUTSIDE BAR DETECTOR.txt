@@ -1,0 +1,274 @@
+=========================================================
+📘 CANDLE OVER CANDLE MODULE — README
+STRATEGY PLUGIN (RESOLVER COMPATIBLE)
+PROGRESSIVE EVENT ENGINE (SEED + CONFIRMATION)
+=========================================================
+🧠 1. MODULE OVERVIEW
+
+The Candle Over Candle Module is a volatility expansion and liquidity detection system designed to identify:
+
+Full Outside Bar Expansion Events
+Structural range engulfments
+Momentum-driven institutional participation
+Neutral compression breaks transitioning into directional trends
+Failed or successful breakout confirmations
+
+It operates as a two-phase event engine:
+
+Detection Layer (Pure Pattern Recognition)
+State Machine Layer (Progressive Validation Engine)
+⚙️ 2. CORE DESIGN PHILOSOPHY
+
+This module is built around the concept:
+
+“Price reveals intent when it fully engulfs prior market range.”
+
+A Candle Over Candle event is not just a large candle — it represents:
+
+Liquidity sweep across both sides of prior structure
+Stop-loss harvesting above and below prior candle range
+Institutional participation in volatility expansion
+Transition from compression → expansion regime
+📊 3. STRUCTURAL DEFINITION
+
+A valid Candle Over Candle event requires:
+
+✔ RANGE ENGULFMENT (PRIMARY CONDITION)
+
+Current candle must satisfy:
+
+High > Previous High
+Low < Previous Low
+
+This defines a true outside bar structure
+
+✔ BODY CONTEXT (DIRECTIONAL INTENT)
+
+We evaluate:
+
+Current candle body direction
+Previous candle direction
+Internal body expansion vs previous body
+✔ EXPANSION STRENGTH
+
+Measured using:
+
+body_ratio = body / range
+
+Interpretation:
+
+0.60 → EXPANSION
+
+≤ 0.60 → MODERATE
+📈 4. DETECTION TYPES
+🟡 NEUTRAL (COMPRESSION BREAK)
+
+Occurs when:
+
+Full range engulfment exists
+No directional dominance yet confirmed
+
+Represents:
+
+Liquidity sweep
+Breakout uncertainty
+Early expansion phase
+🟢 BULLISH CANDLE OVER CANDLE
+
+Triggered when:
+
+Current candle is bullish
+Previous structure is bearish OR body engulfment occurs
+Full range expansion is present
+
+Represents:
+
+Buyer dominance after liquidity sweep
+Structural reclaim of downside liquidity
+Early trend continuation signal
+🔴 BEARISH CANDLE OVER CANDLE
+
+Triggered when:
+
+Current candle is bearish
+Previous structure is bullish OR body engulfment occurs
+Full range breakdown occurs
+
+Represents:
+
+Seller dominance after upside liquidity sweep
+Distribution after failed breakout
+Downside continuation signal
+🧬 5. SEED vs FULL EVENT MODEL
+
+Although this module does not explicitly split seed/full functions like others, it behaves in two phases:
+
+🌱 SEED STATE (Implicit)
+
+Initial detection occurs when:
+
+Outside bar forms
+Direction is still ambiguous OR developing
+No confirmation beyond extremes yet
+🚀 CONFIRMED STATE
+
+Occurs when:
+
+Price breaks and closes beyond expansion boundary
+Directional intent is validated
+🔁 6. EVENT STATE MACHINE
+
+The module transitions through:
+
+🟡 PENDING
+
+Initial detected state
+
+🟢 CONFIRMED
+
+Breakout or breakdown validated
+
+🔴 FAILED
+
+Price rejects expansion and invalidates structure
+
+STATE TRANSITIONS
+NEUTRAL → CONFIRMED
+Break above high → Bullish
+Break below low → Bearish
+BULLISH / BEARISH → FAILED
+Close against expansion direction
+📉 7. TRADE MODEL LOGIC
+
+The module generates adaptive trade structures based on direction.
+
+🟢 BULLISH TRADE MODEL
+Entry: High of expansion candle
+Stop: Below low (liquidity sweep zone)
+Targets:
+1x range extension
+2x range extension
+
+Interpretation:
+
+Reclaim of liquidity after sweep
+Momentum continuation setup
+🔴 BEARISH TRADE MODEL
+Entry: Low of expansion candle
+Stop: Above high
+Targets:
+1x breakdown extension
+2x breakdown extension
+
+Interpretation:
+
+Distribution phase after rejection
+Momentum breakdown continuation
+🟡 NEUTRAL TRADE MODEL
+
+Special structure:
+
+Both long and short entries active
+Breakout confirmation determines direction
+Range becomes volatility battlefield
+🧠 8. INSTITUTIONAL INTERPRETATION MODEL
+
+The module interprets Candle Over Candle as:
+
+Liquidity Behavior:
+Stop hunts on both sides of prior candle
+Institutional absorption of liquidity pockets
+Market Psychology:
+Retail breakout traps
+False directional conviction
+Rapid reversal or continuation expansion
+Regime Shift Indicator:
+Compression → Expansion transition
+Volatility ignition point
+📊 9. REGIME CLASSIFICATION
+
+Final output assigns one of:
+
+Regime	Meaning
+COC_BULL_EXPANSION	Confirmed bullish breakout expansion
+COC_BEAR_EXPANSION	Confirmed bearish breakdown expansion
+COC_NEUTRAL_EXPANSION	Unresolved volatility breakout
+COC_COMPRESSION	Active formation, no breakout
+FAILED	Expansion invalidated
+🧾 10. OUTPUT STRUCTURE
+
+Each analysis returns:
+
+{
+    "event": {...},
+    "trade": {...},
+    "regime": "COC_*"
+}
+EVENT OBJECT
+
+Includes:
+
+type
+direction (Bullish / Bearish / Neutral)
+high / low / close
+index
+date (via extract_event_date)
+status (PENDING / CONFIRMED / FAILED)
+days_active
+TRADE OBJECT
+
+Includes:
+
+entry
+stop
+targets (1 & 2)
+invalidation
+failure condition
+interpretation narrative
+🔍 11. ANALYSIS FLOW
+STEP 1 — DETECTION PASS
+Scan historical candles
+Identify first valid outside bar
+STEP 2 — EVENT CREATION
+Initialize PENDING event
+Assign structure boundaries
+STEP 3 — VALIDATION LOOP
+Monitor forward candles
+Confirm or invalidate structure
+STEP 4 — TRADE GENERATION
+Build dynamic trade state
+Adjust after confirmation or failure
+STEP 5 — REGIME CLASSIFICATION
+Assign final market regime
+⚠️ 12. IMPORTANT DESIGN NOTES
+✔ NO LOOKAHEAD BIAS
+Only past candles used for detection
+✔ STRICT STRUCTURAL VALIDATION
+Must engulf prior candle range fully
+✔ DUAL MARKET INTERPRETATION
+Supports both continuation and reversal logic
+✔ RESOLVER COMPATIBLE
+Designed to plug into eventEngine architecture
+🧩 13. SYSTEM INTEGRATION
+
+This module integrates with:
+
+eventEngine.extract_event_date()
+Multi-timeframe analyzers
+Journal / trade logging systems
+Institutional event classification layers
+🧠 14. STRATEGIC ROLE IN SYSTEM
+
+Candle Over Candle acts as:
+
+“The volatility ignition module of the entire strategy framework.”
+
+It is used to detect:
+
+Breakout initiation zones
+Liquidity sweep reversals
+Expansion confirmation points
+Early trend acceleration signals
+=========================================================
+END OF README
+=========================================================
