@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, messagebox
 import sqlite3
 import threading
 import time
@@ -309,6 +309,10 @@ class WatchlistPopup(tk.Toplevel):
         # STEP 4: snapshot update
         self.refresh()       
 
+        # Default sort: Percent Change (Highest -> Lowest)
+        self.sort_states["change"] = True
+        self.sort_by("change")
+
     # ---------------- UI ----------------
     def build_ui(self):
 
@@ -333,27 +337,101 @@ class WatchlistPopup(tk.Toplevel):
             command=self.refresh
         ).pack(side="right", padx=5)
 
-        columns = ("ticker", "price", "change", "volume", "state")
+        columns = (
+            "id",
+            "ticker",
+            "price",
+            "change",
+            "volume",
+            "state"
+        )
 
-        self.tree = ttk.Treeview(self, columns=columns, show="headings")
-        self.tree.pack(fill="both", expand=True)
+        self.columns = columns
+
+        self.tree = ttk.Treeview(
+            self,
+            columns=columns,
+            show="headings"
+        )
+
+        self.tree.pack(
+            fill="both",
+            expand=True
+        )
+
 
         for c in columns:
-            self.tree.heading(c, text=c.upper(), command=lambda _c=c: self.sort_by(_c))
-            self.tree.column(c, width=140)
+
+            self.tree.heading(
+                c,
+                text=c.upper(),
+                command=lambda _c=c: self.sort_by(_c)
+            )
+
+            self.tree.column(
+                c,
+                width=120
+            )
+
+
+        # Right click popup
+        self.tree.bind(
+            "<Button-3>",
+            self.show_popup
+        )
+
+
+        self.sort_states = {
+            c: False for c in columns
+        }
 
     # ---------------- LOAD ----------------
     def load_table(self):
-        self.tree.delete(*self.tree.get_children())
 
-        for t in self.watchlist:
-            self.tree.insert("", "end", values=(t, "-", "-", "-", "-"))
+        self.tree.delete(
+            *self.tree.get_children()
+        )
+
+        conn = sqlite3.connect(WATCHLIST_DB)
+
+        cur = conn.cursor()
+
+        cur.execute("""
+            SELECT id,ticker
+            FROM watchlist
+            ORDER BY ticker
+        """)
+
+        rows = cur.fetchall()
+
+        conn.close()
+
+
+        for row in rows:
+
+            self.tree.insert(
+                "",
+                "end",
+                values=(
+                    row[0],
+                    row[1],
+                    "-",
+                    "-",
+                    "-",
+                    "-"
+                )
+            )
 
     # ---------------- SYNC ----------------
     def manual_sync(self):
+
         sync_watchlist_from_journal()
+
         self.watchlist = db_load()
+
         self.load_table()
+
+        self.refresh()
 
     # ---------------- REFRESH ----------------
     def refresh(self):
@@ -362,7 +440,7 @@ class WatchlistPopup(tk.Toplevel):
 
         for item in self.tree.get_children():
             values = self.tree.item(item, "values")
-            ticker = values[0]
+            ticker = values[1]
 
             snap = get_snapshot(ticker)
             if not snap:
@@ -370,31 +448,148 @@ class WatchlistPopup(tk.Toplevel):
 
             state = get_state(snap["change"])
 
-            self.tree.item(item, values=(
-                ticker,
-                snap["price"],
-                snap["change"],
-                snap["volume"],
-                state
-            ))
-
+            self.tree.item(
+                item,
+                values=(
+                    values[0],          # preserve database id
+                    ticker,
+                    snap["price"],
+                    snap["change"],
+                    snap["volume"],
+                    state
+                )
+            )
 
     # ---------------- SORT ----------------
     def sort_by(self, col):
-        items = [(self.tree.set(k, col), k) for k in self.tree.get_children("")]
 
-        def convert(v):
-            try:
-                return float(v)
-            except:
-                return v
+        items = []
 
-        items.sort(key=lambda t: convert(t[0]), reverse=self.sort_reverse)
+        for item in self.tree.get_children():
+            value = self.tree.set(item, col)
+            items.append((value, item))
 
-        for i, (_, k) in enumerate(items):
-            self.tree.move(k, "", i)
+        def convert(value):
 
-        self.sort_reverse = not self.sort_reverse
+            # Handle empty values
+            if value in ("", "-", "N/A", None):
+                return float("-inf")
+
+            # Numeric columns
+            if col in ("id", "price", "change", "volume"):
+
+                try:
+                    return float(
+                        str(value)
+                        .replace(",", "")
+                        .replace("%", "")
+                        .replace("$", "")
+                        .strip()
+                    )
+                except Exception:
+                    return float("-inf")
+
+            # Text columns
+            return str(value).lower()
+
+        reverse = self.sort_states[col]
+
+        items.sort(
+            key=lambda x: convert(x[0]),
+            reverse=reverse
+        )
+
+        for index, (_, item) in enumerate(items):
+            self.tree.move(item, "", index)
+
+        self.sort_states[col] = not reverse
+
+    # ---------------- POPUP ----------------
+        
+    def show_popup(self, event):
+
+        row = self.tree.identify_row(event.y)
+
+        if not row:
+            return
+
+
+        self.tree.selection_set(row)
+
+
+        menu = tk.Menu(
+            self,
+            tearoff=0
+        )
+
+
+        menu.add_command(
+            label="Delete Database Row",
+            command=self.delete_selected_row
+        )
+
+
+        menu.post(
+            event.x_root,
+            event.y_root
+        )        
+        
+    def delete_selected_row(self):
+
+        selected = self.tree.selection()
+
+        if not selected:
+            return
+
+
+        values = self.tree.item(
+            selected[0],
+            "values"
+        )
+
+
+        row_id = values[0]
+        ticker = values[1]
+
+
+        confirm = messagebox.askyesno(
+            "Confirm Delete",
+            f"Delete {ticker} from watchlist database?"
+        )
+
+
+        if not confirm:
+            return
+
+
+
+        conn = sqlite3.connect(
+            WATCHLIST_DB
+        )
+
+        cur = conn.cursor()
+
+
+        cur.execute(
+            """
+            DELETE FROM watchlist
+            WHERE id=?
+            """,
+            (row_id,)
+        )
+
+
+        conn.commit()
+        conn.close()
+
+
+
+        self.tree.delete(
+            selected[0]
+        )
+
+
+        self.watchlist = db_load()        
 
     # ---------------- CLOSE ----------------
     def close(self):

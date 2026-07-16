@@ -1,7 +1,9 @@
 ﻿import modules.journal_filters as jf
 import modules.executed_trades_notes as etn
 import modules.risk_grid_engine as rge
-
+from modules.swing_structure_engine import (
+    analyze_swing_structure
+)
 from modules.risk_grid_engine import (
     initialize_risk_engine,
     recalc,
@@ -20,7 +22,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import tkinter.font as tkFont
 import tkinter.scrolledtext as st
-
+from modules.market_data import get_snapshot
 import csv
 import os
 from datetime import datetime
@@ -28,10 +30,7 @@ import yfinance as yf
 import pandas as pd
 import webbrowser
 import uuid
-
-from modules import yahooFetcher
-import modules.webull.webullDownloader as webullDownloader
-
+from modules.data_fetcher_popup import DataFetcherPopup
 from modules.volumeAnalysis import (
     rvol,
     detect_volume_spike,
@@ -69,6 +68,7 @@ from modules.risk_engine import get_latest_close, evaluate_stop_loss
 
 from modules.watchlist_popup import WatchlistPopup
 from modules.signals_popup import open_signals_popup
+from modules.secAnalysis_popup import open_sec_analysis_popup
 
 # ✅ PATH RESOLVER (ONLY SOURCE OF TRUTH NOW)
 from modules.path_resolver import get_stock_data_path, get_project_root, get_watchlist_db_path
@@ -76,7 +76,7 @@ from modules.yahoo_history import load_yahoo_history
 from modules.volume_context import load_volume_analysis
 from modules.candlestick_state_engine import CandlestickInstitutionalStateEngine
 from modules.eventEngine import EventStore
-
+from modules.secAnalysis import SECAnalysisEngine
 import logging
 
 # =========================================================
@@ -287,12 +287,12 @@ Generated: {datetime.now():%Y-%m-%d %H:%M:%S}
             if not clean:
                 continue
 
-            f.write(f"## {name.replace('_', ' ').title()}\n\n")
             f.write(clean)
             f.write("\n\n---\n\n")
 
     return path
-    
+
+        
 # =========================================================
 # MARKET DATA LOADING (NOW FULLY PATH_RESOLVER-BASED)
 # =========================================================
@@ -759,18 +759,23 @@ def load_webull_executions():
             executions.append(r)
     return executions
 
-def run_yahoo_update():
-    try:
-        yahooFetcher.run_update()  # now handles preview + execution internally
-    except Exception as e:
-        messagebox.showerror("Update Error", str(e))
-        
 def run_webull_update():
     try:
         webullDownloader.run_update()  # same pattern as yahooFetcher
     except Exception as e:
-        messagebox.showerror("Webull Update Error", str(e))        
+        messagebox.showerror("Webull Update Error", str(e))  
+        
+def open_data_fetcher():
 
+    try:
+        DataFetcherPopup(root)
+
+    except Exception as e:
+        messagebox.showerror(
+            "Data Manager Error",
+            str(e)
+        )
+        
 def open_portfolio_overview():
 
     csv_path = WEBULL_FILE
@@ -792,7 +797,11 @@ def show_watchlist_popup():
     
 def show_signals_popup():
     global root
-    open_signals_popup(root)
+    open_signals_popup(root) 
+    
+def show_sec_popup():
+    global root
+    open_sec_analysis_popup(root) 
     
 # ==========================================================
 # HEADER
@@ -921,6 +930,7 @@ tk.Button(
     pady=6,
     command=save
 ).pack(fill="x", padx=10)
+
 # ==========================================================
 # BLOG / SIGNAL TEMPLATE PANEL (Below Save Entry)
 # ==========================================================
@@ -965,6 +975,9 @@ def generate_signal_template(row):
     global fractal_block
 
     ticker = row.get("ticker", "").upper()
+
+    sec_engine = SECAnalysisEngine()
+    sec_report = sec_engine.analyze_company(ticker)
 
     rs_block = build_relative_strength_block(
         ticker,
@@ -1328,6 +1341,36 @@ def generate_signal_template(row):
         rr_target = fmt("ladder_2_price")
 
     analysis_blocks = {
+        # ============================================================
+        # SEC Plugins (CANSLIM ORDER)
+        # ============================================================
+
+        "sec_earnings":
+            sec_report.get("earnings_report",""),
+
+        "sec_annual_growth":
+            sec_report.get("annual_growth_report",""),
+
+        "sec_new_developments":
+            sec_report.get("new_developments_report",""),
+
+        "sec_float_analysis":
+            sec_report.get("float_analysis_report",""),
+
+        "sec_ownership":
+            sec_report.get("ownership_report",""),
+
+        "sec_capital_allocation":
+            sec_report.get("capital_allocation_report",""),
+
+        "sec_balance_sheet":
+            sec_report.get("balance_sheet_report",""),
+
+        "sec_cash_flow":
+            sec_report.get("cash_flow_report",""),
+
+        "sec_canslim":
+            sec_report.get("canslim_report",""),  
         "candlestick_modules": candlestick_block1,
         "candlestick_summary": candlestick_block,
         "fundamentals": financial_block,
@@ -1568,73 +1611,147 @@ def auto_fit_columns(event=None):
 def tree_selection_update(event):
 
     selected = tree.selection()
+
     if not selected:
         return
 
     item = selected[0]
-    t = tree.set(item, "ticker")
 
-    if t and t in template_journal_data:
-        template_ticker_var.set(t)
-        update_template_panel()
+    ticker_value = tree.set(
+        item,
+        "ticker"
+    ).strip().upper()
+
+    # ---------------------------------------
+    # Risk Grid Sync
+    # ---------------------------------------
 
     try:
-        ticker_value = tree.set(item, "ticker").strip().upper()
+
+        snapshot = get_snapshot(
+            ticker_value
+        )
+
+
+        if snapshot and snapshot.get("price", 0) > 0:
+
+            rge.set_engine_state(
+                {
+                    "ticker": ticker_value,
+                    "buy_now_price": float(
+                        snapshot["price"]
+                    )
+                }
+            )
+
+
+    except Exception as e:
+
+        logger.exception(
+            f"Risk Grid sync failed: {e}"
+        )
+        
+    # ---------------------------------------
+    # Update Template Panel
+    # ---------------------------------------
+
+    if ticker_value in template_journal_data:
+
+        template_ticker_var.set(
+            ticker_value
+        )
+
+        update_template_panel()
+
+    # ---------------------------------------
+    # Load Swing Structure
+    # ---------------------------------------
+
+    try:
 
         if not ticker_value:
             return
 
-        daily_path = get_stock_data_path(ticker_value, "daily")
 
-        if not os.path.exists(daily_path):
+        daily_path = get_stock_data_path(
+            ticker_value,
+            "daily"
+        )
+
+
+        if not os.path.exists(
+            daily_path
+        ):
             return
 
-        daily_df = pd.read_csv(daily_path)
+
+        daily_df = pd.read_csv(
+            daily_path
+        )
+
 
         if daily_df.empty:
             return
 
+
         ticker_lower = ticker_value.lower()
 
-        high_col = f"high_{ticker_lower}"
-        low_col = f"low_{ticker_lower}"
 
-        if high_col not in daily_df.columns:
-            high_col = "high"
-        if low_col not in daily_df.columns:
-            low_col = "low"
+        rename_map = {
 
-        if high_col not in daily_df.columns or low_col not in daily_df.columns:
-            return
+            f"high_{ticker_lower}": "High",
+            f"low_{ticker_lower}": "Low",
+            f"open_{ticker_lower}": "Open",
+            f"close_{ticker_lower}": "Close",
+            f"adj_close_{ticker_lower}": "Adj Close",
+            f"volume_{ticker_lower}": "Volume"
 
-        daily_df[high_col] = pd.to_numeric(daily_df[high_col], errors="coerce")
-        daily_df[low_col] = pd.to_numeric(daily_df[low_col], errors="coerce")
+        }
 
-        session_high = round(daily_df[high_col].max(), 2)
-        session_low = round(daily_df[low_col].min(), 2)
 
-        # ==============================
-        # HARD SAFE GUARDS (FIX)
-        # ==============================
-        if last_high is not None:
-            try:
-                last_high.set(session_high)
-            except Exception:
-                pass
+        daily_df = daily_df.rename(
+            columns=rename_map
+        )
 
-        if low is not None:
-            try:
-                low.set(session_low)
-            except Exception:
-                pass
 
-        auto_calc_stop()
-        recalc()
+        required = [
+            "High",
+            "Low"
+        ]
+
+
+        for column in required:
+
+            if column not in daily_df.columns:
+
+                print(
+                    f"Swing Engine missing column: {column}"
+                )
+
+                return
+
+
+        swing_result = analyze_swing_structure(
+            daily_df
+        )
+
+
+        rge.load_swing_engine_output(
+            swing_result
+        )
+
 
     except Exception as e:
-        print("Daily structure autofill error:", e)
 
-tree.bind("<<TreeviewSelect>>", tree_selection_update)
+        logger.exception(
+            f"Daily structure autofill error: {e}"
+        )
+
+
+tree.bind(
+    "<<TreeviewSelect>>",
+    tree_selection_update
+)
 
 # ==========================================================
 # DELETE JOURNAL ENTRY
@@ -1922,7 +2039,7 @@ def open_entry_editor(event=None):
             enriched_row["stop"] = snapshot.get("stop", snapshot.get("stop_loss", enriched_row.get("stop", "")))            
 
             generated_prompt = generate_signal_template(
-                build_prompt_row(row_data)
+                build_prompt_row(enriched_row)
             )
 
             popup.clipboard_clear()
@@ -2506,10 +2623,11 @@ def create_link_label(parent, text, url=None, callback=None):
     lbl.pack(side="left", padx=5)
     lbl.bind("<Button-1>", on_click)
 
-create_link_label(links_frame, "Webull Data", callback=run_webull_update)
-create_link_label(links_frame, "Update Data", callback=run_yahoo_update)
+#create_link_label(links_frame, "Webull Data", callback=run_webull_update)
+create_link_label(links_frame, "Update Data", callback=open_data_fetcher)
 create_link_label(links_frame, "Watchlist", callback=show_watchlist_popup)
 create_link_label(links_frame, "Signals DB", callback=show_signals_popup)
+create_link_label(links_frame, "Financials DB", callback=show_sec_popup)
 create_link_label(links_frame, "Analysis Directory", callback=show_analysis_files_popup)
 create_link_label(links_frame, "Scraper Files", callback=show_scraper_files_popup)
 create_link_label(links_frame, "Account Ledger", callback=lambda: show_account_ledger_popup(root))

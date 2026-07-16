@@ -33,6 +33,20 @@ def get_database_root():
     )
     
 # =========================================================
+# SEC FINANCIAL DATA ROOT
+# =========================================================
+
+def get_sec_financials_root():
+
+    return os.path.join(
+        get_project_root(),
+        "modules",
+        "stock_data_db",
+        "sec_financials_db",
+        "financials"
+    )
+    
+# =========================================================
 # GENERIC DB RESOLVER
 # =========================================================
 def get_database_path(db_name):
@@ -49,6 +63,21 @@ def get_stock_db_path():
 def get_financial_db_path():
     return get_database_path("financials.db")
 
+def get_sec_financial_db_path():
+    """
+    SEC EDGAR financial database.
+
+    Stores:
+    - SEC company metadata
+    - Filing history
+    - XBRL facts
+    - SEC financial statements
+    - SEC ingestion history
+    """
+
+    return get_database_path(
+        "secFinancials.db"
+    )
 
 def get_ingestion_db_path():
     return get_database_path("ingestion.db")
@@ -67,3 +96,6 @@ def get_candlestick_analysis_db_path():
     
 def get_signals_db_path():
     return get_database_path("signals.db")   
+    
+def get_sec_analysis_db_path():
+    return get_database_path("secAnalysis.db")    

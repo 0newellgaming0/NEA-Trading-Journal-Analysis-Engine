@@ -1,0 +1,632 @@
+# NEA28 SEC Financial Intelligence System
+
+## Master Architecture & Plugin Specification
+
+---
+
+# Overview
+
+The NEA28 SEC Financial Intelligence System is an institutional-grade SEC EDGAR analysis framework designed to extract, normalize, analyze, and score company fundamentals directly from SEC XBRL filings.
+
+The system is modular, extensible, and plugin-driven.
+
+Rather than placing all analysis inside a single engine, responsibilities are separated into specialized analysis plugins orchestrated by `SECAnalysisExtensions`.
+
+This architecture allows every financial discipline to remain isolated while producing a unified institutional analysis.
+
+---
+
+# System Architecture
+
+```
+edgartools
+      │
+      ▼
+SEC EDGAR Fetcher
+      │
+      ▼
+SECFinancialRepository
+      │
+      ▼
+SECAnalysis
+      │
+      ▼
+SECAnalysisExtensions
+      │
+      ├── enhanced_earnings.py
+      ├── float_analysis.py
+      ├── share_structure.py
+      ├── capital_allocation.py
+      ├── annual_growth.py
+      ├── financial_strength.py
+      ├── liquidity.py
+      ├── leverage.py
+      ├── profitability.py
+      ├── margins.py
+      ├── efficiency.py
+      ├── valuation_metrics.py
+      ├── cashflow_quality.py
+      ├── buyback_analysis.py
+      ├── dividend_analysis.py
+      ├── earnings_quality.py
+      ├── returns.py
+      ├── institutional_score.py
+      ├── growth_asymmetry.py
+      ├── canslim.py
+      └── scoring.py
+```
+
+---
+
+# Design Philosophy
+
+Every plugin has one responsibility.
+
+No plugin duplicates calculations performed by another plugin.
+
+Every plugin operates exclusively from normalized SEC XBRL facts.
+
+Each plugin returns structured dictionaries suitable for downstream engines.
+
+Plugins never modify SEC data.
+
+Plugins never access the repository directly.
+
+Plugins receive normalized DataFrames from SECAnalysis.
+
+---
+
+# Plugin Creation Order
+
+The dependency chain is intentionally ordered.
+
+```
+1. enhanced_earnings.py
+2. float_analysis.py
+3. share_structure.py
+4. capital_allocation.py
+5. annual_growth.py
+6. financial_strength.py
+7. liquidity.py
+8. leverage.py
+9. profitability.py
+10. margins.py
+11. efficiency.py
+12. valuation_metrics.py
+13. cashflow_quality.py
+14. buyback_analysis.py
+15. dividend_analysis.py
+16. earnings_quality.py
+17. returns.py
+18. institutional_score.py
+19. growth_asymmetry.py
+20. canslim.py
+21. scoring.py
+```
+
+---
+
+# Plugin Responsibilities
+
+## enhanced_earnings.py
+
+Purpose
+
+Institutional earnings analysis.
+
+Primary Analysis
+
+* Latest earnings
+* Quarterly earnings
+* Annual earnings
+* YoY comparisons
+* QoQ comparisons
+* Earnings trend
+* Earnings consistency
+* Earnings acceleration
+* Multi-year earnings history
+
+Outputs
+
+* Latest earnings
+* Previous earnings
+* YoY growth
+* Annual growth
+* Trend
+* Consistency
+* History
+
+---
+
+## float_analysis.py
+
+Purpose
+
+Tradable supply analysis.
+
+Primary Analysis
+
+* Public float
+* Float percentage
+* Float scarcity
+* Float concentration
+* Float liquidity
+* Float stability
+* Float quality
+* Float classification
+* Institutional float impact
+* Tradable supply score
+
+Outputs
+
+* Float
+* Float category
+* Float %
+* Float score
+* Float quality
+* Supply pressure
+
+---
+
+## share_structure.py
+
+Purpose
+
+Corporate share structure analysis.
+
+Primary Analysis
+
+* Shares outstanding
+* Share count history
+* Dilution
+* Buybacks
+* Treasury shares
+* Share reductions
+* Share issuance
+* Supply trend
+
+Outputs
+
+* Shares outstanding
+* Share growth
+* Share reductions
+* Dilution state
+* Treasury stock
+* Supply score
+
+---
+
+## capital_allocation.py
+
+Purpose
+
+Management capital allocation.
+
+Primary Analysis
+
+* Cash
+* Debt
+* Net cash
+* Buybacks
+* Dividends
+* CapEx
+* R&D
+* Operating cash flow
+* Capital structure
+* Allocation quality
+
+Outputs
+
+* Cash
+* Debt
+* Net cash
+* Buybacks
+* Dividends
+* Allocation score
+
+---
+
+## annual_growth.py
+
+Purpose
+
+Long-term business compounding analysis.
+
+Primary Analysis
+
+* Revenue CAGR
+* Earnings CAGR
+* Operating Cash Flow CAGR
+* Free Cash Flow CAGR
+* Asset CAGR
+* Equity CAGR
+* Growth quality
+* Company maturity
+
+Outputs
+
+* Revenue growth
+* Earnings growth
+* Cash flow growth
+* Company stage
+* Growth quality
+
+---
+
+## financial_strength.py
+
+Purpose
+
+Overall financial health.
+
+Primary Analysis
+
+* Solvency
+* Cash coverage
+* Debt coverage
+* Equity strength
+* Balance sheet quality
+* Financial stability
+
+Outputs
+
+* Financial health
+* Strength score
+* Solvency score
+
+---
+
+## liquidity.py
+
+Purpose
+
+Short-term liquidity analysis.
+
+Primary Analysis
+
+* Current ratio
+* Quick ratio
+* Working capital
+* Cash ratio
+* Liquidity quality
+
+Outputs
+
+* Current ratio
+* Quick ratio
+* Working capital
+* Liquidity score
+
+---
+
+## leverage.py
+
+Purpose
+
+Debt structure analysis.
+
+Primary Analysis
+
+* Debt-to-equity
+* Debt-to-assets
+* Debt-to-capital
+* Debt coverage
+* Interest coverage
+* Net leverage
+
+Outputs
+
+* Leverage score
+* Debt ratios
+* Coverage ratios
+
+---
+
+## profitability.py
+
+Purpose
+
+Business profitability analysis.
+
+Primary Analysis
+
+* ROE
+* ROA
+* ROIC
+* Net margin
+* Operating margin
+* Profitability trend
+
+Outputs
+
+* Profitability metrics
+* Profitability score
+
+---
+
+## margins.py
+
+Purpose
+
+Margin expansion analysis.
+
+Primary Analysis
+
+* Gross margin
+* Operating margin
+* EBITDA margin
+* Net margin
+* Margin trend
+
+Outputs
+
+* Margin history
+* Margin trend
+* Margin score
+
+---
+
+## efficiency.py
+
+Purpose
+
+Operating efficiency.
+
+Primary Analysis
+
+* Asset turnover
+* Inventory turnover
+* Receivable turnover
+* Payable turnover
+* Capital efficiency
+
+Outputs
+
+* Efficiency metrics
+* Efficiency score
+
+---
+
+## valuation_metrics.py
+
+Purpose
+
+Fundamental valuation inputs.
+
+Primary Analysis
+
+* Book value
+* Tangible book
+* Enterprise value inputs
+* Equity value
+* Net assets
+
+Outputs
+
+* Valuation metrics
+
+---
+
+## cashflow_quality.py
+
+Purpose
+
+Cash flow intelligence.
+
+Primary Analysis
+
+* Operating cash flow
+* Free cash flow
+* Cash conversion
+* Cash-backed earnings
+* FCF quality
+
+Outputs
+
+* Cash flow quality
+* FCF
+* Conversion score
+
+---
+
+## buyback_analysis.py
+
+Purpose
+
+Repurchase intelligence.
+
+Primary Analysis
+
+* Buyback history
+* Buyback consistency
+* Buyback effectiveness
+* Share reduction
+
+Outputs
+
+* Buyback quality
+* Buyback score
+
+---
+
+## dividend_analysis.py
+
+Purpose
+
+Dividend intelligence.
+
+Primary Analysis
+
+* Dividend history
+* Dividend growth
+* Dividend sustainability
+* Dividend payout
+
+Outputs
+
+* Dividend quality
+* Dividend score
+
+---
+
+## earnings_quality.py
+
+Purpose
+
+Quality of earnings.
+
+Primary Analysis
+
+* Accruals
+* Cash-backed earnings
+* Earnings manipulation indicators
+* Earnings sustainability
+
+Outputs
+
+* Earnings quality
+* Quality score
+
+---
+
+## returns.py
+
+Purpose
+
+Return metrics.
+
+Primary Analysis
+
+* ROE
+* ROA
+* ROIC
+
+Outputs
+
+* Return metrics
+* Return score
+
+---
+
+## institutional_score.py
+
+Purpose
+
+Institutional composite ranking.
+
+Primary Analysis
+
+* Growth
+* Strength
+* Profitability
+* Supply
+* Capital allocation
+* Earnings quality
+
+Outputs
+
+* Institutional score
+
+---
+
+## growth_asymmetry.py
+
+Purpose
+
+Growth acceleration analysis.
+
+Primary Analysis
+
+* Revenue acceleration
+* Earnings acceleration
+* Cash flow acceleration
+* Capital allocation support
+* Supply reduction support
+
+Outputs
+
+* Growth asymmetry score
+
+---
+
+## canslim.py
+
+Purpose
+
+CANSLIM fundamentals.
+
+Primary Analysis
+
+* Current earnings
+* Annual earnings
+* Supply & demand
+* Leadership inputs
+* Institutional sponsorship inputs
+
+Outputs
+
+* CANSLIM score
+
+---
+
+## scoring.py
+
+Purpose
+
+Master SEC scoring engine.
+
+Consumes every plugin.
+
+Produces
+
+* Institutional Rating
+* Composite Score
+* Growth Score
+* Financial Strength Score
+* Liquidity Score
+* Leverage Score
+* Profitability Score
+* Margin Score
+* Efficiency Score
+* Cash Flow Score
+* Earnings Score
+* Capital Allocation Score
+* Supply Score
+* CANSLIM Score
+* Final Institutional Grade
+
+---
+
+# SECAnalysisExtensions
+
+SECAnalysisExtensions is the orchestration layer.
+
+Responsibilities
+
+* Execute every plugin
+* Preserve plugin isolation
+* Aggregate plugin outputs
+* Return unified institutional analysis
+* Provide downstream data to Growth Asymmetry, Institutional Ranking, CANSLIM, ML Feature Generation, and UI components
+
+Plugins never call one another directly.
+
+SECAnalysisExtensions coordinates execution order and dependency management.
+
+---
+
+# Plugin Development Standards
+
+Every plugin shall adhere to the following standards:
+
+* One complete `.py` module per implementation response.
+* Compact formatting with no excessive whitespace or unnecessary blank lines.
+* Consistent NEA28 module headers and documentation.
+* Institutional-grade SEC/XBRL concept priority lists.
+* Robust handling of duplicate SEC facts.
+* Safe fiscal period and fiscal year matching.
+* Consistent return dictionary structures.
+* No duplicated business logic across plugins.
+* Pure analytical logic with no repository or UI dependencies.
+* Compatible with `SECAnalysisExtensions` orchestration.
+* Deterministic outputs suitable for scoring engines, machine learning features, and institutional screening.

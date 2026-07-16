@@ -1,5 +1,8 @@
 import tkinter as tk
 import logging
+from modules.swing_structure_engine import (
+    analyze_swing_structure
+)
 
 # ==========================================================
 # RISK ENGINE LOGGING SETUP
@@ -49,6 +52,29 @@ buy_now_internal_update = {"value": False}
 stop_manual = {"value": False}
 
 # ==========================================================
+# IMPORTED SWING STATE
+# ==========================================================
+
+risk_range_source = {
+    "low": "DEFAULT",
+    "high": "DEFAULT"
+}
+
+risk_range_manual_override = {
+    "low": False,
+    "high": False
+}
+
+swing_import_state = {
+
+    "major_swing_low": None,
+
+    "major_swing_high": None,
+
+    "timestamp": None
+
+}
+# ==========================================================
 # INITIALIZE TK VARIABLES
 # ==========================================================
 def initialize_risk_engine(root):
@@ -64,45 +90,126 @@ def initialize_risk_engine(root):
     logger.info("Initializing risk engine...")
 
     try:
+
         _engine_root = root
         _engine_initialized = True
 
         ticker = tk.StringVar(root, value="")
+
         account = tk.DoubleVar(root, value=1000)
-        low = tk.DoubleVar(root, value=0.92)
+
+        low = tk.DoubleVar(root, value=0.0)
+
         risk_pct = tk.DoubleVar(root, value=0.01)
-        risk_dollar = tk.DoubleVar(root)
+
+        risk_dollar = tk.DoubleVar(root, value=0)
+
 
         stop = tk.DoubleVar(root, value=0.55358)
-        last_high = tk.DoubleVar(root, value=2.47)
 
-        ladder_prices = [tk.DoubleVar(root) for _ in range(4)]
-        ladder_shares = [tk.DoubleVar(root) for _ in range(4)]
-        ladder_totals = [tk.DoubleVar(root) for _ in range(4)]
+        last_high = tk.DoubleVar(root, value=0.0)
 
-        total_cost = tk.DoubleVar(root)
-        total_shares = tk.DoubleVar(root)
 
-        rr_targets = [tk.DoubleVar(root) for _ in range(4)]
 
-        buy_now_price = tk.DoubleVar(root, value=1.716)
-        buy_now_shares = tk.DoubleVar(root)
-        buy_now_total = tk.DoubleVar(root)
+        ladder_prices = [
+            tk.DoubleVar(root, value=0)
+            for _ in range(4)
+        ]
 
-        for v in [account, risk_pct, buy_now_price]:
-            v.trace_add("write", recalc)
+        ladder_shares = [
+            tk.DoubleVar(root, value=0)
+            for _ in range(4)
+        ]
 
-        low.trace_add("write", auto_calc_stop)
-        last_high.trace_add("write", auto_calc_stop)
-        ladder_prices[0].trace_add("write", auto_set_buy_now)
-        stop.trace_add("write", stop_edited)
-        buy_now_price.trace_add("write", buy_now_edited)
+        ladder_totals = [
+            tk.DoubleVar(root, value=0)
+            for _ in range(4)
+        ]
 
-        logger.info("Risk engine initialized successfully")
+
+        total_cost = tk.DoubleVar(root,value=0)
+
+        total_shares = tk.DoubleVar(root,value=0)
+
+
+        rr_targets = [
+            tk.DoubleVar(root,value=0)
+            for _ in range(4)
+        ]
+
+
+        buy_now_price = tk.DoubleVar(
+            root,
+            value=0
+        )
+
+        buy_now_shares = tk.DoubleVar(
+            root,
+            value=0
+        )
+
+        buy_now_total = tk.DoubleVar(
+            root,
+            value=0
+        )
+
+
+        for v in (
+            account,
+            risk_pct,
+            buy_now_price
+        ):
+            v.trace_add(
+                "write",
+                recalc
+            )
+
+        low.trace_add(
+            "write",
+            lambda *args: auto_calc_stop()
+                if safe_float(low.get()) > 0
+                else None
+        )
+
+
+        last_high.trace_add(
+            "write",
+            lambda *args: auto_calc_stop()
+                if safe_float(last_high.get()) > 0
+                else None
+        )
+
+
+        ladder_prices[0].trace_add(
+            "write",
+            auto_set_buy_now
+        )
+
+
+        stop.trace_add(
+            "write",
+            stop_edited
+        )
+
+
+        buy_now_price.trace_add(
+            "write",
+            buy_now_edited
+        )
+
+
+        logger.info(
+            "Risk engine initialized successfully"
+        )
+
 
     except Exception as e:
-        logger.exception(f"Failed to initialize risk engine: {e}")
-        _engine_initialized = False
+
+        logger.exception(
+            f"Failed initializing risk engine: {e}"
+        )
+
+        _engine_initialized=False
     
 # ==========================================================
 # SAFE FLOAT
@@ -167,61 +274,141 @@ def build_preview_row(row):
 
 def auto_calc_stop(*args):
 
-    logger.info("auto_calc_stop triggered")
+    logger.info(
+        "auto_calc_stop triggered"
+    )
 
     try:
 
-        lh_raw = str(safe_float(last_high.get())).strip()
-        lo_raw = str(safe_float(low.get())).strip()
-
-        logger.debug(f"last_high={lh_raw}, low={lo_raw}")
-
-        if lh_raw == "" or lo_raw == "":
-            logger.warning("auto_calc_stop aborted: empty values")
+        if not low or not last_high or not stop:
             return
 
-        lh = float(lh_raw)
-        lo = float(lo_raw)
+
+        lo = safe_float(
+            low.get()
+        )
+
+        lh = safe_float(
+            last_high.get()
+        )
+
+
+        logger.debug(
+            f"last_high={lh}, low={lo}"
+        )
+
+
+        # ---------------------------------
+        # WAIT UNTIL RANGE EXISTS
+        # ---------------------------------
+
+        if lo <= 0 or lh <= 0:
+
+            logger.debug(
+                "Stop calculation skipped - range not loaded"
+            )
+
+            return
+
+
 
         if lh <= lo:
-            logger.warning(f"Invalid range: last_high <= low ({lh} <= {lo})")
+
+            logger.warning(
+                f"Invalid range: last_high <= low ({lh} <= {lo})"
+            )
+
             return
 
-        price_range = lh - lo
-        shakeout_level = lo - (price_range * 0.075238)
-        range_percent = price_range / lh
 
-        logger.debug(f"range={price_range}, shakeout={shakeout_level}, range%={range_percent}")
+
+        price_range = lh - lo
+
+
+        shakeout_level = (
+            lo -
+            (
+                price_range *
+                0.075238
+            )
+        )
+
+
+        range_percent = (
+            price_range /
+            lh
+        )
+
 
         if range_percent < 0.10:
-            stop_buffer = price_range * 0.06
-        elif range_percent < 0.20:
-            stop_buffer = price_range * 0.09
-        elif range_percent < 0.35:
-            stop_buffer = price_range * 0.12
-        else:
-            stop_buffer = price_range * 0.18
 
-        calc_stop = shakeout_level - stop_buffer
-        max_loss_threshold = lo * 0.65
+            stop_buffer = price_range * .06
+
+
+        elif range_percent < .20:
+
+            stop_buffer = price_range * .09
+
+
+        elif range_percent < .35:
+
+            stop_buffer = price_range * .12
+
+
+        else:
+
+            stop_buffer = price_range * .18
+
+
+
+        calc_stop = (
+            shakeout_level -
+            stop_buffer
+        )
+
+
+        max_loss_threshold = (
+            lo * .65
+        )
+
 
         if calc_stop < max_loss_threshold:
-            logger.debug("Stop adjusted to max_loss_threshold")
+
             calc_stop = max_loss_threshold
 
+
+
         if calc_stop <= 0:
-            logger.warning("Stop invalid (<=0), fallback applied")
-            calc_stop = lo * 0.50
 
-        stop.set(round(calc_stop, 4))
+            calc_stop = lo * .50
 
-        logger.info(f"Stop calculated: {calc_stop}")
+
 
         stop_manual["value"] = False
+
+
+        stop.set(
+            round(
+                calc_stop,
+                4
+            )
+        )
+
+
+        logger.info(
+            f"Stop calculated: {calc_stop}"
+        )
+
+
         recalc()
 
+
+
     except Exception as e:
-        logger.exception(f"auto_calc_stop error: {e}")
+
+        logger.exception(
+            f"auto_calc_stop error: {e}"
+        )
 
 
 def stop_edited(*args):
@@ -239,6 +426,16 @@ _recalc_lock = False
 
 def recalc(*args):
 
+    logger.info("recalc triggered")
+    
+    if safe_float(low.get()) <= 0 or safe_float(last_high.get()) <= 0:
+
+        logger.debug(
+            "recalc skipped - missing range values"
+        )
+
+        return
+    
     global _recalc_lock
 
     if _recalc_lock:
@@ -372,6 +569,13 @@ def get_engine_state():
             "buy_now_price": buy_now_price.get() if buy_now_price else 0,
             "buy_now_shares": buy_now_shares.get() if buy_now_shares else 0,
             "buy_now_total": buy_now_total.get() if buy_now_total else 0,
+            "risk_range_source": risk_range_source,
+
+            "risk_range_manual_override":
+                risk_range_manual_override,
+
+            "swing_import_state":
+                swing_import_state,            
         }
 
         logger.debug(f"engine state snapshot created: keys={len(state)}")
@@ -404,50 +608,90 @@ def get_trade_snapshot():
     
 def set_engine_state(state: dict):
 
-    logger.info("set_engine_state called")
+    logger.info(
+        "set_engine_state called"
+    )
 
     try:
 
         if not state:
-            logger.warning("set_engine_state received empty state")
             return
 
+
+        loading_state = True
+
+
         if ticker and "ticker" in state:
-            ticker.set(state["ticker"])
+            ticker.set(
+                state["ticker"]
+            )
+
 
         if account and "account" in state:
-            account.set(state["account"])
+            account.set(
+                state["account"]
+            )
+
 
         if low and "low" in state:
-            low.set(state["low"])
 
-        if risk_pct and "risk_pct" in state:
-            risk_pct.set(state["risk_pct"])
+            low.set(
+                safe_float(
+                    state["low"]
+                )
+            )
 
-        if risk_dollar and "risk_dollar" in state:
-            risk_dollar.set(state["risk_dollar"])
-
-        if stop and "stop" in state:
-            stop.set(state["stop"])
 
         if last_high and "last_high" in state:
-            last_high.set(state["last_high"])
 
-        logger.debug("scalar fields synced")
+            last_high.set(
+                safe_float(
+                    state["last_high"]
+                )
+            )
 
-        if "ladder_prices" in state:
-            for i, v in enumerate(state["ladder_prices"]):
-                if i < len(ladder_prices):
-                    ladder_prices[i].set(v)
 
-        logger.debug("ladder_prices synced")
+        if stop and "stop" in state:
+
+            stop.set(
+                safe_float(
+                    state["stop"]
+                )
+            )
+
+
+        if risk_pct and "risk_pct" in state:
+
+            risk_pct.set(
+                safe_float(
+                    state["risk_pct"],
+                    .01
+                )
+            )
+
+
+        if buy_now_price and "buy_now_price" in state:
+
+            buy_now_price.set(
+                safe_float(
+                    state["buy_now_price"]
+                )
+            )
+
 
         recalc()
 
-        logger.info("set_engine_state complete")
+
+        logger.info(
+            f"Loaded Risk Grid LOW={low.get()} HIGH={last_high.get()}"
+        )
+
 
     except Exception as e:
-        logger.exception(f"set_engine_state error: {e}")
+
+        logger.exception(
+            f"set_engine_state error: {e}"
+        )
 
 
 def reset_engine():
@@ -457,12 +701,15 @@ def reset_engine():
     try:
         if ticker: ticker.set("")
         if account: account.set(1000)
-        if low: low.set(0.92)
+        if low:
+            low.set(0)
         if risk_pct: risk_pct.set(0.01)
         if risk_dollar: risk_dollar.set(0)
 
         if stop: stop.set(0.55358)
-        if last_high: last_high.set(2.47)
+
+        if last_high:
+            last_high.set(0)
 
         for v in ladder_prices:
             v.set(0)
@@ -486,6 +733,15 @@ def reset_engine():
         buy_now_manual["value"] = False
         buy_now_internal_update["value"] = False
         stop_manual["value"] = False
+        risk_range_source["low"] = "DEFAULT"
+        risk_range_source["high"] = "DEFAULT"
+
+        risk_range_manual_override["low"] = False
+        risk_range_manual_override["high"] = False
+
+
+        swing_import_state["major_swing_low"] = None
+        swing_import_state["major_swing_high"] = None        
 
     except Exception as e:
         print("reset_engine error:", e)
@@ -525,10 +781,241 @@ def safe_recalc(*args):
         
         
 __all__ = [
+
     "initialize_risk_engine",
+
     "get_engine_state",
+
     "set_engine_state",
+
     "safe_recalc",
+
     "recalc",
-    "reset_engine"
-]       
+
+    "reset_engine",
+
+    "import_major_swing_range",
+
+    "load_swing_engine_output"
+
+]
+
+# ==========================================================
+# MANUAL RANGE OVERRIDE DETECTION
+# ==========================================================
+
+def low_manual_check(*args):
+
+    if swing_update_lock["value"]:
+        return
+
+
+    risk_range_manual_override["low"] = True
+
+    risk_range_source["low"] = "MANUAL"
+
+
+    logger.info(
+        "LOW changed manually"
+    )
+
+def high_manual_check(*args):
+
+    if swing_update_lock["value"]:
+        return
+
+
+    risk_range_manual_override["high"] = True
+
+    risk_range_source["high"] = "MANUAL"
+
+
+    logger.info(
+        "HIGH changed manually"
+    )
+
+swing_update_lock = {
+    "value": False
+}
+        
+# ==========================================================
+# SWING IMPORT API
+# ==========================================================
+
+def import_major_swing_range(
+        swing_low,
+        swing_high,
+        event=None
+):
+
+    logger.info(
+        f"Importing swing range LOW={swing_low} HIGH={swing_high}"
+    )
+
+
+    try:
+
+        swing_update_lock["value"] = True
+
+
+        if event:
+
+            swing_import_state[
+                "major_swing_low"
+            ] = event.get(
+                "major_swing_low"
+            )
+
+
+            swing_import_state[
+                "major_swing_high"
+            ] = event.get(
+                "major_swing_high"
+            )
+
+
+        if (
+            swing_low is not None
+            and not risk_range_manual_override["low"]
+        ):
+
+            risk_range_source["low"] = (
+                "SWING_IMPORT"
+            )
+
+            low.set(
+                round(
+                    float(swing_low),
+                    4
+                )
+            )
+
+
+        if (
+            swing_high is not None
+            and not risk_range_manual_override["high"]
+        ):
+
+            risk_range_source["high"] = (
+                "SWING_IMPORT"
+            )
+
+            last_high.set(
+                round(
+                    float(swing_high),
+                    4
+                )
+            )
+
+
+        swing_update_lock["value"] = False
+
+
+        auto_calc_stop()
+
+        recalc()
+
+
+        logger.info(
+            "Swing range loaded"
+        )
+
+
+    except Exception as e:
+
+        swing_update_lock["value"] = False
+
+        logger.exception(
+            f"Swing import failed: {e}"
+        )
+        
+# ==========================================================
+# SWING ENGINE CONNECTOR
+# ==========================================================
+
+def load_swing_engine_output(
+        swing_result
+):
+    """
+    Accepts output directly from:
+
+        analyze_swing_structure(df)
+
+
+    Example:
+
+        swing_result = {
+            "event":{
+                "major_swing_high":{
+                    "price":10.50
+                },
+                "major_swing_low":{
+                    "price":7.25
+                }
+            }
+        }
+
+    """
+
+
+    try:
+
+        event = swing_result.get(
+            "event",
+            {}
+        )
+
+
+        swing_high = (
+            event
+            .get(
+                "major_swing_high",
+                {}
+            )
+            .get(
+                "price"
+            )
+        )
+
+
+        swing_low = (
+            event
+            .get(
+                "major_swing_low",
+                {}
+            )
+            .get(
+                "price"
+            )
+        )
+
+
+        if swing_high is None:
+            logger.warning(
+                "No swing high found"
+            )
+            return
+
+
+        if swing_low is None:
+            logger.warning(
+                "No swing low found"
+            )
+            return
+
+
+
+        import_major_swing_range(
+            swing_low,
+            swing_high,
+            event
+        )
+
+
+    except Exception as e:
+
+        logger.exception(
+            f"load_swing_engine_output failed: {e}"
+        )
+
+        

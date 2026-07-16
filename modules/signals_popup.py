@@ -3,21 +3,99 @@ from tkinter import ttk, messagebox
 import sqlite3
 import pandas as pd
 from datetime import datetime
-import threading
 
-from modules.candlestick_state_engine import CandlestickInstitutionalStateEngine
 from modules.signals_repository import SignalsRepository
-from modules.path_resolver import get_signals_db_path
-from modules.stock_data_db.repository import StockDataRepository
-
-
+from modules.path_resolver import (
+    get_signals_db_path
+)
 
 # =========================================================
 # DB ACCESS
 # =========================================================
 
 DB_PATH = get_signals_db_path()
+# =========================================================
+# SIGNALS DB DEBUG
+# =========================================================
 
+# =========================================================
+# DATABASE DEBUG LOGGER
+# =========================================================
+
+def log_database_structure(db_path, label="DATABASE"):
+
+    try:
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
+
+        print("\n" + "=" * 60)
+        print(f"{label} DEBUG")
+        print(f"PATH: {db_path}")
+
+        tables = cur.execute(
+            """
+            SELECT name
+            FROM sqlite_master
+            WHERE type='table'
+            ORDER BY name
+            """
+        ).fetchall()
+
+        table_names = [
+            t[0]
+            for t in tables
+        ]
+
+        print(
+            f"TABLES ({len(table_names)}): {table_names}"
+        )
+
+        for table_name in table_names:
+
+            print("\n" + "-" * 60)
+            print(f"TABLE: {table_name}")
+
+            columns = cur.execute(
+                f"PRAGMA table_info({table_name})"
+            ).fetchall()
+
+            headers = [
+                col[1]
+                for col in columns
+            ]
+
+            print(
+                f"HEADERS ({len(headers)}):"
+            )
+
+            print(headers)
+
+            row_count = cur.execute(
+                f"SELECT COUNT(*) FROM {table_name}"
+            ).fetchone()[0]
+
+            print(
+                f"ROW COUNT: {row_count}"
+            )
+
+            sample_rows = cur.execute(
+                f"SELECT * FROM {table_name} LIMIT 3"
+            ).fetchall()
+
+            print("SAMPLE ROWS:")
+
+            for row in sample_rows:
+                print(row)
+
+        print("=" * 60 + "\n")
+
+        conn.close()
+
+    except Exception as e:
+        print(
+            f"❌ {label} DEBUG ERROR: {e}"
+        )
+        
 def update_signal_field(signal_id, field, value):
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
@@ -185,15 +263,7 @@ class SignalsPopup(tk.Toplevel):
             header,
             text="CLEAR",
             command=self.clear_filters
-        ).pack(side="left", padx=5)
-        
-        tk.Button(
-            header,
-            text="FULL SYSTEM",
-            bg="#1f6feb",
-            fg="white",
-            command=self.run_full_system_thread
-        ).pack(side="right", padx=5)        
+        ).pack(side="left", padx=5)     
 
         tk.Button(
             header,
@@ -339,51 +409,6 @@ class SignalsPopup(tk.Toplevel):
 
     def close(self):
         self.destroy()
-
-def run_full_signal_engine_system():
-
-    db_path = get_signals_db_path()
-    signals_repo = SignalsRepository(db_path)
-    stock_repo = StockDataRepository()
-
-    conn = sqlite3.connect(db_path)
-    df = pd.read_sql_query("SELECT DISTINCT ticker FROM signals", conn)
-    conn.close()
-
-    tickers = df["ticker"].dropna().unique().tolist()
-
-    print(f"🚀 FULL SIGNAL ENGINE START ({len(tickers)} tickers)")
-
-    for i, ticker in enumerate(tickers, 1):
-
-        try:
-            print(f"📊 [{i}/{len(tickers)}] Running engine: {ticker}")
-
-            # =====================================================
-            # FIXED: LOAD MARKET DATA FROM STOCK REPOSITORY
-            # =====================================================
-            market_df = stock_repo.load_ohlcv_df(
-                ticker,
-                timeframe="daily",
-                limit=600
-            )
-
-            if market_df is None or market_df.empty:
-                print(f"⚠ No OHLCV data for {ticker}")
-                continue
-
-            engine = CandlestickInstitutionalStateEngine(
-                ticker=ticker,
-                event_store={},
-                signals_repo=signals_repo
-            )
-
-            engine.run(market_df)
-
-        except Exception as e:
-            print(f"❌ ERROR {ticker}: {e}")
-
-    print("✅ FULL SIGNAL ENGINE COMPLETE")
     
 # =========================================================
 # LAUNCHER

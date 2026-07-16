@@ -117,6 +117,32 @@ def load_tickers_from_watchlist():
         log(f"❌ Watchlist DB error: {e}")
         return []
 
+def add_ticker_to_watchlist(ticker):
+    try:
+        ticker = ticker.strip().upper()
+
+        if not ticker:
+            log("⚠ Empty ticker ignored")
+            return False
+
+        conn = sqlite3.connect(WATCHLIST_DB)
+        cur = conn.cursor()
+
+        cur.execute("""
+            INSERT OR IGNORE INTO watchlist (ticker)
+            VALUES (?)
+        """, (ticker,))
+
+        conn.commit()
+        conn.close()
+
+        log(f"✅ Added ticker to watchlist: {ticker}")
+        return True
+
+    except Exception as e:
+        log(f"❌ Add ticker failed: {e}")
+        return False
+        
 # =========================================================
 # JOURNAL SOURCE (MISSING PIECE)
 # =========================================================
@@ -284,7 +310,7 @@ def fetch_financials(ticker):
 # DATA INGESTION
 # =========================================================
 
-def append_new_data(ticker, tf_name, cfg):
+def replace_data(ticker, tf_name, cfg):
     try:
         log(f"📡 Fetching {ticker} [{tf_name}]...")
 
@@ -320,7 +346,7 @@ def append_new_data(ticker, tf_name, cfg):
 
         log(f"🔧 Final dataset ready: {ticker} [{tf_name}] shape={df_new.shape}")
 
-        repo.insert_ohlcv_df(ticker, tf_name, df_new)
+        repo.replace_ohlcv_df(ticker, tf_name, df_new)
         repo.log_ingestion(ticker, tf_name, len(df_new), "success")
 
         log(f"🧠 DB write complete: {ticker} [{tf_name}]")
@@ -348,10 +374,15 @@ def _run_update_core():
     for i, ticker in enumerate(tickers, 1):
         log(f"📊 Processing {ticker} ({i}/{total})")
 
-        for tf_name, cfg in TIMEFRAMES.items():
-            append_new_data(ticker, tf_name, cfg)
+        success = True
 
-        fetch_financials(ticker)
+        for tf_name, cfg in TIMEFRAMES.items():
+            if not replace_data(ticker, tf_name, cfg):
+                success = False
+
+        if success:
+            fetch_financials(ticker)
+            run_post_download_analysis([ticker])
 
     log("✅ Full update complete")
 
@@ -359,55 +390,141 @@ def _run_update_single(ticker):
     log(f"🚀 Single update: {ticker}")
 
     for tf_name, cfg in TIMEFRAMES.items():
-        append_new_data(ticker, tf_name, cfg)
+        replace_data(ticker, tf_name, cfg)
 
     fetch_financials(ticker)
+    run_post_download_analysis([ticker])
 
     log(f"✅ Done: {ticker}")
 
+def run_post_download_analysis(tickers):
+
+    from modules.candlestick_batch_runner import (run_all_candlestick_analysis)
+    log("🕯 Starting candlestick batch analysis")
+    run_all_candlestick_analysis(tickers)
+    log("✅ Candlestick batch analysis complete")
+    
 # =========================================================
 # UI ENTRY
 # =========================================================
 
-def run_update():
+def build_yahoo_tab(parent):
+
+    frame = parent
+
     try:
+
         tickers = load_tickers_from_watchlist()
 
         if not tickers:
             log("No tickers found in watchlist DB")
             return
 
-        preview = tk.Toplevel(dashboard)
-        preview.title("Update Preview")
-        preview.geometry("520x520")
+        # =========================================================
+        # WATCHLIST INPUT
+        # =========================================================
 
-        tk.Label(preview, text=f"{len(tickers)} tickers ready",
-                 font=("Arial", 12, "bold")).pack(pady=10)
+        input_frame = tk.Frame(frame)
+        input_frame.pack(pady=5)
 
-        box = tk.Listbox(preview)
+        ticker_entry = tk.Entry(
+            input_frame,
+            width=15
+        )
+
+        ticker_entry.pack(side=tk.LEFT, padx=5)
+
+
+        def refresh_watchlist_box():
+            box.delete(0, tk.END)
+
+            current = load_tickers_from_watchlist()
+
+            for t in current:
+                box.insert(tk.END, t)
+
+            count_label.config(
+                text=f"{len(current)} tickers ready"
+            )
+
+
+        def add_ticker():
+
+            ticker = ticker_entry.get()
+
+            if add_ticker_to_watchlist(ticker):
+                ticker_entry.delete(0, tk.END)
+                refresh_watchlist_box()
+
+
+        tk.Button(
+            input_frame,
+            text="ADD",
+            command=add_ticker
+        ).pack(side=tk.LEFT)
+
+        # =========================================================
+        # WATCHLIST DISPLAY
+        # =========================================================
+
+        count_label = tk.Label(
+            frame,
+            text=f"{len(tickers)} tickers ready",
+            font=("Arial", 12, "bold")
+        )
+
+        count_label.pack(pady=5)
+
+
+        box = tk.Listbox(frame)
+
         for t in tickers:
             box.insert(tk.END, t)
-        box.pack(fill=tk.BOTH, expand=True)
+
+        box.pack(
+            fill=tk.BOTH,
+            expand=True
+        )
+
 
         def start_all():
-            preview.destroy()
-            threading.Thread(target=_run_update_core, daemon=True).start()
+            threading.Thread(
+                target=_run_update_core,
+                daemon=True
+            ).start()
+
 
         def start_single():
+
             sel = box.curselection()
+
             if not sel:
                 log("⚠ No ticker selected")
                 return
-            ticker = box.get(sel[0])
-            preview.destroy()
-            threading.Thread(target=_run_update_single, args=(ticker,), daemon=True).start()
 
-        btn = tk.Frame(preview)
+            ticker = box.get(sel[0])
+
+            threading.Thread(
+                target=_run_update_single,
+                args=(ticker,),
+                daemon=True
+            ).start()
+
+
+        btn = tk.Frame(frame)
         btn.pack()
 
-        tk.Button(btn, text="ALL", command=start_all).pack(side=tk.LEFT)
-        tk.Button(btn, text="SELECT", command=start_single).pack(side=tk.LEFT)
-        tk.Button(btn, text="CLOSE", command=preview.destroy).pack(side=tk.LEFT)
+        tk.Button(
+            btn,
+            text="ALL",
+            command=start_all
+        ).pack(side=tk.LEFT)
+
+        tk.Button(
+            btn,
+            text="SELECT",
+            command=start_single
+        ).pack(side=tk.LEFT)
 
     except Exception as e:
         log(f"Preview error: {e}")

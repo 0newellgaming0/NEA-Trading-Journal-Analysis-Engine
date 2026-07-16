@@ -4,9 +4,13 @@ from modules.path_resolver import (
     get_webull_db_path,
     get_stock_db_path,
     get_financial_db_path,
-    get_ingestion_db_path
+    get_ingestion_db_path,
+    get_sec_analysis_db_path
 )
 
+from modules.stock_data_db.sec_financials_db.init_sec_db import (
+    init_sec_db
+)
 
 # =========================================================
 # STOCK DATA DB (OHLCV)
@@ -135,7 +139,59 @@ def init_webull_db():
     conn.commit()
     conn.close()
 
+# =========================================================
+# SEC ANALYSIS DB
+# =========================================================
 
+def init_sec_analysis_db():
+    conn = sqlite3.connect(get_sec_analysis_db_path())
+    cursor = conn.cursor()
+
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS analysis_summary (
+        ticker TEXT PRIMARY KEY,
+        analysis_date TEXT,
+        institutional_score REAL,
+        growth_asymmetry_score REAL,
+        classification TEXT,
+        liquidity_score REAL,
+        financial_risk TEXT,
+        revenue_acceleration TEXT,
+        earnings_growth REAL,
+        earnings_trend TEXT,
+        revenue_cagr_3 REAL,
+        revenue_cagr_5 REAL,
+        earnings_cagr_3 REAL,
+        earnings_cagr_5 REAL,
+        growth_quality TEXT,
+        growth_quality_score REAL,
+        float_category TEXT,
+        float_scarcity TEXT,
+        dilution_state TEXT,
+        float_score REAL,
+        share_supply_direction TEXT,
+        ownership_trend TEXT,
+        dilution_risk TEXT,
+        capital_structure TEXT,
+        capital_efficiency TEXT,
+        allocation_sustainability TEXT,
+        capital_allocation_score REAL,
+        canslim_classification TEXT,
+        canslim_score REAL,
+        institutional_sponsorship TEXT,
+        json_report TEXT
+    )
+    """)
+
+    cursor.execute("""
+    CREATE INDEX IF NOT EXISTS idx_sec_analysis
+    ON analysis_summary (ticker)
+    """)
+
+    conn.commit()
+    conn.close()
+    
+    
 # =========================================================
 # MASTER INIT
 # =========================================================
@@ -146,3 +202,9 @@ def init_all():
     init_log_db()
     init_watchlist_db()
     init_webull_db()
+    init_sec_db()
+    init_sec_analysis_db() 
+
+    print(
+        "NEA28 database initialization complete."
+    )

@@ -10,7 +10,8 @@ from modules.path_resolver import (
     get_financial_db_path,
     get_ingestion_db_path,
     get_webull_db_path,
-    get_watchlist_db_path
+    get_watchlist_db_path,
+    get_sec_analysis_db_path     
 )
 
 # =========================================================
@@ -22,7 +23,6 @@ FIN_DB_PATH = get_financial_db_path()
 LOG_DB_PATH = get_ingestion_db_path()
 WATCHLIST_DB_PATH = get_watchlist_db_path()
 WEBULL_DB_PATH = get_webull_db_path()
-
 
 # =========================================================
 # STOCK DATA REPOSITORY
@@ -100,6 +100,63 @@ class StockDataRepository:
         ))
 
         self.log_conn.commit()
+
+    def replace_ohlcv_df(self, ticker, timeframe, df):
+
+        created_at = datetime.utcnow().isoformat()
+
+        try:
+            # remove existing snapshot
+            self.cursor.execute("""
+                DELETE FROM ohlcv_data
+                WHERE ticker = ?
+                AND timeframe = ?
+            """, (
+                ticker,
+                timeframe
+            ))
+
+            # insert replacement dataset
+            for _, row in df.iterrows():
+
+                timestamp = (
+                    row.get("datetime")
+                    or row.get("date")
+                    or created_at
+                )
+
+                self.cursor.execute("""
+                    INSERT INTO ohlcv_data (
+                        ticker,
+                        timeframe,
+                        timestamp,
+                        open,
+                        high,
+                        low,
+                        close,
+                        adj_close,
+                        volume,
+                        created_at
+                    )
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """, (
+                    ticker,
+                    timeframe,
+                    str(timestamp),
+                    row.get("open"),
+                    row.get("high"),
+                    row.get("low"),
+                    row.get("close"),
+                    row.get("adj_close"),
+                    row.get("volume"),
+                    created_at
+                ))
+
+            self.conn.commit()
+
+        except Exception:
+            self.conn.rollback()
+            raise
         
     def load_ohlcv_df(self, ticker, timeframe="daily", limit=600):
         """
@@ -386,3 +443,5 @@ class WebullOrdersRepository:
 
     def close(self):
         self.conn.close()
+        
+

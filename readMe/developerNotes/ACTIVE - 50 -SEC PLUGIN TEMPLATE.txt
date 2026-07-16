@@ -1,0 +1,661 @@
+# NEA28 Plugin Documentation Template
+
+## Plugin Name
+
+[PLUGIN NAME]
+
+## Module
+
+[MODULE PATH]
+
+Example:
+
+modules/stock_data_db/[category]/plugins/[plugin_name].py
+
+## Version
+
+NEA28
+
+## Category
+
+[PLUGIN CATEGORY]
+
+Examples:
+
+* SEC Financial Analysis Plugin
+* Market Structure Plugin
+* Growth Analysis Plugin
+* Risk Management Plugin
+* Institutional Scoring Plugin
+
+## Purpose
+
+[PLUGIN PURPOSE]
+
+Describe the institutional role of the plugin.
+
+Example:
+
+Institutional-grade SEC financial analysis engine designed to extract, normalize, and evaluate [financial metric / dataset / market structure] intelligence.
+
+---
+
+# 1. Overview
+
+The **NEA28 [PLUGIN NAME]** is a modular analysis plugin designed to transform raw system data into structured intelligence used by higher-level NEA28 engines.
+
+The plugin operates inside the NEA28 architecture and follows:
+
+* Database-first design
+* Modular isolation
+* Dynamic data resolution
+* Structured output contracts
+* Logging standards
+* Engine separation principles
+
+Primary responsibilities:
+
+* [Responsibility 1]
+* [Responsibility 2]
+* [Responsibility 3]
+* [Responsibility 4]
+
+The plugin does not:
+
+* Execute trades
+* Manage portfolios
+* Modify database records unless explicitly designed to do so
+* Contain company-specific mappings
+* Duplicate functionality from other engines
+
+---
+
+# 2. System Role
+
+The plugin operates inside the NEA28 data pipeline.
+
+```
+Data Source
+    |
+    |
+    v
+Data Fetcher
+    |
+    |
+    v
+Database Layer
+    |
+    |
+    v
+Resolver / Normalization Layer
+    |
+    |
+    v
+[PLUGIN NAME]
+    |
+    |
+    +----------------+
+    |                |
+    v                v
+Engine A        Engine B
+```
+
+The plugin receives normalized data and returns structured analysis intelligence.
+
+---
+
+# 3. Primary Responsibilities
+
+The plugin performs the following functions:
+
+## 3.1 Data Extraction
+
+Function:
+
+```python
+[FUNCTION_NAME]()
+```
+
+Purpose:
+
+[Describe extraction responsibilities]
+
+Input:
+
+```python
+[INPUT FORMAT]
+```
+
+Processing:
+
+1. Validate input
+2. Normalize fields
+3. Resolve concepts / identifiers
+4. Filter relevant records
+5. Build structured dataset
+
+Output:
+
+```python
+[OUTPUT STRUCTURE]
+```
+
+---
+
+## 3.2 Data Normalization
+
+The plugin normalizes incoming data before analysis.
+
+Example:
+
+Before:
+
+```
+Column_Name
+Period_End
+Numeric_Value
+```
+
+After:
+
+```
+column_name
+period_end
+numeric_value
+```
+
+Normalization rules:
+
+* Convert column names to standard format
+* Validate data types
+* Handle missing values
+* Remove invalid records
+* Normalize identifiers
+
+---
+
+# 4. Architecture Integration
+
+## 4.1 Resolver Integration
+
+The plugin does not rely on hardcoded mappings.
+
+Instead:
+
+```
+PLUGIN_KEYS
+        |
+        |
+        v
+NEA28 Resolver
+        |
+        |
+        v
+Resolved Data Concepts
+        |
+        |
+        v
+Normalized Analysis Dataset
+```
+
+Example:
+
+Input:
+
+```python
+[
+    "CONCEPT_A",
+    "CONCEPT_B"
+]
+```
+
+Resolver Output:
+
+```
+Resolved Concept A
+Resolved Concept B
+```
+
+This allows the plugin to support multiple data structures without modification.
+
+---
+
+# 5. Processing Pipeline
+
+Function:
+
+```python
+main_processing_function()
+```
+
+## Step 1 — Validate Input
+
+Required:
+
+* DataFrame / dictionary / object
+* Required fields available
+
+Failure behavior:
+
+```
+Return default output
+Log validation failure
+```
+
+---
+
+## Step 2 — Normalize Data
+
+Operations:
+
+* Column normalization
+* Type conversion
+* Date handling
+* Identifier cleanup
+
+---
+
+## Step 3 — Apply Filters
+
+Filtering criteria:
+
+* [Filter rule]
+* [Filter rule]
+* [Filter rule]
+
+Purpose:
+
+Remove irrelevant or contaminated data.
+
+---
+
+## Step 4 — Generate Analysis
+
+The plugin calculates:
+
+* Metric 1
+* Metric 2
+* Metric 3
+
+---
+
+# 6. Core Algorithms
+
+## 6.1 [Algorithm Name]
+
+Function:
+
+```python
+[FUNCTION_NAME]()
+```
+
+Purpose:
+
+[Explain calculation]
+
+Formula:
+
+```
+Calculation
+-----------
+Input Data
+```
+
+Output:
+
+```
+Result Classification
+```
+
+---
+
+## 6.2 Classification Logic
+
+The plugin classifies results using:
+
+| Classification  | Requirement     |
+| --------------- | --------------- |
+| STRONG          | >= X            |
+| POSITIVE        | >= X            |
+| NEUTRAL         | Between X and X |
+| NEGATIVE        | <= X            |
+| STRONG NEGATIVE | <= X            |
+
+---
+
+# 7. Output Contract
+
+All NEA28 plugins must return a standardized dictionary.
+
+Example:
+
+```python
+{
+    "ticker": "",
+    "analysis_type": "",
+    "latest": {},
+    "metrics": {},
+    "classification": "",
+    "score": 0,
+    "history": [],
+    "metadata": {}
+}
+```
+
+Output requirements:
+
+* Always return dictionary
+* Never return None
+* Missing data returns empty structures
+* Errors are logged
+
+---
+
+# 8. Example Output
+
+```python
+{
+    "ticker": "AAPL",
+    "analysis_type": "[PLUGIN]",
+    "metrics": {
+        "metric_one": 0,
+        "metric_two": 0
+    },
+    "classification": "POSITIVE",
+    "history": []
+}
+```
+
+---
+
+# 9. Logging System
+
+Logger:
+
+```python
+logging.getLogger("[PLUGIN LOGGER]")
+```
+
+Required logging:
+
+```
+======================================================================
+[PLUGIN NAME]
+======================================================================
+
+Ticker:
+    
+Analysis:
+
+Metrics:
+
+Classification:
+
+Status:
+```
+
+Logging should include:
+
+* Start of analysis
+* Data availability
+* Processing stages
+* Final output
+* Exceptions
+
+Unexpected failures:
+
+```python
+logger.exception()
+```
+
+---
+
+# 10. Integration With NEA28 Engines
+
+## SECAnalysis
+
+Provides:
+
+[DATA PROVIDED]
+
+Used for:
+
+* Fundamental scoring
+* Company evaluation
+* Financial intelligence
+
+---
+
+## CANSLIM Engine
+
+Provides:
+
+[DATA PROVIDED]
+
+Used for:
+
+* Growth screening
+* Institutional filtering
+
+---
+
+## Growth Asymmetry Engine
+
+Provides:
+
+[DATA PROVIDED]
+
+Used for:
+
+* Opportunity ranking
+* Asymmetric opportunity detection
+
+---
+
+## Other Engines
+
+Consumes:
+
+[OUTPUT DATA]
+
+Purpose:
+
+[Explain integration]
+
+---
+
+# 11. Error Handling
+
+The plugin fails safely.
+
+Examples:
+
+## Missing Data
+
+Behavior:
+
+```
+Return default dictionary
+```
+
+## Invalid Values
+
+Behavior:
+
+```
+Convert invalid values
+Exclude unusable records
+Continue processing
+```
+
+## Unexpected Exceptions
+
+Behavior:
+
+```
+Log exception
+Return safe default output
+```
+
+---
+
+# 12. Performance Characteristics
+
+Designed for:
+
+* Single ticker analysis
+* Batch analysis
+* Database-driven workflows
+
+Typical workflow:
+
+```
+Ticker
+ |
+Database Lookup
+ |
+Resolver
+ |
+Plugin Processing
+ |
+Structured Output
+ |
+Institutional Engine
+```
+
+---
+
+# 13. Design Principles
+
+The plugin follows NEA28 architecture rules.
+
+## Dynamic Data Discovery
+
+No hardcoded company mappings.
+
+## Database First
+
+Database is the authoritative source.
+
+## Modular Isolation
+
+Plugin only consumes defined inputs and returns structured outputs.
+
+## Resolver Driven
+
+Concepts and identifiers are dynamically resolved.
+
+## Engine Separation
+
+The plugin does not:
+
+* Generate trades
+* Manage risk
+* Execute orders
+* Control UI behavior
+
+---
+
+# 14. Configuration
+
+Required configuration:
+
+```python
+CONFIG = {
+    "setting": "value"
+}
+```
+
+Environment requirements:
+
+* Python version
+* Required packages
+* Database dependencies
+
+---
+
+# 15. Testing Requirements
+
+Required tests:
+
+## Data Validation Test
+
+Verify:
+
+* Missing data handling
+* Invalid input handling
+
+## Calculation Test
+
+Verify:
+
+* Formula accuracy
+* Classification accuracy
+
+## Integration Test
+
+Verify:
+
+* Database compatibility
+* Resolver compatibility
+* Engine compatibility
+
+---
+
+# 16. Future Extensions
+
+Potential improvements:
+
+## Extension 1
+
+Description:
+
+## Extension 2
+
+Description:
+
+## Extension 3
+
+Description:
+
+Future additions should maintain:
+
+* Existing output contract
+* Backward compatibility
+* Modular isolation
+
+---
+
+# 17. Summary
+
+The NEA28 [PLUGIN NAME] provides a modular intelligence layer inside the NEA28 trading architecture.
+
+The plugin converts:
+
+```
+Raw System Data
+        |
+        v
+Normalized Intelligence
+        |
+        v
+Institutional Analysis Output
+```
+
+The plugin supports:
+
+* Dynamic data discovery
+* Database-first architecture
+* Resolver-driven analysis
+* Structured outputs
+* Institutional scoring pipelines
+
+The plugin serves as a foundational component for:
+
+* SEC Analysis
+* Growth Analysis
+* Institutional Screening
+* Risk Evaluation
+* Trading Intelligence
+
+within the NEA28 architecture.
