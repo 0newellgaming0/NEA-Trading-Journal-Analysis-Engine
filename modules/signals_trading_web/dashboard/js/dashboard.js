@@ -28,7 +28,8 @@ function money(value) {
 }
 
 function renderTrades(data) {
-    const rows = document.getElementById("tradeTable");
+    const rows =
+        document.getElementById("tradeTable");
 
     if (!rows) {
         return;
@@ -37,29 +38,87 @@ function renderTrades(data) {
     rows.innerHTML = "";
 
     const trades = Array.isArray(data.trades)
-        ? data.trades
+        ? [...data.trades]
         : [];
 
-    trades.slice(0, 20).forEach(trade => {
-        const row = document.createElement("tr");
+    trades.sort((a, b) => {
+        const aScore = Number(a.score);
+        const bScore = Number(b.score);
 
-        row.innerHTML = `
-            <td><b>${trade.ticker || ""}</b></td>
-            <td>${trade.direction || "—"}</td>
-            <td>${trade.setup || "—"}</td>
-            <td>${money(trade.entry)}</td>
-            <td>${money(trade.stop)}</td>
-            <td>${money(trade.target)}</td>
-            <td>${trade.risk_reward ?? "—"}</td>
-            <td>
-                <span class="badge">
-                    ${trade.status || "—"}
-                </span>
-            </td>
-        `;
+        const safeA = Number.isFinite(aScore)
+            ? aScore
+            : -Infinity;
 
-        rows.appendChild(row);
+        const safeB = Number.isFinite(bScore)
+            ? bScore
+            : -Infinity;
+
+        return safeB - safeA;
     });
+
+    trades
+        .slice(0, 20)
+        .forEach(trade => {
+
+            const row =
+                document.createElement("tr");
+
+            row.innerHTML = `
+                <td>
+                    <b>
+                        ${escapeHtml(
+                            trade.ticker || ""
+                        )}
+                    </b>
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        trade.direction || "—"
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        trade.setup || "—"
+                    )}
+                </td>
+
+                <td>
+                    ${money(trade.entry)}
+                </td>
+
+                <td>
+                    ${money(trade.stop)}
+                </td>
+
+                <td>
+                    ${money(trade.target)}
+                </td>
+
+                <td>
+                    ${
+                        Number.isFinite(
+                            Number(trade.score)
+                        )
+                            ? Number(
+                                trade.score
+                            ).toFixed(2)
+                            : "—"
+                    }
+                </td>
+
+                <td>
+                    <span class="badge">
+                        ${escapeHtml(
+                            trade.status || "—"
+                        )}
+                    </span>
+                </td>
+            `;
+
+            rows.appendChild(row);
+        });
 }
 
 function updateDashboardStats(data) {
@@ -73,6 +132,7 @@ function updateDashboardStats(data) {
     let bearish = 0;
 
     trades.forEach(trade => {
+
         const status = String(
             trade.status || ""
         ).toUpperCase();
@@ -102,30 +162,42 @@ function updateDashboardStats(data) {
     });
 
     const totalTrades =
-        document.getElementById("totalTrades");
+        document.getElementById(
+            "totalTrades"
+        );
 
     if (totalTrades) {
-        totalTrades.textContent = trades.length;
+        totalTrades.textContent =
+            trades.length;
     }
 
     const pendingSetups =
-        document.getElementById("pendingSetups");
+        document.getElementById(
+            "pendingSetups"
+        );
 
     if (pendingSetups) {
-        pendingSetups.textContent = pending;
+        pendingSetups.textContent =
+            pending;
     }
 
     const confirmedSetups =
-        document.getElementById("confirmedSetups");
+        document.getElementById(
+            "confirmedSetups"
+        );
 
     if (confirmedSetups) {
-        confirmedSetups.textContent = confirmed;
+        confirmedSetups.textContent =
+            confirmed;
     }
 
     const marketBias =
-        document.getElementById("marketBias");
+        document.getElementById(
+            "marketBias"
+        );
 
     if (marketBias) {
+
         let bias = "Neutral";
 
         if (bullish > bearish) {
@@ -134,36 +206,78 @@ function updateDashboardStats(data) {
             bias = "Bearish";
         }
 
-        marketBias.textContent = bias;
+        marketBias.textContent =
+            bias;
     }
+}
+
+function escapeHtml(value) {
+    return String(value)
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 }
 
 async function load() {
     try {
-        const trades = await getJSON("trades.json");
+        const trades =
+            await getJSON(
+                "trades.json"
+            );
 
         renderTrades(trades);
-        updateDashboardStats(trades);
+
+        updateDashboardStats(
+            trades
+        );
 
         const lastUpdated =
-            document.getElementById("lastUpdated");
+            document.getElementById(
+                "lastUpdated"
+            );
 
         if (lastUpdated) {
             lastUpdated.textContent =
                 "Updated " +
-                (trades.generated_at || "");
+                (
+                    trades.generated_at ||
+                    ""
+                );
         }
 
         const statusDot =
-            document.getElementById("statusDot");
+            document.getElementById(
+                "statusDot"
+            );
 
         if (statusDot) {
-            statusDot.style.background = "#55d68a";
+            statusDot.style.background =
+                "#55d68a";
         }
 
     } catch (error) {
+
         const lastUpdated =
-            document.getElementById("lastUpdated");
+            document.getElementById(
+                "lastUpdated"
+            );
 
         if (lastUpdated) {
             lastUpdated.textContent =
@@ -171,10 +285,13 @@ async function load() {
         }
 
         const statusDot =
-            document.getElementById("statusDot");
+            document.getElementById(
+                "statusDot"
+            );
 
         if (statusDot) {
-            statusDot.style.background = "#ff7777";
+            statusDot.style.background =
+                "#ff7777";
         }
 
         console.error(
@@ -186,4 +303,9 @@ async function load() {
 
 load();
 
-setInterval(load, 60000);
+setInterval(
+    load,
+    60000
+);
+
+

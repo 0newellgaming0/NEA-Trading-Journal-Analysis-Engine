@@ -1,163 +1,226 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
     <title>Trades | Newell Trading Group</title>
-    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link
+        rel="stylesheet"
+        href="./css/dashboard.css"
+    >
 </head>
 
 <body>
 
 <header class="topbar">
+
     <div>
-        <div class="eyebrow">NEWELL TRADING GROUP SETUPS SYSTEM</div>
-        <h1>Trading System</h1>
+        <div class="eyebrow">
+            NEWELL TRADING GROUP
+        </div>
+
+        <h1>
+            Trading System
+        </h1>
     </div>
 
+    <nav>
+        <a href="./index.html">
+            Dashboard
+        </a>
 
-<nav>
-    <a href="index.html">Dashboard</a>
-    <a href="trades.html" class="active">Trades</a>
-    <a href="performance.html">Performance</a>
-</nav>
+        <a
+            href="./trades.html"
+            class="active"
+        >
+            Trades
+        </a>
 
+        <a href="./performance.html">
+            Performance
+        </a>
+    </nav>
 
 </header>
 
 <main>
 
+    <section class="hero">
 
-<section class="panel">
+        <div>
+            <div class="eyebrow">
+                PUBLIC TRADE DATA
+            </div>
 
-	<div class="panel-head">
-		<h2>Trade History</h2>
-		<span id="updated">Loading...</span>
-	</div>
+            <h2>
+                Trade History
+            </h2>
+        </div>
 
-	<div class="trade-controls">
+        <div
+            id="updated"
+            class="status"
+        >
+            Loading...
+        </div>
 
-		<input
-			type="text"
-			id="tickerSearch"
-			placeholder="Search ticker..."
-		>
+    </section>
 
-		<select id="directionFilter">
-			<option value="">All Directions</option>
-			<option value="Bullish">Bullish</option>
-			<option value="Bearish">Bearish</option>
-		</select>
+    <section class="panel">
 
-		<select id="statusFilter">
-			<option value="">All Statuses</option>
-			<option value="CONFIRMED">Confirmed</option>
-			<option value="PENDING">Pending</option>
-			<option value="ACTIVE">Active</option>
-			<option value="CLOSED">Closed</option>
-		</select>
+        <div class="trade-controls">
 
-		<button id="clearFilters">
-			Clear
-		</button>
+            <input
+                type="text"
+                id="tickerSearch"
+                placeholder="Search ticker..."
+            >
 
-		<span
-			id="tradeCount"
-			class="muted"
-		>
-			0 trades
-		</span>
+            <select id="directionFilter">
+                <option value="">
+                    All Directions
+                </option>
 
-	</div>
+                <option value="Bullish">
+                    Bullish
+                </option>
 
-	<div
-		id="noTrades"
-		class="muted"
-		hidden
-	>
-		No trades match the selected filters.
-	</div>
+                <option value="Bearish">
+                    Bearish
+                </option>
+            </select>
 
-	<div class="table-wrap">
+            <select id="statusFilter">
+                <option value="">
+                    All Statuses
+                </option>
 
-		<table>
+                <option value="CONFIRMED">
+                    Confirmed
+                </option>
 
-			<thead>
-				<tr>
-					<th data-sort="ticker">
-						Ticker
-					</th>
+                <option value="PENDING">
+                    Pending
+                </option>
 
-					<th data-sort="direction">
-						Direction
-					</th>
+                <option value="ACTIVE">
+                    Active
+                </option>
 
-					<th data-sort="setup">
-						Setup
-					</th>
+                <option value="CLOSED">
+                    Closed
+                </option>
+            </select>
 
-					<th data-sort="entry">
-						Entry
-					</th>
+            <button id="clearFilters">
+                Clear
+            </button>
 
-					<th data-sort="current_price">
-						Current
-					</th>
+            <span
+                id="tradeCount"
+                class="muted"
+            >
+                0 of 0 trades
+            </span>
 
-					<th data-sort="stop">
-						Stop
-					</th>
+        </div>
 
-					<th data-sort="target">
-						Target
-					</th>
+        <div
+            id="noTrades"
+            class="muted"
+            hidden
+        >
+            No trades match the selected filters.
+        </div>
 
-					<th data-sort="risk_reward">
-						R:R
-					</th>
+        <div class="table-wrap">
 
-					<th data-sort="score">
-						Score
-					</th>
+            <table>
 
-					<th data-sort="gain_percent">
-						P/L
-					</th>
+                <thead>
+                    <tr>
 
-					<th data-sort="status">
-						Status
-					</th>
-				</tr>
-			</thead>
+                        <th data-sort="ticker">
+                            Ticker
+                        </th>
 
-			<tbody id="trades"></tbody>
+                        <th data-sort="direction">
+                            Direction
+                        </th>
 
-		</table>
+                        <th data-sort="setup">
+                            Setup
+                        </th>
 
-	</div>
+                        <th data-sort="entry">
+                            Entry
+                        </th>
 
+                        <th data-sort="current_price">
+                            Current
+                        </th>
 
-</section>
+                        <th data-sort="stop">
+                            Stop
+                        </th>
 
+                        <th data-sort="target">
+                            Target
+                        </th>
+
+                        <th data-sort="risk_reward">
+                            R:R
+                        </th>
+
+                        <th data-sort="score">
+                            Score
+                        </th>
+
+                        <th data-sort="gain_percent">
+                            P/L
+                        </th>
+
+                        <th data-sort="status">
+                            Status
+                        </th>
+
+                    </tr>
+                </thead>
+
+                <tbody id="trades"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
 
 </main>
 
 <footer>
-    © 2026 Newell Trading Group. All rights reserved.
 
+    <div>
+        © 2026 Newell Trading Group.
+        All rights reserved.
+    </div>
 
-<div class="disclaimer">
-    Educational purposes only.<br>
-    This information is not financial advice, investment advice,
-    or a recommendation to buy or sell any security.<br>
-    Trading involves risk, including possible loss of capital.
-</div>
-
+    <div class="disclaimer">
+        Educational purposes only.
+        This information is not financial advice,
+        investment advice, or a recommendation to buy
+        or sell any security.
+        Trading involves risk, including possible loss
+        of capital.
+    </div>
 
 </footer>
 
-<script src="js/trades.js"></script>
+<script src="./js/trades.js"></script>
 
 </body>
 </html>

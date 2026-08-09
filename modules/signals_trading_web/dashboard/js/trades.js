@@ -1,4 +1,5 @@
 let allTrades = [];
+
 let sortColumn = "score";
 let sortDirection = "desc";
 
@@ -27,13 +28,15 @@ async function load() {
                 data.generated_at || "";
         }
 
-        allTrades = Array.isArray(data.trades)
-            ? data.trades
-            : [];
+        allTrades =
+            Array.isArray(data.trades)
+                ? data.trades
+                : [];
 
         renderTrades();
 
     } catch (error) {
+
         const updated =
             document.getElementById("updated");
 
@@ -50,6 +53,7 @@ async function load() {
 }
 
 function renderTrades() {
+
     const body =
         document.getElementById("trades");
 
@@ -78,197 +82,234 @@ function renderTrades() {
             "statusFilter"
         );
 
-    const search = searchInput
-        ? searchInput.value
-            .trim()
-            .toUpperCase()
-        : "";
+    const search =
+        searchInput
+            ? searchInput.value
+                .trim()
+                .toUpperCase()
+            : "";
 
-    const direction = directionFilter
-        ? directionFilter.value.toUpperCase()
-        : "";
+    const direction =
+        directionFilter
+            ? directionFilter.value
+                .trim()
+                .toUpperCase()
+            : "";
 
-    const status = statusFilter
-        ? statusFilter.value.toUpperCase()
-        : "";
+    const status =
+        statusFilter
+            ? statusFilter.value
+                .trim()
+                .toUpperCase()
+            : "";
 
-    let trades = allTrades.filter(
-        trade => {
+    let trades =
+        allTrades.filter(
+            trade => {
 
-            const ticker = String(
-                trade.ticker || ""
-            ).toUpperCase();
+                const ticker =
+                    String(
+                        trade.ticker || ""
+                    ).toUpperCase();
 
-            const tradeDirection = String(
-                trade.direction || ""
-            ).toUpperCase();
+                const tradeDirection =
+                    String(
+                        trade.direction || ""
+                    ).toUpperCase();
 
-            const tradeStatus = String(
-                trade.status || ""
-            ).toUpperCase();
+                const tradeStatus =
+                    String(
+                        trade.status || ""
+                    ).toUpperCase();
 
-            return (
-                (!search ||
-                    ticker.includes(search)) &&
-                (!direction ||
-                    tradeDirection === direction) &&
-                (!status ||
-                    tradeStatus === status)
-            );
+                const matchesSearch =
+                    !search ||
+                    ticker.includes(search);
+
+                const matchesDirection =
+                    !direction ||
+                    tradeDirection === direction;
+
+                const matchesStatus =
+                    !status ||
+                    tradeStatus === status;
+
+                return (
+                    matchesSearch &&
+                    matchesDirection &&
+                    matchesStatus
+                );
+            }
+        );
+
+    trades.sort(
+        (a, b) => {
+
+            const aValue =
+                getSortValue(
+                    a,
+                    sortColumn
+                );
+
+            const bValue =
+                getSortValue(
+                    b,
+                    sortColumn
+                );
+
+            let comparison = 0;
+
+            if (
+                typeof aValue === "number" &&
+                typeof bValue === "number"
+            ) {
+                comparison =
+                    aValue - bValue;
+            } else {
+                comparison =
+                    String(aValue).localeCompare(
+                        String(bValue),
+                        undefined,
+                        {
+                            numeric: true,
+                            sensitivity: "base"
+                        }
+                    );
+            }
+
+            return sortDirection === "asc"
+                ? comparison
+                : -comparison;
         }
     );
 
-    trades.sort((a, b) => {
-
-        const aValue =
-            getSortValue(
-                a,
-                sortColumn
-            );
-
-        const bValue =
-            getSortValue(
-                b,
-                sortColumn
-            );
-
-        let comparison;
-
-        if (
-            typeof aValue === "number" &&
-            typeof bValue === "number"
-        ) {
-            comparison =
-                aValue - bValue;
-        } else {
-            comparison =
-                String(aValue).localeCompare(
-                    String(bValue),
-                    undefined,
-                    {
-                        numeric: true,
-                        sensitivity: "base"
-                    }
-                );
-        }
-
-        return sortDirection === "asc"
-            ? comparison
-            : -comparison;
-    });
-
     body.innerHTML = "";
 
-    trades.forEach(trade => {
+    trades.forEach(
+        trade => {
 
-        const row =
-            document.createElement("tr");
+            const row =
+                document.createElement(
+                    "tr"
+                );
 
-        const gain =
-            trade.gain_percent == null ||
-            trade.gain_percent === ""
-                ? null
-                : Number(
+            const gain =
+                toNumber(
                     trade.gain_percent
                 );
 
-        const score =
-            trade.score == null ||
-            trade.score === ""
-                ? null
-                : Number(
+            const score =
+                toNumber(
                     trade.score
                 );
 
-        const gainClass =
-            gain > 0
-                ? "positive"
-                : gain < 0
-                    ? "negative"
-                    : "";
+            const riskReward =
+                toNumber(
+                    trade.risk_reward
+                );
 
-        row.innerHTML = `
-            <td>
-                <b>
+            const gainClass =
+                gain === null
+                    ? ""
+                    : gain > 0
+                        ? "positive"
+                        : gain < 0
+                            ? "negative"
+                            : "";
+
+            row.innerHTML = `
+
+                <td>
+                    <b>
+                        ${escapeHtml(
+                            trade.ticker || ""
+                        )}
+                    </b>
+                </td>
+
+                <td>
                     ${escapeHtml(
-                        trade.ticker || ""
+                        trade.direction || "—"
                     )}
-                </b>
-            </td>
+                </td>
 
-            <td>
-                ${escapeHtml(
-                    trade.direction || "—"
-                )}
-            </td>
-
-            <td>
-                ${escapeHtml(
-                    trade.setup || "—"
-                )}
-            </td>
-
-            <td>
-                ${money(trade.entry)}
-            </td>
-
-            <td>
-                ${money(
-                    trade.current_price
-                )}
-            </td>
-
-            <td>
-                ${money(trade.stop)}
-            </td>
-
-            <td>
-                ${money(trade.target)}
-            </td>
-
-            <td>
-                ${
-                    trade.risk_reward ??
-                    "—"
-                }
-            </td>
-
-            <td>
-                ${
-                    score == null ||
-                    !Number.isFinite(score)
-                        ? "—"
-                        : score.toFixed(2)
-                }
-            </td>
-
-            <td class="${gainClass}">
-                ${
-                    gain == null ||
-                    !Number.isFinite(gain)
-                        ? "—"
-                        : gain.toFixed(2) + "%"
-                }
-            </td>
-
-            <td>
-                <span class="badge">
+                <td>
                     ${escapeHtml(
-                        trade.status || "—"
+                        trade.setup || "—"
                     )}
-                </span>
-            </td>
-        `;
+                </td>
 
-        body.appendChild(row);
-    });
+                <td>
+                    ${money(
+                        trade.entry
+                    )}
+                </td>
+
+                <td>
+                    ${money(
+                        trade.current_price
+                    )}
+                </td>
+
+                <td>
+                    ${money(
+                        trade.stop
+                    )}
+                </td>
+
+                <td>
+                    ${money(
+                        trade.target
+                    )}
+                </td>
+
+                <td>
+                    ${
+                        riskReward === null
+                            ? "—"
+                            : riskReward
+                    }
+                </td>
+
+                <td>
+                    ${
+                        score === null
+                            ? "—"
+                            : score.toFixed(2)
+                    }
+                </td>
+
+                <td class="${gainClass}">
+                    ${
+                        gain === null
+                            ? "—"
+                            : gain.toFixed(2) + "%"
+                    }
+                </td>
+
+                <td>
+                    <span class="badge">
+                        ${escapeHtml(
+                            trade.status || "—"
+                        )}
+                    </span>
+                </td>
+
+            `;
+
+            body.appendChild(row);
+        }
+    );
 
     if (tradeCount) {
+
         tradeCount.textContent =
-            `${trades.length} of ${allTrades.length} trades`;
+            `${trades.length} of ` +
+            `${allTrades.length} trades`;
     }
 
     if (noTrades) {
+
         noTrades.hidden =
             trades.length !== 0;
     }
@@ -280,6 +321,7 @@ function getSortValue(
     trade,
     column
 ) {
+
     const numericColumns = [
         "score",
         "entry",
@@ -291,14 +333,19 @@ function getSortValue(
     ];
 
     if (
-        numericColumns.includes(column)
+        numericColumns.includes(
+            column
+        )
     ) {
-        const value =
-            Number(trade[column]);
 
-        return Number.isFinite(value)
-            ? value
-            : -Infinity;
+        const value =
+            toNumber(
+                trade[column]
+            );
+
+        return value === null
+            ? -Infinity
+            : value;
     }
 
     return String(
@@ -306,48 +353,70 @@ function getSortValue(
     );
 }
 
-function updateSortHeaders() {
-    document
-        .querySelectorAll(
-            "th[data-sort]"
-        )
-        .forEach(th => {
+function toNumber(value) {
 
-            th.classList.remove(
-                "sort-asc",
-                "sort-desc"
-            );
-
-            if (
-                th.dataset.sort ===
-                sortColumn
-            ) {
-                th.classList.add(
-                    sortDirection === "asc"
-                        ? "sort-asc"
-                        : "sort-desc"
-                );
-            }
-        });
-}
-
-function money(value) {
     if (
-        value == null ||
+        value === null ||
+        value === undefined ||
         value === ""
     ) {
-        return "—";
+        return null;
     }
 
     const number =
         Number(value);
 
     return Number.isFinite(number)
-        ? "$" + number.toFixed(2)
-        : "—";
+        ? number
+        : null;
+}
+
+function updateSortHeaders() {
+
+    document
+        .querySelectorAll(
+            "th[data-sort]"
+        )
+        .forEach(
+            th => {
+
+                th.classList.remove(
+                    "sort-asc",
+                    "sort-desc"
+                );
+
+                if (
+                    th.dataset.sort ===
+                    sortColumn
+                ) {
+
+                    th.classList.add(
+                        sortDirection === "asc"
+                            ? "sort-asc"
+                            : "sort-desc"
+                    );
+                }
+            }
+        );
+}
+
+function money(value) {
+
+    const number =
+        toNumber(value);
+
+    if (number === null) {
+        return "—";
+    }
+
+    return (
+        "$" +
+        number.toFixed(2)
+    );
 }
 
 function escapeHtml(value) {
+
     return String(value)
         .replaceAll(
             "&",
@@ -375,32 +444,42 @@ document
     .querySelectorAll(
         "th[data-sort]"
     )
-    .forEach(th => {
+    .forEach(
+        th => {
 
-        th.addEventListener(
-            "click",
-            () => {
+            th.addEventListener(
+                "click",
+                () => {
 
-                const column =
-                    th.dataset.sort;
+                    const column =
+                        th.dataset.sort;
 
-                if (
-                    sortColumn ===
-                    column
-                ) {
-                    sortDirection =
-                        sortDirection === "asc"
-                            ? "desc"
-                            : "asc";
-                } else {
-                    sortColumn = column;
-                    sortDirection = "asc";
+                    if (
+                        sortColumn ===
+                        column
+                    ) {
+
+                        sortDirection =
+                            sortDirection === "asc"
+                                ? "desc"
+                                : "asc";
+
+                    } else {
+
+                        sortColumn =
+                            column;
+
+                        sortDirection =
+                            column === "score"
+                                ? "desc"
+                                : "asc";
+                    }
+
+                    renderTrades();
                 }
-
-                renderTrades();
-            }
-        );
-    });
+            );
+        }
+    );
 
 const tickerSearch =
     document.getElementById(
@@ -408,6 +487,7 @@ const tickerSearch =
     );
 
 if (tickerSearch) {
+
     tickerSearch.addEventListener(
         "input",
         renderTrades
@@ -420,6 +500,7 @@ const directionFilter =
     );
 
 if (directionFilter) {
+
     directionFilter.addEventListener(
         "change",
         renderTrades
@@ -432,6 +513,7 @@ const statusFilter =
     );
 
 if (statusFilter) {
+
     statusFilter.addEventListener(
         "change",
         renderTrades
@@ -444,6 +526,7 @@ const clearFilters =
     );
 
 if (clearFilters) {
+
     clearFilters.addEventListener(
         "click",
         () => {
