@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Trades | Trading System</title>
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <div>
+    <div class="eyebrow">TRADING SYSTEM</div>
+    <h1>Trades</h1>
+  </div>
+
+  <nav>
+    <a href="index.html">Dashboard</a>
+    <a class="active" href="trades.html">Trades</a>
+    <a href="performance.html">Performance</a>
+  </nav>
+
+</header>
+
+<main>
+
+  <section class="panel">
+
+    <div class="panel-head">
+      <h2>Trade History</h2>
+      <span id="updated">Loading...</span>
+    </div>
+
+    <div class="table-wrap">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Direction</th>
+            <th>Setup</th>
+            <th>Entry</th>
+            <th>Current</th>
+            <th>Stop</th>
+            <th>Target</th>
+            <th>R:R</th>
+            <th>P/L</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody id="trades"></tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+</main>
+
+<script src="js/trades.js"></script>
+
+</body>
+</html>

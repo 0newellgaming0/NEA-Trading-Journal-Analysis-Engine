@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Performance | Trading System</title>
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <div>
+    <div class="eyebrow">TRADING SYSTEM</div>
+    <h1>Performance</h1>
+  </div>
+
+  <nav>
+    <a href="index.html">Dashboard</a>
+    <a href="trades.html">Trades</a>
+    <a class="active" href="performance.html">Performance</a>
+  </nav>
+
+</header>
+
+<main>
+
+  <section class="grid stats">
+
+    <article class="card">
+      <span>Win Rate</span>
+      <strong id="winRate">0%</strong>
+    </article>
+
+    <article class="card">
+      <span>Total Trades</span>
+      <strong id="totalTrades">0</strong>
+    </article>
+
+    <article class="card">
+      <span>Net R</span>
+      <strong id="netR">0.00R</strong>
+    </article>
+
+    <article class="card">
+      <span>Profit Factor</span>
+      <strong id="profitFactor">0.00</strong>
+    </article>
+
+  </section>
+
+  <section class="panel">
+
+    <div class="panel-head">
+      <h2>Performance Summary</h2>
+      <span id="updated">Loading...</span>
+    </div>
+
+    <div id="summary" class="summary"></div>
+
+  </section>
+
+</main>
+
+<script src="js/performance.js"></script>
+
+</body>
+</html>
