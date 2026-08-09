@@ -8,6 +8,7 @@ PUBLIC_TRADE_FIELDS = {
     "stop",
     "target",
     "risk_reward",
+    "score",
     "current_price",
     "gain_percent",
     "max_gain_percent",
@@ -61,6 +62,7 @@ def sanitize_trade(row):
             "risk_reward_ratio",
             "rr"
         ),
+        "score": row.get("score"),
         "current_price": row.get("current_price"),
         "gain_percent": row.get("gain_percent"),
         "max_gain_percent": row.get("max_gain_percent"),

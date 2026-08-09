@@ -51,7 +51,13 @@ class DatabaseReader:
                 """
                 SELECT *
                 FROM trades
-                ORDER BY id DESC
+                ORDER BY
+                    CASE
+                        WHEN score IS NULL THEN 1
+                        ELSE 0
+                    END,
+                    score DESC,
+                    id DESC
                 """
             ).fetchall()
 
