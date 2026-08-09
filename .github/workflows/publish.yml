@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - module/candlestick-analysis-engine
 
 permissions:
   contents: read
@@ -28,6 +29,10 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Publish trade data
+        run: |
+          python -m publisher.publish
+
       - name: Validate JSON
         run: |
           python -m json.tool data/trades.json > /dev/null
@@ -48,7 +53,7 @@ jobs:
       - name: Upload dashboard
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dashboard
+          path: modules/signals_trading_web/dashboard
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
