@@ -1,20 +1,23 @@
 name: Publish Trading Dashboard
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
-  schedule:
-    - cron: "*/15 * * * *"
+  push:
+    branches:
+      - main
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: modules/signals_trading_web
 
     steps:
       - name: Checkout repository
@@ -25,10 +28,6 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Publish trade data
-        run: |
-          python -m publisher.publish
-
       - name: Validate JSON
         run: |
           python -m json.tool data/trades.json > /dev/null
@@ -37,7 +36,7 @@ jobs:
 
       - name: Validate Python
         run: |
-          python -m compileall publisher scripts tests
+          python -m compileall publisher tests
 
       - name: Run tests
         run: |
