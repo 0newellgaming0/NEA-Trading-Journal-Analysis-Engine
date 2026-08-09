@@ -28,68 +28,35 @@
 
   <section class="panel">
 
-	<div class="panel-head">
-		<div>
-			<h2>Trade History</h2>
-			<span id="updated">Loading...</span>
-		</div>
-	</div>
+    <div class="panel-head">
+      <h2>Trade History</h2>
+      <span id="updated">Loading...</span>
+    </div>
 
-	<div class="trade-controls">
+    <div class="table-wrap">
 
-		<input
-			type="search"
-			id="tickerSearch"
-			placeholder="Search ticker..."
-			autocomplete="off"
-		>
+      <table>
 
-		<select id="statusFilter">
-			<option value="">All Statuses</option>
-			<option value="PENDING">Pending</option>
-			<option value="CONFIRMED">Confirmed</option>
-			<option value="OPEN">Open</option>
-			<option value="CLOSED">Closed</option>
-		</select>
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Direction</th>
+            <th>Setup</th>
+            <th>Entry</th>
+            <th>Current</th>
+            <th>Stop</th>
+            <th>Target</th>
+            <th>R:R</th>
+            <th>P/L</th>
+            <th>Status</th>
+          </tr>
+        </thead>
 
-		<select id="directionFilter">
-			<option value="">All Directions</option>
-			<option value="BULLISH">Bullish</option>
-			<option value="BEARISH">Bearish</option>
-		</select>
+        <tbody id="trades"></tbody>
 
-		<button
-			type="button"
-			id="clearSearch"
-		>
-			Clear
-		</button>
+      </table>
 
-	</div>
-
-	<div class="table-wrap">
-
-		<table id="tradeTableElement">
-
-			<thead>
-				<tr>
-					<th data-sort="ticker">Ticker</th>
-					<th data-sort="direction">Direction</th>
-					<th data-sort="setup">Setup</th>
-					<th data-sort="entry">Entry</th>
-					<th data-sort="current_price">Current</th>
-					<th data-sort="stop">Stop</th>
-					<th data-sort="target">Target</th>
-					<th data-sort="status">Status</th>
-				</tr>
-			</thead>
-
-			<tbody id="trades"></tbody>
-
-		</table>
-
-	</div>
-
+    </div>
 
   </section>
 

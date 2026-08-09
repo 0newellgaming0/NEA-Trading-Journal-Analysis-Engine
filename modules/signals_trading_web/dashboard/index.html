@@ -66,41 +66,29 @@
 
   <section class="panel">
 
-	<div class="trade-controls">
-		<input
-			type="search"
-			id="tickerSearch"
-			placeholder="Search ticker..."
-			autocomplete="off"
-		>
-
-		<button type="button" id="clearSearch">
-			Clear
-		</button>
-	</div>
-
     <div class="panel-head">
       <h2>Active Trade Setups</h2>
       <a href="trades.html">View all →</a>
     </div>
 
-	<div class="table-wrap">
-		<table id="tradeTableElement">
-			<thead>
-				<tr>
-					<th data-sort="ticker">Ticker</th>
-					<th data-sort="direction">Direction</th>
-					<th data-sort="setup">Setup</th>
-					<th data-sort="entry">Entry</th>
-					<th data-sort="stop">Stop</th>
-					<th data-sort="target">Target</th>
-					<th data-sort="status">Status</th>
-				</tr>
-			</thead>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Direction</th>
+            <th>Setup</th>
+            <th>Entry</th>
+            <th>Stop</th>
+            <th>Target</th>
+            <th>R:R</th>
+            <th>Status</th>
+          </tr>
+        </thead>
 
-			<tbody id="tradeTable"></tbody>
-		</table>
-	</div>
+        <tbody id="tradeTable"></tbody>
+      </table>
+    </div>
 
   </section>
 
