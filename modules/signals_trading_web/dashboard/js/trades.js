@@ -1,6 +1,6 @@
 let allTrades = [];
-let sortColumn = "ticker";
-let sortDirection = "asc";
+let sortColumn = "score";
+let sortDirection = "desc";
 
 async function load() {
     try {
@@ -54,9 +54,14 @@ function renderTrades() {
         return;
     }
 
-    const searchInput = document.getElementById("tickerSearch");
-    const directionFilter = document.getElementById("directionFilter");
-    const statusFilter = document.getElementById("statusFilter");
+    const searchInput =
+        document.getElementById("tickerSearch");
+
+    const directionFilter =
+        document.getElementById("directionFilter");
+
+    const statusFilter =
+        document.getElementById("statusFilter");
 
     const search = searchInput
         ? searchInput.value.trim().toUpperCase()
@@ -103,27 +108,32 @@ function renderTrades() {
     });
 
     trades.sort((a, b) => {
-        const aValue = getSortValue(a, sortColumn);
-        const bValue = getSortValue(b, sortColumn);
+        const aValue = getSortValue(
+            a,
+            sortColumn
+        );
+
+        const bValue = getSortValue(
+            b,
+            sortColumn
+        );
 
         let comparison = 0;
 
-        if (typeof aValue === "number" &&
-            typeof bValue === "number") {
-
+        if (
+            typeof aValue === "number" &&
+            typeof bValue === "number"
+        ) {
             comparison = aValue - bValue;
-
         } else {
-
-            comparison = String(aValue)
-                .localeCompare(
-                    String(bValue),
-                    undefined,
-                    {
-                        numeric: true,
-                        sensitivity: "base"
-                    }
-                );
+            comparison = String(aValue).localeCompare(
+                String(bValue),
+                undefined,
+                {
+                    numeric: true,
+                    sensitivity: "base"
+                }
+            );
         }
 
         return sortDirection === "asc"
@@ -142,6 +152,12 @@ function renderTrades() {
                 ? null
                 : Number(trade.gain_percent);
 
+        const score =
+            trade.score == null ||
+            trade.score === ""
+                ? null
+                : Number(trade.score);
+
         const gainClass =
             gain > 0
                 ? "positive"
@@ -150,7 +166,9 @@ function renderTrades() {
                     : "";
 
         row.innerHTML = `
-            <td><b>${escapeHtml(trade.ticker || "")}</b></td>
+            <td>
+                <b>${escapeHtml(trade.ticker || "")}</b>
+            </td>
 
             <td>
                 ${escapeHtml(trade.direction || "—")}
@@ -180,6 +198,15 @@ function renderTrades() {
                 ${trade.risk_reward ?? "—"}
             </td>
 
+            <td>
+                ${
+                    score == null ||
+                    !Number.isFinite(score)
+                        ? "—"
+                        : score.toFixed(2)
+                }
+            </td>
+
             <td class="${gainClass}">
                 ${
                     gain == null ||
@@ -205,7 +232,8 @@ function renderTrades() {
     }
 
     if (noTrades) {
-        noTrades.hidden = trades.length !== 0;
+        noTrades.hidden =
+            trades.length !== 0;
     }
 
     updateSortHeaders();
@@ -213,6 +241,7 @@ function renderTrades() {
 
 function getSortValue(trade, column) {
     const numericColumns = [
+        "score",
         "entry",
         "current_price",
         "stop",
@@ -222,7 +251,9 @@ function getSortValue(trade, column) {
     ];
 
     if (numericColumns.includes(column)) {
-        const value = Number(trade[column]);
+        const value = Number(
+            trade[column]
+        );
 
         return Number.isFinite(value)
             ? value
@@ -235,27 +266,32 @@ function getSortValue(trade, column) {
 }
 
 function updateSortHeaders() {
-    document.querySelectorAll(
-        "th[data-sort]"
-    ).forEach(th => {
-
-        th.classList.remove(
-            "sort-asc",
-            "sort-desc"
-        );
-
-        if (th.dataset.sort === sortColumn) {
-            th.classList.add(
-                sortDirection === "asc"
-                    ? "sort-asc"
-                    : "sort-desc"
+    document
+        .querySelectorAll("th[data-sort]")
+        .forEach(th => {
+            th.classList.remove(
+                "sort-asc",
+                "sort-desc"
             );
-        }
-    });
+
+            if (
+                th.dataset.sort ===
+                sortColumn
+            ) {
+                th.classList.add(
+                    sortDirection === "asc"
+                        ? "sort-asc"
+                        : "sort-desc"
+                );
+            }
+        });
 }
 
 function money(value) {
-    if (value == null || value === "") {
+    if (
+        value == null ||
+        value === ""
+    ) {
         return "—";
     }
 
@@ -275,33 +311,37 @@ function escapeHtml(value) {
         .replaceAll("'", "&#039;");
 }
 
-document.querySelectorAll(
-    "th[data-sort]"
-).forEach(th => {
+document
+    .querySelectorAll("th[data-sort]")
+    .forEach(th => {
+        th.addEventListener(
+            "click",
+            () => {
+                const column =
+                    th.dataset.sort;
 
-    th.addEventListener(
-        "click",
-        () => {
+                if (
+                    sortColumn ===
+                    column
+                ) {
+                    sortDirection =
+                        sortDirection === "asc"
+                            ? "desc"
+                            : "asc";
+                } else {
+                    sortColumn = column;
+                    sortDirection = "asc";
+                }
 
-            const column = th.dataset.sort;
-
-            if (sortColumn === column) {
-                sortDirection =
-                    sortDirection === "asc"
-                        ? "desc"
-                        : "asc";
-            } else {
-                sortColumn = column;
-                sortDirection = "asc";
+                renderTrades();
             }
-
-            renderTrades();
-        }
-    );
-});
+        );
+    });
 
 const tickerSearch =
-    document.getElementById("tickerSearch");
+    document.getElementById(
+        "tickerSearch"
+    );
 
 if (tickerSearch) {
     tickerSearch.addEventListener(
@@ -311,7 +351,9 @@ if (tickerSearch) {
 }
 
 const directionFilter =
-    document.getElementById("directionFilter");
+    document.getElementById(
+        "directionFilter"
+    );
 
 if (directionFilter) {
     directionFilter.addEventListener(
@@ -321,7 +363,9 @@ if (directionFilter) {
 }
 
 const statusFilter =
-    document.getElementById("statusFilter");
+    document.getElementById(
+        "statusFilter"
+    );
 
 if (statusFilter) {
     statusFilter.addEventListener(
@@ -331,13 +375,14 @@ if (statusFilter) {
 }
 
 const clearFilters =
-    document.getElementById("clearFilters");
+    document.getElementById(
+        "clearFilters"
+    );
 
 if (clearFilters) {
     clearFilters.addEventListener(
         "click",
         () => {
-
             if (tickerSearch) {
                 tickerSearch.value = "";
             }
