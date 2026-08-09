@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newell Trading Group - Trades</title>
+    <title>Trades | Newell Trading Group</title>
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
@@ -11,109 +12,112 @@
 
 <header class="topbar">
     <div>
-        <div class="eyebrow">NEWELL TRADING GROUP</div>
-        <h1>TRADING SYSTEM</h1>
+        <div class="eyebrow">NEWELL TRADING GROUP SETUPS SYSTEM</div>
+        <h1>Trading System</h1>
     </div>
 
-    <nav>
-        <a href="index.html">Dashboard</a>
-        <a href="trades.html" class="active">Trades</a>
-        <a href="performance.html">Performance</a>
-    </nav>
+
+<nav>
+    <a href="index.html">Dashboard</a>
+    <a href="trades.html" class="active">Trades</a>
+    <a href="performance.html">Performance</a>
+</nav>
+
+
 </header>
 
 <main>
 
-    <section class="hero">
+
+<section class="panel">
+
+    <div class="panel-head">
         <div>
             <div class="eyebrow">PUBLIC TRADE DATA</div>
             <h2>Trade History</h2>
-            <p>
-                Generated trades, risk levels, current prices, and performance
-                published from the NEA28v1 Trading Engine.
-            </p>
         </div>
 
-        <div class="status">
-            <span></span>
-            <span id="updated">Loading...</span>
-        </div>
-    </section>
+        <span id="updated">Loading...</span>
+    </div>
 
-    <section class="panel">
+    <div class="trade-controls">
 
-        <div class="panel-head">
-            <h2>Trade History</h2>
-            <span id="tradeCount" class="muted">0 trades</span>
-        </div>
+        <input
+            type="text"
+            id="tickerSearch"
+            placeholder="Search ticker..."
+            autocomplete="off"
+        >
 
-        <div class="trade-controls">
+        <select id="directionFilter">
+            <option value="">All Directions</option>
+            <option value="BULLISH">Bullish</option>
+            <option value="BEARISH">Bearish</option>
+        </select>
 
-            <input
-                type="search"
-                id="tickerSearch"
-                placeholder="Search ticker..."
-                autocomplete="off"
-            >
+        <select id="statusFilter">
+            <option value="">All Statuses</option>
+            <option value="CONFIRMED">Confirmed</option>
+            <option value="PENDING">Pending</option>
+            <option value="ACTIVE">Active</option>
+            <option value="CLOSED">Closed</option>
+        </select>
 
-            <select id="directionFilter">
-                <option value="">All Directions</option>
-                <option value="Bullish">Bullish</option>
-                <option value="Bearish">Bearish</option>
-            </select>
+        <button type="button" id="clearFilters">
+            Clear
+        </button>
 
-            <select id="statusFilter">
-                <option value="">All Statuses</option>
-                <option value="CONFIRMED">Confirmed</option>
-                <option value="PENDING">Pending</option>
-            </select>
+        <span id="tradeCount" class="trade-count"></span>
 
-            <button type="button" id="clearFilters">
-                Clear
-            </button>
+    </div>
 
-        </div>
+    <div id="noTrades" class="no-trades" hidden>
+        No trades match the current filters.
+    </div>
 
-        <div class="table-wrap">
+    <div class="table-wrap">
 
-            <table>
+        <table>
 
-                <thead>
-                    <tr>
-                        <th data-sort="ticker">Ticker</th>
-                        <th data-sort="direction">Direction</th>
-                        <th data-sort="setup">Setup</th>
-                        <th data-sort="entry">Entry</th>
-                        <th data-sort="current_price">Current</th>
-                        <th data-sort="stop">Stop</th>
-                        <th data-sort="target">Target</th>
-                        <th data-sort="risk_reward">R:R</th>
-                        <th data-sort="gain_percent">P/L</th>
-                        <th data-sort="status">Status</th>
-                    </tr>
-                </thead>
+            <thead>
+                <tr>
+                    <th data-sort="ticker">Ticker</th>
+                    <th data-sort="direction">Direction</th>
+                    <th data-sort="setup">Setup</th>
+                    <th data-sort="score">Score</th>
+                    <th data-sort="entry">Entry</th>
+                    <th data-sort="current_price">Current</th>
+                    <th data-sort="stop">Stop</th>
+                    <th data-sort="target">Target</th>
+                    <th data-sort="risk_reward">R:R</th>
+                    <th data-sort="gain_percent">P/L</th>
+                    <th data-sort="status">Status</th>
+                </tr>
+            </thead>
 
-                <tbody id="trades"></tbody>
+            <tbody id="trades"></tbody>
 
-            </table>
+        </table>
 
-        </div>
+    </div>
 
-        <div id="noTrades" class="empty-state" hidden>
-            No trades match the current filters.
-        </div>
+</section>
 
-    </section>
 
 </main>
 
 <footer>
-    <div>© 2026 Newell Trading Group. All rights reserved.</div>
-    <div class="disclaimer">
-        Educational purposes only. This information is not financial advice,
-        investment advice, or a recommendation to buy or sell any security.
-        Trading involves risk, including possible loss of capital.
-    </div>
+    © 2026 Newell Trading Group. All rights reserved.
+
+
+<div class="disclaimer">
+    Educational purposes only.<br>
+    This information is not financial advice, investment advice,
+    or a recommendation to buy or sell any security.<br>
+    Trading involves risk, including possible loss of capital.
+</div>
+
+
 </footer>
 
 <script src="js/trades.js"></script>
