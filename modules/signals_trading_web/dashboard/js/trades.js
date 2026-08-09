@@ -1,7 +1,7 @@
 async function load() {
     try {
         const response = await fetch(
-            "./data/trades.json?t=" + Date.now(),
+            "../data/trades.json?t=" + Date.now(),
             {
                 cache: "no-store"
             }
@@ -36,12 +36,11 @@ async function load() {
         trades.forEach(trade => {
             const row = document.createElement("tr");
 
-            const gain = (
+            const gain =
                 trade.gain_percent == null ||
                 trade.gain_percent === ""
-            )
-                ? null
-                : Number(trade.gain_percent);
+                    ? null
+                    : Number(trade.gain_percent);
 
             const gainClass =
                 gain > 0
