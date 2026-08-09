@@ -43,13 +43,30 @@ jobs:
         run: |
           python -m unittest discover -s tests -v
 
+      - name: Build Pages artifact
+        run: |
+          rm -rf pages
+          mkdir -p pages
+          cp -R dashboard/. pages/
+          mkdir -p pages/data
+          cp data/trades.json pages/data/trades.json
+          cp data/performance.json pages/data/performance.json
+          cp data/market.json pages/data/market.json
+
+      - name: Verify Pages artifact
+        run: |
+          echo "=== Dashboard ==="
+          find pages -maxdepth 2 -type f | sort
+          echo "=== Trade data ==="
+          python -c "import json; x=json.load(open('pages/data/trades.json')); print('Trades:', x.get('count', len(x.get('trades', []))))"
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
       - name: Upload dashboard
         uses: actions/upload-pages-artifact@v3
         with:
-          path: modules/signals_trading_web/dashboard
+          path: modules/signals_trading_web/pages
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
