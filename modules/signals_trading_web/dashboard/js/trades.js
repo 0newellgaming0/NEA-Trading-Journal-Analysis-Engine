@@ -1,7 +1,7 @@
 async function load() {
     try {
         const response = await fetch(
-            "../data/trades.json?t=" + Date.now(),
+            "./data/trades.json?t=" + Date.now(),
             {
                 cache: "no-store"
             }
