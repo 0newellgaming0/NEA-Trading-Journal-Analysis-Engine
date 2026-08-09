@@ -1,12 +1,16 @@
-id="6842zn"
 async function load() {
     try {
         const response = await fetch(
-            "../data/trades.json?t=" + Date.now()
+            "./data/trades.json?t=" + Date.now(),
+            {
+                cache: "no-store"
+            }
         );
 
         if (!response.ok) {
-            throw new Error("trades.json");
+            throw new Error(
+                `trades.json HTTP ${response.status}`
+            );
         }
 
         const data = await response.json();
@@ -56,9 +60,11 @@ async function load() {
                 <td>${money(trade.target)}</td>
                 <td>${trade.risk_reward ?? "—"}</td>
                 <td class="${gainClass}">
-                    ${gain == null || !Number.isFinite(gain)
-                        ? "—"
-                        : gain.toFixed(2) + "%"}
+                    ${
+                        gain == null || !Number.isFinite(gain)
+                            ? "—"
+                            : gain.toFixed(2) + "%"
+                    }
                 </td>
                 <td>
                     <span class="badge">
@@ -84,7 +90,6 @@ async function load() {
     }
 }
 
-
 function money(value) {
     if (value == null || value === "") {
         return "—";
@@ -96,7 +101,6 @@ function money(value) {
         ? "$" + number.toFixed(2)
         : "—";
 }
-
 
 load();
 

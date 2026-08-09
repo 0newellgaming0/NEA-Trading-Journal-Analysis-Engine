@@ -1,11 +1,16 @@
 async function load() {
     try {
         const response = await fetch(
-            "../data/performance.json?t=" + Date.now()
+            "./data/performance.json?t=" + Date.now(),
+            {
+                cache: "no-store"
+            }
         );
 
         if (!response.ok) {
-            throw new Error("performance.json");
+            throw new Error(
+                `performance.json: HTTP ${response.status}`
+            );
         }
 
         const data = await response.json();
@@ -23,7 +28,8 @@ async function load() {
                 (data.win_rate ?? 0) + "%";
         }
 
-        const totalTrades = document.getElementById("totalTrades");
+        const totalTrades =
+            document.getElementById("totalTrades");
 
         if (totalTrades) {
             totalTrades.textContent =
@@ -73,7 +79,9 @@ async function load() {
                         Average R
                     </span>
                     <strong>
-                        ${Number(data.average_r ?? 0).toFixed(2)}R
+                        ${Number(
+                            data.average_r ?? 0
+                        ).toFixed(2)}R
                     </strong>
                 </div>
 
@@ -91,7 +99,8 @@ async function load() {
         }
 
     } catch (error) {
-        const updated = document.getElementById("updated");
+        const updated =
+            document.getElementById("updated");
 
         if (updated) {
             updated.textContent = "Data unavailable";
@@ -103,7 +112,6 @@ async function load() {
         );
     }
 }
-
 
 load();
 

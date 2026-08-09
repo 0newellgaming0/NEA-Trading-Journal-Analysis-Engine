@@ -1,15 +1,19 @@
 async function getJSON(file) {
     const response = await fetch(
-        "../data/" + file + "?t=" + Date.now()
+        "./data/" + file + "?t=" + Date.now(),
+        {
+            cache: "no-store"
+        }
     );
 
     if (!response.ok) {
-        throw new Error(file);
+        throw new Error(
+            `${file}: HTTP ${response.status}`
+        );
     }
 
     return response.json();
 }
-
 
 function money(value) {
     if (value == null || value === "") {
@@ -22,7 +26,6 @@ function money(value) {
         ? "$" + number.toFixed(2)
         : "—";
 }
-
 
 function renderTrades(data) {
     const rows = document.getElementById("tradeTable");
@@ -72,7 +75,6 @@ function renderTrades(data) {
         openTrades.textContent = open;
     }
 }
-
 
 async function load() {
     try {
@@ -129,7 +131,6 @@ async function load() {
         );
     }
 }
-
 
 load();
 
