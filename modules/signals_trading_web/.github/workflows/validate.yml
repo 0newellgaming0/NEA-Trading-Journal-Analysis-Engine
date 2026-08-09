@@ -3,11 +3,16 @@ name: Validate Trading Web
 on:
   pull_request:
   push:
-    branches: [main]
+    branches:
+      - main
+      - module/candlestick-analysis-engine
 
 jobs:
   validate:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: modules/signals_trading_web
 
     steps:
       - name: Checkout repository
@@ -22,12 +27,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
+            python -m pip install -r requirements.txt
           fi
 
       - name: Validate Python
         run: |
-          python -m compileall publisher scripts tests
+          python -m compileall publisher tests
 
       - name: Run tests
         run: |
