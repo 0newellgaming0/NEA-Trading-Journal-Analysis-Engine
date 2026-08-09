@@ -149,10 +149,6 @@ main {
     color: #aab5c2;
 }
 
-/* =========================
-   TRADE CONTROLS
-   ========================= */
-
 .trade-controls {
     display: flex;
     align-items: center;
@@ -216,10 +212,6 @@ main {
     color: #fff;
 }
 
-/* =========================
-   TRADE TABLE
-   ========================= */
-
 .table-wrap {
     overflow-x: auto;
 }
@@ -227,7 +219,7 @@ main {
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 850px;
+    min-width: 1000px;
 }
 
 th,
@@ -294,9 +286,11 @@ tbody tr:hover {
     font-size: 11px;
 }
 
-/* =========================
-   SUMMARY
-   ========================= */
+.empty-state {
+    padding: 25px;
+    text-align: center;
+    color: #8e9baa;
+}
 
 .summary {
     display: grid;
@@ -314,10 +308,6 @@ tbody tr:hover {
     color: #8e9baa;
 }
 
-/* =========================
-   FOOTER
-   ========================= */
-
 footer {
     width: min(1400px, 90%);
     margin: 40px auto 25px;
@@ -332,10 +322,6 @@ footer .disclaimer {
     margin-top: 6px;
     color: #687482;
 }
-
-/* =========================
-   RESPONSIVE
-   ========================= */
 
 @media (max-width: 800px) {
     .topbar,
