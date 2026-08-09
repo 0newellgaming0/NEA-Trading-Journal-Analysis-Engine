@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Trading Dashboard</title>
+<title>NEA28V1 Dashboard</title>
 <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
 
 <header class="topbar">
   <div>
-    <div class="eyebrow">TRADING SYSTEM</div>
+    <div class="eyebrow">NEWELL TRADING GROUP SETUPS SYSTEM</div>
     <h1>Market Dashboard</h1>
   </div>
 
@@ -28,7 +28,7 @@
       <span class="label">LIVE PUBLIC TRADE DATA</span>
       <h2>Institutional Trade Intelligence</h2>
       <p>
-        PRIMARY TIMEFRAME: 60m (1H) <br>
+        <b>PRIMARY TIMEFRAME: 60m (1H) <b><br><br>
 		Generated trades, risk levels, and performance 
         published from NEA28v1 Trading Engine.
       </p>
@@ -41,11 +41,11 @@
   </section>
 
   <section class="grid stats">
-
+    <a href="trades.html">
 	<article class="card">
 	  <span>Total Trades</span>
 	  <strong id="totalTrades">0</strong>
-	</article>
+	</article></a>
 
 	<article class="card">
 	  <span>Pending Setups</span>
@@ -66,29 +66,41 @@
 
   <section class="panel">
 
+	<div class="trade-controls">
+		<input
+			type="search"
+			id="tickerSearch"
+			placeholder="Search ticker..."
+			autocomplete="off"
+		>
+
+		<button type="button" id="clearSearch">
+			Clear
+		</button>
+	</div>
+
     <div class="panel-head">
       <h2>Active Trade Setups</h2>
       <a href="trades.html">View all →</a>
     </div>
 
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Ticker</th>
-            <th>Direction</th>
-            <th>Setup</th>
-            <th>Entry</th>
-            <th>Stop</th>
-            <th>Target</th>
-            <th>R:R</th>
-            <th>Status</th>
-          </tr>
-        </thead>
+	<div class="table-wrap">
+		<table id="tradeTableElement">
+			<thead>
+				<tr>
+					<th data-sort="ticker">Ticker</th>
+					<th data-sort="direction">Direction</th>
+					<th data-sort="setup">Setup</th>
+					<th data-sort="entry">Entry</th>
+					<th data-sort="stop">Stop</th>
+					<th data-sort="target">Target</th>
+					<th data-sort="status">Status</th>
+				</tr>
+			</thead>
 
-        <tbody id="tradeTable"></tbody>
-      </table>
-    </div>
+			<tbody id="tradeTable"></tbody>
+		</table>
+	</div>
 
   </section>
 
