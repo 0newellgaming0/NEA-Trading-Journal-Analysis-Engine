@@ -22,9 +22,13 @@ function money(value) {
 
     const number = Number(value);
 
-    return Number.isFinite(number)
-        ? "$" + number.toFixed(2)
-        : "—";
+    if (!Number.isFinite(number)) {
+        return "—";
+    }
+
+    return number < 1
+        ? "$" + number.toFixed(4)
+        : "$" + number.toFixed(2);
 }
 
 function renderTrades(data) {

@@ -355,17 +355,19 @@ function updateSortHeaders() {
 }
 
 function money(value) {
-    const number =
-        toNumber(value);
-
-    if (number === null) {
+    if (value == null || value === "") {
         return "—";
     }
 
-    return (
-        "$" +
-        number.toFixed(2)
-    );
+    const number = Number(value);
+
+    if (!Number.isFinite(number)) {
+        return "—";
+    }
+
+    return number < 1
+        ? "$" + number.toFixed(4)
+        : "$" + number.toFixed(2);
 }
 
 function escapeHtml(value) {
