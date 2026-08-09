@@ -19,10 +19,12 @@ async function load() {
 
         const data = await response.json();
 
-        const updated = document.getElementById("updated");
+        const updated =
+            document.getElementById("updated");
 
         if (updated) {
-            updated.textContent = data.generated_at || "";
+            updated.textContent =
+                data.generated_at || "";
         }
 
         allTrades = Array.isArray(data.trades)
@@ -32,10 +34,12 @@ async function load() {
         renderTrades();
 
     } catch (error) {
-        const updated = document.getElementById("updated");
+        const updated =
+            document.getElementById("updated");
 
         if (updated) {
-            updated.textContent = "Data unavailable";
+            updated.textContent =
+                "Data unavailable";
         }
 
         console.error(
@@ -46,25 +50,38 @@ async function load() {
 }
 
 function renderTrades() {
-    const body = document.getElementById("trades");
-    const noTrades = document.getElementById("noTrades");
-    const tradeCount = document.getElementById("tradeCount");
+    const body =
+        document.getElementById("trades");
+
+    const noTrades =
+        document.getElementById("noTrades");
+
+    const tradeCount =
+        document.getElementById("tradeCount");
 
     if (!body) {
         return;
     }
 
     const searchInput =
-        document.getElementById("tickerSearch");
+        document.getElementById(
+            "tickerSearch"
+        );
 
     const directionFilter =
-        document.getElementById("directionFilter");
+        document.getElementById(
+            "directionFilter"
+        );
 
     const statusFilter =
-        document.getElementById("statusFilter");
+        document.getElementById(
+            "statusFilter"
+        );
 
     const search = searchInput
-        ? searchInput.value.trim().toUpperCase()
+        ? searchInput.value
+            .trim()
+            .toUpperCase()
         : "";
 
     const direction = directionFilter
@@ -75,65 +92,64 @@ function renderTrades() {
         ? statusFilter.value.toUpperCase()
         : "";
 
-    let trades = allTrades.filter(trade => {
-        const ticker = String(
-            trade.ticker || ""
-        ).toUpperCase();
+    let trades = allTrades.filter(
+        trade => {
 
-        const tradeDirection = String(
-            trade.direction || ""
-        ).toUpperCase();
+            const ticker = String(
+                trade.ticker || ""
+            ).toUpperCase();
 
-        const tradeStatus = String(
-            trade.status || ""
-        ).toUpperCase();
+            const tradeDirection = String(
+                trade.direction || ""
+            ).toUpperCase();
 
-        const matchesSearch =
-            !search ||
-            ticker.includes(search);
+            const tradeStatus = String(
+                trade.status || ""
+            ).toUpperCase();
 
-        const matchesDirection =
-            !direction ||
-            tradeDirection === direction;
-
-        const matchesStatus =
-            !status ||
-            tradeStatus === status;
-
-        return (
-            matchesSearch &&
-            matchesDirection &&
-            matchesStatus
-        );
-    });
+            return (
+                (!search ||
+                    ticker.includes(search)) &&
+                (!direction ||
+                    tradeDirection === direction) &&
+                (!status ||
+                    tradeStatus === status)
+            );
+        }
+    );
 
     trades.sort((a, b) => {
-        const aValue = getSortValue(
-            a,
-            sortColumn
-        );
 
-        const bValue = getSortValue(
-            b,
-            sortColumn
-        );
+        const aValue =
+            getSortValue(
+                a,
+                sortColumn
+            );
 
-        let comparison = 0;
+        const bValue =
+            getSortValue(
+                b,
+                sortColumn
+            );
+
+        let comparison;
 
         if (
             typeof aValue === "number" &&
             typeof bValue === "number"
         ) {
-            comparison = aValue - bValue;
+            comparison =
+                aValue - bValue;
         } else {
-            comparison = String(aValue).localeCompare(
-                String(bValue),
-                undefined,
-                {
-                    numeric: true,
-                    sensitivity: "base"
-                }
-            );
+            comparison =
+                String(aValue).localeCompare(
+                    String(bValue),
+                    undefined,
+                    {
+                        numeric: true,
+                        sensitivity: "base"
+                    }
+                );
         }
 
         return sortDirection === "asc"
@@ -144,19 +160,25 @@ function renderTrades() {
     body.innerHTML = "";
 
     trades.forEach(trade => {
-        const row = document.createElement("tr");
+
+        const row =
+            document.createElement("tr");
 
         const gain =
             trade.gain_percent == null ||
             trade.gain_percent === ""
                 ? null
-                : Number(trade.gain_percent);
+                : Number(
+                    trade.gain_percent
+                );
 
         const score =
             trade.score == null ||
             trade.score === ""
                 ? null
-                : Number(trade.score);
+                : Number(
+                    trade.score
+                );
 
         const gainClass =
             gain > 0
@@ -167,15 +189,23 @@ function renderTrades() {
 
         row.innerHTML = `
             <td>
-                <b>${escapeHtml(trade.ticker || "")}</b>
+                <b>
+                    ${escapeHtml(
+                        trade.ticker || ""
+                    )}
+                </b>
             </td>
 
             <td>
-                ${escapeHtml(trade.direction || "—")}
+                ${escapeHtml(
+                    trade.direction || "—"
+                )}
             </td>
 
             <td>
-                ${escapeHtml(trade.setup || "—")}
+                ${escapeHtml(
+                    trade.setup || "—"
+                )}
             </td>
 
             <td>
@@ -183,7 +213,9 @@ function renderTrades() {
             </td>
 
             <td>
-                ${money(trade.current_price)}
+                ${money(
+                    trade.current_price
+                )}
             </td>
 
             <td>
@@ -195,7 +227,10 @@ function renderTrades() {
             </td>
 
             <td>
-                ${trade.risk_reward ?? "—"}
+                ${
+                    trade.risk_reward ??
+                    "—"
+                }
             </td>
 
             <td>
@@ -218,7 +253,9 @@ function renderTrades() {
 
             <td>
                 <span class="badge">
-                    ${escapeHtml(trade.status || "—")}
+                    ${escapeHtml(
+                        trade.status || "—"
+                    )}
                 </span>
             </td>
         `;
@@ -239,7 +276,10 @@ function renderTrades() {
     updateSortHeaders();
 }
 
-function getSortValue(trade, column) {
+function getSortValue(
+    trade,
+    column
+) {
     const numericColumns = [
         "score",
         "entry",
@@ -250,10 +290,11 @@ function getSortValue(trade, column) {
         "gain_percent"
     ];
 
-    if (numericColumns.includes(column)) {
-        const value = Number(
-            trade[column]
-        );
+    if (
+        numericColumns.includes(column)
+    ) {
+        const value =
+            Number(trade[column]);
 
         return Number.isFinite(value)
             ? value
@@ -267,8 +308,11 @@ function getSortValue(trade, column) {
 
 function updateSortHeaders() {
     document
-        .querySelectorAll("th[data-sort]")
+        .querySelectorAll(
+            "th[data-sort]"
+        )
         .forEach(th => {
+
             th.classList.remove(
                 "sort-asc",
                 "sort-desc"
@@ -295,7 +339,8 @@ function money(value) {
         return "—";
     }
 
-    const number = Number(value);
+    const number =
+        Number(value);
 
     return Number.isFinite(number)
         ? "$" + number.toFixed(2)
@@ -304,19 +349,38 @@ function money(value) {
 
 function escapeHtml(value) {
     return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 }
 
 document
-    .querySelectorAll("th[data-sort]")
+    .querySelectorAll(
+        "th[data-sort]"
+    )
     .forEach(th => {
+
         th.addEventListener(
             "click",
             () => {
+
                 const column =
                     th.dataset.sort;
 
@@ -383,6 +447,7 @@ if (clearFilters) {
     clearFilters.addEventListener(
         "click",
         () => {
+
             if (tickerSearch) {
                 tickerSearch.value = "";
             }
