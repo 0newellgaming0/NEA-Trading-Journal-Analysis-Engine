@@ -40,15 +40,7 @@ function renderTrades(data) {
         ? data.trades
         : [];
 
-    let open = 0;
-
     trades.slice(0, 20).forEach(trade => {
-        if (
-            String(trade.status || "").toUpperCase() === "OPEN"
-        ) {
-            open++;
-        }
-
         const row = document.createElement("tr");
 
         row.innerHTML = `
@@ -68,58 +60,118 @@ function renderTrades(data) {
 
         rows.appendChild(row);
     });
+}
 
-    const openTrades = document.getElementById("openTrades");
+function updateDashboardStats(data) {
+    const trades = Array.isArray(data.trades)
+        ? data.trades
+        : [];
 
-    if (openTrades) {
-        openTrades.textContent = open;
+    let pending = 0;
+    let confirmed = 0;
+    let bullish = 0;
+    let bearish = 0;
+
+    trades.forEach(trade => {
+        const status = String(
+            trade.status || ""
+        ).toUpperCase();
+
+        const direction = String(
+            trade.direction || ""
+        ).toUpperCase();
+
+        if (status === "PENDING") {
+            pending++;
+        }
+
+        if (
+            status === "CONFIRMED" ||
+            status === "OPEN"
+        ) {
+            confirmed++;
+        }
+
+        if (direction === "BULLISH") {
+            bullish++;
+        }
+
+        if (direction === "BEARISH") {
+            bearish++;
+        }
+    });
+
+    const totalTrades =
+        document.getElementById("totalTrades");
+
+    if (totalTrades) {
+        totalTrades.textContent = trades.length;
+    }
+
+    const pendingSetups =
+        document.getElementById("pendingSetups");
+
+    if (pendingSetups) {
+        pendingSetups.textContent = pending;
+    }
+
+    const confirmedSetups =
+        document.getElementById("confirmedSetups");
+
+    if (confirmedSetups) {
+        confirmedSetups.textContent = confirmed;
+    }
+
+    const marketBias =
+        document.getElementById("marketBias");
+
+    if (marketBias) {
+        let bias = "Neutral";
+
+        if (bullish > bearish) {
+            bias = "Bullish";
+        } else if (bearish > bullish) {
+            bias = "Bearish";
+        }
+
+        marketBias.textContent = bias;
     }
 }
 
 async function load() {
     try {
-        const [trades, performance] = await Promise.all([
-            getJSON("trades.json"),
-            getJSON("performance.json")
-        ]);
+        const trades = await getJSON("trades.json");
 
         renderTrades(trades);
+        updateDashboardStats(trades);
 
-        const winRate = document.getElementById("winRate");
-
-        if (winRate) {
-            winRate.textContent =
-                (performance.win_rate ?? 0) + "%";
-        }
-
-        const netR = document.getElementById("netR");
-
-        if (netR) {
-            netR.textContent =
-                Number(performance.net_r ?? 0).toFixed(2) + "R";
-        }
-
-        const lastUpdated = document.getElementById("lastUpdated");
+        const lastUpdated =
+            document.getElementById("lastUpdated");
 
         if (lastUpdated) {
             lastUpdated.textContent =
-                "Updated " + (trades.generated_at || "");
+                "Updated " +
+                (trades.generated_at || "");
         }
 
-        const statusDot = document.getElementById("statusDot");
+        const statusDot =
+            document.getElementById("statusDot");
 
         if (statusDot) {
             statusDot.style.background = "#55d68a";
         }
 
     } catch (error) {
-        const lastUpdated = document.getElementById("lastUpdated");
+        const lastUpdated =
+            document.getElementById("lastUpdated");
 
         if (lastUpdated) {
-            lastUpdated.textContent = "Data unavailable";
+            lastUpdated.textContent =
+                "Data unavailable";
         }
 
-        const statusDot = document.getElementById("statusDot");
+        const statusDot =
+            document.getElementById("statusDot");
 
         if (statusDot) {
             statusDot.style.background = "#ff7777";
