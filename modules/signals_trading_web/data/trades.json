@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-08-10T10:43:35.965156+00:00",
+  "generated_at": "2026-08-10T11:08:56.337701+00:00",
   "count": 1,
   "trades": [
     {
-      "current_price": 2.690000057220459,
-      "ticker": "EXFY",
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-10T10:43:34.144908",
-      "regime": "BULLISH_CONSOLIDATION",
-      "direction": "Bullish",
-      "entry": 2.740000009536743,
       "stop": 2.541999936103821,
-      "target": 3.136000156402588,
-      "setup": "TLINE_CONTINUATION",
+      "current_price": 2.690000057220459,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 2.740000009536743,
+      "direction": "Bullish",
+      "ticker": "EXFY",
+      "risk_reward": 2.0,
       "score": 108.0,
-      "risk_reward": 2.0
+      "target": 3.136000156402588,
+      "updated_at": "2026-08-10T11:08:55.570638",
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION"
     }
   ]
 }
