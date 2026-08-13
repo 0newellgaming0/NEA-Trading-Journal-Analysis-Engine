@@ -205,9 +205,9 @@ function updateDashboardStats(data) {
         let bias = "Neutral";
 
         if (bullish > bearish) {
-            bias = "Bullish";
+            bias = "Impulses";
         } else if (bearish > bullish) {
-            bias = "Bearish";
+            bias = "Pullbacks";
         }
 
         marketBias.textContent =
