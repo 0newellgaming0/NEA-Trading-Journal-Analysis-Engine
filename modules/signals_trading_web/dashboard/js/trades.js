@@ -3,6 +3,8 @@ let allTrades = [];
 let sortColumn = "score";
 let sortDirection = "desc";
 
+let selectedTrade = null;
+
 async function load() {
     try {
         const response = await fetch(
@@ -18,10 +20,13 @@ async function load() {
             );
         }
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
         const updated =
-            document.getElementById("updated");
+            document.getElementById(
+                "updated"
+            );
 
         if (updated) {
             updated.textContent =
@@ -36,8 +41,11 @@ async function load() {
         renderTrades();
 
     } catch (error) {
+
         const updated =
-            document.getElementById("updated");
+            document.getElementById(
+                "updated"
+            );
 
         if (updated) {
             updated.textContent =
@@ -52,14 +60,21 @@ async function load() {
 }
 
 function renderTrades() {
+
     const body =
-        document.getElementById("trades");
+        document.getElementById(
+            "trades"
+        );
 
     const noTrades =
-        document.getElementById("noTrades");
+        document.getElementById(
+            "noTrades"
+        );
 
     const tradeCount =
-        document.getElementById("tradeCount");
+        document.getElementById(
+            "tradeCount"
+        );
 
     if (!body) {
         return;
@@ -122,15 +137,19 @@ function renderTrades() {
 
                 const matchesSearch =
                     !search ||
-                    ticker.includes(search);
+                    ticker.includes(
+                        search
+                    );
 
                 const matchesDirection =
                     !direction ||
-                    tradeDirection === direction;
+                    tradeDirection ===
+                        direction;
 
                 const matchesStatus =
                     !status ||
-                    tradeStatus === status;
+                    tradeStatus ===
+                        status;
 
                 return (
                     matchesSearch &&
@@ -158,26 +177,36 @@ function renderTrades() {
             let comparison = 0;
 
             if (
-                typeof aValue === "number" &&
-                typeof bValue === "number"
+                typeof aValue ===
+                    "number" &&
+                typeof bValue ===
+                    "number"
             ) {
                 comparison =
                     aValue - bValue;
+
             } else {
                 comparison =
-                    String(aValue).localeCompare(
-                        String(bValue),
+                    String(
+                        aValue
+                    ).localeCompare(
+                        String(
+                            bValue
+                        ),
                         undefined,
                         {
                             numeric: true,
-                            sensitivity: "base"
+                            sensitivity:
+                                "base"
                         }
                     );
             }
 
-            return sortDirection === "asc"
-                ? comparison
-                : -comparison;
+            return (
+                sortDirection === "asc"
+                    ? comparison
+                    : -comparison
+            );
         }
     );
 
@@ -191,13 +220,15 @@ function renderTrades() {
                     "tr"
                 );
 
+            row.className =
+                "trade-row";
+
             const score =
                 toNumber(
                     trade.score
                 );
 
             row.innerHTML = `
-
                 <td>
                     <b>
                         ${escapeHtml(
@@ -208,13 +239,15 @@ function renderTrades() {
 
                 <td>
                     ${escapeHtml(
-                        trade.direction || "—"
+                        trade.direction ||
+                        "—"
                     )}
                 </td>
 
                 <td>
                     ${escapeHtml(
-                        trade.setup || "—"
+                        trade.setup ||
+                        "—"
                     )}
                 </td>
 
@@ -246,19 +279,28 @@ function renderTrades() {
                     ${
                         score === null
                             ? "—"
-                            : score.toFixed(2)
+                            : score.toFixed(
+                                2
+                            )
                     }
                 </td>
 
                 <td>
                     <span class="badge">
                         ${escapeHtml(
-                            trade.status || "—"
+                            trade.status ||
+                            "—"
                         )}
                     </span>
                 </td>
-
             `;
+
+            row.addEventListener(
+                "dblclick",
+                () => {
+                    openTradeOrder(trade);
+                }
+            );
 
             body.appendChild(row);
         }
@@ -282,6 +324,7 @@ function getSortValue(
     trade,
     column
 ) {
+
     const numericColumns = [
         "score",
         "entry",
@@ -311,6 +354,7 @@ function getSortValue(
 }
 
 function toNumber(value) {
+
     if (
         value === null ||
         value === undefined ||
@@ -328,6 +372,7 @@ function toNumber(value) {
 }
 
 function updateSortHeaders() {
+
     document
         .querySelectorAll(
             "th[data-sort]"
@@ -355,11 +400,17 @@ function updateSortHeaders() {
 }
 
 function money(value) {
-    if (value == null || value === "") {
+
+    if (
+        value === null ||
+        value === undefined ||
+        value === ""
+    ) {
         return "—";
     }
 
-    const number = Number(value);
+    const number =
+        Number(value);
 
     if (!Number.isFinite(number)) {
         return "—";
@@ -371,130 +422,590 @@ function money(value) {
 }
 
 function escapeHtml(value) {
+
     return String(value)
-        .replaceAll(
-            "&",
-            "&amp;"
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+function initializeSorting() {
+
+    document
+        .querySelectorAll(
+            "th[data-sort]"
         )
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
-        .replaceAll(
-            "'",
-            "&#039;"
+        .forEach(
+            th => {
+
+                th.addEventListener(
+                    "click",
+                    () => {
+
+                        const column =
+                            th.dataset.sort;
+
+                        if (
+                            sortColumn ===
+                            column
+                        ) {
+                            sortDirection =
+                                sortDirection ===
+                                "asc"
+                                    ? "desc"
+                                    : "asc";
+                        } else {
+                            sortColumn =
+                                column;
+
+                            sortDirection =
+                                column ===
+                                "score"
+                                    ? "desc"
+                                    : "asc";
+                        }
+
+                        renderTrades();
+                    }
+                );
+            }
         );
 }
 
-document
-    .querySelectorAll(
-        "th[data-sort]"
-    )
-    .forEach(
-        th => {
+function initializeFilters() {
 
-            th.addEventListener(
-                "click",
-                () => {
+    const tickerSearch =
+        document.getElementById(
+            "tickerSearch"
+        );
 
-                    const column =
-                        th.dataset.sort;
+    if (tickerSearch) {
+        tickerSearch.addEventListener(
+            "input",
+            renderTrades
+        );
+    }
 
-                    if (
-                        sortColumn ===
-                        column
-                    ) {
-                        sortDirection =
-                            sortDirection === "asc"
-                                ? "desc"
-                                : "asc";
-                    } else {
-                        sortColumn =
-                            column;
+    const directionFilter =
+        document.getElementById(
+            "directionFilter"
+        );
 
-                        sortDirection =
-                            column === "score"
-                                ? "desc"
-                                : "asc";
-                    }
+    if (directionFilter) {
+        directionFilter.addEventListener(
+            "change",
+            renderTrades
+        );
+    }
 
-                    renderTrades();
+    const statusFilter =
+        document.getElementById(
+            "statusFilter"
+        );
+
+    if (statusFilter) {
+        statusFilter.addEventListener(
+            "change",
+            renderTrades
+        );
+    }
+
+    const clearFilters =
+        document.getElementById(
+            "clearFilters"
+        );
+
+    if (clearFilters) {
+        clearFilters.addEventListener(
+            "click",
+            () => {
+
+                if (tickerSearch) {
+                    tickerSearch.value = "";
+                }
+
+                if (directionFilter) {
+                    directionFilter.value = "";
+                }
+
+                if (statusFilter) {
+                    statusFilter.value = "";
+                }
+
+                renderTrades();
+            }
+        );
+    }
+}
+
+function openTradeOrder(trade) {
+
+    selectedTrade = trade;
+
+    const modal =
+        document.getElementById(
+            "orderModal"
+        );
+
+    const ticker =
+        String(
+            trade.ticker || ""
+        ).toUpperCase();
+
+    const direction =
+        String(
+            trade.direction || ""
+        ).toUpperCase();
+
+    const side =
+        direction === "BEARISH"
+            ? "SELL"
+            : "BUY";
+
+    document.getElementById(
+        "orderTicker"
+    ).value = ticker;
+
+    document.getElementById(
+        "orderSide"
+    ).value = side;
+
+    document.getElementById(
+        "orderPrice"
+    ).value =
+        toNumber(
+            trade.current_price
+        ) ??
+        toNumber(
+            trade.entry
+        ) ??
+        "";
+
+    document.getElementById(
+        "orderSubtitle"
+    ).textContent =
+        `${direction || "TRADE"} • ` +
+        `${trade.setup || "Setup"}`;
+
+    document.getElementById(
+        "summarySetup"
+    ).textContent =
+        trade.setup || "—";
+
+    document.getElementById(
+        "summaryEntry"
+    ).textContent =
+        money(trade.entry);
+
+    document.getElementById(
+        "summaryCurrent"
+    ).textContent =
+        money(trade.current_price);
+
+    document.getElementById(
+        "summaryStop"
+    ).textContent =
+        money(trade.stop);
+
+    document.getElementById(
+        "summaryTarget"
+    ).textContent =
+        money(trade.target);
+
+    const score =
+        toNumber(
+            trade.score
+        );
+
+    document.getElementById(
+        "summaryScore"
+    ).textContent =
+        score === null
+            ? "—"
+            : score.toFixed(2);
+
+    clearOrderMessage();
+
+    updateOrderTypeFields();
+
+    modal.classList.add(
+        "visible"
+    );
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.getElementById(
+        "orderQuantity"
+    ).focus();
+}
+
+function closeTradeOrder() {
+
+    const modal =
+        document.getElementById(
+            "orderModal"
+        );
+
+    modal.classList.remove(
+        "visible"
+    );
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    selectedTrade = null;
+}
+
+function updateOrderTypeFields() {
+
+    const type =
+        document.getElementById(
+            "orderType"
+        ).value;
+
+    const field =
+        document.getElementById(
+            "limitPriceField"
+        );
+
+    field.hidden =
+        type !== "LIMIT";
+}
+
+function clearOrderMessage() {
+
+    const message =
+        document.getElementById(
+            "orderMessage"
+        );
+
+    message.textContent = "";
+
+    message.className =
+        "order-message";
+}
+
+function showOrderMessage(
+    text,
+    type
+) {
+
+    const message =
+        document.getElementById(
+            "orderMessage"
+        );
+
+    message.textContent =
+        text;
+
+    message.className =
+        "order-message visible " +
+        type;
+}
+
+async function submitTradeOrder() {
+
+    if (!selectedTrade) {
+        showOrderMessage(
+            "No trade selected.",
+            "error"
+        );
+
+        return;
+    }
+
+    const ticker =
+        document.getElementById(
+            "orderTicker"
+        ).value
+            .trim()
+            .toUpperCase();
+
+    const side =
+        document.getElementById(
+            "orderSide"
+        ).value;
+
+    const orderType =
+        document.getElementById(
+            "orderType"
+        ).value;
+
+    const quantity =
+        Number(
+            document.getElementById(
+                "orderQuantity"
+            ).value
+        );
+
+    const limitPrice =
+        Number(
+            document.getElementById(
+                "orderPrice"
+            ).value
+        );
+
+    if (!ticker) {
+        showOrderMessage(
+            "Ticker is required.",
+            "error"
+        );
+
+        return;
+    }
+
+    if (
+        !Number.isFinite(quantity) ||
+        quantity <= 0
+    ) {
+        showOrderMessage(
+            "Enter a valid quantity.",
+            "error"
+        );
+
+        return;
+    }
+
+    if (
+        orderType === "LIMIT" &&
+        (
+            !Number.isFinite(
+                limitPrice
+            ) ||
+            limitPrice <= 0
+        )
+    ) {
+        showOrderMessage(
+            "Enter a valid limit price.",
+            "error"
+        );
+
+        return;
+    }
+
+    const submitButton =
+        document.getElementById(
+            "submitOrder"
+        );
+
+    submitButton.disabled = true;
+    submitButton.textContent =
+        "Submitting...";
+
+    clearOrderMessage();
+
+    try {
+
+        const payload = {
+            ticker: ticker,
+            side: side,
+            order_type: orderType,
+            quantity: quantity,
+
+            limit_price:
+                orderType === "LIMIT"
+                    ? limitPrice
+                    : null,
+
+            trade: {
+                ticker:
+                    selectedTrade.ticker,
+
+                direction:
+                    selectedTrade.direction,
+
+                setup:
+                    selectedTrade.setup,
+
+                entry:
+                    selectedTrade.entry,
+
+                current_price:
+                    selectedTrade.current_price,
+
+                stop:
+                    selectedTrade.stop,
+
+                target:
+                    selectedTrade.target,
+
+                score:
+                    selectedTrade.score,
+
+                status:
+                    selectedTrade.status
+            }
+        };
+
+        const response =
+            await fetch(
+                "/api/orders",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify(
+                            payload
+                        )
                 }
             );
+
+        let data = {};
+
+        try {
+            data =
+                await response.json();
+        } catch (error) {
+            data = {};
+        }
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.error ||
+                data.message ||
+                `Order HTTP ${response.status}`
+            );
+        }
+
+        showOrderMessage(
+            data.message ||
+            "Webull order submitted successfully.",
+            "success"
+        );
+
+        console.log(
+            "Webull order response:",
+            data
+        );
+
+        setTimeout(
+            closeTradeOrder,
+            1200
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Failed to submit Webull order:",
+            error
+        );
+
+        showOrderMessage(
+            error.message ||
+            "Unable to submit order.",
+            "error"
+        );
+
+    } finally {
+
+        submitButton.disabled =
+            false;
+
+        submitButton.textContent =
+            "Place Webull Order";
+    }
+}
+
+function initializeOrderDialog() {
+
+    const closeButton =
+        document.getElementById(
+            "closeOrder"
+        );
+
+    const cancelButton =
+        document.getElementById(
+            "cancelOrder"
+        );
+
+    const submitButton =
+        document.getElementById(
+            "submitOrder"
+        );
+
+    const modal =
+        document.getElementById(
+            "orderModal"
+        );
+
+    const orderType =
+        document.getElementById(
+            "orderType"
+        );
+
+    if (closeButton) {
+        closeButton.addEventListener(
+            "click",
+            closeTradeOrder
+        );
+    }
+
+    if (cancelButton) {
+        cancelButton.addEventListener(
+            "click",
+            closeTradeOrder
+        );
+    }
+
+    if (submitButton) {
+        submitButton.addEventListener(
+            "click",
+            submitTradeOrder
+        );
+    }
+
+    if (orderType) {
+        orderType.addEventListener(
+            "change",
+            updateOrderTypeFields
+        );
+    }
+
+    if (modal) {
+        modal.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target ===
+                    modal
+                ) {
+                    closeTradeOrder();
+                }
+            }
+        );
+    }
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key ===
+                "Escape"
+            ) {
+                closeTradeOrder();
+            }
         }
     );
-
-const tickerSearch =
-    document.getElementById(
-        "tickerSearch"
-    );
-
-if (tickerSearch) {
-    tickerSearch.addEventListener(
-        "input",
-        renderTrades
-    );
 }
 
-const directionFilter =
-    document.getElementById(
-        "directionFilter"
-    );
-
-if (directionFilter) {
-    directionFilter.addEventListener(
-        "change",
-        renderTrades
-    );
-}
-
-const statusFilter =
-    document.getElementById(
-        "statusFilter"
-    );
-
-if (statusFilter) {
-    statusFilter.addEventListener(
-        "change",
-        renderTrades
-    );
-}
-
-const clearFilters =
-    document.getElementById(
-        "clearFilters"
-    );
-
-if (clearFilters) {
-    clearFilters.addEventListener(
-        "click",
-        () => {
-
-            if (tickerSearch) {
-                tickerSearch.value = "";
-            }
-
-            if (directionFilter) {
-                directionFilter.value = "";
-            }
-
-            if (statusFilter) {
-                statusFilter.value = "";
-            }
-
-            renderTrades();
-        }
-    );
-}
-
+initializeSorting();
+initializeFilters();
+initializeOrderDialog();
 load();
 
 setInterval(

@@ -1,0 +1,4 @@
+Flask
+Flask-Cors
+webull-openapi-python-sdk
+gunicorn
