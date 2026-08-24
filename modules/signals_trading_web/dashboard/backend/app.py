@@ -2,6 +2,7 @@ import logging
 import os
 
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 from config import (
     ALLOW_LIVE_TRADING,
@@ -27,6 +28,18 @@ from order_builder import (
 # ============================================================
 
 app = Flask(__name__)
+
+CORS(
+    app,
+    resources={
+        r"/api/*": {
+            "origins": [
+                "http://127.0.0.1:8080",
+                "http://localhost:8080"
+            ]
+        }
+    }
+)
 
 log = logging.getLogger(
     "PrivateWebullBackend"

@@ -1,15 +1,10 @@
-const API_BASE = "";
+const API_BASE = "http://127.0.0.1:5000";
 
 let selectedAccountId = null;
-
-function apiKey() {
-    return sessionStorage.getItem("NEA_API_KEY") || "";
-}
 
 async function apiFetch(url, options = {}) {
     const headers = {
         "Content-Type": "application/json",
-        "X-NEA-API-Key": apiKey(),
         ...(options.headers || {})
     };
 
@@ -41,7 +36,9 @@ async function apiFetch(url, options = {}) {
 }
 
 function showError(message) {
-    const box = document.getElementById("errorBox");
+    const box = document.getElementById(
+        "errorBox"
+    );
 
     if (!box) {
         return;
@@ -54,7 +51,9 @@ function showError(message) {
 }
 
 function clearError() {
-    const box = document.getElementById("errorBox");
+    const box = document.getElementById(
+        "errorBox"
+    );
 
     if (!box) {
         return;
@@ -66,10 +65,14 @@ function clearError() {
 
 function setConnectionStatus(connected) {
     const status =
-        document.getElementById("connectionStatus");
+        document.getElementById(
+            "connectionStatus"
+        );
 
     const text =
-        document.getElementById("connectionText");
+        document.getElementById(
+            "connectionText"
+        );
 
     if (!status || !text) {
         return;
@@ -204,7 +207,9 @@ async function loadAccount() {
     clearError();
 
     const selector =
-        document.getElementById("accountSelector");
+        document.getElementById(
+            "accountSelector"
+        );
 
     if (selector) {
         selector.innerHTML =
@@ -213,7 +218,9 @@ async function loadAccount() {
 
     try {
         const result =
-            await apiFetch("/api/account");
+            await apiFetch(
+                "/api/account"
+            );
 
         const accounts =
             extractRecords(
@@ -259,6 +266,8 @@ async function loadAccount() {
                     findValue(
                         account,
                         [
+                            "account_label",
+                            "accountLabel",
                             "account_name",
                             "accountName",
                             "account_number",
@@ -271,12 +280,19 @@ async function loadAccount() {
                     `Account ${index + 1}`;
 
                 const option =
-                    document.createElement("option");
+                    document.createElement(
+                        "option"
+                    );
 
-                option.value = id || "";
-                option.textContent = label;
+                option.value =
+                    id || "";
 
-                selector.appendChild(option);
+                option.textContent =
+                    label;
+
+                selector.appendChild(
+                    option
+                );
             }
         );
 
@@ -420,9 +436,13 @@ async function loadBalance() {
         );
 
         if (Number(dayPL) > 0) {
-            plElement.classList.add("positive");
+            plElement.classList.add(
+                "positive"
+            );
         } else if (Number(dayPL) < 0) {
-            plElement.classList.add("negative");
+            plElement.classList.add(
+                "negative"
+            );
         }
 
     } catch (error) {
@@ -551,7 +571,9 @@ async function loadPositions() {
                     );
 
                 const row =
-                    document.createElement("tr");
+                    document.createElement(
+                        "tr"
+                    );
 
                 row.innerHTML = `
                     <td>${escapeHtml(symbol)}</td>
@@ -699,7 +721,9 @@ async function loadOpenOrders() {
                     ) || "—";
 
                 const row =
-                    document.createElement("tr");
+                    document.createElement(
+                        "tr"
+                    );
 
                 row.innerHTML = `
                     <td>${escapeHtml(symbol)}</td>

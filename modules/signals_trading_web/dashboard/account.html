@@ -7,31 +7,21 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>NEA Account</title>
+    <title>Account | Newell_Gaming</title>
+
+    <link
+        rel="stylesheet"
+        href="./css/dashboard.css"
+    >
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background: #0b0f14;
-            color: #e6edf3;
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-        }
-
-        .container {
+        .account-container {
             width: min(1400px, 96%);
             margin: 0 auto;
             padding: 24px 0 40px;
         }
 
-        header {
+        .account-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -39,18 +29,18 @@
             margin-bottom: 24px;
         }
 
-        h1 {
+        .account-title {
             margin: 0;
             font-size: 28px;
         }
 
-        .subtitle {
+        .account-subtitle {
             margin-top: 6px;
             color: #8b949e;
             font-size: 14px;
         }
 
-        .status {
+        .connection-status {
             display: inline-flex;
             align-items: center;
             gap: 8px;
@@ -67,15 +57,15 @@
             background: #8b949e;
         }
 
-        .status.connected .status-dot {
+        .connection-status.connected .status-dot {
             background: #3fb950;
         }
 
-        .status.error .status-dot {
+        .connection-status.error .status-dot {
             background: #f85149;
         }
 
-        .grid {
+        .account-grid {
             display: grid;
             grid-template-columns:
                 repeat(4, minmax(0, 1fr));
@@ -83,41 +73,41 @@
             margin-bottom: 20px;
         }
 
-        .card {
+        .account-card {
             background: #11161d;
             border: 1px solid #30363d;
             border-radius: 8px;
             padding: 18px;
         }
 
-        .card-title {
+        .account-card-title {
             color: #8b949e;
             font-size: 13px;
             margin-bottom: 10px;
         }
 
-        .value {
+        .account-value {
             font-size: 24px;
             font-weight: 600;
         }
 
-        .section {
+        .account-section {
             margin-top: 20px;
         }
 
-        .section-header {
+        .account-section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 12px;
         }
 
-        .section-header h2 {
+        .account-section-header h2 {
             margin: 0;
             font-size: 19px;
         }
 
-        button {
+        .account-button {
             background: #21262d;
             color: #e6edf3;
             border: 1px solid #30363d;
@@ -126,11 +116,11 @@
             cursor: pointer;
         }
 
-        button:hover {
+        .account-button:hover {
             background: #30363d;
         }
 
-        table {
+        .account-table {
             width: 100%;
             border-collapse: collapse;
             background: #11161d;
@@ -139,37 +129,37 @@
             overflow: hidden;
         }
 
-        th,
-        td {
+        .account-table th,
+        .account-table td {
             padding: 11px 12px;
             text-align: left;
             border-bottom: 1px solid #21262d;
             font-size: 13px;
         }
 
-        th {
+        .account-table th {
             background: #161b22;
             color: #8b949e;
             font-weight: 600;
         }
 
-        tr:last-child td {
+        .account-table tr:last-child td {
             border-bottom: 0;
         }
 
-        .positive {
+        .account-positive {
             color: #3fb950;
         }
 
-        .negative {
+        .account-negative {
             color: #f85149;
         }
 
-        .muted {
+        .account-muted {
             color: #8b949e;
         }
 
-        .error {
+        .account-error {
             margin-bottom: 20px;
             padding: 12px 14px;
             background: #2d1114;
@@ -189,23 +179,23 @@
         }
 
         @media (max-width: 1000px) {
-            .grid {
+            .account-grid {
                 grid-template-columns:
                     repeat(2, minmax(0, 1fr));
             }
         }
 
         @media (max-width: 600px) {
-            .grid {
+            .account-grid {
                 grid-template-columns: 1fr;
             }
 
-            header {
+            .account-header {
                 align-items: flex-start;
                 flex-direction: column;
             }
 
-            table {
+            .account-table {
                 display: block;
                 overflow-x: auto;
             }
@@ -215,219 +205,310 @@
 
 <body>
 
-<div class="container">
+<header class="topbar">
 
-    <header>
-
-        <div>
-            <h1>Account</h1>
-
-            <div class="subtitle">
-                Private Webull account dashboard
-            </div>
+    <div>
+        <div class="eyebrow">
+            BETA - NEA28V1 SETUPS SYSTEM
         </div>
+
+        <h1>
+            Institutional Trade Setups Viewer
+        </h1>
+    </div>
+
+    <nav>
+        <a href="index.html">
+            DASHBOARD
+        </a>
+
+        <a href="trades.html">
+            TRADES
+        </a>
+
+        <a class="active" href="account.html">
+            ACCOUNT
+        </a>
+
+        <a href="faq.html">
+            FAQ
+        </a>
+
+        <a href="roadmap.html">
+            ROADMAP
+        </a>
+
+        <a href="community.html">
+            COMMUNITY
+        </a>
+
+        <a href="subscriptions.html">
+            SUPPORT
+        </a>
+
+        <a href="promotions.html">
+            PROMOTIONS
+        </a>
+
+        <a href="contact.html">
+            CONTACT
+        </a>
+
+        <a href="developers.html">
+            DEVELOPERS
+        </a>
+    </nav>
+
+</header>
+
+<main>
+
+    <div class="account-container">
+
+        <section class="hero">
+
+            <div>
+                <div class="eyebrow">
+                    PRIVATE WEBULL ACCOUNT
+                </div>
+
+                <p>
+                    <b>
+                        ACCOUNT / POSITIONS / OPEN ORDERS
+                    </b>
+                </p>
+            </div>
+
+            <div
+                id="connectionStatus"
+                class="connection-status"
+            >
+                <span class="status-dot"></span>
+
+                <span id="connectionText">
+                    Connecting
+                </span>
+            </div>
+
+        </section>
 
         <div
-            id="connectionStatus"
-            class="status"
-        >
-            <span class="status-dot"></span>
+            id="errorBox"
+            class="account-error"
+        ></div>
 
-            <span id="connectionText">
-                Connecting
-            </span>
-        </div>
+        <div class="account-section">
 
-    </header>
+            <div class="account-section-header">
 
-    <div
-        id="errorBox"
-        class="error"
-    ></div>
+                <h2>
+                    Accounts
+                </h2>
 
-    <div class="section">
+                <button
+                    type="button"
+                    class="account-button"
+                    onclick="loadAccount()"
+                >
+                    Refresh
+                </button>
 
-        <div class="section-header">
+            </div>
 
-            <h2>Accounts</h2>
-
-            <button
-                type="button"
-                onclick="loadAccount()"
+            <select
+                id="accountSelector"
+                class="account-selector"
+                onchange="accountChanged()"
             >
-                Refresh
-            </button>
+                <option value="">
+                    Loading accounts...
+                </option>
+            </select>
 
         </div>
 
-        <select
-            id="accountSelector"
-            class="account-selector"
-            onchange="accountChanged()"
-        >
-            <option value="">
-                Loading accounts...
-            </option>
-        </select>
+        <div class="account-grid account-section">
+
+            <div class="account-card">
+
+                <div class="account-card-title">
+                    Net Account Value
+                </div>
+
+                <div
+                    id="netAccountValue"
+                    class="account-value"
+                >
+                    —
+                </div>
+
+            </div>
+
+            <div class="account-card">
+
+                <div class="account-card-title">
+                    Cash Balance
+                </div>
+
+                <div
+                    id="cashBalance"
+                    class="account-value"
+                >
+                    —
+                </div>
+
+            </div>
+
+            <div class="account-card">
+
+                <div class="account-card-title">
+                    Buying Power
+                </div>
+
+                <div
+                    id="buyingPower"
+                    class="account-value"
+                >
+                    —
+                </div>
+
+            </div>
+
+            <div class="account-card">
+
+                <div class="account-card-title">
+                    Day P/L
+                </div>
+
+                <div
+                    id="dayProfitLoss"
+                    class="account-value"
+                >
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="account-section">
+
+            <div class="account-section-header">
+
+                <h2>
+                    Positions
+                </h2>
+
+                <button
+                    type="button"
+                    class="account-button"
+                    onclick="loadPositions()"
+                >
+                    Refresh
+                </button>
+
+            </div>
+
+            <table class="account-table">
+
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Quantity</th>
+                        <th>Average Price</th>
+                        <th>Market Price</th>
+                        <th>Market Value</th>
+                        <th>Unrealized P/L</th>
+                        <th>P/L %</th>
+                    </tr>
+                </thead>
+
+                <tbody id="positionsBody">
+
+                    <tr>
+                        <td
+                            colspan="7"
+                            class="account-muted"
+                        >
+                            Loading positions...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="account-section">
+
+            <div class="account-section-header">
+
+                <h2>
+                    Open Orders
+                </h2>
+
+                <button
+                    type="button"
+                    class="account-button"
+                    onclick="loadOpenOrders()"
+                >
+                    Refresh
+                </button>
+
+            </div>
+
+            <table class="account-table">
+
+                <thead>
+                    <tr>
+                        <th>Symbol</th>
+                        <th>Side</th>
+                        <th>Type</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="ordersBody">
+
+                    <tr>
+                        <td
+                            colspan="6"
+                            class="account-muted"
+                        >
+                            Loading orders...
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
 
     </div>
 
-    <div class="grid section">
+</main>
 
-        <div class="card">
+<footer>
 
-            <div class="card-title">
-                Net Account Value
-            </div>
-
-            <div
-                id="netAccountValue"
-                class="value"
-            >
-                —
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="card-title">
-                Cash Balance
-            </div>
-
-            <div
-                id="cashBalance"
-                class="value"
-            >
-                —
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="card-title">
-                Buying Power
-            </div>
-
-            <div
-                id="buyingPower"
-                class="value"
-            >
-                —
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <div class="card-title">
-                Day P/L
-            </div>
-
-            <div
-                id="dayProfitLoss"
-                class="value"
-            >
-                —
-            </div>
-
-        </div>
-
+    <div>
+        © 2026 Newell_Gaming.
+        All rights reserved.
     </div>
 
-    <div class="section">
-
-        <div class="section-header">
-
-            <h2>Positions</h2>
-
-            <button
-                type="button"
-                onclick="loadPositions()"
-            >
-                Refresh
-            </button>
-
-        </div>
-
-        <table>
-
-            <thead>
-                <tr>
-                    <th>Symbol</th>
-                    <th>Quantity</th>
-                    <th>Average Price</th>
-                    <th>Market Price</th>
-                    <th>Market Value</th>
-                    <th>Unrealized P/L</th>
-                    <th>P/L %</th>
-                </tr>
-            </thead>
-
-            <tbody id="positionsBody">
-
-                <tr>
-                    <td
-                        colspan="7"
-                        class="muted"
-                    >
-                        Loading positions...
-                    </td>
-                </tr>
-
-            </tbody>
-
-        </table>
-
+    <div class="disclaimer">
+        Educational purposes only.
+        This information is not financial advice,
+        investment advice, or a recommendation to buy
+        or sell any security.
+        Trading involves risk, including possible loss
+        of capital.
     </div>
 
-    <div class="section">
-
-        <div class="section-header">
-
-            <h2>Open Orders</h2>
-
-            <button
-                type="button"
-                onclick="loadOpenOrders()"
-            >
-                Refresh
-            </button>
-
-        </div>
-
-        <table>
-
-            <thead>
-                <tr>
-                    <th>Symbol</th>
-                    <th>Side</th>
-                    <th>Type</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-
-            <tbody id="ordersBody">
-
-                <tr>
-                    <td
-                        colspan="6"
-                        class="muted"
-                    >
-                        Loading orders...
-                    </td>
-                </tr>
-
-            </tbody>
-
-        </table>
-
-    </div>
-
-</div>
+</footer>
 
 <script src="./js/account.js"></script>
 

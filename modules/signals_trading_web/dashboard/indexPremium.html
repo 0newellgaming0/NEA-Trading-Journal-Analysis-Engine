@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NEA28V1 Dashboard</title>
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div>
+    <div class="eyebrow">BETA - NEA28V1 SETUPS SYSTEM</div>
+    <h1>Institutional Trade Dashboard</h1>
+  </div>
+
+  <nav>
+    <a class="active" href="index.html">DASHBOARD</a>
+    <a href="premium.html">PREMIUM</a>
+    <a href="faq.html">FAQ</a>
+    <a href="roadmap.html">ROADMAP</a>
+    <a href="community.html">COMMUNITY</a>
+    <a href="subscriptions.html">SUPPORT</a>
+    <a href="promotions.html">PROMOTIONS</a>
+    <a href="contact.html">CONTACT</a>
+    <a href="developers.html">DEVELOPERS</a>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div>
+      <span class="label">LIVE PUBLIC TRADE SETUPS</span>
+      <p>
+        <b>PRIMARY TIMEFRAME: 60m (1H) <b>
+      </p>
+    </div>
+
+    <div class="status">
+      <span id="statusDot"></span>
+      <span id="lastUpdated">Loading...</span>
+    </div>
+  </section>
+
+  <section class="grid stats">
+    <a href="trades.html">
+	<article class="card">
+	  <span>Total Trades</span>
+	  <strong id="totalTrades">0</strong>
+	</article></a>
+
+	<article class="card">
+	  <span>Pending Setups</span>
+	  <strong id="pendingSetups">0</strong>
+	</article>
+
+	<article class="card">
+	  <span>Confirmed Setups</span>
+	  <strong id="confirmedSetups">0</strong>
+	</article>
+
+	<article class="card">
+	  <span>Dominant State</span>
+	  <strong id="marketBias">Neutral</strong>
+	</article>
+
+  </section>
+  
+  <section class="panel">
+
+    <div class="panel-head">
+      <h2>Top 20 Trade Setups</h2>
+      <a href="trades.html">View all →</a>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Ticker</th>
+            <th>Direction</th>
+            <th>Setup</th>
+            <th>Entry</th>
+            <th>Stop</th>
+            <th>Target</th>
+            <th>Score</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody id="tradeTable"></tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <section class="hero">
+    <div>
+      <span class="label">HELP US CONTINUE DEVELOPMENT</span>
+      <h2>DONATE TO SUPPORT</h2>
+	  <p><a href="subscriptions.html" class="card-action">View Details →</a></p>
+    </div>
+  </section>
+  
+  <section class="subscription-grid">
+
+    <article class="card subscription-card">
+      <div class="card-label">Q3 2026</div>
+      <span>Foundation</span>
+      <strong>DATA</strong>
+      <p>
+        Build the foundation for reliable market-data acquisition,
+        Webull integration, multi-timeframe data, and system infrastructure.
+      </p>
+      <a href="roadmap.html" class="card-action">View Milestones →</a>
+    </article>
+
+    <article class="card subscription-card">
+      <div class="card-label">Q4 2026</div>
+      <span>Analysis Expansion</span>
+      <strong>ANALYSIS</strong>
+      <p>
+        Expand the institutional analysis stack with multi-timeframe,
+        Wyckoff, Bill Williams, Elliott Wave, Fibonacci, T-Line,
+        and confluence analysis.
+      </p>
+      <a href="roadmap.html" class="card-action">View Milestones →</a>
+    </article>
+
+    <article class="card subscription-card">
+      <div class="card-label">Q1–Q2 2027</div>
+      <span>Signal &amp; Risk Intelligence</span>
+      <strong>INTELLIGENCE</strong>
+      <p>
+        Advance signal synthesis, confluence scoring, momentum analysis,
+        trade ranking, position sizing, risk management, and trade lifecycle
+        tracking.
+      </p>
+      <a href="roadmap.html" class="card-action">View Milestones →</a>
+    </article>
+
+    <article class="card subscription-card">
+      <div class="card-label">Q3 2027 – JAN 2028</div>
+      <span>Automation &amp; Platform</span>
+      <strong>PRODUCTION</strong>
+      <p>
+        Connect the system into an automated market-to-trade pipeline,
+        expand analytics and reporting, strengthen infrastructure, and
+        move toward the January 2028 platform milestone.
+      </p>
+      <a href="roadmap.html" class="card-action">View Milestones →</a>
+    </article>
+
+  </section>
+
+</main>
+
+<script src="js/dashboard.js"></script>
+
+<footer class="site-footer"><center>
+  <p>© 2026 Newell_Gaming. All rights reserved.</p>
+  <p class="disclaimer">
+    Educational purposes only. <br>
+	This information is not financial advice,
+    investment advice, or a recommendation to buy or sell any security.<br>
+    Trading involves risk, including possible loss of capital.
+  </p></center>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+/* =========================================================
+   NEA28V1 PREMIUM LANDING PAGE
+   ========================================================= */
+
+:root {
+  --premium-bg: #07111f;
+  --premium-panel: #0c1929;
+  --premium-card: #102238;
+  --premium-card-hover: #142c46;
+  --premium-border: #23405d;
+  --premium-border-active: #4da3ff;
+  --premium-text: #f1f6fb;
+  --premium-muted: #aebdcb;
+  --premium-accent: #5db0ff;
+  --premium-accent-strong: #8bc8ff;
+  --premium-success: #52d68b;
+  --premium-shadow: rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================================
+   PREMIUM TIER SELECTOR
+   ========================================================= */
+
+.premium-tier-selector {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 30px 0;
+}
+
+.premium-tier-button {
+  appearance: none;
+  border: 1px solid var(--premium-border);
+  border-radius: 10px;
+  background: var(--premium-card);
+  color: var(--premium-muted);
+  cursor: pointer;
+  padding: 18px 14px;
+  min-height: 78px;
+  text-align: center;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.premium-tier-button span {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 7px;
+}
+
+.premium-tier-button strong {
+  display: block;
+  color: var(--premium-text);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+}
+
+.premium-tier-button:hover {
+  background: var(--premium-card-hover);
+  border-color: var(--premium-accent);
+  color: var(--premium-text);
+  transform: translateY(-2px);
+}
+
+.premium-tier-button.active {
+  background: #12304c;
+  border-color: var(--premium-border-active);
+  color: #ffffff;
+  box-shadow:
+    0 0 0 1px rgba(93, 176, 255, 0.18),
+    0 8px 25px var(--premium-shadow);
+}
+
+.premium-tier-button.active strong {
+  color: var(--premium-accent-strong);
+}
+
+/* =========================================================
+   PREMIUM TIER DISPLAY
+   ========================================================= */
+
+.premium-tier-display {
+  border: 1px solid var(--premium-border);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(18, 48, 76, 0.96),
+      rgba(7, 17, 31, 0.98)
+    );
+}
+
+.premium-tier-display > div {
+  width: 100%;
+}
+
+.premium-tier-display h2 {
+  color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.premium-tier-display > div > p {
+  color: var(--premium-muted);
+  max-width: 900px;
+  line-height: 1.7;
+}
+
+/* =========================================================
+   TIER BENEFIT CARDS
+   ========================================================= */
+
+.premium-tier-display .card {
+  background: rgba(16, 34, 56, 0.92);
+  border: 1px solid var(--premium-border);
+  color: var(--premium-text);
+}
+
+.premium-tier-display .card span {
+  color: var(--premium-accent-strong);
+}
+
+.premium-tier-display .card strong {
+  color: #ffffff;
+}
+
+.premium-tier-display .card p {
+  color: #c5d1dc;
+}
+
+/* =========================================================
+   BENEFITS SECTION
+   ========================================================= */
+
+.premium-benefits-head {
+  margin-top: 30px;
+  margin-bottom: 14px;
+}
+
+.premium-benefits-box {
+  background: rgba(7, 17, 31, 0.65);
+  border: 1px solid var(--premium-border);
+  border-radius: 10px;
+  padding: 22px 28px;
+  margin-bottom: 24px;
+}
+
+.premium-benefits-box ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.premium-benefits-box li {
+  color: #dce7f0;
+  line-height: 1.7;
+  margin: 8px 0;
+}
+
+.premium-benefits-box li::marker {
+  color: var(--premium-accent);
+}
+
+/* =========================================================
+   PREMIUM LABELS
+   ========================================================= */
+
+#premiumTierLabel {
+  color: var(--premium-accent-strong);
+}
+
+#premiumBenefitsTitle {
+  color: #ffffff;
+}
+
+/* =========================================================
+   PREMIUM CTA
+   ========================================================= */
+
+#premiumTierCTA {
+  display: inline-block;
+  margin-top: 8px;
+}
+
+/* =========================================================
+   PREMIUM CONTENT
+   ========================================================= */
+
+.premium-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.premium-feature-grid .card {
+  min-height: 190px;
+}
+
+.premium-analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.premium-analysis-grid .card {
+  min-height: 170px;
+}
+
+.premium-setup-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+/* =========================================================
+   COMPARISON TABLE
+   ========================================================= */
+
+.premium-comparison {
+  overflow-x: auto;
+}
+
+.premium-comparison table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.premium-comparison th,
+.premium-comparison td {
+  padding: 15px 16px;
+  border-bottom: 1px solid var(--premium-border);
+  text-align: left;
+}
+
+.premium-comparison th {
+  color: #ffffff;
+  background: rgba(18, 48, 76, 0.75);
+}
+
+.premium-comparison td {
+  color: #cbd7e2;
+}
+
+.premium-comparison tr:hover td {
+  background: rgba(20, 44, 70, 0.5);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .premium-tier-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .premium-feature-grid,
+  .premium-analysis-grid,
+  .premium-setup-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .premium-tier-selector {
+    grid-template-columns: 1fr;
+  }
+
+  .premium-feature-grid,
+  .premium-analysis-grid,
+  .premium-setup-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .premium-tier-button {
+    min-height: 65px;
+  }
+
+  .premium-benefits-box {
+    padding: 18px;
+  }
+
+}
