@@ -1,0 +1,925 @@
+/* ============================================================
+   NEA28V1 NEWSLETTER
+   Professional Market Intelligence Publication
+   ============================================================ */
+
+:root {
+  --bg: #070b11;
+  --bg-soft: #0b1119;
+  --panel: #101722;
+  --panel-soft: #141d29;
+  --border: #263241;
+  --border-light: #344255;
+  --text: #f1f5f9;
+  --text-soft: #b7c1ce;
+  --muted: #7f8b9a;
+  --accent: #4da3ff;
+  --accent-soft: rgba(77, 163, 255, 0.12);
+  --positive: #32d583;
+  --negative: #ff647c;
+  --warning: #f3c969;
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+  --radius: 12px;
+  --max-width: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at top center,
+      rgba(45, 86, 125, 0.16),
+      transparent 38%
+    ),
+    var(--bg);
+  color: var(--text);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+.newsletter-page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.newsletter-header {
+  width: min(var(--max-width), calc(100% - 40px));
+  margin: 0 auto;
+  padding: 58px 0 34px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.brand {
+  margin-top: 8px;
+  font-size: clamp(2.3rem, 6vw, 4.8rem);
+  line-height: 0.95;
+  font-weight: 900;
+  letter-spacing: -0.06em;
+}
+
+.subtitle {
+  margin-top: 14px;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+.publication-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.separator {
+  color: var(--border-light);
+}
+
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+
+main {
+  width: min(var(--max-width), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+main > section {
+  margin-top: 42px;
+}
+
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  padding: 58px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(24, 37, 52, 0.96),
+      rgba(10, 16, 24, 0.98)
+    );
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.hero h1,
+.hero h2 {
+  max-width: 850px;
+  margin: 10px 0 20px;
+  color: var(--text);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.hero h1 {
+  font-size: clamp(2.1rem, 5vw, 3.8rem);
+}
+
+.hero h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.hero p {
+  max-width: 850px;
+  color: var(--text-soft);
+  font-size: 1.02rem;
+}
+
+.hero p strong {
+  color: var(--text);
+}
+
+
+/* ============================================================
+   LABELS
+   ============================================================ */
+
+.section-label {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   SECTION HEADINGS
+   ============================================================ */
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 25px;
+  margin-bottom: 22px;
+}
+
+.section-heading h2 {
+  margin: 7px 0 0;
+  color: var(--text);
+  font-size: clamp(1.55rem, 3vw, 2.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+.section-note {
+  max-width: 350px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  text-align: right;
+}
+
+
+/* ============================================================
+   PANELS
+   ============================================================ */
+
+.panel {
+  padding: 38px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.panel h2 {
+  margin: 8px 0 18px;
+  color: var(--text);
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.panel > p {
+  max-width: 900px;
+  color: var(--text-soft);
+}
+
+
+/* ============================================================
+   MARKET BIAS
+   ============================================================ */
+
+.bias-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.bias-card {
+  min-height: 190px;
+  padding: 25px;
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.metric-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.67rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.bias-card > strong {
+  display: block;
+  margin-top: 13px;
+  color: var(--text);
+  font-size: 2rem;
+  line-height: 1.05;
+}
+
+.bias-card p {
+  margin: 15px 0 0;
+  color: var(--text-soft);
+  font-size: 0.88rem;
+}
+
+
+/* ============================================================
+   TOP PICKS
+   ============================================================ */
+
+.trade-card {
+  margin-bottom: 16px;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.trade-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-light);
+  box-shadow: var(--shadow);
+}
+
+.trade-header {
+  display: grid;
+  grid-template-columns:
+    90px
+    minmax(110px, 1fr)
+    minmax(160px, 1.5fr);
+  align-items: center;
+  gap: 20px;
+  padding: 19px 24px;
+  background: var(--panel-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+.trade-rank {
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.trade-ticker {
+  color: var(--text);
+  font-size: 1.45rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.trade-setup {
+  color: var(--text-soft);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.trade-body {
+  padding: 24px;
+}
+
+.trade-levels {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.level {
+  padding: 17px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.level span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.level strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.trade-description {
+  margin-top: 20px;
+  padding: 17px 19px;
+  color: var(--text-soft);
+  background: rgba(77, 163, 255, 0.05);
+  border-left: 2px solid var(--accent);
+  font-size: 0.88rem;
+}
+
+.trade-description strong {
+  color: var(--text);
+}
+
+.trade-metrics {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 11px 13px;
+  border-top: 1px solid var(--border);
+}
+
+.metric span {
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.metric strong {
+  color: var(--text);
+  font-size: 0.72rem;
+  text-align: right;
+}
+
+
+/* ============================================================
+   STOCK TO WATCH
+   ============================================================ */
+
+.watch-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.watch-ticker {
+  color: var(--text);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.watch-setup {
+  margin-top: 8px;
+  color: var(--text-soft);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.watch-score {
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-align: right;
+}
+
+.watch-score strong {
+  display: block;
+  margin-top: 4px;
+  color: var(--accent);
+  font-size: 1.7rem;
+  letter-spacing: 0;
+}
+
+.watch-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.watch-grid > div {
+  padding: 17px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.watch-grid span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.63rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.watch-grid strong {
+  display: block;
+  margin-top: 5px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+#stockToWatch > p {
+  margin: 22px 0 0;
+  color: var(--text-soft);
+}
+
+
+/* ============================================================
+   MARKET CONTEXT
+   ============================================================ */
+
+.context-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  margin-top: 22px;
+}
+
+.context-card {
+  padding: 25px;
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.context-card > span {
+  color: var(--muted);
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.context-card > strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 1.25rem;
+}
+
+.context-card p {
+  margin: 9px 0 0;
+  color: var(--text-soft);
+  font-size: 0.84rem;
+}
+
+
+/* ============================================================
+   RESEARCH
+   ============================================================ */
+
+.research-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 24px;
+  overflow: hidden;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.research-grid article {
+  min-height: 150px;
+  padding: 25px;
+  background: var(--panel-soft);
+}
+
+.research-grid strong {
+  color: var(--text);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+}
+
+.research-grid p {
+  margin: 9px 0 0;
+  color: var(--text-soft);
+  font-size: 0.84rem;
+}
+
+
+/* ============================================================
+   DAILY PROCESS
+   ============================================================ */
+
+.process-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.process-grid article {
+  min-height: 190px;
+  padding: 24px;
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.process-grid article > span {
+  display: block;
+  color: var(--accent);
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.process-grid strong {
+  display: block;
+  margin-top: 8px;
+  color: var(--text);
+  font-size: 0.82rem;
+}
+
+.process-grid p {
+  margin: 9px 0 0;
+  color: var(--text-soft);
+  font-size: 0.83rem;
+}
+
+
+/* ============================================================
+   PREMIUM CTA
+   ============================================================ */
+
+.premium {
+  position: relative;
+  overflow: hidden;
+  padding: 55px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(36, 72, 108, 0.92),
+      rgba(10, 18, 28, 0.98)
+    );
+  border: 1px solid rgba(77, 163, 255, 0.38);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.premium::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  top: -130px;
+  right: -100px;
+  border-radius: 50%;
+  background: rgba(77, 163, 255, 0.08);
+  pointer-events: none;
+}
+
+.premium h2 {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 9px 0 18px;
+  color: var(--text);
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.premium p {
+  position: relative;
+  z-index: 1;
+  max-width: 780px;
+  color: #d3dce7;
+}
+
+
+/* ============================================================
+   BUTTON
+   ============================================================ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  margin-top: 14px;
+  padding: 12px 21px;
+  color: #ffffff;
+  background: #176fc0;
+  border: 1px solid #4da3ff;
+  border-radius: 7px;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button:hover {
+  background: #2286df;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(23, 111, 192, 0.28);
+}
+
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+
+.final-cta {
+  text-align: center;
+}
+
+.final-cta h2,
+.final-cta p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ============================================================
+   LOADING
+   ============================================================ */
+
+.loading {
+  padding: 35px;
+  color: var(--muted);
+  background: var(--panel);
+  border: 1px dashed var(--border-light);
+  border-radius: var(--radius);
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.newsletter-footer {
+  width: min(var(--max-width), calc(100% - 40px));
+  margin: 60px auto 0;
+  padding: 35px 0 45px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.newsletter-footer p {
+  margin: 7px 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.newsletter-footer a {
+  color: var(--text-soft);
+  text-decoration: none;
+}
+
+.newsletter-footer a:hover {
+  color: var(--accent);
+}
+
+.disclaimer {
+  max-width: 850px;
+  margin: 18px auto 0 !important;
+  line-height: 1.7;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+  .hero {
+    padding: 40px 30px;
+  }
+
+  .panel {
+    padding: 30px;
+  }
+
+  .bias-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .trade-header {
+    grid-template-columns:
+      75px
+      1fr;
+  }
+
+  .trade-setup {
+    grid-column: 2;
+    text-align: left;
+  }
+
+  .trade-levels {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .trade-metrics {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .watch-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .process-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  .newsletter-header {
+    width: min(100% - 24px, var(--max-width));
+    padding-top: 38px;
+  }
+
+  main {
+    width: min(100% - 24px, var(--max-width));
+  }
+
+  .newsletter-footer {
+    width: min(100% - 24px, var(--max-width));
+  }
+
+  main > section {
+    margin-top: 24px;
+  }
+
+  .hero {
+    padding: 30px 22px;
+  }
+
+  .panel {
+    padding: 24px 20px;
+  }
+
+  .publication-meta {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .section-note {
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  .bias-grid,
+  .context-grid,
+  .research-grid,
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trade-header {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+
+  .trade-setup {
+    grid-column: auto;
+  }
+
+  .trade-body {
+    padding: 18px;
+  }
+
+  .trade-levels,
+  .trade-metrics,
+  .watch-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .watch-header {
+    align-items: flex-start;
+  }
+
+  .watch-score {
+    flex-shrink: 0;
+  }
+
+  .premium {
+    padding: 35px 24px;
+  }
+
+  .newsletter-footer {
+    margin-top: 35px;
+  }
+}
+
+
+@media (max-width: 420px) {
+
+  .trade-levels,
+  .trade-metrics,
+  .watch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric {
+    align-items: center;
+  }
+
+  .watch-header {
+    display: block;
+  }
+
+  .watch-score {
+    margin-top: 18px;
+    text-align: left;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
