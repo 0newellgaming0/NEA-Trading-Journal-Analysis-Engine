@@ -148,7 +148,7 @@
     </section>
 
 
-    <!-- PRIMARY METRICS -->
+    <!-- CURRENT TRADE -->
 
     <section class="section">
 
@@ -182,7 +182,7 @@
           </strong>
 
           <p>
-            Current market price associated with the published setup.
+            Current price contained in the published trade record.
           </p>
 
         </article>
@@ -199,7 +199,7 @@
           </strong>
 
           <p>
-            Reference entry price.
+            Published entry price.
           </p>
 
         </article>
@@ -216,7 +216,7 @@
           </strong>
 
           <p>
-            Defined risk-control level.
+            Published stop-loss level.
           </p>
 
         </article>
@@ -233,7 +233,7 @@
           </strong>
 
           <p>
-            Projected price objective.
+            Published target price.
           </p>
 
         </article>
@@ -250,7 +250,7 @@
           </strong>
 
           <p>
-            Current NEA28V1 ranking score.
+            Published NEA28V1 trade score.
           </p>
 
         </article>
@@ -267,7 +267,7 @@
           </strong>
 
           <p>
-            Calculated potential reward relative to defined risk.
+            Published risk/reward value.
           </p>
 
         </article>
@@ -311,24 +311,7 @@
           </strong>
 
           <p>
-            Market regime identified by the published trade record.
-          </p>
-
-        </article>
-
-
-        <article class="metric-card">
-
-          <span>
-            TRADE TYPE
-          </span>
-
-          <strong id="tradeType">
-            —
-          </strong>
-
-          <p>
-            Classification of the published trade opportunity.
+            Market regime contained in the published trade record.
           </p>
 
         </article>
@@ -345,51 +328,7 @@
           </strong>
 
           <p>
-            Specific setup that generated the published signal.
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONFIDENCE MODEL -->
-
-    <section class="section">
-
-      <div class="section-heading">
-
-        <div>
-
-          <span class="section-label">
-            CONFIDENCE MODEL
-          </span>
-
-          <h2>
-            Signal Confidence
-          </h2>
-
-        </div>
-
-      </div>
-
-
-      <div class="metrics-grid">
-
-        <article class="metric-card">
-
-          <span>
-            CONFIDENCE
-          </span>
-
-          <strong id="tradeConfidence">
-            —
-          </strong>
-
-          <p>
-            Confidence assigned to the current trade setup.
+            Setup classification contained in the published trade record.
           </p>
 
         </article>
@@ -398,15 +337,15 @@
         <article class="metric-card">
 
           <span>
-            BASE SCORE
+            DIRECTION
           </span>
 
-          <strong id="baseScore">
+          <strong id="tradeDirection">
             —
           </strong>
 
           <p>
-            Base score before additional ranking contributions.
+            Direction contained in the published trade record.
           </p>
 
         </article>
@@ -415,127 +354,15 @@
         <article class="metric-card">
 
           <span>
-            TRADE PROBABILITY
+            STATUS
           </span>
 
-          <strong id="tradeProbability">
+          <strong id="tradeStatus">
             —
           </strong>
 
           <p>
-            Current estimated trade probability.
-          </p>
-
-        </article>
-
-
-        <article class="metric-card">
-
-          <span>
-            PROBABILITY CONFIDENCE
-          </span>
-
-          <strong id="probabilityConfidence">
-            —
-          </strong>
-
-          <p>
-            Confidence classification of the probability model.
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- SIGNAL DATABASE SOURCE -->
-
-    <section class="section">
-
-      <div class="section-heading">
-
-        <div>
-
-          <span class="section-label">
-            SIGNAL DATABASE SOURCE
-          </span>
-
-          <h2>
-            Ranking Contributions
-          </h2>
-
-        </div>
-
-      </div>
-
-
-      <div class="metrics-grid">
-
-        <article class="metric-card">
-
-          <span>
-            60 MINUTE CANDIDATES
-          </span>
-
-          <strong id="candidateCount">
-            —
-          </strong>
-
-          <p>
-            Number of 60-minute candidates contributing to the signal.
-          </p>
-
-        </article>
-
-
-        <article class="metric-card">
-
-          <span>
-            FINVIZ CONTRIBUTION
-          </span>
-
-          <strong id="finvizScore">
-            —
-          </strong>
-
-          <p>
-            Finviz contribution to the published ranking.
-          </p>
-
-        </article>
-
-
-        <article class="metric-card">
-
-          <span>
-            WEBULL CONTRIBUTION
-          </span>
-
-          <strong id="webullScore">
-            —
-          </strong>
-
-          <p>
-            Webull contribution to the published ranking.
-          </p>
-
-        </article>
-
-
-        <article class="metric-card">
-
-          <span>
-            CANSLIM CONTRIBUTION
-          </span>
-
-          <strong id="canslimScore">
-            —
-          </strong>
-
-          <p>
-            CANSLIM contribution to the published ranking.
+            Publication status contained in the published trade record.
           </p>
 
         </article>
@@ -562,6 +389,57 @@
         <article>
 
           <span>
+            TICKER
+          </span>
+
+          <strong id="analysisTicker">
+            —
+          </strong>
+
+          <p>
+            Published ticker symbol.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            REGIME
+          </span>
+
+          <strong id="analysisRegime">
+            —
+          </strong>
+
+          <p>
+            Published market regime.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>
+            SETUP
+          </span>
+
+          <strong id="analysisSetup">
+            —
+          </strong>
+
+          <p>
+            Published setup classification.
+          </p>
+
+        </article>
+
+
+        <article>
+
+          <span>
             DIRECTION
           </span>
 
@@ -579,25 +457,7 @@
         <article>
 
           <span>
-            SETUP
-          </span>
-
-          <strong id="analysisSetup">
-            —
-          </strong>
-
-          <p>
-            Current setup classification supplied by the
-            NEA28V1 publication dataset.
-          </p>
-
-        </article>
-
-
-        <article>
-
-          <span>
-            RANKING
+            SCORE
           </span>
 
           <strong id="analysisScore">
@@ -605,8 +465,7 @@
           </strong>
 
           <p>
-            Relative ranking information currently available
-            for this opportunity.
+            Published NEA28V1 score.
           </p>
 
         </article>
@@ -623,7 +482,7 @@
           </strong>
 
           <p>
-            Current publication status of the setup.
+            Published trade status.
           </p>
 
         </article>
@@ -667,7 +526,7 @@
           </strong>
 
           <p>
-            Reference price associated with the published setup.
+            Published entry price.
           </p>
 
         </article>
@@ -676,15 +535,15 @@
         <article class="risk-card">
 
           <span>
-            RISK
+            STOP
           </span>
 
-          <strong id="riskAmount">
+          <strong id="riskStop">
             —
           </strong>
 
           <p>
-            Distance between entry and stop.
+            Published stop-loss level.
           </p>
 
         </article>
@@ -693,15 +552,15 @@
         <article class="risk-card">
 
           <span>
-            REWARD
+            TARGET
           </span>
 
-          <strong id="rewardAmount">
+          <strong id="riskTarget">
             —
           </strong>
 
           <p>
-            Distance between entry and target.
+            Published target price.
           </p>
 
         </article>
@@ -718,7 +577,7 @@
           </strong>
 
           <p>
-            Potential reward relative to defined risk.
+            Published risk/reward value.
           </p>
 
         </article>
@@ -760,11 +619,11 @@
       </h2>
 
       <p>
-        The public ticker profile provides a selected view of
-        the published opportunity. Premium access is designed
-        for traders who want broader access to the NEA28V1
-        opportunity pipeline, additional trade intelligence,
-        and deeper setup analysis.
+        The public ticker profile provides the information
+        currently exposed through the NEA28V1 publication dataset.
+        Premium access is designed for traders who want broader
+        access to the NEA28V1 opportunity pipeline and additional
+        trade intelligence.
       </p>
 
       <a href="premiumTiers.html" class="button">
