@@ -1,15 +1,15 @@
-"use strict";
-
 :root {
-    --page-width: 1200px;
-    --border: rgba(255,255,255,0.10);
-    --muted: #8d96a3;
-    --text: #e8edf3;
-    --panel: rgba(255,255,255,0.035);
-    --panel-hover: rgba(255,255,255,0.055);
-    --accent: #8fb8ff;
-    --positive: #6fd69b;
-    --negative: #ef7777;
+    --bg: #080b10;
+    --panel: #10151c;
+    --panel-alt: #0d1218;
+    --border: #252d37;
+    --text: #e7edf3;
+    --muted: #8f9aa6;
+    --accent: #8fa8c0;
+    --positive: #7fb58c;
+    --negative: #c97878;
+    --warning: #c5a66b;
+    --max-width: 1280px;
 }
 
 * {
@@ -22,7 +22,7 @@ html {
 
 body {
     margin: 0;
-    background: #080b10;
+    background: var(--bg);
     color: var(--text);
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
@@ -33,102 +33,73 @@ a {
     text-decoration: none;
 }
 
-.ticker-page {
+.topbar {
     width: 100%;
-}
-
-.ticker-header {
     border-bottom: 1px solid var(--border);
-    background: rgba(8,11,16,0.96);
-}
-
-.header-top {
-    width: min(var(--page-width), calc(100% - 40px));
-    margin: 0 auto;
-    padding: 30px 0 24px;
+    background: #090d12;
+    padding: 24px 5%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     gap: 30px;
 }
 
-.eyebrow,
-.section-label,
-.metric-label {
-    display: block;
+.eyebrow {
     color: var(--muted);
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.brand {
-    margin-top: 6px;
-    font-size: 30px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
+.topbar h1 {
+    margin: 5px 0 0;
+    font-size: 24px;
+    letter-spacing: 1px;
 }
 
-.subtitle {
-    margin-top: 4px;
-    color: var(--muted);
-    font-size: 14px;
-}
-
-.ticker-nav {
+nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 18px;
     justify-content: flex-end;
+    gap: 18px;
 }
 
-.ticker-nav a {
+nav a {
     color: var(--muted);
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 1px;
 }
 
-.ticker-nav a:hover {
+nav a:hover {
     color: var(--text);
 }
 
 main {
-    width: min(var(--page-width), calc(100% - 40px));
+    width: min(var(--max-width), 92%);
     margin: 0 auto;
-    padding: 40px 0 70px;
+    padding: 45px 0 70px;
 }
 
 .hidden {
     display: none !important;
 }
 
-.state-panel,
+.section-label {
+    display: block;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
 .profile-hero,
-.panel,
-.section,
-.premium,
-.disclaimer-panel {
-    margin-bottom: 30px;
-}
-
 .state-panel {
-    padding: 70px 40px;
-    border: 1px solid var(--border);
     background: var(--panel);
-    text-align: center;
-}
-
-.state-panel h1 {
-    margin: 12px 0;
-    font-size: 34px;
-}
-
-.state-panel p {
-    max-width: 650px;
-    margin: 0 auto 25px;
-    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 34px;
+    margin-bottom: 28px;
 }
 
 .profile-hero {
@@ -136,49 +107,52 @@ main {
     justify-content: space-between;
     align-items: center;
     gap: 30px;
-    padding: 45px;
-    border: 1px solid var(--border);
-    background: var(--panel);
 }
 
-.profile-identity h1 {
-    margin: 5px 0 0;
-    font-size: clamp(48px, 8vw, 86px);
-    line-height: 0.95;
-    letter-spacing: -0.04em;
+.ticker-title-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
 }
 
-.profile-identity h2 {
-    margin: 14px 0 3px;
-    font-size: 20px;
-}
-
-.profile-identity p {
+.ticker-title-row h2 {
     margin: 0;
+    font-size: 48px;
+    letter-spacing: 2px;
+}
+
+.profile-hero p {
     color: var(--muted);
-    font-size: 15px;
+    margin: 8px 0 0;
 }
 
 .profile-status {
-    min-width: 190px;
-    padding: 20px;
+    min-width: 180px;
+    padding: 18px;
     border: 1px solid var(--border);
-    background: rgba(0,0,0,0.18);
+    background: var(--panel-alt);
 }
 
 .profile-status strong {
     display: block;
-    margin-top: 5px;
-    font-size: 22px;
+    margin-top: 4px;
+    font-size: 20px;
 }
 
-.status-indicator {
-    display: block;
-    width: 9px;
-    height: 9px;
-    margin-top: 12px;
-    border-radius: 50%;
-    background: var(--positive);
+.direction-badge {
+    display: inline-block;
+    border: 1px solid var(--border);
+    padding: 5px 10px;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.section {
+    margin: 40px 0;
 }
 
 .section-heading {
@@ -188,246 +162,183 @@ main {
     margin-bottom: 18px;
 }
 
-.section-heading h2,
-.panel h2 {
-    margin: 6px 0 0;
-    font-size: 26px;
+.section h2,
+.panel h2,
+.state-panel h2,
+.premium h2 {
+    margin: 0;
+    font-size: 28px;
 }
 
-.metric-grid,
-.trade-level-grid,
+.metrics-grid,
+.risk-grid,
 .analysis-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 14px;
 }
 
 .metric-card,
-.level-card,
-.analysis-card {
-    padding: 24px;
-    border: 1px solid var(--border);
+.risk-card,
+.analysis-grid article {
     background: var(--panel);
-    transition: background 0.2s ease;
+    border: 1px solid var(--border);
+    padding: 24px;
 }
 
-.metric-card:hover,
-.level-card:hover,
-.analysis-card:hover {
-    background: var(--panel-hover);
-}
-
-.metric-card > span,
-.level-card > span,
-.analysis-card > span {
+.metric-card span,
+.risk-card span,
+.analysis-grid article > span {
     display: block;
     color: var(--muted);
     font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 1.5px;
 }
 
 .metric-card strong,
-.level-card strong,
-.analysis-card strong {
+.risk-card strong,
+.analysis-grid article > strong {
     display: block;
     margin-top: 8px;
-    font-size: 26px;
+    font-size: 25px;
 }
 
 .metric-card p,
-.level-card p,
-.analysis-card p {
-    margin: 10px 0 0;
+.risk-card p,
+.analysis-grid article p {
     color: var(--muted);
     font-size: 13px;
+    margin: 10px 0 0;
 }
 
 .panel {
-    padding: 32px;
-    border: 1px solid var(--border);
     background: var(--panel);
-}
-
-.assessment {
-    margin-top: 18px;
-    padding: 22px;
-    border-left: 2px solid var(--accent);
-    background: rgba(255,255,255,0.025);
-}
-
-.assessment p {
-    margin: 0;
-    color: #cbd2dc;
-}
-
-.additional-data {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin-top: 20px;
-}
-
-.additional-item {
-    padding: 15px;
     border: 1px solid var(--border);
-    background: rgba(255,255,255,0.02);
+    padding: 30px;
+    margin: 40px 0;
 }
 
-.additional-item span {
-    display: block;
+.panel > p {
+    max-width: 900px;
     color: var(--muted);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.additional-item strong {
-    display: block;
-    margin-top: 5px;
-    overflow-wrap: anywhere;
 }
 
 .premium {
-    padding: 40px;
+    margin: 50px 0;
+    padding: 38px;
     border: 1px solid var(--border);
-    background: linear-gradient(
-        135deg,
-        rgba(143,184,255,0.08),
-        rgba(255,255,255,0.025)
-    );
-}
-
-.premium h2 {
-    margin: 8px 0 12px;
-    font-size: 30px;
+    background: #0d131a;
 }
 
 .premium p {
-    max-width: 800px;
+    max-width: 850px;
     color: var(--muted);
 }
 
 .button {
     display: inline-block;
-    margin-top: 12px;
+    margin-top: 14px;
     padding: 12px 18px;
     border: 1px solid var(--border);
-    background: rgba(255,255,255,0.06);
+    background: #141b23;
+    color: var(--text);
     font-size: 11px;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 1px;
 }
 
 .button:hover {
-    background: rgba(255,255,255,0.10);
+    background: #1b242e;
 }
 
 .button.secondary {
-    margin-top: 0;
+    background: transparent;
 }
 
-.disclaimer-panel {
-    padding: 25px;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,0.02);
-}
-
-.disclaimer-panel p {
-    color: var(--muted);
-    font-size: 13px;
-}
-
-.profile-navigation {
+.navigation-panel {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 12px;
-    padding-top: 5px;
+    gap: 15px;
+    margin-top: 35px;
 }
 
-.ticker-footer {
+.state-panel p {
+    color: var(--muted);
+}
+
+.site-footer {
     border-top: 1px solid var(--border);
-    padding: 35px 20px;
+    background: #090d12;
+    padding: 35px 5%;
     text-align: center;
     color: var(--muted);
     font-size: 12px;
 }
 
-.ticker-footer a:hover {
+.site-footer a {
     color: var(--text);
 }
 
-.ticker-footer .disclaimer {
-    max-width: 800px;
-    margin: 18px auto 0;
+.disclaimer {
+    max-width: 850px;
+    margin: 20px auto 0;
     font-size: 11px;
 }
 
 @media (max-width: 900px) {
 
-    .header-top {
-        align-items: flex-start;
+    .topbar {
         flex-direction: column;
+        align-items: flex-start;
     }
 
-    .ticker-nav {
+    nav {
         justify-content: flex-start;
     }
 
-    .metric-grid,
-    .trade-level-grid,
+    .profile-hero {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .metrics-grid,
+    .risk-grid,
     .analysis-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .additional-data {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .profile-hero {
-        align-items: flex-start;
-        flex-direction: column;
     }
 
 }
 
 @media (max-width: 600px) {
 
-    main,
-    .header-top {
-        width: min(100% - 24px, var(--page-width));
-    }
-
     main {
-        padding-top: 20px;
+        width: 94%;
+        padding-top: 25px;
     }
 
     .profile-hero,
     .panel,
     .premium,
     .state-panel {
-        padding: 24px;
+        padding: 22px;
     }
 
-    .metric-grid,
-    .trade-level-grid,
-    .analysis-grid,
-    .additional-data {
+    .ticker-title-row h2 {
+        font-size: 36px;
+    }
+
+    .metrics-grid,
+    .risk-grid,
+    .analysis-grid {
         grid-template-columns: 1fr;
     }
 
-    .profile-identity h1 {
-        font-size: 55px;
-    }
-
-    .profile-navigation {
+    .navigation-panel {
         flex-direction: column;
     }
 
-    .profile-navigation .button {
-        width: 100%;
+    .navigation-panel .button {
         text-align: center;
     }
 

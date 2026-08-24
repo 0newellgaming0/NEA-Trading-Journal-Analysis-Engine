@@ -10,12 +10,14 @@ document.addEventListener(
 
 async function initializeTickerProfile() {
 
+    showLoading();
+
     const ticker =
         getRequestedTicker();
 
     if (!ticker) {
         showError(
-            "No ticker was specified. Open this page with a ticker parameter, such as ticker-profile.html?ticker=AAPL."
+            "No ticker was specified. Open a ticker profile from a published trade opportunity."
         );
         return;
     }
@@ -28,34 +30,20 @@ async function initializeTickerProfile() {
         const trades =
             normalizeTradeData(rawData);
 
-        if (!trades.length) {
-            showError(
-                "The NEA28V1 publication dataset does not currently contain any trade opportunities."
-            );
-            return;
-        }
-
-        const rankedTrades =
-            rankTrades(trades);
-
         const trade =
-            findTicker(
-                rankedTrades,
+            findTickerTrade(
+                trades,
                 ticker
             );
 
         if (!trade) {
             showError(
-                `Ticker ${ticker} was not found in the current NEA28V1 publication dataset.`
+                `No published NEA28V1 trade data was found for ${ticker}.`
             );
             return;
         }
 
-        renderProfile(
-            trade,
-            rankedTrades,
-            rawData
-        );
+        renderTickerProfile(trade);
 
     } catch (error) {
 
@@ -65,7 +53,7 @@ async function initializeTickerProfile() {
         );
 
         showError(
-            "Unable to load the current NEA28V1 trade dataset."
+            "Unable to load the current NEA28V1 publication dataset."
         );
     }
 }
@@ -102,7 +90,6 @@ async function loadTradeData() {
         );
 
     if (!response.ok) {
-
         throw new Error(
             `Unable to load ${TRADE_DATA_URL}: ${response.status}`
         );
@@ -216,40 +203,12 @@ function normalizeTrade(trade) {
                 trade.Status
             ) || "—",
 
-        raw:
-            trade
+        raw: trade
     };
 }
 
 
-function rankTrades(trades) {
-
-    return [...trades].sort(
-        (a, b) => {
-
-            const scoreA =
-                Number.isFinite(a.score)
-                    ? a.score
-                    : -Infinity;
-
-            const scoreB =
-                Number.isFinite(b.score)
-                    ? b.score
-                    : -Infinity;
-
-            if (scoreB !== scoreA) {
-                return scoreB - scoreA;
-            }
-
-            return a.ticker.localeCompare(
-                b.ticker
-            );
-        }
-    );
-}
-
-
-function findTicker(
+function findTickerTrade(
     trades,
     ticker
 ) {
@@ -257,23 +216,13 @@ function findTicker(
     return trades.find(
         trade =>
             trade.ticker === ticker
-    ) || null;
+    );
 }
 
 
-function renderProfile(
-    trade,
-    rankedTrades,
-    rawData
-) {
+function renderTickerProfile(trade) {
 
-    const rank =
-        rankedTrades.findIndex(
-            item =>
-                item.ticker === trade.ticker
-        ) + 1;
-
-    const riskReward =
+    const rr =
         calculateRiskReward(
             trade.entry,
             trade.stop,
@@ -281,14 +230,22 @@ function renderProfile(
             trade.direction
         );
 
+    const risk =
+        calculateRisk(
+            trade.entry,
+            trade.stop
+        );
+
+    const reward =
+        calculateReward(
+            trade.entry,
+            trade.target
+        );
+
+
     setText(
         "tickerSymbol",
         trade.ticker
-    );
-
-    setText(
-        "tickerSetup",
-        trade.setup
     );
 
     setText(
@@ -297,116 +254,52 @@ function renderProfile(
     );
 
     setText(
-        "tickerStatus",
-        trade.status
-    );
-
-    setText(
-        "score",
-        formatScore(trade.score)
-    );
-
-    setText(
-        "rank",
-        rank > 0
-            ? `#${rank}`
-            : "—"
-    );
-
-    setText(
-        "direction",
-        trade.direction
-    );
-
-    setText(
-        "setup",
+        "tickerSetup",
         trade.setup
     );
 
     setText(
-        "entry",
+        "tickerStatus",
+        trade.status
+    );
+
+
+    setText(
+        "entryPrice",
         formatPrice(trade.entry)
     );
 
     setText(
-        "stop",
+        "stopPrice",
         formatPrice(trade.stop)
     );
 
     setText(
-        "target",
+        "targetPrice",
         formatPrice(trade.target)
     );
 
     setText(
+        "tradeScore",
+        formatScore(trade.score)
+    );
+
+    setText(
         "riskReward",
-        formatRiskReward(riskReward)
+        formatRiskReward(rr)
     );
 
-    renderAnalysis(
-        trade,
-        rank
-    );
-
-    renderAssessment(
-        trade,
-        rank,
-        riskReward
-    );
-
-    renderAdditionalData(
-        trade.raw
-    );
-
-    document.title =
-        `${trade.ticker} | NEA28V1 Ticker Profile`;
-
-    showProfile();
-}
-
-
-function renderAnalysis(
-    trade,
-    rank
-) {
-
-    const direction =
-        String(
-            trade.direction || ""
-        ).toLowerCase();
-
-    let directionTitle =
-        "Neutral";
-
-    let directionDescription =
-        "The published setup does not currently indicate a clearly defined bullish or bearish classification.";
-
-    if (isLong(direction)) {
-
-        directionTitle =
-            "Bullish";
-
-        directionDescription =
-            `${trade.ticker} is currently represented as a bullish opportunity within the published NEA28V1 dataset.`;
-    }
-
-    if (isShort(direction)) {
-
-        directionTitle =
-            "Bearish";
-
-        directionDescription =
-            `${trade.ticker} is currently represented as a bearish opportunity within the published NEA28V1 dataset.`;
-    }
 
     setText(
         "analysisDirection",
-        directionTitle
+        trade.direction
     );
 
     setText(
-        "analysisDirectionDescription",
-        directionDescription
+        "directionDescription",
+        buildDirectionDescription(
+            trade
+        )
     );
 
     setText(
@@ -415,155 +308,140 @@ function renderAnalysis(
     );
 
     setText(
-        "analysisSetupDescription",
-        `The current publication classifies ${trade.ticker} as ${trade.setup}.`
+        "analysisScore",
+        formatScore(trade.score)
     );
 
     setText(
-        "analysisRank",
-        rank > 0
-            ? `#${rank}`
-            : "—"
+        "analysisStatus",
+        trade.status
     );
 
-    const structured =
-        Number.isFinite(trade.entry) &&
-        Number.isFinite(trade.stop) &&
-        Number.isFinite(trade.target);
 
     setText(
-        "analysisStructure",
-        structured
-            ? "Structured"
-            : "Incomplete"
+        "riskEntry",
+        formatPrice(trade.entry)
     );
 
     setText(
-        "analysisStructureDescription",
-        structured
-            ? "Entry, stop, and target values are available for risk/reward evaluation."
-            : "One or more trade structure values are unavailable in the current dataset."
+        "riskAmount",
+        formatPriceDistance(risk)
+    );
+
+    setText(
+        "rewardAmount",
+        formatPriceDistance(reward)
+    );
+
+    setText(
+        "riskRatio",
+        formatRiskReward(rr)
+    );
+
+
+    setText(
+        "opportunityDescription",
+        buildOpportunityDescription(
+            trade,
+            rr
+        )
+    );
+
+
+    document.title =
+        `NEA28V1 ${trade.ticker} Ticker Profile`;
+
+
+    hideLoading();
+    hideError();
+    showProfile();
+}
+
+
+function buildDirectionDescription(trade) {
+
+    const direction =
+        String(
+            trade.direction || ""
+        ).toLowerCase();
+
+    if (isLong(direction)) {
+
+        return (
+            `${trade.ticker} is currently represented as a ` +
+            `bullish opportunity within the published ` +
+            `NEA28V1 dataset.`
+        );
+    }
+
+    if (isShort(direction)) {
+
+        return (
+            `${trade.ticker} is currently represented as a ` +
+            `bearish opportunity within the published ` +
+            `NEA28V1 dataset.`
+        );
+    }
+
+    return (
+        `${trade.ticker} is currently represented as a ` +
+        `qualifying NEA28V1 trade opportunity.`
     );
 }
 
 
-function renderAssessment(
+function buildOpportunityDescription(
     trade,
-    rank,
-    riskReward
+    rr
 ) {
 
-    let assessment =
-        `${trade.ticker} is currently represented in the NEA28V1 publication dataset as a ${trade.direction.toLowerCase()} ${trade.setup.toLowerCase()} opportunity.`;
+    const direction =
+        String(
+            trade.direction || ""
+        ).toLowerCase();
+
+    let description;
+
+    if (isLong(direction)) {
+
+        description =
+            `${trade.ticker} is currently represented as a ` +
+            `bullish ${trade.setup} opportunity.`;
+
+    } else if (isShort(direction)) {
+
+        description =
+            `${trade.ticker} is currently represented as a ` +
+            `bearish ${trade.setup} opportunity.`;
+
+    } else {
+
+        description =
+            `${trade.ticker} is currently represented as a ` +
+            `${trade.setup} opportunity.`;
+    }
 
     if (Number.isFinite(trade.score)) {
 
-        assessment +=
-            ` The setup currently carries a score of ${formatScore(trade.score)} and ranks #${rank} within the loaded publication dataset.`;
+        description +=
+            ` The current NEA28V1 ranking score is ` +
+            `${formatScore(trade.score)}.`;
     }
 
-    if (Number.isFinite(riskReward)) {
+    if (Number.isFinite(rr)) {
 
-        assessment +=
-            ` Its defined trade structure produces a calculated risk/reward ratio of ${formatRiskReward(riskReward)}.`;
+        description +=
+            ` The defined trade structure currently represents ` +
+            `approximately ${formatRiskReward(rr)} of potential ` +
+            `reward relative to defined risk.`;
     }
 
-    assessment +=
-        " This profile represents published system information and should not be interpreted as a guarantee of future performance.";
+    description +=
+        " Market conditions, liquidity, news, execution conditions, " +
+        "and the underlying trade thesis should be independently " +
+        "evaluated before making any trading decision.";
 
-    setText(
-        "tickerAssessment",
-        assessment
-    );
-}
-
-
-function renderAdditionalData(raw) {
-
-    const container =
-        document.getElementById(
-            "additionalData"
-        );
-
-    if (!container) {
-        return;
-    }
-
-    container.innerHTML = "";
-
-    const excludedFields =
-        new Set([
-            "ticker",
-            "symbol",
-            "Ticker",
-            "Symbol",
-            "direction",
-            "side",
-            "Direction",
-            "setup",
-            "setup_type",
-            "Setup",
-            "entry",
-            "entry_price",
-            "Entry",
-            "stop",
-            "stop_loss",
-            "Stop",
-            "target",
-            "target_price",
-            "Target",
-            "score",
-            "rank_score",
-            "Score",
-            "status",
-            "Status"
-        ]);
-
-    const fields =
-        Object.entries(raw)
-            .filter(
-                ([key, value]) =>
-                    !excludedFields.has(key) &&
-                    value !== null &&
-                    value !== undefined &&
-                    value !== ""
-            )
-            .slice(0, 12);
-
-    if (!fields.length) {
-
-        container.innerHTML =
-            `<div class="additional-item">
-                <span>DATA</span>
-                <strong>No additional published ticker fields.</strong>
-             </div>`;
-
-        return;
-    }
-
-    container.innerHTML =
-        fields
-            .map(
-                ([key, value]) =>
-                    `
-                    <div class="additional-item">
-
-                        <span>
-                            ${escapeHtml(
-                                formatFieldName(key)
-                            )}
-                        </span>
-
-                        <strong>
-                            ${escapeHtml(
-                                formatFieldValue(value)
-                            )}
-                        </strong>
-
-                    </div>
-                    `
-            )
-            .join("");
+    return description;
 }
 
 
@@ -613,6 +491,42 @@ function calculateRiskReward(
 }
 
 
+function calculateRisk(
+    entry,
+    stop
+) {
+
+    if (
+        !Number.isFinite(entry) ||
+        !Number.isFinite(stop)
+    ) {
+        return null;
+    }
+
+    return Math.abs(
+        entry - stop
+    );
+}
+
+
+function calculateReward(
+    entry,
+    target
+) {
+
+    if (
+        !Number.isFinite(entry) ||
+        !Number.isFinite(target)
+    ) {
+        return null;
+    }
+
+    return Math.abs(
+        target - entry
+    );
+}
+
+
 function isLong(direction) {
 
     const value =
@@ -654,6 +568,16 @@ function formatRiskReward(value) {
 
 
 function formatPrice(value) {
+
+    if (!Number.isFinite(value)) {
+        return "—";
+    }
+
+    return `$${value.toFixed(2)}`;
+}
+
+
+function formatPriceDistance(value) {
 
     if (!Number.isFinite(value)) {
         return "—";
@@ -715,30 +639,6 @@ function firstValue(...values) {
 }
 
 
-function formatFieldName(value) {
-
-    return String(value)
-        .replace(/[_-]+/g, " ")
-        .replace(/([a-z])([A-Z])/g, "$1 $2")
-        .replace(/\b\w/g, char =>
-            char.toUpperCase()
-        );
-}
-
-
-function formatFieldValue(value) {
-
-    if (
-        typeof value === "object" &&
-        value !== null
-    ) {
-        return JSON.stringify(value);
-    }
-
-    return String(value);
-}
-
-
 function setText(
     id,
     value
@@ -754,37 +654,45 @@ function setText(
 }
 
 
-function showProfile() {
+function showLoading() {
 
-    const loading =
+    const element =
         document.getElementById(
             "loadingState"
         );
 
-    const error =
+    if (element) {
+        element.classList.remove(
+            "hidden"
+        );
+    }
+}
+
+
+function hideLoading() {
+
+    const element =
         document.getElementById(
-            "errorState"
+            "loadingState"
         );
 
-    const profile =
+    if (element) {
+        element.classList.add(
+            "hidden"
+        );
+    }
+}
+
+
+function showProfile() {
+
+    const element =
         document.getElementById(
             "profileContent"
         );
 
-    if (loading) {
-        loading.classList.add(
-            "hidden"
-        );
-    }
-
-    if (error) {
-        error.classList.add(
-            "hidden"
-        );
-    }
-
-    if (profile) {
-        profile.classList.remove(
+    if (element) {
+        element.classList.remove(
             "hidden"
         );
     }
@@ -793,67 +701,57 @@ function showProfile() {
 
 function showError(message) {
 
-    const loading =
+    hideLoading();
+    hideProfile();
+
+    const messageElement =
         document.getElementById(
-            "loadingState"
+            "errorMessage"
         );
 
-    const error =
+    if (messageElement) {
+        messageElement.textContent =
+            message;
+    }
+
+    const errorElement =
         document.getElementById(
             "errorState"
         );
 
-    const profile =
+    if (errorElement) {
+        errorElement.classList.remove(
+            "hidden"
+        );
+    }
+}
+
+
+function hideError() {
+
+    const element =
+        document.getElementById(
+            "errorState"
+        );
+
+    if (element) {
+        element.classList.add(
+            "hidden"
+        );
+    }
+}
+
+
+function hideProfile() {
+
+    const element =
         document.getElementById(
             "profileContent"
         );
 
-    if (loading) {
-        loading.classList.add(
+    if (element) {
+        element.classList.add(
             "hidden"
         );
     }
-
-    if (profile) {
-        profile.classList.add(
-            "hidden"
-        );
-    }
-
-    if (error) {
-        error.classList.remove(
-            "hidden"
-        );
-    }
-
-    setText(
-        "errorMessage",
-        message
-    );
-}
-
-
-function escapeHtml(value) {
-
-    return String(value ?? "")
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
 }

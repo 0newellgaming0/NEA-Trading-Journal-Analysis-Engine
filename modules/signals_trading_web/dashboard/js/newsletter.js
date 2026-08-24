@@ -609,6 +609,16 @@ function createTradeCard(
             trade.direction
         );
 
+    const ticker =
+        escapeHtml(
+            trade.ticker
+        );
+
+    const tickerProfileUrl =
+        `ticker-profile.html?ticker=${encodeURIComponent(
+            trade.ticker
+        )}`;
+
     return `
         <article class="trade-card">
 
@@ -619,7 +629,13 @@ function createTradeCard(
                 </div>
 
                 <div class="trade-ticker">
-                    ${escapeHtml(trade.ticker)}
+                    <a
+                        href="${tickerProfileUrl}"
+                        class="ticker-link"
+                        aria-label="View ${ticker} ticker profile"
+                    >
+                        ${ticker}
+                    </a>
                 </div>
 
                 <div class="trade-setup">
@@ -779,6 +795,16 @@ function renderStockToWatch(
             candidate.direction
         );
 
+    const candidateTicker =
+        escapeHtml(
+            candidate.ticker
+        );
+
+    const candidateProfileUrl =
+        `ticker-profile.html?ticker=${encodeURIComponent(
+            candidate.ticker
+        )}`;
+
     container.innerHTML = `
 
         <div class="watch-header">
@@ -786,9 +812,13 @@ function renderStockToWatch(
             <div>
 
                 <div class="watch-ticker">
-                    ${escapeHtml(
-                        candidate.ticker
-                    )}
+                    <a
+                        href="${candidateProfileUrl}"
+                        class="ticker-link"
+                        aria-label="View ${candidateTicker} ticker profile"
+                    >
+                        ${candidateTicker}
+                    </a>
                 </div>
 
                 <div class="watch-setup">
