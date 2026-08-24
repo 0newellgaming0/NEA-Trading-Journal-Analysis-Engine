@@ -203,6 +203,24 @@ function normalizeTrade(trade) {
                 trade.Status
             ) || "—",
 
+        detectedAt:
+            firstValue(
+                trade.detected_at,
+                trade.detectedAt,
+                trade.signal_detected_at,
+                trade.signalDetectedAt,
+                trade.signal_datetime,
+                trade.signalDateTime,
+                trade.signal_timestamp,
+                trade.signalTimestamp,
+                trade.timestamp,
+                trade.datetime,
+                trade.date_time,
+                trade.DateTime,
+                trade.detected,
+                trade.DetectedAt
+            ),
+
         raw: trade
     };
 }
@@ -261,6 +279,13 @@ function renderTickerProfile(trade) {
     setText(
         "tickerStatus",
         trade.status
+    );
+
+    setText(
+        "signalDetectedAt",
+        formatDetectedDateTime(
+            trade.detectedAt
+        )
     );
 
 
@@ -355,6 +380,45 @@ function renderTickerProfile(trade) {
     hideLoading();
     hideError();
     showProfile();
+}
+
+
+function formatDetectedDateTime(value) {
+
+    if (
+        value === null ||
+        value === undefined ||
+        value === ""
+    ) {
+        return "—";
+    }
+
+    const raw =
+        String(value).trim();
+
+    if (!raw) {
+        return "—";
+    }
+
+    const date =
+        new Date(raw);
+
+    if (Number.isNaN(date.getTime())) {
+
+        return raw;
+    }
+
+    return date.toLocaleString(
+        undefined,
+        {
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit"
+        }
+    );
 }
 
 

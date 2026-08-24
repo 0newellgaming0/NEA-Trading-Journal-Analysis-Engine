@@ -127,18 +127,63 @@ main {
     margin: 8px 0 0;
 }
 
+
+/* ============================================================
+   SIGNAL STATUS / UPDATED
+   ============================================================ */
+
 .profile-status {
-    min-width: 180px;
+    min-width: 220px;
     padding: 18px;
     border: 1px solid var(--border);
     background: var(--panel-alt);
 }
 
+.profile-status .status-label {
+    display: flex;
+    align-items: center;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.profile-status .status-indicator {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: 50%;
+    background: var(--positive);
+    box-shadow: 0 0 12px rgba(127, 181, 140, 0.45);
+    flex-shrink: 0;
+}
+
 .profile-status strong {
     display: block;
-    margin-top: 4px;
-    font-size: 20px;
+    margin-top: 7px;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.45;
+    font-weight: 800;
+    letter-spacing: 0.02em;
 }
+
+.profile-status .signal-time {
+    display: block;
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   DIRECTION
+   ============================================================ */
 
 .direction-badge {
     display: inline-block;
@@ -150,6 +195,11 @@ main {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
+
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
 
 .section {
     margin: 40px 0;
@@ -169,6 +219,11 @@ main {
     margin: 0;
     font-size: 28px;
 }
+
+
+/* ============================================================
+   METRICS
+   ============================================================ */
 
 .metrics-grid,
 .risk-grid,
@@ -212,6 +267,11 @@ main {
     margin: 10px 0 0;
 }
 
+
+/* ============================================================
+   PANELS
+   ============================================================ */
+
 .panel {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -224,6 +284,11 @@ main {
     color: var(--muted);
 }
 
+
+/* ============================================================
+   PREMIUM
+   ============================================================ */
+
 .premium {
     margin: 50px 0;
     padding: 38px;
@@ -235,6 +300,11 @@ main {
     max-width: 850px;
     color: var(--muted);
 }
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
 
 .button {
     display: inline-block;
@@ -256,6 +326,11 @@ main {
     background: transparent;
 }
 
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+
 .navigation-panel {
     display: flex;
     justify-content: space-between;
@@ -263,9 +338,19 @@ main {
     margin-top: 35px;
 }
 
+
+/* ============================================================
+   STATE
+   ============================================================ */
+
 .state-panel p {
     color: var(--muted);
 }
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
 
 .site-footer {
     border-top: 1px solid var(--border);
@@ -286,6 +371,11 @@ main {
     font-size: 11px;
 }
 
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
 @media (max-width: 900px) {
 
     .topbar {
@@ -302,13 +392,18 @@ main {
         align-items: flex-start;
     }
 
+    .profile-status {
+        width: 100%;
+        min-width: 0;
+    }
+
     .metrics-grid,
     .risk-grid,
     .analysis-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
+
 
 @media (max-width: 600px) {
 
@@ -342,4 +437,11 @@ main {
         text-align: center;
     }
 
+    .profile-status {
+        padding: 16px;
+    }
+
+    .profile-status strong {
+        font-size: 13px;
+    }
 }
