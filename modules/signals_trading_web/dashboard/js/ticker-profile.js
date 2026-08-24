@@ -30,28 +30,20 @@ async function initializeTickerProfile() {
         const trades =
             normalizeTradeData(rawData);
 
-        const tickerRecords =
-            findTickerTrades(
+        const trade =
+            findTickerTrade(
                 trades,
                 ticker
             );
 
-        if (!tickerRecords.length) {
+        if (!trade) {
             showError(
                 `No published NEA28V1 trade data was found for ${ticker}.`
             );
             return;
         }
 
-        const trade =
-            tickerRecords[
-                tickerRecords.length - 1
-            ];
-
-        renderTickerProfile(
-            trade,
-            tickerRecords
-        );
+        renderTickerProfile(trade);
 
     } catch (error) {
 
@@ -112,19 +104,21 @@ function normalizeTradeData(data) {
     let source;
 
     if (Array.isArray(data)) {
-
         source = data;
 
-    } else if (Array.isArray(data.trades)) {
-
+    } else if (
+        data &&
+        Array.isArray(data.trades)
+    ) {
         source = data.trades;
 
-    } else if (Array.isArray(data.data)) {
-
+    } else if (
+        data &&
+        Array.isArray(data.data)
+    ) {
         source = data.data;
 
     } else {
-
         source = [];
     }
 
@@ -167,6 +161,7 @@ function normalizeTrade(trade) {
                 firstValue(
                     trade.current_price,
                     trade.currentPrice,
+                    trade.Current_Price,
                     trade.CurrentPrice
                 )
             ),
@@ -181,14 +176,8 @@ function normalizeTrade(trade) {
             firstValue(
                 trade.trade_type,
                 trade.tradeType,
+                trade.Trade_Type,
                 trade.TradeType
-            ) || "—",
-
-        direction:
-            firstValue(
-                trade.direction,
-                trade.side,
-                trade.Direction
             ) || "—",
 
         setup:
@@ -197,6 +186,13 @@ function normalizeTrade(trade) {
                 trade.setup_type,
                 trade.Setup
             ) || "Trade Setup",
+
+        direction:
+            firstValue(
+                trade.direction,
+                trade.side,
+                trade.Direction
+            ) || "—",
 
         status:
             firstValue(
@@ -236,8 +232,8 @@ function normalizeTrade(trade) {
                 firstValue(
                     trade.risk_reward,
                     trade.riskReward,
-                    trade.RiskReward,
-                    trade.rr
+                    trade.risk_reward_ratio,
+                    trade.Risk_Reward
                 )
             ),
 
@@ -253,6 +249,7 @@ function normalizeTrade(trade) {
             numericValue(
                 firstValue(
                     trade.score,
+                    trade.rank_score,
                     trade.Score
                 )
             ),
@@ -262,7 +259,7 @@ function normalizeTrade(trade) {
                 firstValue(
                     trade.base_score,
                     trade.baseScore,
-                    trade.BaseScore
+                    trade.Base_Score
                 )
             ),
 
@@ -271,7 +268,8 @@ function normalizeTrade(trade) {
                 firstValue(
                     trade.trade_probability,
                     trade.tradeProbability,
-                    trade.TradeProbability
+                    trade.probability,
+                    trade.Trade_Probability
                 )
             ),
 
@@ -279,87 +277,74 @@ function normalizeTrade(trade) {
             firstValue(
                 trade.probability_confidence,
                 trade.probabilityConfidence,
-                trade.ProbabilityConfidence
+                trade.Probability_Confidence
             ) || "—",
 
         candidateCount:
             numericValue(
                 firstValue(
                     trade.candidate_count,
-                    trade.candidates,
-                    trade.CandidateCount
+                    trade.candidateCount,
+                    trade.Candidate_Count
                 )
             ),
 
-        finvizScore:
+        finvizContribution:
             numericValue(
                 firstValue(
+                    trade.finviz_contribution,
+                    trade.finvizContribution,
                     trade.finviz_score,
-                    trade.finviz,
-                    trade.FinvizScore
+                    trade.Finviz_Score
                 )
             ),
 
-        webullScore:
+        webullContribution:
             numericValue(
                 firstValue(
+                    trade.webull_contribution,
+                    trade.webullContribution,
                     trade.webull_score,
-                    trade.webull,
-                    trade.WebullScore
+                    trade.Webull_Score
                 )
             ),
 
-        canslimScore:
+        canslimContribution:
             numericValue(
                 firstValue(
+                    trade.canslim_contribution,
+                    trade.canslimContribution,
                     trade.canslim_score,
-                    trade.canslim,
-                    trade.CANSLIMScore
+                    trade.CANSLIM_Score
                 )
             ),
 
-        database:
+        updatedAt:
             firstValue(
-                trade.database,
-                trade.db,
-                trade.Database
-            ) || "—",
-
-        /*
-         * The publication profile uses UPDATED as the
-         * signal/profile timestamp because DETECTED is
-         * currently None in the source records.
-         */
-        updated:
-            firstValue(
-                trade.updated,
                 trade.updated_at,
                 trade.updatedAt,
-                trade.Updated
-            ),
+                trade.Updated_At,
+                trade.updated
+            ) || null,
 
-        raw:
-            trade
+        raw: trade
     };
 }
 
 
-function findTickerTrades(
+function findTickerTrade(
     trades,
     ticker
 ) {
 
-    return trades.filter(
+    return trades.find(
         trade =>
             trade.ticker === ticker
     );
 }
 
 
-function renderTickerProfile(
-    trade,
-    tickerRecords
-) {
+function renderTickerProfile(trade) {
 
     const calculatedRR =
         calculateRiskReward(
@@ -387,10 +372,6 @@ function renderTickerProfile(
         );
 
 
-    /*
-     * HERO
-     */
-
     setText(
         "tickerSymbol",
         trade.ticker
@@ -406,21 +387,31 @@ function renderTickerProfile(
         trade.setup
     );
 
+
+    /*
+     * STATUS / UPDATED
+     *
+     * The profile status area uses the actual
+     * publication timestamp from trades.json.
+     *
+     * "updated_at" is used instead of "detected".
+     */
+
     setText(
         "tickerStatus",
         trade.status
     );
 
     setText(
-        "signalDetected",
+        "tickerUpdated",
         formatUpdatedDate(
-            trade.updated
+            trade.updatedAt
         )
     );
 
 
     /*
-     * PRIMARY TRADE VALUES
+     * PRIMARY TRADE METRICS
      */
 
     setText(
@@ -428,16 +419,6 @@ function renderTickerProfile(
         formatPrice(
             trade.currentPrice
         )
-    );
-
-    setText(
-        "regime",
-        trade.regime
-    );
-
-    setText(
-        "tradeType",
-        trade.tradeType
     );
 
     setText(
@@ -477,7 +458,7 @@ function renderTickerProfile(
 
 
     /*
-     * ANALYSIS
+     * TRADE ANALYSIS
      */
 
     setText(
@@ -490,6 +471,16 @@ function renderTickerProfile(
         buildDirectionDescription(
             trade
         )
+    );
+
+    setText(
+        "analysisRegime",
+        trade.regime
+    );
+
+    setText(
+        "analysisTradeType",
+        trade.tradeType
     );
 
     setText(
@@ -511,7 +502,71 @@ function renderTickerProfile(
 
 
     /*
-     * RISK
+     * CONFIDENCE MODEL
+     */
+
+    setText(
+        "confidenceValue",
+        formatNumber(
+            trade.confidence
+        )
+    );
+
+    setText(
+        "baseScore",
+        formatScore(
+            trade.baseScore
+        )
+    );
+
+    setText(
+        "tradeProbability",
+        formatPercent(
+            trade.tradeProbability
+        )
+    );
+
+    setText(
+        "probabilityConfidence",
+        trade.probabilityConfidence
+    );
+
+
+    /*
+     * SIGNAL DATABASE SOURCE
+     */
+
+    setText(
+        "candidateCount",
+        formatNumber(
+            trade.candidateCount
+        )
+    );
+
+    setText(
+        "finvizContribution",
+        formatNumber(
+            trade.finvizContribution
+        )
+    );
+
+    setText(
+        "webullContribution",
+        formatNumber(
+            trade.webullContribution
+        )
+    );
+
+    setText(
+        "canslimContribution",
+        formatNumber(
+            trade.canslimContribution
+        )
+    );
+
+
+    /*
+     * RISK FRAMEWORK
      */
 
     setText(
@@ -544,70 +599,6 @@ function renderTickerProfile(
 
 
     /*
-     * CONFIDENCE MODEL
-     */
-
-    setText(
-        "confidence",
-        formatScore(
-            trade.confidence
-        )
-    );
-
-    setText(
-        "baseScore",
-        formatScore(
-            trade.baseScore
-        )
-    );
-
-    setText(
-        "tradeProbability",
-        formatScore(
-            trade.tradeProbability
-        )
-    );
-
-    setText(
-        "probabilityConfidence",
-        trade.probabilityConfidence
-    );
-
-
-    /*
-     * DATABASE SOURCE
-     */
-
-    setText(
-        "candidateCount",
-        formatInteger(
-            trade.candidateCount
-        )
-    );
-
-    setText(
-        "finvizScore",
-        formatScore(
-            trade.finvizScore
-        )
-    );
-
-    setText(
-        "webullScore",
-        formatScore(
-            trade.webullScore
-        )
-    );
-
-    setText(
-        "canslimScore",
-        formatScore(
-            trade.canslimScore
-        )
-    );
-
-
-    /*
      * OPPORTUNITY SUMMARY
      */
 
@@ -617,15 +608,6 @@ function renderTickerProfile(
             trade,
             rr
         )
-    );
-
-
-    /*
-     * HISTORY
-     */
-
-    renderTradeHistory(
-        tickerRecords
     );
 
 
@@ -639,196 +621,7 @@ function renderTickerProfile(
 }
 
 
-function renderTradeHistory(
-    records
-) {
-
-    const container =
-        document.getElementById(
-            "tradeHistory"
-        );
-
-    if (!container) {
-        return;
-    }
-
-    container.innerHTML = "";
-
-    if (!records.length) {
-        container.innerHTML =
-            '<div class="no-history">No trade history available.</div>';
-
-        return;
-    }
-
-    const sorted =
-        [...records].reverse();
-
-    for (const trade of sorted) {
-
-        const article =
-            document.createElement(
-                "article"
-            );
-
-        article.className =
-            "history-record";
-
-        article.innerHTML = `
-            <div class="history-head">
-                <div>
-                    <span class="section-label">DATABASE</span>
-                    <strong>${escapeHtml(trade.database)}</strong>
-                </div>
-
-                <div class="history-updated">
-                    <span>UPDATED</span>
-                    <time>${escapeHtml(
-                        formatUpdatedDate(
-                            trade.updated
-                        )
-                    )}</time>
-                </div>
-            </div>
-
-            <div class="history-grid">
-
-                ${historyValue(
-                    "TICKER",
-                    trade.ticker
-                )}
-
-                ${historyValue(
-                    "CURRENT PRICE",
-                    formatPrice(
-                        trade.currentPrice
-                    )
-                )}
-
-                ${historyValue(
-                    "REGIME",
-                    trade.regime
-                )}
-
-                ${historyValue(
-                    "TRADE TYPE",
-                    trade.tradeType
-                )}
-
-                ${historyValue(
-                    "SETUP",
-                    trade.setup
-                )}
-
-                ${historyValue(
-                    "DIRECTION",
-                    trade.direction
-                )}
-
-                ${historyValue(
-                    "STATUS",
-                    trade.status
-                )}
-
-                ${historyValue(
-                    "CONFIDENCE",
-                    formatScore(
-                        trade.confidence
-                    )
-                )}
-
-                ${historyValue(
-                    "ENTRY",
-                    formatPrice(
-                        trade.entry
-                    )
-                )}
-
-                ${historyValue(
-                    "STOP",
-                    formatPrice(
-                        trade.stop
-                    )
-                )}
-
-                ${historyValue(
-                    "TARGET",
-                    formatPrice(
-                        trade.target
-                    )
-                )}
-
-                ${historyValue(
-                    "RISK / REWARD",
-                    formatRiskReward(
-                        trade.riskReward
-                    )
-                )}
-
-                ${historyValue(
-                    "SCORE",
-                    formatScore(
-                        trade.score
-                    )
-                )}
-
-                ${historyValue(
-                    "CANDIDATES",
-                    formatInteger(
-                        trade.candidateCount
-                    )
-                )}
-
-                ${historyValue(
-                    "FINVIZ",
-                    formatScore(
-                        trade.finvizScore
-                    )
-                )}
-
-                ${historyValue(
-                    "WEBULL",
-                    formatScore(
-                        trade.webullScore
-                    )
-                )}
-
-                ${historyValue(
-                    "CANSLIM",
-                    formatScore(
-                        trade.canslimScore
-                    )
-                )}
-
-            </div>
-        `;
-
-        container.appendChild(
-            article
-        );
-    }
-}
-
-
-function historyValue(
-    label,
-    value
-) {
-
-    return `
-        <div class="history-value">
-            <span>${escapeHtml(label)}</span>
-            <strong>${escapeHtml(
-                value ?? "—"
-            )}</strong>
-        </div>
-    `;
-}
-
-
-function buildDirectionDescription(
-    trade
-) {
+function buildDirectionDescription(trade) {
 
     const direction =
         String(
@@ -891,12 +684,46 @@ function buildOpportunityDescription(
             `${trade.setup} opportunity.`;
     }
 
+
+    if (trade.regime) {
+
+        description +=
+            ` The current market regime is ` +
+            `${trade.regime}.`;
+    }
+
+
+    if (trade.tradeType) {
+
+        description +=
+            ` The trade is classified as ` +
+            `${trade.tradeType}.`;
+    }
+
+
     if (Number.isFinite(trade.score)) {
 
         description +=
             ` The current NEA28V1 ranking score is ` +
             `${formatScore(trade.score)}.`;
     }
+
+
+    if (Number.isFinite(trade.confidence)) {
+
+        description +=
+            ` Confidence is ` +
+            `${formatNumber(trade.confidence)}.`;
+    }
+
+
+    if (Number.isFinite(trade.tradeProbability)) {
+
+        description +=
+            ` The current trade probability is ` +
+            `${formatPercent(trade.tradeProbability)}.`;
+    }
+
 
     if (Number.isFinite(rr)) {
 
@@ -905,6 +732,7 @@ function buildOpportunityDescription(
             `approximately ${formatRiskReward(rr)} of potential ` +
             `reward relative to defined risk.`;
     }
+
 
     description +=
         " Market conditions, liquidity, news, execution conditions, " +
@@ -997,9 +825,7 @@ function calculateReward(
 }
 
 
-function isLong(
-    direction
-) {
+function isLong(direction) {
 
     const value =
         String(
@@ -1014,9 +840,7 @@ function isLong(
 }
 
 
-function isShort(
-    direction
-) {
+function isShort(direction) {
 
     const value =
         String(
@@ -1031,9 +855,7 @@ function isShort(
 }
 
 
-function formatRiskReward(
-    value
-) {
+function formatRiskReward(value) {
 
     if (!Number.isFinite(value)) {
         return "—";
@@ -1043,33 +865,27 @@ function formatRiskReward(
 }
 
 
-function formatPrice(
-    value
-) {
+function formatPrice(value) {
 
     if (!Number.isFinite(value)) {
         return "—";
     }
 
-    return `$${value.toFixed(2)}`;
+    return `$${value.toFixed(4)}`;
 }
 
 
-function formatPriceDistance(
-    value
-) {
+function formatPriceDistance(value) {
 
     if (!Number.isFinite(value)) {
         return "—";
     }
 
-    return `$${value.toFixed(2)}`;
+    return `$${value.toFixed(4)}`;
 }
 
 
-function formatScore(
-    value
-) {
+function formatScore(value) {
 
     if (!Number.isFinite(value)) {
         return "—";
@@ -1081,29 +897,31 @@ function formatScore(
 }
 
 
-function formatInteger(
-    value
-) {
+function formatNumber(value) {
 
     if (!Number.isFinite(value)) {
         return "—";
     }
 
-    return Math.round(value).toLocaleString(
-        "en-US"
-    );
+    return Number.isInteger(value)
+        ? String(value)
+        : value.toFixed(2);
 }
 
 
-function formatUpdatedDate(
-    value
-) {
+function formatPercent(value) {
 
-    if (
-        value === null ||
-        value === undefined ||
-        value === ""
-    ) {
+    if (!Number.isFinite(value)) {
+        return "—";
+    }
+
+    return `${value.toFixed(2)}%`;
+}
+
+
+function formatUpdatedDate(value) {
+
+    if (!value) {
         return "—";
     }
 
@@ -1118,7 +936,7 @@ function formatUpdatedDate(
         return String(value);
     }
 
-    return new Intl.DateTimeFormat(
+    return date.toLocaleString(
         "en-US",
         {
             month: "short",
@@ -1127,13 +945,11 @@ function formatUpdatedDate(
             hour: "numeric",
             minute: "2-digit"
         }
-    ).format(date);
+    );
 }
 
 
-function numericValue(
-    value
-) {
+function numericValue(value) {
 
     if (
         value === null ||
@@ -1156,9 +972,7 @@ function numericValue(
 }
 
 
-function firstValue(
-    ...values
-) {
+function firstValue(...values) {
 
     for (const value of values) {
 
@@ -1184,40 +998,9 @@ function setText(
         document.getElementById(id);
 
     if (element) {
-
         element.textContent =
             value ?? "";
     }
-}
-
-
-function escapeHtml(
-    value
-) {
-
-    return String(
-        value ?? ""
-    )
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
 }
 
 
@@ -1229,7 +1012,6 @@ function showLoading() {
         );
 
     if (element) {
-
         element.classList.remove(
             "hidden"
         );
@@ -1245,7 +1027,6 @@ function hideLoading() {
         );
 
     if (element) {
-
         element.classList.add(
             "hidden"
         );
@@ -1261,7 +1042,6 @@ function showProfile() {
         );
 
     if (element) {
-
         element.classList.remove(
             "hidden"
         );
@@ -1269,9 +1049,7 @@ function showProfile() {
 }
 
 
-function showError(
-    message
-) {
+function showError(message) {
 
     hideLoading();
     hideProfile();
@@ -1282,7 +1060,6 @@ function showError(
         );
 
     if (messageElement) {
-
         messageElement.textContent =
             message;
     }
@@ -1293,7 +1070,6 @@ function showError(
         );
 
     if (errorElement) {
-
         errorElement.classList.remove(
             "hidden"
         );
@@ -1309,7 +1085,6 @@ function hideError() {
         );
 
     if (element) {
-
         element.classList.add(
             "hidden"
         );
@@ -1325,7 +1100,6 @@ function hideProfile() {
         );
 
     if (element) {
-
         element.classList.add(
             "hidden"
         );
