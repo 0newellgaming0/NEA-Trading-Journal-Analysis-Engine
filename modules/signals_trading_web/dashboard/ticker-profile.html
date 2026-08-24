@@ -38,9 +38,8 @@
 
 </header>
 
-<main>
 
-  <!-- LOADING -->
+<main>
 
   <section id="loadingState" class="state-panel">
 
@@ -58,8 +57,6 @@
 
   </section>
 
-
-  <!-- ERROR -->
 
   <section id="errorState" class="state-panel hidden">
 
@@ -82,11 +79,10 @@
   </section>
 
 
-  <!-- PROFILE -->
-
   <div id="profileContent" class="hidden">
 
-    <!-- PROFILE HERO -->
+
+    <!-- PUBLIC TRADE PROFILE -->
 
     <section class="profile-hero">
 
@@ -96,57 +92,28 @@
           TICKER PROFILE
         </span>
 
-        <div class="ticker-title-row">
-
-          <h2 id="tickerSymbol">
-            —
-          </h2>
-
-          <span id="tickerDirection"
-                class="direction-badge">
-            —
-          </span>
-
-        </div>
-
-        <p id="tickerSetup">
+        <h2 id="ticker">
           —
-        </p>
+        </h2>
 
       </div>
-
-
-      <!-- STATUS / UPDATED -->
 
       <div class="profile-status">
 
         <span class="status-label">
-
-          <span class="status-indicator"></span>
-
           STATUS
-
         </span>
 
-        <strong id="tickerStatus">
+        <strong id="status">
           —
         </strong>
 
-        <span class="status-label signal-updated-label">
-          UPDATED
-        </span>
-
-        <span id="tickerUpdated"
-              class="signal-time">
-          —
-        </span>
-
       </div>
 
     </section>
 
 
-    <!-- TRADE STRUCTURE -->
+    <!-- MARKET STATE -->
 
     <section class="section">
 
@@ -155,11 +122,11 @@
         <div>
 
           <span class="section-label">
-            TRADE STRUCTURE
+            MARKET STATE
           </span>
 
           <h2>
-            Current Setup
+            Signal Classification
           </h2>
 
         </div>
@@ -172,161 +139,15 @@
         <article class="metric-card">
 
           <span>
-            CURRENT PRICE
+            DIRECTION
           </span>
 
-          <strong id="currentPrice">
+          <strong id="direction">
             —
           </strong>
 
           <p>
-            Current price contained in the published trade record.
-          </p>
-
-        </article>
-
-
-        <article class="metric-card">
-
-          <span>
-            ENTRY
-          </span>
-
-          <strong id="entryPrice">
-            —
-          </strong>
-
-          <p>
-            Published entry price.
-          </p>
-
-        </article>
-
-
-        <article class="metric-card">
-
-          <span>
-            STOP
-          </span>
-
-          <strong id="stopPrice">
-            —
-          </strong>
-
-          <p>
-            Published stop-loss level.
-          </p>
-
-        </article>
-
-
-        <article class="metric-card">
-
-          <span>
-            TARGET
-          </span>
-
-          <strong id="targetPrice">
-            —
-          </strong>
-
-          <p>
-            Published target price.
-          </p>
-
-        </article>
-
-
-        <article class="metric-card">
-
-          <span>
-            RISK / REWARD
-          </span>
-
-          <strong id="riskReward">
-            —
-          </strong>
-
-          <p>
-            Published risk/reward value.
-          </p>
-
-        </article>
-
-
-        <article class="metric-card">
-
-          <span>
-            SCORE
-          </span>
-
-          <strong id="tradeScore">
-            —
-          </strong>
-
-          <p>
-            Published NEA28V1 trade score.
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-    <!-- SIGNAL CLASSIFICATION -->
-
-    <section class="section">
-
-      <div class="section-heading">
-
-        <div>
-
-          <span class="section-label">
-            SIGNAL CLASSIFICATION
-          </span>
-
-          <h2>
-            Market State
-          </h2>
-
-        </div>
-
-      </div>
-
-
-      <div class="metrics-grid">
-
-        <article class="metric-card">
-
-          <span>
-            REGIME
-          </span>
-
-          <strong id="tradeRegime">
-            —
-          </strong>
-
-          <p>
-            Market regime contained in the published trade record.
-          </p>
-
-        </article>
-
-
-        <article class="metric-card">
-
-          <span>
-            TIMEFRAME
-          </span>
-
-          <strong id="tradeTimeframe">
-            —
-          </strong>
-
-          <p>
-            Published signal timeframe.
+            Published trade direction.
           </p>
 
         </article>
@@ -338,12 +159,12 @@
             SETUP
           </span>
 
-          <strong id="tradeSetup">
+          <strong id="setup">
             —
           </strong>
 
           <p>
-            Setup classification contained in the published trade record.
+            Published trade setup.
           </p>
 
         </article>
@@ -352,15 +173,15 @@
         <article class="metric-card">
 
           <span>
-            DIRECTION
+            REGIME
           </span>
 
-          <strong id="tradeDirection">
+          <strong id="regime">
             —
           </strong>
 
           <p>
-            Direction contained in the published trade record.
+            Published market regime.
           </p>
 
         </article>
@@ -369,15 +190,15 @@
         <article class="metric-card">
 
           <span>
-            STATUS
+            TIMEFRAME
           </span>
 
-          <strong id="tradeStatus">
+          <strong id="timeframe">
             —
           </strong>
 
           <p>
-            Publication status contained in the published trade record.
+            Published signal timeframe.
           </p>
 
         </article>
@@ -421,7 +242,136 @@
     </section>
 
 
-    <!-- TRADE TIMESTAMPS -->
+    <!-- TRADE STRUCTURE -->
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-label">
+            TRADE STRUCTURE
+          </span>
+
+          <h2>
+            Current Trade
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="metrics-grid">
+
+        <article class="metric-card">
+
+          <span>
+            CURRENT PRICE
+          </span>
+
+          <strong id="currentPrice">
+            —
+          </strong>
+
+          <p>
+            Current price contained in the published trade record.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            ENTRY
+          </span>
+
+          <strong id="entry">
+            —
+          </strong>
+
+          <p>
+            Published entry price.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            STOP
+          </span>
+
+          <strong id="stop">
+            —
+          </strong>
+
+          <p>
+            Published stop-loss level.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            TARGET
+          </span>
+
+          <strong id="target">
+            —
+          </strong>
+
+          <p>
+            Published target price.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            RISK / REWARD
+          </span>
+
+          <strong id="riskReward">
+            —
+          </strong>
+
+          <p>
+            Published risk/reward value.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            SCORE
+          </span>
+
+          <strong id="score">
+            —
+          </strong>
+
+          <p>
+            Published NEA28V1 trade score.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- PUBLICATION TIMING -->
 
     <section class="section">
 

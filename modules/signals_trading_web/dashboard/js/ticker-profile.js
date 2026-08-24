@@ -16,19 +16,21 @@ async function initializeTickerProfile() {
         getRequestedTicker();
 
     if (!ticker) {
+
         showError(
             "No ticker was specified. Open a ticker profile from a published trade opportunity."
         );
+
         return;
     }
 
     try {
 
-        const rawData =
+        const data =
             await loadTradeData();
 
         const trades =
-            normalizeTradeData(rawData);
+            normalizeTradeData(data);
 
         const trade =
             findTickerTrade(
@@ -37,9 +39,11 @@ async function initializeTickerProfile() {
             );
 
         if (!trade) {
+
             showError(
                 `No published NEA28V1 trade data was found for ${ticker}.`
             );
+
             return;
         }
 
@@ -90,6 +94,7 @@ async function loadTradeData() {
         );
 
     if (!response.ok) {
+
         throw new Error(
             `Unable to load ${TRADE_DATA_URL}: ${response.status}`
         );
@@ -138,14 +143,13 @@ function normalizeTrade(trade) {
     }
 
     const ticker =
-        firstValue(
-            trade.ticker,
-            trade.symbol,
-            trade.Ticker,
-            trade.Symbol
-        );
+        trade.ticker;
 
-    if (!ticker) {
+    if (
+        ticker === null ||
+        ticker === undefined ||
+        String(ticker).trim() === ""
+    ) {
         return null;
     }
 
@@ -157,118 +161,75 @@ function normalizeTrade(trade) {
                 .toUpperCase(),
 
         direction:
-            firstValue(
-                trade.direction,
-                trade.Direction
-            ) || "—",
+            displayValue(
+                trade.direction
+            ),
 
         setup:
-            firstValue(
-                trade.setup,
-                trade.Setup
-            ) || "—",
+            displayValue(
+                trade.setup
+            ),
 
         regime:
-            firstValue(
-                trade.regime,
-                trade.Regime
-            ) || "—",
+            displayValue(
+                trade.regime
+            ),
 
         timeframe:
-            firstValue(
-                trade.timeframe,
-                trade.Timeframe
-            ) || "—",
+            displayValue(
+                trade.timeframe
+            ),
 
         entry:
             numericValue(
-                firstValue(
-                    trade.entry,
-                    trade.entry_price,
-                    trade.Entry
-                )
+                trade.entry
             ),
 
         stop:
             numericValue(
-                firstValue(
-                    trade.stop,
-                    trade.stop_loss,
-                    trade.Stop
-                )
+                trade.stop
             ),
 
         target:
             numericValue(
-                firstValue(
-                    trade.target,
-                    trade.target_price,
-                    trade.target1,
-                    trade.Target
-                )
+                trade.target
             ),
 
         riskReward:
             numericValue(
-                firstValue(
-                    trade.risk_reward,
-                    trade.risk_reward_ratio,
-                    trade.rr,
-                    trade.Risk_Reward
-                )
+                trade.risk_reward
             ),
 
         score:
             numericValue(
-                firstValue(
-                    trade.score,
-                    trade.Score
-                )
+                trade.score
             ),
 
         currentPrice:
             numericValue(
-                firstValue(
-                    trade.current_price,
-                    trade.Current_Price,
-                    trade.currentPrice
-                )
+                trade.current_price
             ),
 
         status:
-            firstValue(
-                trade.status,
-                trade.Status
-            ) || "—",
+            displayValue(
+                trade.status
+            ),
 
         signalStrength:
-            firstValue(
-                trade.signal_strength,
-                trade.strength,
-                trade.Signal_Strength
-            ) || "—",
+            displayValue(
+                trade.signal_strength
+            ),
 
         confluence:
-            firstValue(
-                trade.confluence,
-                trade.Confluence
-            ) || "—",
+            displayValue(
+                trade.confluence
+            ),
 
         createdAt:
-            firstValue(
-                trade.created_at,
-                trade.entry_time,
-                trade.Created_At
-            ) || null,
+            trade.created_at,
 
         updatedAt:
-            firstValue(
-                trade.updated_at,
-                trade.last_update,
-                trade.Updated_At
-            ) || null,
-
-        raw: trade
+            trade.updated_at
     };
 }
 
@@ -287,75 +248,118 @@ function findTickerTrade(
 
 function renderTickerProfile(trade) {
 
-    const rr =
-        Number.isFinite(
-            trade.riskReward
-        )
-            ? trade.riskReward
-            : calculateRiskReward(
-                trade.entry,
-                trade.stop,
-                trade.target,
-                trade.direction
-            );
-
-    const risk =
-        calculateRisk(
-            trade.entry,
-            trade.stop
-        );
-
-    const reward =
-        calculateReward(
-            trade.entry,
-            trade.target
-        );
-
-
     /*
-     * PROFILE HERO
+     * PUBLIC FIELD: ticker
      */
 
     setText(
-        "tickerSymbol",
+        "ticker",
         trade.ticker
     );
 
+
+    /*
+     * PUBLIC FIELD: direction
+     */
+
     setText(
-        "tickerDirection",
+        "direction",
         trade.direction
     );
 
+
+    /*
+     * PUBLIC FIELD: setup
+     */
+
     setText(
-        "tickerSetup",
+        "setup",
         trade.setup
     );
 
 
     /*
-     * STATUS / UPDATED
-     *
-     * UPDATED comes directly from
-     * trades.json -> updated_at.
-     *
-     * No detected field is used.
+     * PUBLIC FIELD: regime
      */
 
     setText(
-        "tickerStatus",
-        trade.status
+        "regime",
+        trade.regime
     );
 
+
+    /*
+     * PUBLIC FIELD: timeframe
+     */
+
     setText(
-        "tickerUpdated",
-        formatUpdatedDate(
-            trade.updatedAt
+        "timeframe",
+        trade.timeframe
+    );
+
+
+    /*
+     * PUBLIC FIELD: entry
+     */
+
+    setText(
+        "entry",
+        formatPrice(
+            trade.entry
         )
     );
 
 
     /*
-     * CURRENT TRADE STRUCTURE
+     * PUBLIC FIELD: stop
+     */
+
+    setText(
+        "stop",
+        formatPrice(
+            trade.stop
+        )
+    );
+
+
+    /*
+     * PUBLIC FIELD: target
+     */
+
+    setText(
+        "target",
+        formatPrice(
+            trade.target
+        )
+    );
+
+
+    /*
+     * PUBLIC FIELD: risk_reward
+     */
+
+    setText(
+        "riskReward",
+        formatRiskReward(
+            trade.riskReward
+        )
+    );
+
+
+    /*
+     * PUBLIC FIELD: score
+     */
+
+    setText(
+        "score",
+        formatScore(
+            trade.score
+        )
+    );
+
+
+    /*
+     * PUBLIC FIELD: current_price
      */
 
     setText(
@@ -365,78 +369,33 @@ function renderTickerProfile(trade) {
         )
     );
 
-    setText(
-        "entryPrice",
-        formatPrice(
-            trade.entry
-        )
-    );
+
+    /*
+     * PUBLIC FIELD: status
+     */
 
     setText(
-        "stopPrice",
-        formatPrice(
-            trade.stop
-        )
-    );
-
-    setText(
-        "targetPrice",
-        formatPrice(
-            trade.target
-        )
-    );
-
-    setText(
-        "tradeScore",
-        formatScore(
-            trade.score
-        )
-    );
-
-    setText(
-        "riskReward",
-        formatRiskReward(
-            rr
-        )
+        "status",
+        trade.status
     );
 
 
     /*
-     * SIGNAL CLASSIFICATION
+     * PUBLIC FIELD: signal_strength
      */
 
     setText(
-        "tradeRegime",
-        trade.regime
-    );
-
-    setText(
-        "tradeType",
-        trade.setup
-    );
-
-    setText(
-        "tradeSetup",
-        trade.setup
-    );
-
-
-    /*
-     * SIGNAL DETAILS
-     */
-
-    setText(
-        "tradeTimeframe",
-        trade.timeframe
-    );
-
-    setText(
-        "tradeSignalStrength",
+        "signalStrength",
         trade.signalStrength
     );
 
+
+    /*
+     * PUBLIC FIELD: confluence
+     */
+
     setText(
-        "tradeConfluence",
+        "confluence",
         formatConfluence(
             trade.confluence
         )
@@ -444,110 +403,25 @@ function renderTickerProfile(trade) {
 
 
     /*
-     * ANALYSIS
-     */
-
-    setText(
-        "analysisDirection",
-        trade.direction
-    );
-
-    setText(
-        "directionDescription",
-        buildDirectionDescription(
-            trade
-        )
-    );
-
-    setText(
-        "analysisRegime",
-        trade.regime
-    );
-
-    setText(
-        "analysisTradeType",
-        trade.setup
-    );
-
-    setText(
-        "analysisSetup",
-        trade.setup
-    );
-
-    setText(
-        "analysisScore",
-        formatScore(
-            trade.score
-        )
-    );
-
-    setText(
-        "analysisStatus",
-        trade.status
-    );
-
-
-    /*
-     * RISK FRAMEWORK
-     */
-
-    setText(
-        "riskEntry",
-        formatPrice(
-            trade.entry
-        )
-    );
-
-    setText(
-        "riskAmount",
-        formatPriceDistance(
-            risk
-        )
-    );
-
-    setText(
-        "rewardAmount",
-        formatPriceDistance(
-            reward
-        )
-    );
-
-    setText(
-        "riskRatio",
-        formatRiskReward(
-            rr
-        )
-    );
-
-
-    /*
-     * CREATED / UPDATED
+     * PUBLIC FIELD: created_at
      */
 
     setText(
         "createdAt",
-        formatUpdatedDate(
+        formatTimestamp(
             trade.createdAt
-        )
-    );
-
-    setText(
-        "updatedAt",
-        formatUpdatedDate(
-            trade.updatedAt
         )
     );
 
 
     /*
-     * OPPORTUNITY SUMMARY
+     * PUBLIC FIELD: updated_at
      */
 
     setText(
-        "opportunityDescription",
-        buildOpportunityDescription(
-            trade,
-            rr
+        "updatedAt",
+        formatTimestamp(
+            trade.updatedAt
         )
     );
 
@@ -559,348 +433,6 @@ function renderTickerProfile(trade) {
     hideLoading();
     hideError();
     showProfile();
-}
-
-
-function buildDirectionDescription(trade) {
-
-    const direction =
-        String(
-            trade.direction || ""
-        ).toLowerCase();
-
-    if (isLong(direction)) {
-
-        return (
-            `${trade.ticker} is currently represented as a ` +
-            `bullish opportunity within the published ` +
-            `NEA28V1 dataset.`
-        );
-    }
-
-    if (isShort(direction)) {
-
-        return (
-            `${trade.ticker} is currently represented as a ` +
-            `bearish opportunity within the published ` +
-            `NEA28V1 dataset.`
-        );
-    }
-
-    return (
-        `${trade.ticker} is currently represented as a ` +
-        `qualifying NEA28V1 trade opportunity.`
-    );
-}
-
-
-function buildOpportunityDescription(
-    trade,
-    rr
-) {
-
-    const direction =
-        String(
-            trade.direction || ""
-        ).toLowerCase();
-
-    let description;
-
-    if (isLong(direction)) {
-
-        description =
-            `${trade.ticker} is currently represented as a ` +
-            `bullish ${trade.setup} opportunity.`;
-
-    } else if (isShort(direction)) {
-
-        description =
-            `${trade.ticker} is currently represented as a ` +
-            `bearish ${trade.setup} opportunity.`;
-
-    } else {
-
-        description =
-            `${trade.ticker} is currently represented as a ` +
-            `${trade.setup} opportunity.`;
-    }
-
-
-    if (
-        trade.regime &&
-        trade.regime !== "—"
-    ) {
-
-        description +=
-            ` The current market regime is ` +
-            `${trade.regime}.`;
-    }
-
-
-    if (
-        trade.timeframe &&
-        trade.timeframe !== "—"
-    ) {
-
-        description +=
-            ` The published signal timeframe is ` +
-            `${trade.timeframe}.`;
-    }
-
-
-    if (Number.isFinite(trade.score)) {
-
-        description +=
-            ` The current NEA28V1 ranking score is ` +
-            `${formatScore(trade.score)}.`;
-    }
-
-
-    if (
-        trade.signalStrength &&
-        trade.signalStrength !== "—"
-    ) {
-
-        description +=
-            ` Signal strength is ` +
-            `${trade.signalStrength}.`;
-    }
-
-
-    if (Number.isFinite(rr)) {
-
-        description +=
-            ` The defined trade structure currently represents ` +
-            `approximately ${formatRiskReward(rr)} of potential ` +
-            `reward relative to defined risk.`;
-    }
-
-
-    description +=
-        " Market conditions, liquidity, news, execution conditions, " +
-        "and the underlying trade thesis should be independently " +
-        "evaluated before making any trading decision.";
-
-    return description;
-}
-
-
-function calculateRiskReward(
-    entry,
-    stop,
-    target,
-    direction
-) {
-
-    if (
-        !Number.isFinite(entry) ||
-        !Number.isFinite(stop) ||
-        !Number.isFinite(target)
-    ) {
-        return null;
-    }
-
-    let risk;
-    let reward;
-
-    if (isShort(direction)) {
-
-        risk =
-            stop - entry;
-
-        reward =
-            entry - target;
-
-    } else {
-
-        risk =
-            entry - stop;
-
-        reward =
-            target - entry;
-    }
-
-    if (
-        risk <= 0 ||
-        reward <= 0
-    ) {
-        return null;
-    }
-
-    return reward / risk;
-}
-
-
-function calculateRisk(
-    entry,
-    stop
-) {
-
-    if (
-        !Number.isFinite(entry) ||
-        !Number.isFinite(stop)
-    ) {
-        return null;
-    }
-
-    return Math.abs(
-        entry - stop
-    );
-}
-
-
-function calculateReward(
-    entry,
-    target
-) {
-
-    if (
-        !Number.isFinite(entry) ||
-        !Number.isFinite(target)
-    ) {
-        return null;
-    }
-
-    return Math.abs(
-        target - entry
-    );
-}
-
-
-function isLong(direction) {
-
-    const value =
-        String(
-            direction || ""
-        ).toLowerCase();
-
-    return (
-        value.includes("long") ||
-        value.includes("bull") ||
-        value.includes("buy")
-    );
-}
-
-
-function isShort(direction) {
-
-    const value =
-        String(
-            direction || ""
-        ).toLowerCase();
-
-    return (
-        value.includes("short") ||
-        value.includes("bear") ||
-        value.includes("sell")
-    );
-}
-
-
-function formatRiskReward(value) {
-
-    if (!Number.isFinite(value)) {
-        return "—";
-    }
-
-    return `${value.toFixed(2)}R`;
-}
-
-
-function formatPrice(value) {
-
-    if (!Number.isFinite(value)) {
-        return "—";
-    }
-
-    return `$${value.toFixed(4)}`;
-}
-
-
-function formatPriceDistance(value) {
-
-    if (!Number.isFinite(value)) {
-        return "—";
-    }
-
-    return `$${value.toFixed(4)}`;
-}
-
-
-function formatScore(value) {
-
-    if (!Number.isFinite(value)) {
-        return "—";
-    }
-
-    return Number.isInteger(value)
-        ? String(value)
-        : value.toFixed(2);
-}
-
-
-function formatNumber(value) {
-
-    if (!Number.isFinite(value)) {
-        return "—";
-    }
-
-    return Number.isInteger(value)
-        ? String(value)
-        : value.toFixed(2);
-}
-
-
-function formatConfluence(value) {
-
-    if (
-        value === null ||
-        value === undefined ||
-        value === ""
-    ) {
-        return "—";
-    }
-
-    if (
-        typeof value === "number" &&
-        Number.isFinite(value)
-    ) {
-        return Number.isInteger(value)
-            ? String(value)
-            : value.toFixed(2);
-    }
-
-    return String(value);
-}
-
-
-function formatUpdatedDate(value) {
-
-    if (!value) {
-        return "—";
-    }
-
-    const date =
-        new Date(value);
-
-    if (
-        Number.isNaN(
-            date.getTime()
-        )
-    ) {
-        return String(value);
-    }
-
-    return date.toLocaleString(
-        "en-US",
-        {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-            hour: "numeric",
-            minute: "2-digit"
-        }
-    );
 }
 
 
@@ -935,20 +467,106 @@ function numericValue(value) {
 }
 
 
-function firstValue(...values) {
+function displayValue(value) {
 
-    for (const value of values) {
-
-        if (
-            value !== undefined &&
-            value !== null &&
-            value !== ""
-        ) {
-            return value;
-        }
+    if (
+        value === null ||
+        value === undefined ||
+        value === ""
+    ) {
+        return "—";
     }
 
-    return null;
+    return String(value);
+}
+
+
+function formatPrice(value) {
+
+    if (!Number.isFinite(value)) {
+        return "—";
+    }
+
+    return `$${value.toFixed(4)}`;
+}
+
+
+function formatRiskReward(value) {
+
+    if (!Number.isFinite(value)) {
+        return "—";
+    }
+
+    return `${value.toFixed(2)}R`;
+}
+
+
+function formatScore(value) {
+
+    if (!Number.isFinite(value)) {
+        return "—";
+    }
+
+    return Number.isInteger(value)
+        ? String(value)
+        : value.toFixed(2);
+}
+
+
+function formatConfluence(value) {
+
+    if (
+        value === null ||
+        value === undefined ||
+        value === ""
+    ) {
+        return "—";
+    }
+
+    if (
+        typeof value === "number" &&
+        Number.isFinite(value)
+    ) {
+        return Number.isInteger(value)
+            ? String(value)
+            : value.toFixed(2);
+    }
+
+    return String(value);
+}
+
+
+function formatTimestamp(value) {
+
+    if (
+        value === null ||
+        value === undefined ||
+        value === ""
+    ) {
+        return "—";
+    }
+
+    const date =
+        new Date(value);
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+        return String(value);
+    }
+
+    return date.toLocaleString(
+        "en-US",
+        {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+            hour: "numeric",
+            minute: "2-digit"
+        }
+    );
 }
 
 
@@ -960,10 +578,17 @@ function setText(
     const element =
         document.getElementById(id);
 
-    if (element) {
-        element.textContent =
-            value ?? "";
+    if (!element) {
+
+        console.error(
+            `NEA28V1 ticker profile: missing HTML element #${id}`
+        );
+
+        return;
     }
+
+    element.textContent =
+        value ?? "—";
 }
 
 
@@ -975,6 +600,7 @@ function showLoading() {
         );
 
     if (element) {
+
         element.classList.remove(
             "hidden"
         );
@@ -990,6 +616,7 @@ function hideLoading() {
         );
 
     if (element) {
+
         element.classList.add(
             "hidden"
         );
@@ -1005,7 +632,24 @@ function showProfile() {
         );
 
     if (element) {
+
         element.classList.remove(
+            "hidden"
+        );
+    }
+}
+
+
+function hideProfile() {
+
+    const element =
+        document.getElementById(
+            "profileContent"
+        );
+
+    if (element) {
+
+        element.classList.add(
             "hidden"
         );
     }
@@ -1023,6 +667,7 @@ function showError(message) {
         );
 
     if (messageElement) {
+
         messageElement.textContent =
             message;
     }
@@ -1033,6 +678,7 @@ function showError(message) {
         );
 
     if (errorElement) {
+
         errorElement.classList.remove(
             "hidden"
         );
@@ -1048,21 +694,7 @@ function hideError() {
         );
 
     if (element) {
-        element.classList.add(
-            "hidden"
-        );
-    }
-}
 
-
-function hideProfile() {
-
-    const element =
-        document.getElementById(
-            "profileContent"
-        );
-
-    if (element) {
         element.classList.add(
             "hidden"
         );
