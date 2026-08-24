@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="description"
+      content="NEA28V1 Ticker Profile — trade setup, ranking, risk structure, market intelligence, and ticker-specific analysis.">
+
+<title>NEA28V1 Ticker Profile</title>
+
+<link rel="stylesheet" href="css/ticker-profile.css">
+</head>
+
+<body>
+
+<div class="ticker-page">
+
+  <header class="ticker-header">
+
+    <div class="header-top">
+
+      <div>
+        <div class="eyebrow">
+          NEA28V1 TICKER INTELLIGENCE
+        </div>
+
+        <div class="brand">
+          NEA28V1
+        </div>
+
+        <div class="subtitle">
+          Ticker Profile • Trade Structure • Ranking • Risk Intelligence
+        </div>
+      </div>
+
+      <nav class="ticker-nav">
+        <a href="index.html">DASHBOARD</a>
+        <a href="newsletter.html">DAILY INTELLIGENCE</a>
+        <a href="premiumTiers.html">PREMIUM</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- LOADING -->
+
+    <section id="loadingState" class="state-panel">
+
+      <span class="section-label">
+        TICKER INTELLIGENCE
+      </span>
+
+      <h1>
+        Loading Ticker Profile
+      </h1>
+
+      <p>
+        Loading the current NEA28V1 publication dataset...
+      </p>
+
+    </section>
+
+
+    <!-- ERROR -->
+
+    <section id="errorState" class="state-panel hidden">
+
+      <span class="section-label">
+        TICKER INTELLIGENCE
+      </span>
+
+      <h1>
+        Ticker Profile Unavailable
+      </h1>
+
+      <p id="errorMessage">
+        The requested ticker could not be loaded.
+      </p>
+
+      <a href="newsletter.html" class="button">
+        RETURN TO DAILY INTELLIGENCE →
+      </a>
+
+    </section>
+
+
+    <!-- PROFILE -->
+
+    <div id="profileContent" class="hidden">
+
+
+      <!-- TICKER HERO -->
+
+      <section class="profile-hero">
+
+        <div class="profile-identity">
+
+          <span class="section-label">
+            TICKER PROFILE
+          </span>
+
+          <h1 id="tickerSymbol">
+            —
+          </h1>
+
+          <h2 id="tickerSetup">
+            Trade Setup
+          </h2>
+
+          <p id="tickerDirection">
+            —
+          </p>
+
+        </div>
+
+
+        <div class="profile-status">
+
+          <span class="metric-label">
+            CURRENT STATUS
+          </span>
+
+          <strong id="tickerStatus">
+            —
+          </strong>
+
+          <span class="status-indicator"></span>
+
+        </div>
+
+      </section>
+
+
+      <!-- PRIMARY METRICS -->
+
+      <section class="section">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="section-label">
+              NEA28V1 RANKING
+            </span>
+
+            <h2>
+              Opportunity Metrics
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="metric-grid">
+
+          <article class="metric-card">
+
+            <span>
+              SCORE
+            </span>
+
+            <strong id="score">
+              —
+            </strong>
+
+            <p>
+              Current NEA28V1 ranking score.
+            </p>
+
+          </article>
+
+
+          <article class="metric-card">
+
+            <span>
+              RANK
+            </span>
+
+            <strong id="rank">
+              —
+            </strong>
+
+            <p>
+              Relative position within the published dataset.
+            </p>
+
+          </article>
+
+
+          <article class="metric-card">
+
+            <span>
+              DIRECTION
+            </span>
+
+            <strong id="direction">
+              —
+            </strong>
+
+            <p>
+              Current directional classification.
+            </p>
+
+          </article>
+
+
+          <article class="metric-card">
+
+            <span>
+              SETUP
+            </span>
+
+            <strong id="setup">
+              —
+            </strong>
+
+            <p>
+              Current setup classification.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- TRADE STRUCTURE -->
+
+      <section class="panel">
+
+        <span class="section-label">
+          TRADE STRUCTURE
+        </span>
+
+        <h2>
+          Entry • Stop • Target
+        </h2>
+
+        <div class="trade-level-grid">
+
+          <article class="level-card">
+
+            <span>
+              ENTRY
+            </span>
+
+            <strong id="entry">
+              —
+            </strong>
+
+            <p>
+              Reference entry price.
+            </p>
+
+          </article>
+
+
+          <article class="level-card">
+
+            <span>
+              STOP
+            </span>
+
+            <strong id="stop">
+              —
+            </strong>
+
+            <p>
+              Defined risk-control level.
+            </p>
+
+          </article>
+
+
+          <article class="level-card">
+
+            <span>
+              TARGET
+            </span>
+
+            <strong id="target">
+              —
+            </strong>
+
+            <p>
+              Projected price objective.
+            </p>
+
+          </article>
+
+
+          <article class="level-card">
+
+            <span>
+              RISK / REWARD
+            </span>
+
+            <strong id="riskReward">
+              —
+            </strong>
+
+            <p>
+              Calculated reward relative to defined risk.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- SETUP ANALYSIS -->
+
+      <section class="section">
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="section-label">
+              SETUP ANALYSIS
+            </span>
+
+            <h2>
+              Opportunity Assessment
+            </h2>
+
+          </div>
+
+        </div>
+
+
+        <div class="analysis-grid">
+
+          <article class="analysis-card">
+
+            <span>
+              DIRECTIONAL BIAS
+            </span>
+
+            <strong id="analysisDirection">
+              —
+            </strong>
+
+            <p id="analysisDirectionDescription">
+              —
+            </p>
+
+          </article>
+
+
+          <article class="analysis-card">
+
+            <span>
+              SETUP CLASSIFICATION
+            </span>
+
+            <strong id="analysisSetup">
+              —
+            </strong>
+
+            <p id="analysisSetupDescription">
+              —
+            </p>
+
+          </article>
+
+
+          <article class="analysis-card">
+
+            <span>
+              RANKING POSITION
+            </span>
+
+            <strong id="analysisRank">
+              —
+            </strong>
+
+            <p>
+              Relative ranking based on the current published dataset.
+            </p>
+
+          </article>
+
+
+          <article class="analysis-card">
+
+            <span>
+              STRUCTURE
+            </span>
+
+            <strong id="analysisStructure">
+              —
+            </strong>
+
+            <p id="analysisStructureDescription">
+              —
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- DESCRIPTION -->
+
+      <section class="panel">
+
+        <span class="section-label">
+          NEA28V1 INTELLIGENCE
+        </span>
+
+        <h2>
+          Ticker Assessment
+        </h2>
+
+        <div class="assessment">
+
+          <p id="tickerAssessment">
+            —
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- RAW DATA SUMMARY -->
+
+      <section class="panel">
+
+        <span class="section-label">
+          DATA AVAILABILITY
+        </span>
+
+        <h2>
+          Published Ticker Information
+        </h2>
+
+        <div id="additionalData" class="additional-data">
+        </div>
+
+      </section>
+
+
+      <!-- PREMIUM -->
+
+      <section class="premium">
+
+        <span class="section-label">
+          NEA28V1 PREMIUM
+        </span>
+
+        <h2>
+          Go Beyond the Public Profile.
+        </h2>
+
+        <p>
+          The public ticker profile provides a selected view of the
+          opportunity represented in the current publication dataset.
+        </p>
+
+        <p>
+          Premium access can provide broader access to qualifying
+          opportunities, expanded trade intelligence, and additional
+          system-generated analysis.
+        </p>
+
+        <a href="premiumTiers.html" class="button">
+          VIEW PREMIUM ACCESS →
+        </a>
+
+      </section>
+
+
+      <!-- DISCLAIMER -->
+
+      <section class="disclaimer-panel">
+
+        <span class="section-label">
+          IMPORTANT
+        </span>
+
+        <p>
+          A NEA28V1 setup does not guarantee a profitable outcome.
+          Market conditions, liquidity, volatility, news, and execution
+          conditions can change after publication.
+        </p>
+
+        <p>
+          All information should be independently evaluated before
+          making any trading decision.
+        </p>
+
+      </section>
+
+
+      <!-- NAVIGATION -->
+
+      <section class="profile-navigation">
+
+        <a href="newsletter.html" class="button secondary">
+          ← DAILY INTELLIGENCE
+        </a>
+
+        <a href="index.html" class="button secondary">
+          DASHBOARD
+        </a>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <footer class="ticker-footer">
+
+    <p>
+      © 2026 Newell_Gaming. All rights reserved.
+    </p>
+
+    <p>
+      <a href="index.html">NEA28V1</a>
+      &nbsp;•&nbsp;
+      <a href="newsletter.html">Daily Intelligence</a>
+      &nbsp;•&nbsp;
+      <a href="premiumTiers.html">Premium</a>
+      &nbsp;•&nbsp;
+      <a href="contact.html">Contact</a>
+    </p>
+
+    <p class="disclaimer">
+      Educational purposes only.<br>
+      This information is not financial advice, investment advice,
+      or a recommendation to buy or sell any security.<br>
+      Trading involves risk, including possible loss of capital.
+      Past performance does not guarantee future results.
+    </p>
+
+  </footer>
+
+</div>
+
+
+<script src="js/ticker-profile.js"></script>
+
+</body>
+</html>
