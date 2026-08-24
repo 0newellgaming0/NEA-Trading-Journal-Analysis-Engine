@@ -115,32 +115,33 @@
           —
         </p>
 
-        <!-- SIGNAL PUBLICATION METADATA -->
-
-        <div class="publication-meta">
-
-          <span class="metric-label">
-            SIGNAL DETECTED
-          </span>
-
-          <strong id="signalDetectedAt">
-            —
-          </strong>
-
-        </div>
-
       </div>
 
 
+      <!-- SIGNAL STATUS / UPDATED -->
+
       <div class="profile-status">
 
-        <span class="metric-label">
+        <span class="status-label">
+
+          <span class="status-indicator"></span>
+
           STATUS
+
         </span>
 
         <strong id="tickerStatus">
           —
         </strong>
+
+        <span class="status-label signal-updated-label">
+          UPDATED
+        </span>
+
+        <span id="tickerUpdated"
+              class="signal-time">
+          —
+        </span>
 
       </div>
 
@@ -169,6 +170,23 @@
 
 
       <div class="metrics-grid">
+
+        <article class="metric-card">
+
+          <span>
+            CURRENT PRICE
+          </span>
+
+          <strong id="currentPrice">
+            —
+          </strong>
+
+          <p>
+            Current market price associated with the published setup.
+          </p>
+
+        </article>
+
 
         <article class="metric-card">
 
@@ -254,19 +272,270 @@
 
         </article>
 
+      </div>
+
+    </section>
+
+
+    <!-- SIGNAL CLASSIFICATION -->
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-label">
+            SIGNAL CLASSIFICATION
+          </span>
+
+          <h2>
+            Market State
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="metrics-grid">
 
         <article class="metric-card">
 
           <span>
-            TIMEFRAME
+            REGIME
           </span>
 
-          <strong>
-            60M
+          <strong id="tradeRegime">
+            —
           </strong>
 
           <p>
-            Primary published timeframe.
+            Market regime identified by the published trade record.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            TRADE TYPE
+          </span>
+
+          <strong id="tradeType">
+            —
+          </strong>
+
+          <p>
+            Classification of the published trade opportunity.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            SETUP
+          </span>
+
+          <strong id="tradeSetup">
+            —
+          </strong>
+
+          <p>
+            Specific setup that generated the published signal.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONFIDENCE MODEL -->
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-label">
+            CONFIDENCE MODEL
+          </span>
+
+          <h2>
+            Signal Confidence
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="metrics-grid">
+
+        <article class="metric-card">
+
+          <span>
+            CONFIDENCE
+          </span>
+
+          <strong id="tradeConfidence">
+            —
+          </strong>
+
+          <p>
+            Confidence assigned to the current trade setup.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            BASE SCORE
+          </span>
+
+          <strong id="baseScore">
+            —
+          </strong>
+
+          <p>
+            Base score before additional ranking contributions.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            TRADE PROBABILITY
+          </span>
+
+          <strong id="tradeProbability">
+            —
+          </strong>
+
+          <p>
+            Current estimated trade probability.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            PROBABILITY CONFIDENCE
+          </span>
+
+          <strong id="probabilityConfidence">
+            —
+          </strong>
+
+          <p>
+            Confidence classification of the probability model.
+          </p>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- SIGNAL DATABASE SOURCE -->
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-label">
+            SIGNAL DATABASE SOURCE
+          </span>
+
+          <h2>
+            Ranking Contributions
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="metrics-grid">
+
+        <article class="metric-card">
+
+          <span>
+            60 MINUTE CANDIDATES
+          </span>
+
+          <strong id="candidateCount">
+            —
+          </strong>
+
+          <p>
+            Number of 60-minute candidates contributing to the signal.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            FINVIZ CONTRIBUTION
+          </span>
+
+          <strong id="finvizScore">
+            —
+          </strong>
+
+          <p>
+            Finviz contribution to the published ranking.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            WEBULL CONTRIBUTION
+          </span>
+
+          <strong id="webullScore">
+            —
+          </strong>
+
+          <p>
+            Webull contribution to the published ranking.
+          </p>
+
+        </article>
+
+
+        <article class="metric-card">
+
+          <span>
+            CANSLIM CONTRIBUTION
+          </span>
+
+          <strong id="canslimScore">
+            —
+          </strong>
+
+          <p>
+            CANSLIM contribution to the published ranking.
           </p>
 
         </article>
@@ -459,7 +728,7 @@
     </section>
 
 
-    <!-- DESCRIPTION -->
+    <!-- OPPORTUNITY SUMMARY -->
 
     <section class="panel">
 
