@@ -104,21 +104,25 @@ function normalizeTradeData(data) {
     let source;
 
     if (Array.isArray(data)) {
+
         source = data;
 
     } else if (
         data &&
         Array.isArray(data.trades)
     ) {
+
         source = data.trades;
 
     } else if (
         data &&
         Array.isArray(data.data)
     ) {
+
         source = data.data;
 
     } else {
+
         source = [];
     }
 
@@ -138,12 +142,7 @@ function normalizeTrade(trade) {
     }
 
     const ticker =
-        firstValue(
-            trade.ticker,
-            trade.symbol,
-            trade.Ticker,
-            trade.Symbol
-        );
+        trade.ticker;
 
     if (!ticker) {
         return null;
@@ -158,176 +157,51 @@ function normalizeTrade(trade) {
 
         currentPrice:
             numericValue(
-                firstValue(
-                    trade.current_price,
-                    trade.currentPrice,
-                    trade.Current_Price,
-                    trade.CurrentPrice
-                )
+                trade.current_price
             ),
 
         regime:
-            firstValue(
-                trade.regime,
-                trade.Regime
-            ) || "—",
-
-        tradeType:
-            firstValue(
-                trade.trade_type,
-                trade.tradeType,
-                trade.Trade_Type,
-                trade.TradeType
-            ) || "—",
-
-        setup:
-            firstValue(
-                trade.setup,
-                trade.setup_type,
-                trade.Setup
-            ) || "Trade Setup",
+            trade.regime || "—",
 
         direction:
-            firstValue(
-                trade.direction,
-                trade.side,
-                trade.Direction
-            ) || "—",
+            trade.direction || "—",
 
-        status:
-            firstValue(
-                trade.status,
-                trade.Status
-            ) || "—",
-
-        entry:
+        target:
             numericValue(
-                firstValue(
-                    trade.entry,
-                    trade.entry_price,
-                    trade.Entry
-                )
+                trade.target
             ),
 
         stop:
             numericValue(
-                firstValue(
-                    trade.stop,
-                    trade.stop_loss,
-                    trade.Stop
-                )
+                trade.stop
             ),
 
-        target:
+        entry:
             numericValue(
-                firstValue(
-                    trade.target,
-                    trade.target_price,
-                    trade.Target
-                )
+                trade.entry
             ),
 
         riskReward:
             numericValue(
-                firstValue(
-                    trade.risk_reward,
-                    trade.riskReward,
-                    trade.risk_reward_ratio,
-                    trade.Risk_Reward
-                )
+                trade.risk_reward
             ),
 
-        confidence:
-            numericValue(
-                firstValue(
-                    trade.confidence,
-                    trade.Confidence
-                )
-            ),
+        status:
+            trade.status || "—",
+
+        setup:
+            trade.setup || "—",
 
         score:
             numericValue(
-                firstValue(
-                    trade.score,
-                    trade.rank_score,
-                    trade.Score
-                )
-            ),
-
-        baseScore:
-            numericValue(
-                firstValue(
-                    trade.base_score,
-                    trade.baseScore,
-                    trade.Base_Score
-                )
-            ),
-
-        tradeProbability:
-            numericValue(
-                firstValue(
-                    trade.trade_probability,
-                    trade.tradeProbability,
-                    trade.probability,
-                    trade.Trade_Probability
-                )
-            ),
-
-        probabilityConfidence:
-            firstValue(
-                trade.probability_confidence,
-                trade.probabilityConfidence,
-                trade.Probability_Confidence
-            ) || "—",
-
-        candidateCount:
-            numericValue(
-                firstValue(
-                    trade.candidate_count,
-                    trade.candidateCount,
-                    trade.Candidate_Count
-                )
-            ),
-
-        finvizContribution:
-            numericValue(
-                firstValue(
-                    trade.finviz_contribution,
-                    trade.finvizContribution,
-                    trade.finviz_score,
-                    trade.Finviz_Score
-                )
-            ),
-
-        webullContribution:
-            numericValue(
-                firstValue(
-                    trade.webull_contribution,
-                    trade.webullContribution,
-                    trade.webull_score,
-                    trade.Webull_Score
-                )
-            ),
-
-        canslimContribution:
-            numericValue(
-                firstValue(
-                    trade.canslim_contribution,
-                    trade.canslimContribution,
-                    trade.canslim_score,
-                    trade.CANSLIM_Score
-                )
+                trade.score
             ),
 
         updatedAt:
-            firstValue(
-                trade.updated_at,
-                trade.updatedAt,
-                trade.Updated_At,
-                trade.updated
-            ) || null,
+            trade.updated_at || null,
 
-        raw: trade
+        raw:
+            trade
     };
 }
 
@@ -346,18 +220,17 @@ function findTickerTrade(
 
 function renderTickerProfile(trade) {
 
-    const calculatedRR =
-        calculateRiskReward(
-            trade.entry,
-            trade.stop,
-            trade.target,
-            trade.direction
-        );
-
     const rr =
-        Number.isFinite(trade.riskReward)
+        Number.isFinite(
+            trade.riskReward
+        )
             ? trade.riskReward
-            : calculatedRR;
+            : calculateRiskReward(
+                trade.entry,
+                trade.stop,
+                trade.target,
+                trade.direction
+            );
 
     const risk =
         calculateRisk(
@@ -371,6 +244,10 @@ function renderTickerProfile(trade) {
             trade.target
         );
 
+
+    /*
+     * PROFILE HERO
+     */
 
     setText(
         "tickerSymbol",
@@ -386,16 +263,6 @@ function renderTickerProfile(trade) {
         "tickerSetup",
         trade.setup
     );
-
-
-    /*
-     * STATUS / UPDATED
-     *
-     * The profile status area uses the actual
-     * publication timestamp from trades.json.
-     *
-     * "updated_at" is used instead of "detected".
-     */
 
     setText(
         "tickerStatus",
@@ -458,8 +325,48 @@ function renderTickerProfile(trade) {
 
 
     /*
+     * SIGNAL CLASSIFICATION
+     */
+
+    setText(
+        "tradeRegime",
+        trade.regime
+    );
+
+    setText(
+        "tradeSetup",
+        trade.setup
+    );
+
+    setText(
+        "tradeDirection",
+        trade.direction
+    );
+
+    setText(
+        "tradeStatus",
+        trade.status
+    );
+
+
+    /*
      * TRADE ANALYSIS
      */
+
+    setText(
+        "analysisTicker",
+        trade.ticker
+    );
+
+    setText(
+        "analysisRegime",
+        trade.regime
+    );
+
+    setText(
+        "analysisSetup",
+        trade.setup
+    );
 
     setText(
         "analysisDirection",
@@ -471,21 +378,6 @@ function renderTickerProfile(trade) {
         buildDirectionDescription(
             trade
         )
-    );
-
-    setText(
-        "analysisRegime",
-        trade.regime
-    );
-
-    setText(
-        "analysisTradeType",
-        trade.tradeType
-    );
-
-    setText(
-        "analysisSetup",
-        trade.setup
     );
 
     setText(
@@ -502,70 +394,6 @@ function renderTickerProfile(trade) {
 
 
     /*
-     * CONFIDENCE MODEL
-     */
-
-    setText(
-        "confidenceValue",
-        formatNumber(
-            trade.confidence
-        )
-    );
-
-    setText(
-        "baseScore",
-        formatScore(
-            trade.baseScore
-        )
-    );
-
-    setText(
-        "tradeProbability",
-        formatPercent(
-            trade.tradeProbability
-        )
-    );
-
-    setText(
-        "probabilityConfidence",
-        trade.probabilityConfidence
-    );
-
-
-    /*
-     * SIGNAL DATABASE SOURCE
-     */
-
-    setText(
-        "candidateCount",
-        formatNumber(
-            trade.candidateCount
-        )
-    );
-
-    setText(
-        "finvizContribution",
-        formatNumber(
-            trade.finvizContribution
-        )
-    );
-
-    setText(
-        "webullContribution",
-        formatNumber(
-            trade.webullContribution
-        )
-    );
-
-    setText(
-        "canslimContribution",
-        formatNumber(
-            trade.canslimContribution
-        )
-    );
-
-
-    /*
      * RISK FRAMEWORK
      */
 
@@ -577,16 +405,16 @@ function renderTickerProfile(trade) {
     );
 
     setText(
-        "riskAmount",
-        formatPriceDistance(
-            risk
+        "riskStop",
+        formatPrice(
+            trade.stop
         )
     );
 
     setText(
-        "rewardAmount",
-        formatPriceDistance(
-            reward
+        "riskTarget",
+        formatPrice(
+            trade.target
         )
     );
 
@@ -621,7 +449,9 @@ function renderTickerProfile(trade) {
 }
 
 
-function buildDirectionDescription(trade) {
+function buildDirectionDescription(
+    trade
+) {
 
     const direction =
         String(
@@ -693,14 +523,6 @@ function buildOpportunityDescription(
     }
 
 
-    if (trade.tradeType) {
-
-        description +=
-            ` The trade is classified as ` +
-            `${trade.tradeType}.`;
-    }
-
-
     if (Number.isFinite(trade.score)) {
 
         description +=
@@ -709,28 +531,11 @@ function buildOpportunityDescription(
     }
 
 
-    if (Number.isFinite(trade.confidence)) {
-
-        description +=
-            ` Confidence is ` +
-            `${formatNumber(trade.confidence)}.`;
-    }
-
-
-    if (Number.isFinite(trade.tradeProbability)) {
-
-        description +=
-            ` The current trade probability is ` +
-            `${formatPercent(trade.tradeProbability)}.`;
-    }
-
-
     if (Number.isFinite(rr)) {
 
         description +=
-            ` The defined trade structure currently represents ` +
-            `approximately ${formatRiskReward(rr)} of potential ` +
-            `reward relative to defined risk.`;
+            ` The published trade structure has a ` +
+            `${formatRiskReward(rr)} risk/reward ratio.`;
     }
 
 
@@ -875,16 +680,6 @@ function formatPrice(value) {
 }
 
 
-function formatPriceDistance(value) {
-
-    if (!Number.isFinite(value)) {
-        return "—";
-    }
-
-    return `$${value.toFixed(4)}`;
-}
-
-
 function formatScore(value) {
 
     if (!Number.isFinite(value)) {
@@ -894,28 +689,6 @@ function formatScore(value) {
     return Number.isInteger(value)
         ? String(value)
         : value.toFixed(2);
-}
-
-
-function formatNumber(value) {
-
-    if (!Number.isFinite(value)) {
-        return "—";
-    }
-
-    return Number.isInteger(value)
-        ? String(value)
-        : value.toFixed(2);
-}
-
-
-function formatPercent(value) {
-
-    if (!Number.isFinite(value)) {
-        return "—";
-    }
-
-    return `${value.toFixed(2)}%`;
 }
 
 
@@ -969,23 +742,6 @@ function numericValue(value) {
     return Number.isFinite(number)
         ? number
         : NaN;
-}
-
-
-function firstValue(...values) {
-
-    for (const value of values) {
-
-        if (
-            value !== undefined &&
-            value !== null &&
-            value !== ""
-        ) {
-            return value;
-        }
-    }
-
-    return null;
 }
 
 
