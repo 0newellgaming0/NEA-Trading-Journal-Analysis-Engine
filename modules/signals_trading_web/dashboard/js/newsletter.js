@@ -629,6 +629,7 @@ function createTradeCard(
                 </div>
 
                 <div class="trade-ticker">
+
                     <a
                         href="${tickerProfileUrl}"
                         class="ticker-link"
@@ -636,6 +637,7 @@ function createTradeCard(
                     >
                         ${ticker}
                     </a>
+
                 </div>
 
                 <div class="trade-setup">
@@ -715,6 +717,17 @@ function createTradeCard(
                         "STATUS",
                         trade.status
                     )}
+
+                </div>
+
+                <div class="trade-actions">
+
+                    <a
+                        href="${tickerProfileUrl}"
+                        class="ticker-profile-button"
+                    >
+                        VIEW ${ticker} TICKER PROFILE →
+                    </a>
 
                 </div>
 
@@ -812,6 +825,7 @@ function renderStockToWatch(
             <div>
 
                 <div class="watch-ticker">
+
                     <a
                         href="${candidateProfileUrl}"
                         class="ticker-link"
@@ -819,6 +833,7 @@ function renderStockToWatch(
                     >
                         ${candidateTicker}
                     </a>
+
                 </div>
 
                 <div class="watch-setup">
@@ -834,6 +849,7 @@ function renderStockToWatch(
             </div>
 
             <div class="watch-score">
+
                 SCORE
 
                 <strong>
@@ -843,6 +859,7 @@ function renderStockToWatch(
                         )
                     )}
                 </strong>
+
             </div>
 
         </div>
@@ -894,6 +911,17 @@ function renderStockToWatch(
                     )}
                 </strong>
             </div>
+
+        </div>
+
+        <div class="watch-actions">
+
+            <a
+                href="${candidateProfileUrl}"
+                class="ticker-profile-button"
+            >
+                VIEW ${candidateTicker} TICKER PROFILE →
+            </a>
 
         </div>
 
