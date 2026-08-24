@@ -101,7 +101,7 @@ async function loadTradeData() {
 
 function normalizeTradeData(data) {
 
-    let source;
+    let source = [];
 
     if (Array.isArray(data)) {
 
@@ -120,10 +120,6 @@ function normalizeTradeData(data) {
     ) {
 
         source = data.data;
-
-    } else {
-
-        source = [];
     }
 
     return source
@@ -142,7 +138,12 @@ function normalizeTrade(trade) {
     }
 
     const ticker =
-        trade.ticker;
+        firstValue(
+            trade.ticker,
+            trade.symbol,
+            trade.Ticker,
+            trade.Symbol
+        );
 
     if (!ticker) {
         return null;
@@ -155,53 +156,119 @@ function normalizeTrade(trade) {
                 .trim()
                 .toUpperCase(),
 
-        currentPrice:
-            numericValue(
-                trade.current_price
-            ),
+        direction:
+            firstValue(
+                trade.direction,
+                trade.Direction
+            ) || "—",
+
+        setup:
+            firstValue(
+                trade.setup,
+                trade.Setup
+            ) || "—",
 
         regime:
-            trade.regime || "—",
+            firstValue(
+                trade.regime,
+                trade.Regime
+            ) || "—",
 
-        direction:
-            trade.direction || "—",
+        timeframe:
+            firstValue(
+                trade.timeframe,
+                trade.Timeframe
+            ) || "—",
 
-        target:
+        entry:
             numericValue(
-                trade.target
+                firstValue(
+                    trade.entry,
+                    trade.entry_price,
+                    trade.Entry
+                )
             ),
 
         stop:
             numericValue(
-                trade.stop
+                firstValue(
+                    trade.stop,
+                    trade.stop_loss,
+                    trade.Stop
+                )
             ),
 
-        entry:
+        target:
             numericValue(
-                trade.entry
+                firstValue(
+                    trade.target,
+                    trade.target_price,
+                    trade.target1,
+                    trade.Target
+                )
             ),
 
         riskReward:
             numericValue(
-                trade.risk_reward
+                firstValue(
+                    trade.risk_reward,
+                    trade.risk_reward_ratio,
+                    trade.rr,
+                    trade.Risk_Reward
+                )
             ),
-
-        status:
-            trade.status || "—",
-
-        setup:
-            trade.setup || "—",
 
         score:
             numericValue(
-                trade.score
+                firstValue(
+                    trade.score,
+                    trade.Score
+                )
             ),
 
-        updatedAt:
-            trade.updated_at || null,
+        currentPrice:
+            numericValue(
+                firstValue(
+                    trade.current_price,
+                    trade.Current_Price,
+                    trade.currentPrice
+                )
+            ),
 
-        raw:
-            trade
+        status:
+            firstValue(
+                trade.status,
+                trade.Status
+            ) || "—",
+
+        signalStrength:
+            firstValue(
+                trade.signal_strength,
+                trade.strength,
+                trade.Signal_Strength
+            ) || "—",
+
+        confluence:
+            firstValue(
+                trade.confluence,
+                trade.Confluence
+            ) || "—",
+
+        createdAt:
+            firstValue(
+                trade.created_at,
+                trade.entry_time,
+                trade.Created_At
+            ) || null,
+
+        updatedAt:
+            firstValue(
+                trade.updated_at,
+                trade.last_update,
+                trade.Updated_At
+            ) || null,
+
+        raw: trade
     };
 }
 
@@ -264,6 +331,16 @@ function renderTickerProfile(trade) {
         trade.setup
     );
 
+
+    /*
+     * STATUS / UPDATED
+     *
+     * UPDATED comes directly from
+     * trades.json -> updated_at.
+     *
+     * No detected field is used.
+     */
+
     setText(
         "tickerStatus",
         trade.status
@@ -278,7 +355,7 @@ function renderTickerProfile(trade) {
 
 
     /*
-     * PRIMARY TRADE METRICS
+     * CURRENT TRADE STRUCTURE
      */
 
     setText(
@@ -334,39 +411,41 @@ function renderTickerProfile(trade) {
     );
 
     setText(
+        "tradeType",
+        trade.setup
+    );
+
+    setText(
         "tradeSetup",
         trade.setup
     );
 
+
+    /*
+     * SIGNAL DETAILS
+     */
+
     setText(
-        "tradeDirection",
-        trade.direction
+        "tradeTimeframe",
+        trade.timeframe
     );
 
     setText(
-        "tradeStatus",
-        trade.status
+        "tradeSignalStrength",
+        trade.signalStrength
+    );
+
+    setText(
+        "tradeConfluence",
+        formatConfluence(
+            trade.confluence
+        )
     );
 
 
     /*
-     * TRADE ANALYSIS
+     * ANALYSIS
      */
-
-    setText(
-        "analysisTicker",
-        trade.ticker
-    );
-
-    setText(
-        "analysisRegime",
-        trade.regime
-    );
-
-    setText(
-        "analysisSetup",
-        trade.setup
-    );
 
     setText(
         "analysisDirection",
@@ -378,6 +457,21 @@ function renderTickerProfile(trade) {
         buildDirectionDescription(
             trade
         )
+    );
+
+    setText(
+        "analysisRegime",
+        trade.regime
+    );
+
+    setText(
+        "analysisTradeType",
+        trade.setup
+    );
+
+    setText(
+        "analysisSetup",
+        trade.setup
     );
 
     setText(
@@ -405,16 +499,16 @@ function renderTickerProfile(trade) {
     );
 
     setText(
-        "riskStop",
-        formatPrice(
-            trade.stop
+        "riskAmount",
+        formatPriceDistance(
+            risk
         )
     );
 
     setText(
-        "riskTarget",
-        formatPrice(
-            trade.target
+        "rewardAmount",
+        formatPriceDistance(
+            reward
         )
     );
 
@@ -422,6 +516,25 @@ function renderTickerProfile(trade) {
         "riskRatio",
         formatRiskReward(
             rr
+        )
+    );
+
+
+    /*
+     * CREATED / UPDATED
+     */
+
+    setText(
+        "createdAt",
+        formatUpdatedDate(
+            trade.createdAt
+        )
+    );
+
+    setText(
+        "updatedAt",
+        formatUpdatedDate(
+            trade.updatedAt
         )
     );
 
@@ -449,9 +562,7 @@ function renderTickerProfile(trade) {
 }
 
 
-function buildDirectionDescription(
-    trade
-) {
+function buildDirectionDescription(trade) {
 
     const direction =
         String(
@@ -515,11 +626,25 @@ function buildOpportunityDescription(
     }
 
 
-    if (trade.regime) {
+    if (
+        trade.regime &&
+        trade.regime !== "—"
+    ) {
 
         description +=
             ` The current market regime is ` +
             `${trade.regime}.`;
+    }
+
+
+    if (
+        trade.timeframe &&
+        trade.timeframe !== "—"
+    ) {
+
+        description +=
+            ` The published signal timeframe is ` +
+            `${trade.timeframe}.`;
     }
 
 
@@ -531,11 +656,23 @@ function buildOpportunityDescription(
     }
 
 
+    if (
+        trade.signalStrength &&
+        trade.signalStrength !== "—"
+    ) {
+
+        description +=
+            ` Signal strength is ` +
+            `${trade.signalStrength}.`;
+    }
+
+
     if (Number.isFinite(rr)) {
 
         description +=
-            ` The published trade structure has a ` +
-            `${formatRiskReward(rr)} risk/reward ratio.`;
+            ` The defined trade structure currently represents ` +
+            `approximately ${formatRiskReward(rr)} of potential ` +
+            `reward relative to defined risk.`;
     }
 
 
@@ -680,6 +817,16 @@ function formatPrice(value) {
 }
 
 
+function formatPriceDistance(value) {
+
+    if (!Number.isFinite(value)) {
+        return "—";
+    }
+
+    return `$${value.toFixed(4)}`;
+}
+
+
 function formatScore(value) {
 
     if (!Number.isFinite(value)) {
@@ -689,6 +836,41 @@ function formatScore(value) {
     return Number.isInteger(value)
         ? String(value)
         : value.toFixed(2);
+}
+
+
+function formatNumber(value) {
+
+    if (!Number.isFinite(value)) {
+        return "—";
+    }
+
+    return Number.isInteger(value)
+        ? String(value)
+        : value.toFixed(2);
+}
+
+
+function formatConfluence(value) {
+
+    if (
+        value === null ||
+        value === undefined ||
+        value === ""
+    ) {
+        return "—";
+    }
+
+    if (
+        typeof value === "number" &&
+        Number.isFinite(value)
+    ) {
+        return Number.isInteger(value)
+            ? String(value)
+            : value.toFixed(2);
+    }
+
+    return String(value);
 }
 
 
@@ -732,6 +914,14 @@ function numericValue(value) {
         return NaN;
     }
 
+    if (
+        typeof value === "number"
+    ) {
+        return Number.isFinite(value)
+            ? value
+            : NaN;
+    }
+
     const number =
         Number(
             String(value)
@@ -742,6 +932,23 @@ function numericValue(value) {
     return Number.isFinite(number)
         ? number
         : NaN;
+}
+
+
+function firstValue(...values) {
+
+    for (const value of values) {
+
+        if (
+            value !== undefined &&
+            value !== null &&
+            value !== ""
+        ) {
+            return value;
+        }
+    }
+
+    return null;
 }
 
 
