@@ -3,10 +3,14 @@
 const TRADE_DATA_URL = "data/trades.json";
 const TOP_PICK_COUNT = 5;
 
-document.addEventListener("DOMContentLoaded", initializeNewsletter);
+document.addEventListener(
+    "DOMContentLoaded",
+    initializeNewsletter
+);
 
 async function initializeNewsletter() {
     setPublicationDate();
+    initializeBookmarkButton();
 
     try {
         const rawData = await loadTradeData();
@@ -19,12 +23,25 @@ async function initializeNewsletter() {
 
         const rankedTrades = rankTrades(trades);
 
-        renderMarketBias(rawData, rankedTrades);
-        renderMarketSummary(rawData, rankedTrades);
-        renderMarketContext(rankedTrades);
+        renderMarketBias(
+            rawData,
+            rankedTrades
+        );
+
+        renderMarketSummary(
+            rawData,
+            rankedTrades
+        );
+
+        renderMarketContext(
+            rankedTrades
+        );
 
         renderTopPicks(
-            rankedTrades.slice(0, TOP_PICK_COUNT)
+            rankedTrades.slice(
+                0,
+                TOP_PICK_COUNT
+            )
         );
 
         renderStockToWatch(
@@ -32,9 +49,95 @@ async function initializeNewsletter() {
         );
 
     } catch (error) {
-        console.error("NEA28V1 newsletter error:", error);
+        console.error(
+            "NEA28V1 newsletter error:",
+            error
+        );
+
         renderDataError();
     }
+}
+
+
+function initializeBookmarkButton() {
+    const button =
+        document.getElementById(
+            "bookmarkPageButton"
+        );
+
+    if (!button) {
+        return;
+    }
+
+    button.addEventListener(
+        "click",
+        bookmarkCurrentPage
+    );
+}
+
+
+function bookmarkCurrentPage() {
+    const title =
+        document.title ||
+        "NEA28V1 Daily Market Intelligence";
+
+    const url =
+        window.location.href;
+
+    if (
+        window.external &&
+        typeof window.external.AddFavorite === "function"
+    ) {
+        try {
+            window.external.AddFavorite(
+                url,
+                title
+            );
+
+            return;
+
+        } catch (error) {
+            console.warn(
+                "Browser bookmark API unavailable:",
+                error
+            );
+        }
+    }
+
+    showBookmarkInstructions();
+}
+
+
+function showBookmarkInstructions() {
+    const button =
+        document.getElementById(
+            "bookmarkPageButton"
+        );
+
+    if (!button) {
+        return;
+    }
+
+    const originalText =
+        button.textContent;
+
+    button.textContent =
+        "PRESS CTRL+D TO BOOKMARK";
+
+    button.classList.add(
+        "bookmark-active"
+    );
+
+    setTimeout(() => {
+
+        button.textContent =
+            originalText;
+
+        button.classList.remove(
+            "bookmark-active"
+        );
+
+    }, 4000);
 }
 
 
@@ -76,7 +179,10 @@ function normalizeTradeData(data) {
 
 
 function normalizeTrade(trade) {
-    if (!trade || typeof trade !== "object") {
+    if (
+        !trade ||
+        typeof trade !== "object"
+    ) {
         return null;
     }
 
@@ -124,7 +230,8 @@ function normalizeTrade(trade) {
     );
 
     return {
-        ticker: String(ticker).toUpperCase(),
+        ticker:
+            String(ticker).toUpperCase(),
 
         direction: firstValue(
             trade.direction,
@@ -156,27 +263,42 @@ function normalizeTrade(trade) {
 function rankTrades(trades) {
     return [...trades].sort((a, b) => {
 
-        const scoreA = Number.isFinite(a.score)
-            ? a.score
-            : -Infinity;
+        const scoreA =
+            Number.isFinite(a.score)
+                ? a.score
+                : -Infinity;
 
-        const scoreB = Number.isFinite(b.score)
-            ? b.score
-            : -Infinity;
+        const scoreB =
+            Number.isFinite(b.score)
+                ? b.score
+                : -Infinity;
 
         if (scoreB !== scoreA) {
             return scoreB - scoreA;
         }
 
-        return a.ticker.localeCompare(b.ticker);
+        return a.ticker.localeCompare(
+            b.ticker
+        );
     });
 }
 
 
-function renderMarketBias(rawData, trades) {
-    const bias = getMarketBias(rawData, trades);
+function renderMarketBias(
+    rawData,
+    trades
+) {
+    const bias =
+        getMarketBias(
+            rawData,
+            trades
+        );
 
-    setText("marketBias", bias.value);
+    setText(
+        "marketBias",
+        bias.value
+    );
+
     setText(
         "marketBiasDescription",
         bias.description
@@ -187,31 +309,44 @@ function renderMarketBias(rawData, trades) {
         trades.length
     );
 
-    const scores = trades
-        .map(trade => trade.score)
-        .filter(Number.isFinite);
+    const scores =
+        trades
+            .map(
+                trade => trade.score
+            )
+            .filter(
+                Number.isFinite
+            );
 
     if (scores.length) {
         setText(
             "highestScore",
-            formatScore(Math.max(...scores))
+            formatScore(
+                Math.max(...scores)
+            )
         );
     }
 }
 
 
-function getMarketBias(rawData, trades) {
-    const explicitBias = firstValue(
-        rawData.marketBias,
-        rawData.market_bias,
-        rawData.bias,
-        rawData.market?.bias,
-        rawData.market?.marketBias
-    );
+function getMarketBias(
+    rawData,
+    trades
+) {
+    const explicitBias =
+        firstValue(
+            rawData.marketBias,
+            rawData.market_bias,
+            rawData.bias,
+            rawData.market?.bias,
+            rawData.market?.marketBias
+        );
 
     if (explicitBias) {
         return {
-            value: String(explicitBias),
+            value:
+                String(explicitBias),
+
             description:
                 "Current market bias supplied by the NEA28V1 publication dataset."
         };
@@ -223,7 +358,9 @@ function getMarketBias(rawData, trades) {
     trades.forEach(trade => {
 
         const direction =
-            String(trade.direction).toLowerCase();
+            String(
+                trade.direction
+            ).toLowerCase();
 
         if (
             direction.includes("long") ||
@@ -245,6 +382,7 @@ function getMarketBias(rawData, trades) {
     if (longCount > shortCount) {
         return {
             value: "Bullish",
+
             description:
                 `${longCount} bullish opportunities currently exceed ` +
                 `${shortCount} bearish opportunities in the published dataset.`
@@ -254,6 +392,7 @@ function getMarketBias(rawData, trades) {
     if (shortCount > longCount) {
         return {
             value: "Bearish",
+
             description:
                 `${shortCount} bearish opportunities currently exceed ` +
                 `${longCount} bullish opportunities in the published dataset.`
@@ -262,25 +401,31 @@ function getMarketBias(rawData, trades) {
 
     return {
         value: "Neutral",
+
         description:
             "Bullish and bearish qualifying opportunities are currently balanced."
     };
 }
 
 
-function renderMarketSummary(rawData, trades) {
-    const explicitSummary = firstValue(
-        rawData.marketSummary,
-        rawData.market_summary,
-        rawData.summary,
-        rawData.market?.summary
-    );
+function renderMarketSummary(
+    rawData,
+    trades
+) {
+    const explicitSummary =
+        firstValue(
+            rawData.marketSummary,
+            rawData.market_summary,
+            rawData.summary,
+            rawData.market?.summary
+        );
 
     if (explicitSummary) {
         setText(
             "marketSummary",
             explicitSummary
         );
+
         return;
     }
 
@@ -288,7 +433,8 @@ function renderMarketSummary(rawData, trades) {
         return;
     }
 
-    const highest = trades[0];
+    const highest =
+        trades[0];
 
     setText(
         "marketSummary",
@@ -300,23 +446,38 @@ function renderMarketSummary(rawData, trades) {
 }
 
 
-function renderMarketContext(trades) {
-    const longCount = trades.filter(
-        trade => isLong(trade.direction)
-    ).length;
+function renderMarketContext(
+    trades
+) {
+    const longCount =
+        trades.filter(
+            trade =>
+                isLong(
+                    trade.direction
+                )
+        ).length;
 
-    const shortCount = trades.filter(
-        trade => isShort(trade.direction)
-    ).length;
+    const shortCount =
+        trades.filter(
+            trade =>
+                isShort(
+                    trade.direction
+                )
+        ).length;
 
     let directional;
 
     if (longCount > shortCount) {
-        directional = "Bullish-Leaning";
+        directional =
+            "Bullish-Leaning";
+
     } else if (shortCount > longCount) {
-        directional = "Bearish-Leaning";
+        directional =
+            "Bearish-Leaning";
+
     } else {
-        directional = "Balanced";
+        directional =
+            "Balanced";
     }
 
     setText(
@@ -330,20 +491,26 @@ function renderMarketContext(trades) {
         `opportunities are currently represented.`
     );
 
-
     const setupCounts = {};
 
     trades.forEach(trade => {
 
-        const setup = trade.setup || "Unclassified";
+        const setup =
+            trade.setup ||
+            "Unclassified";
 
         setupCounts[setup] =
             (setupCounts[setup] || 0) + 1;
     });
 
     const dominantSetup =
-        Object.entries(setupCounts)
-            .sort((a, b) => b[1] - a[1])[0];
+        Object.entries(
+            setupCounts
+        )
+        .sort(
+            (a, b) =>
+                b[1] - a[1]
+        )[0];
 
     if (dominantSetup) {
 
@@ -359,7 +526,6 @@ function renderMarketContext(trades) {
         );
     }
 
-
     setText(
         "rankingEnvironment",
         "Active"
@@ -370,13 +536,19 @@ function renderMarketContext(trades) {
         "Published opportunities are ordered by available NEA28V1 score."
     );
 
-
-    const structuredCount = trades.filter(
-        trade =>
-            Number.isFinite(trade.entry) &&
-            Number.isFinite(trade.stop) &&
-            Number.isFinite(trade.target)
-    ).length;
+    const structuredCount =
+        trades.filter(
+            trade =>
+                Number.isFinite(
+                    trade.entry
+                ) &&
+                Number.isFinite(
+                    trade.stop
+                ) &&
+                Number.isFinite(
+                    trade.target
+                )
+        ).length;
 
     setText(
         "riskEnvironment",
@@ -391,9 +563,13 @@ function renderMarketContext(trades) {
 }
 
 
-function renderTopPicks(trades) {
+function renderTopPicks(
+    trades
+) {
     const container =
-        document.getElementById("topPicks");
+        document.getElementById(
+            "topPicks"
+        );
 
     if (!container) {
         return;
@@ -404,24 +580,34 @@ function renderTopPicks(trades) {
             `<div class="loading">
                 No qualifying trade opportunities are currently available.
              </div>`;
+
         return;
     }
 
-    container.innerHTML = trades
-        .map((trade, index) =>
-            createTradeCard(trade, index + 1)
-        )
-        .join("");
+    container.innerHTML =
+        trades
+            .map(
+                (trade, index) =>
+                    createTradeCard(
+                        trade,
+                        index + 1
+                    )
+            )
+            .join("");
 }
 
 
-function createTradeCard(trade, rank) {
-    const rr = calculateRiskReward(
-        trade.entry,
-        trade.stop,
-        trade.target,
-        trade.direction
-    );
+function createTradeCard(
+    trade,
+    rank
+) {
+    const rr =
+        calculateRiskReward(
+            trade.entry,
+            trade.stop,
+            trade.target,
+            trade.direction
+        );
 
     return `
         <article class="trade-card">
@@ -450,26 +636,33 @@ function createTradeCard(trade, rank) {
 
                     ${createLevel(
                         "ENTRY",
-                        formatPrice(trade.entry)
+                        formatPrice(
+                            trade.entry
+                        )
                     )}
 
                     ${createLevel(
                         "STOP",
-                        formatPrice(trade.stop)
+                        formatPrice(
+                            trade.stop
+                        )
                     )}
 
                     ${createLevel(
                         "TARGET",
-                        formatPrice(trade.target)
+                        formatPrice(
+                            trade.target
+                        )
                     )}
 
                     ${createLevel(
                         "SCORE",
-                        formatScore(trade.score)
+                        formatScore(
+                            trade.score
+                        )
                     )}
 
                 </div>
-
 
                 <div class="trade-description">
 
@@ -478,11 +671,12 @@ function createTradeCard(trade, rank) {
                     </strong>
 
                     ${escapeHtml(
-                        buildTradeDescription(trade)
+                        buildTradeDescription(
+                            trade
+                        )
                     )}
 
                 </div>
-
 
                 <div class="trade-metrics">
 
@@ -515,51 +709,75 @@ function createTradeCard(trade, rank) {
 }
 
 
-function createLevel(label, value) {
+function createLevel(
+    label,
+    value
+) {
     return `
         <div class="level">
-            <span>${escapeHtml(label)}</span>
-            <strong>${escapeHtml(value)}</strong>
+            <span>
+                ${escapeHtml(label)}
+            </span>
+
+            <strong>
+                ${escapeHtml(value)}
+            </strong>
         </div>
     `;
 }
 
 
-function createMetric(label, value) {
+function createMetric(
+    label,
+    value
+) {
     return `
         <div class="metric">
-            <span>${escapeHtml(label)}</span>
-            <strong>${escapeHtml(value)}</strong>
+            <span>
+                ${escapeHtml(label)}
+            </span>
+
+            <strong>
+                ${escapeHtml(value)}
+            </strong>
         </div>
     `;
 }
 
 
-function renderStockToWatch(trades) {
+function renderStockToWatch(
+    trades
+) {
     const container =
-        document.getElementById("stockToWatch");
+        document.getElementById(
+            "stockToWatch"
+        );
 
     if (!container) {
         return;
     }
 
     const candidate =
-        findStockToWatch(trades);
+        findStockToWatch(
+            trades
+        );
 
     if (!candidate) {
         container.innerHTML =
             `<div class="loading">
                 No developing opportunity is currently available.
              </div>`;
+
         return;
     }
 
-    const rr = calculateRiskReward(
-        candidate.entry,
-        candidate.stop,
-        candidate.target,
-        candidate.direction
-    );
+    const rr =
+        calculateRiskReward(
+            candidate.entry,
+            candidate.stop,
+            candidate.target,
+            candidate.direction
+        );
 
     container.innerHTML = `
 
@@ -568,60 +786,78 @@ function renderStockToWatch(trades) {
             <div>
 
                 <div class="watch-ticker">
-                    ${escapeHtml(candidate.ticker)}
+                    ${escapeHtml(
+                        candidate.ticker
+                    )}
                 </div>
 
                 <div class="watch-setup">
-                    ${escapeHtml(candidate.direction)}
+                    ${escapeHtml(
+                        candidate.direction
+                    )}
                     &bull;
-                    ${escapeHtml(candidate.setup)}
+                    ${escapeHtml(
+                        candidate.setup
+                    )}
                 </div>
 
             </div>
 
             <div class="watch-score">
                 SCORE
+
                 <strong>
                     ${escapeHtml(
-                        formatScore(candidate.score)
+                        formatScore(
+                            candidate.score
+                        )
                     )}
                 </strong>
             </div>
 
         </div>
 
-
         <div class="watch-grid">
 
             <div>
                 <span>ENTRY</span>
+
                 <strong>
                     ${escapeHtml(
-                        formatPrice(candidate.entry)
+                        formatPrice(
+                            candidate.entry
+                        )
                     )}
                 </strong>
             </div>
 
             <div>
                 <span>STOP</span>
+
                 <strong>
                     ${escapeHtml(
-                        formatPrice(candidate.stop)
+                        formatPrice(
+                            candidate.stop
+                        )
                     )}
                 </strong>
             </div>
 
             <div>
                 <span>TARGET</span>
+
                 <strong>
                     ${escapeHtml(
-                        formatPrice(candidate.target)
+                        formatPrice(
+                            candidate.target
+                        )
                     )}
                 </strong>
             </div>
 
             <div>
                 <span>R/R</span>
+
                 <strong>
                     ${escapeHtml(
                         formatRiskReward(rr)
@@ -630,7 +866,6 @@ function renderStockToWatch(trades) {
             </div>
 
         </div>
-
 
         <p>
             This opportunity is being highlighted as a developing
@@ -642,26 +877,29 @@ function renderStockToWatch(trades) {
 }
 
 
-function findStockToWatch(trades) {
-    /*
-     * Prefer a trade outside the primary Top Picks.
-     * This creates a natural distinction between:
-     *
-     * Top Picks = strongest current opportunities
-     * Stock to Watch = developing opportunity
-     */
-
-    if (trades.length <= TOP_PICK_COUNT) {
+function findStockToWatch(
+    trades
+) {
+    if (
+        trades.length <=
+        TOP_PICK_COUNT
+    ) {
         return null;
     }
 
-    return trades[TOP_PICK_COUNT];
+    return trades[
+        TOP_PICK_COUNT
+    ];
 }
 
 
-function buildTradeDescription(trade) {
+function buildTradeDescription(
+    trade
+) {
     const direction =
-        String(trade.direction || "").toLowerCase();
+        String(
+            trade.direction || ""
+        ).toLowerCase();
 
     if (isLong(direction)) {
         return `${trade.ticker} is currently represented as a bullish ` +
@@ -696,14 +934,24 @@ function calculateRiskReward(
     let reward;
 
     if (isShort(direction)) {
-        risk = stop - entry;
-        reward = entry - target;
+        risk =
+            stop - entry;
+
+        reward =
+            entry - target;
+
     } else {
-        risk = entry - stop;
-        reward = target - entry;
+        risk =
+            entry - stop;
+
+        reward =
+            target - entry;
     }
 
-    if (risk <= 0 || reward <= 0) {
+    if (
+        risk <= 0 ||
+        reward <= 0
+    ) {
         return null;
     }
 
@@ -711,9 +959,13 @@ function calculateRiskReward(
 }
 
 
-function isLong(direction) {
+function isLong(
+    direction
+) {
     const value =
-        String(direction || "").toLowerCase();
+        String(
+            direction || ""
+        ).toLowerCase();
 
     return (
         value.includes("long") ||
@@ -723,9 +975,13 @@ function isLong(direction) {
 }
 
 
-function isShort(direction) {
+function isShort(
+    direction
+) {
     const value =
-        String(direction || "").toLowerCase();
+        String(
+            direction || ""
+        ).toLowerCase();
 
     return (
         value.includes("short") ||
@@ -735,7 +991,9 @@ function isShort(direction) {
 }
 
 
-function formatRiskReward(value) {
+function formatRiskReward(
+    value
+) {
     if (!Number.isFinite(value)) {
         return "—";
     }
@@ -744,7 +1002,9 @@ function formatRiskReward(value) {
 }
 
 
-function formatPrice(value) {
+function formatPrice(
+    value
+) {
     if (!Number.isFinite(value)) {
         return "—";
     }
@@ -753,7 +1013,9 @@ function formatPrice(value) {
 }
 
 
-function formatScore(value) {
+function formatScore(
+    value
+) {
     if (!Number.isFinite(value)) {
         return "—";
     }
@@ -764,7 +1026,9 @@ function formatScore(value) {
 }
 
 
-function numericValue(value) {
+function numericValue(
+    value
+) {
     if (
         value === null ||
         value === undefined ||
@@ -776,7 +1040,10 @@ function numericValue(value) {
     const number =
         Number(
             String(value)
-                .replace(/[$,%]/g, "")
+                .replace(
+                    /[$,%]/g,
+                    ""
+                )
                 .trim()
         );
 
@@ -786,9 +1053,12 @@ function numericValue(value) {
 }
 
 
-function firstValue(...values) {
-    for (const value of values) {
-
+function firstValue(
+    ...values
+) {
+    for (
+        const value of values
+    ) {
         if (
             value !== undefined &&
             value !== null &&
@@ -802,7 +1072,10 @@ function firstValue(...values) {
 }
 
 
-function setText(id, value) {
+function setText(
+    id,
+    value
+) {
     const element =
         document.getElementById(id);
 
@@ -815,13 +1088,16 @@ function setText(id, value) {
 
 function setPublicationDate() {
     const element =
-        document.getElementById("publicationDate");
+        document.getElementById(
+            "publicationDate"
+        );
 
     if (!element) {
         return;
     }
 
-    const now = new Date();
+    const now =
+        new Date();
 
     element.textContent =
         now.toLocaleDateString(
@@ -872,7 +1148,9 @@ function renderEmptyState() {
     );
 
     const topPicks =
-        document.getElementById("topPicks");
+        document.getElementById(
+            "topPicks"
+        );
 
     if (topPicks) {
         topPicks.innerHTML =
@@ -882,7 +1160,9 @@ function renderEmptyState() {
     }
 
     const watch =
-        document.getElementById("stockToWatch");
+        document.getElementById(
+            "stockToWatch"
+        );
 
     if (watch) {
         watch.innerHTML =
@@ -895,7 +1175,9 @@ function renderEmptyState() {
 
 function renderDataError() {
     const topPicks =
-        document.getElementById("topPicks");
+        document.getElementById(
+            "topPicks"
+        );
 
     if (topPicks) {
         topPicks.innerHTML =
@@ -905,7 +1187,9 @@ function renderDataError() {
     }
 
     const watch =
-        document.getElementById("stockToWatch");
+        document.getElementById(
+            "stockToWatch"
+        );
 
     if (watch) {
         watch.innerHTML =
@@ -921,11 +1205,30 @@ function renderDataError() {
 }
 
 
-function escapeHtml(value) {
-    return String(value ?? "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+function escapeHtml(
+    value
+) {
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
 }

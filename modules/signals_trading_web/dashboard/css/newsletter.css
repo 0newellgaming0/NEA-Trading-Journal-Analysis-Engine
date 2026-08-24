@@ -56,6 +56,12 @@ a {
   color: inherit;
 }
 
+button,
+input,
+select {
+  font: inherit;
+}
+
 .newsletter-page {
   width: 100%;
   min-height: 100vh;
@@ -112,6 +118,53 @@ a {
 
 .separator {
   color: var(--border-light);
+}
+
+
+/* ============================================================
+   BOOKMARK BUTTON
+   ============================================================ */
+
+.bookmark-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 7px 13px;
+  color: var(--text-soft);
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.bookmark-button:hover {
+  color: var(--text);
+  background: var(--bg-soft);
+  border-color: var(--border-light);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.bookmark-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.bookmark-button.bookmark-active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
 
@@ -689,7 +742,8 @@ main > section {
 .button:hover {
   background: #2286df;
   transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(23, 111, 192, 0.28);
+  box-shadow:
+    0 8px 20px rgba(23, 111, 192, 0.28);
 }
 
 
@@ -838,11 +892,15 @@ main > section {
 
   .publication-meta {
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
   }
 
   .separator {
     display: none;
+  }
+
+  .bookmark-button {
+    margin-top: 5px;
   }
 
   .section-heading {
@@ -920,6 +978,10 @@ main > section {
   }
 
   .button {
+    width: 100%;
+  }
+
+  .bookmark-button {
     width: 100%;
   }
 }
