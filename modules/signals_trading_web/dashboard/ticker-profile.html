@@ -354,6 +354,25 @@
 
     </section>
 
+    <!--
+      ANALYSIS CARDS
+
+      analysis.js dynamically creates:
+
+      <article class="analysis-card">
+        <div class="analysis-card-header">
+          ...
+        </div>
+        <div class="analysis-card-content">
+          ...
+        </div>
+      </article>
+
+      initializeAnalysisCardToggles() in analysis.js attaches
+      the click and keyboard behavior to .analysis-card-header.
+
+      The .is-expanded class controls visibility through CSS.
+    -->
     <section id="analysisSection"
              class="analysis-section hidden">
 
@@ -414,8 +433,14 @@
 
       </div>
 
+      <!--
+        IMPORTANT:
+        analysis.js inserts the .analysis-card elements here.
+        Do not hard-code the cards in this HTML.
+      -->
       <div id="analysisBlocks"
-           class="analysis-grid">
+           class="analysis-grid"
+           aria-live="polite">
       </div>
 
     </section>
@@ -540,8 +565,8 @@
 
 </footer>
 
-<script src="js/ticker-profile.js"></script>
-<script src="js/analysis.js"></script>
+<script src="js/ticker-profile.js" defer></script>
+<script src="js/analysis.js" defer></script>
 
 </body>
 </html>
