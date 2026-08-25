@@ -288,6 +288,7 @@ main {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
+    align-items: start;
 }
 
 .analysis-card {
@@ -297,12 +298,38 @@ main {
     padding: 26px;
 }
 
+.analysis-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 16px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.analysis-card-index {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 25px;
+    border: 1px solid var(--border);
+    background: var(--panel-alt);
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
 .analysis-card h3 {
-    margin: 0 0 18px;
+    min-width: 0;
+    margin: 0;
     color: var(--text);
     font-size: 16px;
     font-weight: 800;
     letter-spacing: 0.04em;
+    overflow-wrap: anywhere;
 }
 
 .analysis-card-content {
@@ -311,6 +338,7 @@ main {
     font-size: 13px;
     line-height: 1.7;
     overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .analysis-card-content p {
@@ -324,36 +352,43 @@ main {
 .analysis-card-content h1,
 .analysis-card-content h2,
 .analysis-card-content h3,
-.analysis-card-content h4 {
+.analysis-card-content h4,
+.analysis-card-content h5,
+.analysis-card-content h6 {
     color: var(--text);
     line-height: 1.35;
 }
 
-.analysis-card-content h1 {
-    margin: 0 0 18px;
+.analysis-card-content h2 {
+    margin: 0 0 16px;
     font-size: 21px;
 }
 
-.analysis-card-content h2 {
+.analysis-card-content h3 {
     margin: 22px 0 12px;
     font-size: 17px;
 }
 
-.analysis-card-content h3 {
+.analysis-card-content h4 {
     margin: 18px 0 10px;
     font-size: 15px;
 }
 
-.analysis-card-content h4 {
+.analysis-card-content h5,
+.analysis-card-content h6 {
     margin: 16px 0 8px;
     font-size: 13px;
+}
+
+.analysis-report-heading {
+    padding-top: 4px;
 }
 
 .analysis-data {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
-    margin-top: 14px;
+    margin: 14px 0;
 }
 
 .analysis-data-item {
@@ -370,6 +405,7 @@ main {
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+    overflow-wrap: anywhere;
 }
 
 .analysis-data-item strong {
@@ -377,23 +413,52 @@ main {
     margin-top: 5px;
     color: var(--text);
     font-size: 13px;
+    line-height: 1.5;
     overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+.analysis-object {
+    grid-template-columns: 1fr;
+}
+
+.analysis-object-item {
+    width: 100%;
+}
+
+.analysis-nested {
+    margin-top: 10px;
 }
 
 .analysis-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin: 12px 0;
 }
 
 .analysis-list-item {
+    min-width: 0;
     padding: 14px;
     border: 1px solid var(--border);
     background: var(--panel-alt);
 }
 
-.analysis-list-item .analysis-data {
+.analysis-list-index {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--accent);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.analysis-list-item > .analysis-data:first-of-type {
     margin-top: 0;
+}
+
+.analysis-embedded-json {
+    margin: 16px 0;
 }
 
 .analysis-status {
@@ -417,6 +482,62 @@ main {
 .analysis-status.clear {
     border-color: var(--positive);
     color: var(--positive);
+}
+
+/* SOURCE REPORT */
+
+.analysis-source {
+    margin-top: 22px;
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+}
+
+.analysis-source summary {
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    list-style: none;
+}
+
+.analysis-source summary::-webkit-details-marker {
+    display: none;
+}
+
+.analysis-source summary::before {
+    content: "+ ";
+    color: var(--accent);
+}
+
+.analysis-source[open] summary::before {
+    content: "− ";
+}
+
+.analysis-source pre {
+    margin: 14px 0 0;
+    padding: 16px;
+    max-height: 650px;
+    overflow: auto;
+    border: 1px solid var(--border);
+    background: #090d12;
+    color: var(--muted);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 11px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* EMPTY ANALYSIS */
+
+.analysis-empty {
+    margin: 50px 0;
+    padding: 28px;
+    border: 1px solid var(--border);
+    background: var(--panel);
+    color: var(--muted);
+    font-size: 13px;
 }
 
 /* PREMIUM */
@@ -582,5 +703,13 @@ main {
 
     .analysis-meta {
         grid-template-columns: 1fr;
+    }
+
+    .analysis-data {
+        grid-template-columns: 1fr;
+    }
+
+    .analysis-source pre {
+        font-size: 10px;
     }
 }

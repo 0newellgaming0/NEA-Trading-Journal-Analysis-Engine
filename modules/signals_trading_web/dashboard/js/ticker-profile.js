@@ -8,7 +8,6 @@ document.addEventListener(
     initializeTickerProfile
 );
 
-
 async function initializeTickerProfile() {
 
     showLoading();
@@ -71,7 +70,6 @@ async function initializeTickerProfile() {
     }
 }
 
-
 function getRequestedTicker() {
 
     const params =
@@ -90,7 +88,6 @@ function getRequestedTicker() {
         .trim()
         .toUpperCase();
 }
-
 
 async function loadTradeData() {
 
@@ -111,7 +108,6 @@ async function loadTradeData() {
 
     return await response.json();
 }
-
 
 async function loadAnalysisData(ticker) {
 
@@ -159,7 +155,6 @@ async function loadAnalysisData(ticker) {
     return data;
 }
 
-
 function normalizeTradeData(data) {
 
     let source = [];
@@ -187,7 +182,6 @@ function normalizeTradeData(data) {
         .map(normalizeTrade)
         .filter(Boolean);
 }
-
 
 function normalizeTrade(trade) {
 
@@ -286,7 +280,6 @@ function normalizeTrade(trade) {
     };
 }
 
-
 function findTickerTrade(
     trades,
     ticker
@@ -297,7 +290,6 @@ function findTickerTrade(
             trade.ticker === ticker
     );
 }
-
 
 function renderTickerProfile(
     trade,
@@ -421,7 +413,6 @@ function renderTickerProfile(
     showProfile();
 }
 
-
 function renderAnalysis(analysis) {
 
     const section =
@@ -434,6 +425,11 @@ function renderAnalysis(analysis) {
             "analysisBlocks"
         );
 
+    const emptyState =
+        document.getElementById(
+            "analysisEmpty"
+        );
+
     if (
         !section ||
         !container
@@ -443,18 +439,23 @@ function renderAnalysis(analysis) {
 
     container.innerHTML = "";
 
+    if (emptyState) {
+        emptyState.classList.add("hidden");
+    }
+
     if (
         !analysis ||
         !analysis.analysis_blocks ||
         typeof analysis.analysis_blocks !== "object"
     ) {
-        section.classList.add(
-            "hidden"
-        );
 
-        renderAnalysisMetadata(
-            null
-        );
+        section.classList.add("hidden");
+
+        if (emptyState) {
+            emptyState.classList.remove("hidden");
+        }
+
+        renderAnalysisMetadata(null);
 
         return;
     }
@@ -467,9 +468,11 @@ function renderAnalysis(analysis) {
 
     if (!keys.length) {
 
-        section.classList.add(
-            "hidden"
-        );
+        section.classList.add("hidden");
+
+        if (emptyState) {
+            emptyState.classList.remove("hidden");
+        }
 
         renderAnalysisMetadata(
             analysis
@@ -478,16 +481,20 @@ function renderAnalysis(analysis) {
         return;
     }
 
+    let renderedCount = 0;
+
     keys.forEach(
-        key => {
+        (
+            key,
+            index
+        ) => {
 
             const value =
                 blocks[key];
 
             if (
                 value === null ||
-                value === undefined ||
-                value === ""
+                value === undefined
             ) {
                 return;
             }
@@ -500,6 +507,34 @@ function renderAnalysis(analysis) {
             card.className =
                 "analysis-card";
 
+            card.dataset.analysisKey =
+                key;
+
+            card.dataset.analysisIndex =
+                String(index + 1);
+
+            const header =
+                document.createElement(
+                    "div"
+                );
+
+            header.className =
+                "analysis-card-header";
+
+            const indexLabel =
+                document.createElement(
+                    "span"
+                );
+
+            indexLabel.className =
+                "analysis-card-index";
+
+            indexLabel.textContent =
+                String(index + 1).padStart(
+                    2,
+                    "0"
+                );
+
             const title =
                 document.createElement(
                     "h3"
@@ -509,6 +544,14 @@ function renderAnalysis(analysis) {
                 formatAnalysisTitle(
                     key
                 );
+
+            header.appendChild(
+                indexLabel
+            );
+
+            header.appendChild(
+                title
+            );
 
             const content =
                 document.createElement(
@@ -523,44 +566,97 @@ function renderAnalysis(analysis) {
                 value
             );
 
+            const source =
+                createSourceReport(
+                    value
+                );
+
             card.appendChild(
-                title
+                header
             );
 
             card.appendChild(
                 content
             );
 
+            if (source) {
+                card.appendChild(
+                    source
+                );
+            }
+
             container.appendChild(
                 card
             );
+
+            renderedCount += 1;
         }
     );
-
-    if (
-        container.children.length === 0
-    ) {
-
-        section.classList.add(
-            "hidden"
-        );
-
-        renderAnalysisMetadata(
-            analysis
-        );
-
-        return;
-    }
 
     renderAnalysisMetadata(
         analysis
     );
+
+    if (!renderedCount) {
+
+        section.classList.add("hidden");
+
+        if (emptyState) {
+            emptyState.classList.remove("hidden");
+        }
+
+        return;
+    }
 
     section.classList.remove(
         "hidden"
     );
 }
 
+function createSourceReport(value) {
+
+    if (
+        typeof value !== "string" ||
+        !value.trim()
+    ) {
+        return null;
+    }
+
+    const details =
+        document.createElement(
+            "details"
+        );
+
+    details.className =
+        "analysis-source"
+        ;
+
+    const summary =
+        document.createElement(
+            "summary"
+        );
+
+    summary.textContent =
+        "SOURCE REPORT";
+
+    const pre =
+        document.createElement(
+            "pre"
+        );
+
+    pre.textContent =
+        value;
+
+    details.appendChild(
+        summary
+    );
+
+    details.appendChild(
+        pre
+    );
+
+    return details;
+}
 
 function renderAnalysisMetadata(
     analysis
@@ -569,6 +665,11 @@ function renderAnalysisMetadata(
     const generatedAt =
         document.getElementById(
             "analysisGeneratedAt"
+        );
+
+    const generatedAtMeta =
+        document.getElementById(
+            "analysisGeneratedAtMeta"
         );
 
     const journalTimestamp =
@@ -581,52 +682,92 @@ function renderAnalysisMetadata(
             "analysisStopBreached"
         );
 
-    if (generatedAt) {
+    const riskSection =
+        document.getElementById(
+            "analysisRiskSection"
+        );
 
-        generatedAt.textContent =
+    const stopBreachStatus =
+        document.getElementById(
+            "stopBreachStatus"
+        );
+
+    const generated =
+        analysis &&
+        analysis.generated_at
+            ? formatTimestamp(
+                analysis.generated_at
+            )
+            : "—";
+
+    const journal =
+        analysis &&
+        analysis.journal_timestamp
+            ? formatTimestamp(
+                analysis.journal_timestamp
+            )
+            : "—";
+
+    const breached =
+        Boolean(
             analysis &&
-            analysis.generated_at
-                ? formatTimestamp(
-                    analysis.generated_at
-                )
-                : "—";
+            analysis.stop_breached === true
+        );
+
+    if (generatedAt) {
+        generatedAt.textContent =
+            generated;
+    }
+
+    if (generatedAtMeta) {
+        generatedAtMeta.textContent =
+            generated;
     }
 
     if (journalTimestamp) {
-
         journalTimestamp.textContent =
-            analysis &&
-            analysis.journal_timestamp
-                ? formatTimestamp(
-                    analysis.journal_timestamp
-                )
-                : "—";
+            journal;
     }
 
     if (stopBreached) {
 
-        if (
-            analysis &&
-            analysis.stop_breached === true
-        ) {
+        stopBreached.textContent =
+            breached
+                ? "STOP BREACHED"
+                : "STOP NOT BREACHED";
 
-            stopBreached.textContent =
-                "STOP BREACHED";
+        stopBreached.className =
+            breached
+                ? "analysis-status breached"
+                : "analysis-status clear";
+    }
 
-            stopBreached.className =
-                "analysis-status breached";
+    if (stopBreachStatus) {
 
+        stopBreachStatus.textContent =
+            breached
+                ? "STOP STATUS: STOP BREACHED"
+                : "STOP STATUS: STOP NOT BREACHED";
+
+        stopBreachStatus.className =
+            breached
+                ? "analysis-status breached"
+                : "analysis-status clear";
+    }
+
+    if (riskSection) {
+
+        if (analysis) {
+            riskSection.classList.remove(
+                "hidden"
+            );
         } else {
-
-            stopBreached.textContent =
-                "STOP NOT BREACHED";
-
-            stopBreached.className =
-                "analysis-status clear";
+            riskSection.classList.add(
+                "hidden"
+            );
         }
     }
 }
-
 
 function renderAnalysisValue(
     container,
@@ -645,9 +786,7 @@ function renderAnalysisValue(
         return;
     }
 
-    if (
-        Array.isArray(value)
-    ) {
+    if (Array.isArray(value)) {
 
         renderAnalysisArray(
             container,
@@ -676,13 +815,14 @@ function renderAnalysisValue(
         );
 
     paragraph.textContent =
-        String(value);
+        formatAnalysisScalar(
+            value
+        );
 
     container.appendChild(
         paragraph
     );
 }
-
 
 function renderAnalysisText(
     container,
@@ -701,18 +841,78 @@ function renderAnalysisText(
         return;
     }
 
-    const lines =
-        normalized.split(
-            "\n"
+    const embeddedJson =
+        extractEmbeddedJson(
+            normalized
         );
 
-    let currentParagraph = [];
+    if (embeddedJson) {
+
+        const before =
+            normalized.slice(
+                0,
+                embeddedJson.start
+            ).trim();
+
+        const after =
+            normalized.slice(
+                embeddedJson.end
+            ).trim();
+
+        if (before) {
+            renderAnalysisReportText(
+                container,
+                before
+            );
+        }
+
+        const jsonContainer =
+            document.createElement(
+                "div"
+            );
+
+        jsonContainer.className =
+            "analysis-embedded-json";
+
+        renderAnalysisValue(
+            jsonContainer,
+            embeddedJson.value
+        );
+
+        container.appendChild(
+            jsonContainer
+        );
+
+        if (after) {
+            renderAnalysisReportText(
+                container,
+                after
+            );
+        }
+
+        return;
+    }
+
+    renderAnalysisReportText(
+        container,
+        normalized
+    );
+}
+
+function renderAnalysisReportText(
+    container,
+    text
+) {
+
+    const lines =
+        text.split("\n");
+
+    let paragraphLines = [];
+    let fieldRows = [];
 
     function flushParagraph() {
 
-        if (
-            !currentParagraph.length
-        ) {
+        if (!paragraphLines.length) {
             return;
         }
 
@@ -722,15 +922,84 @@ function renderAnalysisText(
             );
 
         paragraph.textContent =
-            currentParagraph.join(
-                " "
-            ).trim();
+            paragraphLines
+                .join(" ")
+                .trim();
 
         container.appendChild(
             paragraph
         );
 
-        currentParagraph = [];
+        paragraphLines = [];
+    }
+
+    function flushFields() {
+
+        if (!fieldRows.length) {
+            return;
+        }
+
+        const fields =
+            document.createElement(
+                "div"
+            );
+
+        fields.className =
+            "analysis-data";
+
+        fieldRows.forEach(
+            row => {
+
+                const item =
+                    document.createElement(
+                        "div"
+                    );
+
+                item.className =
+                    "analysis-data-item";
+
+                const label =
+                    document.createElement(
+                        "span"
+                    );
+
+                label.textContent =
+                    formatAnalysisTitle(
+                        row.key
+                    );
+
+                const output =
+                    document.createElement(
+                        "strong"
+                    );
+
+                output.textContent =
+                    row.value;
+
+                item.appendChild(
+                    label
+                );
+
+                item.appendChild(
+                    output
+                );
+
+                fields.appendChild(
+                    item
+                );
+            }
+        );
+
+        container.appendChild(
+            fields
+        );
+
+        fieldRows = [];
+    }
+
+    function flushAll() {
+        flushParagraph();
+        flushFields();
     }
 
     lines.forEach(
@@ -741,23 +1010,25 @@ function renderAnalysisText(
 
             if (!trimmed) {
 
-                flushParagraph();
+                flushAll();
 
                 return;
             }
 
-            if (
-                /^#{1,4}\s+/.test(
-                    trimmed
-                )
-            ) {
+            const headingMatch =
+                trimmed.match(
+                    /^(#{1,6})\s+(.+)$/
+                );
 
-                flushParagraph();
+            if (headingMatch) {
+
+                flushAll();
 
                 const level =
-                    trimmed.match(
-                        /^(#{1,4})/
-                    )[1].length;
+                    Math.min(
+                        headingMatch[1].length + 1,
+                        6
+                    );
 
                 const heading =
                     document.createElement(
@@ -765,12 +1036,11 @@ function renderAnalysisText(
                     );
 
                 heading.textContent =
-                    trimmed
-                        .replace(
-                            /^#{1,4}\s+/,
-                            ""
-                        )
+                    headingMatch[2]
                         .trim();
+
+                heading.className =
+                    "analysis-report-heading";
 
                 container.appendChild(
                     heading
@@ -779,15 +1049,213 @@ function renderAnalysisText(
                 return;
             }
 
-            currentParagraph.push(
+            const fieldMatch =
+                trimmed.match(
+                    /^([^:]{1,120}):\s*(.+)$/
+                );
+
+            if (
+                fieldMatch &&
+                !trimmed.startsWith(
+                    "http:"
+                ) &&
+                !trimmed.startsWith(
+                    "https:"
+                )
+            ) {
+
+                flushParagraph();
+
+                fieldRows.push({
+                    key:
+                        fieldMatch[1]
+                            .trim(),
+
+                    value:
+                        fieldMatch[2]
+                            .trim()
+                });
+
+                return;
+            }
+
+            if (
+                fieldRows.length &&
+                !trimmed.includes(":")
+            ) {
+
+                fieldRows[
+                    fieldRows.length - 1
+                ].value +=
+                    ` ${trimmed}`;
+
+                return;
+            }
+
+            flushFields();
+
+            paragraphLines.push(
                 trimmed
             );
         }
     );
 
-    flushParagraph();
+    flushAll();
 }
 
+function extractEmbeddedJson(
+    text
+) {
+
+    const firstBrace =
+        text.search(
+            /[\[{]/
+        );
+
+    if (firstBrace < 0) {
+        return null;
+    }
+
+    const candidate =
+        text.slice(
+            firstBrace
+        );
+
+    const parsed =
+        parseJsonPrefix(
+            candidate
+        );
+
+    if (!parsed) {
+        return null;
+    }
+
+    return {
+        start:
+            firstBrace,
+
+        end:
+            firstBrace +
+            parsed.length,
+
+        value:
+            parsed.value
+    };
+}
+
+function parseJsonPrefix(
+    text
+) {
+
+    const first =
+        text[0];
+
+    if (
+        first !== "{" &&
+        first !== "["
+    ) {
+        return null;
+    }
+
+    let depth = 0;
+    let inString = false;
+    let escaped = false;
+
+    for (
+        let i = 0;
+        i < text.length;
+        i += 1
+    ) {
+
+        const character =
+            text[i];
+
+        if (inString) {
+
+            if (escaped) {
+
+                escaped = false;
+
+                continue;
+            }
+
+            if (
+                character === "\\"
+            ) {
+
+                escaped = true;
+
+                continue;
+            }
+
+            if (
+                character === "\""
+            ) {
+
+                inString = false;
+            }
+
+            continue;
+        }
+
+        if (
+            character === "\""
+        ) {
+
+            inString = true;
+
+            continue;
+        }
+
+        if (
+            character === "{" ||
+            character === "["
+        ) {
+
+            depth += 1;
+
+            continue;
+        }
+
+        if (
+            character === "}" ||
+            character === "]"
+        ) {
+
+            depth -= 1;
+
+            if (depth === 0) {
+
+                const candidate =
+                    text.slice(
+                        0,
+                        i + 1
+                    );
+
+                try {
+
+                    return {
+                        value:
+                            JSON.parse(
+                                candidate
+                            ),
+
+                        length:
+                            i + 1
+                    };
+
+                } catch (
+                    error
+                ) {
+
+                    return null;
+                }
+            }
+        }
+    }
+
+    return null;
+}
 
 function renderAnalysisArray(
     container,
@@ -807,7 +1275,10 @@ function renderAnalysisArray(
         "analysis-list";
 
     items.forEach(
-        item => {
+        (
+            item,
+            index
+        ) => {
 
             const itemElement =
                 document.createElement(
@@ -816,6 +1287,21 @@ function renderAnalysisArray(
 
             itemElement.className =
                 "analysis-list-item";
+
+            const indexLabel =
+                document.createElement(
+                    "span"
+                );
+
+            indexLabel.className =
+                "analysis-list-index";
+
+            indexLabel.textContent =
+                `ITEM ${index + 1}`;
+
+            itemElement.appendChild(
+                indexLabel
+            );
 
             renderAnalysisValue(
                 itemElement,
@@ -833,7 +1319,6 @@ function renderAnalysisArray(
     );
 }
 
-
 function renderAnalysisObject(
     container,
     object
@@ -845,12 +1330,14 @@ function renderAnalysisObject(
         );
 
     data.className =
-        "analysis-data";
+        "analysis-data analysis-object";
 
     Object.entries(
         object
     ).forEach(
-        ([key, value]) => {
+        (
+            [key, value]
+        ) => {
 
             const item =
                 document.createElement(
@@ -858,7 +1345,7 @@ function renderAnalysisObject(
                 );
 
             item.className =
-                "analysis-data-item";
+                "analysis-data-item analysis-object-item";
 
             const label =
                 document.createElement(
@@ -870,36 +1357,48 @@ function renderAnalysisObject(
                     key
                 );
 
-            const output =
-                document.createElement(
-                    "strong"
-                );
+            item.appendChild(
+                label
+            );
 
             if (
                 value &&
                 typeof value === "object"
             ) {
 
+                const nested =
+                    document.createElement(
+                        "div"
+                    );
+
+                nested.className =
+                    "analysis-nested";
+
                 renderAnalysisValue(
-                    output,
+                    nested,
                     value
                 );
 
+                item.appendChild(
+                    nested
+                );
+
             } else {
+
+                const output =
+                    document.createElement(
+                        "strong"
+                    );
 
                 output.textContent =
                     formatAnalysisScalar(
                         value
                     );
+
+                item.appendChild(
+                    output
+                );
             }
-
-            item.appendChild(
-                label
-            );
-
-            item.appendChild(
-                output
-            );
 
             data.appendChild(
                 item
@@ -911,7 +1410,6 @@ function renderAnalysisObject(
         data
     );
 }
-
 
 function formatAnalysisScalar(
     value
@@ -933,9 +1431,23 @@ function formatAnalysisScalar(
             : "No";
     }
 
+    if (
+        typeof value === "number"
+    ) {
+
+        if (
+            !Number.isFinite(
+                value
+            )
+        ) {
+            return "—";
+        }
+
+        return String(value);
+    }
+
     return String(value);
 }
-
 
 function formatAnalysisTitle(
     key
@@ -943,16 +1455,20 @@ function formatAnalysisTitle(
 
     return String(key)
         .replace(
-            /_/g,
+            /[_-]+/g,
             " "
         )
+        .replace(
+            /\s+/g,
+            " "
+        )
+        .trim()
         .replace(
             /\b\w/g,
             character =>
                 character.toUpperCase()
         );
 }
-
 
 function buildOpportunityDescription(
     trade
@@ -1009,7 +1525,6 @@ function buildOpportunityDescription(
     return description;
 }
 
-
 function numericValue(value) {
 
     if (
@@ -1031,7 +1546,10 @@ function numericValue(value) {
     const number =
         Number(
             String(value)
-                .replace(/[$,%]/g, "")
+                .replace(
+                    /[$,%]/g,
+                    ""
+                )
                 .trim()
         );
 
@@ -1039,7 +1557,6 @@ function numericValue(value) {
         ? number
         : NaN;
 }
-
 
 function displayValue(value) {
 
@@ -1054,7 +1571,6 @@ function displayValue(value) {
     return String(value);
 }
 
-
 function formatPrice(value) {
 
     if (!Number.isFinite(value)) {
@@ -1064,7 +1580,6 @@ function formatPrice(value) {
     return `$${value.toFixed(4)}`;
 }
 
-
 function formatRiskReward(value) {
 
     if (!Number.isFinite(value)) {
@@ -1073,7 +1588,6 @@ function formatRiskReward(value) {
 
     return `${value.toFixed(2)}R`;
 }
-
 
 function formatScore(value) {
 
@@ -1085,7 +1599,6 @@ function formatScore(value) {
         ? String(value)
         : value.toFixed(2);
 }
-
 
 function formatConfluence(value) {
 
@@ -1108,7 +1621,6 @@ function formatConfluence(value) {
 
     return String(value);
 }
-
 
 function formatTimestamp(value) {
 
@@ -1143,7 +1655,6 @@ function formatTimestamp(value) {
     );
 }
 
-
 function setText(
     id,
     value
@@ -1167,7 +1678,6 @@ function setText(
         value ?? "—";
 }
 
-
 function showLoading() {
 
     const element =
@@ -1182,7 +1692,6 @@ function showLoading() {
         );
     }
 }
-
 
 function hideLoading() {
 
@@ -1199,7 +1708,6 @@ function hideLoading() {
     }
 }
 
-
 function showProfile() {
 
     const element =
@@ -1215,7 +1723,6 @@ function showProfile() {
     }
 }
 
-
 function hideProfile() {
 
     const element =
@@ -1230,7 +1737,6 @@ function hideProfile() {
         );
     }
 }
-
 
 function showError(message) {
 
@@ -1260,7 +1766,6 @@ function showError(message) {
         );
     }
 }
-
 
 function hideError() {
 
