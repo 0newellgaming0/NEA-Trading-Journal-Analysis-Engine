@@ -9,8 +9,10 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from modules.path_resolver import get_trades_db_path
+
 from .database_reader import DatabaseReader
 from .public_schema import sanitize_trade
+from .validator import validate_data
 
 
 class PublicationEngine:
@@ -28,14 +30,6 @@ class PublicationEngine:
             self.trades_db_path
         )
 
-        self.analysis_source = (
-            ROOT
-            / "modules"
-            / "signals_trading_web"
-            / "data"
-            / "analysis_latest.json"
-        )
-
     def _write(self, filename, payload):
         path = self.output_dir / filename
 
@@ -50,63 +44,98 @@ class PublicationEngine:
 
         return path
 
-    def _publish_analysis_latest(self):
-        """
-        Publish the already-generated authoritative
-        analysis_latest.json dataset.
-
-        The signal analysis engine is responsible for
-        generating this file.
-
-        The publication engine only validates and publishes
-        the existing dataset. It does not regenerate analysis.
-        """
-
-        source = self.analysis_source
-        destination = (
-            self.output_dir
-            / "analysis_latest.json"
+    def _validate_existing_analysis(self):
+        path = (
+            self.output_dir /
+            "analysis_latest.json"
         )
 
-        if not source.exists():
-            return None
+        if not path.exists():
+            raise FileNotFoundError(
+                "analysis_latest.json: "
+                "file not found"
+            )
 
         try:
             payload = json.loads(
-                source.read_text(
+                path.read_text(
                     encoding="utf-8"
                 )
             )
-
-        except (
-            json.JSONDecodeError,
-            OSError
-        ):
-            return None
+        except json.JSONDecodeError as exc:
+            raise ValueError(
+                "analysis_latest.json: "
+                f"invalid JSON: {exc}"
+            ) from exc
 
         if not isinstance(
             payload,
             dict
         ):
-            return None
+            raise ValueError(
+                "analysis_latest.json: "
+                "root payload must be an object"
+            )
 
-        tickers = payload.get(
+        required = (
+            "schema_version",
+            "generated_at",
             "tickers",
-            {}
         )
+
+        missing = [
+            key
+            for key in required
+            if key not in payload
+        ]
+
+        if missing:
+            raise ValueError(
+                "analysis_latest.json: "
+                f"missing {missing}"
+            )
 
         if not isinstance(
-            tickers,
+            payload["tickers"],
             dict
         ):
-            return None
+            raise ValueError(
+                "analysis_latest.json: "
+                "tickers must be an object"
+            )
 
-        self._write(
-            "analysis_latest.json",
-            payload
-        )
+        for ticker, analysis in (
+            payload["tickers"].items()
+        ):
+            if not isinstance(
+                analysis,
+                dict
+            ):
+                raise ValueError(
+                    "analysis_latest.json: "
+                    f"ticker {ticker} must contain "
+                    "an object"
+                )
 
-        return destination
+            if "analysis_blocks" not in analysis:
+                raise ValueError(
+                    "analysis_latest.json: "
+                    f"ticker {ticker} is missing "
+                    "'analysis_blocks'"
+                )
+
+            if not isinstance(
+                analysis["analysis_blocks"],
+                dict
+            ):
+                raise ValueError(
+                    "analysis_latest.json: "
+                    f"ticker {ticker} "
+                    "'analysis_blocks' must be "
+                    "an object"
+                )
+
+        return path
 
     def publish(self):
         now = datetime.now(
@@ -135,10 +164,7 @@ class PublicationEngine:
             trade
             for trade in trades
             if str(
-                trade.get(
-                    "status",
-                    ""
-                )
+                trade.get("status", "")
             ).upper() == "CLOSED"
         ]
 
@@ -146,9 +172,7 @@ class PublicationEngine:
             trade
             for trade in closed
             if float(
-                trade.get(
-                    "gain_percent"
-                ) or 0
+                trade.get("gain_percent") or 0
             ) > 0
         ]
 
@@ -156,17 +180,15 @@ class PublicationEngine:
             trade
             for trade in closed
             if float(
-                trade.get(
-                    "gain_percent"
-                ) or 0
+                trade.get("gain_percent") or 0
             ) < 0
         ]
 
         win_rate = (
             round(
-                len(wins)
-                / len(closed)
-                * 100,
+                len(wins) /
+                len(closed) *
+                100,
                 2
             )
             if closed
@@ -199,25 +221,10 @@ class PublicationEngine:
             }
         )
 
-        analysis_path = (
-            self._publish_analysis_latest()
+        self._validate_existing_analysis()
+
+        validate_data(
+            self.output_dir
         )
 
-        return {
-            "output_dir": self.output_dir,
-            "trades_path": (
-                self.output_dir
-                / "trades.json"
-            ),
-            "performance_path": (
-                self.output_dir
-                / "performance.json"
-            ),
-            "market_path": (
-                self.output_dir
-                / "market.json"
-            ),
-            "analysis_latest_path": (
-                analysis_path
-            )
-        }
+        return self.output_dir

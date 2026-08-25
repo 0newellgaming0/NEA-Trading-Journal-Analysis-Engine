@@ -15,13 +15,17 @@ async function initializeAnalysis() {
     if (!ticker) {
 
         renderAnalysisFailure(
-            "NO TICKER SPECIFIED",
-            "The analysis page was loaded without a ticker parameter.",
+            "NO TICKER REQUESTED",
+            "The page URL does not contain a ticker parameter.",
             "Expected URL format: ticker-profile.html?ticker=BCAB"
         );
 
         return;
     }
+
+    showAnalysisLoading(
+        ticker
+    );
 
     try {
 
@@ -30,23 +34,8 @@ async function initializeAnalysis() {
                 ticker
             );
 
-        if (
-            result &&
-            result.type === "success"
-        ) {
-
-            renderAnalysis(
-                result.analysis,
-                ticker,
-                result.data
-            );
-
-            return;
-        }
-
-        renderAnalysisLoadDiagnostic(
-            result,
-            ticker
+        renderAnalysis(
+            result
         );
 
     } catch (error) {
@@ -59,9 +48,7 @@ async function initializeAnalysis() {
         renderAnalysisFailure(
             "ANALYSIS LOAD FAILURE",
             `Unable to load analysis data for ${ticker}.`,
-            error instanceof Error
-                ? error.message
-                : String(error)
+            error.message
         );
     }
 }
@@ -92,7 +79,7 @@ async function loadAnalysisData(
     ticker
 ) {
 
-    const requestUrl =
+    const url =
         `${ANALYSIS_DATA_URL}?t=${Date.now()}`;
 
     let response;
@@ -101,7 +88,7 @@ async function loadAnalysisData(
 
         response =
             await fetch(
-                requestUrl,
+                url,
                 {
                     cache: "no-store"
                 }
@@ -109,43 +96,16 @@ async function loadAnalysisData(
 
     } catch (error) {
 
-        return {
-            type:
-                "network_error",
-
-            ticker,
-
-            url:
-                ANALYSIS_DATA_URL,
-
-            message:
-                error instanceof Error
-                    ? error.message
-                    : String(error)
-        };
+        throw new Error(
+            `NETWORK FAILURE: Unable to request ${ANALYSIS_DATA_URL}. ${error.message}`
+        );
     }
 
     if (!response.ok) {
 
-        return {
-            type:
-                "http_error",
-
-            ticker,
-
-            url:
-                ANALYSIS_DATA_URL,
-
-            status:
-                response.status,
-
-            statusText:
-                response.statusText || "",
-
-            message:
-                `${ANALYSIS_DATA_URL} returned HTTP ${response.status} ${response.statusText || ""}.`
-                    .trim()
-        };
+        throw new Error(
+            `HTTP FAILURE: ${ANALYSIS_DATA_URL} returned HTTP ${response.status} ${response.statusText}.`
+        );
     }
 
     let data;
@@ -157,20 +117,9 @@ async function loadAnalysisData(
 
     } catch (error) {
 
-        return {
-            type:
-                "json_error",
-
-            ticker,
-
-            url:
-                ANALYSIS_DATA_URL,
-
-            message:
-                error instanceof Error
-                    ? error.message
-                    : String(error)
-        };
+        throw new Error(
+            `JSON FAILURE: ${ANALYSIS_DATA_URL} was loaded but could not be parsed as JSON. ${error.message}`
+        );
     }
 
     if (
@@ -179,18 +128,9 @@ async function loadAnalysisData(
         Array.isArray(data)
     ) {
 
-        return {
-            type:
-                "invalid_dataset",
-
-            ticker,
-
-            url:
-                ANALYSIS_DATA_URL,
-
-            message:
-                "The JSON response is not a valid object."
-        };
+        throw new Error(
+            `DATA FAILURE: ${ANALYSIS_DATA_URL} does not contain a valid JSON object.`
+        );
     }
 
     if (
@@ -200,77 +140,36 @@ async function loadAnalysisData(
         )
     ) {
 
-        return {
-            type:
-                "missing_tickers",
-
-            ticker,
-
-            url:
-                ANALYSIS_DATA_URL,
-
-            data,
-
-            message:
-                'The JSON dataset does not contain the required "tickers" property.'
-        };
+        throw new Error(
+            `SCHEMA FAILURE: ${ANALYSIS_DATA_URL} does not contain the required "tickers" object.`
+        );
     }
 
-    const tickerIndex =
-        data.tickers;
-
     if (
-        !tickerIndex ||
-        typeof tickerIndex !== "object" ||
-        Array.isArray(tickerIndex)
+        !data.tickers ||
+        typeof data.tickers !== "object" ||
+        Array.isArray(data.tickers)
     ) {
 
-        return {
-            type:
-                "invalid_tickers",
-
-            ticker,
-
-            url:
-                ANALYSIS_DATA_URL,
-
-            data,
-
-            message:
-                'The JSON "tickers" property is not a valid ticker index.'
-        };
+        throw new Error(
+            `SCHEMA FAILURE: "tickers" exists but is not a valid ticker index.`
+        );
     }
 
     if (
         !Object.prototype.hasOwnProperty.call(
-            tickerIndex,
+            data.tickers,
             ticker
         )
     ) {
 
-        return {
-            type:
-                "ticker_not_found",
-
-            ticker,
-
-            url:
-                ANALYSIS_DATA_URL,
-
-            data,
-
-            availableTickers:
-                Object.keys(
-                    tickerIndex
-                ),
-
-            message:
-                `No analysis entry exists for ticker ${ticker}.`
-        };
+        throw new Error(
+            `TICKER FAILURE: ${ticker} does not exist in data.tickers. Available tickers: ${Object.keys(data.tickers).join(", ") || "NONE"}.`
+        );
     }
 
     const tickerAnalysis =
-        tickerIndex[ticker];
+        data.tickers[ticker];
 
     if (
         !tickerAnalysis ||
@@ -278,39 +177,20 @@ async function loadAnalysisData(
         Array.isArray(tickerAnalysis)
     ) {
 
-        return {
-            type:
-                "invalid_ticker_record",
-
-            ticker,
-
-            url:
-                ANALYSIS_DATA_URL,
-
-            data,
-
-            message:
-                `The ${ticker} record exists but is not a valid object.`
-        };
+        throw new Error(
+            `TICKER DATA FAILURE: data.tickers.${ticker} is not a valid analysis object.`
+        );
     }
 
     return {
-        type:
-            "success",
-
-        ticker,
-
-        data,
-
-        analysis:
-            tickerAnalysis
+        dataset: data,
+        ticker: ticker,
+        analysis: tickerAnalysis
     };
 }
 
 function renderAnalysis(
-    analysis,
-    ticker,
-    dataset
+    result
 ) {
 
     const section =
@@ -329,11 +209,13 @@ function renderAnalysis(
         );
 
     if (container) {
-
         container.innerHTML = "";
     }
 
     hideAnalysisFailure();
+
+    const analysis =
+        result.analysis;
 
     renderAnalysisMetadata(
         analysis
@@ -344,47 +226,17 @@ function renderAnalysis(
     );
 
     if (
-        !analysis ||
-        typeof analysis !== "object" ||
-        Array.isArray(analysis)
+        !Object.prototype.hasOwnProperty.call(
+            analysis,
+            "analysis_blocks"
+        )
     ) {
 
         renderAnalysisFailure(
-            "INVALID TICKER RECORD",
-            `The ${ticker} ticker record was found but could not be rendered.`,
-            "The ticker record is not a valid JSON object."
+            "ANALYSIS BLOCK FAILURE",
+            `Analysis data exists for ${result.ticker}, but no "analysis_blocks" property was published.`,
+            `Available ticker fields: ${Object.keys(analysis).join(", ") || "NONE"}`
         );
-
-        return;
-    }
-
-    const blocksPropertyExists =
-        Object.prototype.hasOwnProperty.call(
-            analysis,
-            "analysis_blocks"
-        );
-
-    if (!blocksPropertyExists) {
-
-        renderAnalysisFailure(
-            "ANALYSIS BLOCKS MISSING",
-            `The ${ticker} record was loaded successfully, but it does not contain "analysis_blocks".`,
-            `Available ticker fields: ${Object.keys(analysis).join(", ") || "none"}`
-        );
-
-        if (section) {
-
-            section.classList.remove(
-                "hidden"
-            );
-        }
-
-        if (emptyState) {
-
-            emptyState.classList.add(
-                "hidden"
-            );
-        }
 
         return;
     }
@@ -394,35 +246,20 @@ function renderAnalysis(
             analysis.analysis_blocks
         );
 
-    if (!blocks.length) {
+    if (
+        !blocks.length
+    ) {
 
         renderAnalysisFailure(
-            "NO ANALYSIS BLOCKS",
-            `The ${ticker} record was loaded successfully, but "analysis_blocks" contains no renderable entries.`,
-            describeAnalysisBlocks(
-                analysis.analysis_blocks
-            )
+            "ANALYSIS BLOCK FAILURE",
+            `The ticker record for ${result.ticker} contains "analysis_blocks", but there are no renderable analysis blocks.`,
+            `analysis_blocks type: ${Array.isArray(analysis.analysis_blocks) ? "array" : typeof analysis.analysis_blocks}`
         );
-
-        if (section) {
-
-            section.classList.remove(
-                "hidden"
-            );
-        }
-
-        if (emptyState) {
-
-            emptyState.classList.add(
-                "hidden"
-            );
-        }
 
         return;
     }
 
     let renderedCount = 0;
-    let failedCount = 0;
 
     blocks.forEach(
         (
@@ -440,43 +277,36 @@ function renderAnalysis(
                     );
 
                 if (rendered) {
-
                     renderedCount++;
-
-                } else {
-
-                    failedCount++;
-
-                    renderAnalysisBlockDiagnostic(
-                        block.key,
-                        "The block existed but produced no visible HTML content."
-                    );
                 }
 
             } catch (error) {
-
-                failedCount++;
 
                 console.error(
                     `Unable to render analysis block "${block.key}".`,
                     error
                 );
 
-                renderAnalysisBlockDiagnostic(
-                    block.key,
-                    error instanceof Error
-                        ? error.message
-                        : String(error)
+                renderAnalysisFailure(
+                    "ANALYSIS BLOCK RENDER FAILURE",
+                    `Analysis block "${block.key}" could not be rendered.`,
+                    error.message
                 );
             }
         }
     );
 
-    if (section) {
+    if (
+        renderedCount === 0
+    ) {
 
-        section.classList.remove(
-            "hidden"
+        renderAnalysisFailure(
+            "ANALYSIS RENDER FAILURE",
+            `Analysis data was found for ${result.ticker}, but none of the ${blocks.length} analysis blocks produced visible HTML.`,
+            `Blocks discovered: ${blocks.map(block => block.key).join(", ")}`
         );
+
+        return;
     }
 
     if (emptyState) {
@@ -486,38 +316,16 @@ function renderAnalysis(
         );
     }
 
-    if (
-        renderedCount === 0 &&
-        failedCount > 0
-    ) {
+    if (section) {
 
-        renderAnalysisFailure(
-            "ANALYSIS RENDER FAILURE",
-            `The ${ticker} analysis data was loaded, but none of the ${blocks.length} analysis blocks could be rendered.`,
-            `Rendered: 0 | Failed: ${failedCount}`
-        );
-
-        return;
-    }
-
-    if (
-        failedCount > 0
-    ) {
-
-        renderAnalysisDiagnosticNotice(
-            `${renderedCount} analysis block${renderedCount === 1 ? "" : "s"} rendered successfully. ${failedCount} block${failedCount === 1 ? "" : "s"} failed and were individually diagnosed below.`
+        section.classList.remove(
+            "hidden"
         );
     }
 
-    if (
-        dataset &&
-        dataset.generated_at
-    ) {
-
-        renderDatasetGenerationMetadata(
-            dataset.generated_at
-        );
-    }
+    console.info(
+        `NEA28V1: rendered ${renderedCount} analysis blocks for ${result.ticker}.`
+    );
 }
 
 function normalizeAnalysisBlocks(
@@ -529,7 +337,6 @@ function normalizeAnalysisBlocks(
         typeof blocks !== "object" ||
         Array.isArray(blocks)
     ) {
-
         return [];
     }
 
@@ -544,7 +351,6 @@ function normalizeAnalysisBlocks(
                 if (
                     !String(key).trim()
                 ) {
-
                     return false;
                 }
 
@@ -552,7 +358,13 @@ function normalizeAnalysisBlocks(
                     value === null ||
                     value === undefined
                 ) {
+                    return false;
+                }
 
+                if (
+                    typeof value === "string" &&
+                    !value.trim()
+                ) {
                     return false;
                 }
 
@@ -565,7 +377,6 @@ function normalizeAnalysisBlocks(
             ) => ({
                 key:
                     String(key),
-
                 value
             })
         );
@@ -585,7 +396,7 @@ function renderAnalysisBlock(
     if (!container) {
 
         throw new Error(
-            'Required HTML element "#analysisBlocks" was not found.'
+            'HTML FAILURE: element id="analysisBlocks" was not found.'
         );
     }
 
@@ -620,9 +431,7 @@ function renderAnalysisBlock(
         "analysis-card-index";
 
     indexLabel.textContent =
-        String(
-            index + 1
-        ).padStart(
+        String(index + 1).padStart(
             2,
             "0"
         );
@@ -683,82 +492,6 @@ function renderAnalysisBlock(
     );
 
     return true;
-}
-
-function renderAnalysisBlockDiagnostic(
-    key,
-    message
-) {
-
-    const container =
-        document.getElementById(
-            "analysisBlocks"
-        );
-
-    if (!container) {
-        return;
-    }
-
-    const diagnostic =
-        document.createElement(
-            "article"
-        );
-
-    diagnostic.className =
-        "analysis-card analysis-diagnostic";
-
-    const header =
-        document.createElement(
-            "div"
-        );
-
-    header.className =
-        "analysis-card-header";
-
-    const title =
-        document.createElement(
-            "h3"
-        );
-
-    title.textContent =
-        `ANALYSIS BLOCK FAILURE: ${formatAnalysisTitle(key)}`;
-
-    header.appendChild(
-        title
-    );
-
-    const content =
-        document.createElement(
-            "div"
-        );
-
-    content.className =
-        "analysis-card-content"
-    ;
-
-    const messageElement =
-        document.createElement(
-            "p"
-        );
-
-    messageElement.textContent =
-        message;
-
-    content.appendChild(
-        messageElement
-    );
-
-    diagnostic.appendChild(
-        header
-    );
-
-    diagnostic.appendChild(
-        content
-    );
-
-    container.appendChild(
-        diagnostic
-    );
 }
 
 function renderAnalysisMetadata(
@@ -869,7 +602,6 @@ function renderAnalysisRisk(
         !riskSection ||
         !stopBreachStatus
     ) {
-
         return;
     }
 
@@ -1028,7 +760,7 @@ function renderAnalysisValue(
             );
 
         paragraph.textContent =
-            "No value supplied.";
+            "VALUE: No value was supplied by the analysis engine.";
 
         container.appendChild(
             paragraph
@@ -1061,7 +793,6 @@ function renderAnalysisText(
         text === null ||
         text === undefined
     ) {
-
         return;
     }
 
@@ -1074,19 +805,6 @@ function renderAnalysisText(
             .trim();
 
     if (!normalized) {
-
-        const paragraph =
-            document.createElement(
-                "p"
-            );
-
-        paragraph.textContent =
-            "No analysis text supplied.";
-
-        container.appendChild(
-            paragraph
-        );
-
         return;
     }
 
@@ -1173,7 +891,6 @@ function renderAnalysisText(
         if (
             !currentParagraph.length
         ) {
-
             return;
         }
 
@@ -1316,7 +1033,7 @@ function renderAnalysisArray(
             );
 
         paragraph.textContent =
-            "Analysis returned an empty list.";
+            "ARRAY: Analysis returned an empty array.";
 
         container.appendChild(
             paragraph
@@ -1410,7 +1127,7 @@ function renderAnalysisObject(
             );
 
         paragraph.textContent =
-            "Analysis returned an empty object.";
+            "OBJECT: Analysis returned an empty object.";
 
         container.appendChild(
             paragraph
@@ -1511,7 +1228,6 @@ function extractEmbeddedJson(
     if (
         typeof text !== "string"
     ) {
-
         return null;
     }
 
@@ -1523,14 +1239,10 @@ function extractEmbeddedJson(
     }
 
     const firstObject =
-        normalized.indexOf(
-            "{"
-        );
+        normalized.indexOf("{");
 
     const firstArray =
-        normalized.indexOf(
-            "["
-        );
+        normalized.indexOf("[");
 
     let start = -1;
 
@@ -1563,9 +1275,7 @@ function extractEmbeddedJson(
 
     const parsed =
         parseJsonPrefix(
-            normalized.slice(
-                start
-            )
+            normalized.slice(start)
         );
 
     if (!parsed) {
@@ -1573,7 +1283,6 @@ function extractEmbeddedJson(
     }
 
     return {
-
         before:
             normalized
                 .slice(
@@ -1581,10 +1290,8 @@ function extractEmbeddedJson(
                     start
                 )
                 .trim(),
-
         value:
             parsed.value,
-
         after:
             normalized
                 .slice(
@@ -1605,7 +1312,6 @@ function parseJsonPrefix(
             text[0] !== "["
         )
     ) {
-
         return null;
     }
 
@@ -1683,12 +1389,10 @@ function parseJsonPrefix(
                 try {
 
                     return {
-
                         value:
                             JSON.parse(
                                 candidate
                             ),
-
                         length:
                             index + 1
                     };
@@ -1859,7 +1563,6 @@ function formatAnalysisScalar(
         value === undefined ||
         value === ""
     ) {
-
         return "—";
     }
 
@@ -1877,22 +1580,15 @@ function formatAnalysisScalar(
     ) {
 
         if (
-            !Number.isFinite(
-                value
-            )
+            !Number.isFinite(value)
         ) {
-
             return "—";
         }
 
-        return String(
-            value
-        );
+        return String(value);
     }
 
-    return String(
-        value
-    );
+    return String(value);
 }
 
 function formatAnalysisTitle(
@@ -1916,118 +1612,13 @@ function formatAnalysisTitle(
         );
 }
 
-function renderAnalysisLoadDiagnostic(
-    result,
+function showAnalysisLoading(
     ticker
-) {
-
-    if (!result) {
-
-        renderAnalysisFailure(
-            "ANALYSIS LOAD FAILURE",
-            `Unable to load analysis data for ${ticker}.`,
-            "No diagnostic result was returned."
-        );
-
-        return;
-    }
-
-    switch (
-        result.type
-    ) {
-
-        case "http_error":
-
-            renderAnalysisFailure(
-                "ANALYSIS LOAD FAILURE",
-                `Unable to load analysis data for ${ticker}.`,
-                `HTTP FAILURE: ${result.url} returned HTTP ${result.status} ${result.statusText}.`
-            );
-
-            return;
-
-        case "network_error":
-
-            renderAnalysisFailure(
-                "ANALYSIS NETWORK FAILURE",
-                `The browser could not retrieve analysis data for ${ticker}.`,
-                `NETWORK ERROR: ${result.message}`
-            );
-
-            return;
-
-        case "json_error":
-
-            renderAnalysisFailure(
-                "ANALYSIS JSON FAILURE",
-                `The analysis file was reached, but its contents could not be parsed as JSON.`,
-                `JSON PARSE ERROR: ${result.message}`
-            );
-
-            return;
-
-        case "invalid_dataset":
-
-        case "missing_tickers":
-
-        case "invalid_tickers":
-
-            renderAnalysisFailure(
-                "ANALYSIS DATASET FAILURE",
-                `The analysis file was loaded but does not match the required dataset structure.`,
-                result.message
-            );
-
-            return;
-
-        case "ticker_not_found":
-
-            renderAnalysisFailure(
-                "TICKER ANALYSIS NOT FOUND",
-                `The analysis dataset loaded successfully, but no record exists for ${ticker}.`,
-                result.availableTickers &&
-                result.availableTickers.length
-                    ? `Available tickers: ${result.availableTickers.join(", ")}`
-                    : "The ticker index contains no ticker records."
-            );
-
-            return;
-
-        case "invalid_ticker_record":
-
-            renderAnalysisFailure(
-                "INVALID TICKER RECORD",
-                `The ${ticker} entry exists in the dataset but is not renderable.`,
-                result.message
-            );
-
-            return;
-
-        default:
-
-            renderAnalysisFailure(
-                "ANALYSIS LOAD FAILURE",
-                `Unable to load analysis data for ${ticker}.`,
-                result.message ||
-                    "Unknown analysis loading failure."
-            );
-    }
-}
-
-function renderAnalysisFailure(
-    title,
-    message,
-    diagnostic
 ) {
 
     const section =
         document.getElementById(
             "analysisSection"
-        );
-
-    const container =
-        document.getElementById(
-            "analysisBlocks"
         );
 
     const emptyState =
@@ -2049,134 +1640,72 @@ function renderAnalysisFailure(
         );
     }
 
+    const container =
+        document.getElementById(
+            "analysisBlocks"
+        );
+
+    if (container) {
+
+        container.innerHTML = "";
+
+        const message =
+            document.createElement(
+                "p"
+            );
+
+        message.className =
+            "analysis-loading";
+
+        message.textContent =
+            `Loading analysis data for ${ticker}…`;
+
+        container.appendChild(
+            message
+        );
+    }
+}
+
+function renderAnalysisFailure(
+    title,
+    message,
+    detail
+) {
+
+    const section =
+        document.getElementById(
+            "analysisSection"
+        );
+
+    const container =
+        document.getElementById(
+            "analysisBlocks"
+        );
+
+    const emptyState =
+        document.getElementById(
+            "analysisEmpty"
+        );
+
+    if (emptyState) {
+
+        emptyState.classList.add(
+            "hidden"
+        );
+    }
+
+    if (section) {
+
+        section.classList.remove(
+            "hidden"
+        );
+    }
+
     if (!container) {
         return;
     }
 
     container.innerHTML = "";
-
-    const card =
-        document.createElement(
-            "article"
-        );
-
-    card.className =
-        "analysis-card analysis-diagnostic analysis-load-failure";
-
-    const header =
-        document.createElement(
-            "div"
-        );
-
-    header.className =
-        "analysis-card-header";
-
-    const heading =
-        document.createElement(
-            "h3"
-        );
-
-    heading.textContent =
-        title;
-
-    header.appendChild(
-        heading
-    );
-
-    const content =
-        document.createElement(
-            "div"
-        );
-
-    content.className =
-        "analysis-card-content";
-
-    const messageElement =
-        document.createElement(
-            "p"
-        );
-
-    messageElement.textContent =
-        message;
-
-    content.appendChild(
-        messageElement
-    );
-
-    if (diagnostic) {
-
-        const diagnosticBlock =
-            document.createElement(
-                "pre"
-            );
-
-        diagnosticBlock.className =
-            "analysis-diagnostic-detail";
-
-        diagnosticBlock.textContent =
-            diagnostic;
-
-        content.appendChild(
-            diagnosticBlock
-        );
-    }
-
-    card.appendChild(
-        header
-    );
-
-    card.appendChild(
-        content
-    );
-
-    container.appendChild(
-        card
-    );
-}
-
-function renderAnalysisDiagnosticNotice(
-    message
-) {
-
-    const container =
-        document.getElementById(
-            "analysisBlocks"
-        );
-
-    if (!container) {
-        return;
-    }
-
-    const notice =
-        document.createElement(
-            "div"
-        );
-
-    notice.className =
-        "analysis-diagnostic-notice";
-
-    notice.textContent =
-        message;
-
-    container.insertBefore(
-        notice,
-        container.firstChild
-    );
-}
-
-function renderAnalysisBlockDiagnostic(
-    key,
-    message
-) {
-
-    const container =
-        document.getElementById(
-            "analysisBlocks"
-        );
-
-    if (!container) {
-        return;
-    }
 
     const diagnostic =
         document.createElement(
@@ -2194,16 +1723,31 @@ function renderAnalysisBlockDiagnostic(
     header.className =
         "analysis-card-header";
 
-    const title =
+    const indexLabel =
+        document.createElement(
+            "span"
+        );
+
+    indexLabel.className =
+        "analysis-card-index";
+
+    indexLabel.textContent =
+        "ERR";
+
+    const heading =
         document.createElement(
             "h3"
         );
 
-    title.textContent =
-        `ANALYSIS BLOCK FAILURE: ${formatAnalysisTitle(key)}`;
+    heading.textContent =
+        title;
 
     header.appendChild(
-        title
+        indexLabel
+    );
+
+    header.appendChild(
+        heading
     );
 
     const content =
@@ -2214,17 +1758,35 @@ function renderAnalysisBlockDiagnostic(
     content.className =
         "analysis-card-content";
 
-    const messageElement =
+    const primary =
         document.createElement(
             "p"
         );
 
-    messageElement.textContent =
+    primary.textContent =
         message;
 
     content.appendChild(
-        messageElement
+        primary
     );
+
+    if (detail) {
+
+        const details =
+            document.createElement(
+                "pre"
+            );
+
+        details.className =
+            "analysis-diagnostic-detail";
+
+        details.textContent =
+            detail;
+
+        content.appendChild(
+            details
+        );
+    }
 
     diagnostic.appendChild(
         header
@@ -2237,74 +1799,33 @@ function renderAnalysisBlockDiagnostic(
     container.appendChild(
         diagnostic
     );
-}
 
-function describeAnalysisBlocks(
-    blocks
-) {
-
-    if (
-        blocks === null ||
-        blocks === undefined
-    ) {
-
-        return "analysis_blocks is null or undefined.";
-    }
-
-    if (
-        Array.isArray(blocks)
-    ) {
-
-        return `analysis_blocks is an array containing ${blocks.length} entries. Expected an object keyed by analysis block name.`;
-    }
-
-    if (
-        typeof blocks !== "object"
-    ) {
-
-        return `analysis_blocks has type "${typeof blocks}". Expected an object keyed by analysis block name.`;
-    }
-
-    const keys =
-        Object.keys(
-            blocks
-        );
-
-    return keys.length
-        ? `analysis_blocks contains ${keys.length} key(s): ${keys.join(", ")}`
-        : "analysis_blocks is an empty object.";
-}
-
-function renderDatasetGenerationMetadata(
-    generatedAt
-) {
-
-    const existing =
-        document.getElementById(
-            "analysisDatasetGeneratedAt"
-        );
-
-    if (!existing) {
-        return;
-    }
-
-    existing.textContent =
-        formatTimestamp(
-            generatedAt
-        );
+    console.error(
+        title,
+        message,
+        detail
+    );
 }
 
 function hideAnalysisFailure() {
 
-    const existing =
-        document.querySelectorAll(
-            ".analysis-load-failure"
+    const container =
+        document.getElementById(
+            "analysisBlocks"
         );
 
-    existing.forEach(
-        element => {
-            element.remove();
-        }
+    if (!container) {
+        return;
+    }
+
+    const failures =
+        container.querySelectorAll(
+            ".analysis-diagnostic"
+        );
+
+    failures.forEach(
+        failure =>
+            failure.remove()
     );
 }
 
@@ -2316,7 +1837,6 @@ function resetAnalysis() {
         );
 
     if (container) {
-
         container.innerHTML = "";
     }
 
@@ -2326,12 +1846,6 @@ function resetAnalysis() {
 
     renderAnalysisRisk(
         null
-    );
-
-    renderAnalysisFailure(
-        "ANALYSIS UNAVAILABLE",
-        "No ticker was supplied for the analysis page.",
-        "Provide a ticker query parameter."
     );
 }
 
@@ -2344,14 +1858,11 @@ function formatTimestamp(
         value === undefined ||
         value === ""
     ) {
-
         return "—";
     }
 
     const date =
-        new Date(
-            value
-        );
+        new Date(value);
 
     if (
         Number.isNaN(
@@ -2359,28 +1870,17 @@ function formatTimestamp(
         )
     ) {
 
-        return String(
-            value
-        );
+        return String(value);
     }
 
     return date.toLocaleString(
         "en-US",
         {
-            month:
-                "short",
-
-            day:
-                "numeric",
-
-            year:
-                "numeric",
-
-            hour:
-                "numeric",
-
-            minute:
-                "2-digit"
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+            hour: "numeric",
+            minute: "2-digit"
         }
     );
 }

@@ -77,9 +77,88 @@ class PublicationTests(unittest.TestCase):
                 encoding="utf-8"
             )
 
+            (data_dir / "analysis_latest.json").write_text(
+                json.dumps(
+                    {
+                        "schema_version": 1,
+                        "generated_at": "",
+                        "tickers": {
+                            "TEST": {
+                                "generated_at": "",
+                                "journal_timestamp": "",
+                                "stop_breached": False,
+                                "analysis_blocks": {
+                                    "sec_earnings":
+                                        "Test earnings analysis.",
+                                    "fundamentals":
+                                        "Test fundamentals analysis."
+                                },
+                                "generated_prompt":
+                                    "Test generated prompt.",
+                                "markdown_path":
+                                    ""
+                            }
+                        }
+                    }
+                ),
+                encoding="utf-8"
+            )
+
             self.assertTrue(
                 validate_data(data_dir)
             )
+
+    def test_analysis_latest_requires_tickers(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            data_dir = Path(tmp)
+
+            (data_dir / "trades.json").write_text(
+                json.dumps(
+                    {
+                        "generated_at": "",
+                        "count": 0,
+                        "trades": []
+                    }
+                ),
+                encoding="utf-8"
+            )
+
+            (data_dir / "performance.json").write_text(
+                json.dumps(
+                    {
+                        "generated_at": "",
+                        "total_trades": 0,
+                        "winning_trades": 0,
+                        "losing_trades": 0,
+                        "win_rate": 0
+                    }
+                ),
+                encoding="utf-8"
+            )
+
+            (data_dir / "market.json").write_text(
+                json.dumps(
+                    {
+                        "generated_at": "",
+                        "regime": "UNKNOWN"
+                    }
+                ),
+                encoding="utf-8"
+            )
+
+            (data_dir / "analysis_latest.json").write_text(
+                json.dumps(
+                    {
+                        "schema_version": 1,
+                        "generated_at": "",
+                        "tickers": []
+                    }
+                ),
+                encoding="utf-8"
+            )
+
+            with self.assertRaises(ValueError):
+                validate_data(data_dir)
 
 
 if __name__ == "__main__":
