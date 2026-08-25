@@ -94,9 +94,6 @@ main {
     margin-bottom: 8px;
 }
 
-
-/* PROFILE HERO */
-
 .profile-hero {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -113,9 +110,6 @@ main {
     font-size: 48px;
     letter-spacing: 2px;
 }
-
-
-/* PROFILE STATUS */
 
 .profile-status {
     min-width: 220px;
@@ -144,9 +138,6 @@ main {
     letter-spacing: 0.02em;
 }
 
-
-/* STATES */
-
 .state-panel {
     background: var(--panel);
     border: 1px solid var(--border);
@@ -162,9 +153,6 @@ main {
 .state-panel p {
     color: var(--muted);
 }
-
-
-/* SECTIONS */
 
 .section {
     margin: 40px 0;
@@ -183,9 +171,6 @@ main {
     margin: 0;
     font-size: 28px;
 }
-
-
-/* METRICS */
 
 .metrics-grid {
     display: grid;
@@ -224,25 +209,16 @@ main {
     margin: 10px 0 0;
 }
 
-
-/* PUBLICATION TIMING */
-
 #createdAt,
 #updatedAt {
     font-size: 15px;
     line-height: 1.45;
 }
 
-
-/* SIGNAL STRENGTH / CONFLUENCE */
-
 #signalStrength,
 #confluence {
     font-size: 20px;
 }
-
-
-/* OPPORTUNITY SUMMARY */
 
 .panel {
     background: var(--panel);
@@ -255,7 +231,6 @@ main {
     max-width: 900px;
     color: var(--muted);
 }
-
 
 /* ANALYSIS */
 
@@ -278,6 +253,37 @@ main {
     font-size: 13px;
 }
 
+.analysis-meta {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.analysis-meta-item {
+    min-width: 0;
+    padding: 16px 18px;
+    background: var(--panel-alt);
+    border: 1px solid var(--border);
+}
+
+.analysis-meta-item span {
+    display: block;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.analysis-meta-item strong {
+    display: block;
+    margin-top: 6px;
+    color: var(--text);
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
 .analysis-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -291,10 +297,6 @@ main {
     padding: 26px;
 }
 
-.analysis-card.analysis-wide {
-    grid-column: 1 / -1;
-}
-
 .analysis-card h3 {
     margin: 0 0 18px;
     color: var(--text);
@@ -304,6 +306,7 @@ main {
 }
 
 .analysis-card-content {
+    min-width: 0;
     color: var(--muted);
     font-size: 13px;
     line-height: 1.7;
@@ -317,52 +320,6 @@ main {
 .analysis-card-content p:last-child {
     margin-bottom: 0;
 }
-
-.analysis-card-content strong {
-    color: var(--text);
-    font-weight: 700;
-}
-
-.analysis-card-content em {
-    color: var(--accent);
-}
-
-.analysis-card-content ul,
-.analysis-card-content ol {
-    margin: 10px 0 16px;
-    padding-left: 22px;
-}
-
-.analysis-card-content li {
-    margin-bottom: 6px;
-}
-
-.analysis-card-content code {
-    padding: 2px 5px;
-    border: 1px solid var(--border);
-    background: var(--panel-alt);
-    color: var(--text);
-    font-family: Consolas, Monaco, monospace;
-    font-size: 12px;
-}
-
-.analysis-card-content pre {
-    max-width: 100%;
-    margin: 15px 0;
-    padding: 16px;
-    overflow-x: auto;
-    border: 1px solid var(--border);
-    background: #090d12;
-    color: var(--text);
-    font-family: Consolas, Monaco, monospace;
-    font-size: 12px;
-    line-height: 1.55;
-    white-space: pre-wrap;
-    word-break: break-word;
-}
-
-
-/* ANALYSIS HEADINGS GENERATED FROM JSON MARKDOWN */
 
 .analysis-card-content h1,
 .analysis-card-content h2,
@@ -392,9 +349,6 @@ main {
     font-size: 13px;
 }
 
-
-/* ANALYSIS DATA / KEY VALUE PRESENTATION */
-
 .analysis-data {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -422,169 +376,29 @@ main {
     display: block;
     margin-top: 5px;
     color: var(--text);
-    font-size: 14px;
+    font-size: 13px;
     overflow-wrap: anywhere;
 }
 
-
-/* FILINGS */
-
-.analysis-filings {
-    margin-top: 18px;
-}
-
-.filing-list {
+.analysis-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.filing-item {
-    display: grid;
-    grid-template-columns: 70px 110px minmax(0, 1fr) auto;
-    align-items: center;
-    gap: 12px;
-    padding: 13px 15px;
+.analysis-list-item {
+    padding: 14px;
     border: 1px solid var(--border);
     background: var(--panel-alt);
 }
 
-.filing-form {
-    color: var(--accent);
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
+.analysis-list-item .analysis-data {
+    margin-top: 0;
 }
-
-.filing-date {
-    color: var(--muted);
-    font-size: 12px;
-}
-
-.filing-document {
-    min-width: 0;
-    color: var(--text);
-    font-family: Consolas, Monaco, monospace;
-    font-size: 11px;
-    overflow-wrap: anywhere;
-}
-
-.filing-link {
-    color: var(--accent);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.filing-link:hover {
-    color: var(--text);
-}
-
-
-/* EVENTS / CATALYSTS */
-
-.event-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.event-card {
-    padding: 18px;
-    border: 1px solid var(--border);
-    background: var(--panel-alt);
-}
-
-.event-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 18px;
-}
-
-.event-title {
-    margin: 0;
-    color: var(--text);
-    font-size: 14px;
-    font-weight: 800;
-    line-height: 1.45;
-}
-
-.event-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 9px;
-}
-
-.event-badge {
-    display: inline-block;
-    padding: 4px 7px;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    background: #111820;
-    font-size: 9px;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.event-badge.high {
-    color: var(--warning);
-}
-
-.event-badge.positive {
-    color: var(--positive);
-}
-
-.event-badge.negative {
-    color: var(--negative);
-}
-
-.event-details {
-    margin-top: 12px;
-    color: var(--muted);
-    font-size: 12px;
-    line-height: 1.6;
-}
-
-.event-details a {
-    color: var(--accent);
-    text-decoration: underline;
-    text-decoration-color: var(--border);
-    text-underline-offset: 3px;
-}
-
-.event-details a:hover {
-    color: var(--text);
-}
-
-.event-date {
-    flex-shrink: 0;
-    color: var(--muted);
-    font-size: 10px;
-    white-space: nowrap;
-}
-
-
-/* ANALYSIS EMPTY STATE */
-
-.analysis-empty {
-    padding: 25px;
-    border: 1px solid var(--border);
-    background: var(--panel);
-    color: var(--muted);
-    font-size: 13px;
-}
-
-
-/* STOP BREACH / RISK STATES */
 
 .analysis-status {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
     padding: 8px 11px;
     border: 1px solid var(--border);
     background: var(--panel-alt);
@@ -605,7 +419,6 @@ main {
     color: var(--positive);
 }
 
-
 /* PREMIUM */
 
 .premium {
@@ -619,7 +432,6 @@ main {
     max-width: 850px;
     color: var(--muted);
 }
-
 
 /* BUTTONS */
 
@@ -643,7 +455,6 @@ main {
     background: transparent;
 }
 
-
 /* NAVIGATION */
 
 .navigation-panel {
@@ -652,7 +463,6 @@ main {
     gap: 15px;
     margin-top: 35px;
 }
-
 
 /* FOOTER */
 
@@ -675,28 +485,7 @@ main {
     font-size: 11px;
 }
 
-
 /* RESPONSIVE */
-
-@media (max-width: 1000px) {
-
-    .analysis-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .analysis-card.analysis-wide {
-        grid-column: auto;
-    }
-
-    .filing-item {
-        grid-template-columns: 70px 100px minmax(0, 1fr);
-    }
-
-    .filing-link {
-        grid-column: 3;
-    }
-}
-
 
 @media (max-width: 900px) {
 
@@ -723,11 +512,18 @@ main {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .analysis-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .analysis-meta {
+        grid-template-columns: 1fr;
+    }
+
     .analysis-data {
         grid-template-columns: 1fr;
     }
 }
-
 
 @media (max-width: 600px) {
 
@@ -784,23 +580,7 @@ main {
         font-size: 12px;
     }
 
-    .filing-item {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 5px;
-    }
-
-    .filing-link {
-        margin-top: 4px;
-    }
-
-    .event-header {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .event-date {
-        white-space: normal;
+    .analysis-meta {
+        grid-template-columns: 1fr;
     }
 }
