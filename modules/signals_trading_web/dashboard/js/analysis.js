@@ -7,7 +7,6 @@ document.addEventListener(
     initializeAnalysis
 );
 
-
 async function initializeAnalysis() {
 
     const ticker =
@@ -36,16 +35,9 @@ async function initializeAnalysis() {
             error
         );
 
-        /*
-         * Analysis is supplemental data.
-         * A failure here must never prevent
-         * the trade profile from rendering.
-         */
-
         resetAnalysis();
     }
 }
-
 
 function getRequestedTicker() {
 
@@ -68,7 +60,6 @@ function getRequestedTicker() {
 
     return normalized || null;
 }
-
 
 async function loadAnalysisData(
     ticker
@@ -105,32 +96,6 @@ async function loadAnalysisData(
         return null;
     }
 
-    /*
-     * analysis_latest.json structure:
-     *
-     * {
-     *     "schema_version": 1,
-     *     "generated_at": "...",
-     *     "tickers": {
-     *         "ARI": {
-     *             "ticker": "ARI",
-     *             "analysis_blocks": {...}
-     *         },
-     *         "NAMM": {
-     *             "ticker": "NAMM",
-     *             "analysis_blocks": {...}
-     *         },
-     *         "BCAB": {
-     *             "ticker": "BCAB",
-     *             "analysis_blocks": {...}
-     *         }
-     *     }
-     * }
-     *
-     * The ticker symbol is the dictionary key under
-     * data.tickers.
-     */
-
     const tickerIndex =
         data.tickers;
 
@@ -163,44 +128,8 @@ async function loadAnalysisData(
         return null;
     }
 
-    /*
-     * Validate the ticker stored inside the record.
-     *
-     * The outer "BCAB" is the dictionary key used for
-     * indexing. The inner "ticker": "BCAB" is metadata
-     * identifying the record itself.
-     */
-
-    const analysisTicker =
-        tickerAnalysis.ticker === null ||
-        tickerAnalysis.ticker === undefined
-            ? ""
-            : String(
-                tickerAnalysis.ticker
-            )
-                .trim()
-                .toUpperCase();
-
-    if (
-        analysisTicker &&
-        analysisTicker !== ticker
-    ) {
-
-        console.warn(
-            `Analysis ticker mismatch: requested ${ticker}, received ${analysisTicker}.`
-        );
-
-        return null;
-    }
-
-    /*
-     * analysis_blocks is intentionally allowed to be
-     * absent or empty. Metadata can still be rendered.
-     */
-
     return tickerAnalysis;
 }
-
 
 function renderAnalysis(
     analysis
@@ -276,12 +205,6 @@ function renderAnalysis(
 
             } catch (error) {
 
-                /*
-                 * One malformed analysis block
-                 * must never prevent the remaining
-                 * blocks from rendering.
-                 */
-
                 console.warn(
                     `Unable to render analysis block "${block.key}".`,
                     error
@@ -299,18 +222,19 @@ function renderAnalysis(
     }
 
     if (emptyState) {
+
         emptyState.classList.add(
             "hidden"
         );
     }
 
     if (section) {
+
         section.classList.remove(
             "hidden"
         );
     }
 }
-
 
 function normalizeAnalysisBlocks(
     blocks
@@ -331,6 +255,12 @@ function normalizeAnalysisBlocks(
             (
                 [key, value]
             ) => {
+
+                if (
+                    !String(key).trim()
+                ) {
+                    return false;
+                }
 
                 if (
                     value === null ||
@@ -362,7 +292,7 @@ function normalizeAnalysisBlocks(
                     return false;
                 }
 
-                return String(key).trim() !== "";
+                return true;
             }
         )
         .map(
@@ -375,7 +305,6 @@ function normalizeAnalysisBlocks(
             })
         );
 }
-
 
 function renderAnalysisBlock(
     key,
@@ -492,7 +421,6 @@ function renderAnalysisBlock(
     return true;
 }
 
-
 function renderAnalysisMetadata(
     analysis
 ) {
@@ -583,7 +511,6 @@ function renderAnalysisMetadata(
     }
 }
 
-
 function renderAnalysisRisk(
     analysis
 ) {
@@ -663,7 +590,6 @@ function renderAnalysisRisk(
     stopBreachStatus.className =
         "analysis-status";
 }
-
 
 function renderAnalysisValue(
     container,
@@ -772,7 +698,6 @@ function renderAnalysisValue(
     );
 }
 
-
 function renderAnalysisText(
     container,
     text
@@ -817,6 +742,7 @@ function renderAnalysisText(
                 .trim();
 
         if (!fieldValue) {
+
             currentField = null;
             return;
         }
@@ -1005,7 +931,6 @@ function renderAnalysisText(
     flushParagraph();
 }
 
-
 function renderAnalysisArray(
     container,
     items
@@ -1095,7 +1020,6 @@ function renderAnalysisArray(
         );
     }
 }
-
 
 function renderAnalysisObject(
     container,
@@ -1252,7 +1176,6 @@ function renderAnalysisObject(
     }
 }
 
-
 function extractEmbeddedJson(
     text
 ) {
@@ -1335,7 +1258,6 @@ function extractEmbeddedJson(
                 .trim()
     };
 }
-
 
 function parseJsonPrefix(
     text
@@ -1446,7 +1368,6 @@ function parseJsonPrefix(
     return null;
 }
 
-
 function createSourceReport(
     value
 ) {
@@ -1494,7 +1415,6 @@ function createSourceReport(
 
     return details;
 }
-
 
 function extractSourceText(
     value
@@ -1594,7 +1514,6 @@ function extractSourceText(
     return null;
 }
 
-
 function formatAnalysisScalar(
     value
 ) {
@@ -1632,7 +1551,6 @@ function formatAnalysisScalar(
     return String(value);
 }
 
-
 function formatAnalysisTitle(
     key
 ) {
@@ -1653,7 +1571,6 @@ function formatAnalysisTitle(
                 character.toUpperCase()
         );
 }
-
 
 function showAnalysisEmptyState() {
 
@@ -1682,7 +1599,6 @@ function showAnalysisEmptyState() {
     }
 }
 
-
 function resetAnalysis() {
 
     const container =
@@ -1704,7 +1620,6 @@ function resetAnalysis() {
 
     showAnalysisEmptyState();
 }
-
 
 function formatTimestamp(
     value
