@@ -99,14 +99,56 @@ async function loadAnalysisData(
     ) {
 
         console.warn(
-            `${ANALYSIS_DATA_URL} does not contain a valid ticker-indexed object.`
+            `${ANALYSIS_DATA_URL} does not contain a valid analysis dataset.`
+        );
+
+        return null;
+    }
+
+    /*
+     * analysis_latest.json structure:
+     *
+     * {
+     *     "schema_version": 1,
+     *     "generated_at": "...",
+     *     "tickers": {
+     *         "ARI": {
+     *             "ticker": "ARI",
+     *             "analysis_blocks": {...}
+     *         },
+     *         "NAMM": {
+     *             "ticker": "NAMM",
+     *             "analysis_blocks": {...}
+     *         },
+     *         "BCAB": {
+     *             "ticker": "BCAB",
+     *             "analysis_blocks": {...}
+     *         }
+     *     }
+     * }
+     *
+     * The ticker symbol is the dictionary key under
+     * data.tickers.
+     */
+
+    const tickerIndex =
+        data.tickers;
+
+    if (
+        !tickerIndex ||
+        typeof tickerIndex !== "object" ||
+        Array.isArray(tickerIndex)
+    ) {
+
+        console.warn(
+            `${ANALYSIS_DATA_URL} does not contain a valid "tickers" index.`
         );
 
         return null;
     }
 
     const tickerAnalysis =
-        data[ticker];
+        tickerIndex[ticker];
 
     if (
         !tickerAnalysis ||
@@ -120,6 +162,14 @@ async function loadAnalysisData(
 
         return null;
     }
+
+    /*
+     * Validate the ticker stored inside the record.
+     *
+     * The outer "BCAB" is the dictionary key used for
+     * indexing. The inner "ticker": "BCAB" is metadata
+     * identifying the record itself.
+     */
 
     const analysisTicker =
         tickerAnalysis.ticker === null ||
@@ -144,14 +194,8 @@ async function loadAnalysisData(
     }
 
     /*
-     * analysis_blocks is optional.
-     *
-     * Do NOT reject the entire analysis record
-     * when analysis_blocks is absent.
-     *
-     * Metadata such as generated_at,
-     * journal_timestamp, and stop_breached
-     * can still be rendered.
+     * analysis_blocks is intentionally allowed to be
+     * absent or empty. Metadata can still be rendered.
      */
 
     return tickerAnalysis;
