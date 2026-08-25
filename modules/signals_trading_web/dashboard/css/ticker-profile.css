@@ -108,36 +108,10 @@ main {
     gap: 30px;
 }
 
-.ticker-title-row {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-}
-
-.ticker-title-row h2 {
+.profile-hero h2 {
     margin: 0;
     font-size: 48px;
     letter-spacing: 2px;
-}
-
-.profile-hero p {
-    color: var(--muted);
-    margin: 8px 0 0;
-}
-
-
-/* DIRECTION */
-
-.direction-badge {
-    display: inline-block;
-    border: 1px solid var(--border);
-    padding: 5px 10px;
-    color: var(--accent);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
 }
 
 
@@ -151,25 +125,13 @@ main {
 }
 
 .profile-status .status-label {
-    display: flex;
-    align-items: center;
+    display: block;
     color: var(--muted);
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 0.12em;
     line-height: 1.2;
     text-transform: uppercase;
-}
-
-.profile-status .status-indicator {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    margin-right: 8px;
-    border-radius: 50%;
-    background: var(--positive);
-    box-shadow: 0 0 12px rgba(127, 181, 140, 0.45);
-    flex-shrink: 0;
 }
 
 .profile-status strong {
@@ -180,15 +142,6 @@ main {
     line-height: 1.45;
     font-weight: 800;
     letter-spacing: 0.02em;
-}
-
-.profile-status .signal-time {
-    display: block;
-    margin-top: 4px;
-    color: var(--muted);
-    font-size: 11px;
-    line-height: 1.4;
-    font-weight: 700;
 }
 
 
@@ -241,10 +194,10 @@ main {
 }
 
 .metric-card {
+    min-width: 0;
     background: var(--panel);
     border: 1px solid var(--border);
     padding: 24px;
-    min-width: 0;
 }
 
 .metric-card span {
@@ -289,7 +242,7 @@ main {
 }
 
 
-/* PANELS */
+/* OPPORTUNITY SUMMARY */
 
 .panel {
     background: var(--panel);
@@ -417,7 +370,7 @@ main {
         padding: 22px;
     }
 
-    .ticker-title-row h2 {
+    .profile-hero h2 {
         font-size: 36px;
     }
 

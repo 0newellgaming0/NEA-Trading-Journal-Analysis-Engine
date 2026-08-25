@@ -142,13 +142,10 @@ function normalizeTrade(trade) {
         return null;
     }
 
-    const ticker =
-        trade.ticker;
-
     if (
-        ticker === null ||
-        ticker === undefined ||
-        String(ticker).trim() === ""
+        trade.ticker === null ||
+        trade.ticker === undefined ||
+        String(trade.ticker).trim() === ""
     ) {
         return null;
     }
@@ -156,7 +153,7 @@ function normalizeTrade(trade) {
     return {
 
         ticker:
-            String(ticker)
+            String(trade.ticker)
                 .trim()
                 .toUpperCase(),
 
@@ -248,59 +245,30 @@ function findTickerTrade(
 
 function renderTickerProfile(trade) {
 
-    /*
-     * PUBLIC FIELD: ticker
-     */
-
     setText(
         "ticker",
         trade.ticker
     );
-
-
-    /*
-     * PUBLIC FIELD: direction
-     */
 
     setText(
         "direction",
         trade.direction
     );
 
-
-    /*
-     * PUBLIC FIELD: setup
-     */
-
     setText(
         "setup",
         trade.setup
     );
-
-
-    /*
-     * PUBLIC FIELD: regime
-     */
 
     setText(
         "regime",
         trade.regime
     );
 
-
-    /*
-     * PUBLIC FIELD: timeframe
-     */
-
     setText(
         "timeframe",
         trade.timeframe
     );
-
-
-    /*
-     * PUBLIC FIELD: entry
-     */
 
     setText(
         "entry",
@@ -309,22 +277,12 @@ function renderTickerProfile(trade) {
         )
     );
 
-
-    /*
-     * PUBLIC FIELD: stop
-     */
-
     setText(
         "stop",
         formatPrice(
             trade.stop
         )
     );
-
-
-    /*
-     * PUBLIC FIELD: target
-     */
 
     setText(
         "target",
@@ -333,22 +291,12 @@ function renderTickerProfile(trade) {
         )
     );
 
-
-    /*
-     * PUBLIC FIELD: risk_reward
-     */
-
     setText(
         "riskReward",
         formatRiskReward(
             trade.riskReward
         )
     );
-
-
-    /*
-     * PUBLIC FIELD: score
-     */
 
     setText(
         "score",
@@ -357,11 +305,6 @@ function renderTickerProfile(trade) {
         )
     );
 
-
-    /*
-     * PUBLIC FIELD: current_price
-     */
-
     setText(
         "currentPrice",
         formatPrice(
@@ -369,30 +312,15 @@ function renderTickerProfile(trade) {
         )
     );
 
-
-    /*
-     * PUBLIC FIELD: status
-     */
-
     setText(
         "status",
         trade.status
     );
 
-
-    /*
-     * PUBLIC FIELD: signal_strength
-     */
-
     setText(
         "signalStrength",
         trade.signalStrength
     );
-
-
-    /*
-     * PUBLIC FIELD: confluence
-     */
 
     setText(
         "confluence",
@@ -401,22 +329,12 @@ function renderTickerProfile(trade) {
         )
     );
 
-
-    /*
-     * PUBLIC FIELD: created_at
-     */
-
     setText(
         "createdAt",
         formatTimestamp(
             trade.createdAt
         )
     );
-
-
-    /*
-     * PUBLIC FIELD: updated_at
-     */
 
     setText(
         "updatedAt",
@@ -425,14 +343,73 @@ function renderTickerProfile(trade) {
         )
     );
 
+    setText(
+        "opportunityDescription",
+        buildOpportunityDescription(
+            trade
+        )
+    );
 
     document.title =
         `NEA28V1 ${trade.ticker} Ticker Profile`;
 
-
     hideLoading();
     hideError();
     showProfile();
+}
+
+
+function buildOpportunityDescription(trade) {
+
+    const ticker =
+        trade.ticker;
+
+    const direction =
+        trade.direction;
+
+    const setup =
+        trade.setup;
+
+    const regime =
+        trade.regime;
+
+    const timeframe =
+        trade.timeframe;
+
+    const score =
+        formatScore(
+            trade.score
+        );
+
+    let description =
+        `${ticker} is currently represented as a ` +
+        `${direction} ${setup} opportunity within ` +
+        `the published NEA28V1 dataset.`;
+
+    if (regime !== "—") {
+
+        description +=
+            ` The current market regime is ${regime}.`;
+    }
+
+    if (timeframe !== "—") {
+
+        description +=
+            ` The published signal timeframe is ${timeframe}.`;
+    }
+
+    if (score !== "—") {
+
+        description +=
+            ` The published NEA28V1 ranking score is ${score}.`;
+    }
+
+    description +=
+        " Market conditions, liquidity, news, execution conditions, " +
+        "and the underlying trade thesis should be independently " +
+        "evaluated before making any trading decision.";
+
+    return description;
 }
 
 
@@ -576,7 +553,9 @@ function setText(
 ) {
 
     const element =
-        document.getElementById(id);
+        document.getElementById(
+            id
+        );
 
     if (!element) {
 
