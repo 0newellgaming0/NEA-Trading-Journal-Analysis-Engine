@@ -1,7 +1,7 @@
 "use strict";
 
 const TRADE_DATA_URL = "data/trades.json";
-const TOP_PICK_COUNT = 5;
+const TOP_PICK_COUNT = 10;
 
 document.addEventListener(
     "DOMContentLoaded",
