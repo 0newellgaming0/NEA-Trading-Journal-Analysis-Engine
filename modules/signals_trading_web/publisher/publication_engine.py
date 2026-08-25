@@ -30,6 +30,14 @@ class PublicationEngine:
             self.trades_db_path
         )
 
+        self.analysis_latest_source = (
+            ROOT /
+            "modules" /
+            "signals_trading_web" /
+            "data" /
+            "analysis_latest.json"
+        )
+
     def _write(self, filename, payload):
         path = self.output_dir / filename
 
@@ -44,21 +52,18 @@ class PublicationEngine:
 
         return path
 
-    def _validate_existing_analysis(self):
-        path = (
-            self.output_dir /
-            "analysis_latest.json"
-        )
+    def _publish_existing_analysis(self):
+        source = self.analysis_latest_source
 
-        if not path.exists():
+        if not source.exists():
             raise FileNotFoundError(
                 "analysis_latest.json: "
-                "file not found"
+                f"source file not found: {source}"
             )
 
         try:
             payload = json.loads(
-                path.read_text(
+                source.read_text(
                     encoding="utf-8"
                 )
             )
@@ -135,7 +140,10 @@ class PublicationEngine:
                     "an object"
                 )
 
-        return path
+        return self._write(
+            "analysis_latest.json",
+            payload
+        )
 
     def publish(self):
         now = datetime.now(
@@ -221,7 +229,7 @@ class PublicationEngine:
             }
         )
 
-        self._validate_existing_analysis()
+        self._publish_existing_analysis()
 
         validate_data(
             self.output_dir
