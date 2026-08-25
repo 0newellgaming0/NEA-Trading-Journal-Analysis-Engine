@@ -29,6 +29,7 @@ PUBLIC_FILES = [
     "modules/signals_trading_web/data/trades.json",
     "modules/signals_trading_web/data/performance.json",
     "modules/signals_trading_web/data/market.json",
+    "modules/signals_trading_web/data/analysis_latest.json",
 ]
 
 
