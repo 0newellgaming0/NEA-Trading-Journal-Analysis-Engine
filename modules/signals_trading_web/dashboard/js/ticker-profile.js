@@ -11,6 +11,8 @@ document.addEventListener(
 async function initializeTickerProfile() {
 
     showLoading();
+    hideError();
+    hideProfile();
 
     const ticker =
         getRequestedTicker();
@@ -84,9 +86,12 @@ function getRequestedTicker() {
         return null;
     }
 
-    return ticker
-        .trim()
-        .toUpperCase();
+    const normalized =
+        ticker
+            .trim()
+            .toUpperCase();
+
+    return normalized || null;
 }
 
 async function loadTradeData() {
@@ -136,6 +141,7 @@ async function loadAnalysisData(ticker) {
         typeof data !== "object" ||
         Array.isArray(data)
     ) {
+
         console.warn(
             `${ANALYSIS_DATA_URL} does not contain a valid ticker-indexed object.`
         );
@@ -144,7 +150,7 @@ async function loadAnalysisData(ticker) {
     }
 
     /*
-     * Current analysis_latest.json schema:
+     * Correct publication schema:
      *
      * {
      *     "ARI": {
@@ -152,20 +158,18 @@ async function loadAnalysisData(ticker) {
      *         "generated_at": "...",
      *         "journal_timestamp": "",
      *         "stop_breached": false,
-     *         "analysis_blocks": { ... }
+     *         "analysis_blocks": {
+     *             ...
+     *         }
      *     },
      *
      *     "BCAB": {
      *         "ticker": "BCAB",
-     *         "generated_at": "...",
-     *         "journal_timestamp": "",
-     *         "stop_breached": false,
-     *         "analysis_blocks": { ... }
+     *         ...
      *     }
      * }
      *
-     * Resolve the requested ticker directly from the
-     * root-level ticker index.
+     * Resolve directly from the root-level ticker index.
      */
 
     const tickerAnalysis =
@@ -208,11 +212,12 @@ async function loadAnalysisData(ticker) {
 
     if (
         !tickerAnalysis.analysis_blocks ||
-        typeof tickerAnalysis.analysis_blocks !== "object"
+        typeof tickerAnalysis.analysis_blocks !== "object" ||
+        Array.isArray(tickerAnalysis.analysis_blocks)
     ) {
 
         console.warn(
-            `Analysis entry for ${ticker} does not contain analysis_blocks.`
+            `Analysis entry for ${ticker} does not contain a valid analysis_blocks object.`
         );
 
         return null;
@@ -491,28 +496,58 @@ function renderAnalysis(analysis) {
             "analysisBlocks"
         );
 
-    if (
-        !section ||
-        !container
-    ) {
-        return;
+    const emptyState =
+        document.getElementById(
+            "analysisEmpty"
+        );
+
+    const riskSection =
+        document.getElementById(
+            "analysisRiskSection"
+        );
+
+    const stopBreachStatus =
+        document.getElementById(
+            "stopBreachStatus"
+        );
+
+    if (container) {
+        container.innerHTML = "";
     }
 
-    container.innerHTML = "";
+    renderAnalysisMetadata(
+        analysis
+    );
+
+    renderAnalysisRisk(
+        analysis
+    );
 
     if (
         !analysis ||
         !analysis.analysis_blocks ||
-        typeof analysis.analysis_blocks !== "object"
+        typeof analysis.analysis_blocks !== "object" ||
+        Array.isArray(analysis.analysis_blocks)
     ) {
 
-        section.classList.add(
-            "hidden"
-        );
+        if (section) {
+            section.classList.add("hidden");
+        }
 
-        renderAnalysisMetadata(
-            null
-        );
+        if (emptyState) {
+            emptyState.classList.remove("hidden");
+        }
+
+        if (riskSection) {
+            riskSection.classList.add("hidden");
+        }
+
+        if (stopBreachStatus) {
+            stopBreachStatus.textContent =
+                "STOP STATUS: —";
+            stopBreachStatus.className =
+                "analysis-status";
+        }
 
         return;
     }
@@ -525,19 +560,30 @@ function renderAnalysis(analysis) {
 
     if (!keys.length) {
 
-        section.classList.add(
-            "hidden"
-        );
+        if (section) {
+            section.classList.add("hidden");
+        }
 
-        renderAnalysisMetadata(
-            analysis
-        );
+        if (emptyState) {
+            emptyState.classList.remove("hidden");
+        }
+
+        if (riskSection) {
+            riskSection.classList.add("hidden");
+        }
 
         return;
     }
 
+    if (emptyState) {
+        emptyState.classList.add("hidden");
+    }
+
     keys.forEach(
-        key => {
+        (
+            key,
+            index
+        ) => {
 
             const value =
                 blocks[key];
@@ -558,6 +604,34 @@ function renderAnalysis(analysis) {
             card.className =
                 "analysis-card";
 
+            card.dataset.analysisKey =
+                key;
+
+            card.dataset.analysisIndex =
+                String(index + 1);
+
+            const header =
+                document.createElement(
+                    "div"
+                );
+
+            header.className =
+                "analysis-card-header";
+
+            const indexLabel =
+                document.createElement(
+                    "span"
+                );
+
+            indexLabel.className =
+                "analysis-card-index";
+
+            indexLabel.textContent =
+                String(index + 1).padStart(
+                    2,
+                    "0"
+                );
+
             const title =
                 document.createElement(
                     "h3"
@@ -567,6 +641,14 @@ function renderAnalysis(analysis) {
                 formatAnalysisTitle(
                     key
                 );
+
+            header.appendChild(
+                indexLabel
+            );
+
+            header.appendChild(
+                title
+            );
 
             const content =
                 document.createElement(
@@ -581,13 +663,24 @@ function renderAnalysis(analysis) {
                 value
             );
 
+            const source =
+                createSourceReport(
+                    value
+                );
+
             card.appendChild(
-                title
+                header
             );
 
             card.appendChild(
                 content
             );
+
+            if (source) {
+                card.appendChild(
+                    source
+                );
+            }
 
             container.appendChild(
                 card
@@ -599,24 +692,20 @@ function renderAnalysis(analysis) {
         container.children.length === 0
     ) {
 
-        section.classList.add(
-            "hidden"
-        );
+        if (section) {
+            section.classList.add("hidden");
+        }
 
-        renderAnalysisMetadata(
-            analysis
-        );
+        if (emptyState) {
+            emptyState.classList.remove("hidden");
+        }
 
         return;
     }
 
-    renderAnalysisMetadata(
-        analysis
-    );
-
-    section.classList.remove(
-        "hidden"
-    );
+    if (section) {
+        section.classList.remove("hidden");
+    }
 }
 
 function renderAnalysisMetadata(
@@ -626,6 +715,11 @@ function renderAnalysisMetadata(
     const generatedAt =
         document.getElementById(
             "analysisGeneratedAt"
+        );
+
+    const generatedAtMeta =
+        document.getElementById(
+            "analysisGeneratedAtMeta"
         );
 
     const journalTimestamp =
@@ -638,15 +732,24 @@ function renderAnalysisMetadata(
             "analysisStopBreached"
         );
 
+    const generatedValue =
+        analysis &&
+        analysis.generated_at
+            ? formatTimestamp(
+                analysis.generated_at
+            )
+            : "—";
+
     if (generatedAt) {
 
         generatedAt.textContent =
-            analysis &&
-            analysis.generated_at
-                ? formatTimestamp(
-                    analysis.generated_at
-                )
-                : "—";
+            generatedValue;
+    }
+
+    if (generatedAtMeta) {
+
+        generatedAtMeta.textContent =
+            generatedValue;
     }
 
     if (journalTimestamp) {
@@ -673,15 +776,106 @@ function renderAnalysisMetadata(
             stopBreached.className =
                 "analysis-status breached";
 
-        } else {
+        } else if (
+            analysis &&
+            analysis.stop_breached === false
+        ) {
 
             stopBreached.textContent =
                 "STOP NOT BREACHED";
 
             stopBreached.className =
                 "analysis-status clear";
+
+        } else {
+
+            stopBreached.textContent =
+                "—";
+
+            stopBreached.className =
+                "analysis-status";
         }
     }
+}
+
+function renderAnalysisRisk(
+    analysis
+) {
+
+    const riskSection =
+        document.getElementById(
+            "analysisRiskSection"
+        );
+
+    const stopBreachStatus =
+        document.getElementById(
+            "stopBreachStatus"
+        );
+
+    if (
+        !riskSection ||
+        !stopBreachStatus
+    ) {
+        return;
+    }
+
+    if (
+        !analysis ||
+        typeof analysis !== "object" ||
+        !Object.prototype.hasOwnProperty.call(
+            analysis,
+            "stop_breached"
+        )
+    ) {
+
+        riskSection.classList.add(
+            "hidden"
+        );
+
+        stopBreachStatus.textContent =
+            "STOP STATUS: —";
+
+        stopBreachStatus.className =
+            "analysis-status";
+
+        return;
+    }
+
+    riskSection.classList.remove(
+        "hidden"
+    );
+
+    if (
+        analysis.stop_breached === true
+    ) {
+
+        stopBreachStatus.textContent =
+            "STOP STATUS: STOP BREACHED";
+
+        stopBreachStatus.className =
+            "analysis-status breached";
+
+        return;
+    }
+
+    if (
+        analysis.stop_breached === false
+    ) {
+
+        stopBreachStatus.textContent =
+            "STOP STATUS: STOP NOT BREACHED";
+
+        stopBreachStatus.className =
+            "analysis-status clear";
+
+        return;
+    }
+
+    stopBreachStatus.textContent =
+        "STOP STATUS: —";
+
+    stopBreachStatus.className =
+        "analysis-status";
 }
 
 function renderAnalysisValue(
@@ -692,6 +886,43 @@ function renderAnalysisValue(
     if (
         typeof value === "string"
     ) {
+
+        const embeddedJson =
+            extractEmbeddedJson(
+                value
+            );
+
+        if (embeddedJson) {
+
+            renderAnalysisText(
+                container,
+                embeddedJson.before
+            );
+
+            const jsonContainer =
+                document.createElement(
+                    "div"
+                );
+
+            jsonContainer.className =
+                "analysis-embedded-json";
+
+            renderAnalysisValue(
+                jsonContainer,
+                embeddedJson.value
+            );
+
+            container.appendChild(
+                jsonContainer
+            );
+
+            renderAnalysisText(
+                container,
+                embeddedJson.after
+            );
+
+            return;
+        }
 
         renderAnalysisText(
             container,
@@ -732,7 +963,9 @@ function renderAnalysisValue(
         );
 
     paragraph.textContent =
-        String(value);
+        formatAnalysisScalar(
+            value
+        );
 
     container.appendChild(
         paragraph
@@ -744,8 +977,15 @@ function renderAnalysisText(
     text
 ) {
 
+    if (
+        text === null ||
+        text === undefined
+    ) {
+        return;
+    }
+
     const normalized =
-        text
+        String(text)
             .replace(
                 /\r\n/g,
                 "\n"
@@ -763,6 +1003,70 @@ function renderAnalysisText(
 
     let currentParagraph = [];
 
+    let currentField =
+        null;
+
+    function flushField() {
+
+        if (!currentField) {
+            return;
+        }
+
+        const fieldContainer =
+            document.createElement(
+                "div"
+            );
+
+        fieldContainer.className =
+            "analysis-data";
+
+        const fieldItem =
+            document.createElement(
+                "div"
+            );
+
+        fieldItem.className =
+            "analysis-data-item";
+
+        const label =
+            document.createElement(
+                "span"
+            );
+
+        label.textContent =
+            formatAnalysisTitle(
+                currentField.key
+            );
+
+        const output =
+            document.createElement(
+                "strong"
+            );
+
+        output.textContent =
+            currentField.value
+                .join(" ")
+                .trim() || "—";
+
+        fieldItem.appendChild(
+            label
+        );
+
+        fieldItem.appendChild(
+            output
+        );
+
+        fieldContainer.appendChild(
+            fieldItem
+        );
+
+        container.appendChild(
+            fieldContainer
+        );
+
+        currentField = null;
+    }
+
     function flushParagraph() {
 
         if (
@@ -777,13 +1081,18 @@ function renderAnalysisText(
             );
 
         paragraph.textContent =
-            currentParagraph.join(
-                " "
-            ).trim();
+            currentParagraph
+                .join(" ")
+                .trim();
 
-        container.appendChild(
-            paragraph
-        );
+        if (
+            paragraph.textContent
+        ) {
+
+            container.appendChild(
+                paragraph
+            );
+        }
 
         currentParagraph = [];
     }
@@ -796,39 +1105,79 @@ function renderAnalysisText(
 
             if (!trimmed) {
 
+                flushField();
                 flushParagraph();
 
                 return;
             }
 
-            if (
-                /^#{1,4}\s+/.test(
-                    trimmed
-                )
-            ) {
+            const headingMatch =
+                trimmed.match(
+                    /^(#{1,6})\s+(.+)$/
+                );
 
+            if (headingMatch) {
+
+                flushField();
                 flushParagraph();
 
                 const level =
-                    trimmed.match(
-                        /^(#{1,4})/
-                    )[1].length;
+                    headingMatch[1].length;
 
                 const heading =
                     document.createElement(
                         `h${level}`
                     );
 
+                if (
+                    level >= 2
+                ) {
+                    heading.className =
+                        "analysis-report-heading";
+                }
+
                 heading.textContent =
-                    trimmed
-                        .replace(
-                            /^#{1,4}\s+/,
-                            ""
-                        )
+                    headingMatch[2]
                         .trim();
 
                 container.appendChild(
                     heading
+                );
+
+                return;
+            }
+
+            const fieldMatch =
+                trimmed.match(
+                    /^([^:]{1,120}):\s*(.*)$/
+                );
+
+            if (fieldMatch) {
+
+                flushParagraph();
+                flushField();
+
+                currentField = {
+                    key:
+                        fieldMatch[1]
+                            .trim(),
+
+                    value:
+                        fieldMatch[2]
+                            ? [
+                                fieldMatch[2]
+                                    .trim()
+                            ]
+                            : []
+                };
+
+                return;
+            }
+
+            if (currentField) {
+
+                currentField.value.push(
+                    trimmed
                 );
 
                 return;
@@ -840,6 +1189,7 @@ function renderAnalysisText(
         }
     );
 
+    flushField();
     flushParagraph();
 }
 
@@ -861,7 +1211,10 @@ function renderAnalysisArray(
         "analysis-list";
 
     items.forEach(
-        item => {
+        (
+            item,
+            index
+        ) => {
 
             const itemElement =
                 document.createElement(
@@ -870,6 +1223,26 @@ function renderAnalysisArray(
 
             itemElement.className =
                 "analysis-list-item";
+
+            const indexLabel =
+                document.createElement(
+                    "span"
+                );
+
+            indexLabel.className =
+                "analysis-list-index";
+
+            indexLabel.textContent =
+                `ITEM ${String(
+                    index + 1
+                ).padStart(
+                    2,
+                    "0"
+                )}`;
+
+            itemElement.appendChild(
+                indexLabel
+            );
 
             renderAnalysisValue(
                 itemElement,
@@ -892,18 +1265,27 @@ function renderAnalysisObject(
     object
 ) {
 
+    const entries =
+        Object.entries(
+            object
+        );
+
+    if (!entries.length) {
+        return;
+    }
+
     const data =
         document.createElement(
             "div"
         );
 
     data.className =
-        "analysis-data";
+        "analysis-data analysis-object";
 
-    Object.entries(
-        object
-    ).forEach(
-        ([key, value]) => {
+    entries.forEach(
+        (
+            [key, value]
+        ) => {
 
             const item =
                 document.createElement(
@@ -911,7 +1293,7 @@ function renderAnalysisObject(
                 );
 
             item.className =
-                "analysis-data-item";
+                "analysis-data-item analysis-object-item";
 
             const label =
                 document.createElement(
@@ -923,36 +1305,48 @@ function renderAnalysisObject(
                     key
                 );
 
-            const output =
-                document.createElement(
-                    "strong"
-                );
+            item.appendChild(
+                label
+            );
 
             if (
                 value &&
                 typeof value === "object"
             ) {
 
+                const nested =
+                    document.createElement(
+                        "div"
+                    );
+
+                nested.className =
+                    "analysis-nested";
+
                 renderAnalysisValue(
-                    output,
+                    nested,
                     value
                 );
 
+                item.appendChild(
+                    nested
+                );
+
             } else {
+
+                const output =
+                    document.createElement(
+                        "strong"
+                    );
 
                 output.textContent =
                     formatAnalysisScalar(
                         value
                     );
+
+                item.appendChild(
+                    output
+                );
             }
-
-            item.appendChild(
-                label
-            );
-
-            item.appendChild(
-                output
-            );
 
             data.appendChild(
                 item
@@ -963,6 +1357,344 @@ function renderAnalysisObject(
     container.appendChild(
         data
     );
+}
+
+function extractEmbeddedJson(
+    text
+) {
+
+    if (
+        typeof text !== "string"
+    ) {
+        return null;
+    }
+
+    const normalized =
+        text.trim();
+
+    if (!normalized) {
+        return null;
+    }
+
+    const firstObject =
+        normalized.indexOf("{");
+
+    const firstArray =
+        normalized.indexOf("[");
+
+    let start = -1;
+
+    if (
+        firstObject === -1
+    ) {
+
+        start =
+            firstArray;
+
+    } else if (
+        firstArray === -1
+    ) {
+
+        start =
+            firstObject;
+
+    } else {
+
+        start =
+            Math.min(
+                firstObject,
+                firstArray
+            );
+    }
+
+    if (start === -1) {
+        return null;
+    }
+
+    const parsed =
+        parseJsonPrefix(
+            normalized.slice(start)
+        );
+
+    if (!parsed) {
+        return null;
+    }
+
+    return {
+
+        before:
+            normalized
+                .slice(
+                    0,
+                    start
+                )
+                .trim(),
+
+        value:
+            parsed.value,
+
+        after:
+            normalized
+                .slice(
+                    start + parsed.length
+                )
+                .trim()
+    };
+}
+
+function parseJsonPrefix(
+    text
+) {
+
+    if (
+        !text ||
+        (
+            text[0] !== "{" &&
+            text[0] !== "["
+        )
+    ) {
+        return null;
+    }
+
+    const opening =
+        text[0];
+
+    const closing =
+        opening === "{"
+            ? "}"
+            : "]";
+
+    let depth = 0;
+    let inString = false;
+    let escaped = false;
+
+    for (
+        let index = 0;
+        index < text.length;
+        index++
+    ) {
+
+        const character =
+            text[index];
+
+        if (inString) {
+
+            if (escaped) {
+
+                escaped = false;
+
+            } else if (
+                character === "\\"
+            ) {
+
+                escaped = true;
+
+            } else if (
+                character === "\""
+            ) {
+
+                inString = false;
+            }
+
+            continue;
+        }
+
+        if (
+            character === "\""
+        ) {
+
+            inString = true;
+
+            continue;
+        }
+
+        if (
+            character === opening
+        ) {
+
+            depth++;
+
+        } else if (
+            character === closing
+        ) {
+
+            depth--;
+
+            if (depth === 0) {
+
+                const candidate =
+                    text.slice(
+                        0,
+                        index + 1
+                    );
+
+                try {
+
+                    return {
+
+                        value:
+                            JSON.parse(
+                                candidate
+                            ),
+
+                        length:
+                            index + 1
+                    };
+
+                } catch (error) {
+
+                    return null;
+                }
+            }
+        }
+    }
+
+    return null;
+}
+
+function createSourceReport(
+    value
+) {
+
+    const sourceText =
+        extractSourceText(
+            value
+        );
+
+    if (!sourceText) {
+        return null;
+    }
+
+    const details =
+        document.createElement(
+            "details"
+        );
+
+    details.className =
+        "analysis-source";
+
+    const summary =
+        document.createElement(
+            "summary"
+        );
+
+    summary.textContent =
+        "SOURCE REPORT";
+
+    const pre =
+        document.createElement(
+            "pre"
+        );
+
+    pre.textContent =
+        sourceText;
+
+    details.appendChild(
+        summary
+    );
+
+    details.appendChild(
+        pre
+    );
+
+    return details;
+}
+
+function extractSourceText(
+    value
+) {
+
+    if (
+        typeof value === "string"
+    ) {
+
+        const match =
+            value.match(
+                /(?:^|\n)\s*(?:SOURCE REPORT|SOURCE|RAW REPORT)\s*:?\s*([\s\S]*)$/i
+            );
+
+        if (
+            match &&
+            match[1].trim()
+        ) {
+            return match[1].trim();
+        }
+
+        return null;
+    }
+
+    if (
+        Array.isArray(value)
+    ) {
+
+        for (
+            const item of value
+        ) {
+
+            const source =
+                extractSourceText(
+                    item
+                );
+
+            if (source) {
+                return source;
+            }
+        }
+
+        return null;
+    }
+
+    if (
+        value &&
+        typeof value === "object"
+    ) {
+
+        const sourceKeys = [
+            "source_report",
+            "sourceReport",
+            "raw_report",
+            "rawReport",
+            "source"
+        ];
+
+        for (
+            const key of sourceKeys
+        ) {
+
+            if (
+                Object.prototype.hasOwnProperty.call(
+                    value,
+                    key
+                )
+            ) {
+
+                const source =
+                    value[key];
+
+                if (
+                    typeof source === "string" &&
+                    source.trim()
+                ) {
+
+                    return source.trim();
+                }
+
+                if (
+                    source &&
+                    typeof source === "object"
+                ) {
+
+                    return JSON.stringify(
+                        source,
+                        null,
+                        2
+                    );
+                }
+            }
+        }
+    }
+
+    return null;
 }
 
 function formatAnalysisScalar(
@@ -985,6 +1717,19 @@ function formatAnalysisScalar(
             : "No";
     }
 
+    if (
+        typeof value === "number"
+    ) {
+
+        if (
+            !Number.isFinite(value)
+        ) {
+            return "—";
+        }
+
+        return String(value);
+    }
+
     return String(value);
 }
 
@@ -994,9 +1739,14 @@ function formatAnalysisTitle(
 
     return String(key)
         .replace(
-            /_/g,
+            /[_-]+/g,
             " "
         )
+        .replace(
+            /\s+/g,
+            " "
+        )
+        .trim()
         .replace(
             /\b\w/g,
             character =>
@@ -1033,19 +1783,25 @@ function buildOpportunityDescription(
         `${direction} ${setup} opportunity within ` +
         `the published NEA28V1 dataset.`;
 
-    if (regime !== "—") {
+    if (
+        regime !== "—"
+    ) {
 
         description +=
             ` The current market regime is ${regime}.`;
     }
 
-    if (timeframe !== "—") {
+    if (
+        timeframe !== "—"
+    ) {
 
         description +=
             ` The published signal timeframe is ${timeframe}.`;
     }
 
-    if (score !== "—") {
+    if (
+        score !== "—"
+    ) {
 
         description +=
             ` The published NEA28V1 ranking score is ${score}.`;
@@ -1059,7 +1815,9 @@ function buildOpportunityDescription(
     return description;
 }
 
-function numericValue(value) {
+function numericValue(
+    value
+) {
 
     if (
         value === null ||
@@ -1072,6 +1830,7 @@ function numericValue(value) {
     if (
         typeof value === "number"
     ) {
+
         return Number.isFinite(value)
             ? value
             : NaN;
@@ -1080,7 +1839,10 @@ function numericValue(value) {
     const number =
         Number(
             String(value)
-                .replace(/[$,%]/g, "")
+                .replace(
+                    /[$,%]/g,
+                    ""
+                )
                 .trim()
         );
 
@@ -1089,7 +1851,9 @@ function numericValue(value) {
         : NaN;
 }
 
-function displayValue(value) {
+function displayValue(
+    value
+) {
 
     if (
         value === null ||
@@ -1102,27 +1866,39 @@ function displayValue(value) {
     return String(value);
 }
 
-function formatPrice(value) {
+function formatPrice(
+    value
+) {
 
-    if (!Number.isFinite(value)) {
+    if (
+        !Number.isFinite(value)
+    ) {
         return "—";
     }
 
     return `$${value.toFixed(4)}`;
 }
 
-function formatRiskReward(value) {
+function formatRiskReward(
+    value
+) {
 
-    if (!Number.isFinite(value)) {
+    if (
+        !Number.isFinite(value)
+    ) {
         return "—";
     }
 
     return `${value.toFixed(2)}R`;
 }
 
-function formatScore(value) {
+function formatScore(
+    value
+) {
 
-    if (!Number.isFinite(value)) {
+    if (
+        !Number.isFinite(value)
+    ) {
         return "—";
     }
 
@@ -1131,7 +1907,9 @@ function formatScore(value) {
         : value.toFixed(2);
 }
 
-function formatConfluence(value) {
+function formatConfluence(
+    value
+) {
 
     if (
         value === null ||
@@ -1145,6 +1923,7 @@ function formatConfluence(value) {
         typeof value === "number" &&
         Number.isFinite(value)
     ) {
+
         return Number.isInteger(value)
             ? String(value)
             : value.toFixed(2);
@@ -1153,7 +1932,9 @@ function formatConfluence(value) {
     return String(value);
 }
 
-function formatTimestamp(value) {
+function formatTimestamp(
+    value
+) {
 
     if (
         value === null ||
@@ -1269,7 +2050,9 @@ function hideProfile() {
     }
 }
 
-function showError(message) {
+function showError(
+    message
+) {
 
     hideLoading();
     hideProfile();
