@@ -13,19 +13,29 @@ async function initializeAnalysis() {
         getRequestedTicker();
 
     if (!ticker) {
-        resetAnalysis();
+
+        renderAnalysisDiagnostic(
+            "NO TICKER REQUESTED",
+            "The page URL does not contain a ticker parameter.",
+            "Expected URL format: ticker-profile.html?ticker=BCAB"
+        );
+
         return;
     }
 
+    renderAnalysisLoading(
+        ticker
+    );
+
     try {
 
-        const analysis =
+        const publication =
             await loadAnalysisData(
                 ticker
             );
 
         renderAnalysis(
-            analysis
+            publication
         );
 
     } catch (error) {
@@ -35,7 +45,10 @@ async function initializeAnalysis() {
             error
         );
 
-        resetAnalysis();
+        renderAnalysisLoadFailure(
+            ticker,
+            error
+        );
     }
 }
 
@@ -65,23 +78,45 @@ async function loadAnalysisData(
     ticker
 ) {
 
-    const response =
-        await fetch(
-            `${ANALYSIS_DATA_URL}?t=${Date.now()}`,
-            {
-                cache: "no-store"
-            }
+    let response;
+
+    try {
+
+        response =
+            await fetch(
+                `${ANALYSIS_DATA_URL}?t=${Date.now()}`,
+                {
+                    cache: "no-store"
+                }
+            );
+
+    } catch (error) {
+
+        throw new Error(
+            `NETWORK FAILURE: Unable to fetch ${ANALYSIS_DATA_URL}. ${error.message}`
         );
+    }
 
     if (!response.ok) {
 
         throw new Error(
-            `Unable to load ${ANALYSIS_DATA_URL}: ${response.status}`
+            `HTTP FAILURE: ${ANALYSIS_DATA_URL} returned HTTP ${response.status} ${response.statusText}.`
         );
     }
 
-    const data =
-        await response.json();
+    let data;
+
+    try {
+
+        data =
+            await response.json();
+
+    } catch (error) {
+
+        throw new Error(
+            `JSON PARSE FAILURE: ${ANALYSIS_DATA_URL} does not contain valid JSON. ${error.message}`
+        );
+    }
 
     if (
         !data ||
@@ -89,12 +124,16 @@ async function loadAnalysisData(
         Array.isArray(data)
     ) {
 
-        console.warn(
-            `${ANALYSIS_DATA_URL} does not contain a valid analysis dataset.`
+        throw new Error(
+            "DATASET STRUCTURE FAILURE: The analysis publication root is not a valid JSON object."
         );
-
-        return null;
     }
+
+    const publicationSchemaVersion =
+        data.schema_version;
+
+    const publicationGeneratedAt =
+        data.generated_at;
 
     const tickerIndex =
         data.tickers;
@@ -105,11 +144,21 @@ async function loadAnalysisData(
         Array.isArray(tickerIndex)
     ) {
 
-        console.warn(
-            `${ANALYSIS_DATA_URL} does not contain a valid "tickers" index.`
+        throw new Error(
+            'DATASET STRUCTURE FAILURE: The publication does not contain a valid "tickers" object.'
         );
+    }
 
-        return null;
+    if (
+        !Object.prototype.hasOwnProperty.call(
+            tickerIndex,
+            ticker
+        )
+    ) {
+
+        throw new Error(
+            `TICKER NOT FOUND: ${ticker} does not exist in data.tickers.`
+        );
     }
 
     const tickerAnalysis =
@@ -121,19 +170,30 @@ async function loadAnalysisData(
         Array.isArray(tickerAnalysis)
     ) {
 
-        console.warn(
-            `No analysis entry exists for ticker ${ticker}.`
+        throw new Error(
+            `TICKER RECORD FAILURE: data.tickers.${ticker} exists but is not a valid object.`
         );
-
-        return null;
     }
 
-    return tickerAnalysis;
+    return {
+
+        ticker,
+
+        schema_version:
+            publicationSchemaVersion,
+
+        generated_at:
+            publicationGeneratedAt,
+
+        analysis:
+            tickerAnalysis
+    };
 }
 
 function renderAnalysis(
-    analysis
+    publication
 ) {
+
     const section =
         document.getElementById(
             "analysisSection"
@@ -153,6 +213,42 @@ function renderAnalysis(
         container.innerHTML = "";
     }
 
+    if (
+        !publication ||
+        typeof publication !== "object"
+    ) {
+
+        renderAnalysisDiagnostic(
+            "INVALID PUBLICATION",
+            "The analysis publication could not be interpreted.",
+            "The JavaScript received no valid publication object."
+        );
+
+        return;
+    }
+
+    const analysis =
+        publication.analysis;
+
+    if (
+        !analysis ||
+        typeof analysis !== "object" ||
+        Array.isArray(analysis)
+    ) {
+
+        renderAnalysisDiagnostic(
+            "INVALID TICKER ANALYSIS",
+            `The ticker record for ${publication.ticker} exists, but its analysis record is invalid.`,
+            `data.tickers.${publication.ticker} must contain an object.`
+        );
+
+        return;
+    }
+
+    renderPublicationMetadata(
+        publication
+    );
+
     renderAnalysisMetadata(
         analysis
     );
@@ -162,52 +258,153 @@ function renderAnalysis(
     );
 
     if (
-        !analysis ||
-        typeof analysis !== "object"
+        !Object.prototype.hasOwnProperty.call(
+            analysis,
+            "analysis_blocks"
+        )
     ) {
-        showAnalysisEmptyState();
+
+        renderAnalysisDiagnostic(
+            "ANALYSIS BLOCKS MISSING",
+            `${publication.ticker} exists in the publication, but no analysis_blocks field was provided.`,
+            `The ticker record contains ${Object.keys(analysis).length} field(s), but analysis_blocks is absent.`
+        );
+
+        return;
+    }
+
+    const rawBlocks =
+        analysis.analysis_blocks;
+
+    if (
+        rawBlocks === null ||
+        rawBlocks === undefined
+    ) {
+
+        renderAnalysisDiagnostic(
+            "ANALYSIS BLOCKS ARE NULL",
+            `${publication.ticker} contains analysis_blocks, but its value is null or undefined.`,
+            "The publisher created the field but did not provide analysis content."
+        );
+
+        return;
+    }
+
+    if (
+        typeof rawBlocks !== "object" ||
+        Array.isArray(rawBlocks)
+    ) {
+
+        renderAnalysisDiagnostic(
+            "INVALID ANALYSIS BLOCK STRUCTURE",
+            `${publication.ticker} contains analysis_blocks, but the field is not a JSON object.`,
+            `Received type: ${Array.isArray(rawBlocks) ? "array" : typeof rawBlocks}.`
+        );
+
         return;
     }
 
     const blocks =
         normalizeAnalysisBlocks(
-            analysis.analysis_blocks
+            rawBlocks
         );
 
     if (!blocks.length) {
-        showAnalysisEmptyState();
+
+        renderAnalysisDiagnostic(
+            "NO ANALYSIS BLOCKS",
+            `${publication.ticker} contains an analysis_blocks object, but it contains no publishable entries.`,
+            `analysis_blocks contains ${Object.keys(rawBlocks).length} raw field(s). Empty, null, undefined, and blank values are excluded from rendering.`
+        );
+
         return;
     }
 
-    blocks.forEach(
-        (
-            block,
-            index
-        ) => {
-            try {
-                renderAnalysisBlock(
-                    block.key,
-                    block.value,
-                    index
-                );
-            } catch (error) {
-                console.warn(
-                    `Unable to render analysis block "${block.key}".`,
-                    error
-                );
-            }
-        }
-    );
-
     if (emptyState) {
+
         emptyState.classList.add(
             "hidden"
         );
     }
 
     if (section) {
+
         section.classList.remove(
             "hidden"
+        );
+    }
+
+    const diagnostics = [];
+    let renderedCount = 0;
+
+    blocks.forEach(
+        (
+            block,
+            index
+        ) => {
+
+            try {
+
+                const result =
+                    renderAnalysisBlock(
+                        block.key,
+                        block.value,
+                        index
+                    );
+
+                if (result) {
+
+                    renderedCount++;
+
+                } else {
+
+                    diagnostics.push(
+                        `${block.key}: renderer returned no result.`
+                    );
+                }
+
+            } catch (error) {
+
+                console.error(
+                    `Unable to render analysis block "${block.key}".`,
+                    error
+                );
+
+                diagnostics.push(
+                    `${block.key}: ${error.message}`
+                );
+
+                renderAnalysisBlockFailure(
+                    block.key,
+                    error,
+                    index
+                );
+            }
+        }
+    );
+
+    if (
+        renderedCount === 0
+    ) {
+
+        renderAnalysisDiagnostic(
+            "ANALYSIS RENDERING FAILURE",
+            `${publication.ticker} contains ${blocks.length} published analysis block(s), but none completed normal rendering.`,
+            diagnostics.length
+                ? diagnostics.join(" | ")
+                : "No additional renderer diagnostics were returned."
+        );
+
+        return;
+    }
+
+    if (diagnostics.length) {
+
+        renderAnalysisDiagnostic(
+            "PARTIAL ANALYSIS RENDER",
+            `${renderedCount} of ${blocks.length} published analysis block(s) rendered normally.`,
+            diagnostics.join(" | "),
+            true
         );
     }
 }
@@ -287,13 +484,17 @@ function renderAnalysisBlock(
     value,
     index
 ) {
+
     const container =
         document.getElementById(
             "analysisBlocks"
         );
 
     if (!container) {
-        return;
+
+        throw new Error(
+            'HTML TARGET MISSING: element "#analysisBlocks" does not exist.'
+        );
     }
 
     const card =
@@ -310,7 +511,45 @@ function renderAnalysisBlock(
     card.dataset.analysisIndex =
         String(index + 1);
 
-    // existing header construction...
+    const header =
+        document.createElement(
+            "div"
+        );
+
+    header.className =
+        "analysis-card-header";
+
+    const indexLabel =
+        document.createElement(
+            "span"
+        );
+
+    indexLabel.className =
+        "analysis-card-index";
+
+    indexLabel.textContent =
+        String(index + 1).padStart(
+            2,
+            "0"
+        );
+
+    const title =
+        document.createElement(
+            "h3"
+        );
+
+    title.textContent =
+        formatAnalysisTitle(
+            key
+        );
+
+    header.appendChild(
+        indexLabel
+    );
+
+    header.appendChild(
+        title
+    );
 
     const content =
         document.createElement(
@@ -320,12 +559,32 @@ function renderAnalysisBlock(
     content.className =
         "analysis-card-content";
 
-    renderAnalysisValue(
-        content,
-        value
-    );
+    try {
 
-    // Do NOT reject the block here.
+        renderAnalysisValue(
+            content,
+            value
+        );
+
+    } catch (error) {
+
+        renderRawAnalysisValue(
+            content,
+            value,
+            `Renderer failure: ${error.message}`
+        );
+    }
+
+    if (
+        !content.childNodes.length
+    ) {
+
+        renderRawAnalysisValue(
+            content,
+            value,
+            "The analysis block exists in JSON but its value could not be formatted by the normal renderer."
+        );
+    }
 
     const source =
         createSourceReport(
@@ -341,6 +600,7 @@ function renderAnalysisBlock(
     );
 
     if (source) {
+
         card.appendChild(
             source
         );
@@ -349,6 +609,457 @@ function renderAnalysisBlock(
     container.appendChild(
         card
     );
+
+    return true;
+}
+
+function renderAnalysisBlockFailure(
+    key,
+    error,
+    index
+) {
+
+    const container =
+        document.getElementById(
+            "analysisBlocks"
+        );
+
+    if (!container) {
+        return;
+    }
+
+    const card =
+        document.createElement(
+            "article"
+        );
+
+    card.className =
+        "analysis-card analysis-render-error";
+
+    card.dataset.analysisKey =
+        key;
+
+    card.dataset.analysisIndex =
+        String(index + 1);
+
+    const header =
+        document.createElement(
+            "div"
+        );
+
+    header.className =
+        "analysis-card-header";
+
+    const title =
+        document.createElement(
+            "h3"
+        );
+
+    title.textContent =
+        formatAnalysisTitle(
+            key
+        );
+
+    header.appendChild(
+        title
+    );
+
+    const content =
+        document.createElement(
+            "div"
+        );
+
+    content.className =
+        "analysis-card-content";
+
+    const diagnostic =
+        document.createElement(
+            "p"
+        );
+
+    diagnostic.textContent =
+        `ANALYSIS RENDERER FAILURE: ${error.message}`;
+
+    content.appendChild(
+        diagnostic
+    );
+
+    card.appendChild(
+        header
+    );
+
+    card.appendChild(
+        content
+    );
+
+    container.appendChild(
+        card
+    );
+}
+
+function renderRawAnalysisValue(
+    container,
+    value,
+    reason
+) {
+
+    if (reason) {
+
+        const diagnostic =
+            document.createElement(
+                "p"
+            );
+
+        diagnostic.textContent =
+            reason;
+
+        container.appendChild(
+            diagnostic
+        );
+    }
+
+    const pre =
+        document.createElement(
+            "pre"
+        );
+
+    pre.textContent =
+        serializeAnalysisValue(
+            value
+        );
+
+    container.appendChild(
+        pre
+    );
+}
+
+function serializeAnalysisValue(
+    value
+) {
+
+    if (
+        typeof value === "string"
+    ) {
+        return value;
+    }
+
+    try {
+
+        return JSON.stringify(
+            value,
+            null,
+            2
+        );
+
+    } catch (error) {
+
+        return String(
+            value
+        );
+    }
+}
+
+function renderPublicationMetadata(
+    publication
+) {
+
+    const existing =
+        document.getElementById(
+            "analysisPublicationMetadata"
+        );
+
+    if (existing) {
+        existing.remove();
+    }
+
+    const section =
+        document.getElementById(
+            "analysisSection"
+        );
+
+    if (!section) {
+        return;
+    }
+
+    const metadata =
+        document.createElement(
+            "div"
+        );
+
+    metadata.id =
+        "analysisPublicationMetadata";
+
+    metadata.className =
+        "analysis-publication-metadata";
+
+    const title =
+        document.createElement(
+            "h3"
+        );
+
+    title.textContent =
+        "ANALYSIS PUBLICATION";
+
+    metadata.appendChild(
+        title
+    );
+
+    appendDiagnosticField(
+        metadata,
+        "Ticker",
+        publication.ticker || "—"
+    );
+
+    appendDiagnosticField(
+        metadata,
+        "Schema Version",
+        publication.schema_version === undefined
+            ? "—"
+            : String(
+                publication.schema_version
+            )
+    );
+
+    appendDiagnosticField(
+        metadata,
+        "Publication Generated",
+        publication.generated_at
+            ? formatTimestamp(
+                publication.generated_at
+            )
+            : "—"
+    );
+
+    section.insertBefore(
+        metadata,
+        section.firstChild
+    );
+}
+
+function appendDiagnosticField(
+    container,
+    label,
+    value
+) {
+
+    const row =
+        document.createElement(
+            "div"
+        );
+
+    row.className =
+        "analysis-data-item";
+
+    const labelElement =
+        document.createElement(
+            "span"
+        );
+
+    labelElement.textContent =
+        label;
+
+    const valueElement =
+        document.createElement(
+            "strong"
+        );
+
+    valueElement.textContent =
+        value;
+
+    row.appendChild(
+        labelElement
+    );
+
+    row.appendChild(
+        valueElement
+    );
+
+    container.appendChild(
+        row
+    );
+}
+
+function renderAnalysisLoading(
+    ticker
+) {
+
+    const section =
+        document.getElementById(
+            "analysisSection"
+        );
+
+    const container =
+        document.getElementById(
+            "analysisBlocks"
+        );
+
+    const emptyState =
+        document.getElementById(
+            "analysisEmpty"
+        );
+
+    if (section) {
+
+        section.classList.remove(
+            "hidden"
+        );
+    }
+
+    if (container) {
+
+        container.innerHTML = "";
+    }
+
+    if (emptyState) {
+
+        emptyState.classList.remove(
+            "hidden"
+        );
+
+        emptyState.textContent =
+            `Loading analysis publication for ${ticker}...`;
+    }
+}
+
+function renderAnalysisLoadFailure(
+    ticker,
+    error
+) {
+
+    renderAnalysisMetadata(
+        null
+    );
+
+    renderAnalysisRisk(
+        null
+    );
+
+    renderAnalysisDiagnostic(
+        "ANALYSIS LOAD FAILURE",
+        `Unable to load analysis data for ${ticker}.`,
+        error && error.message
+            ? error.message
+            : "Unknown loading error."
+    );
+}
+
+function renderAnalysisDiagnostic(
+    title,
+    message,
+    detail,
+    nonFatal = false
+) {
+
+    const section =
+        document.getElementById(
+            "analysisSection"
+        );
+
+    const container =
+        document.getElementById(
+            "analysisBlocks"
+        );
+
+    const emptyState =
+        document.getElementById(
+            "analysisEmpty"
+        );
+
+    if (section) {
+
+        section.classList.remove(
+            "hidden"
+        );
+    }
+
+    if (container) {
+
+        container.innerHTML = "";
+
+        const card =
+            document.createElement(
+                "article"
+            );
+
+        card.className =
+            nonFatal
+                ? "analysis-card analysis-diagnostic"
+                : "analysis-card analysis-error";
+
+        const header =
+            document.createElement(
+                "div"
+            );
+
+        header.className =
+            "analysis-card-header";
+
+        const heading =
+            document.createElement(
+                "h3"
+            );
+
+        heading.textContent =
+            title;
+
+        header.appendChild(
+            heading
+        );
+
+        const content =
+            document.createElement(
+                "div"
+            );
+
+        content.className =
+            "analysis-card-content";
+
+        const primary =
+            document.createElement(
+                "p"
+            );
+
+        primary.textContent =
+            message;
+
+        content.appendChild(
+            primary
+        );
+
+        if (detail) {
+
+            const details =
+                document.createElement(
+                    "pre"
+                );
+
+            details.textContent =
+                detail;
+
+            content.appendChild(
+                details
+            );
+        }
+
+        card.appendChild(
+            header
+        );
+
+        card.appendChild(
+            content
+        );
+
+        container.appendChild(
+            card
+        );
+    }
+
+    if (emptyState) {
+
+        emptyState.classList.add(
+            "hidden"
+        );
+    }
 }
 
 function renderAnalysisMetadata(
@@ -569,6 +1280,16 @@ function renderAnalysisValue(
                 embeddedJson.after
             );
 
+            if (
+                !container.childNodes.length
+            ) {
+
+                renderRawAnalysisValue(
+                    container,
+                    value
+                );
+            }
+
             return;
         }
 
@@ -576,6 +1297,16 @@ function renderAnalysisValue(
             container,
             value
         );
+
+        if (
+            !container.childNodes.length
+        ) {
+
+            renderRawAnalysisValue(
+                container,
+                value
+            );
+        }
 
         return;
     }
@@ -588,6 +1319,16 @@ function renderAnalysisValue(
             container,
             value
         );
+
+        if (
+            !container.childNodes.length
+        ) {
+
+            renderRawAnalysisValue(
+                container,
+                value
+            );
+        }
 
         return;
     }
@@ -602,6 +1343,16 @@ function renderAnalysisValue(
             value
         );
 
+        if (
+            !container.childNodes.length
+        ) {
+
+            renderRawAnalysisValue(
+                container,
+                value
+            );
+        }
+
         return;
     }
 
@@ -610,6 +1361,19 @@ function renderAnalysisValue(
         value === undefined ||
         value === ""
     ) {
+
+        const paragraph =
+            document.createElement(
+                "p"
+            );
+
+        paragraph.textContent =
+            "No value was supplied for this analysis block.";
+
+        container.appendChild(
+            paragraph
+        );
+
         return;
     }
 
@@ -925,14 +1689,26 @@ function renderAnalysisArray(
                 indexLabel
             );
 
+            const itemContent =
+                document.createElement(
+                    "div"
+                );
+
+            itemContent.className =
+                "analysis-list-item-content";
+
             renderAnalysisValue(
-                itemElement,
+                itemContent,
                 item
             );
 
             if (
-                itemElement.childNodes.length > 1
+                itemContent.childNodes.length
             ) {
+
+                itemElement.appendChild(
+                    itemContent
+                );
 
                 list.appendChild(
                     itemElement
@@ -1502,33 +2278,6 @@ function formatAnalysisTitle(
         );
 }
 
-function showAnalysisEmptyState() {
-
-    const section =
-        document.getElementById(
-            "analysisSection"
-        );
-
-    const emptyState =
-        document.getElementById(
-            "analysisEmpty"
-        );
-
-    if (section) {
-
-        section.classList.add(
-            "hidden"
-        );
-    }
-
-    if (emptyState) {
-
-        emptyState.classList.remove(
-            "hidden"
-        );
-    }
-}
-
 function resetAnalysis() {
 
     const container =
@@ -1548,7 +2297,11 @@ function resetAnalysis() {
         null
     );
 
-    showAnalysisEmptyState();
+    renderAnalysisDiagnostic(
+        "ANALYSIS RESET",
+        "No ticker analysis was requested.",
+        "The page cannot select a ticker without a ticker query parameter."
+    );
 }
 
 function formatTimestamp(
