@@ -291,20 +291,83 @@ main {
     align-items: start;
 }
 
+/*
+    COLLAPSIBLE ANALYSIS CARDS
+
+    analysis.js creates:
+
+    .analysis-card
+        .analysis-card-header
+        .analysis-card-content
+        .analysis-source
+
+    analysis.js toggles:
+
+    .analysis-card.is-expanded
+
+    Therefore the card itself remains visible while the
+    content and source report are hidden until expanded.
+*/
+
 .analysis-card {
     min-width: 0;
     background: var(--panel);
     border: 1px solid var(--border);
-    padding: 26px;
+    padding: 0;
+    overflow: hidden;
 }
 
 .analysis-card-header {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 12px;
-    padding-bottom: 16px;
-    margin-bottom: 18px;
-    border-bottom: 1px solid var(--border);
+    min-height: 68px;
+    margin: 0;
+    padding: 16px 58px 16px 26px;
+    border-bottom: 1px solid transparent;
+    background: var(--panel);
+    cursor: pointer;
+    user-select: none;
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.analysis-card-header:hover {
+    background: var(--panel-alt);
+}
+
+.analysis-card-header:focus {
+    outline: 1px solid var(--accent);
+    outline-offset: -1px;
+}
+
+.analysis-card-header::after {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    border: 1px solid var(--border);
+    background: var(--panel-alt);
+    color: var(--accent);
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 400;
+}
+
+.analysis-card.is-expanded .analysis-card-header {
+    border-bottom-color: var(--border);
+}
+
+.analysis-card.is-expanded .analysis-card-header::after {
+    content: "−";
 }
 
 .analysis-card-index {
@@ -333,12 +396,32 @@ main {
 }
 
 .analysis-card-content {
+    display: none;
     min-width: 0;
+    padding: 22px 26px 26px;
     color: var(--muted);
     font-size: 13px;
     line-height: 1.7;
     overflow-wrap: anywhere;
     word-break: break-word;
+}
+
+.analysis-card.is-expanded .analysis-card-content {
+    display: block;
+}
+
+/*
+    createSourceReport() appends .analysis-source directly
+    to .analysis-card, so it must also follow the card's
+    expanded state.
+*/
+
+.analysis-card > .analysis-source {
+    display: none;
+}
+
+.analysis-card.is-expanded > .analysis-source {
+    display: block;
 }
 
 .analysis-card-content p {
@@ -487,7 +570,7 @@ main {
 /* SOURCE REPORT */
 
 .analysis-source {
-    margin-top: 22px;
+    margin: 0 26px 26px;
     border-top: 1px solid var(--border);
     padding-top: 14px;
 }
@@ -519,6 +602,45 @@ main {
     padding: 16px;
     max-height: 650px;
     overflow: auto;
+    border: 1px solid var(--border);
+    background: #090d12;
+    color: var(--muted);
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 11px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/*
+    DIAGNOSTIC CARDS
+
+    renderAnalysisFailure() creates the same
+    .analysis-card-header / .analysis-card-content
+    structure, but diagnostic messages must remain
+    visible rather than being hidden behind the toggle.
+*/
+
+.analysis-card.analysis-diagnostic {
+    padding: 0;
+}
+
+.analysis-card.analysis-diagnostic .analysis-card-header {
+    cursor: default;
+}
+
+.analysis-card.analysis-diagnostic .analysis-card-header::after {
+    display: none;
+}
+
+.analysis-card.analysis-diagnostic .analysis-card-content {
+    display: block;
+    padding: 22px 26px 26px;
+}
+
+.analysis-diagnostic-detail {
+    margin: 16px 0 0;
+    padding: 16px;
     border: 1px solid var(--border);
     background: #090d12;
     color: var(--muted);
@@ -693,12 +815,31 @@ main {
         margin: 35px 0;
     }
 
-    .analysis-card {
-        padding: 20px;
+    /*
+        Do NOT add padding to .analysis-card here.
+        The header/content now control their own padding.
+    */
+
+    .analysis-card-header {
+        min-height: 58px;
+        padding: 14px 46px 14px 18px;
+    }
+
+    .analysis-card-header::after {
+        right: 14px;
     }
 
     .analysis-card-content {
+        padding: 18px;
         font-size: 12px;
+    }
+
+    .analysis-source {
+        margin: 0 18px 18px;
+    }
+
+    .analysis-card.analysis-diagnostic .analysis-card-content {
+        padding: 18px;
     }
 
     .analysis-meta {
@@ -709,7 +850,8 @@ main {
         grid-template-columns: 1fr;
     }
 
-    .analysis-source pre {
+    .analysis-source pre,
+    .analysis-diagnostic-detail {
         font-size: 10px;
     }
 }

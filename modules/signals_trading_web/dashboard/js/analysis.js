@@ -295,6 +295,9 @@ function renderAnalysis(
             }
         }
     );
+	
+
+	initializeAnalysisCardToggles();	
 
     if (
         renderedCount === 0
@@ -492,6 +495,83 @@ function renderAnalysisBlock(
     );
 
     return true;
+}
+
+function initializeAnalysisCardToggles() {
+
+    const cards =
+        document.querySelectorAll(
+            ".analysis-card"
+        );
+
+    cards.forEach(
+        card => {
+
+            const header =
+                card.querySelector(
+                    ".analysis-card-header"
+                );
+
+            if (!header) {
+                return;
+            }
+
+            header.setAttribute(
+                "role",
+                "button"
+            );
+
+            header.setAttribute(
+                "tabindex",
+                "0"
+            );
+
+            header.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            header.addEventListener(
+                "click",
+                () => {
+
+                    const expanded =
+                        card.classList.toggle(
+                            "is-expanded"
+                        );
+
+                    header.setAttribute(
+                        "aria-expanded",
+                        String(expanded)
+                    );
+                }
+            );
+
+            header.addEventListener(
+                "keydown",
+                event => {
+
+                    if (
+                        event.key === "Enter" ||
+                        event.key === " "
+                    ) {
+
+                        event.preventDefault();
+
+                        const expanded =
+                            card.classList.toggle(
+                                "is-expanded"
+                            );
+
+                        header.setAttribute(
+                            "aria-expanded",
+                            String(expanded)
+                        );
+                    }
+                }
+            );
+        }
+    );
 }
 
 function renderAnalysisMetadata(
