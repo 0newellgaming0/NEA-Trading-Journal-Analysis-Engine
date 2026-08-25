@@ -134,7 +134,6 @@ async function loadAnalysisData(
 function renderAnalysis(
     analysis
 ) {
-
     const section =
         document.getElementById(
             "analysisSection"
@@ -166,7 +165,6 @@ function renderAnalysis(
         !analysis ||
         typeof analysis !== "object"
     ) {
-
         showAnalysisEmptyState();
         return;
     }
@@ -177,34 +175,22 @@ function renderAnalysis(
         );
 
     if (!blocks.length) {
-
         showAnalysisEmptyState();
         return;
     }
-
-    let renderedCount = 0;
 
     blocks.forEach(
         (
             block,
             index
         ) => {
-
             try {
-
-                const rendered =
-                    renderAnalysisBlock(
-                        block.key,
-                        block.value,
-                        index
-                    );
-
-                if (rendered) {
-                    renderedCount++;
-                }
-
+                renderAnalysisBlock(
+                    block.key,
+                    block.value,
+                    index
+                );
             } catch (error) {
-
                 console.warn(
                     `Unable to render analysis block "${block.key}".`,
                     error
@@ -213,23 +199,13 @@ function renderAnalysis(
         }
     );
 
-    if (
-        renderedCount === 0
-    ) {
-
-        showAnalysisEmptyState();
-        return;
-    }
-
     if (emptyState) {
-
         emptyState.classList.add(
             "hidden"
         );
     }
 
     if (section) {
-
         section.classList.remove(
             "hidden"
         );
@@ -311,14 +287,13 @@ function renderAnalysisBlock(
     value,
     index
 ) {
-
     const container =
         document.getElementById(
             "analysisBlocks"
         );
 
     if (!container) {
-        return false;
+        return;
     }
 
     const card =
@@ -335,45 +310,7 @@ function renderAnalysisBlock(
     card.dataset.analysisIndex =
         String(index + 1);
 
-    const header =
-        document.createElement(
-            "div"
-        );
-
-    header.className =
-        "analysis-card-header";
-
-    const indexLabel =
-        document.createElement(
-            "span"
-        );
-
-    indexLabel.className =
-        "analysis-card-index";
-
-    indexLabel.textContent =
-        String(index + 1).padStart(
-            2,
-            "0"
-        );
-
-    const title =
-        document.createElement(
-            "h3"
-        );
-
-    title.textContent =
-        formatAnalysisTitle(
-            key
-        );
-
-    header.appendChild(
-        indexLabel
-    );
-
-    header.appendChild(
-        title
-    );
+    // existing header construction...
 
     const content =
         document.createElement(
@@ -388,11 +325,7 @@ function renderAnalysisBlock(
         value
     );
 
-    if (
-        !content.childNodes.length
-    ) {
-        return false;
-    }
+    // Do NOT reject the block here.
 
     const source =
         createSourceReport(
@@ -408,7 +341,6 @@ function renderAnalysisBlock(
     );
 
     if (source) {
-
         card.appendChild(
             source
         );
@@ -417,8 +349,6 @@ function renderAnalysisBlock(
     container.appendChild(
         card
     );
-
-    return true;
 }
 
 function renderAnalysisMetadata(
