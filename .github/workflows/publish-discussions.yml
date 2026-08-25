@@ -1,0 +1,42 @@
+name: Publish MD to Discussions
+
+on:
+  push:
+    paths:
+      - "analysis/**/*.md"
+
+jobs:
+  post-discussion:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Post to GitHub Discussion
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            const filePath = "analysis/sample.md"; // replace with dynamic logic later
+            const content = fs.readFileSync(filePath, 'utf8');
+
+            const title = path.basename(filePath, ".md");
+
+            await github.graphql(`
+              mutation {
+                createDiscussion(input: {
+                  repositoryId: "${context.repo.repo}",
+                  categoryId: "YOUR_CATEGORY_ID",
+                  title: "${title}",
+                  body: ${JSON.stringify(content)}
+                }) {
+                  discussion {
+                    id
+                  }
+                }
+              }
+            `);

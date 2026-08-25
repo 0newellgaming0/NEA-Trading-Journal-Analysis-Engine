@@ -34,6 +34,7 @@ jobs:
           python -m json.tool data/trades.json > /dev/null
           python -m json.tool data/performance.json > /dev/null
           python -m json.tool data/market.json > /dev/null
+          python -m json.tool data/analysis_latest.json > /dev/null
 
       - name: Validate Python
         run: |
@@ -52,6 +53,7 @@ jobs:
           cp data/trades.json pages/data/trades.json
           cp data/performance.json pages/data/performance.json
           cp data/market.json pages/data/market.json
+          cp data/analysis_latest.json pages/data/analysis_latest.json
 
       - name: Verify Pages artifact
         run: |
@@ -59,6 +61,8 @@ jobs:
           find pages -maxdepth 2 -type f | sort
           echo "=== Trade data ==="
           python -c "import json; x=json.load(open('pages/data/trades.json')); print('Trades:', x.get('count', len(x.get('trades', []))))"
+          echo "=== Analysis data ==="
+          python -c "import json; x=json.load(open('pages/data/analysis_latest.json')); print('Schema:', x.get('schema_version')); print('Tickers:', len(x.get('tickers', {}))); print('BCAB:', 'BCAB' in x.get('tickers', {}))"
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
