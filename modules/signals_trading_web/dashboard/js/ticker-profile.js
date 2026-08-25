@@ -133,26 +133,92 @@ async function loadAnalysisData(ticker) {
 
     if (
         !data ||
-        typeof data !== "object"
+        typeof data !== "object" ||
+        Array.isArray(data)
     ) {
+        console.warn(
+            `${ANALYSIS_DATA_URL} does not contain a valid ticker-indexed object.`
+        );
+
+        return null;
+    }
+
+    /*
+     * Current analysis_latest.json schema:
+     *
+     * {
+     *     "ARI": {
+     *         "ticker": "ARI",
+     *         "generated_at": "...",
+     *         "journal_timestamp": "",
+     *         "stop_breached": false,
+     *         "analysis_blocks": { ... }
+     *     },
+     *
+     *     "BCAB": {
+     *         "ticker": "BCAB",
+     *         "generated_at": "...",
+     *         "journal_timestamp": "",
+     *         "stop_breached": false,
+     *         "analysis_blocks": { ... }
+     *     }
+     * }
+     *
+     * Resolve the requested ticker directly from the
+     * root-level ticker index.
+     */
+
+    const tickerAnalysis =
+        data[ticker];
+
+    if (
+        !tickerAnalysis ||
+        typeof tickerAnalysis !== "object" ||
+        Array.isArray(tickerAnalysis)
+    ) {
+
+        console.warn(
+            `No analysis entry exists for ticker ${ticker}.`
+        );
+
         return null;
     }
 
     const analysisTicker =
-        data.ticker === null ||
-        data.ticker === undefined
+        tickerAnalysis.ticker === null ||
+        tickerAnalysis.ticker === undefined
             ? ""
-            : String(data.ticker)
+            : String(
+                tickerAnalysis.ticker
+            )
                 .trim()
                 .toUpperCase();
 
     if (
+        analysisTicker &&
         analysisTicker !== ticker
     ) {
+
+        console.warn(
+            `Analysis ticker mismatch: requested ${ticker}, received ${analysisTicker}.`
+        );
+
         return null;
     }
 
-    return data;
+    if (
+        !tickerAnalysis.analysis_blocks ||
+        typeof tickerAnalysis.analysis_blocks !== "object"
+    ) {
+
+        console.warn(
+            `Analysis entry for ${ticker} does not contain analysis_blocks.`
+        );
+
+        return null;
+    }
+
+    return tickerAnalysis;
 }
 
 function normalizeTradeData(data) {
@@ -425,11 +491,6 @@ function renderAnalysis(analysis) {
             "analysisBlocks"
         );
 
-    const emptyState =
-        document.getElementById(
-            "analysisEmpty"
-        );
-
     if (
         !section ||
         !container
@@ -439,23 +500,19 @@ function renderAnalysis(analysis) {
 
     container.innerHTML = "";
 
-    if (emptyState) {
-        emptyState.classList.add("hidden");
-    }
-
     if (
         !analysis ||
         !analysis.analysis_blocks ||
         typeof analysis.analysis_blocks !== "object"
     ) {
 
-        section.classList.add("hidden");
+        section.classList.add(
+            "hidden"
+        );
 
-        if (emptyState) {
-            emptyState.classList.remove("hidden");
-        }
-
-        renderAnalysisMetadata(null);
+        renderAnalysisMetadata(
+            null
+        );
 
         return;
     }
@@ -468,11 +525,9 @@ function renderAnalysis(analysis) {
 
     if (!keys.length) {
 
-        section.classList.add("hidden");
-
-        if (emptyState) {
-            emptyState.classList.remove("hidden");
-        }
+        section.classList.add(
+            "hidden"
+        );
 
         renderAnalysisMetadata(
             analysis
@@ -481,20 +536,16 @@ function renderAnalysis(analysis) {
         return;
     }
 
-    let renderedCount = 0;
-
     keys.forEach(
-        (
-            key,
-            index
-        ) => {
+        key => {
 
             const value =
                 blocks[key];
 
             if (
                 value === null ||
-                value === undefined
+                value === undefined ||
+                value === ""
             ) {
                 return;
             }
@@ -507,34 +558,6 @@ function renderAnalysis(analysis) {
             card.className =
                 "analysis-card";
 
-            card.dataset.analysisKey =
-                key;
-
-            card.dataset.analysisIndex =
-                String(index + 1);
-
-            const header =
-                document.createElement(
-                    "div"
-                );
-
-            header.className =
-                "analysis-card-header";
-
-            const indexLabel =
-                document.createElement(
-                    "span"
-                );
-
-            indexLabel.className =
-                "analysis-card-index";
-
-            indexLabel.textContent =
-                String(index + 1).padStart(
-                    2,
-                    "0"
-                );
-
             const title =
                 document.createElement(
                     "h3"
@@ -544,14 +567,6 @@ function renderAnalysis(analysis) {
                 formatAnalysisTitle(
                     key
                 );
-
-            header.appendChild(
-                indexLabel
-            );
-
-            header.appendChild(
-                title
-            );
 
             const content =
                 document.createElement(
@@ -566,96 +581,42 @@ function renderAnalysis(analysis) {
                 value
             );
 
-            const source =
-                createSourceReport(
-                    value
-                );
-
             card.appendChild(
-                header
+                title
             );
 
             card.appendChild(
                 content
             );
 
-            if (source) {
-                card.appendChild(
-                    source
-                );
-            }
-
             container.appendChild(
                 card
             );
-
-            renderedCount += 1;
         }
     );
+
+    if (
+        container.children.length === 0
+    ) {
+
+        section.classList.add(
+            "hidden"
+        );
+
+        renderAnalysisMetadata(
+            analysis
+        );
+
+        return;
+    }
 
     renderAnalysisMetadata(
         analysis
     );
 
-    if (!renderedCount) {
-
-        section.classList.add("hidden");
-
-        if (emptyState) {
-            emptyState.classList.remove("hidden");
-        }
-
-        return;
-    }
-
     section.classList.remove(
         "hidden"
     );
-}
-
-function createSourceReport(value) {
-
-    if (
-        typeof value !== "string" ||
-        !value.trim()
-    ) {
-        return null;
-    }
-
-    const details =
-        document.createElement(
-            "details"
-        );
-
-    details.className =
-        "analysis-source"
-        ;
-
-    const summary =
-        document.createElement(
-            "summary"
-        );
-
-    summary.textContent =
-        "SOURCE REPORT";
-
-    const pre =
-        document.createElement(
-            "pre"
-        );
-
-    pre.textContent =
-        value;
-
-    details.appendChild(
-        summary
-    );
-
-    details.appendChild(
-        pre
-    );
-
-    return details;
 }
 
 function renderAnalysisMetadata(
@@ -665,11 +626,6 @@ function renderAnalysisMetadata(
     const generatedAt =
         document.getElementById(
             "analysisGeneratedAt"
-        );
-
-    const generatedAtMeta =
-        document.getElementById(
-            "analysisGeneratedAtMeta"
         );
 
     const journalTimestamp =
@@ -682,89 +638,48 @@ function renderAnalysisMetadata(
             "analysisStopBreached"
         );
 
-    const riskSection =
-        document.getElementById(
-            "analysisRiskSection"
-        );
-
-    const stopBreachStatus =
-        document.getElementById(
-            "stopBreachStatus"
-        );
-
-    const generated =
-        analysis &&
-        analysis.generated_at
-            ? formatTimestamp(
-                analysis.generated_at
-            )
-            : "—";
-
-    const journal =
-        analysis &&
-        analysis.journal_timestamp
-            ? formatTimestamp(
-                analysis.journal_timestamp
-            )
-            : "—";
-
-    const breached =
-        Boolean(
-            analysis &&
-            analysis.stop_breached === true
-        );
-
     if (generatedAt) {
-        generatedAt.textContent =
-            generated;
-    }
 
-    if (generatedAtMeta) {
-        generatedAtMeta.textContent =
-            generated;
+        generatedAt.textContent =
+            analysis &&
+            analysis.generated_at
+                ? formatTimestamp(
+                    analysis.generated_at
+                )
+                : "—";
     }
 
     if (journalTimestamp) {
+
         journalTimestamp.textContent =
-            journal;
+            analysis &&
+            analysis.journal_timestamp
+                ? formatTimestamp(
+                    analysis.journal_timestamp
+                )
+                : "—";
     }
 
     if (stopBreached) {
 
-        stopBreached.textContent =
-            breached
-                ? "STOP BREACHED"
-                : "STOP NOT BREACHED";
+        if (
+            analysis &&
+            analysis.stop_breached === true
+        ) {
 
-        stopBreached.className =
-            breached
-                ? "analysis-status breached"
-                : "analysis-status clear";
-    }
+            stopBreached.textContent =
+                "STOP BREACHED";
 
-    if (stopBreachStatus) {
+            stopBreached.className =
+                "analysis-status breached";
 
-        stopBreachStatus.textContent =
-            breached
-                ? "STOP STATUS: STOP BREACHED"
-                : "STOP STATUS: STOP NOT BREACHED";
-
-        stopBreachStatus.className =
-            breached
-                ? "analysis-status breached"
-                : "analysis-status clear";
-    }
-
-    if (riskSection) {
-
-        if (analysis) {
-            riskSection.classList.remove(
-                "hidden"
-            );
         } else {
-            riskSection.classList.add(
-                "hidden"
-            );
+
+            stopBreached.textContent =
+                "STOP NOT BREACHED";
+
+            stopBreached.className =
+                "analysis-status clear";
         }
     }
 }
@@ -786,7 +701,9 @@ function renderAnalysisValue(
         return;
     }
 
-    if (Array.isArray(value)) {
+    if (
+        Array.isArray(value)
+    ) {
 
         renderAnalysisArray(
             container,
@@ -815,9 +732,7 @@ function renderAnalysisValue(
         );
 
     paragraph.textContent =
-        formatAnalysisScalar(
-            value
-        );
+        String(value);
 
     container.appendChild(
         paragraph
@@ -841,78 +756,18 @@ function renderAnalysisText(
         return;
     }
 
-    const embeddedJson =
-        extractEmbeddedJson(
-            normalized
-        );
-
-    if (embeddedJson) {
-
-        const before =
-            normalized.slice(
-                0,
-                embeddedJson.start
-            ).trim();
-
-        const after =
-            normalized.slice(
-                embeddedJson.end
-            ).trim();
-
-        if (before) {
-            renderAnalysisReportText(
-                container,
-                before
-            );
-        }
-
-        const jsonContainer =
-            document.createElement(
-                "div"
-            );
-
-        jsonContainer.className =
-            "analysis-embedded-json";
-
-        renderAnalysisValue(
-            jsonContainer,
-            embeddedJson.value
-        );
-
-        container.appendChild(
-            jsonContainer
-        );
-
-        if (after) {
-            renderAnalysisReportText(
-                container,
-                after
-            );
-        }
-
-        return;
-    }
-
-    renderAnalysisReportText(
-        container,
-        normalized
-    );
-}
-
-function renderAnalysisReportText(
-    container,
-    text
-) {
-
     const lines =
-        text.split("\n");
+        normalized.split(
+            "\n"
+        );
 
-    let paragraphLines = [];
-    let fieldRows = [];
+    let currentParagraph = [];
 
     function flushParagraph() {
 
-        if (!paragraphLines.length) {
+        if (
+            !currentParagraph.length
+        ) {
             return;
         }
 
@@ -922,84 +777,15 @@ function renderAnalysisReportText(
             );
 
         paragraph.textContent =
-            paragraphLines
-                .join(" ")
-                .trim();
+            currentParagraph.join(
+                " "
+            ).trim();
 
         container.appendChild(
             paragraph
         );
 
-        paragraphLines = [];
-    }
-
-    function flushFields() {
-
-        if (!fieldRows.length) {
-            return;
-        }
-
-        const fields =
-            document.createElement(
-                "div"
-            );
-
-        fields.className =
-            "analysis-data";
-
-        fieldRows.forEach(
-            row => {
-
-                const item =
-                    document.createElement(
-                        "div"
-                    );
-
-                item.className =
-                    "analysis-data-item";
-
-                const label =
-                    document.createElement(
-                        "span"
-                    );
-
-                label.textContent =
-                    formatAnalysisTitle(
-                        row.key
-                    );
-
-                const output =
-                    document.createElement(
-                        "strong"
-                    );
-
-                output.textContent =
-                    row.value;
-
-                item.appendChild(
-                    label
-                );
-
-                item.appendChild(
-                    output
-                );
-
-                fields.appendChild(
-                    item
-                );
-            }
-        );
-
-        container.appendChild(
-            fields
-        );
-
-        fieldRows = [];
-    }
-
-    function flushAll() {
-        flushParagraph();
-        flushFields();
+        currentParagraph = [];
     }
 
     lines.forEach(
@@ -1010,25 +796,23 @@ function renderAnalysisReportText(
 
             if (!trimmed) {
 
-                flushAll();
+                flushParagraph();
 
                 return;
             }
 
-            const headingMatch =
-                trimmed.match(
-                    /^(#{1,6})\s+(.+)$/
-                );
+            if (
+                /^#{1,4}\s+/.test(
+                    trimmed
+                )
+            ) {
 
-            if (headingMatch) {
-
-                flushAll();
+                flushParagraph();
 
                 const level =
-                    Math.min(
-                        headingMatch[1].length + 1,
-                        6
-                    );
+                    trimmed.match(
+                        /^(#{1,4})/
+                    )[1].length;
 
                 const heading =
                     document.createElement(
@@ -1036,11 +820,12 @@ function renderAnalysisReportText(
                     );
 
                 heading.textContent =
-                    headingMatch[2]
+                    trimmed
+                        .replace(
+                            /^#{1,4}\s+/,
+                            ""
+                        )
                         .trim();
-
-                heading.className =
-                    "analysis-report-heading";
 
                 container.appendChild(
                     heading
@@ -1049,212 +834,13 @@ function renderAnalysisReportText(
                 return;
             }
 
-            const fieldMatch =
-                trimmed.match(
-                    /^([^:]{1,120}):\s*(.+)$/
-                );
-
-            if (
-                fieldMatch &&
-                !trimmed.startsWith(
-                    "http:"
-                ) &&
-                !trimmed.startsWith(
-                    "https:"
-                )
-            ) {
-
-                flushParagraph();
-
-                fieldRows.push({
-                    key:
-                        fieldMatch[1]
-                            .trim(),
-
-                    value:
-                        fieldMatch[2]
-                            .trim()
-                });
-
-                return;
-            }
-
-            if (
-                fieldRows.length &&
-                !trimmed.includes(":")
-            ) {
-
-                fieldRows[
-                    fieldRows.length - 1
-                ].value +=
-                    ` ${trimmed}`;
-
-                return;
-            }
-
-            flushFields();
-
-            paragraphLines.push(
+            currentParagraph.push(
                 trimmed
             );
         }
     );
 
-    flushAll();
-}
-
-function extractEmbeddedJson(
-    text
-) {
-
-    const firstBrace =
-        text.search(
-            /[\[{]/
-        );
-
-    if (firstBrace < 0) {
-        return null;
-    }
-
-    const candidate =
-        text.slice(
-            firstBrace
-        );
-
-    const parsed =
-        parseJsonPrefix(
-            candidate
-        );
-
-    if (!parsed) {
-        return null;
-    }
-
-    return {
-        start:
-            firstBrace,
-
-        end:
-            firstBrace +
-            parsed.length,
-
-        value:
-            parsed.value
-    };
-}
-
-function parseJsonPrefix(
-    text
-) {
-
-    const first =
-        text[0];
-
-    if (
-        first !== "{" &&
-        first !== "["
-    ) {
-        return null;
-    }
-
-    let depth = 0;
-    let inString = false;
-    let escaped = false;
-
-    for (
-        let i = 0;
-        i < text.length;
-        i += 1
-    ) {
-
-        const character =
-            text[i];
-
-        if (inString) {
-
-            if (escaped) {
-
-                escaped = false;
-
-                continue;
-            }
-
-            if (
-                character === "\\"
-            ) {
-
-                escaped = true;
-
-                continue;
-            }
-
-            if (
-                character === "\""
-            ) {
-
-                inString = false;
-            }
-
-            continue;
-        }
-
-        if (
-            character === "\""
-        ) {
-
-            inString = true;
-
-            continue;
-        }
-
-        if (
-            character === "{" ||
-            character === "["
-        ) {
-
-            depth += 1;
-
-            continue;
-        }
-
-        if (
-            character === "}" ||
-            character === "]"
-        ) {
-
-            depth -= 1;
-
-            if (depth === 0) {
-
-                const candidate =
-                    text.slice(
-                        0,
-                        i + 1
-                    );
-
-                try {
-
-                    return {
-                        value:
-                            JSON.parse(
-                                candidate
-                            ),
-
-                        length:
-                            i + 1
-                    };
-
-                } catch (
-                    error
-                ) {
-
-                    return null;
-                }
-            }
-        }
-    }
-
-    return null;
+    flushParagraph();
 }
 
 function renderAnalysisArray(
@@ -1275,10 +861,7 @@ function renderAnalysisArray(
         "analysis-list";
 
     items.forEach(
-        (
-            item,
-            index
-        ) => {
+        item => {
 
             const itemElement =
                 document.createElement(
@@ -1287,21 +870,6 @@ function renderAnalysisArray(
 
             itemElement.className =
                 "analysis-list-item";
-
-            const indexLabel =
-                document.createElement(
-                    "span"
-                );
-
-            indexLabel.className =
-                "analysis-list-index";
-
-            indexLabel.textContent =
-                `ITEM ${index + 1}`;
-
-            itemElement.appendChild(
-                indexLabel
-            );
 
             renderAnalysisValue(
                 itemElement,
@@ -1330,14 +898,12 @@ function renderAnalysisObject(
         );
 
     data.className =
-        "analysis-data analysis-object";
+        "analysis-data";
 
     Object.entries(
         object
     ).forEach(
-        (
-            [key, value]
-        ) => {
+        ([key, value]) => {
 
             const item =
                 document.createElement(
@@ -1345,7 +911,7 @@ function renderAnalysisObject(
                 );
 
             item.className =
-                "analysis-data-item analysis-object-item";
+                "analysis-data-item";
 
             const label =
                 document.createElement(
@@ -1357,48 +923,36 @@ function renderAnalysisObject(
                     key
                 );
 
-            item.appendChild(
-                label
-            );
+            const output =
+                document.createElement(
+                    "strong"
+                );
 
             if (
                 value &&
                 typeof value === "object"
             ) {
 
-                const nested =
-                    document.createElement(
-                        "div"
-                    );
-
-                nested.className =
-                    "analysis-nested";
-
                 renderAnalysisValue(
-                    nested,
+                    output,
                     value
                 );
 
-                item.appendChild(
-                    nested
-                );
-
             } else {
-
-                const output =
-                    document.createElement(
-                        "strong"
-                    );
 
                 output.textContent =
                     formatAnalysisScalar(
                         value
                     );
-
-                item.appendChild(
-                    output
-                );
             }
+
+            item.appendChild(
+                label
+            );
+
+            item.appendChild(
+                output
+            );
 
             data.appendChild(
                 item
@@ -1431,21 +985,6 @@ function formatAnalysisScalar(
             : "No";
     }
 
-    if (
-        typeof value === "number"
-    ) {
-
-        if (
-            !Number.isFinite(
-                value
-            )
-        ) {
-            return "—";
-        }
-
-        return String(value);
-    }
-
     return String(value);
 }
 
@@ -1455,14 +994,9 @@ function formatAnalysisTitle(
 
     return String(key)
         .replace(
-            /[_-]+/g,
+            /_/g,
             " "
         )
-        .replace(
-            /\s+/g,
-            " "
-        )
-        .trim()
         .replace(
             /\b\w/g,
             character =>
@@ -1546,10 +1080,7 @@ function numericValue(value) {
     const number =
         Number(
             String(value)
-                .replace(
-                    /[$,%]/g,
-                    ""
-                )
+                .replace(/[$,%]/g, "")
                 .trim()
         );
 
