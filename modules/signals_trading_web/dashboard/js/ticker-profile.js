@@ -8,32 +8,30 @@ document.addEventListener(
     initializeTickerProfile
 );
 
+
 async function initializeTickerProfile() {
+
     showLoading();
 
     const ticker =
         getRequestedTicker();
 
     if (!ticker) {
+
         showError(
             "No ticker was specified. Open a ticker profile from a published trade opportunity."
         );
+
         return;
     }
 
     try {
-        const [
-            tradeData,
-            analysisData
-        ] = await Promise.all([
-            loadTradeData(),
-            loadAnalysisData()
-        ]);
+
+        const data =
+            await loadTradeData();
 
         const trades =
-            normalizeTradeData(
-                tradeData
-            );
+            normalizeTradeData(data);
 
         const trade =
             findTickerTrade(
@@ -42,17 +40,37 @@ async function initializeTickerProfile() {
             );
 
         if (!trade) {
+
             showError(
                 `No published NEA28V1 trade data was found for ${ticker}.`
             );
+
             return;
+        }
+
+        let analysis = null;
+
+        try {
+
+            analysis =
+                await loadAnalysisData();
+
+        } catch (analysisError) {
+
+            console.error(
+                "NEA28V1 ticker profile analysis data error:",
+                analysisError
+            );
         }
 
         renderTickerProfile(
             trade,
-            analysisData
+            analysis,
+            ticker
         );
+
     } catch (error) {
+
         console.error(
             "NEA28V1 ticker profile error:",
             error
@@ -64,7 +82,9 @@ async function initializeTickerProfile() {
     }
 }
 
+
 function getRequestedTicker() {
+
     const params =
         new URLSearchParams(
             window.location.search
@@ -82,7 +102,9 @@ function getRequestedTicker() {
         .toUpperCase();
 }
 
+
 async function loadTradeData() {
+
     const response =
         await fetch(
             `${TRADE_DATA_URL}?t=${Date.now()}`,
@@ -92,6 +114,7 @@ async function loadTradeData() {
         );
 
     if (!response.ok) {
+
         throw new Error(
             `Unable to load ${TRADE_DATA_URL}: ${response.status}`
         );
@@ -100,7 +123,9 @@ async function loadTradeData() {
     return await response.json();
 }
 
+
 async function loadAnalysisData() {
+
     const response =
         await fetch(
             `${ANALYSIS_DATA_URL}?t=${Date.now()}`,
@@ -110,6 +135,7 @@ async function loadAnalysisData() {
         );
 
     if (!response.ok) {
+
         throw new Error(
             `Unable to load ${ANALYSIS_DATA_URL}: ${response.status}`
         );
@@ -118,20 +144,27 @@ async function loadAnalysisData() {
     return await response.json();
 }
 
+
 function normalizeTradeData(data) {
+
     let source = [];
 
     if (Array.isArray(data)) {
+
         source = data;
+
     } else if (
         data &&
         Array.isArray(data.trades)
     ) {
+
         source = data.trades;
+
     } else if (
         data &&
         Array.isArray(data.data)
     ) {
+
         source = data.data;
     }
 
@@ -140,7 +173,9 @@ function normalizeTradeData(data) {
         .filter(Boolean);
 }
 
+
 function normalizeTrade(trade) {
+
     if (
         !trade ||
         typeof trade !== "object"
@@ -157,6 +192,7 @@ function normalizeTrade(trade) {
     }
 
     return {
+
         ticker:
             String(trade.ticker)
                 .trim()
@@ -235,20 +271,25 @@ function normalizeTrade(trade) {
     };
 }
 
+
 function findTickerTrade(
     trades,
     ticker
 ) {
+
     return trades.find(
         trade =>
             trade.ticker === ticker
     );
 }
 
+
 function renderTickerProfile(
     trade,
-    analysisData
+    analysis,
+    ticker
 ) {
+
     setText(
         "ticker",
         trade.ticker
@@ -355,8 +396,8 @@ function renderTickerProfile(
     );
 
     renderAnalysisBlocks(
-        analysisData,
-        trade.ticker
+        analysis,
+        ticker
     );
 
     document.title =
@@ -367,9 +408,9 @@ function renderTickerProfile(
     showProfile();
 }
 
-function buildOpportunityDescription(
-    trade
-) {
+
+function buildOpportunityDescription(trade) {
+
     const ticker =
         trade.ticker;
 
@@ -396,16 +437,19 @@ function buildOpportunityDescription(
         `the published NEA28V1 dataset.`;
 
     if (regime !== "—") {
+
         description +=
             ` The current market regime is ${regime}.`;
     }
 
     if (timeframe !== "—") {
+
         description +=
             ` The published signal timeframe is ${timeframe}.`;
     }
 
     if (score !== "—") {
+
         description +=
             ` The published NEA28V1 ranking score is ${score}.`;
     }
@@ -418,152 +462,143 @@ function buildOpportunityDescription(
     return description;
 }
 
+
 function renderAnalysisBlocks(
-    analysisData,
+    analysis,
     ticker
 ) {
-    const analysisBlocks =
-        getAnalysisBlocks(
-            analysisData
-        );
 
     const container =
-        getAnalysisContainer();
+        getOrCreateAnalysisContainer();
 
     if (!container) {
-        console.error(
-            "NEA28V1 ticker profile: unable to create analysis container."
-        );
         return;
     }
 
     container.innerHTML = "";
 
     if (
-        !analysisBlocks ||
-        Object.keys(analysisBlocks).length === 0
+        !analysis ||
+        typeof analysis !== "object"
     ) {
-        container.appendChild(
-            createAnalysisMessage(
-                "No analysis blocks were published for this ticker."
-            )
+
+        renderAnalysisUnavailable(
+            container
         );
+
         return;
     }
 
-    const analysisHeader =
-        document.createElement(
-            "div"
-        );
+    const requestedTicker =
+        String(ticker)
+            .trim()
+            .toUpperCase();
 
-    analysisHeader.className =
-        "ticker-analysis-header";
-
-    const heading =
-        document.createElement(
-            "h2"
-        );
-
-    heading.textContent =
-        "NEA28V1 Analysis";
-
-    analysisHeader.appendChild(
-        heading
-    );
+    let tickerAnalysis = null;
 
     if (
-        analysisData &&
-        analysisData.generated_at
+        analysis.tickers &&
+        typeof analysis.tickers === "object"
     ) {
-        const generated =
-            document.createElement(
-                "div"
+
+        const tickerKeys =
+            Object.keys(
+                analysis.tickers
             );
 
-        generated.className =
-            "ticker-analysis-generated";
+        const matchingKey =
+            tickerKeys.find(
+                key =>
+                    String(key)
+                        .trim()
+                        .toUpperCase() ===
+                    requestedTicker
+            );
 
-        generated.textContent =
-            `Generated: ${formatTimestamp(
-                analysisData.generated_at
-            )}`;
+        if (matchingKey) {
 
-        analysisHeader.appendChild(
-            generated
-        );
+            tickerAnalysis =
+                analysis.tickers[
+                    matchingKey
+                ];
+        }
     }
 
     if (
-        analysisData &&
-        analysisData.stop_breached !== undefined
+        !tickerAnalysis &&
+        analysis.ticker &&
+        String(analysis.ticker)
+            .trim()
+            .toUpperCase() ===
+            requestedTicker
     ) {
-        const stopStatus =
-            document.createElement(
-                "div"
-            );
 
-        stopStatus.className =
-            "ticker-analysis-stop-status";
-
-        stopStatus.textContent =
-            analysisData.stop_breached
-                ? "Stop Loss Status: BREACHED"
-                : "Stop Loss Status: NOT BREACHED";
-
-        analysisHeader.appendChild(
-            stopStatus
-        );
+        tickerAnalysis =
+            analysis;
     }
 
-    container.appendChild(
-        analysisHeader
+    if (
+        !tickerAnalysis ||
+        typeof tickerAnalysis !== "object"
+    ) {
+
+        renderAnalysisUnavailable(
+            container
+        );
+
+        return;
+    }
+
+    const blocks =
+        tickerAnalysis.analysis_blocks;
+
+    if (
+        !blocks ||
+        typeof blocks !== "object"
+    ) {
+
+        renderAnalysisUnavailable(
+            container
+        );
+
+        return;
+    }
+
+    renderAnalysisHeader(
+        container,
+        tickerAnalysis
     );
 
     Object.entries(
-        analysisBlocks
+        blocks
     ).forEach(
         (
             [
                 blockName,
-                blockContent
-            ],
-            index
+                blockValue
+            ]
         ) => {
-            const block =
-                createAnalysisBlock(
-                    blockName,
-                    blockContent,
-                    index
-                );
 
-            container.appendChild(
-                block
+            if (
+                blockValue === null ||
+                blockValue === undefined ||
+                blockValue === ""
+            ) {
+                return;
+            }
+
+            renderAnalysisBlock(
+                container,
+                blockName,
+                blockValue
             );
         }
     );
 }
 
-function getAnalysisBlocks(
-    analysisData
-) {
-    if (
-        !analysisData ||
-        typeof analysisData !== "object"
-    ) {
-        return {};
-    }
 
-    if (
-        analysisData.analysis_blocks &&
-        typeof analysisData.analysis_blocks === "object"
-    ) {
-        return analysisData.analysis_blocks;
-    }
+function getOrCreateAnalysisContainer() {
 
-    return {};
-}
-
-function getAnalysisContainer() {
     let container =
         document.getElementById(
             "analysisBlocks"
@@ -573,12 +608,12 @@ function getAnalysisContainer() {
         return container;
     }
 
-    const profileContent =
+    const profile =
         document.getElementById(
             "profileContent"
         );
 
-    if (!profileContent) {
+    if (!profile) {
         return null;
     }
 
@@ -591,98 +626,293 @@ function getAnalysisContainer() {
         "analysisBlocks";
 
     container.className =
-        "ticker-analysis-blocks";
+        "analysis-section";
 
-    profileContent.appendChild(
-        container
-    );
+    const premium =
+        profile.querySelector(
+            ".premium"
+        );
+
+    if (premium) {
+
+        profile.insertBefore(
+            container,
+            premium
+        );
+
+    } else {
+
+        profile.appendChild(
+            container
+        );
+    }
 
     return container;
 }
 
-function createAnalysisBlock(
-    blockName,
-    blockContent,
-    index
+
+function renderAnalysisHeader(
+    container,
+    analysis
 ) {
+
     const section =
         document.createElement(
             "section"
         );
 
     section.className =
-        "ticker-analysis-block";
+        "analysis-header panel";
 
-    section.dataset.analysisKey =
-        blockName;
+    const label =
+        document.createElement(
+            "span"
+        );
 
-    section.dataset.analysisIndex =
-        String(index);
+    label.className =
+        "section-label";
 
-    const title =
+    label.textContent =
+        "NEA28V1 ANALYSIS";
+
+    const heading =
+        document.createElement(
+            "h2"
+        );
+
+    heading.textContent =
+        "Ticker Intelligence";
+
+    section.appendChild(
+        label
+    );
+
+    section.appendChild(
+        heading
+    );
+
+    if (analysis.generated_at) {
+
+        const generated =
+            document.createElement(
+                "p"
+            );
+
+        generated.className =
+            "analysis-generated";
+
+        generated.textContent =
+            `Analysis generated: ${formatTimestamp(
+                analysis.generated_at
+            )}`;
+
+        section.appendChild(
+            generated
+        );
+    }
+
+    if (
+        analysis.journal_timestamp !==
+        undefined &&
+        analysis.journal_timestamp !== ""
+    ) {
+
+        const journal =
+            document.createElement(
+                "p"
+            );
+
+        journal.className =
+            "analysis-generated";
+
+        journal.textContent =
+            `Journal timestamp: ${formatTimestamp(
+                analysis.journal_timestamp
+            )}`;
+
+        section.appendChild(
+            journal
+        );
+    }
+
+    if (
+        analysis.stop_breached !==
+        undefined
+    ) {
+
+        const stop =
+            document.createElement(
+                "p"
+            );
+
+        stop.className =
+            "analysis-generated";
+
+        stop.textContent =
+            `Stop breached: ${
+                analysis.stop_breached
+                    ? "YES"
+                    : "NO"
+            }`;
+
+        section.appendChild(
+            stop
+        );
+    }
+
+    container.appendChild(
+        section
+    );
+}
+
+
+function renderAnalysisBlock(
+    container,
+    blockName,
+    blockValue
+) {
+
+    const article =
+        document.createElement(
+            "article"
+        );
+
+    article.className =
+        "analysis-block";
+
+    const heading =
         document.createElement(
             "h3"
         );
 
-    title.className =
-        "ticker-analysis-block-title";
-
-    title.textContent =
+    heading.textContent =
         formatAnalysisTitle(
             blockName
         );
 
-    section.appendChild(
-        title
+    article.appendChild(
+        heading
     );
 
-    const content =
-        document.createElement(
-            "div"
+    if (
+        typeof blockValue === "string"
+    ) {
+
+        const content =
+            document.createElement(
+                "pre"
+            );
+
+        content.className =
+            "analysis-content";
+
+        content.textContent =
+            normalizeAnalysisText(
+                blockValue
+            );
+
+        article.appendChild(
+            content
         );
 
-    content.className =
-        "ticker-analysis-block-content";
+    } else {
 
-    content.textContent =
-        normalizeAnalysisText(
-            blockContent
+        const content =
+            document.createElement(
+                "pre"
+            );
+
+        content.className =
+            "analysis-content";
+
+        content.textContent =
+            JSON.stringify(
+                blockValue,
+                null,
+                2
+            );
+
+        article.appendChild(
+            content
         );
-
-    section.appendChild(
-        content
-    );
-
-    return section;
-}
-
-function createAnalysisMessage(
-    message
-) {
-    const element =
-        document.createElement(
-            "div"
-        );
-
-    element.className =
-        "ticker-analysis-message";
-
-    element.textContent =
-        message;
-
-    return element;
-}
-
-function formatAnalysisTitle(
-    blockName
-) {
-    if (!blockName) {
-        return "Analysis";
     }
 
-    return String(blockName)
-        .replace(/^sec_/i, "")
-        .replace(/_/g, " ")
+    container.appendChild(
+        article
+    );
+}
+
+
+function renderAnalysisUnavailable(
+    container
+) {
+
+    const section =
+        document.createElement(
+            "section"
+        );
+
+    section.className =
+        "analysis-header panel";
+
+    const label =
+        document.createElement(
+            "span"
+        );
+
+    label.className =
+        "section-label";
+
+    label.textContent =
+        "NEA28V1 ANALYSIS";
+
+    const heading =
+        document.createElement(
+            "h2"
+        );
+
+    heading.textContent =
+        "Analysis Unavailable";
+
+    const message =
+        document.createElement(
+            "p"
+        );
+
+    message.textContent =
+        "No published analysis data is currently available for this ticker.";
+
+    section.appendChild(
+        label
+    );
+
+    section.appendChild(
+        heading
+    );
+
+    section.appendChild(
+        message
+    );
+
+    container.appendChild(
+        section
+    );
+}
+
+
+function formatAnalysisTitle(
+    value
+) {
+
+    return String(value)
+        .replace(
+            /^sec_/,
+            ""
+        )
+        .replace(
+            /_/g,
+            " "
+        )
         .replace(
             /\b\w/g,
             character =>
@@ -690,34 +920,26 @@ function formatAnalysisTitle(
         );
 }
 
+
 function normalizeAnalysisText(
     value
 ) {
-    if (
-        value === null ||
-        value === undefined
-    ) {
-        return "—";
-    }
 
-    if (
-        typeof value === "string"
-    ) {
-        return value.trim();
-    }
-
-    try {
-        return JSON.stringify(
-            value,
-            null,
-            2
-        );
-    } catch (error) {
-        return String(value);
-    }
+    return String(value)
+        .replace(
+            /\r\n/g,
+            "\n"
+        )
+        .replace(
+            /\n{4,}/g,
+            "\n\n\n"
+        )
+        .trim();
 }
 
+
 function numericValue(value) {
+
     if (
         value === null ||
         value === undefined ||
@@ -737,10 +959,7 @@ function numericValue(value) {
     const number =
         Number(
             String(value)
-                .replace(
-                    /[$,%]/g,
-                    ""
-                )
+                .replace(/[$,%]/g, "")
                 .trim()
         );
 
@@ -749,7 +968,9 @@ function numericValue(value) {
         : NaN;
 }
 
+
 function displayValue(value) {
+
     if (
         value === null ||
         value === undefined ||
@@ -761,30 +982,30 @@ function displayValue(value) {
     return String(value);
 }
 
+
 function formatPrice(value) {
-    if (
-        !Number.isFinite(value)
-    ) {
+
+    if (!Number.isFinite(value)) {
         return "—";
     }
 
     return `$${value.toFixed(4)}`;
 }
 
+
 function formatRiskReward(value) {
-    if (
-        !Number.isFinite(value)
-    ) {
+
+    if (!Number.isFinite(value)) {
         return "—";
     }
 
     return `${value.toFixed(2)}R`;
 }
 
+
 function formatScore(value) {
-    if (
-        !Number.isFinite(value)
-    ) {
+
+    if (!Number.isFinite(value)) {
         return "—";
     }
 
@@ -793,7 +1014,9 @@ function formatScore(value) {
         : value.toFixed(2);
 }
 
+
 function formatConfluence(value) {
+
     if (
         value === null ||
         value === undefined ||
@@ -814,7 +1037,9 @@ function formatConfluence(value) {
     return String(value);
 }
 
+
 function formatTimestamp(value) {
+
     if (
         value === null ||
         value === undefined ||
@@ -846,19 +1071,23 @@ function formatTimestamp(value) {
     );
 }
 
+
 function setText(
     id,
     value
 ) {
+
     const element =
         document.getElementById(
             id
         );
 
     if (!element) {
+
         console.error(
             `NEA28V1 ticker profile: missing HTML element #${id}`
         );
+
         return;
     }
 
@@ -866,59 +1095,73 @@ function setText(
         value ?? "—";
 }
 
+
 function showLoading() {
+
     const element =
         document.getElementById(
             "loadingState"
         );
 
     if (element) {
+
         element.classList.remove(
             "hidden"
         );
     }
 }
+
 
 function hideLoading() {
+
     const element =
         document.getElementById(
             "loadingState"
         );
 
     if (element) {
+
         element.classList.add(
             "hidden"
         );
     }
 }
 
+
 function showProfile() {
+
     const element =
         document.getElementById(
             "profileContent"
         );
 
     if (element) {
+
         element.classList.remove(
             "hidden"
         );
     }
 }
 
+
 function hideProfile() {
+
     const element =
         document.getElementById(
             "profileContent"
         );
 
     if (element) {
+
         element.classList.add(
             "hidden"
         );
     }
 }
 
+
 function showError(message) {
+
     hideLoading();
     hideProfile();
 
@@ -928,6 +1171,7 @@ function showError(message) {
         );
 
     if (messageElement) {
+
         messageElement.textContent =
             message;
     }
@@ -938,19 +1182,23 @@ function showError(message) {
         );
 
     if (errorElement) {
+
         errorElement.classList.remove(
             "hidden"
         );
     }
 }
 
+
 function hideError() {
+
     const element =
         document.getElementById(
             "errorState"
         );
 
     if (element) {
+
         element.classList.add(
             "hidden"
         );
