@@ -507,14 +507,31 @@ function initializeAnalysisCardToggles() {
     cards.forEach(
         card => {
 
+            if (
+                card.dataset.toggleInitialized === "true"
+            ) {
+                return;
+            }
+
             const header =
                 card.querySelector(
                     ".analysis-card-header"
                 );
 
-            if (!header) {
+            const content =
+                card.querySelector(
+                    ".analysis-card-content"
+                );
+
+            if (
+                !header ||
+                !content
+            ) {
                 return;
             }
+
+            card.dataset.toggleInitialized =
+                "true";
 
             header.setAttribute(
                 "role",
@@ -531,20 +548,33 @@ function initializeAnalysisCardToggles() {
                 "false"
             );
 
+            header.setAttribute(
+                "aria-controls",
+                `analysis-content-${Math.random()
+                    .toString(36)
+                    .slice(2)}`
+            );
+
+            content.classList.add(
+                "analysis-card-collapsible"
+            );
+
+            function toggleCard() {
+
+                const expanded =
+                    card.classList.toggle(
+                        "is-expanded"
+                    );
+
+                header.setAttribute(
+                    "aria-expanded",
+                    String(expanded)
+                );
+            }
+
             header.addEventListener(
                 "click",
-                () => {
-
-                    const expanded =
-                        card.classList.toggle(
-                            "is-expanded"
-                        );
-
-                    header.setAttribute(
-                        "aria-expanded",
-                        String(expanded)
-                    );
-                }
+                toggleCard
             );
 
             header.addEventListener(
@@ -558,15 +588,7 @@ function initializeAnalysisCardToggles() {
 
                         event.preventDefault();
 
-                        const expanded =
-                            card.classList.toggle(
-                                "is-expanded"
-                            );
-
-                        header.setAttribute(
-                            "aria-expanded",
-                            String(expanded)
-                        );
+                        toggleCard();
                     }
                 }
             );
