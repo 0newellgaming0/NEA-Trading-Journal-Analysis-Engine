@@ -296,9 +296,24 @@ function renderTrades() {
             `;
 
             row.addEventListener(
-                "dblclick",
+                "click",
                 () => {
-                    openTradeOrder(trade);
+
+                    const ticker =
+                        String(
+                            trade.ticker || ""
+                        )
+                            .trim()
+                            .toUpperCase();
+
+                    if (!ticker) {
+                        return;
+                    }
+
+                    window.location.href =
+                        `ticker-profile.html?ticker=${encodeURIComponent(
+                            ticker
+                        )}`;
                 }
             );
 
