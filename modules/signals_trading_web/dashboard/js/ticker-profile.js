@@ -405,6 +405,7 @@ function buildOpportunityDescription(trade) {
     }
 
     description +=
+	        " " +
         " Market conditions, liquidity, news, execution conditions, " +
         "and the underlying trade thesis should be independently " +
         "evaluated before making any trading decision.";
