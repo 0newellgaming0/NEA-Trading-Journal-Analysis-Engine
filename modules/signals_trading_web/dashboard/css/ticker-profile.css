@@ -308,7 +308,7 @@ main > section {
     display: block;
     margin-top: 10px;
     color: var(--text);
-    font-size: 1.7rem;
+    font-size: 1.27rem;
     line-height: 1.2;
     overflow-wrap: anywhere;
     word-break: break-word;
@@ -780,7 +780,7 @@ main > section {
     display: block;
     margin-top: 5px;
     color: var(--text);
-    font-size: 0.68rem;
+    font-size: 0.8rem;
     line-height: 1.5;
     overflow-wrap: anywhere;
     word-break: break-word;
