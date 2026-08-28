@@ -1,6 +1,7 @@
 "use strict";
 
 const ANALYSIS_DATA_PATH = "data/analysis";
+const ANALYSIS_INDEX_PATH = "data/analysis/index.json";
 
 document.addEventListener(
     "DOMContentLoaded",
@@ -20,15 +21,15 @@ async function initializeAnalysis() {
         return;
     }
 
-    initializeAnalysisDateSelector(
-        ticker
-    );
-
-    showAnalysisLoading(
-        ticker
-    );
-
     try {
+        await initializeAnalysisDateSelector(
+            ticker
+        );
+
+        showAnalysisLoading(
+            ticker
+        );
+
         const analysisDate =
             getSelectedAnalysisDate();
 
@@ -105,7 +106,7 @@ function getAnalysisDate() {
 function getSelectedAnalysisDate() {
     const selector =
         document.getElementById(
-            "analysisDateSelector"
+            "analysisDate"
         );
 
     if (
@@ -118,78 +119,92 @@ function getSelectedAnalysisDate() {
     return getAnalysisDate();
 }
 
-function initializeAnalysisDateSelector(
+async function initializeAnalysisDateSelector(
     ticker
 ) {
-    let selector =
+    const selector =
         document.getElementById(
-            "analysisDateSelector"
+            "analysisDate"
         );
 
     if (!selector) {
-        selector =
-            document.createElement(
-                "input"
-            );
-
-        selector.type =
-            "date";
-
-        selector.id =
-            "analysisDateSelector";
-
-        selector.name =
-            "analysisDateSelector";
-
-        selector.value =
-            getAnalysisDate();
-
-        const dateContainer =
-            document.createElement(
-                "div"
-            );
-
-        dateContainer.id =
-            "analysisDateSelectorContainer";
-
-        const label =
-            document.createElement(
-                "label"
-            );
-
-        label.htmlFor =
-            "analysisDateSelector";
-
-        label.textContent =
-            "Analysis Date";
-
-        dateContainer.appendChild(
-            label
+        throw new Error(
+            'HTML FAILURE: element id="analysisDate" was not found.'
         );
+    }
 
-        dateContainer.appendChild(
-            selector
-        );
+    selector.innerHTML = "";
 
-        const analysisSection =
-            document.getElementById(
-                "analysisSection"
+    let indexData;
+
+    try {
+        const response =
+            await fetch(
+                `${ANALYSIS_INDEX_PATH}?t=${Date.now()}`,
+                {
+                    cache: "no-store"
+                }
             );
 
-        if (analysisSection) {
-            analysisSection.parentNode.insertBefore(
-                dateContainer,
-                analysisSection
-            );
-        } else {
-            document.body.insertBefore(
-                dateContainer,
-                document.body.firstChild
+        if (!response.ok) {
+            throw new Error(
+                `HTTP ${response.status} ${response.statusText}`
             );
         }
-    } else if (!selector.value) {
+
+        indexData =
+            await response.json();
+    } catch (error) {
+        throw new Error(
+            `INDEX FAILURE: Unable to load ${ANALYSIS_INDEX_PATH}. ${error.message}`
+        );
+    }
+
+    const dates =
+        getTickerAnalysisDates(
+            indexData,
+            ticker
+        );
+
+    if (!dates.length) {
+        throw new Error(
+            `DATE INDEX FAILURE: No published analysis dates were found for ${ticker} in ${ANALYSIS_INDEX_PATH}.`
+        );
+    }
+
+    dates.forEach(
+        date => {
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value =
+                date;
+
+            option.textContent =
+                date;
+
+            selector.appendChild(
+                option
+            );
+        }
+    );
+
+    const requestedDate =
+        getRequestedAnalysisDate();
+
+    if (
+        requestedDate &&
+        dates.includes(
+            requestedDate
+        )
+    ) {
         selector.value =
-            getAnalysisDate();
+            requestedDate;
+    } else {
+        selector.value =
+            dates[0];
     }
 
     if (
@@ -239,6 +254,256 @@ function initializeAnalysisDateSelector(
                 );
             }
         }
+    );
+}
+
+function getRequestedAnalysisDate() {
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const date =
+        params.get("date");
+
+    if (!date) {
+        return null;
+    }
+
+    return date.trim() || null;
+}
+
+function getTickerAnalysisDates(
+    indexData,
+    ticker
+) {
+    if (
+        !indexData ||
+        typeof indexData !== "object"
+    ) {
+        return [];
+    }
+
+    const normalizedTicker =
+        ticker.toUpperCase();
+
+    /*
+     * Supported index structures:
+     *
+     * 1. {
+     *      "tickers": {
+     *          "TBCH": [
+     *              "2026-08-28",
+     *              "2026-08-27"
+     *          ]
+     *      }
+     *    }
+     *
+     * 2. {
+     *      "TBCH": [
+     *          "2026-08-28",
+     *          "2026-08-27"
+     *      ]
+     *    }
+     *
+     * 3. {
+     *      "dates": {
+     *          "2026-08-28": ["TBCH", ...],
+     *          "2026-08-27": ["TBCH", ...]
+     *      }
+     *    }
+     *
+     * 4. {
+     *      "analyses": [
+     *          {
+     *              "ticker": "TBCH",
+     *              "date": "2026-08-28"
+     *          }
+     *      ]
+     *    }
+     */
+
+    if (
+        indexData.tickers &&
+        typeof indexData.tickers === "object" &&
+        !Array.isArray(indexData.tickers)
+    ) {
+        const tickerEntry =
+            indexData.tickers[
+                normalizedTicker
+            ];
+
+        if (Array.isArray(tickerEntry)) {
+            return normalizeAnalysisDates(
+                tickerEntry
+            );
+        }
+
+        if (
+            tickerEntry &&
+            typeof tickerEntry === "object"
+        ) {
+            if (
+                Array.isArray(
+                    tickerEntry.dates
+                )
+            ) {
+                return normalizeAnalysisDates(
+                    tickerEntry.dates
+                );
+            }
+
+            if (
+                Array.isArray(
+                    tickerEntry.analysis_dates
+                )
+            ) {
+                return normalizeAnalysisDates(
+                    tickerEntry.analysis_dates
+                );
+            }
+
+            if (
+                Array.isArray(
+                    tickerEntry.available_dates
+                )
+            ) {
+                return normalizeAnalysisDates(
+                    tickerEntry.available_dates
+                );
+            }
+        }
+    }
+
+    const directTicker =
+        indexData[
+            normalizedTicker
+        ];
+
+    if (
+        Array.isArray(
+            directTicker
+        )
+    ) {
+        return normalizeAnalysisDates(
+            directTicker
+        );
+    }
+
+    if (
+        directTicker &&
+        typeof directTicker === "object"
+    ) {
+        const possibleDateFields = [
+            "dates",
+            "analysis_dates",
+            "available_dates"
+        ];
+
+        for (
+            const field of possibleDateFields
+        ) {
+            if (
+                Array.isArray(
+                    directTicker[field]
+                )
+            ) {
+                return normalizeAnalysisDates(
+                    directTicker[field]
+                );
+            }
+        }
+    }
+
+    if (
+        indexData.dates &&
+        typeof indexData.dates === "object" &&
+        !Array.isArray(indexData.dates)
+    ) {
+        const discoveredDates = [];
+
+        Object.entries(
+            indexData.dates
+        ).forEach(
+            (
+                [date, tickers]
+            ) => {
+                if (
+                    Array.isArray(tickers) &&
+                    tickers.some(
+                        value =>
+                            String(value)
+                                .toUpperCase() ===
+                            normalizedTicker
+                    )
+                ) {
+                    discoveredDates.push(
+                        date
+                    );
+                }
+            }
+        );
+
+        return normalizeAnalysisDates(
+            discoveredDates
+        );
+    }
+
+    if (
+        Array.isArray(
+            indexData.analyses
+        )
+    ) {
+        const discoveredDates =
+            indexData.analyses
+                .filter(
+                    item =>
+                        item &&
+                        typeof item === "object" &&
+                        String(
+                            item.ticker || ""
+                        )
+                            .toUpperCase() ===
+                            normalizedTicker
+                )
+                .map(
+                    item =>
+                        item.date ||
+                        item.analysis_date
+                );
+
+        return normalizeAnalysisDates(
+            discoveredDates
+        );
+    }
+
+    return [];
+}
+
+function normalizeAnalysisDates(
+    dates
+) {
+    return [
+        ...new Set(
+            dates
+                .map(
+                    date =>
+                        String(date)
+                            .trim()
+                )
+                .filter(
+                    date =>
+                        /^\d{4}-\d{2}-\d{2}$/.test(
+                            date
+                        )
+                )
+        )
+    ].sort(
+        (
+            a,
+            b
+        ) =>
+            b.localeCompare(a)
     );
 }
 
@@ -405,7 +670,7 @@ function renderAnalysis(
 
     const dateSelector =
         document.getElementById(
-            "analysisDateSelector"
+            "analysisDate"
         );
 
     if (
