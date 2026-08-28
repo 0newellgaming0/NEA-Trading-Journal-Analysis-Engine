@@ -308,7 +308,7 @@ main > section {
     display: block;
     margin-top: 10px;
     color: var(--text);
-    font-size: 1.27rem;
+    font-size: 1.00rem;
     line-height: 1.2;
     overflow-wrap: anywhere;
     word-break: break-word;
