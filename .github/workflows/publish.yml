@@ -1,176 +1,176 @@
 name: Publish Trading Dashboard
 
 on:
-workflow_dispatch:
-push:
-branches:
-- main
-- module/candlestick-analysis-engine
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - module/candlestick-analysis-engine
 
 permissions:
-contents: read
-pages: write
-id-token: write
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-publish:
-runs-on: ubuntu-latest
+  publish:
+    runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: modules/signals_trading_web
 
-defaults:
-  run:
-    working-directory: modules/signals_trading_web
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-steps:
-  - name: Checkout repository
-    uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-  - name: Set up Python
-    uses: actions/setup-python@v5
-    with:
-      python-version: "3.11"
+      - name: Validate JSON
+        run: |
+          python -m json.tool data/trades.json > /dev/null
+          python -m json.tool data/performance.json > /dev/null
+          python -m json.tool data/market.json > /dev/null
 
-  - name: Validate JSON
-    run: |
-      python -m json.tool data/trades.json > /dev/null
-      python -m json.tool data/performance.json > /dev/null
-      python -m json.tool data/market.json > /dev/null
+          find data/analysis \
+            -type f \
+            -name "*_analysis_latest.json" \
+            -print0 |
+          while IFS= read -r -d '' file; do
+            echo "Validating: $file"
+            python -m json.tool "$file" > /dev/null
+          done
 
-      find data/analysis \
-        -type f \
-        -name "*_analysis_latest.json" \
-        -print0 |
-      while IFS= read -r -d '' file; do
-        echo "Validating: $file"
-        python -m json.tool "$file" > /dev/null
-      done
+      - name: Validate Python
+        run: |
+          python -m compileall publisher tests
 
-  - name: Validate Python
-    run: |
-      python -m compileall publisher tests
+      - name: Run tests
+        run: |
+          python -m unittest discover -s tests -v
 
-  - name: Run tests
-    run: |
-      python -m unittest discover -s tests -v
+      - name: Generate Analysis Index
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          from pathlib import Path
 
-  - name: Build Pages artifact
-    run: |
-      rm -rf pages
-      mkdir -p pages
+          analysis_root = Path("data/analysis")
+          index = {
+              "tickers": {}
+          }
 
-      cp -R dashboard/. pages/
-
-      mkdir -p pages/data
-
-      cp data/trades.json \
-        pages/data/trades.json
-
-      cp data/performance.json \
-        pages/data/performance.json
-
-      cp data/market.json \
-        pages/data/market.json
-
-      cp -R data/analysis \
-        pages/data/analysis
-
-      python - <<'PY'
-      import json
-      import re
-      from pathlib import Path
-
-      analysis_root = Path("pages/data/analysis")
-      index = {
-          "tickers": {}
-      }
-
-      pattern = re.compile(
-          r"^(\d{4}-\d{2}-\d{2})_analysis_latest\.json$"
-      )
-
-      for ticker_dir in sorted(analysis_root.iterdir()):
-          if not ticker_dir.is_dir():
-              continue
-
-          ticker = ticker_dir.name.upper()
-          dates = []
-
-          for file in sorted(ticker_dir.iterdir()):
-              if not file.is_file():
-                  continue
-
-              match = pattern.match(file.name)
-
-              if not match:
-                  continue
-
-              dates.append(match.group(1))
-
-          if dates:
-              index["tickers"][ticker] = sorted(
-                  set(dates),
-                  reverse=True
-              )
-
-      index_path = analysis_root / "index.json"
-
-      with index_path.open(
-          "w",
-          encoding="utf-8"
-      ) as handle:
-          json.dump(
-              index,
-              handle,
-              indent=2
+          pattern = re.compile(
+              r"^(\d{4}-\d{2}-\d{2})_analysis_latest\.json$"
           )
-          handle.write("\n")
 
-      print(
-          f"Generated {index_path} "
-          f"for {len(index['tickers'])} tickers."
-      )
-      PY
+          for ticker_dir in sorted(analysis_root.iterdir()):
+              if not ticker_dir.is_dir():
+                  continue
 
-  - name: Verify Pages artifact
-    run: |
-      echo "=== Dashboard ==="
-      find pages \
-        -maxdepth 2 \
-        -type f |
-      sort
+              ticker = ticker_dir.name.upper()
+              dates = []
 
-      echo "=== Trade data ==="
-      python -c "import json; x=json.load(open('pages/data/trades.json')); print('Trades:', x.get('count', len(x.get('trades', []))))"
+              for file in sorted(ticker_dir.iterdir()):
+                  if not file.is_file():
+                      continue
 
-      echo "=== Performance data ==="
-      python -c "import json; x=json.load(open('pages/data/performance.json')); print('Total trades:', x.get('total_trades')); print('Win rate:', x.get('win_rate'))"
+                  match = pattern.match(file.name)
 
-      echo "=== Market data ==="
-      python -c "import json; x=json.load(open('pages/data/market.json')); print('Regime:', x.get('regime'))"
+                  if not match:
+                      continue
 
-      echo "=== Analysis index ==="
-      python -c "import json; x=json.load(open('pages/data/analysis/index.json')); print('Analysis index loaded:', type(x).__name__); print('Tickers:', len(x.get('tickers', {})))"
+                  dates.append(match.group(1))
 
-      echo "=== Analysis data ==="
-      find pages/data/analysis \
-        -type f \
-        -name "*_analysis_latest.json" |
-      sort
+              if dates:
+                  index["tickers"][ticker] = sorted(
+                      set(dates),
+                      reverse=True
+                  )
 
-      echo "=== Analysis file count ==="
-      find pages/data/analysis \
-        -type f \
-        -name "*_analysis_latest.json" |
-      wc -l
+          index_path = analysis_root / "index.json"
 
-  - name: Configure Pages
-    uses: actions/configure-pages@v5
+          with index_path.open(
+              "w",
+              encoding="utf-8"
+          ) as handle:
+              json.dump(
+                  index,
+                  handle,
+                  indent=2
+              )
+              handle.write("\n")
 
-  - name: Upload dashboard
-    uses: actions/upload-pages-artifact@v3
-    with:
-      path: modules/signals_trading_web/pages
+          print(
+              f"Generated {index_path} "
+              f"for {len(index['tickers'])} tickers."
+          )
+          PY
 
-  - name: Deploy to GitHub Pages
-    uses: actions/deploy-pages@v4
+      - name: Build Pages artifact
+        run: |
+          rm -rf pages
+          mkdir -p pages
 
+          cp -R dashboard/. pages/
+
+          mkdir -p pages/data
+
+          cp data/trades.json \
+            pages/data/trades.json
+
+          cp data/performance.json \
+            pages/data/performance.json
+
+          cp data/market.json \
+            pages/data/market.json
+
+          cp -R data/analysis \
+            pages/data/analysis
+
+      - name: Verify Pages artifact
+        run: |
+          echo "=== Dashboard ==="
+          find pages \
+            -maxdepth 2 \
+            -type f |
+          sort
+
+          echo "=== Trade data ==="
+          python -c "import json; x=json.load(open('pages/data/trades.json')); print('Trades:', x.get('count', len(x.get('trades', []))))"
+
+          echo "=== Performance data ==="
+          python -c "import json; x=json.load(open('pages/data/performance.json')); print('Total trades:', x.get('total_trades')); print('Win rate:', x.get('win_rate'))"
+
+          echo "=== Market data ==="
+          python -c "import json; x=json.load(open('pages/data/market.json')); print('Regime:', x.get('regime'))"
+
+          echo "=== Analysis index ==="
+          python -c "import json; x=json.load(open('pages/data/analysis/index.json')); print('Analysis index loaded:', type(x).__name__); print('Tickers:', len(x.get('tickers', {})))"
+
+          echo "=== Analysis data ==="
+          find pages/data/analysis \
+            -type f \
+            -name "*_analysis_latest.json" |
+          sort
+
+          echo "=== Analysis file count ==="
+          find pages/data/analysis \
+            -type f \
+            -name "*_analysis_latest.json" |
+          wc -l
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload dashboard
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: modules/signals_trading_web/pages
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
