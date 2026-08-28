@@ -1,11 +1,12 @@
 <!doctype html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <meta name="description"
-      content="NEA28V1 dynamic ticker profile and trade intelligence.">
+   content="NEA28V1 dynamic ticker profile and trade intelligence.">
 
 <title>NEA28V1 Ticker Profile</title>
 
@@ -18,13 +19,15 @@
 
   <div>
 
-    <div class="eyebrow">
-      NEA28V1 SETUPS SYSTEM
-    </div>
 
-    <h1>
-      Ticker Profile
-    </h1>
+<div class="eyebrow">
+  NEA28V1 SETUPS SYSTEM
+</div>
+
+<h1>
+  Ticker Profile
+</h1>
+
 
   </div>
 
@@ -45,423 +48,420 @@
   <section id="loadingState"
            class="state-panel">
 
-    <span class="section-label">
-      NEA28V1 TICKER INTELLIGENCE
-    </span>
 
-    <h2>
-      Loading Ticker Profile
-    </h2>
+<span class="section-label">
+  NEA28V1 TICKER INTELLIGENCE
+</span>
 
-    <p>
-      Loading the current NEA28V1 publication dataset...
-    </p>
+<h2>
+  Loading Ticker Profile
+</h2>
+
+<p>
+  Loading the current NEA28V1 publication dataset...
+</p>
+
 
   </section>
 
   <section id="errorState"
            class="state-panel hidden">
 
-    <span class="section-label">
-      TICKER PROFILE
-    </span>
 
-    <h2>
-      Ticker Profile Unavailable
-    </h2>
+<span class="section-label">
+  TICKER PROFILE
+</span>
 
-    <p id="errorMessage">
-      The requested ticker could not be loaded.
-    </p>
+<h2>
+  Ticker Profile Unavailable
+</h2>
 
-    <a href="newsletter.html"
-       class="button">
-      RETURN TO DAILY INTELLIGENCE →
-    </a>
+<p id="errorMessage">
+  The requested ticker could not be loaded.
+</p>
+
+<a href="newsletter.html"
+   class="button">
+  RETURN TO DAILY INTELLIGENCE →
+</a>
+
 
   </section>
 
   <div id="profileContent"
        class="hidden">
 
-    <section class="profile-hero">
 
-      <div>
+<section class="profile-hero">
 
-        <span class="section-label">
-          TICKER PROFILE
-        </span>
+  <div>
 
-        <h2 id="ticker">
-          —
-        </h2>
+    <span class="section-label">
+      TICKER PROFILE
+    </span>
 
-      </div>
+    <h2 id="ticker">
+      —
+    </h2>
 
-      <div class="profile-status">
+  </div>
 
-        <span class="status-label">
-          STATUS
-        </span>
+  <div class="profile-status">
 
-        <strong id="status">
-          —
-        </strong>
+    <span class="status-label">
+      STATUS
+    </span>
 
-      </div>
+    <strong id="status">
+      —
+    </strong>
 
-    </section>
+  </div>
 
-    <section class="section">
+</section>
 
-      <div class="section-heading">
+<section class="section">
 
-        <div>
+  <div class="section-heading">
 
-          <span class="section-label">
-            PUBLICATION TIMING
-          </span>
-
-          <h2>
-            Trade Record Date
-          </h2>
-
-        </div>
-
-      </div>
-
-      <div class="metrics-grid">
-
-        <article class="metric-card">
-
-          <span>UPDATED</span>
-
-          <strong id="analysisGeneratedAt">
-            —
-          </strong>
-
-          <p>
-            Most recent update timestamp contained in the published trade record.
-          </p>
-
-        </article>
-
-        <article class="metric-card">
-
-          <span>TIMEFRAME</span>
-
-          <p>
-          <strong>
-            60M PRIMARY
-          </strong>
-
-            Published signal timeframe.
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-    <section class="panel">
+    <div>
 
       <span class="section-label">
-        OPPORTUNITY SUMMARY
+        PUBLICATION TIMING
       </span>
 
       <h2>
-        Overview
+        Trade Record Date
       </h2>
 
-      <p id="opportunityDescription">
+    </div>
+
+  </div>
+
+  <div class="metrics-grid">
+
+    <article class="metric-card">
+
+      <span>UPDATED</span>
+
+      <strong id="analysisGeneratedAt">
         —
-      </p>
-
-    </section>
-
-    <section class="section">
-
-      <div class="section-heading">
-
-        <div>
-
-          <span class="section-label">
-            MARKET STATE
-          </span>
-
-          <h2>
-            Signal Classification
-          </h2>
-
-        </div>
-
-      </div>
-
-      <div class="metrics-grid">
-
-        <article class="metric-card">
-
-          <span>DIRECTION</span>
-
-          <strong id="direction">
-            —
-          </strong>
-
-          <p>
-            Published trade direction.
-          </p>
-
-        </article>
-
-        <article class="metric-card">
-
-          <span>SETUP</span>
-
-          <strong id="setup">
-            —
-          </strong>
-
-          <p>
-            Published trade setup.
-          </p>
-
-        </article>
-
-        <article class="metric-card">
-
-          <span>REGIME</span>
-
-          <strong id="regime">
-            —
-          </strong>
-
-          <p>
-            Published market regime.
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-    <section class="section">
-
-      <div class="section-heading">
-
-        <div>
-
-          <span class="section-label">
-            TRADE STRUCTURE
-          </span>
-
-          <h2>
-            Current Trade
-          </h2>
-
-        </div>
-
-      </div>
-
-      <div class="metrics-grid">
-
-        <article class="metric-card">
-
-          <span>CURRENT PRICE</span>
-
-          <strong id="currentPrice">
-            —
-          </strong>
-
-          <p>
-            Current price contained in the published trade record.
-          </p>
-
-        </article>
-
-        <article class="metric-card">
-
-          <span>ENTRY</span>
-
-          <strong id="entry">
-            —
-          </strong>
-
-          <p>
-            Published entry price.
-          </p>
-
-        </article>
-
-        <article class="metric-card">
-
-          <span>STOP</span>
-
-          <strong id="stop">
-            —
-          </strong>
-
-          <p>
-            Published stop-loss level.
-          </p>
-
-        </article>
-
-        <article class="metric-card">
-
-          <span>TARGET</span>
-
-          <strong id="target">
-            —
-          </strong>
-
-          <p>
-            Published target price.
-          </p>
-
-        </article>
-
-        <article class="metric-card">
-
-          <span>RISK / REWARD</span>
-
-          <strong id="riskReward">
-            —
-          </strong>
-
-          <p>
-            Published risk/reward value.
-          </p>
-
-        </article>
-
-        <article class="metric-card">
-
-          <span>SCORE</span>
-
-          <strong id="score">
-            —
-          </strong>
-
-          <p>
-            Published NEA28V1 trade score.
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-    <!--
-      ANALYSIS CARDS
-
-      analysis.js dynamically creates:
-
-      <article class="analysis-card">
-        <div class="analysis-card-header">
-          ...
-        </div>
-        <div class="analysis-card-content">
-          ...
-        </div>
-      </article>
-
-      initializeAnalysisCardToggles() in analysis.js attaches
-      the click and keyboard behavior to .analysis-card-header.
-
-      The .is-expanded class controls visibility through CSS.
-    -->
-    <section id="analysisSection"
-             class="analysis-section hidden">
-
-      <div class="analysis-section-heading">
-
-        <span class="section-label">
-          FUNDAMENTAL, TECHNICAL &amp; CORPORATE INTELLIGENCE
-        </span>
-
-        <h2>
-          Latest Analysis
-        </h2>
-
-      </div>
-
-      <div id="analysisMeta"
-           class="analysis-meta">
-
-        <div class="analysis-meta-item">
-
-          <span>
-            DAILY STOP STATUS
-          </span>
-
-          <strong id="analysisStopBreached">
-            —
-          </strong>
-
-        </div>
-
-      </div>
-
-      <!--
-        IMPORTANT:
-        analysis.js inserts the .analysis-card elements here.
-        Do not hard-code the cards in this HTML.
-      -->
-      <div id="analysisBlocks"
-           class="analysis-grid"
-           aria-live="polite">
-      </div>
-
-    </section>
-
-    <section id="analysisEmpty"
-             class="analysis-empty hidden">
-
-      No analysis data was published for this ticker.
-
-    </section>
-
-    <section class="premium">
-
-      <span class="section-label">
-        NEA28V1 PREMIUM
-      </span>
-
-      <h2>
-        Go Beyond the Public Profile.
-      </h2>
+      </strong>
 
       <p>
-        The public ticker profile provides the information
-        currently exposed through the NEA28V1 publication dataset.
-        Premium access is designed for traders who want broader
-        access to the NEA28V1 opportunity pipeline and additional
-        trade intelligence.
+        Most recent update timestamp contained in the published trade record.
       </p>
 
-      <a href="premiumTiers.html"
-         class="button">
-        VIEW PREMIUM TIERS →
-      </a>
+    </article>
 
-    </section>
+    <article class="metric-card">
 
-    <section class="navigation-panel">
+      <span>ANALYSIS DATE</span>
 
-      <a href="newsletter.html"
-         class="button secondary">
-        ← DAILY INTELLIGENCE
-      </a>
+      <select id="analysisDate"
+              class="analysis-date-selector"
+              aria-label="Select analysis date">
+      </select>
 
-      <a href="index.html"
-         class="button secondary">
-        DASHBOARD →
-      </a>
+      <p>
+        Select the published analysis date to view.
+      </p>
 
-    </section>
+    </article>
+
+    <article class="metric-card">
+
+      <span>TIMEFRAME</span>
+
+      <strong>
+        60M PRIMARY
+      </strong>
+
+      <p>
+        Published signal timeframe.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+<section class="panel">
+
+  <span class="section-label">
+    OPPORTUNITY SUMMARY
+  </span>
+
+  <h2>
+    Overview
+  </h2>
+
+  <p id="opportunityDescription">
+    —
+  </p>
+
+</section>
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div>
+
+      <span class="section-label">
+        MARKET STATE
+      </span>
+
+      <h2>
+        Signal Classification
+      </h2>
+
+    </div>
+
+  </div>
+
+  <div class="metrics-grid">
+
+    <article class="metric-card">
+
+      <span>DIRECTION</span>
+
+      <strong id="direction">
+        —
+      </strong>
+
+      <p>
+        Published trade direction.
+      </p>
+
+    </article>
+
+    <article class="metric-card">
+
+      <span>SETUP</span>
+
+      <strong id="setup">
+        —
+      </strong>
+
+      <p>
+        Published trade setup.
+      </p>
+
+    </article>
+
+    <article class="metric-card">
+
+      <span>REGIME</span>
+
+      <strong id="regime">
+        —
+      </strong>
+
+      <p>
+        Published market regime.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+<section class="section">
+
+  <div class="section-heading">
+
+    <div>
+
+      <span class="section-label">
+        TRADE STRUCTURE
+      </span>
+
+      <h2>
+        Current Trade
+      </h2>
+
+    </div>
+
+  </div>
+
+  <div class="metrics-grid">
+
+    <article class="metric-card">
+
+      <span>CURRENT PRICE</span>
+
+      <strong id="currentPrice">
+        —
+      </strong>
+
+      <p>
+        Current price contained in the published trade record.
+      </p>
+
+    </article>
+
+    <article class="metric-card">
+
+      <span>ENTRY</span>
+
+      <strong id="entry">
+        —
+      </strong>
+
+      <p>
+        Published entry price.
+      </p>
+
+    </article>
+
+    <article class="metric-card">
+
+      <span>STOP</span>
+
+      <strong id="stop">
+        —
+      </strong>
+
+      <p>
+        Published stop-loss level.
+      </p>
+
+    </article>
+
+    <article class="metric-card">
+
+      <span>TARGET</span>
+
+      <strong id="target">
+        —
+      </strong>
+
+      <p>
+        Published target price.
+      </p>
+
+    </article>
+
+    <article class="metric-card">
+
+      <span>RISK / REWARD</span>
+
+      <strong id="riskReward">
+        —
+      </strong>
+
+      <p>
+        Published risk/reward value.
+      </p>
+
+    </article>
+
+    <article class="metric-card">
+
+      <span>SCORE</span>
+
+      <strong id="score">
+        —
+      </strong>
+
+      <p>
+        Published NEA28V1 trade score.
+      </p>
+
+    </article>
+
+  </div>
+
+</section>
+
+<section id="analysisSection"
+         class="analysis-section hidden">
+
+  <div class="analysis-section-heading">
+
+    <span class="section-label">
+      FUNDAMENTAL, TECHNICAL &amp; CORPORATE INTELLIGENCE
+    </span>
+
+    <h2>
+      Latest Analysis
+    </h2>
+
+  </div>
+
+  <div id="analysisMeta"
+       class="analysis-meta">
+
+    <div class="analysis-meta-item">
+
+      <span>
+        DAILY STOP STATUS
+      </span>
+
+      <strong id="analysisStopBreached">
+        —
+      </strong>
+
+    </div>
+
+  </div>
+
+  <div id="analysisBlocks"
+       class="analysis-grid"
+       aria-live="polite">
+  </div>
+
+</section>
+
+<section id="analysisEmpty"
+         class="analysis-empty hidden">
+
+  No analysis data was published for this ticker.
+
+</section>
+
+<section class="premium">
+
+  <span class="section-label">
+    NEA28V1 PREMIUM
+  </span>
+
+  <h2>
+    Go Beyond the Public Profile.
+  </h2>
+
+  <p>
+    The public ticker profile provides the information
+    currently exposed through the NEA28V1 publication dataset.
+    Premium access is designed for traders who want broader
+    access to the NEA28V1 opportunity pipeline and additional
+    trade intelligence.
+  </p>
+
+  <a href="premiumTiers.html"
+     class="button">
+    VIEW PREMIUM TIERS →
+  </a>
+
+</section>
+
+<section class="navigation-panel">
+
+  <a href="newsletter.html"
+     class="button secondary">
+    ← DAILY INTELLIGENCE
+  </a>
+
+  <a href="index.html"
+     class="button secondary">
+    DASHBOARD →
+  </a>
+
+</section>
+
 
   </div>
 
@@ -478,23 +478,26 @@
       NEA28V1
     </a>
 
-    &nbsp;•&nbsp;
 
-    <a href="newsletter.html">
-      Daily Intelligence
-    </a>
+&nbsp;•&nbsp;
 
-    &nbsp;•&nbsp;
+<a href="newsletter.html">
+  Daily Intelligence
+</a>
 
-    <a href="premiumTiers.html">
-      Premium
-    </a>
+&nbsp;•&nbsp;
 
-    &nbsp;•&nbsp;
+<a href="premiumTiers.html">
+  Premium
+</a>
 
-    <a href="contact.html">
-      Contact
-    </a>
+&nbsp;•&nbsp;
+
+<a href="contact.html">
+  Contact
+</a>
+
+
   </p>
 
   <p class="disclaimer">
@@ -508,6 +511,7 @@
 </footer>
 
 <script src="js/ticker-profile.js" defer></script>
+
 <script src="js/analysis.js" defer></script>
 
 </body>

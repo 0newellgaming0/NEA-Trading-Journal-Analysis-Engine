@@ -414,6 +414,79 @@ main > section {
     overflow-wrap: anywhere;
 }
 
+/* ============================================================
+   ANALYSIS DATE SELECTOR
+   ============================================================ */
+
+.analysis-date-selector {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.analysis-date-selector label {
+    color: var(--muted);
+    font-size: 0.61rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.analysis-date-selector select {
+    min-width: 190px;
+    height: 40px;
+    padding: 8px 36px 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: var(--panel-soft);
+    color: var(--text);
+    font-size: 0.72rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    appearance: auto;
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.analysis-date-selector select:hover {
+    border-color: var(--border-light);
+    background-color: var(--panel);
+}
+
+.analysis-date-selector select:focus,
+.analysis-date-selector select:focus-visible {
+    border-color: var(--accent);
+    box-shadow:
+        0 0 0 2px var(--accent-soft);
+}
+
+.analysis-date-selector option {
+    background: var(--panel);
+    color: var(--text);
+}
+
+
+/* ============================================================
+   RESPONSIVE DATE SELECTOR
+   ============================================================ */
+
+@media (max-width: 650px) {
+
+    .analysis-date-selector {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .analysis-date-selector select {
+        width: 100%;
+        min-width: 0;
+    }
+}
 
 /* ============================================================
    ANALYSIS CARD GRID
