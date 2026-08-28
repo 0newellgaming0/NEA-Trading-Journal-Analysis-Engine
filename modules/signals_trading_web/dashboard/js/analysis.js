@@ -42,6 +42,7 @@ async function initializeAnalysis() {
         renderAnalysis(
             result
         );
+
     } catch (error) {
         console.error(
             "NEA28V1 analysis error:",
@@ -154,6 +155,7 @@ async function initializeAnalysisDateSelector(
 
         indexData =
             await response.json();
+
     } catch (error) {
         throw new Error(
             `INDEX FAILURE: Unable to load ${ANALYSIS_INDEX_PATH}. ${error.message}`
@@ -202,6 +204,7 @@ async function initializeAnalysisDateSelector(
     ) {
         selector.value =
             requestedDate;
+
     } else {
         selector.value =
             dates[0];
@@ -241,6 +244,7 @@ async function initializeAnalysisDateSelector(
                 renderAnalysis(
                     result
                 );
+
             } catch (error) {
                 console.error(
                     "NEA28V1 analysis error:",
@@ -545,6 +549,7 @@ async function loadAnalysisData(
                     cache: "no-store"
                 }
             );
+
     } catch (error) {
         throw new Error(
             `NETWORK FAILURE: Unable to request ${url}. ${error.message}`
@@ -562,6 +567,7 @@ async function loadAnalysisData(
     try {
         data =
             await response.json();
+
     } catch (error) {
         throw new Error(
             `JSON FAILURE: ${url} was loaded but could not be parsed as JSON. ${error.message}`
@@ -692,6 +698,7 @@ function renderAnalysis(
             `Analysis data exists for ${result.ticker}, but no "analysis_blocks" property was published.`,
             `Available ticker fields: ${Object.keys(analysis).join(", ") || "NONE"}`
         );
+
         return;
     }
 
@@ -708,6 +715,7 @@ function renderAnalysis(
             `The ticker record for ${result.ticker} contains "analysis_blocks", but there are no renderable analysis blocks.`,
             `analysis_blocks type: ${Array.isArray(analysis.analysis_blocks) ? "array" : typeof analysis.analysis_blocks}`
         );
+
         return;
     }
 
@@ -729,6 +737,7 @@ function renderAnalysis(
                 if (rendered) {
                     renderedCount++;
                 }
+
             } catch (error) {
                 console.error(
                     `Unable to render analysis block "${block.key}".`,
@@ -754,6 +763,7 @@ function renderAnalysis(
             `Analysis data was found for ${result.ticker}, but none of the ${blocks.length} analysis blocks produced visible HTML.`,
             `Blocks discovered: ${blocks.map(block => block.key).join(", ")}`
         );
+
         return;
     }
 
@@ -1089,6 +1099,7 @@ function renderAnalysisMetadata(
 
             stopBreached.className =
                 "analysis-status breached";
+
         } else if (
             analysis &&
             analysis.stop_breached === false
@@ -1098,6 +1109,7 @@ function renderAnalysisMetadata(
 
             stopBreached.className =
                 "analysis-status clear";
+
         } else {
             stopBreached.textContent =
                 "—";
@@ -1683,6 +1695,7 @@ function renderAnalysisObject(
                 item.appendChild(
                     nested
                 );
+
             } else {
                 const output =
                     document.createElement(
@@ -1739,11 +1752,13 @@ function extractEmbeddedJson(
     ) {
         start =
             firstArray;
+
     } else if (
         firstArray === -1
     ) {
         start =
             firstObject;
+
     } else {
         start =
             Math.min(
@@ -1773,8 +1788,10 @@ function extractEmbeddedJson(
                     start
                 )
                 .trim(),
+
         value:
             parsed.value,
+
         after:
             normalized
                 .slice(
@@ -1820,10 +1837,12 @@ function parseJsonPrefix(
         if (inString) {
             if (escaped) {
                 escaped = false;
+
             } else if (
                 character === "\\"
             ) {
                 escaped = true;
+
             } else if (
                 character === "\""
             ) {
@@ -1844,6 +1863,7 @@ function parseJsonPrefix(
             character === opening
         ) {
             depth++;
+
         } else if (
             character === closing
         ) {
@@ -1862,9 +1882,11 @@ function parseJsonPrefix(
                             JSON.parse(
                                 candidate
                             ),
+
                         length:
                             index + 1
                     };
+
                 } catch (error) {
                     return null;
                 }
