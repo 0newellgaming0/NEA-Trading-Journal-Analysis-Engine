@@ -34,7 +34,15 @@ jobs:
           python -m json.tool data/trades.json > /dev/null
           python -m json.tool data/performance.json > /dev/null
           python -m json.tool data/market.json > /dev/null
-          python -m json.tool data/analysis_latest.json > /dev/null
+
+          find data/analysis \
+            -type f \
+            -name "*_analysis_latest.json" \
+            -print0 |
+          while IFS= read -r -d '' file; do
+            echo "Validating: $file"
+            python -m json.tool "$file" > /dev/null
+          done
 
       - name: Validate Python
         run: |
@@ -48,21 +56,51 @@ jobs:
         run: |
           rm -rf pages
           mkdir -p pages
+
           cp -R dashboard/. pages/
+
           mkdir -p pages/data
-          cp data/trades.json pages/data/trades.json
-          cp data/performance.json pages/data/performance.json
-          cp data/market.json pages/data/market.json
-          cp data/analysis_latest.json pages/data/analysis_latest.json
+
+          cp data/trades.json \
+            pages/data/trades.json
+
+          cp data/performance.json \
+            pages/data/performance.json
+
+          cp data/market.json \
+            pages/data/market.json
+
+          cp -R data/analysis \
+            pages/data/analysis
 
       - name: Verify Pages artifact
         run: |
           echo "=== Dashboard ==="
-          find pages -maxdepth 2 -type f | sort
+          find pages \
+            -maxdepth 2 \
+            -type f |
+          sort
+
           echo "=== Trade data ==="
           python -c "import json; x=json.load(open('pages/data/trades.json')); print('Trades:', x.get('count', len(x.get('trades', []))))"
+
+          echo "=== Performance data ==="
+          python -c "import json; x=json.load(open('pages/data/performance.json')); print('Total trades:', x.get('total_trades')); print('Win rate:', x.get('win_rate'))"
+
+          echo "=== Market data ==="
+          python -c "import json; x=json.load(open('pages/data/market.json')); print('Regime:', x.get('regime'))"
+
           echo "=== Analysis data ==="
-          python -c "import json; x=json.load(open('pages/data/analysis_latest.json')); print('Schema:', x.get('schema_version')); print('Tickers:', len(x.get('tickers', {}))); print('BCAB:', 'BCAB' in x.get('tickers', {}))"
+          find pages/data/analysis \
+            -type f \
+            -name "*_analysis_latest.json" |
+          sort
+
+          echo "=== Analysis file count ==="
+          find pages/data/analysis \
+            -type f \
+            -name "*_analysis_latest.json" |
+          wc -l
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
