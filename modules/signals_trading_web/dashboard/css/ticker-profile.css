@@ -769,7 +769,7 @@ main > section {
 .analysis-data-item span {
     display: block;
     color: var(--muted);
-    font-size: 0.58rem;
+    font-size: 0.48rem;
     font-weight: 800;
     letter-spacing: 0.12em;
     text-transform: uppercase;
