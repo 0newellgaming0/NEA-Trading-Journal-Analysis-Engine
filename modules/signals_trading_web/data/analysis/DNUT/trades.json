@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "target": 3.5239999999999996,
-      "current_price": 3.49,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "ticker": "DNUT",
       "entry": 3.48,
-      "score": 71.0,
-      "stop": 3.458,
+      "current_price": 3.49,
       "updated_at": "2026-08-29T09:09:12.203996",
+      "setup": "Harami Cross",
+      "status": "CONFIRMED",
+      "score": 71.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 3.5239999999999996,
       "direction": "Bullish",
-      "setup": "Harami Cross"
+      "ticker": "DNUT",
+      "stop": 3.458
     }
   ]
 }

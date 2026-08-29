@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "target": 9.21968,
-      "current_price": 8.98,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "ticker": "OPHC",
       "entry": 8.9999,
-      "score": 76.0,
-      "stop": 8.89001,
+      "current_price": 8.98,
       "updated_at": "2026-08-29T06:25:10.525354",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "score": 76.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "target": 9.21968,
       "direction": "Bullish",
-      "setup": "TLINE_CONTINUATION"
+      "ticker": "OPHC",
+      "stop": 8.89001
     }
   ]
 }

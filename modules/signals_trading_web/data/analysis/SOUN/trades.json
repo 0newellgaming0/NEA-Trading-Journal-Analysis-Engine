@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "target": 6.639999999999999,
-      "current_price": 7.0954,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "ticker": "SOUN",
       "entry": 7.08,
-      "score": 73.0,
-      "stop": 7.300000000000001,
+      "current_price": 7.0954,
       "updated_at": "2026-08-29T06:04:43.443511",
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "score": 73.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 6.639999999999999,
       "direction": "Bearish",
-      "setup": "Pinbar"
+      "ticker": "SOUN",
+      "stop": 7.300000000000001
     }
   ]
 }

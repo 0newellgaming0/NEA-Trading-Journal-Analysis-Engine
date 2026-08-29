@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "target": 6.442,
-      "current_price": 6.7711,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "ticker": "TTI",
       "entry": 6.805,
-      "score": 44.0,
-      "stop": 6.9864999999999995,
+      "current_price": 6.7711,
       "updated_at": "2026-08-29T08:52:22.354585",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED",
+      "score": 44.0,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "target": 6.442,
       "direction": "Bearish",
-      "setup": "Inside Bar"
+      "ticker": "TTI",
+      "stop": 6.9864999999999995
     }
   ]
 }

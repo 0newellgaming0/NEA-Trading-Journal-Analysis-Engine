@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "target": 10.400000000000002,
-      "current_price": 10.726,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "ticker": "NMAX",
       "entry": 10.675,
-      "score": 80.0,
-      "stop": 10.8125,
+      "current_price": 10.726,
       "updated_at": "2026-08-29T08:06:25.643936",
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "score": 80.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 10.400000000000002,
       "direction": "Bearish",
-      "setup": "Engulfing"
+      "ticker": "NMAX",
+      "stop": 10.8125
     }
   ]
 }

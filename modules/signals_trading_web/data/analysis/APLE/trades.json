@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "target": 17.201439999999998,
-      "current_price": 16.68,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "regime": "BULLISH_CONSOLIDATION",
-      "ticker": "APLE",
       "entry": 16.6642,
-      "score": 60.0,
-      "stop": 16.395580000000002,
+      "current_price": 16.68,
       "updated_at": "2026-08-29T11:38:06.143242",
+      "setup": "Rising Three Methods",
+      "status": "CONFIRMED",
+      "score": 60.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 17.201439999999998,
       "direction": "Bullish",
-      "setup": "Rising Three Methods"
+      "ticker": "APLE",
+      "stop": 16.395580000000002
     }
   ]
 }

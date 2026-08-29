@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "target": 18.52399999999999,
-      "current_price": 18.89,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "regime": "BULLISH_CONSOLIDATION",
-      "ticker": "FTRE",
       "entry": 18.81,
-      "score": 67.0,
-      "stop": 18.953000000000003,
+      "current_price": 18.89,
       "updated_at": "2026-08-29T06:44:31.387334",
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "score": 67.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 18.52399999999999,
       "direction": "Bearish",
-      "setup": "Pinbar"
+      "ticker": "FTRE",
+      "stop": 18.953000000000003
     }
   ]
 }

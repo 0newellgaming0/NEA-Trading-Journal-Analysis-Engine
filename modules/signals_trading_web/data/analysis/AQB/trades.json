@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "target": 1.11832,
-      "current_price": 1.25,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "ticker": "AQB",
       "entry": 1.2501,
-      "score": 68.0,
-      "stop": 1.31599,
+      "current_price": 1.25,
       "updated_at": "2026-08-29T11:42:32.237120",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED",
+      "score": 68.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "target": 1.11832,
       "direction": "Bearish",
-      "setup": "Inside Bar"
+      "ticker": "AQB",
+      "stop": 1.31599
     }
   ]
 }

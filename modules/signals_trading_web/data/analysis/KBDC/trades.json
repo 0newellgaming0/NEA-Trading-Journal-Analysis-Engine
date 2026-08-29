@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "target": 13.110000000000003,
-      "current_price": 13.4439,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "regime": "SHORT_TERM_STRENGTH",
-      "ticker": "KBDC",
       "entry": 13.55,
-      "score": 71.0,
-      "stop": 13.77,
+      "current_price": 13.4439,
       "updated_at": "2026-08-29T05:41:44.969314",
+      "setup": "Marubozu",
+      "status": "CONFIRMED",
+      "score": 71.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 13.110000000000003,
       "direction": "Bearish",
-      "setup": "Marubozu"
+      "ticker": "KBDC",
+      "stop": 13.77
     }
   ]
 }

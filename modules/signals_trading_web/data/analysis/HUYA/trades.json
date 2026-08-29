@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "target": 2.2380800000000005,
-      "current_price": 2.18,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "regime": "BEARISH_CONSOLIDATION",
-      "ticker": "HUYA",
       "entry": 2.18,
-      "score": 89.0,
-      "stop": 2.15096,
+      "current_price": 2.18,
       "updated_at": "2026-08-29T08:11:15.985416",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "score": 89.0,
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 2.2380800000000005,
       "direction": "Bullish",
-      "setup": "TLINE_CONTINUATION"
+      "ticker": "HUYA",
+      "stop": 2.15096
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "target": 10.399999999999999,
-      "current_price": 6.58,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "regime": "BEARISH_CONSOLIDATION",
-      "ticker": "AEHL",
       "entry": 6.55,
-      "score": 82.0,
-      "stop": 4.625,
+      "current_price": 6.58,
       "updated_at": "2026-08-29T11:06:48.825891",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED",
+      "score": 82.0,
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 10.399999999999999,
       "direction": "Bullish",
-      "setup": "Inside Bar"
+      "ticker": "AEHL",
+      "stop": 4.625
     }
   ]
 }
