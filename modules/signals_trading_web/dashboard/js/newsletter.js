@@ -1,6 +1,6 @@
 "use strict";
 
-const TRADE_DATA_URL = "data/trades.json";
+const ANALYSIS_INDEX_URL = "data/analysis/index.json";
 const TOP_PICK_COUNT = 10;
 
 document.addEventListener(
@@ -13,15 +13,23 @@ async function initializeNewsletter() {
     initializeBookmarkButton();
 
     try {
-        const rawData = await loadTradeData();
-        const trades = normalizeTradeData(rawData);
+        const rawData =
+            await loadTradeData();
+
+        const trades =
+            normalizeTradeData(
+                rawData
+            );
 
         if (!trades.length) {
             renderEmptyState();
             return;
         }
 
-        const rankedTrades = rankTrades(trades);
+        const rankedTrades =
+            rankTrades(
+                trades
+            );
 
         renderMarketBias(
             rawData,
@@ -141,9 +149,9 @@ function showBookmarkInstructions() {
 }
 
 
-async function loadTradeData() {
+async function getJSON(file) {
     const response = await fetch(
-        `${TRADE_DATA_URL}?t=${Date.now()}`,
+        `${file}?t=${Date.now()}`,
         {
             cache: "no-store"
         }
@@ -151,11 +159,103 @@ async function loadTradeData() {
 
     if (!response.ok) {
         throw new Error(
-            `Unable to load ${TRADE_DATA_URL}: ${response.status}`
+            `Unable to load ${file}: ${response.status}`
         );
     }
 
     return await response.json();
+}
+
+
+async function loadTradeData() {
+    const index =
+        await getJSON(
+            ANALYSIS_INDEX_URL
+        );
+
+    if (
+        !index ||
+        typeof index.tickers !== "object" ||
+        index.tickers === null
+    ) {
+        throw new Error(
+            "Analysis index does not contain a valid tickers object."
+        );
+    }
+
+    const trades = [];
+
+    const tickerEntries =
+        Object.entries(
+            index.tickers
+        );
+
+    for (
+        const [ticker, dates]
+        of tickerEntries
+    ) {
+        if (!Array.isArray(dates)) {
+            continue;
+        }
+
+        if (!dates.length) {
+            continue;
+        }
+
+        const latestDate =
+            [...dates].sort().reverse()[0];
+
+        if (!latestDate) {
+            continue;
+        }
+
+        const tradeFile =
+            `data/analysis/${encodeURIComponent(
+                ticker
+            )}/trades.json`;
+
+        try {
+            const data =
+                await getJSON(
+                    tradeFile
+                );
+
+            const tickerTrades =
+                normalizeTradeData(
+                    data
+                );
+
+            tickerTrades.forEach(
+                trade => {
+                    trade._analysisDate =
+                        latestDate;
+
+                    trade._ticker =
+                        ticker.toUpperCase();
+
+                    trades.push(
+                        trade
+                    );
+                }
+            );
+
+        } catch (error) {
+            console.warn(
+                `Unable to load trades for ${ticker}:`,
+                error
+            );
+        }
+    }
+
+    return {
+        generated_at:
+            new Date().toISOString(),
+
+        tickers:
+            index.tickers,
+
+        trades
+    };
 }
 
 
@@ -164,16 +264,27 @@ function normalizeTradeData(data) {
 
     if (Array.isArray(data)) {
         source = data;
-    } else if (Array.isArray(data.trades)) {
+
+    } else if (
+        data &&
+        Array.isArray(data.trades)
+    ) {
         source = data.trades;
-    } else if (Array.isArray(data.data)) {
+
+    } else if (
+        data &&
+        Array.isArray(data.data)
+    ) {
         source = data.data;
+
     } else {
         source = [];
     }
 
     return source
-        .map(normalizeTrade)
+        .map(
+            normalizeTrade
+        )
         .filter(Boolean);
 }
 
@@ -231,7 +342,9 @@ function normalizeTrade(trade) {
 
     return {
         ticker:
-            String(ticker).toUpperCase(),
+            String(
+                ticker
+            ).toUpperCase(),
 
         direction: firstValue(
             trade.direction,
@@ -345,7 +458,9 @@ function getMarketBias(
     if (explicitBias) {
         return {
             value:
-                String(explicitBias),
+                String(
+                    explicitBias
+                ),
 
             description:
                 "Current market bias supplied by the NEA28V1 publication dataset."

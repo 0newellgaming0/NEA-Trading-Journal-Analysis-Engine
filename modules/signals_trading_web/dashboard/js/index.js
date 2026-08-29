@@ -31,6 +31,62 @@ function money(value) {
         : "$" + number.toFixed(2);
 }
 
+async function loadTickerTrades(index) {
+    const tickerTrades = [];
+
+    const tickers =
+        index &&
+        typeof index.tickers === "object" &&
+        index.tickers !== null
+            ? index.tickers
+            : {};
+
+    for (const ticker of Object.keys(tickers)) {
+        const dates = Array.isArray(
+            tickers[ticker]
+        )
+            ? tickers[ticker]
+            : [];
+
+        if (!dates.length) {
+            continue;
+        }
+
+        const latestDate =
+            [...dates].sort().reverse()[0];
+
+        try {
+            const data =
+                await getJSON(
+                    `analysis/${encodeURIComponent(
+                        ticker
+                    )}/trades.json`
+                );
+
+            const trades =
+                Array.isArray(data.trades)
+                    ? data.trades
+                    : [];
+
+            trades.forEach(trade => {
+                tickerTrades.push({
+                    ...trade,
+                    _ticker: ticker,
+                    _date: latestDate
+                });
+            });
+
+        } catch (error) {
+            console.error(
+                `Failed to load trades for ${ticker}:`,
+                error
+            );
+        }
+    }
+
+    return tickerTrades;
+}
+
 function renderTrades(data) {
     const rows =
         document.getElementById("tradeTable");
@@ -41,8 +97,8 @@ function renderTrades(data) {
 
     rows.innerHTML = "";
 
-    const trades = Array.isArray(data.trades)
-        ? [...data.trades]
+    const trades = Array.isArray(data)
+        ? [...data]
         : [];
 
     trades.sort((a, b) => {
@@ -71,7 +127,9 @@ function renderTrades(data) {
                 <td>
                     <b>
                         ${escapeHtml(
-                            trade.ticker || ""
+                            trade.ticker ||
+                            trade._ticker ||
+                            ""
                         )}
                     </b>
                 </td>
@@ -125,9 +183,9 @@ function renderTrades(data) {
         });
 }
 
-function updateDashboardStats(data) {
-    const trades = Array.isArray(data.trades)
-        ? data.trades
+function updateDashboardStats(trades) {
+    const tradeList = Array.isArray(trades)
+        ? trades
         : [];
 
     let pending = 0;
@@ -135,7 +193,7 @@ function updateDashboardStats(data) {
     let bullish = 0;
     let bearish = 0;
 
-    trades.forEach(trade => {
+    tradeList.forEach(trade => {
 
         const status = String(
             trade.status || ""
@@ -172,7 +230,7 @@ function updateDashboardStats(data) {
 
     if (totalTrades) {
         totalTrades.textContent =
-            trades.length;
+            tradeList.length;
     }
 
     const pendingSetups =
@@ -241,12 +299,19 @@ function escapeHtml(value) {
 
 async function load() {
     try {
-        const trades =
+        const index =
             await getJSON(
-                "trades.json"
+                "analysis/index.json"
             );
 
-        renderTrades(trades);
+        const trades =
+            await loadTickerTrades(
+                index
+            );
+
+        renderTrades(
+            trades
+        );
 
         updateDashboardStats(
             trades
@@ -260,10 +325,7 @@ async function load() {
         if (lastUpdated) {
             lastUpdated.textContent =
                 "Updated " +
-                (
-                    trades.generated_at ||
-                    ""
-                );
+                new Date().toISOString();
         }
 
         const statusDot =
@@ -311,5 +373,3 @@ setInterval(
     load,
     60000
 );
-
-
