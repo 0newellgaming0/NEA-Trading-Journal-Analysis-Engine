@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 78.0,
-      "updated_at": "2026-08-29T08:27:14.845009",
       "risk_reward": 2.0,
-      "entry": 12.795,
-      "status": "CONFIRMED",
-      "setup": "Inverted Hammer",
-      "target": 12.937999999999997,
-      "current_price": 12.898,
+      "updated_at": "2026-08-29T08:27:14.845009",
       "ticker": "SVM",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "entry": 12.795,
+      "current_price": 12.898,
       "stop": 12.723500000000001,
+      "target": 12.937999999999997,
+      "setup": "Inverted Hammer",
       "regime": "BULLISH_CONSOLIDATION",
-      "direction": "Bullish"
+      "score": 78.0
     }
   ]
 }

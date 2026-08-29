@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 86.0,
-      "updated_at": "2026-08-29T07:38:34.983197",
       "risk_reward": 2.0,
-      "entry": 8.37,
-      "status": "CONFIRMED",
-      "setup": "Harami Cross",
-      "target": 8.017999999999999,
-      "current_price": 8.3,
+      "updated_at": "2026-08-29T07:38:34.983197",
       "ticker": "CRMD",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "entry": 8.37,
+      "current_price": 8.3,
       "stop": 8.546,
+      "target": 8.017999999999999,
+      "setup": "Harami Cross",
       "regime": "SHORT_TERM_WEAKNESS",
-      "direction": "Bearish"
+      "score": 86.0
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 78.0,
-      "updated_at": "2026-08-29T08:16:39.564518",
       "risk_reward": 2.0,
-      "entry": 1.58,
-      "status": "CONFIRMED",
-      "setup": "Shooting Star",
-      "target": 1.4735200000000002,
-      "current_price": 1.57,
+      "updated_at": "2026-08-29T08:16:39.564518",
       "ticker": "MYO",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "entry": 1.58,
+      "current_price": 1.57,
       "stop": 1.63324,
+      "target": 1.4735200000000002,
+      "setup": "Shooting Star",
       "regime": "SHORT_TERM_STRENGTH",
-      "direction": "Bearish"
+      "score": 78.0
     }
   ]
 }

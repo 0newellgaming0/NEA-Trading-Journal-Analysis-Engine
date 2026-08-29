@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 63.0,
-      "updated_at": "2026-08-29T06:21:31.271633",
       "risk_reward": 2.0,
-      "entry": 0.6499,
-      "status": "CONFIRMED",
-      "setup": "Evening Star",
-      "target": 0.6283400000000002,
-      "current_price": 0.64,
+      "updated_at": "2026-08-29T06:21:31.271633",
       "ticker": "OTLK",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "entry": 0.6499,
+      "current_price": 0.64,
       "stop": 0.6606799999999999,
+      "target": 0.6283400000000002,
+      "setup": "Evening Star",
       "regime": "BEARISH_CONSOLIDATION",
-      "direction": "Bearish"
+      "score": 63.0
     }
   ]
 }

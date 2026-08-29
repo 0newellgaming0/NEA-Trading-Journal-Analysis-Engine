@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 71.0,
-      "updated_at": "2026-08-29T07:06:16.732745",
       "risk_reward": 2.0,
-      "entry": 8.575,
-      "status": "CONFIRMED",
-      "setup": "Engulfing",
-      "target": 8.662999999999997,
-      "current_price": 8.58,
+      "updated_at": "2026-08-29T07:06:16.732745",
       "ticker": "TME",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "entry": 8.575,
+      "current_price": 8.58,
       "stop": 8.531,
+      "target": 8.662999999999997,
+      "setup": "Engulfing",
       "regime": "BEARISH_CONSOLIDATION",
-      "direction": "Bullish"
+      "score": 71.0
     }
   ]
 }

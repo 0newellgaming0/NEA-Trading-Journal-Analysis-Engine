@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 80.0,
-      "updated_at": "2026-08-29T06:33:47.012634",
       "risk_reward": 2.0,
-      "entry": 9.05,
-      "status": "CONFIRMED",
-      "setup": "TLINE_CONTINUATION",
-      "target": 8.898420000000002,
-      "current_price": 9.06,
+      "updated_at": "2026-08-29T06:33:47.012634",
       "ticker": "PBYI",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "entry": 9.05,
+      "current_price": 9.06,
       "stop": 9.12579,
+      "target": 8.898420000000002,
+      "setup": "TLINE_CONTINUATION",
       "regime": "BULLISH_CONSOLIDATION",
-      "direction": "Bearish"
+      "score": 80.0
     }
   ]
 }

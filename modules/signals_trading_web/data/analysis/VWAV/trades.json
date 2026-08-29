@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 61.0,
-      "updated_at": "2026-08-29T05:07:20.658071",
       "risk_reward": 2.0,
-      "entry": 0.8808,
-      "status": "CONFIRMED",
-      "setup": "Evening Star",
-      "target": 0.7534200000000002,
-      "current_price": 0.873,
+      "updated_at": "2026-08-29T05:07:20.658071",
       "ticker": "VWAV",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "entry": 0.8808,
+      "current_price": 0.873,
       "stop": 0.9444899999999999,
+      "target": 0.7534200000000002,
+      "setup": "Evening Star",
       "regime": "BEARISH_CONSOLIDATION",
-      "direction": "Bearish"
+      "score": 61.0
     }
   ]
 }
