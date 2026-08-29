@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T05:50:27.917620",
+  "ticker": "ACRE",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 4.634,
+      "ticker": "ACRE",
+      "entry": 4.81,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "score": 54.0,
+      "setup": "TLINE_CONTINUATION",
+      "target": 5.161999999999998,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-29T10:50:46.281476",
+      "current_price": 4.65
+    }
+  ]
+}

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "updated_at": "2026-08-29T07:45:55.726389",
+      "stop": 8.347999999999999,
       "ticker": "IOVA",
+      "entry": 8.26,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "score": 74.0,
+      "setup": "Pinbar",
+      "target": 8.084000000000001,
       "direction": "Bearish",
       "status": "CONFIRMED",
-      "entry": 8.26,
-      "current_price": 8.03,
-      "stop": 8.347999999999999,
-      "target": 8.084000000000001,
-      "setup": "Pinbar",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "score": 74.0
+      "updated_at": "2026-08-29T07:45:55.726389",
+      "current_price": 8.03
     }
   ]
 }

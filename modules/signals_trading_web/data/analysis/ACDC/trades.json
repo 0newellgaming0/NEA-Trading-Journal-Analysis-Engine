@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-28T14:39:58.084773",
+  "generated_at": "2026-08-29T05:43:34.968308",
   "ticker": "ACDC",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "stop": 4.985,
+      "ticker": "ACDC",
+      "entry": 5.04,
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "score": 64.0,
+      "setup": "Engulfing",
+      "target": 5.1499999999999995,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-29T10:43:55.835022",
+      "current_price": 4.99
+    }
+  ]
 }

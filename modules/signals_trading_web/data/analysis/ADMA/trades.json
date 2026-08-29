@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T01:11:30.309975",
+  "generated_at": "2026-08-29T05:59:43.775761",
   "ticker": "ADMA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 9.527,
+      "ticker": "ADMA",
+      "entry": 9.34,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "score": 78.0,
+      "setup": "Pinbar",
+      "target": 8.966000000000001,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-29T11:00:06.119424",
+      "current_price": 9.45
+    },
     {
       "risk_reward": 2.0,
       "updated_at": "2026-08-29T06:11:51.461100",

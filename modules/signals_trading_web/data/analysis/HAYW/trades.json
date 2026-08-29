@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "updated_at": "2026-08-29T08:45:38.800647",
+      "stop": 14.2125,
       "ticker": "HAYW",
+      "entry": 14.13,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "score": 84.0,
+      "setup": "TLINE_CONTINUATION",
+      "target": 13.965000000000002,
       "direction": "Bearish",
       "status": "CONFIRMED",
-      "entry": 14.13,
-      "current_price": 14.15,
-      "stop": 14.2125,
-      "target": 13.965000000000002,
-      "setup": "TLINE_CONTINUATION",
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "score": 84.0
+      "updated_at": "2026-08-29T08:45:38.800647",
+      "current_price": 14.15
     }
   ]
 }

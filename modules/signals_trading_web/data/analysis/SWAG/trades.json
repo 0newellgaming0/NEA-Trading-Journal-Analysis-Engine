@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "updated_at": "2026-08-29T06:15:47.882123",
+      "stop": 1.783,
       "ticker": "SWAG",
+      "entry": 1.75,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "score": 70.0,
+      "setup": "Pinbar",
+      "target": 1.6840000000000002,
       "direction": "Bearish",
       "status": "CONFIRMED",
-      "entry": 1.75,
-      "current_price": 1.73,
-      "stop": 1.783,
-      "target": 1.6840000000000002,
-      "setup": "Pinbar",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "score": 70.0
+      "updated_at": "2026-08-29T06:15:47.882123",
+      "current_price": 1.73
     }
   ]
 }
