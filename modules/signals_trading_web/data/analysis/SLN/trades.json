@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "setup": "TLINE_CONTINUATION",
+      "stop": 13.227,
+      "target": 13.986,
+      "entry": 13.48,
+      "updated_at": "2026-08-29T06:35:21.215808",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "ticker": "SLN",
       "current_price": 13.42,
       "score": 79.0,
-      "direction": "Bullish",
-      "status": "CONFIRMED",
-      "stop": 13.227,
-      "updated_at": "2026-08-29T06:35:21.215808",
-      "setup": "TLINE_CONTINUATION",
-      "target": 13.986,
-      "ticker": "SLN",
-      "risk_reward": 2.0,
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "entry": 13.48
+      "regime": "PRIMARY_UPTREND_PULLBACK"
     }
   ]
 }

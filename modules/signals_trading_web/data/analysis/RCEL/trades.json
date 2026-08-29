@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "setup": "Pinbar",
+      "stop": 10.149,
+      "target": 10.347000000000001,
+      "entry": 10.215,
+      "updated_at": "2026-08-29T08:00:23.615788",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "ticker": "RCEL",
       "current_price": 10.35,
       "score": 74.0,
-      "direction": "Bullish",
-      "status": "CONFIRMED",
-      "stop": 10.149,
-      "updated_at": "2026-08-29T08:00:23.615788",
-      "setup": "Pinbar",
-      "target": 10.347000000000001,
-      "ticker": "RCEL",
-      "risk_reward": 2.0,
-      "regime": "BULLISH_CONSOLIDATION",
-      "entry": 10.215
+      "regime": "BULLISH_CONSOLIDATION"
     }
   ]
 }

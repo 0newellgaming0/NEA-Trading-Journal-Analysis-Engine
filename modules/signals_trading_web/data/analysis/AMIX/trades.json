@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "setup": "TLINE_CONTINUATION",
+      "stop": 5.364,
+      "target": 4.571999999999999,
+      "entry": 5.1,
+      "updated_at": "2026-08-29T11:24:49.923527",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "ticker": "AMIX",
       "current_price": 5.18,
       "score": 91.0,
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "stop": 5.364,
-      "updated_at": "2026-08-29T11:24:49.923527",
-      "setup": "TLINE_CONTINUATION",
-      "target": 4.571999999999999,
-      "ticker": "AMIX",
-      "risk_reward": 2.0,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "entry": 5.1
+      "regime": "FULL_BEARISH_ALIGNMENT"
     }
   ]
 }

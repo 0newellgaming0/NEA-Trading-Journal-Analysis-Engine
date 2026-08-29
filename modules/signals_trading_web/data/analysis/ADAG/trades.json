@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "setup": "TLINE_CONTINUATION",
+      "stop": 3.735,
+      "target": 3.5700000000000007,
+      "entry": 3.68,
+      "updated_at": "2026-08-29T10:56:55.888121",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "ticker": "ADAG",
       "current_price": 3.68,
       "score": 76.0,
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "stop": 3.735,
-      "updated_at": "2026-08-29T10:56:55.888121",
-      "setup": "TLINE_CONTINUATION",
-      "target": 3.5700000000000007,
-      "ticker": "ADAG",
-      "risk_reward": 2.0,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "entry": 3.68
+      "regime": "SHORT_TERM_WEAKNESS"
     }
   ]
 }

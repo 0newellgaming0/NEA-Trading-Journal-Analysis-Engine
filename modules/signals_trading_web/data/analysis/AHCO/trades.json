@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "setup": "Engulfing",
+      "stop": 5.8795,
+      "target": 5.566000000000001,
+      "entry": 5.775,
+      "updated_at": "2026-08-29T11:15:54.353805",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "ticker": "AHCO",
       "current_price": 5.77,
       "score": 58.0,
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "stop": 5.8795,
-      "updated_at": "2026-08-29T11:15:54.353805",
-      "setup": "Engulfing",
-      "target": 5.566000000000001,
-      "ticker": "AHCO",
-      "risk_reward": 2.0,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "entry": 5.775
+      "regime": "PRIMARY_DOWNTREND_RALLY"
     }
   ]
 }

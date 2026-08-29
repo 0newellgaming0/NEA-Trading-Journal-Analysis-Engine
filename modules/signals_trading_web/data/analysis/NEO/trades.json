@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "setup": "Three Black Crows",
+      "stop": 18.823999999999998,
+      "target": 16.38200000000001,
+      "entry": 18.01,
+      "updated_at": "2026-08-29T08:13:19.189503",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "ticker": "NEO",
       "current_price": 18.2,
       "score": 79.0,
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "stop": 18.823999999999998,
-      "updated_at": "2026-08-29T08:13:19.189503",
-      "setup": "Three Black Crows",
-      "target": 16.38200000000001,
-      "ticker": "NEO",
-      "risk_reward": 2.0,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "entry": 18.01
+      "regime": "FULL_BULLISH_ALIGNMENT"
     }
   ]
 }

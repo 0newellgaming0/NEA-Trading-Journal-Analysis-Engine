@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "setup": "TLINE_CONTINUATION",
+      "stop": 3.449,
+      "target": 3.1520000000000006,
+      "entry": 3.35,
+      "updated_at": "2026-08-29T08:24:22.605184",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "ticker": "CURR",
       "current_price": 3.37,
       "score": 76.0,
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "stop": 3.449,
-      "updated_at": "2026-08-29T08:24:22.605184",
-      "setup": "TLINE_CONTINUATION",
-      "target": 3.1520000000000006,
-      "ticker": "CURR",
-      "risk_reward": 2.0,
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "entry": 3.35
+      "regime": "PRIMARY_UPTREND_PULLBACK"
     }
   ]
 }

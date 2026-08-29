@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "setup": "TLINE_CONTINUATION",
+      "stop": 4.1125,
+      "target": 3.7000000000000006,
+      "entry": 3.975,
+      "updated_at": "2026-08-29T11:41:02.896260",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "ticker": "APUS",
       "current_price": 3.87,
       "score": 64.0,
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "stop": 4.1125,
-      "updated_at": "2026-08-29T11:41:02.896260",
-      "setup": "TLINE_CONTINUATION",
-      "target": 3.7000000000000006,
-      "ticker": "APUS",
-      "risk_reward": 2.0,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "entry": 3.975
+      "regime": "SHORT_TERM_WEAKNESS"
     }
   ]
 }
