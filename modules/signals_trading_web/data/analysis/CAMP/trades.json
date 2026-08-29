@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "TLINE_CONTINUATION",
-      "stop": 4.148000000000001,
-      "target": 4.213999999999999,
-      "entry": 4.17,
-      "updated_at": "2026-08-29T05:57:00.184276",
-      "direction": "Bullish",
-      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_STRENGTH",
       "status": "CONFIRMED",
       "ticker": "CAMP",
-      "current_price": 4.15,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
       "score": 69.0,
-      "regime": "SHORT_TERM_STRENGTH"
+      "updated_at": "2026-08-29T05:57:00.184276",
+      "target": 4.213999999999999,
+      "setup": "TLINE_CONTINUATION",
+      "stop": 4.148000000000001,
+      "entry": 4.17,
+      "current_price": 4.15
     }
   ]
 }

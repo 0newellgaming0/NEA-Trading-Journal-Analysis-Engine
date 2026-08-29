@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "Pinbar",
-      "stop": 7.378,
-      "target": 7.444000000000001,
-      "entry": 7.4,
-      "updated_at": "2026-08-29T12:53:11.580412",
-      "direction": "Bullish",
-      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_STRENGTH",
       "status": "CONFIRMED",
       "ticker": "CION",
-      "current_price": 7.48,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
       "score": 70.0,
-      "regime": "SHORT_TERM_STRENGTH"
+      "updated_at": "2026-08-29T12:53:11.580412",
+      "target": 7.444000000000001,
+      "setup": "Pinbar",
+      "stop": 7.378,
+      "entry": 7.4,
+      "current_price": 7.48
     }
   ]
 }

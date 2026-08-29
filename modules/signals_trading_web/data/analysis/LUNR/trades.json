@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "Harami",
-      "stop": 15.132,
-      "target": 15.726,
-      "entry": 15.33,
-      "updated_at": "2026-08-29T05:12:51.849726",
-      "direction": "Bullish",
-      "risk_reward": 2.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
       "status": "CONFIRMED",
       "ticker": "LUNR",
-      "current_price": 15.49,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
       "score": 72.0,
-      "regime": "PRIMARY_UPTREND_PULLBACK"
+      "updated_at": "2026-08-29T05:12:51.849726",
+      "target": 15.726,
+      "setup": "Harami",
+      "stop": 15.132,
+      "entry": 15.33,
+      "current_price": 15.49
     }
   ]
 }

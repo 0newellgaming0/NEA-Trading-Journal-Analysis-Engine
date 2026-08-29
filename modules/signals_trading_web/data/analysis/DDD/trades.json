@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "Falling Three Methods",
-      "stop": 3.41,
-      "target": 3.079999999999999,
-      "entry": 3.3,
-      "updated_at": "2026-08-29T09:12:46.303993",
-      "direction": "Bearish",
-      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_STRENGTH",
       "status": "CONFIRMED",
       "ticker": "DDD",
-      "current_price": 3.28,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
       "score": 76.0,
-      "regime": "SHORT_TERM_STRENGTH"
+      "updated_at": "2026-08-29T09:12:46.303993",
+      "target": 3.079999999999999,
+      "setup": "Falling Three Methods",
+      "stop": 3.41,
+      "entry": 3.3,
+      "current_price": 3.28
     }
   ]
 }

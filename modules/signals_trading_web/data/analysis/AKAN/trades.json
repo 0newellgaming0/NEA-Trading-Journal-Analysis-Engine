@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "Marubozu",
-      "stop": 4.167000000000001,
-      "target": 3.6059999999999985,
-      "entry": 3.98,
-      "updated_at": "2026-08-29T08:59:36.205368",
-      "direction": "Bearish",
-      "risk_reward": 2.0,
+      "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
       "ticker": "AKAN",
-      "current_price": 3.9787,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
       "score": 82.0,
-      "regime": "BEARISH_CONSOLIDATION"
+      "updated_at": "2026-08-29T08:59:36.205368",
+      "target": 3.6059999999999985,
+      "setup": "Marubozu",
+      "stop": 4.167000000000001,
+      "entry": 3.98,
+      "current_price": 3.9787
     }
   ]
 }

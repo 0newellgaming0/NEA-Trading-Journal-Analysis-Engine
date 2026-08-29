@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "Inside Bar",
-      "stop": 5.00883,
-      "target": 5.222340000000001,
-      "entry": 5.08,
-      "updated_at": "2026-08-29T09:18:58.682864",
-      "direction": "Bullish",
-      "risk_reward": 2.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
       "status": "CONFIRMED",
       "ticker": "PYPD",
-      "current_price": 5.17,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
       "score": 65.0,
-      "regime": "FULL_BULLISH_ALIGNMENT"
+      "updated_at": "2026-08-29T09:18:58.682864",
+      "target": 5.222340000000001,
+      "setup": "Inside Bar",
+      "stop": 5.00883,
+      "entry": 5.08,
+      "current_price": 5.17
     }
   ]
 }

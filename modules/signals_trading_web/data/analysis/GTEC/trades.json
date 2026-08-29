@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "Pinbar",
-      "stop": 0.90075,
-      "target": 0.8759999999999998,
-      "entry": 0.8925,
-      "updated_at": "2026-08-29T07:14:22.254524",
-      "direction": "Bearish",
-      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_WEAKNESS",
       "status": "CONFIRMED",
       "ticker": "GTEC",
-      "current_price": 0.89,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
       "score": 72.0,
-      "regime": "SHORT_TERM_WEAKNESS"
+      "updated_at": "2026-08-29T07:14:22.254524",
+      "target": 0.8759999999999998,
+      "setup": "Pinbar",
+      "stop": 0.90075,
+      "entry": 0.8925,
+      "current_price": 0.89
     }
   ]
 }

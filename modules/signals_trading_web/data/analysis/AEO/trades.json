@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "Inside Bar",
-      "stop": 17.076500000000003,
-      "target": 16.696999999999992,
-      "entry": 16.95,
-      "updated_at": "2026-08-29T11:10:41.836608",
-      "direction": "Bearish",
-      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_STRENGTH",
       "status": "CONFIRMED",
       "ticker": "AEO",
-      "current_price": 16.9105,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
       "score": 83.0,
-      "regime": "SHORT_TERM_STRENGTH"
+      "updated_at": "2026-08-29T11:10:41.836608",
+      "target": 16.696999999999992,
+      "setup": "Inside Bar",
+      "stop": 17.076500000000003,
+      "entry": 16.95,
+      "current_price": 16.9105
     }
   ]
 }

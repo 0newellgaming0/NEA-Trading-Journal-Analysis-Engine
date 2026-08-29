@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "Pinbar",
-      "stop": 12.292,
-      "target": 11.896,
-      "entry": 12.16,
-      "updated_at": "2026-08-29T06:17:51.388207",
-      "direction": "Bearish",
-      "risk_reward": 2.0,
+      "regime": "BULLISH_CONSOLIDATION",
       "status": "CONFIRMED",
       "ticker": "MATV",
-      "current_price": 12.07,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
       "score": 74.0,
-      "regime": "BULLISH_CONSOLIDATION"
+      "updated_at": "2026-08-29T06:17:51.388207",
+      "target": 11.896,
+      "setup": "Pinbar",
+      "stop": 12.292,
+      "entry": 12.16,
+      "current_price": 12.07
     }
   ]
 }

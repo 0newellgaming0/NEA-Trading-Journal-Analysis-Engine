@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "TLINE_CONTINUATION",
-      "stop": 9.0235,
-      "target": 8.742999999999999,
-      "entry": 8.93,
-      "updated_at": "2026-08-29T06:36:44.436303",
-      "direction": "Bearish",
-      "risk_reward": 2.0,
+      "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
       "ticker": "PAGS",
-      "current_price": 8.92,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
       "score": 79.0,
-      "regime": "BEARISH_CONSOLIDATION"
+      "updated_at": "2026-08-29T06:36:44.436303",
+      "target": 8.742999999999999,
+      "setup": "TLINE_CONTINUATION",
+      "stop": 9.0235,
+      "entry": 8.93,
+      "current_price": 8.92
     }
   ]
 }

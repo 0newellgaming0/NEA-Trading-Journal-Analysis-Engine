@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "TLINE_CONTINUATION",
-      "stop": 18.4885,
-      "target": 18.538,
-      "entry": 18.505,
-      "updated_at": "2026-08-29T07:10:16.035487",
-      "direction": "Bullish",
-      "risk_reward": 2.0,
+      "regime": "BULLISH_CONSOLIDATION",
       "status": "CONFIRMED",
       "ticker": "VREX",
-      "current_price": 18.5,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
       "score": 80.0,
-      "regime": "BULLISH_CONSOLIDATION"
+      "updated_at": "2026-08-29T07:10:16.035487",
+      "target": 18.538,
+      "setup": "TLINE_CONTINUATION",
+      "stop": 18.4885,
+      "entry": 18.505,
+      "current_price": 18.5
     }
   ]
 }

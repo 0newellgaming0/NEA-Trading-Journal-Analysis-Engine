@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "TLINE_CONTINUATION",
-      "stop": 2.8489999999999998,
-      "target": 2.5520000000000005,
-      "entry": 2.75,
-      "updated_at": "2026-08-29T08:20:57.165955",
-      "direction": "Bearish",
-      "risk_reward": 2.0,
+      "regime": "BULLISH_CONSOLIDATION",
       "status": "CONFIRMED",
       "ticker": "USIO",
-      "current_price": 2.77,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
       "score": 79.0,
-      "regime": "BULLISH_CONSOLIDATION"
+      "updated_at": "2026-08-29T08:20:57.165955",
+      "target": 2.5520000000000005,
+      "setup": "TLINE_CONTINUATION",
+      "stop": 2.8489999999999998,
+      "entry": 2.75,
+      "current_price": 2.77
     }
   ]
 }

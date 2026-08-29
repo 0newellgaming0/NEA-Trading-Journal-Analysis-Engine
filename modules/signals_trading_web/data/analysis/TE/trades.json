@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "Engulfing",
-      "stop": 5.13898,
-      "target": 4.182639999999999,
-      "entry": 4.8202,
-      "updated_at": "2026-08-29T05:43:26.993213",
-      "direction": "Bearish",
-      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_WEAKNESS",
       "status": "CONFIRMED",
       "ticker": "TE",
-      "current_price": 4.7977,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
       "score": 75.0,
-      "regime": "SHORT_TERM_WEAKNESS"
+      "updated_at": "2026-08-29T05:43:26.993213",
+      "target": 4.182639999999999,
+      "setup": "Engulfing",
+      "stop": 5.13898,
+      "entry": 4.8202,
+      "current_price": 4.7977
     }
   ]
 }

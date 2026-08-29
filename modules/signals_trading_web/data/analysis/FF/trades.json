@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "TLINE_CONTINUATION",
-      "stop": 5.252,
-      "target": 5.516,
-      "entry": 5.34,
-      "updated_at": "2026-08-29T05:45:24.904781",
-      "direction": "Bullish",
-      "risk_reward": 2.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
       "status": "CONFIRMED",
       "ticker": "FF",
-      "current_price": 5.34,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
       "score": 93.0,
-      "regime": "PRIMARY_UPTREND_PULLBACK"
+      "updated_at": "2026-08-29T05:45:24.904781",
+      "target": 5.516,
+      "setup": "TLINE_CONTINUATION",
+      "stop": 5.252,
+      "entry": 5.34,
+      "current_price": 5.34
     }
   ]
 }

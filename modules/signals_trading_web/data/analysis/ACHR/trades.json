@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "Evening Star",
-      "stop": 5.96437,
-      "target": 5.71126,
-      "entry": 5.88,
-      "updated_at": "2026-08-29T10:49:06.407932",
-      "direction": "Bearish",
-      "risk_reward": 2.0,
+      "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
       "ticker": "ACHR",
-      "current_price": 5.75,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
       "score": 68.0,
-      "regime": "BEARISH_CONSOLIDATION"
+      "updated_at": "2026-08-29T10:49:06.407932",
+      "target": 5.71126,
+      "setup": "Evening Star",
+      "stop": 5.96437,
+      "entry": 5.88,
+      "current_price": 5.75
     }
   ]
 }
