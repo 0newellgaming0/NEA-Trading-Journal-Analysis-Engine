@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T01:04:24.936249",
+  "ticker": "SOUN",
+  "count": 1,
+  "trades": [
+    {
+      "score": 73.0,
+      "updated_at": "2026-08-29T06:04:43.443511",
+      "risk_reward": 2.0,
+      "entry": 7.08,
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "target": 6.639999999999999,
+      "current_price": 7.0954,
+      "ticker": "SOUN",
+      "stop": 7.300000000000001,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "direction": "Bearish"
+    }
+  ]
+}

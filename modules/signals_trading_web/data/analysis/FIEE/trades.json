@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T03:04:41.342536",
+  "ticker": "FIEE",
+  "count": 1,
+  "trades": [
+    {
+      "score": 86.0,
+      "updated_at": "2026-08-29T08:04:58.921175",
+      "risk_reward": 2.0,
+      "entry": 4.07,
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION",
+      "target": 3.883000000000001,
+      "current_price": 4.07,
+      "ticker": "FIEE",
+      "stop": 4.1635,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "direction": "Bearish"
+    }
+  ]
+}

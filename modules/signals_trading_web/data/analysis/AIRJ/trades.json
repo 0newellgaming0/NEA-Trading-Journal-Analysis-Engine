@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T01:53:28.993883",
+  "ticker": "AIRJ",
+  "count": 1,
+  "trades": [
+    {
+      "score": 71.0,
+      "updated_at": "2026-08-29T06:53:48.309339",
+      "risk_reward": 2.0,
+      "entry": 4.6504,
+      "status": "CONFIRMED",
+      "setup": "Three Black Crows",
+      "target": 4.310280000000001,
+      "current_price": 4.5792,
+      "ticker": "AIRJ",
+      "stop": 4.82046,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "direction": "Bearish"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T01:15:28.526804",
+  "ticker": "SWAG",
+  "count": 1,
+  "trades": [
+    {
+      "score": 70.0,
+      "updated_at": "2026-08-29T06:15:47.882123",
+      "risk_reward": 2.0,
+      "entry": 1.75,
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "target": 1.6840000000000002,
+      "current_price": 1.73,
+      "ticker": "SWAG",
+      "stop": 1.783,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "direction": "Bearish"
+    }
+  ]
+}

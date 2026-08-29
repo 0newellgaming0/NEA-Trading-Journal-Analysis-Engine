@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T02:17:30.022644",
+  "ticker": "VUZI",
+  "count": 1,
+  "trades": [
+    {
+      "score": 65.0,
+      "updated_at": "2026-08-29T07:17:50.397146",
+      "risk_reward": 2.0,
+      "entry": 2.63,
+      "status": "CONFIRMED",
+      "setup": "Three Black Crows",
+      "target": 2.553,
+      "current_price": 2.64,
+      "ticker": "VUZI",
+      "stop": 2.6685,
+      "regime": "BEARISH_CONSOLIDATION",
+      "direction": "Bearish"
+    }
+  ]
+}

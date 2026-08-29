@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T01:45:50.379004",
+  "ticker": "INHD",
+  "count": 1,
+  "trades": [
+    {
+      "score": 82.0,
+      "updated_at": "2026-08-29T06:46:06.848698",
+      "risk_reward": 2.0,
+      "entry": 5.45,
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION",
+      "target": 4.680000000000001,
+      "current_price": 5.5992,
+      "ticker": "INHD",
+      "stop": 5.835,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "direction": "Bearish"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T02:22:33.670423",
+  "ticker": "SION",
+  "count": 1,
+  "trades": [
+    {
+      "score": 66.0,
+      "updated_at": "2026-08-29T07:22:51.715325",
+      "risk_reward": 2.0,
+      "entry": 5.84,
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "target": 5.597999999999999,
+      "current_price": 5.886,
+      "ticker": "SION",
+      "stop": 5.961,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "direction": "Bearish"
+    }
+  ]
+}

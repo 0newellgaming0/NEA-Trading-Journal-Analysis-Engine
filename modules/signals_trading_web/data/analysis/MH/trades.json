@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T03:32:21.144354",
+  "ticker": "MH",
+  "count": 1,
+  "trades": [
+    {
+      "score": 77.0,
+      "updated_at": "2026-08-29T08:32:39.689723",
+      "risk_reward": 2.0,
+      "entry": 13.1,
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "target": 11.427999999999999,
+      "current_price": 13.22,
+      "ticker": "MH",
+      "stop": 13.936,
+      "regime": "SHORT_TERM_STRENGTH",
+      "direction": "Bearish"
+    }
+  ]
+}

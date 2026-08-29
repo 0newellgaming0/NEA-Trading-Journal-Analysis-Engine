@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T01:13:25.210972",
+  "ticker": "RGTI",
+  "count": 1,
+  "trades": [
+    {
+      "score": 80.0,
+      "updated_at": "2026-08-29T06:13:43.428241",
+      "risk_reward": 2.0,
+      "entry": 15.655,
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION",
+      "target": 14.104000000000001,
+      "current_price": 15.68,
+      "ticker": "RGTI",
+      "stop": 16.4305,
+      "regime": "SHORT_TERM_STRENGTH",
+      "direction": "Bearish"
+    }
+  ]
+}

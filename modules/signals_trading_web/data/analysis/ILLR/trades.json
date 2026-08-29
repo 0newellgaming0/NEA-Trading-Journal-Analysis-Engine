@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T04:00:51.558917",
+  "ticker": "ILLR",
+  "count": 1,
+  "trades": [
+    {
+      "score": 76.0,
+      "updated_at": "2026-08-29T09:01:08.427356",
+      "risk_reward": 2.0,
+      "entry": 0.9618,
+      "status": "CONFIRMED",
+      "setup": "Harami Cross",
+      "target": 0.9848999999999999,
+      "current_price": 0.984,
+      "ticker": "ILLR",
+      "stop": 0.95025,
+      "regime": "BEARISH_CONSOLIDATION",
+      "direction": "Bullish"
+    }
+  ]
+}

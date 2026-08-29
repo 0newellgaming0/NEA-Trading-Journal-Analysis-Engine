@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T04:14:21.630800",
+  "ticker": "BFRI",
+  "count": 1,
+  "trades": [
+    {
+      "score": 88.0,
+      "updated_at": "2026-08-29T09:14:38.635052",
+      "risk_reward": 2.0,
+      "entry": 1.575,
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "target": 1.6299999999999997,
+      "current_price": 1.5802,
+      "ticker": "BFRI",
+      "stop": 1.5475,
+      "regime": "BULLISH_CONSOLIDATION",
+      "direction": "Bullish"
+    }
+  ]
+}

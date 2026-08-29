@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T03:07:46.651624",
+  "ticker": "ABCL",
+  "count": 1,
+  "trades": [
+    {
+      "score": 79.0,
+      "updated_at": "2026-08-29T08:08:02.826686",
+      "risk_reward": 2.0,
+      "entry": 11.65,
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION",
+      "target": 10.110000000000001,
+      "current_price": 11.3722,
+      "ticker": "ABCL",
+      "stop": 12.42,
+      "regime": "BULLISH_CONSOLIDATION",
+      "direction": "Bearish"
+    }
+  ]
+}
