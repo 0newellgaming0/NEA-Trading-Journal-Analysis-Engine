@@ -9,12 +9,6 @@ let tickerTradeRecords = [];
 let currentTradeRecord = null;
 let requestedTicker = null;
 
-const ANALYSIS_DATA_PATH =
-    "data/analysis";
-
-const ANALYSIS_INDEX_PATH =
-    "data/analysis/index.json";
-
 async function initializeTickerProfile() {
 
     showLoading();
@@ -32,11 +26,6 @@ async function initializeTickerProfile() {
     }
 
     try {
-
-        await initializeAnalysisDateSelector();
-
-        const analysisDate =
-            getSelectedAnalysisDate();
 
         const data =
             await loadTickerTradeData(
@@ -58,20 +47,21 @@ async function initializeTickerProfile() {
         }
 
         currentTradeRecord =
-            findTickerTradeByDate(
+            findCurrentTickerTrade(
                 tickerTradeRecords,
-                requestedTicker,
-                analysisDate
+                requestedTicker
             );
 
         if (!currentTradeRecord) {
 
             showError(
-                `No trade record was published for ${requestedTicker} on ${analysisDate}.`
+                `No current NEA28V1 trade data was found for ${requestedTicker}.`
             );
 
             return;
         }
+
+        initializeAnalysisDateSelector();
 
         renderTickerProfile(
             currentTradeRecord
@@ -114,332 +104,14 @@ function getRequestedTicker() {
     return normalized || null;
 }
 
-function getSelectedAnalysisDate() {
-
-    const selector =
-        document.getElementById(
-            "analysisDate"
-        );
-
-    if (
-        selector &&
-        selector.value
-    ) {
-        return selector.value;
-    }
-
-    return null;
-}
-
-async function initializeAnalysisDateSelector() {
-
-    const selector =
-        document.getElementById(
-            "analysisDate"
-        );
-
-    if (!selector) {
-        return;
-    }
-
-    selector.innerHTML = "";
-
-    const response =
-        await fetch(
-            `${ANALYSIS_INDEX_PATH}?t=${Date.now()}`,
-            {
-                cache: "no-store"
-            }
-        );
-
-    if (!response.ok) {
-
-        throw new Error(
-            `Unable to load ${ANALYSIS_INDEX_PATH}: ${response.status}`
-        );
-    }
-
-    const indexData =
-        await response.json();
-
-    const dates =
-        getTickerAnalysisDates(
-            indexData,
-            requestedTicker
-        );
-
-    if (!dates.length) {
-
-        throw new Error(
-            `No published analysis dates were found for ${requestedTicker}.`
-        );
-    }
-
-    const requestedDate =
-        getRequestedAnalysisDate();
-
-    const selectedDate =
-        requestedDate &&
-        dates.includes(
-            requestedDate
-        )
-            ? requestedDate
-            : dates[0];
-
-    dates.forEach(
-        date => {
-
-            const option =
-                document.createElement(
-                    "option"
-                );
-
-            option.value =
-                date;
-
-            option.textContent =
-                formatAnalysisDate(
-                    date
-                );
-
-            if (
-                date === selectedDate
-            ) {
-                option.selected =
-                    true;
-            }
-
-            selector.appendChild(
-                option
-            );
-        }
-    );
-}
-
-function getRequestedAnalysisDate() {
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-    const date =
-        params.get("date");
-
-    if (!date) {
-        return null;
-    }
-
-    return date.trim() || null;
-}
-
-function getTickerAnalysisDates(
-    indexData,
-    ticker
-) {
-
-    if (
-        !indexData ||
-        typeof indexData !== "object"
-    ) {
-        return [];
-    }
-
-    const normalizedTicker =
-        ticker.toUpperCase();
-
-    if (
-        indexData.tickers &&
-        typeof indexData.tickers === "object" &&
-        !Array.isArray(indexData.tickers)
-    ) {
-
-        const tickerEntry =
-            indexData.tickers[
-                normalizedTicker
-            ];
-
-        if (Array.isArray(tickerEntry)) {
-
-            return normalizeAnalysisDates(
-                tickerEntry
-            );
-        }
-
-        if (
-            tickerEntry &&
-            typeof tickerEntry === "object"
-        ) {
-
-            for (
-                const field of [
-                    "dates",
-                    "analysis_dates",
-                    "available_dates"
-                ]
-            ) {
-
-                if (
-                    Array.isArray(
-                        tickerEntry[field]
-                    )
-                ) {
-
-                    return normalizeAnalysisDates(
-                        tickerEntry[field]
-                    );
-                }
-            }
-        }
-    }
-
-    const directTicker =
-        indexData[
-            normalizedTicker
-        ];
-
-    if (
-        Array.isArray(
-            directTicker
-        )
-    ) {
-
-        return normalizeAnalysisDates(
-            directTicker
-        );
-    }
-
-    if (
-        directTicker &&
-        typeof directTicker === "object"
-    ) {
-
-        for (
-            const field of [
-                "dates",
-                "analysis_dates",
-                "available_dates"
-            ]
-        ) {
-
-            if (
-                Array.isArray(
-                    directTicker[field]
-                )
-            ) {
-
-                return normalizeAnalysisDates(
-                    directTicker[field]
-                );
-            }
-        }
-    }
-
-    if (
-        indexData.dates &&
-        typeof indexData.dates === "object" &&
-        !Array.isArray(indexData.dates)
-    ) {
-
-        const discoveredDates = [];
-
-        Object.entries(
-            indexData.dates
-        ).forEach(
-            (
-                [date, tickers]
-            ) => {
-
-                if (
-                    Array.isArray(tickers) &&
-                    tickers.some(
-                        value =>
-                            String(value)
-                                .toUpperCase() ===
-                            normalizedTicker
-                    )
-                ) {
-
-                    discoveredDates.push(
-                        date
-                    );
-                }
-            }
-        );
-
-        return normalizeAnalysisDates(
-            discoveredDates
-        );
-    }
-
-    if (
-        Array.isArray(
-            indexData.analyses
-        )
-    ) {
-
-        const discoveredDates =
-            indexData.analyses
-                .filter(
-                    item =>
-                        item &&
-                        typeof item === "object" &&
-                        String(
-                            item.ticker || ""
-                        )
-                            .toUpperCase() ===
-                        normalizedTicker
-                )
-                .map(
-                    item =>
-                        item.date ||
-                        item.analysis_date
-                );
-
-        return normalizeAnalysisDates(
-            discoveredDates
-        );
-    }
-
-    return [];
-}
-
-function normalizeAnalysisDates(
-    dates
-) {
-
-    return [
-        ...new Set(
-            dates
-                .map(
-                    date =>
-                        String(date)
-                            .trim()
-                )
-                .filter(
-                    date =>
-                        /^\d{4}-\d{2}-\d{2}$/.test(
-                            date
-                        )
-                )
-        )
-    ].sort(
-        (
-            a,
-            b
-        ) =>
-            b.localeCompare(a)
-    );
-}
-
 async function loadTickerTradeData(
     ticker
 ) {
 
     const url =
-        `${ANALYSIS_DATA_PATH}/` +
-        `${encodeURIComponent(ticker)}/` +
-        `trades.json?t=${Date.now()}`;
+        `data/analysis/${encodeURIComponent(
+            ticker
+        )}/trades.json?t=${Date.now()}`;
 
     const response =
         await fetch(
@@ -459,33 +131,35 @@ async function loadTickerTradeData(
     return await response.json();
 }
 
-function normalizeTradeData(
-    data
-) {
+function normalizeTradeData(data) {
 
     let source = [];
 
-    if (
+    if (Array.isArray(data)) {
+
+        source = data;
+
+    } else if (
         data &&
         Array.isArray(data.trades)
     ) {
 
-        source =
-            data.trades;
+        source = data.trades;
+
+    } else if (
+        data &&
+        Array.isArray(data.data)
+    ) {
+
+        source = data.data;
     }
 
     return source
-        .map(
-            normalizeTrade
-        )
-        .filter(
-            Boolean
-        );
+        .map(normalizeTrade)
+        .filter(Boolean);
 }
 
-function normalizeTrade(
-    trade
-) {
+function normalizeTrade(trade) {
 
     if (
         !trade ||
@@ -497,9 +171,7 @@ function normalizeTrade(
     if (
         trade.ticker === null ||
         trade.ticker === undefined ||
-        String(
-            trade.ticker
-        ).trim() === ""
+        String(trade.ticker).trim() === ""
     ) {
         return null;
     }
@@ -507,9 +179,7 @@ function normalizeTrade(
     return {
 
         ticker:
-            String(
-                trade.ticker
-            )
+            String(trade.ticker)
                 .trim()
                 .toUpperCase(),
 
@@ -518,19 +188,24 @@ function normalizeTrade(
                 trade.direction
             ),
 
-        status:
+        setup:
             displayValue(
-                trade.status
+                trade.setup
+            ),
+
+        regime:
+            displayValue(
+                trade.regime
+            ),
+
+        timeframe:
+            displayValue(
+                trade.timeframe
             ),
 
         entry:
             numericValue(
                 trade.entry
-            ),
-
-        currentPrice:
-            numericValue(
-                trade.current_price
             ),
 
         stop:
@@ -548,32 +223,120 @@ function normalizeTrade(
                 trade.risk_reward
             ),
 
-        setup:
-            displayValue(
-                trade.setup
-            ),
-
-        regime:
-            displayValue(
-                trade.regime
-            ),
-
         score:
             numericValue(
                 trade.score
             ),
+
+        currentPrice:
+            numericValue(
+                trade.current_price
+            ),
+
+        status:
+            displayValue(
+                trade.status
+            ),
+
+        signalStrength:
+            displayValue(
+                trade.signal_strength
+            ),
+
+        confluence:
+            displayValue(
+                trade.confluence
+            ),
+
+        createdAt:
+            trade.created_at,
 
         updatedAt:
             trade.updated_at,
 
         analysisDate:
             normalizeTradeDate(
+                trade.analysis_date ||
+                trade.trade_date ||
+                trade.date ||
+                trade.created_at ||
                 trade.updated_at
             ),
 
         raw:
             trade
     };
+}
+
+function findCurrentTickerTrade(
+    trades,
+    ticker
+) {
+
+    const tickerTrades =
+        trades.filter(
+            trade =>
+                trade.ticker === ticker
+        );
+
+    if (!tickerTrades.length) {
+        return null;
+    }
+
+    const today =
+        getCurrentDateKey();
+
+    const todayTrade =
+        tickerTrades.find(
+            trade =>
+                trade.analysisDate === today
+        );
+
+    if (todayTrade) {
+        return todayTrade;
+    }
+
+    return tickerTrades
+        .slice()
+        .sort(
+            (a, b) =>
+                getTradeTimestamp(b) -
+                getTradeTimestamp(a)
+        )[0];
+}
+
+function findTickerTradeByDate(
+    trades,
+    ticker,
+    date
+) {
+
+    return trades.find(
+        trade =>
+            trade.ticker === ticker &&
+            trade.analysisDate === date
+    ) || null;
+}
+
+function getTradeTimestamp(
+    trade
+) {
+
+    const value =
+        trade.updatedAt ||
+        trade.createdAt ||
+        trade.analysisDate;
+
+    if (!value) {
+        return 0;
+    }
+
+    const timestamp =
+        new Date(value).getTime();
+
+    return Number.isFinite(timestamp)
+        ? timestamp
+        : 0;
 }
 
 function normalizeTradeDate(
@@ -615,30 +378,115 @@ function normalizeTradeDate(
         date.getFullYear(),
         String(
             date.getMonth() + 1
-        ).padStart(
-            2,
-            "0"
-        ),
+        ).padStart(2, "0"),
         String(
             date.getDate()
-        ).padStart(
-            2,
-            "0"
-        )
+        ).padStart(2, "0")
     ].join("-");
 }
 
-function findTickerTradeByDate(
-    trades,
-    ticker,
-    date
-) {
+function getCurrentDateKey() {
 
-    return trades.find(
-        trade =>
-            trade.ticker === ticker &&
-            trade.analysisDate === date
-    ) || null;
+    const now =
+        new Date();
+
+    return [
+        now.getFullYear(),
+        String(
+            now.getMonth() + 1
+        ).padStart(2, "0"),
+        String(
+            now.getDate()
+        ).padStart(2, "0")
+    ].join("-");
+}
+
+function initializeAnalysisDateSelector() {
+
+    const selector =
+        document.getElementById(
+            "analysisDate"
+        );
+
+    if (!selector) {
+        return;
+    }
+
+    selector.innerHTML = "";
+
+    const tickerTrades =
+        tickerTradeRecords
+            .filter(
+                trade =>
+                    trade.ticker === requestedTicker &&
+                    trade.analysisDate
+            )
+            .sort(
+                (a, b) =>
+                    b.analysisDate.localeCompare(
+                        a.analysisDate
+                    )
+            );
+
+    const uniqueDates =
+        [
+            ...new Set(
+                tickerTrades.map(
+                    trade =>
+                        trade.analysisDate
+                )
+            )
+        ];
+
+    const today =
+        getCurrentDateKey();
+
+    if (
+        !uniqueDates.includes(today) &&
+        currentTradeRecord.analysisDate
+    ) {
+
+        uniqueDates.unshift(
+            currentTradeRecord.analysisDate
+        );
+    }
+
+    uniqueDates.forEach(
+        date => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value =
+                date;
+
+            option.textContent =
+                formatAnalysisDate(
+                    date
+                );
+
+            if (
+                date === currentTradeRecord.analysisDate
+            ) {
+
+                option.selected =
+                    true;
+            }
+
+            selector.appendChild(
+                option
+            );
+        }
+    );
+
+    if (!selector.value) {
+
+        selector.value =
+            currentTradeRecord.analysisDate ||
+            today;
+    }
 }
 
 function bindAnalysisDateSelector() {
@@ -651,16 +499,6 @@ function bindAnalysisDateSelector() {
     if (!selector) {
         return;
     }
-
-    if (
-        selector.dataset.tradeInitialized ===
-        "true"
-    ) {
-        return;
-    }
-
-    selector.dataset.tradeInitialized =
-        "true";
 
     selector.addEventListener(
         "change",
@@ -675,31 +513,43 @@ function handleAnalysisDateChange(
     const selectedDate =
         event.target.value;
 
-    if (!selectedDate) {
+    const currentDate =
+        getCurrentDateKey();
+
+    if (
+        !selectedDate ||
+        selectedDate === currentDate
+    ) {
+
+        renderTickerProfile(
+            currentTradeRecord
+        );
+
         return;
     }
 
-    const trade =
+    const historicalTrade =
         findTickerTradeByDate(
             tickerTradeRecords,
             requestedTicker,
             selectedDate
         );
 
-    if (!trade) {
+    if (!historicalTrade) {
 
-        showError(
-            `No trade record was published for ${requestedTicker} on ${selectedDate}.`
+        renderHistoricalTradeUnavailable(
+            selectedDate
         );
 
         return;
     }
 
-    currentTradeRecord =
-        trade;
-
     renderTickerProfile(
-        trade
+        currentTradeRecord
+    );
+
+    renderHistoricalTradeSetup(
+        historicalTrade
     );
 }
 
@@ -725,6 +575,11 @@ function renderTickerProfile(
     setText(
         "regime",
         trade.regime
+    );
+
+    setText(
+        "timeframe",
+        trade.timeframe
     );
 
     setText(
@@ -775,9 +630,29 @@ function renderTickerProfile(
     );
 
     setText(
+        "signalStrength",
+        trade.signalStrength
+    );
+
+    setText(
+        "confluence",
+        formatConfluence(
+            trade.confluence
+        )
+    );
+
+    setText(
         "analysisGeneratedAt",
         formatTimestamp(
-            trade.updatedAt
+            trade.updatedAt ||
+            trade.createdAt
+        )
+    );
+
+    setText(
+        "createdAt",
+        formatTimestamp(
+            trade.createdAt
         )
     );
 
@@ -798,38 +673,397 @@ function renderTickerProfile(
     document.title =
         `NEA28V1 ${trade.ticker} Ticker Profile`;
 
+    removeHistoricalTradeSetup();
+
     hideLoading();
     hideError();
     showProfile();
+}
+
+function renderHistoricalTradeSetup(
+    trade
+) {
+
+    removeHistoricalTradeSetup();
+
+    const anchor =
+        document.getElementById(
+            "analysisSection"
+        );
+
+    if (!anchor) {
+        return;
+    }
+
+    const card =
+        document.createElement(
+            "article"
+        );
+
+    card.id =
+        "historicalTradeSetup";
+
+    card.className =
+        "analysis-card historical-trade-setup";
+
+    card.innerHTML =
+        buildHistoricalTradeSetupHTML(
+            trade
+        );
+
+    anchor.parentNode.insertBefore(
+        card,
+        anchor
+    );
+
+    card
+        .querySelector(
+            ".analysis-card-header"
+        )
+        ?.addEventListener(
+            "click",
+            () =>
+                toggleHistoricalTradeCard(
+                    card
+                )
+        );
+}
+
+function buildHistoricalTradeSetupHTML(
+    trade
+) {
+
+    const values = [
+
+        [
+            "ANALYSIS DATE",
+            formatAnalysisDate(
+                trade.analysisDate
+            )
+        ],
+
+        [
+            "TICKER",
+            trade.ticker
+        ],
+
+        [
+            "DIRECTION",
+            trade.direction
+        ],
+
+        [
+            "SETUP",
+            trade.setup
+        ],
+
+        [
+            "REGIME",
+            trade.regime
+        ],
+
+        [
+            "TIMEFRAME",
+            trade.timeframe
+        ],
+
+        [
+            "CURRENT PRICE",
+            formatPrice(
+                trade.currentPrice
+            )
+        ],
+
+        [
+            "ENTRY",
+            formatPrice(
+                trade.entry
+            )
+        ],
+
+        [
+            "STOP",
+            formatPrice(
+                trade.stop
+            )
+        ],
+
+        [
+            "TARGET",
+            formatPrice(
+                trade.target
+            )
+        ],
+
+        [
+            "RISK / REWARD",
+            formatRiskReward(
+                trade.riskReward
+            )
+        ],
+
+        [
+            "SCORE",
+            formatScore(
+                trade.score
+            )
+        ],
+
+        [
+            "STATUS",
+            trade.status
+        ],
+
+        [
+            "SIGNAL STRENGTH",
+            trade.signalStrength
+        ],
+
+        [
+            "CONFLUENCE",
+            formatConfluence(
+                trade.confluence
+            )
+        ],
+
+        [
+            "CREATED",
+            formatTimestamp(
+                trade.createdAt
+            )
+        ],
+
+        [
+            "UPDATED",
+            formatTimestamp(
+                trade.updatedAt
+            )
+        ]
+    ];
+
+    const dataHTML =
+        values
+            .map(
+                ([label, value]) =>
+                    `
+                    <div class="analysis-data-item">
+                        <span>${escapeHTML(label)}</span>
+                        <strong>${escapeHTML(value)}</strong>
+                    </div>
+                    `
+            )
+            .join("");
+
+    return `
+        <button
+            type="button"
+            class="analysis-card-header"
+            aria-expanded="true">
+
+            <span class="analysis-card-index">
+                HIST
+            </span>
+
+            <h3>
+                ${escapeHTML(
+                    trade.ticker
+                )} — Trade Setup —
+                ${escapeHTML(
+                    formatAnalysisDate(
+                        trade.analysisDate
+                    )
+                )}
+            </h3>
+
+        </button>
+
+        <div class="analysis-card-content">
+
+            <div class="analysis-data">
+                ${dataHTML}
+            </div>
+
+        </div>
+    `;
+}
+
+function toggleHistoricalTradeCard(
+    card
+) {
+
+    const header =
+        card.querySelector(
+            ".analysis-card-header"
+        );
+
+    const expanded =
+        header.getAttribute(
+            "aria-expanded"
+        ) === "true";
+
+    header.setAttribute(
+        "aria-expanded",
+        String(!expanded)
+    );
+
+    card.classList.toggle(
+        "is-expanded",
+        !expanded
+    );
+}
+
+function renderHistoricalTradeUnavailable(
+    date
+) {
+
+    removeHistoricalTradeSetup();
+
+    const anchor =
+        document.getElementById(
+            "analysisSection"
+        );
+
+    if (!anchor) {
+        return;
+    }
+
+    const card =
+        document.createElement(
+            "article"
+        );
+
+    card.id =
+        "historicalTradeSetup";
+
+    card.className =
+        "analysis-card analysis-diagnostic historical-trade-setup";
+
+    card.innerHTML = `
+        <div class="analysis-card-header">
+            <span class="analysis-card-index">
+                HIST
+            </span>
+
+            <h3>
+                No Trade Setup Published
+            </h3>
+        </div>
+
+        <div class="analysis-card-content">
+            <p>
+                No NEA28V1 trade setup was published
+                for ${escapeHTML(
+                    formatAnalysisDate(date)
+                )}.
+            </p>
+        </div>
+    `;
+
+    anchor.parentNode.insertBefore(
+        card,
+        anchor
+    );
+}
+
+function removeHistoricalTradeSetup() {
+
+    const existing =
+        document.getElementById(
+            "historicalTradeSetup"
+        );
+
+    if (existing) {
+        existing.remove();
+    }
+}
+
+function formatAnalysisDate(
+    value
+) {
+
+    if (!value) {
+        return "—";
+    }
+
+    const parts =
+        String(value).split("-");
+
+    if (
+        parts.length !== 3
+    ) {
+        return String(value);
+    }
+
+    const date =
+        new Date(
+            Number(parts[0]),
+            Number(parts[1]) - 1,
+            Number(parts[2])
+        );
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+        return String(value);
+    }
+
+    return date.toLocaleDateString(
+        "en-US",
+        {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+        }
+    );
 }
 
 function buildOpportunityDescription(
     trade
 ) {
 
-    let description =
-        `${trade.ticker} is currently represented as a ` +
-        `${trade.direction} ${trade.setup} opportunity ` +
-        `within the published NEA28V1 ticker dataset.`;
+    const ticker =
+        trade.ticker;
 
-    if (
-        trade.regime !== "—"
-    ) {
+    const direction =
+        trade.direction;
+
+    const setup =
+        trade.setup;
+
+    const regime =
+        trade.regime;
+
+    const timeframe =
+        trade.timeframe;
+
+    const score =
+        formatScore(
+            trade.score
+        );
+
+    let description =
+        `${ticker} is currently represented as a ` +
+        `${direction} ${setup} opportunity within ` +
+        `the published NEA28V1 ticker dataset.`;
+
+    if (regime !== "—") {
 
         description +=
-            ` The current market regime is ${trade.regime}.`;
+            ` The current market regime is ${regime}.`;
     }
 
-    if (
-        Number.isFinite(
-            trade.score
-        )
-    ) {
+    if (timeframe !== "—") {
 
         description +=
-            ` The published NEA28V1 ranking score is ${formatScore(
-                trade.score
-            )}.`;
+            ` The published signal timeframe is ${timeframe}.`;
+    }
+
+    if (score !== "—") {
+
+        description +=
+            ` The published NEA28V1 ranking score is ${score}.`;
     }
 
     description +=
@@ -926,46 +1160,29 @@ function formatScore(
         : value.toFixed(2);
 }
 
-function formatAnalysisDate(
+function formatConfluence(
     value
 ) {
 
-    if (!value) {
+    if (
+        value === null ||
+        value === undefined ||
+        value === ""
+    ) {
         return "—";
     }
 
-    const parts =
-        String(value).split("-");
-
     if (
-        parts.length !== 3
+        typeof value === "number" &&
+        Number.isFinite(value)
     ) {
-        return String(value);
+
+        return Number.isInteger(value)
+            ? String(value)
+            : value.toFixed(2);
     }
 
-    const date =
-        new Date(
-            Number(parts[0]),
-            Number(parts[1]) - 1,
-            Number(parts[2])
-        );
-
-    if (
-        Number.isNaN(
-            date.getTime()
-        )
-    ) {
-        return String(value);
-    }
-
-    return date.toLocaleDateString(
-        "en-US",
-        {
-            month: "short",
-            day: "numeric",
-            year: "numeric"
-        }
-    );
+    return String(value);
 }
 
 function formatTimestamp(
@@ -980,21 +1197,8 @@ function formatTimestamp(
         return "—";
     }
 
-    let normalized =
-        String(value).trim();
-
-    if (
-        /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?$/.test(
-            normalized
-        )
-    ) {
-        normalized += "Z";
-    }
-
     const date =
-        new Date(
-            normalized
-        );
+        new Date(value);
 
     if (
         Number.isNaN(
@@ -1007,7 +1211,6 @@ function formatTimestamp(
     return date.toLocaleString(
         "en-US",
         {
-            timeZone: "America/Chicago",
             month: "short",
             day: "numeric",
             year: "numeric",
