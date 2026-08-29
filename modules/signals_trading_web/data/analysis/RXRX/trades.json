@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
+      "direction": "Bullish",
       "entry": 3.34,
-      "current_price": 3.35,
       "updated_at": "2026-08-29T08:38:45.184005",
       "setup": "Pinbar",
-      "status": "CONFIRMED",
-      "score": 71.0,
       "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED",
+      "stop": 3.3179999999999996,
+      "current_price": 3.35,
       "target": 3.3840000000000003,
-      "direction": "Bullish",
+      "score": 71.0,
       "ticker": "RXRX",
-      "stop": 3.3179999999999996
+      "risk_reward": 2.0
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
+      "direction": "Bullish",
       "entry": 15.785,
-      "current_price": 15.45,
       "updated_at": "2026-08-29T07:03:03.419127",
       "setup": "Pinbar",
-      "status": "CONFIRMED",
-      "score": 75.0,
       "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "stop": 15.43861,
+      "current_price": 15.45,
       "target": 16.47778,
-      "direction": "Bullish",
+      "score": 75.0,
       "ticker": "REPL",
-      "stop": 15.43861
+      "risk_reward": 2.0
     }
   ]
 }

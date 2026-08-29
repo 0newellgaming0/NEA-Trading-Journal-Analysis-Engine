@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T07:36:23.671173",
+  "ticker": "MVST",
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "entry": 0.74,
+      "updated_at": "2026-08-29T12:36:42.316938",
+      "setup": "Inside Bar",
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "stop": 0.75023,
+      "current_price": 0.7342,
+      "target": 0.7195400000000001,
+      "score": 67.0,
+      "ticker": "MVST",
+      "risk_reward": 2.0
+    }
+  ]
+}

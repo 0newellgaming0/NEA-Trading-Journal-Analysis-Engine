@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
+      "direction": "Bullish",
       "entry": 9.7768,
-      "current_price": 9.76,
       "updated_at": "2026-08-29T11:03:45.393754",
       "setup": "TLINE_CONTINUATION",
-      "status": "CONFIRMED",
-      "score": 76.0,
       "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "stop": 9.20832,
+      "current_price": 9.76,
       "target": 10.913759999999998,
-      "direction": "Bullish",
+      "score": 76.0,
       "ticker": "ADVB",
-      "stop": 9.20832
+      "risk_reward": 2.0
     }
   ]
 }

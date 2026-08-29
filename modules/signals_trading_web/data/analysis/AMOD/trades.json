@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
+      "direction": "Bearish",
       "entry": 2.5232,
-      "current_price": 2.5,
       "updated_at": "2026-08-29T11:26:23.954790",
       "setup": "Engulfing",
-      "status": "CONFIRMED",
-      "score": 74.0,
       "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "stop": 2.5526799999999996,
+      "current_price": 2.5,
       "target": 2.464240000000001,
-      "direction": "Bearish",
+      "score": 74.0,
       "ticker": "AMOD",
-      "stop": 2.5526799999999996
+      "risk_reward": 2.0
     }
   ]
 }

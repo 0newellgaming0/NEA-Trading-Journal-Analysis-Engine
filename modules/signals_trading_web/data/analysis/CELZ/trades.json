@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T07:44:17.966613",
+  "ticker": "CELZ",
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "entry": 1.149,
+      "updated_at": "2026-08-29T12:44:35.910903",
+      "setup": "Inside Bar",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "stop": 1.1721,
+      "current_price": 1.1377,
+      "target": 1.1028000000000002,
+      "score": 43.0,
+      "ticker": "CELZ",
+      "risk_reward": 2.0
+    }
+  ]
+}

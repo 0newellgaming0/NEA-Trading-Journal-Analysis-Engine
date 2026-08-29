@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
+      "direction": "Bearish",
       "entry": 17.47,
-      "current_price": 17.66,
       "updated_at": "2026-08-29T07:49:20.780706",
       "setup": "TLINE_CONTINUATION",
-      "status": "CONFIRMED",
-      "score": 73.0,
       "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "stop": 17.855,
+      "current_price": 17.66,
       "target": 16.699999999999996,
-      "direction": "Bearish",
+      "score": 73.0,
       "ticker": "NVCR",
-      "stop": 17.855
+      "risk_reward": 2.0
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T07:50:53.069342",
+  "ticker": "NRDS",
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "entry": 9.84,
+      "updated_at": "2026-08-29T12:51:11.236733",
+      "setup": "Inside Bar",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "stop": 9.960999999999999,
+      "current_price": 9.6555,
+      "target": 9.598000000000003,
+      "score": 68.0,
+      "ticker": "NRDS",
+      "risk_reward": 2.0
+    }
+  ]
+}
