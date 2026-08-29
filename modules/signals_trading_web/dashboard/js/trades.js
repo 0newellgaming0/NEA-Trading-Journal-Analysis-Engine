@@ -10,10 +10,17 @@ let selectedTrade = null;
 const ANALYSIS_DATA_PATH =
 "data/analysis";
 
-document.addEventListener(
-"DOMContentLoaded",
-initializeTrades
-);
+if (
+    document.readyState ===
+    "loading"
+) {
+    document.addEventListener(
+        "DOMContentLoaded",
+        initializeTrades
+    );
+} else {
+    initializeTrades();
+}
 
 function getRequestedTicker() {
 const params =
