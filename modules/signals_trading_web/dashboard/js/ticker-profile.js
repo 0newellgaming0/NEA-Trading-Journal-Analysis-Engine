@@ -7,7 +7,7 @@ initializeTickerProfile
 
 async function initializeTickerProfile() {
 
-```
+
 showLoading();
 
 const ticker =
@@ -64,13 +64,13 @@ try {
         `Unable to load the published trade data for ${ticker}.`
     );
 }
-```
+
 
 }
 
 function getRequestedTicker() {
 
-```
+
 const params =
     new URLSearchParams(
         window.location.search
@@ -89,7 +89,7 @@ const normalized =
         .toUpperCase();
 
 return normalized || null;
-```
+
 
 }
 
@@ -97,7 +97,7 @@ async function loadTickerTradeData(
 ticker
 ) {
 
-```
+
 const url =
     `data/analysis/${encodeURIComponent(
         ticker
@@ -119,13 +119,13 @@ if (!response.ok) {
 }
 
 return await response.json();
-```
+
 
 }
 
 function normalizeTradeData(data) {
 
-```
+
 let source = [];
 
 if (Array.isArray(data)) {
@@ -150,13 +150,13 @@ if (Array.isArray(data)) {
 return source
     .map(normalizeTrade)
     .filter(Boolean);
-```
+
 
 }
 
 function normalizeTrade(trade) {
 
-```
+
 if (
     !trade ||
     typeof trade !== "object"
@@ -250,7 +250,7 @@ return {
     updatedAt:
         trade.updated_at
 };
-```
+
 
 }
 
@@ -259,18 +259,18 @@ trades,
 ticker
 ) {
 
-```
+
 return trades.find(
     trade =>
         trade.ticker === ticker
 );
-```
+
 
 }
 
 function renderTickerProfile(trade) {
 
-```
+
 setText(
     "ticker",
     trade.ticker
@@ -382,7 +382,7 @@ document.title =
 hideLoading();
 hideError();
 showProfile();
-```
+
 
 }
 
@@ -390,7 +390,7 @@ function buildOpportunityDescription(
 trade
 ) {
 
-```
+
 const ticker =
     trade.ticker;
 
@@ -440,7 +440,7 @@ description +=
     "evaluated before making any trading decision.";
 
 return description;
-```
+
 
 }
 
@@ -448,7 +448,7 @@ function numericValue(
 value
 ) {
 
-```
+
 if (
     value === null ||
     value === undefined ||
@@ -478,7 +478,7 @@ const number =
 return Number.isFinite(number)
     ? number
     : NaN;
-```
+
 
 }
 
@@ -486,7 +486,7 @@ function displayValue(
 value
 ) {
 
-```
+
 if (
     value === null ||
     value === undefined ||
@@ -496,7 +496,7 @@ if (
 }
 
 return String(value);
-```
+
 
 }
 
@@ -504,13 +504,13 @@ function formatPrice(
 value
 ) {
 
-```
+
 if (!Number.isFinite(value)) {
     return "—";
 }
 
 return `$${value.toFixed(4)}`;
-```
+
 
 }
 
@@ -518,13 +518,13 @@ function formatRiskReward(
 value
 ) {
 
-```
+
 if (!Number.isFinite(value)) {
     return "—";
 }
 
 return `${value.toFixed(2)}R`;
-```
+
 
 }
 
@@ -532,7 +532,7 @@ function formatScore(
 value
 ) {
 
-```
+
 if (!Number.isFinite(value)) {
     return "—";
 }
@@ -540,7 +540,7 @@ if (!Number.isFinite(value)) {
 return Number.isInteger(value)
     ? String(value)
     : value.toFixed(2);
-```
+
 
 }
 
@@ -548,7 +548,7 @@ function formatConfluence(
 value
 ) {
 
-```
+
 if (
     value === null ||
     value === undefined ||
@@ -567,7 +567,7 @@ if (
 }
 
 return String(value);
-```
+
 
 }
 
@@ -575,7 +575,7 @@ function formatTimestamp(
 value
 ) {
 
-```
+
 if (
     value === null ||
     value === undefined ||
@@ -605,7 +605,7 @@ return date.toLocaleString(
         minute: "2-digit"
     }
 );
-```
+
 
 }
 
@@ -614,7 +614,7 @@ id,
 value
 ) {
 
-```
+
 const element =
     document.getElementById(
         id
@@ -631,13 +631,13 @@ if (!element) {
 
 element.textContent =
     value ?? "—";
-```
+
 
 }
 
 function showLoading() {
 
-```
+
 const element =
     document.getElementById(
         "loadingState"
@@ -649,13 +649,13 @@ if (element) {
         "hidden"
     );
 }
-```
+
 
 }
 
 function hideLoading() {
 
-```
+
 const element =
     document.getElementById(
         "loadingState"
@@ -667,13 +667,13 @@ if (element) {
         "hidden"
     );
 }
-```
+
 
 }
 
 function showProfile() {
 
-```
+
 const element =
     document.getElementById(
         "profileContent"
@@ -685,13 +685,13 @@ if (element) {
         "hidden"
     );
 }
-```
+
 
 }
 
 function hideProfile() {
 
-```
+
 const element =
     document.getElementById(
         "profileContent"
@@ -703,7 +703,7 @@ if (element) {
         "hidden"
     );
 }
-```
+
 
 }
 
@@ -711,7 +711,7 @@ function showError(
 message
 ) {
 
-```
+
 hideLoading();
 hideProfile();
 
@@ -737,13 +737,13 @@ if (errorElement) {
         "hidden"
     );
 }
-```
+
 
 }
 
 function hideError() {
 
-```
+
 const element =
     document.getElementById(
         "errorState"
@@ -755,6 +755,6 @@ if (element) {
         "hidden"
     );
 }
-```
+
 
 }
