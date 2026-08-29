@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "current_price": 10.87,
+      "score": 81.0,
       "direction": "Bearish",
-      "entry": 10.87,
-      "updated_at": "2026-08-29T06:38:45.961272",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "PRIMARY_UPTREND_PULLBACK",
       "status": "CONFIRMED",
       "stop": 10.903,
-      "current_price": 10.87,
+      "updated_at": "2026-08-29T06:38:45.961272",
+      "setup": "TLINE_CONTINUATION",
       "target": 10.803999999999997,
-      "score": 81.0,
       "ticker": "RDW",
-      "risk_reward": 2.0
+      "risk_reward": 2.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "entry": 10.87
     }
   ]
 }

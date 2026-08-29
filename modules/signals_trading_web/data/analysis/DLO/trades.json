@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "current_price": 15.0,
+      "score": 84.0,
       "direction": "Bearish",
-      "entry": 15.14,
-      "updated_at": "2026-08-29T07:35:27.622586",
-      "setup": "Harami",
-      "regime": "FULL_BULLISH_ALIGNMENT",
       "status": "CONFIRMED",
       "stop": 15.195,
-      "current_price": 15.0,
+      "updated_at": "2026-08-29T07:35:27.622586",
+      "setup": "Harami",
       "target": 15.030000000000001,
-      "score": 84.0,
       "ticker": "DLO",
-      "risk_reward": 2.0
+      "risk_reward": 2.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "entry": 15.14
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "current_price": 9.3,
+      "score": 79.0,
       "direction": "Bullish",
-      "entry": 9.1,
-      "updated_at": "2026-08-29T06:09:56.151642",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "SHORT_TERM_WEAKNESS",
       "status": "CONFIRMED",
       "stop": 8.143,
-      "current_price": 9.3,
+      "updated_at": "2026-08-29T06:09:56.151642",
+      "setup": "TLINE_CONTINUATION",
       "target": 11.013999999999998,
-      "score": 79.0,
       "ticker": "XHLD",
-      "risk_reward": 2.0
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 9.1
     }
   ]
 }

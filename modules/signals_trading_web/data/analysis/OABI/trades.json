@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "current_price": 4.4041,
+      "score": 79.0,
       "direction": "Bearish",
-      "entry": 4.425,
-      "updated_at": "2026-08-29T07:44:11.529856",
-      "setup": "Inside Bar",
-      "regime": "FULL_BULLISH_ALIGNMENT",
       "status": "CONFIRMED",
       "stop": 4.513,
-      "current_price": 4.4041,
+      "updated_at": "2026-08-29T07:44:11.529856",
+      "setup": "Inside Bar",
       "target": 4.249,
-      "score": 79.0,
       "ticker": "OABI",
-      "risk_reward": 2.0
+      "risk_reward": 2.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "entry": 4.425
     }
   ]
 }

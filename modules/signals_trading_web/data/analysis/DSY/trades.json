@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "current_price": 3.95,
+      "score": 67.0,
       "direction": "Bearish",
-      "entry": 3.95,
-      "updated_at": "2026-08-29T12:37:58.932238",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "SHORT_TERM_WEAKNESS",
       "status": "CONFIRMED",
       "stop": 3.95044,
-      "current_price": 3.95,
+      "updated_at": "2026-08-29T12:37:58.932238",
+      "setup": "TLINE_CONTINUATION",
       "target": 3.9491200000000006,
-      "score": 67.0,
       "ticker": "DSY",
-      "risk_reward": 2.0
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 3.95
     }
   ]
 }

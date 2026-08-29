@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "current_price": 8.1,
+      "score": 66.0,
       "direction": "Bearish",
-      "entry": 8.39,
-      "updated_at": "2026-08-29T09:02:34.601055",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "BULLISH_CONSOLIDATION",
       "status": "CONFIRMED",
       "stop": 8.962,
-      "current_price": 8.1,
+      "updated_at": "2026-08-29T09:02:34.601055",
+      "setup": "TLINE_CONTINUATION",
       "target": 7.246000000000002,
-      "score": 66.0,
       "ticker": "SOPH",
-      "risk_reward": 2.0
+      "risk_reward": 2.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 8.39
     }
   ]
 }

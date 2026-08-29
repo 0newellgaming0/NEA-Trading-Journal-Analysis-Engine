@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
+      "current_price": 10.78,
+      "score": 68.0,
       "direction": "Bearish",
-      "entry": 10.74,
-      "updated_at": "2026-08-29T09:03:50.762606",
-      "setup": "Pinbar",
-      "regime": "PRIMARY_UPTREND_PULLBACK",
       "status": "CONFIRMED",
       "stop": 10.794999999999998,
-      "current_price": 10.78,
+      "updated_at": "2026-08-29T09:03:50.762606",
+      "setup": "Pinbar",
       "target": 10.630000000000004,
-      "score": 68.0,
       "ticker": "SVV",
-      "risk_reward": 2.0
+      "risk_reward": 2.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "entry": 10.74
     }
   ]
 }
