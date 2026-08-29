@@ -4,16 +4,16 @@
   "count": 2,
   "trades": [
     {
-      "direction": "Bearish",
-      "stop": 12.727,
-      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 73.0,
       "setup": "TLINE_CONTINUATION",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T14:35:10.300709",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 10.516,
+      "stop": 12.727,
+      "current_price": 11.6501,
       "risk_reward": 2.0,
       "entry": 11.99,
-      "target": 10.516,
-      "score": 73.0,
-      "updated_at": "2026-08-29T14:35:10.300709",
-      "current_price": 11.6501,
       "ticker": "CLSK",
       "status": "CONFIRMED"
     },

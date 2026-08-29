@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T10:49:51.378552",
+  "ticker": "LENZ",
+  "count": 1,
+  "trades": [
+    {
+      "score": 64.0,
+      "setup": "Falling Three Methods",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T15:50:12.103148",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 4.356,
+      "stop": 4.917000000000001,
+      "current_price": 4.7222,
+      "risk_reward": 2.0,
+      "entry": 4.73,
+      "ticker": "LENZ",
+      "status": "CONFIRMED"
+    }
+  ]
+}

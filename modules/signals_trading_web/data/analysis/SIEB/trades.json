@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T10:11:38.523253",
+  "ticker": "SIEB",
+  "count": 1,
+  "trades": [
+    {
+      "score": 72.0,
+      "setup": "TLINE_CONTINUATION",
+      "direction": "Bullish",
+      "updated_at": "2026-08-29T15:12:03.736290",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 2.446,
+      "stop": 2.182,
+      "current_price": 2.2016,
+      "risk_reward": 2.0,
+      "entry": 2.27,
+      "ticker": "SIEB",
+      "status": "CONFIRMED"
+    }
+  ]
+}

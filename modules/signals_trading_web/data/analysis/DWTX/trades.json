@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T03:48:24.084937",
+  "generated_at": "2026-08-29T10:04:16.214315",
   "ticker": "DWTX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "score": 89.0,
+      "setup": "Inverted Hammer",
+      "direction": "Bullish",
+      "updated_at": "2026-08-29T15:04:36.677446",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 2.75344,
+      "stop": 2.59603,
+      "current_price": 2.65,
+      "risk_reward": 2.0,
+      "entry": 2.6485,
+      "ticker": "DWTX",
+      "status": "CONFIRMED"
+    },
     {
       "direction": "Bullish",
       "stop": 2.59603,

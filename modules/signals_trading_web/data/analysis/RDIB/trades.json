@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-28T16:04:34.919450",
+  "generated_at": "2026-08-29T09:53:55.485432",
   "ticker": "RDIB",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "score": 75.0,
+      "setup": "TLINE_CROSS",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T14:54:25.697046",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 14.782000000000007,
+      "stop": 17.223999999999997,
+      "current_price": 16.51,
+      "risk_reward": 2.0,
+      "entry": 16.41,
+      "ticker": "RDIB",
+      "status": "CONFIRMED"
+    }
+  ]
 }

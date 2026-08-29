@@ -4,16 +4,16 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "stop": 2.443,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 71.0,
       "setup": "TLINE_CONTINUATION",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T13:13:31.698821",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 2.3440000000000003,
+      "stop": 2.443,
+      "current_price": 2.43,
       "risk_reward": 2.0,
       "entry": 2.41,
-      "target": 2.3440000000000003,
-      "score": 71.0,
-      "updated_at": "2026-08-29T13:13:31.698821",
-      "current_price": 2.43,
       "ticker": "NEXM",
       "status": "CONFIRMED"
     }

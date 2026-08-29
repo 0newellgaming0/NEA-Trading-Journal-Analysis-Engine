@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T10:25:48.783893",
+  "ticker": "ANGI",
+  "count": 1,
+  "trades": [
+    {
+      "score": 67.0,
+      "setup": "Shooting Star",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T15:26:11.187251",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 4.854,
+      "stop": 5.118,
+      "current_price": 5.03,
+      "risk_reward": 2.0,
+      "entry": 5.03,
+      "ticker": "ANGI",
+      "status": "CONFIRMED"
+    }
+  ]
+}

@@ -4,16 +4,16 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "stop": 5.4415,
-      "regime": "BULLISH_CONSOLIDATION",
+      "score": 72.0,
       "setup": "TLINE_CONTINUATION",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T08:58:15.827406",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 5.227000000000001,
+      "stop": 5.4415,
+      "current_price": 5.4,
       "risk_reward": 2.0,
       "entry": 5.37,
-      "target": 5.227000000000001,
-      "score": 72.0,
-      "updated_at": "2026-08-29T08:58:15.827406",
-      "current_price": 5.4,
       "ticker": "NXDT",
       "status": "CONFIRMED"
     }

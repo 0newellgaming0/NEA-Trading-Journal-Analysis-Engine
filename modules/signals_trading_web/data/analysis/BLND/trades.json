@@ -4,16 +4,16 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "stop": 1.561,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 69.0,
       "setup": "Pinbar",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T14:30:36.252410",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 1.5280000000000002,
+      "stop": 1.561,
+      "current_price": 1.52,
       "risk_reward": 2.0,
       "entry": 1.55,
-      "target": 1.5280000000000002,
-      "score": 69.0,
-      "updated_at": "2026-08-29T14:30:36.252410",
-      "current_price": 1.52,
       "ticker": "BLND",
       "status": "CONFIRMED"
     }

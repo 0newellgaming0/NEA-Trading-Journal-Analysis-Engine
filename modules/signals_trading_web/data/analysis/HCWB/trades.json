@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T10:22:02.482754",
+  "ticker": "HCWB",
+  "count": 1,
+  "trades": [
+    {
+      "score": 84.0,
+      "setup": "Engulfing",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T15:22:20.905436",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 3.0139999999999993,
+      "stop": 3.443,
+      "current_price": 3.29,
+      "risk_reward": 2.0,
+      "entry": 3.3,
+      "ticker": "HCWB",
+      "status": "CONFIRMED"
+    }
+  ]
+}

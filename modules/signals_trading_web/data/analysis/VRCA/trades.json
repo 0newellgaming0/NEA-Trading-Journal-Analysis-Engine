@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T10:10:02.542474",
+  "ticker": "VRCA",
+  "count": 1,
+  "trades": [
+    {
+      "score": 88.0,
+      "setup": "TLINE_CONTINUATION",
+      "direction": "Bullish",
+      "updated_at": "2026-08-29T15:10:22.347256",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 6.346,
+      "stop": 5.422000000000001,
+      "current_price": 5.65,
+      "risk_reward": 2.0,
+      "entry": 5.73,
+      "ticker": "VRCA",
+      "status": "CONFIRMED"
+    }
+  ]
+}

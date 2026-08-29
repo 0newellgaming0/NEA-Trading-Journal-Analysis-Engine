@@ -4,16 +4,16 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bullish",
-      "stop": 2.406,
-      "regime": "SHORT_TERM_STRENGTH",
+      "score": 55.0,
       "setup": "Engulfing",
+      "direction": "Bullish",
+      "updated_at": "2026-08-29T12:48:44.182656",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 2.5380000000000003,
+      "stop": 2.406,
+      "current_price": 2.5,
       "risk_reward": 2.0,
       "entry": 2.45,
-      "target": 2.5380000000000003,
-      "score": 55.0,
-      "updated_at": "2026-08-29T12:48:44.182656",
-      "current_price": 2.5,
       "ticker": "NAMI",
       "status": "CONFIRMED"
     }

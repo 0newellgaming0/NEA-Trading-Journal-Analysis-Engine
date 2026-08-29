@@ -4,16 +4,16 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bullish",
-      "stop": 5.0,
-      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 66.0,
       "setup": "Three Inside Up",
+      "direction": "Bullish",
+      "updated_at": "2026-08-29T11:44:20.055148",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 5.164999999999999,
+      "stop": 5.0,
+      "current_price": 5.02,
       "risk_reward": 2.0,
       "entry": 5.055,
-      "target": 5.164999999999999,
-      "score": 66.0,
-      "updated_at": "2026-08-29T11:44:20.055148",
-      "current_price": 5.02,
       "ticker": "AQST",
       "status": "CONFIRMED"
     }

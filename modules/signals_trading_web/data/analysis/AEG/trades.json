@@ -4,16 +4,16 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bullish",
-      "stop": 9.12911,
-      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 73.0,
       "setup": "Pinbar",
+      "direction": "Bullish",
+      "updated_at": "2026-08-29T11:05:16.340072",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "target": 9.491779999999999,
+      "stop": 9.12911,
+      "current_price": 9.3702,
       "risk_reward": 2.0,
       "entry": 9.25,
-      "target": 9.491779999999999,
-      "score": 73.0,
-      "updated_at": "2026-08-29T11:05:16.340072",
-      "current_price": 9.3702,
       "ticker": "AEG",
       "status": "CONFIRMED"
     }

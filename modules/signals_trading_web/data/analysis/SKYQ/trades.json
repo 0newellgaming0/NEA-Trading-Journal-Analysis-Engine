@@ -4,16 +4,16 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bullish",
-      "stop": 2.6079999999999997,
-      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 63.0,
       "setup": "Pinbar",
+      "direction": "Bullish",
+      "updated_at": "2026-08-29T14:03:53.157601",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 2.6740000000000004,
+      "stop": 2.6079999999999997,
+      "current_price": 2.63,
       "risk_reward": 2.0,
       "entry": 2.63,
-      "target": 2.6740000000000004,
-      "score": 63.0,
-      "updated_at": "2026-08-29T14:03:53.157601",
-      "current_price": 2.63,
       "ticker": "SKYQ",
       "status": "CONFIRMED"
     }

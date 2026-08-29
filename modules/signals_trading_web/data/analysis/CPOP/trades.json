@@ -4,16 +4,16 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "stop": 0.35011000000000003,
-      "regime": "FULL_BEARISH_ALIGNMENT",
+      "score": 70.0,
       "setup": "Engulfing",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T12:42:56.558381",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "target": 0.32008,
+      "stop": 0.35011000000000003,
+      "current_price": 0.3387,
       "risk_reward": 2.0,
       "entry": 0.3401,
-      "target": 0.32008,
-      "score": 70.0,
-      "updated_at": "2026-08-29T12:42:56.558381",
-      "current_price": 0.3387,
       "ticker": "CPOP",
       "status": "CONFIRMED"
     }

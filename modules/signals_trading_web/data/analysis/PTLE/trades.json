@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T10:07:08.177126",
+  "ticker": "PTLE",
+  "count": 1,
+  "trades": [
+    {
+      "score": 71.0,
+      "setup": "Harami Cross",
+      "direction": "Bullish",
+      "updated_at": "2026-08-29T15:07:21.504342",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 9.38578,
+      "stop": 7.14211,
+      "current_price": 8.3,
+      "risk_reward": 2.0,
+      "entry": 7.89,
+      "ticker": "PTLE",
+      "status": "CONFIRMED"
+    }
+  ]
+}

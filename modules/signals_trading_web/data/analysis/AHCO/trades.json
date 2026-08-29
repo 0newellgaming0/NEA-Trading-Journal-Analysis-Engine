@@ -4,16 +4,16 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "stop": 5.8795,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 58.0,
       "setup": "Engulfing",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T11:15:54.353805",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 5.566000000000001,
+      "stop": 5.8795,
+      "current_price": 5.77,
       "risk_reward": 2.0,
       "entry": 5.775,
-      "target": 5.566000000000001,
-      "score": 58.0,
-      "updated_at": "2026-08-29T11:15:54.353805",
-      "current_price": 5.77,
       "ticker": "AHCO",
       "status": "CONFIRMED"
     }

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T10:19:14.895952",
+  "ticker": "NIPG",
+  "count": 1,
+  "trades": [
+    {
+      "score": 69.0,
+      "setup": "GRAVESTONE_DOJI",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T15:19:27.946889",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 12.860000000000003,
+      "stop": 20.0,
+      "current_price": 13.5,
+      "risk_reward": 2.0,
+      "entry": 17.62,
+      "ticker": "NIPG",
+      "status": "CONFIRMED"
+    }
+  ]
+}

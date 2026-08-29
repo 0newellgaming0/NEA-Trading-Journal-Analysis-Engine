@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T10:51:24.711065",
+  "ticker": "FRNM",
+  "count": 1,
+  "trades": [
+    {
+      "score": 76.0,
+      "setup": "Harami",
+      "direction": "Bullish",
+      "updated_at": "2026-08-29T15:51:42.388348",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 15.774,
+      "stop": 14.388,
+      "current_price": 14.6,
+      "risk_reward": 2.0,
+      "entry": 14.85,
+      "ticker": "FRNM",
+      "status": "CONFIRMED"
+    }
+  ]
+}

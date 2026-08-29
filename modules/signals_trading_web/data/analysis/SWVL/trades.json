@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-29T09:47:15.286143",
+  "ticker": "SWVL",
+  "count": 1,
+  "trades": [
+    {
+      "score": 82.0,
+      "setup": "TLINE_CONTINUATION",
+      "direction": "Bullish",
+      "updated_at": "2026-08-29T14:47:29.329301",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 4.178,
+      "stop": 2.231,
+      "current_price": 3.1203,
+      "risk_reward": 2.0,
+      "entry": 2.88,
+      "ticker": "SWVL",
+      "status": "CONFIRMED"
+    }
+  ]
+}

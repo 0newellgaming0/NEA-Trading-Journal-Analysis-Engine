@@ -4,16 +4,16 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "stop": 4.0645,
-      "regime": "BULLISH_CONSOLIDATION",
+      "score": 80.0,
       "setup": "TLINE_CONTINUATION",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T07:40:19.544593",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 3.9159999999999995,
+      "stop": 4.0645,
+      "current_price": 4.05,
       "risk_reward": 2.0,
       "entry": 4.015,
-      "target": 3.9159999999999995,
-      "score": 80.0,
-      "updated_at": "2026-08-29T07:40:19.544593",
-      "current_price": 4.05,
       "ticker": "SBC",
       "status": "CONFIRMED"
     }

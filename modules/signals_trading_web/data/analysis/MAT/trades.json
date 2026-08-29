@@ -4,16 +4,16 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "stop": 15.283,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 73.0,
       "setup": "Pinbar",
+      "direction": "Bearish",
+      "updated_at": "2026-08-29T06:19:49.739501",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 14.194,
+      "stop": 15.283,
+      "current_price": 15.14,
       "risk_reward": 2.0,
       "entry": 14.92,
-      "target": 14.194,
-      "score": 73.0,
-      "updated_at": "2026-08-29T06:19:49.739501",
-      "current_price": 15.14,
       "ticker": "MAT",
       "status": "CONFIRMED"
     }

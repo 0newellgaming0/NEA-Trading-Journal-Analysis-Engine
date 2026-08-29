@@ -4,16 +4,16 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bullish",
-      "stop": 2.86213,
-      "regime": "SHORT_TERM_STRENGTH",
+      "score": 75.0,
       "setup": "Pinbar",
+      "direction": "Bullish",
+      "updated_at": "2026-08-29T13:56:12.643978",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 3.0657400000000004,
+      "stop": 2.86213,
+      "current_price": 2.91,
       "risk_reward": 2.0,
       "entry": 2.93,
-      "target": 3.0657400000000004,
-      "score": 75.0,
-      "updated_at": "2026-08-29T13:56:12.643978",
-      "current_price": 2.91,
       "ticker": "SMSI",
       "status": "CONFIRMED"
     }
