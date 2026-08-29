@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 81.0,
-      "setup": "Marubozu",
-      "direction": "Bullish",
-      "updated_at": "2026-08-29T09:11:04.563263",
-      "regime": "SHORT_TERM_STRENGTH",
-      "target": 16.128,
       "stop": 15.831,
+      "target": 16.128,
+      "status": "CONFIRMED",
       "current_price": 16.1556,
-      "risk_reward": 2.0,
-      "entry": 15.93,
+      "updated_at": "2026-08-29T09:11:04.563263",
+      "direction": "Bullish",
       "ticker": "USAU",
-      "status": "CONFIRMED"
+      "score": 81.0,
+      "entry": 15.93,
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0
     }
   ]
 }

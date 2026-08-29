@@ -4,18 +4,18 @@
   "count": 2,
   "trades": [
     {
-      "score": 71.0,
-      "setup": "Pinbar",
-      "direction": "Bullish",
-      "updated_at": "2026-08-29T10:35:33.760856",
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "target": 5.963999999999999,
       "stop": 5.898000000000001,
+      "target": 5.963999999999999,
+      "status": "CONFIRMED",
       "current_price": 5.97,
-      "risk_reward": 2.0,
-      "entry": 5.92,
+      "updated_at": "2026-08-29T10:35:33.760856",
+      "direction": "Bullish",
       "ticker": "ABEO",
-      "status": "CONFIRMED"
+      "score": 71.0,
+      "entry": 5.92,
+      "setup": "Pinbar",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "risk_reward": 2.0
     },
     {
       "risk_reward": 2.0,

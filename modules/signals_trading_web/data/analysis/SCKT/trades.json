@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 52.0,
-      "setup": "Engulfing",
-      "direction": "Bullish",
-      "updated_at": "2026-08-29T05:20:58.927142",
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "target": 0.71438,
       "stop": 0.65861,
+      "target": 0.71438,
+      "status": "CONFIRMED",
       "current_price": 0.6604,
-      "risk_reward": 2.0,
-      "entry": 0.6772,
+      "updated_at": "2026-08-29T05:20:58.927142",
+      "direction": "Bullish",
       "ticker": "SCKT",
-      "status": "CONFIRMED"
+      "score": 52.0,
+      "entry": 0.6772,
+      "setup": "Engulfing",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "risk_reward": 2.0
     }
   ]
 }

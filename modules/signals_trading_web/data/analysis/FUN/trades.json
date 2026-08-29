@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 74.0,
-      "setup": "Pinbar",
-      "direction": "Bullish",
-      "updated_at": "2026-08-29T12:56:11.269815",
-      "regime": "BEARISH_CONSOLIDATION",
-      "target": 16.404999999999998,
       "stop": 15.9925,
+      "target": 16.404999999999998,
+      "status": "CONFIRMED",
       "current_price": 16.39,
-      "risk_reward": 2.0,
-      "entry": 16.13,
+      "updated_at": "2026-08-29T12:56:11.269815",
+      "direction": "Bullish",
       "ticker": "FUN",
-      "status": "CONFIRMED"
+      "score": 74.0,
+      "entry": 16.13,
+      "setup": "Pinbar",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0
     }
   ]
 }

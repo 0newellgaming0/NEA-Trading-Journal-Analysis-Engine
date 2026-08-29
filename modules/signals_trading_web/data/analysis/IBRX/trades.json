@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 68.0,
-      "setup": "Engulfing",
-      "direction": "Bearish",
-      "updated_at": "2026-08-29T09:07:21.678219",
-      "regime": "BULLISH_CONSOLIDATION",
-      "target": 7.8896000000000015,
       "stop": 8.41595,
+      "target": 7.8896000000000015,
+      "status": "CONFIRMED",
       "current_price": 8.07,
-      "risk_reward": 2.0,
-      "entry": 8.2405,
+      "updated_at": "2026-08-29T09:07:21.678219",
+      "direction": "Bearish",
       "ticker": "IBRX",
-      "status": "CONFIRMED"
+      "score": 68.0,
+      "entry": 8.2405,
+      "setup": "Engulfing",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0
     }
   ]
 }

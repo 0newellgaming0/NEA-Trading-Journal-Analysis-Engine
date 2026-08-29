@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 78.0,
-      "setup": "Inside Bar",
-      "direction": "Bearish",
-      "updated_at": "2026-08-29T15:53:34.840228",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "target": 3.64712,
       "stop": 4.34144,
+      "target": 3.64712,
+      "status": "CONFIRMED",
       "current_price": 4.08,
-      "risk_reward": 2.0,
-      "entry": 4.11,
+      "updated_at": "2026-08-29T15:53:34.840228",
+      "direction": "Bearish",
       "ticker": "NABL",
-      "status": "CONFIRMED"
+      "score": 78.0,
+      "entry": 4.11,
+      "setup": "Inside Bar",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0
     }
   ]
 }

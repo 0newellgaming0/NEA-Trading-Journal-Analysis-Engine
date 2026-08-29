@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 81.0,
-      "setup": "TLINE_CONTINUATION",
-      "direction": "Bearish",
-      "updated_at": "2026-08-29T14:51:12.894767",
-      "regime": "BULLISH_CONSOLIDATION",
-      "target": 13.616000000000009,
       "stop": 16.156999999999996,
+      "target": 13.616000000000009,
+      "status": "CONFIRMED",
       "current_price": 15.3,
-      "risk_reward": 2.0,
-      "entry": 15.31,
+      "updated_at": "2026-08-29T14:51:12.894767",
+      "direction": "Bearish",
       "ticker": "BANL",
-      "status": "CONFIRMED"
+      "score": 81.0,
+      "entry": 15.31,
+      "setup": "TLINE_CONTINUATION",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0
     }
   ]
 }

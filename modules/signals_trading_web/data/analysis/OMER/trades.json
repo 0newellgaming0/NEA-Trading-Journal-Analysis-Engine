@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 67.0,
-      "setup": "Inside Bar",
-      "direction": "Bearish",
-      "updated_at": "2026-08-29T07:19:41.157911",
-      "regime": "BULLISH_CONSOLIDATION",
-      "target": 18.006000000000007,
       "stop": 18.8145,
+      "target": 18.006000000000007,
+      "status": "CONFIRMED",
       "current_price": 18.51,
-      "risk_reward": 2.0,
-      "entry": 18.545,
+      "updated_at": "2026-08-29T07:19:41.157911",
+      "direction": "Bearish",
       "ticker": "OMER",
-      "status": "CONFIRMED"
+      "score": 67.0,
+      "entry": 18.545,
+      "setup": "Inside Bar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0
     }
   ]
 }

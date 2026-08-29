@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 68.0,
-      "setup": "Inside Bar",
-      "direction": "Bearish",
-      "updated_at": "2026-08-29T12:51:11.236733",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "target": 9.598000000000003,
       "stop": 9.960999999999999,
+      "target": 9.598000000000003,
+      "status": "CONFIRMED",
       "current_price": 9.6555,
-      "risk_reward": 2.0,
-      "entry": 9.84,
+      "updated_at": "2026-08-29T12:51:11.236733",
+      "direction": "Bearish",
       "ticker": "NRDS",
-      "status": "CONFIRMED"
+      "score": 68.0,
+      "entry": 9.84,
+      "setup": "Inside Bar",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0
     }
   ]
 }

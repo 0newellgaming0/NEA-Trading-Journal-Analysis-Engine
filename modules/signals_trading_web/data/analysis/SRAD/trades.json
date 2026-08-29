@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 86.0,
-      "setup": "TLINE_CONTINUATION",
-      "direction": "Bearish",
-      "updated_at": "2026-08-29T08:31:20.051877",
-      "regime": "BEARISH_CONSOLIDATION",
-      "target": 12.427999999999999,
       "stop": 12.956,
+      "target": 12.427999999999999,
+      "status": "CONFIRMED",
       "current_price": 12.78,
-      "risk_reward": 2.0,
-      "entry": 12.78,
+      "updated_at": "2026-08-29T08:31:20.051877",
+      "direction": "Bearish",
       "ticker": "SRAD",
-      "status": "CONFIRMED"
+      "score": 86.0,
+      "entry": 12.78,
+      "setup": "TLINE_CONTINUATION",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0
     }
   ]
 }

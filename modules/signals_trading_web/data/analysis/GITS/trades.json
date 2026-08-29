@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 68.0,
-      "setup": "Three Inside Up",
-      "direction": "Bullish",
-      "updated_at": "2026-08-29T15:16:11.816240",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "target": 2.0500000000000003,
       "stop": 1.8849999999999998,
+      "target": 2.0500000000000003,
+      "status": "CONFIRMED",
       "current_price": 1.9018,
-      "risk_reward": 2.0,
-      "entry": 1.94,
+      "updated_at": "2026-08-29T15:16:11.816240",
+      "direction": "Bullish",
       "ticker": "GITS",
-      "status": "CONFIRMED"
+      "score": 68.0,
+      "entry": 1.94,
+      "setup": "Three Inside Up",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0
     }
   ]
 }

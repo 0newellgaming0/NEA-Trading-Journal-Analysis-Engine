@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 75.0,
-      "setup": "TLINE_CONTINUATION",
-      "direction": "Bearish",
-      "updated_at": "2026-08-29T14:07:43.494840",
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "target": 3.688,
       "stop": 4.051,
+      "target": 3.688,
+      "status": "CONFIRMED",
       "current_price": 3.9056,
-      "risk_reward": 2.0,
-      "entry": 3.93,
+      "updated_at": "2026-08-29T14:07:43.494840",
+      "direction": "Bearish",
       "ticker": "OM",
-      "status": "CONFIRMED"
+      "score": 75.0,
+      "entry": 3.93,
+      "setup": "TLINE_CONTINUATION",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "risk_reward": 2.0
     }
   ]
 }

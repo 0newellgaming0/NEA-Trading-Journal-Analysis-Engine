@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 74.0,
-      "setup": "Marubozu",
-      "direction": "Bearish",
-      "updated_at": "2026-08-29T14:28:36.603423",
-      "regime": "BEARISH_CONSOLIDATION",
-      "target": 4.305999999999999,
       "stop": 4.372,
+      "target": 4.305999999999999,
+      "status": "CONFIRMED",
       "current_price": 4.2196,
-      "risk_reward": 2.0,
-      "entry": 4.35,
+      "updated_at": "2026-08-29T14:28:36.603423",
+      "direction": "Bearish",
       "ticker": "NB",
-      "status": "CONFIRMED"
+      "score": 74.0,
+      "entry": 4.35,
+      "setup": "Marubozu",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0
     }
   ]
 }
