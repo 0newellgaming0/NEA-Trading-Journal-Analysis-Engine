@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 11.98917,
       "target": 12.171660000000003,
-      "status": "CONFIRMED",
-      "current_price": 12.02,
       "updated_at": "2026-08-29T13:57:54.340234",
-      "direction": "Bullish",
-      "ticker": "OWL",
-      "score": 72.0,
-      "entry": 12.05,
       "setup": "Harami",
       "regime": "BULLISH_CONSOLIDATION",
-      "risk_reward": 2.0
+      "direction": "Bullish",
+      "stop": 11.98917,
+      "risk_reward": 2.0,
+      "score": 72.0,
+      "current_price": 12.02,
+      "status": "CONFIRMED",
+      "entry": 12.05,
+      "ticker": "OWL"
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 2.208,
       "target": 2.108999999999999,
-      "status": "CONFIRMED",
-      "current_price": 2.18,
       "updated_at": "2026-08-29T08:50:20.187774",
-      "direction": "Bearish",
-      "ticker": "POWW",
-      "score": 80.0,
-      "entry": 2.175,
       "setup": "TLINE_CONTINUATION",
       "regime": "PRIMARY_UPTREND_PULLBACK",
-      "risk_reward": 2.0
+      "direction": "Bearish",
+      "stop": 2.208,
+      "risk_reward": 2.0,
+      "score": 80.0,
+      "current_price": 2.18,
+      "status": "CONFIRMED",
+      "entry": 2.175,
+      "ticker": "POWW"
     }
   ]
 }

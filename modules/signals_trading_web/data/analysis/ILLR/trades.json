@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 0.95025,
       "target": 0.9848999999999999,
-      "status": "CONFIRMED",
-      "current_price": 0.984,
       "updated_at": "2026-08-29T09:01:08.427356",
-      "direction": "Bullish",
-      "ticker": "ILLR",
-      "score": 76.0,
-      "entry": 0.9618,
       "setup": "Harami Cross",
       "regime": "BEARISH_CONSOLIDATION",
-      "risk_reward": 2.0
+      "direction": "Bullish",
+      "stop": 0.95025,
+      "risk_reward": 2.0,
+      "score": 76.0,
+      "current_price": 0.984,
+      "status": "CONFIRMED",
+      "entry": 0.9618,
+      "ticker": "ILLR"
     }
   ]
 }

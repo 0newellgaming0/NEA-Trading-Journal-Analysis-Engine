@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 4.444999999999999,
       "target": 5.2700000000000005,
-      "status": "CONFIRMED",
-      "current_price": 4.68,
       "updated_at": "2026-08-29T15:28:49.119220",
-      "direction": "Bullish",
-      "ticker": "GWAV",
-      "score": 82.0,
-      "entry": 4.72,
       "setup": "TLINE_CONTINUATION",
       "regime": "SHORT_TERM_STRENGTH",
-      "risk_reward": 2.0
+      "direction": "Bullish",
+      "stop": 4.444999999999999,
+      "risk_reward": 2.0,
+      "score": 82.0,
+      "current_price": 4.68,
+      "status": "CONFIRMED",
+      "entry": 4.72,
+      "ticker": "GWAV"
     }
   ]
 }

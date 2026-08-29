@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 10.142999999999999,
       "target": 9.054,
-      "status": "CONFIRMED",
-      "current_price": 9.84,
       "updated_at": "2026-08-29T06:28:20.188950",
-      "direction": "Bearish",
-      "ticker": "FIRY",
-      "score": 80.0,
-      "entry": 9.78,
       "setup": "TLINE_CONTINUATION",
       "regime": "FULL_BULLISH_ALIGNMENT",
-      "risk_reward": 2.0
+      "direction": "Bearish",
+      "stop": 10.142999999999999,
+      "risk_reward": 2.0,
+      "score": 80.0,
+      "current_price": 9.84,
+      "status": "CONFIRMED",
+      "entry": 9.78,
+      "ticker": "FIRY"
     }
   ]
 }

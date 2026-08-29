@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 14.3395,
       "target": 15.016,
-      "status": "CONFIRMED",
-      "current_price": 14.44,
       "updated_at": "2026-08-29T06:48:12.409374",
-      "direction": "Bullish",
-      "ticker": "PRGO",
-      "score": 68.0,
-      "entry": 14.565,
       "setup": "Engulfing",
       "regime": "SHORT_TERM_WEAKNESS",
-      "risk_reward": 2.0
+      "direction": "Bullish",
+      "stop": 14.3395,
+      "risk_reward": 2.0,
+      "score": 68.0,
+      "current_price": 14.44,
+      "status": "CONFIRMED",
+      "entry": 14.565,
+      "ticker": "PRGO"
     }
   ]
 }

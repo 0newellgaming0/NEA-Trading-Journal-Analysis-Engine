@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 7.817,
       "target": 7.915999999999999,
-      "status": "CONFIRMED",
-      "current_price": 8.22,
       "updated_at": "2026-08-29T15:56:54.520751",
-      "direction": "Bullish",
-      "ticker": "WEN",
-      "score": 63.0,
-      "entry": 7.85,
       "setup": "Marubozu",
       "regime": "SHORT_TERM_STRENGTH",
-      "risk_reward": 2.0
+      "direction": "Bullish",
+      "stop": 7.817,
+      "risk_reward": 2.0,
+      "score": 63.0,
+      "current_price": 8.22,
+      "status": "CONFIRMED",
+      "entry": 7.85,
+      "ticker": "WEN"
     }
   ]
 }

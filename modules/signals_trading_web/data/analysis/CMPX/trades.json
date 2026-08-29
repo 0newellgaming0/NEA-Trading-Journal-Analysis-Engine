@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 2.495,
       "target": 2.3299999999999996,
-      "status": "CONFIRMED",
-      "current_price": 2.42,
       "updated_at": "2026-08-29T07:16:05.001144",
-      "direction": "Bearish",
-      "ticker": "CMPX",
-      "score": 76.0,
-      "entry": 2.44,
       "setup": "Three Inside Down",
       "regime": "BULLISH_CONSOLIDATION",
-      "risk_reward": 2.0
+      "direction": "Bearish",
+      "stop": 2.495,
+      "risk_reward": 2.0,
+      "score": 76.0,
+      "current_price": 2.42,
+      "status": "CONFIRMED",
+      "entry": 2.44,
+      "ticker": "CMPX"
     }
   ]
 }

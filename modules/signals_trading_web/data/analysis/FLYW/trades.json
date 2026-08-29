@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 18.939,
       "target": 17.982000000000003,
-      "status": "CONFIRMED",
-      "current_price": 18.8,
       "updated_at": "2026-08-29T08:37:01.081465",
-      "direction": "Bearish",
-      "ticker": "FLYW",
-      "score": 78.0,
-      "entry": 18.62,
       "setup": "Pinbar",
       "regime": "BULLISH_CONSOLIDATION",
-      "risk_reward": 2.0
+      "direction": "Bearish",
+      "stop": 18.939,
+      "risk_reward": 2.0,
+      "score": 78.0,
+      "current_price": 18.8,
+      "status": "CONFIRMED",
+      "entry": 18.62,
+      "ticker": "FLYW"
     }
   ]
 }

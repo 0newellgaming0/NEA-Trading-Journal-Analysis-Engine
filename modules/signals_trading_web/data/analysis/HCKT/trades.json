@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 11.2445,
       "target": 11.590999999999998,
-      "status": "CONFIRMED",
-      "current_price": 11.34,
       "updated_at": "2026-08-29T14:16:12.896212",
-      "direction": "Bullish",
-      "ticker": "HCKT",
-      "score": 72.0,
-      "entry": 11.36,
       "setup": "TLINE_CONTINUATION",
       "regime": "PRIMARY_DOWNTREND_RALLY",
-      "risk_reward": 2.0
+      "direction": "Bullish",
+      "stop": 11.2445,
+      "risk_reward": 2.0,
+      "score": 72.0,
+      "current_price": 11.34,
+      "status": "CONFIRMED",
+      "entry": 11.36,
+      "ticker": "HCKT"
     }
   ]
 }

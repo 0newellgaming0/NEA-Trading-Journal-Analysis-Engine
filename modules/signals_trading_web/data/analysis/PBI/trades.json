@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 16.935000000000002,
       "target": 17.759999999999998,
-      "status": "CONFIRMED",
-      "current_price": 17.21,
       "updated_at": "2026-08-29T13:00:12.125355",
-      "direction": "Bullish",
-      "ticker": "PBI",
-      "score": 71.0,
-      "entry": 17.21,
       "setup": "Pinbar",
       "regime": "BULLISH_CONSOLIDATION",
-      "risk_reward": 2.0
+      "direction": "Bullish",
+      "stop": 16.935000000000002,
+      "risk_reward": 2.0,
+      "score": 71.0,
+      "current_price": 17.21,
+      "status": "CONFIRMED",
+      "entry": 17.21,
+      "ticker": "PBI"
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 1.1721,
       "target": 1.1028000000000002,
-      "status": "CONFIRMED",
-      "current_price": 1.1377,
       "updated_at": "2026-08-29T12:44:35.910903",
-      "direction": "Bearish",
-      "ticker": "CELZ",
-      "score": 43.0,
-      "entry": 1.149,
       "setup": "Inside Bar",
       "regime": "FULL_BEARISH_ALIGNMENT",
-      "risk_reward": 2.0
+      "direction": "Bearish",
+      "stop": 1.1721,
+      "risk_reward": 2.0,
+      "score": 43.0,
+      "current_price": 1.1377,
+      "status": "CONFIRMED",
+      "entry": 1.149,
+      "ticker": "CELZ"
     }
   ]
 }

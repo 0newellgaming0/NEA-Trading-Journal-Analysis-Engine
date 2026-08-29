@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 2.01312,
       "target": 2.2401600000000004,
-      "status": "CONFIRMED",
-      "current_price": 2.09,
       "updated_at": "2026-08-29T15:20:48.595245",
-      "direction": "Bullish",
-      "ticker": "TC",
-      "score": 79.0,
-      "entry": 2.0888,
       "setup": "Inverted Hammer",
       "regime": "BEARISH_CONSOLIDATION",
-      "risk_reward": 2.0
+      "direction": "Bullish",
+      "stop": 2.01312,
+      "risk_reward": 2.0,
+      "score": 79.0,
+      "current_price": 2.09,
+      "status": "CONFIRMED",
+      "entry": 2.0888,
+      "ticker": "TC"
     }
   ]
 }

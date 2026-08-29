@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 7.744000000000001,
       "target": 7.281999999999998,
-      "status": "CONFIRMED",
-      "current_price": 7.59,
       "updated_at": "2026-08-29T05:32:07.381138",
-      "direction": "Bearish",
-      "ticker": "VATE",
-      "score": 89.0,
-      "entry": 7.59,
       "setup": "TLINE_CONTINUATION",
       "regime": "FULL_BEARISH_ALIGNMENT",
-      "risk_reward": 2.0
+      "direction": "Bearish",
+      "stop": 7.744000000000001,
+      "risk_reward": 2.0,
+      "score": 89.0,
+      "current_price": 7.59,
+      "status": "CONFIRMED",
+      "entry": 7.59,
+      "ticker": "VATE"
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 10.22026,
       "target": 10.541680000000003,
-      "status": "CONFIRMED",
-      "current_price": 10.34,
       "updated_at": "2026-08-29T05:23:00.383779",
-      "direction": "Bullish",
-      "ticker": "FUBO",
-      "score": 77.0,
-      "entry": 10.3274,
       "setup": "Marubozu",
       "regime": "SHORT_TERM_STRENGTH",
-      "risk_reward": 2.0
+      "direction": "Bullish",
+      "stop": 10.22026,
+      "risk_reward": 2.0,
+      "score": 77.0,
+      "current_price": 10.34,
+      "status": "CONFIRMED",
+      "entry": 10.3274,
+      "ticker": "FUBO"
     }
   ]
 }

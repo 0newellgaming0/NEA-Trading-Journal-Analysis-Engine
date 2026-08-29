@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 16.072,
       "target": 11.386000000000001,
-      "status": "CONFIRMED",
-      "current_price": 14.56,
       "updated_at": "2026-08-29T08:47:11.400823",
-      "direction": "Bearish",
-      "ticker": "SDOT",
-      "score": 87.0,
-      "entry": 14.51,
       "setup": "TLINE_CONTINUATION",
       "regime": "PRIMARY_DOWNTREND_RALLY",
-      "risk_reward": 2.0
+      "direction": "Bearish",
+      "stop": 16.072,
+      "risk_reward": 2.0,
+      "score": 87.0,
+      "current_price": 14.56,
+      "status": "CONFIRMED",
+      "entry": 14.51,
+      "ticker": "SDOT"
     }
   ]
 }
