@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 5.032,
+      "target": 4.965999999999999,
+      "current_price": 5.03,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "regime": "BULLISH_CONSOLIDATION",
       "ticker": "ORMP",
       "entry": 5.01,
-      "regime": "BULLISH_CONSOLIDATION",
-      "risk_reward": 2.0,
       "score": 78.0,
-      "setup": "TLINE_CONTINUATION",
-      "target": 4.965999999999999,
-      "direction": "Bearish",
-      "status": "CONFIRMED",
+      "stop": 5.032,
       "updated_at": "2026-08-29T08:44:04.775081",
-      "current_price": 5.03
+      "direction": "Bearish",
+      "setup": "TLINE_CONTINUATION"
     }
   ]
 }

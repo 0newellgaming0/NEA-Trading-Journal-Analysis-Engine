@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 2.715,
+      "target": 2.5500000000000007,
+      "current_price": 2.5996,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_WEAKNESS",
       "ticker": "AMC",
       "entry": 2.66,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "risk_reward": 2.0,
       "score": 63.0,
-      "setup": "Engulfing",
-      "target": 2.5500000000000007,
-      "direction": "Bearish",
-      "status": "CONFIRMED",
+      "stop": 2.715,
       "updated_at": "2026-08-29T11:23:12.880753",
-      "current_price": 2.5996
+      "direction": "Bearish",
+      "setup": "Engulfing"
     }
   ]
 }

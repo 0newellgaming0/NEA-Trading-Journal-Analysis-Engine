@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 17.078,
+      "target": 17.474000000000004,
+      "current_price": 17.19,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_WEAKNESS",
       "ticker": "VTS",
       "entry": 17.21,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "risk_reward": 2.0,
       "score": 77.0,
-      "setup": "TLINE_CONTINUATION",
-      "target": 17.474000000000004,
-      "direction": "Bullish",
-      "status": "CONFIRMED",
+      "stop": 17.078,
       "updated_at": "2026-08-29T08:30:17.040693",
-      "current_price": 17.19
+      "direction": "Bullish",
+      "setup": "TLINE_CONTINUATION"
     }
   ]
 }

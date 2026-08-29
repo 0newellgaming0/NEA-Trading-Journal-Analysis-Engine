@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 1.39922,
+      "target": 1.43156,
+      "current_price": 1.4141,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "regime": "BEARISH_CONSOLIDATION",
       "ticker": "POLA",
       "entry": 1.41,
-      "regime": "BEARISH_CONSOLIDATION",
-      "risk_reward": 2.0,
       "score": 76.0,
-      "setup": "Pinbar",
-      "target": 1.43156,
-      "direction": "Bullish",
-      "status": "CONFIRMED",
+      "stop": 1.39922,
       "updated_at": "2026-08-29T06:55:31.108724",
-      "current_price": 1.4141
+      "direction": "Bullish",
+      "setup": "Pinbar"
     }
   ]
 }
