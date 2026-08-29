@@ -31,13 +31,15 @@ jobs:
 
       - name: Validate JSON
         run: |
-          python -m json.tool data/trades.json > /dev/null
           python -m json.tool data/performance.json > /dev/null
           python -m json.tool data/market.json > /dev/null
 
           find data/analysis \
             -type f \
-            -name "*_analysis_latest.json" \
+            \( \
+              -name "*_analysis_latest.json" \
+              -o -name "trades.json" \
+            \) \
             -print0 |
           while IFS= read -r -d '' file; do
             echo "Validating: $file"
@@ -60,6 +62,7 @@ jobs:
           from pathlib import Path
 
           analysis_root = Path("data/analysis")
+
           index = {
               "tickers": {}
           }
@@ -84,7 +87,9 @@ jobs:
                   if not match:
                       continue
 
-                  dates.append(match.group(1))
+                  dates.append(
+                      match.group(1)
+                  )
 
               if dates:
                   index["tickers"][ticker] = sorted(
@@ -120,9 +125,6 @@ jobs:
 
           mkdir -p pages/data
 
-          cp data/trades.json \
-            pages/data/trades.json
-
           cp data/performance.json \
             pages/data/performance.json
 
@@ -140,9 +142,6 @@ jobs:
             -type f |
           sort
 
-          echo "=== Trade data ==="
-          python -c "import json; x=json.load(open('pages/data/trades.json')); print('Trades:', x.get('count', len(x.get('trades', []))))"
-
           echo "=== Performance data ==="
           python -c "import json; x=json.load(open('pages/data/performance.json')); print('Total trades:', x.get('total_trades')); print('Win rate:', x.get('win_rate'))"
 
@@ -152,16 +151,25 @@ jobs:
           echo "=== Analysis index ==="
           python -c "import json; x=json.load(open('pages/data/analysis/index.json')); print('Analysis index loaded:', type(x).__name__); print('Tickers:', len(x.get('tickers', {})))"
 
-          echo "=== Analysis data ==="
+          echo "=== Analysis and trade data ==="
           find pages/data/analysis \
             -type f \
-            -name "*_analysis_latest.json" |
+            \( \
+              -name "*_analysis_latest.json" \
+              -o -name "trades.json" \
+            \) |
           sort
 
           echo "=== Analysis file count ==="
           find pages/data/analysis \
             -type f \
             -name "*_analysis_latest.json" |
+          wc -l
+
+          echo "=== Trade file count ==="
+          find pages/data/analysis \
+            -type f \
+            -name "trades.json" |
           wc -l
 
       - name: Configure Pages
