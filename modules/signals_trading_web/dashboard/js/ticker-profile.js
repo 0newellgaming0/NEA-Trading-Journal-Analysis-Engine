@@ -980,8 +980,21 @@ function formatTimestamp(
         return "—";
     }
 
+    let normalized =
+        String(value).trim();
+
+    if (
+        /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?$/.test(
+            normalized
+        )
+    ) {
+        normalized += "Z";
+    }
+
     const date =
-        new Date(value);
+        new Date(
+            normalized
+        );
 
     if (
         Number.isNaN(
@@ -994,6 +1007,7 @@ function formatTimestamp(
     return date.toLocaleString(
         "en-US",
         {
+            timeZone: "America/Chicago",
             month: "short",
             day: "numeric",
             year: "numeric",
