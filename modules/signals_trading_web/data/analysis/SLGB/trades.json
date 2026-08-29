@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
-      "ticker": "SLGB",
       "direction": "Bearish",
+      "stop": 0.522,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Evening Star",
       "risk_reward": 2.0,
+      "entry": 0.5,
+      "target": 0.45599999999999996,
       "score": 74.0,
       "updated_at": "2026-08-29T12:45:44.599088",
-      "target": 0.45599999999999996,
-      "setup": "Evening Star",
-      "stop": 0.522,
-      "entry": 0.5,
-      "current_price": 0.499
+      "current_price": 0.499,
+      "ticker": "SLGB",
+      "status": "CONFIRMED"
     }
   ]
 }

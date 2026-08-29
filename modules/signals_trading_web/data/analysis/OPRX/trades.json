@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "regime": "SHORT_TERM_STRENGTH",
-      "status": "CONFIRMED",
-      "ticker": "OPRX",
       "direction": "Bullish",
+      "stop": 7.723,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "TLINE_CONTINUATION",
       "risk_reward": 2.0,
+      "entry": 8.02,
+      "target": 8.613999999999999,
       "score": 85.0,
       "updated_at": "2026-08-29T06:40:31.765177",
-      "target": 8.613999999999999,
-      "setup": "TLINE_CONTINUATION",
-      "stop": 7.723,
-      "entry": 8.02,
-      "current_price": 7.95
+      "current_price": 7.95,
+      "ticker": "OPRX",
+      "status": "CONFIRMED"
     }
   ]
 }

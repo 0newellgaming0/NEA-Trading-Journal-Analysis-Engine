@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "regime": "BEARISH_CONSOLIDATION",
-      "status": "CONFIRMED",
-      "ticker": "ACVA",
       "direction": "Bearish",
+      "stop": 7.1610000000000005,
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "TLINE_CONTINUATION",
       "risk_reward": 2.0,
+      "entry": 7.15,
+      "target": 7.128,
       "score": 66.0,
       "updated_at": "2026-08-29T10:55:38.399745",
-      "target": 7.128,
-      "setup": "TLINE_CONTINUATION",
-      "stop": 7.1610000000000005,
-      "entry": 7.15,
-      "current_price": 7.16
+      "current_price": 7.16,
+      "ticker": "ACVA",
+      "status": "CONFIRMED"
     }
   ]
 }

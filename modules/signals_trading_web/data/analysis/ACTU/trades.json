@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
-      "ticker": "ACTU",
       "direction": "Bearish",
+      "stop": 1.7222300000000001,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Engulfing",
       "risk_reward": 2.0,
+      "entry": 1.6427,
+      "target": 1.4836399999999998,
       "score": 75.0,
       "updated_at": "2026-08-29T10:53:55.534763",
-      "target": 1.4836399999999998,
-      "setup": "Engulfing",
-      "stop": 1.7222300000000001,
-      "entry": 1.6427,
-      "current_price": 1.63
+      "current_price": 1.63,
+      "ticker": "ACTU",
+      "status": "CONFIRMED"
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
-      "ticker": "AIFA",
       "direction": "Bearish",
+      "stop": 2.875,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "TLINE_CONTINUATION",
       "risk_reward": 2.0,
+      "entry": 2.82,
+      "target": 2.7099999999999995,
       "score": 81.0,
       "updated_at": "2026-08-29T11:19:39.825189",
-      "target": 2.7099999999999995,
-      "setup": "TLINE_CONTINUATION",
-      "stop": 2.875,
-      "entry": 2.82,
-      "current_price": 2.82
+      "current_price": 2.82,
+      "ticker": "AIFA",
+      "status": "CONFIRMED"
     }
   ]
 }

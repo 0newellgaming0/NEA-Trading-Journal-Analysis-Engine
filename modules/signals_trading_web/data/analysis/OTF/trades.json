@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "regime": "SHORT_TERM_STRENGTH",
-      "status": "CONFIRMED",
-      "ticker": "OTF",
       "direction": "Bullish",
+      "stop": 11.205,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Pinbar",
       "risk_reward": 2.0,
+      "entry": 11.37,
+      "target": 11.699999999999998,
       "score": 68.0,
       "updated_at": "2026-08-29T13:38:29.439540",
-      "target": 11.699999999999998,
-      "setup": "Pinbar",
-      "stop": 11.205,
-      "entry": 11.37,
-      "current_price": 11.414
+      "current_price": 11.414,
+      "ticker": "OTF",
+      "status": "CONFIRMED"
     }
   ]
 }

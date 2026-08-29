@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "regime": "BEARISH_CONSOLIDATION",
-      "status": "CONFIRMED",
-      "ticker": "CARS",
       "direction": "Bearish",
+      "stop": 11.807,
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "TLINE_CONTINUATION",
       "risk_reward": 2.0,
+      "entry": 11.73,
+      "target": 11.576,
       "score": 80.0,
       "updated_at": "2026-08-29T05:24:55.606911",
-      "target": 11.576,
-      "setup": "TLINE_CONTINUATION",
-      "stop": 11.807,
-      "entry": 11.73,
-      "current_price": 11.71
+      "current_price": 11.71,
+      "ticker": "CARS",
+      "status": "CONFIRMED"
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "regime": "BULLISH_CONSOLIDATION",
-      "status": "CONFIRMED",
-      "ticker": "RSKD",
       "direction": "Bearish",
+      "stop": 6.3549999999999995,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Pinbar",
       "risk_reward": 2.0,
+      "entry": 6.3,
+      "target": 6.19,
       "score": 70.0,
       "updated_at": "2026-08-29T05:10:48.385525",
-      "target": 6.19,
-      "setup": "Pinbar",
-      "stop": 6.3549999999999995,
-      "entry": 6.3,
-      "current_price": 6.3
+      "current_price": 6.3,
+      "ticker": "RSKD",
+      "status": "CONFIRMED"
     }
   ]
 }

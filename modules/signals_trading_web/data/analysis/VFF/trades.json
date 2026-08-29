@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "regime": "SHORT_TERM_STRENGTH",
-      "status": "CONFIRMED",
-      "ticker": "VFF",
       "direction": "Bullish",
+      "stop": 2.84,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "DOJI",
       "risk_reward": 2.0,
+      "entry": 2.865,
+      "target": 2.915000000000001,
       "score": 79.0,
       "updated_at": "2026-08-29T08:35:21.048439",
-      "target": 2.915000000000001,
-      "setup": "DOJI",
-      "stop": 2.84,
-      "entry": 2.865,
-      "current_price": 2.95
+      "current_price": 2.95,
+      "ticker": "VFF",
+      "status": "CONFIRMED"
     }
   ]
 }

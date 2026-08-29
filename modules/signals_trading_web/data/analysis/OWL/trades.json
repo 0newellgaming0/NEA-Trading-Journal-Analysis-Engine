@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-28T13:38:33.097401",
+  "generated_at": "2026-08-29T08:57:31.353712",
   "ticker": "OWL",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "stop": 11.98917,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Harami",
+      "risk_reward": 2.0,
+      "entry": 12.05,
+      "target": 12.171660000000003,
+      "score": 72.0,
+      "updated_at": "2026-08-29T13:57:54.340234",
+      "current_price": 12.02,
+      "ticker": "OWL",
+      "status": "CONFIRMED"
+    }
+  ]
 }

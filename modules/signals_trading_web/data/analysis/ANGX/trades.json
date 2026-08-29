@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
-      "ticker": "ANGX",
       "direction": "Bearish",
+      "stop": 4.4955,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Pinbar",
       "risk_reward": 2.0,
+      "entry": 4.435,
+      "target": 4.313999999999999,
       "score": 64.0,
       "updated_at": "2026-08-29T11:31:58.214545",
-      "target": 4.313999999999999,
-      "setup": "Pinbar",
-      "stop": 4.4955,
-      "entry": 4.435,
-      "current_price": 4.4
+      "current_price": 4.4,
+      "ticker": "ANGX",
+      "status": "CONFIRMED"
     }
   ]
 }

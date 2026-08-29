@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
-      "ticker": "CD",
       "direction": "Bearish",
+      "stop": 3.4395000000000002,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Pinbar",
       "risk_reward": 2.0,
+      "entry": 3.39,
+      "target": 3.291,
       "score": 69.0,
       "updated_at": "2026-08-29T07:08:02.852508",
-      "target": 3.291,
-      "setup": "Pinbar",
-      "stop": 3.4395000000000002,
-      "entry": 3.39,
-      "current_price": 3.35
+      "current_price": 3.35,
+      "ticker": "CD",
+      "status": "CONFIRMED"
     }
   ]
 }
