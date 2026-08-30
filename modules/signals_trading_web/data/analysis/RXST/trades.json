@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T21:01:56.310212",
   "ticker": "RXST",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 7.06,
@@ -16,20 +16,6 @@
       "stop": 6.884,
       "updated_at": "2026-08-30T02:02:19.432877",
       "target": 7.411999999999998
-    },
-    {
-      "target": 7.411999999999998,
-      "updated_at": "2026-08-29T15:41:50.279391",
-      "setup": "Inside Bar",
-      "regime": "SHORT_TERM_STRENGTH",
-      "direction": "Bullish",
-      "stop": 6.884,
-      "risk_reward": 2.0,
-      "score": 62.0,
-      "current_price": 7.0667,
-      "status": "CONFIRMED",
-      "entry": 7.06,
-      "ticker": "RXST"
     }
   ]
 }

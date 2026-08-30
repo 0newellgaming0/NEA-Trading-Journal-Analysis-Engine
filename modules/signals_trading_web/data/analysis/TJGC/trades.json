@@ -1,63 +1,21 @@
 {
   "generated_at": "2026-08-30T02:18:16.426326",
   "ticker": "TJGC",
-  "count": 4,
+  "count": 1,
   "trades": [
     {
-      "score": 91.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T07:18:29.000740",
-      "stop": 8.975,
+      "ticker": "TJGC",
       "regime": "SHORT_TERM_STRENGTH",
-      "current_price": 9.21,
-      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "entry": 9.25,
       "risk_reward": 2.0,
-      "setup": "TLINE_CONTINUATION",
-      "target": 9.8,
-      "entry": 9.25,
-      "ticker": "TJGC"
-    },
-    {
-      "entry": 9.25,
-      "current_price": 9.21,
-      "direction": "Bullish",
       "score": 91.0,
-      "status": "CONFIRMED",
+      "current_price": 9.21,
+      "direction": "Bullish",
       "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
-      "ticker": "TJGC",
-      "regime": "SHORT_TERM_STRENGTH",
       "stop": 8.975,
-      "updated_at": "2026-08-29T21:09:02.746622",
       "target": 9.8
-    },
-    {
-      "target": 9.8,
-      "updated_at": "2026-08-29T14:48:47.060516",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "SHORT_TERM_STRENGTH",
-      "direction": "Bullish",
-      "stop": 8.975,
-      "risk_reward": 2.0,
-      "score": 80.0,
-      "current_price": 9.21,
-      "status": "CONFIRMED",
-      "entry": 9.25,
-      "ticker": "TJGC"
-    },
-    {
-      "direction": "Bullish",
-      "stop": 8.975,
-      "regime": "SHORT_TERM_STRENGTH",
-      "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
-      "entry": 9.25,
-      "target": 9.8,
-      "score": 80.0,
-      "updated_at": "2026-08-29T08:33:51.639993",
-      "current_price": 9.21,
-      "ticker": "TJGC",
-      "status": "CONFIRMED"
     }
   ]
 }

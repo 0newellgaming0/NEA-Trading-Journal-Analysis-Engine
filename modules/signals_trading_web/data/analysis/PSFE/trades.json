@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T17:04:27.894814",
   "ticker": "PSFE",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 6.7301,
@@ -16,20 +16,6 @@
       "stop": 6.8509899999999995,
       "updated_at": "2026-08-29T22:04:43.486367",
       "target": 6.488320000000002
-    },
-    {
-      "target": 6.488320000000002,
-      "updated_at": "2026-08-29T08:25:46.171865",
-      "setup": "Marubozu",
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "direction": "Bearish",
-      "stop": 6.8509899999999995,
-      "risk_reward": 2.0,
-      "score": 77.0,
-      "current_price": 6.79,
-      "status": "CONFIRMED",
-      "entry": 6.7301,
-      "ticker": "PSFE"
     }
   ]
 }

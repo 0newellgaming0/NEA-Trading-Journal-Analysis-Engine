@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T19:45:29.233821",
   "ticker": "BBDC",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 9.38,
@@ -16,20 +16,6 @@
       "stop": 9.44633,
       "updated_at": "2026-08-30T00:46:23.430989",
       "target": 9.247340000000003
-    },
-    {
-      "target": 9.247340000000003,
-      "updated_at": "2026-08-29T14:12:10.469415",
-      "setup": "Marubozu",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "direction": "Bearish",
-      "stop": 9.44633,
-      "risk_reward": 2.0,
-      "score": 69.0,
-      "current_price": 9.37,
-      "status": "CONFIRMED",
-      "entry": 9.38,
-      "ticker": "BBDC"
     }
   ]
 }

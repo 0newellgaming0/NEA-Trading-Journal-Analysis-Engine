@@ -1,49 +1,21 @@
 {
   "generated_at": "2026-08-30T02:02:42.430068",
   "ticker": "NXPL",
-  "count": 3,
+  "count": 1,
   "trades": [
     {
-      "score": 91.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T07:03:00.881752",
-      "stop": 9.2600000001,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "current_price": 9.26,
-      "direction": "Bearish",
-      "risk_reward": 10.0,
-      "setup": "RED_ZONE_SELL",
-      "target": 9.259999999,
-      "entry": 9.26,
-      "ticker": "NXPL"
-    },
-    {
-      "entry": 9.26,
-      "current_price": 9.26,
-      "direction": "Bearish",
-      "score": 93.0,
-      "status": "CONFIRMED",
-      "setup": "RED_ZONE_SELL",
-      "risk_reward": 10.0,
       "ticker": "NXPL",
       "regime": "FULL_BULLISH_ALIGNMENT",
-      "stop": 9.2600000001,
-      "updated_at": "2026-08-29T18:51:49.546078",
-      "target": 9.259999999
-    },
-    {
-      "target": 9.259999999,
-      "updated_at": "2026-08-29T07:58:18.665681",
-      "setup": "RED_ZONE_SELL",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "direction": "Bearish",
-      "stop": 9.2600000001,
-      "risk_reward": 10.0,
-      "score": 93.0,
-      "current_price": 9.26,
       "status": "CONFIRMED",
       "entry": 9.26,
-      "ticker": "NXPL"
+      "risk_reward": 10.0,
+      "score": 91.0,
+      "current_price": 9.26,
+      "direction": "Bearish",
+      "setup": "RED_ZONE_SELL",
+      "stop": 9.2600000001,
+      "target": 9.259999999
     }
   ]
 }

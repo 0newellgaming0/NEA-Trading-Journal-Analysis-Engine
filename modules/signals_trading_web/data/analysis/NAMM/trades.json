@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T15:18:48.926790",
   "ticker": "NAMM",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 1.4013,
@@ -16,20 +16,6 @@
       "stop": 1.36137,
       "updated_at": "2026-08-29T20:19:03.551330",
       "target": 1.48116
-    },
-    {
-      "target": 1.48116,
-      "updated_at": "2026-08-29T08:01:39.633375",
-      "setup": "Pinbar",
-      "regime": "BEARISH_CONSOLIDATION",
-      "direction": "Bullish",
-      "stop": 1.36137,
-      "risk_reward": 2.0,
-      "score": 82.0,
-      "current_price": 1.41,
-      "status": "CONFIRMED",
-      "entry": 1.4013,
-      "ticker": "NAMM"
     }
   ]
 }

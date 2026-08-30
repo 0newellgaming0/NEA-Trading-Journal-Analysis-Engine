@@ -1,63 +1,21 @@
 {
   "generated_at": "2026-08-30T02:22:46.598119",
   "ticker": "XHLD",
-  "count": 4,
+  "count": 1,
   "trades": [
     {
-      "score": 90.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T07:23:04.904572",
-      "stop": 8.143,
+      "ticker": "XHLD",
       "regime": "SHORT_TERM_WEAKNESS",
-      "current_price": 9.3,
-      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "entry": 9.1,
       "risk_reward": 2.0,
-      "setup": "TLINE_CONTINUATION",
-      "target": 11.013999999999998,
-      "entry": 9.1,
-      "ticker": "XHLD"
-    },
-    {
-      "entry": 9.1,
-      "current_price": 9.3,
-      "direction": "Bullish",
       "score": 90.0,
-      "status": "CONFIRMED",
+      "current_price": 9.3,
+      "direction": "Bullish",
       "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
-      "ticker": "XHLD",
-      "regime": "SHORT_TERM_WEAKNESS",
       "stop": 8.143,
-      "updated_at": "2026-08-29T21:22:26.861487",
       "target": 11.013999999999998
-    },
-    {
-      "target": 11.013999999999998,
-      "updated_at": "2026-08-29T15:08:52.790230",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "direction": "Bullish",
-      "stop": 8.143,
-      "risk_reward": 2.0,
-      "score": 79.0,
-      "current_price": 9.3,
-      "status": "CONFIRMED",
-      "entry": 9.1,
-      "ticker": "XHLD"
-    },
-    {
-      "direction": "Bullish",
-      "stop": 8.143,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
-      "entry": 9.1,
-      "target": 11.013999999999998,
-      "score": 79.0,
-      "updated_at": "2026-08-29T06:09:56.151642",
-      "current_price": 9.3,
-      "ticker": "XHLD",
-      "status": "CONFIRMED"
     }
   ]
 }

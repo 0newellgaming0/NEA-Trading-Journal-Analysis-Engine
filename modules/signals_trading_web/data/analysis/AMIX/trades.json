@@ -1,49 +1,21 @@
 {
   "generated_at": "2026-08-30T02:16:30.771916",
   "ticker": "AMIX",
-  "count": 3,
+  "count": 1,
   "trades": [
     {
-      "score": 94.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T07:16:48.966347",
-      "stop": 5.364,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "current_price": 5.18,
-      "direction": "Bearish",
-      "risk_reward": 2.0,
-      "setup": "TLINE_CONTINUATION",
-      "target": 4.571999999999999,
-      "entry": 5.1,
-      "ticker": "AMIX"
-    },
-    {
-      "entry": 5.1,
-      "current_price": 5.18,
-      "direction": "Bearish",
-      "score": 91.0,
-      "status": "CONFIRMED",
-      "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
       "ticker": "AMIX",
       "regime": "FULL_BEARISH_ALIGNMENT",
-      "stop": 5.364,
-      "updated_at": "2026-08-29T19:02:18.889852",
-      "target": 4.571999999999999
-    },
-    {
-      "target": 4.571999999999999,
-      "updated_at": "2026-08-29T11:24:49.923527",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "direction": "Bearish",
-      "stop": 5.364,
-      "risk_reward": 2.0,
-      "score": 91.0,
-      "current_price": 5.18,
       "status": "CONFIRMED",
       "entry": 5.1,
-      "ticker": "AMIX"
+      "risk_reward": 2.0,
+      "score": 94.0,
+      "current_price": 5.18,
+      "direction": "Bearish",
+      "setup": "TLINE_CONTINUATION",
+      "stop": 5.364,
+      "target": 4.571999999999999
     }
   ]
 }

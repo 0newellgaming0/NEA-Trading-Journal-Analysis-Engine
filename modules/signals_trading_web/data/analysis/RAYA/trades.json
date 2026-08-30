@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 55.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T10:40:38.730249",
-      "stop": 2.378,
+      "ticker": "RAYA",
       "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED",
+      "entry": 2.29,
+      "risk_reward": 2.0,
+      "score": 55.0,
       "current_price": 2.29,
       "direction": "Bearish",
-      "risk_reward": 2.0,
       "setup": "TLINE_CONTINUATION",
-      "target": 2.114,
-      "entry": 2.29,
-      "ticker": "RAYA"
+      "stop": 2.378,
+      "target": 2.114
     }
   ]
 }

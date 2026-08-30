@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T19:42:24.475259",
   "ticker": "AMTX",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 1.84,
@@ -16,20 +16,6 @@
       "stop": 1.862,
       "updated_at": "2026-08-30T00:42:46.371262",
       "target": 1.796
-    },
-    {
-      "target": 1.796,
-      "updated_at": "2026-08-29T11:30:11.493441",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "SHORT_TERM_STRENGTH",
-      "direction": "Bearish",
-      "stop": 1.862,
-      "risk_reward": 2.0,
-      "score": 69.0,
-      "current_price": 1.84,
-      "status": "CONFIRMED",
-      "entry": 1.84,
-      "ticker": "AMTX"
     }
   ]
 }

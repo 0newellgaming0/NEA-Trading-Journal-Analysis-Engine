@@ -1,49 +1,21 @@
 {
   "generated_at": "2026-08-30T03:26:28.075385",
   "ticker": "NMAX",
-  "count": 3,
+  "count": 1,
   "trades": [
     {
-      "score": 86.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T08:26:47.249006",
-      "stop": 10.8125,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "current_price": 10.726,
-      "direction": "Bearish",
-      "risk_reward": 2.0,
-      "setup": "Engulfing",
-      "target": 10.400000000000002,
-      "entry": 10.675,
-      "ticker": "NMAX"
-    },
-    {
-      "entry": 10.675,
-      "current_price": 10.726,
-      "direction": "Bearish",
-      "score": 86.0,
-      "status": "CONFIRMED",
-      "setup": "Engulfing",
-      "risk_reward": 2.0,
       "ticker": "NMAX",
       "regime": "SHORT_TERM_WEAKNESS",
-      "stop": 10.8125,
-      "updated_at": "2026-08-29T20:50:28.871824",
-      "target": 10.400000000000002
-    },
-    {
-      "target": 10.400000000000002,
-      "updated_at": "2026-08-29T08:06:25.643936",
-      "setup": "Engulfing",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "direction": "Bearish",
-      "stop": 10.8125,
-      "risk_reward": 2.0,
-      "score": 80.0,
-      "current_price": 10.726,
       "status": "CONFIRMED",
       "entry": 10.675,
-      "ticker": "NMAX"
+      "risk_reward": 2.0,
+      "score": 86.0,
+      "current_price": 10.726,
+      "direction": "Bearish",
+      "setup": "Engulfing",
+      "stop": 10.8125,
+      "target": 10.400000000000002
     }
   ]
 }

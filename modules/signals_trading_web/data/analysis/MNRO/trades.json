@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T20:58:35.578685",
   "ticker": "MNRO",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 12.84,
@@ -16,20 +16,6 @@
       "stop": 12.674999999999999,
       "updated_at": "2026-08-30T01:58:58.275393",
       "target": 13.170000000000002
-    },
-    {
-      "target": 13.170000000000002,
-      "updated_at": "2026-08-29T15:58:47.671458",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "direction": "Bullish",
-      "stop": 12.674999999999999,
-      "risk_reward": 2.0,
-      "score": 62.0,
-      "current_price": 12.97,
-      "status": "CONFIRMED",
-      "entry": 12.84,
-      "ticker": "MNRO"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T21:25:40.837524",
   "ticker": "AAME",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 1.4399,
@@ -16,20 +16,6 @@
       "stop": 1.3521200000000002,
       "updated_at": "2026-08-30T02:26:01.539411",
       "target": 1.6154599999999995
-    },
-    {
-      "target": 1.6154599999999995,
-      "updated_at": "2026-08-29T10:32:46.984305",
-      "setup": "Inside Bar",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "direction": "Bullish",
-      "stop": 1.3521200000000002,
-      "risk_reward": 2.0,
-      "score": 53.0,
-      "current_price": 1.45,
-      "status": "CONFIRMED",
-      "entry": 1.4399,
-      "ticker": "AAME"
     }
   ]
 }

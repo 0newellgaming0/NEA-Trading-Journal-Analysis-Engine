@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T16:39:23.002344",
   "ticker": "NRXP",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 3.53,
@@ -16,20 +16,6 @@
       "stop": 3.574,
       "updated_at": "2026-08-29T21:39:45.560164",
       "target": 3.4419999999999997
-    },
-    {
-      "target": 3.4419999999999997,
-      "updated_at": "2026-08-29T07:01:12.935274",
-      "setup": "Harami",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "direction": "Bearish",
-      "stop": 3.574,
-      "risk_reward": 2.0,
-      "score": 78.0,
-      "current_price": 3.513,
-      "status": "CONFIRMED",
-      "entry": 3.53,
-      "ticker": "NRXP"
     }
   ]
 }

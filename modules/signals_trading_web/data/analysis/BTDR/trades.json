@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T19:20:55.217755",
   "ticker": "BTDR",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 10.25,
@@ -16,20 +16,6 @@
       "stop": 10.370999999999999,
       "updated_at": "2026-08-30T00:21:10.389989",
       "target": 10.008000000000003
-    },
-    {
-      "target": 10.008000000000003,
-      "updated_at": "2026-08-29T08:19:21.800330",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "BEARISH_CONSOLIDATION",
-      "direction": "Bearish",
-      "stop": 10.370999999999999,
-      "risk_reward": 2.0,
-      "score": 70.0,
-      "current_price": 10.32,
-      "status": "CONFIRMED",
-      "entry": 10.25,
-      "ticker": "BTDR"
     }
   ]
 }

@@ -1,49 +1,21 @@
 {
   "generated_at": "2026-08-30T03:19:55.187424",
   "ticker": "TRVG",
-  "count": 3,
+  "count": 1,
   "trades": [
     {
-      "score": 87.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T08:20:10.249202",
-      "stop": 5.7321,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "current_price": 6.115,
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "setup": "TLINE_CONTINUATION",
-      "target": 6.6857999999999995,
-      "entry": 6.05,
-      "ticker": "TRVG"
-    },
-    {
-      "entry": 6.05,
-      "current_price": 6.115,
-      "direction": "Bullish",
-      "score": 87.0,
-      "status": "CONFIRMED",
-      "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
       "ticker": "TRVG",
       "regime": "FULL_BULLISH_ALIGNMENT",
-      "stop": 5.7321,
-      "updated_at": "2026-08-29T19:39:50.462563",
-      "target": 6.6857999999999995
-    },
-    {
-      "target": 6.6857999999999995,
-      "updated_at": "2026-08-29T15:37:46.303931",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "direction": "Bullish",
-      "stop": 5.7321,
-      "risk_reward": 2.0,
-      "score": 86.0,
-      "current_price": 6.115,
       "status": "CONFIRMED",
       "entry": 6.05,
-      "ticker": "TRVG"
+      "risk_reward": 2.0,
+      "score": 87.0,
+      "current_price": 6.115,
+      "direction": "Bullish",
+      "setup": "TLINE_CONTINUATION",
+      "stop": 5.7321,
+      "target": 6.6857999999999995
     }
   ]
 }

@@ -1,49 +1,21 @@
 {
   "generated_at": "2026-08-30T03:18:06.903155",
   "ticker": "NCRA",
-  "count": 3,
+  "count": 1,
   "trades": [
     {
-      "score": 88.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T08:18:27.536904",
-      "stop": 2.1029999999999998,
-      "regime": "BEARISH_CONSOLIDATION",
-      "current_price": 2.6199,
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "setup": "TLINE_CRUNCH",
-      "target": 3.654000000000001,
-      "entry": 2.62,
-      "ticker": "NCRA"
-    },
-    {
-      "entry": 2.62,
-      "current_price": 2.6199,
-      "direction": "Bullish",
-      "score": 87.0,
-      "status": "CONFIRMED",
-      "setup": "TLINE_CRUNCH",
-      "risk_reward": 2.0,
       "ticker": "NCRA",
       "regime": "BEARISH_CONSOLIDATION",
-      "stop": 2.1029999999999998,
-      "updated_at": "2026-08-29T19:25:43.620781",
-      "target": 3.654000000000001
-    },
-    {
-      "target": 3.654000000000001,
-      "updated_at": "2026-08-29T15:24:14.975388",
-      "setup": "TLINE_CRUNCH",
-      "regime": "BEARISH_CONSOLIDATION",
-      "direction": "Bullish",
-      "stop": 2.1029999999999998,
-      "risk_reward": 2.0,
-      "score": 87.0,
-      "current_price": 2.6199,
       "status": "CONFIRMED",
       "entry": 2.62,
-      "ticker": "NCRA"
+      "risk_reward": 2.0,
+      "score": 88.0,
+      "current_price": 2.6199,
+      "direction": "Bullish",
+      "setup": "TLINE_CRUNCH",
+      "stop": 2.1029999999999998,
+      "target": 3.654000000000001
     }
   ]
 }

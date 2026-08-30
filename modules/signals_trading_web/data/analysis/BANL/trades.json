@@ -1,49 +1,21 @@
 {
   "generated_at": "2026-08-30T02:24:27.646504",
   "ticker": "BANL",
-  "count": 3,
+  "count": 1,
   "trades": [
     {
-      "score": 90.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T07:24:41.615732",
-      "stop": 16.156999999999996,
-      "regime": "BULLISH_CONSOLIDATION",
-      "current_price": 15.3,
-      "direction": "Bearish",
-      "risk_reward": 2.0,
-      "setup": "TLINE_CONTINUATION",
-      "target": 13.616000000000009,
-      "entry": 15.31,
-      "ticker": "BANL"
-    },
-    {
-      "entry": 15.31,
-      "current_price": 15.3,
-      "direction": "Bearish",
-      "score": 90.0,
-      "status": "CONFIRMED",
-      "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
       "ticker": "BANL",
       "regime": "BULLISH_CONSOLIDATION",
-      "stop": 16.156999999999996,
-      "updated_at": "2026-08-29T20:44:03.395123",
-      "target": 13.616000000000009
-    },
-    {
-      "target": 13.616000000000009,
-      "updated_at": "2026-08-29T14:51:12.894767",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "BULLISH_CONSOLIDATION",
-      "direction": "Bearish",
-      "stop": 16.156999999999996,
-      "risk_reward": 2.0,
-      "score": 81.0,
-      "current_price": 15.3,
       "status": "CONFIRMED",
       "entry": 15.31,
-      "ticker": "BANL"
+      "risk_reward": 2.0,
+      "score": 90.0,
+      "current_price": 15.3,
+      "direction": "Bearish",
+      "setup": "TLINE_CONTINUATION",
+      "stop": 16.156999999999996,
+      "target": 13.616000000000009
     }
   ]
 }

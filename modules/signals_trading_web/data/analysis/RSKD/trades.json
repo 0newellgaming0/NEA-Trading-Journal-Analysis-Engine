@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T19:29:21.766301",
   "ticker": "RSKD",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 6.3,
@@ -16,20 +16,6 @@
       "stop": 6.3549999999999995,
       "updated_at": "2026-08-30T00:29:36.697897",
       "target": 6.19
-    },
-    {
-      "target": 6.19,
-      "updated_at": "2026-08-29T05:10:48.385525",
-      "setup": "Pinbar",
-      "regime": "BULLISH_CONSOLIDATION",
-      "direction": "Bearish",
-      "stop": 6.3549999999999995,
-      "risk_reward": 2.0,
-      "score": 70.0,
-      "current_price": 6.3,
-      "status": "CONFIRMED",
-      "entry": 6.3,
-      "ticker": "RSKD"
     }
   ]
 }

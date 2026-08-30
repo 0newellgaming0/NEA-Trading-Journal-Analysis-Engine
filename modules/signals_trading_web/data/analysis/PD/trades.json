@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T16:48:05.624776",
   "ticker": "PD",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 13.7,
@@ -16,20 +16,6 @@
       "stop": 13.91,
       "updated_at": "2026-08-29T21:48:26.833449",
       "target": 13.279999999999998
-    },
-    {
-      "target": 13.279999999999998,
-      "updated_at": "2026-08-29T15:14:50.821781",
-      "setup": "DOJI",
-      "regime": "SHORT_TERM_STRENGTH",
-      "direction": "Bearish",
-      "stop": 13.91,
-      "risk_reward": 2.0,
-      "score": 78.0,
-      "current_price": 13.8083,
-      "status": "CONFIRMED",
-      "entry": 13.7,
-      "ticker": "PD"
     }
   ]
 }

@@ -1,35 +1,21 @@
 {
-  "generated_at": "2026-08-29T18:36:07.441547",
+  "generated_at": "2026-08-30T06:28:26.051305",
   "ticker": "AEG",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
-      "entry": 9.25,
-      "current_price": 9.3702,
-      "direction": "Bullish",
-      "score": 75.0,
-      "status": "CONFIRMED",
-      "setup": "Pinbar",
-      "risk_reward": 2.0,
+      "updated_at": "2026-08-30T11:28:41.436761",
       "ticker": "AEG",
       "regime": "PRIMARY_UPTREND_PULLBACK",
-      "stop": 9.12911,
-      "updated_at": "2026-08-29T23:36:22.918280",
-      "target": 9.491779999999999
-    },
-    {
-      "target": 9.491779999999999,
-      "updated_at": "2026-08-29T11:05:16.340072",
-      "setup": "Pinbar",
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "direction": "Bullish",
-      "stop": 9.12911,
-      "risk_reward": 2.0,
-      "score": 73.0,
-      "current_price": 9.3702,
       "status": "CONFIRMED",
       "entry": 9.25,
-      "ticker": "AEG"
+      "risk_reward": 2.0,
+      "score": 75.0,
+      "current_price": 9.3702,
+      "direction": "Bullish",
+      "setup": "Pinbar",
+      "stop": 9.12911,
+      "target": 9.491779999999999
     }
   ]
 }

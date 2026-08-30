@@ -1,49 +1,21 @@
 {
   "generated_at": "2026-08-30T02:06:35.994534",
   "ticker": "SAIL",
-  "count": 3,
+  "count": 1,
   "trades": [
     {
-      "score": 94.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T07:06:54.536066",
-      "stop": 20.77089,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "current_price": 19.8403,
-      "direction": "Bearish",
-      "risk_reward": 2.0,
-      "setup": "Inside Bar",
-      "target": 18.428219999999992,
-      "entry": 19.99,
-      "ticker": "SAIL"
-    },
-    {
-      "entry": 19.99,
-      "current_price": 19.8403,
-      "direction": "Bearish",
-      "score": 92.0,
-      "status": "CONFIRMED",
-      "setup": "Inside Bar",
-      "risk_reward": 2.0,
       "ticker": "SAIL",
       "regime": "SHORT_TERM_WEAKNESS",
-      "stop": 20.77089,
-      "updated_at": "2026-08-29T18:55:27.534043",
-      "target": 18.428219999999992
-    },
-    {
-      "target": 18.428219999999992,
-      "updated_at": "2026-08-29T07:54:51.918625",
-      "setup": "Inside Bar",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "direction": "Bearish",
-      "stop": 20.77089,
-      "risk_reward": 2.0,
-      "score": 92.0,
-      "current_price": 19.8403,
       "status": "CONFIRMED",
       "entry": 19.99,
-      "ticker": "SAIL"
+      "risk_reward": 2.0,
+      "score": 94.0,
+      "current_price": 19.8403,
+      "direction": "Bearish",
+      "setup": "Inside Bar",
+      "stop": 20.77089,
+      "target": 18.428219999999992
     }
   ]
 }

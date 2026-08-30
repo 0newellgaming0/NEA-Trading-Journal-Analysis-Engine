@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T14:38:14.895523",
   "ticker": "VEEE",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 9.83,
@@ -16,20 +16,6 @@
       "stop": 10.049999999999999,
       "updated_at": "2026-08-29T19:38:32.969801",
       "target": 9.390000000000002
-    },
-    {
-      "target": 9.390000000000002,
-      "updated_at": "2026-08-29T07:04:51.420330",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "direction": "Bearish",
-      "stop": 10.049999999999999,
-      "risk_reward": 2.0,
-      "score": 86.0,
-      "current_price": 9.84,
-      "status": "CONFIRMED",
-      "entry": 9.83,
-      "ticker": "VEEE"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T17:57:20.996093",
   "ticker": "LHSW",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 4.1597,
@@ -16,20 +16,6 @@
       "stop": 3.94003,
       "updated_at": "2026-08-29T22:57:34.492738",
       "target": 4.59904
-    },
-    {
-      "target": 4.59904,
-      "updated_at": "2026-08-29T15:54:57.825954",
-      "setup": "TLINE_CROSS",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "direction": "Bullish",
-      "stop": 3.94003,
-      "risk_reward": 2.0,
-      "score": 75.0,
-      "current_price": 4.1597,
-      "status": "CONFIRMED",
-      "entry": 4.1597,
-      "ticker": "LHSW"
     }
   ]
 }

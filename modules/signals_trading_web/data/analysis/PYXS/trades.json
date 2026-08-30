@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T18:55:35.303663",
   "ticker": "PYXS",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 3.2,
@@ -16,20 +16,6 @@
       "stop": 3.233,
       "updated_at": "2026-08-29T23:55:57.725666",
       "target": 3.1340000000000003
-    },
-    {
-      "target": 3.1340000000000003,
-      "updated_at": "2026-08-29T14:09:22.896091",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "BULLISH_CONSOLIDATION",
-      "direction": "Bearish",
-      "stop": 3.233,
-      "risk_reward": 2.0,
-      "score": 72.0,
-      "current_price": 3.2297,
-      "status": "CONFIRMED",
-      "entry": 3.2,
-      "ticker": "PYXS"
     }
   ]
 }

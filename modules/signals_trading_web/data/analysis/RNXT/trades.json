@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T17:25:28.422573",
   "ticker": "RNXT",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 1.5972,
@@ -16,20 +16,6 @@
       "stop": 1.46377,
       "updated_at": "2026-08-29T22:25:49.777053",
       "target": 1.8640599999999998
-    },
-    {
-      "target": 1.8640599999999998,
-      "updated_at": "2026-08-29T15:06:17.838988",
-      "setup": "Inside Bar",
-      "regime": "BULLISH_CONSOLIDATION",
-      "direction": "Bullish",
-      "stop": 1.46377,
-      "risk_reward": 2.0,
-      "score": 76.0,
-      "current_price": 1.6612,
-      "status": "CONFIRMED",
-      "entry": 1.5972,
-      "ticker": "RNXT"
     }
   ]
 }

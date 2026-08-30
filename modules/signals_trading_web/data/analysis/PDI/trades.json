@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 46.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T10:36:24.273228",
-      "stop": 15.5265,
+      "ticker": "PDI",
       "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "entry": 15.4,
+      "risk_reward": 2.0,
+      "score": 46.0,
       "current_price": 15.35,
       "direction": "Bearish",
-      "risk_reward": 2.0,
       "setup": "Marubozu",
-      "target": 15.147,
-      "entry": 15.4,
-      "ticker": "PDI"
+      "stop": 15.5265,
+      "target": 15.147
     }
   ]
 }

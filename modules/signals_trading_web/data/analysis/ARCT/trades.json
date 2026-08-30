@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T15:08:17.624212",
   "ticker": "ARCT",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 15.24,
@@ -16,20 +16,6 @@
       "stop": 14.855,
       "updated_at": "2026-08-29T20:08:39.452873",
       "target": 16.009999999999998
-    },
-    {
-      "target": 16.009999999999998,
-      "updated_at": "2026-08-29T07:37:00.325277",
-      "setup": "Pinbar",
-      "regime": "BULLISH_CONSOLIDATION",
-      "direction": "Bullish",
-      "stop": 14.855,
-      "risk_reward": 2.0,
-      "score": 83.0,
-      "current_price": 15.1,
-      "status": "CONFIRMED",
-      "entry": 15.24,
-      "ticker": "ARCT"
     }
   ]
 }

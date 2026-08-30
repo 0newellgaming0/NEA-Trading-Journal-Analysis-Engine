@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T18:19:43.586641",
   "ticker": "SMPL",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 10.835,
@@ -16,20 +16,6 @@
       "stop": 10.7085,
       "updated_at": "2026-08-29T23:20:04.123228",
       "target": 11.088000000000001
-    },
-    {
-      "target": 11.088000000000001,
-      "updated_at": "2026-08-29T15:32:18.493011",
-      "setup": "Marubozu",
-      "regime": "BEARISH_CONSOLIDATION",
-      "direction": "Bullish",
-      "stop": 10.7085,
-      "risk_reward": 2.0,
-      "score": 74.0,
-      "current_price": 10.8999,
-      "status": "CONFIRMED",
-      "entry": 10.835,
-      "ticker": "SMPL"
     }
   ]
 }

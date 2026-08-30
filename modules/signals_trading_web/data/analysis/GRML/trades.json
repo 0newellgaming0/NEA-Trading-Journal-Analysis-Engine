@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 57.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T09:47:49.362778",
-      "stop": 5.31178,
+      "ticker": "GRML",
       "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "entry": 4.9512,
+      "risk_reward": 2.0,
+      "score": 57.0,
       "current_price": 4.92,
       "direction": "Bearish",
-      "risk_reward": 2.0,
       "setup": "TLINE_CONTINUATION",
-      "target": 4.230040000000001,
-      "entry": 4.9512,
-      "ticker": "GRML"
+      "stop": 5.31178,
+      "target": 4.230040000000001
     }
   ]
 }

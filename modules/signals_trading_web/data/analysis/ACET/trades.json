@@ -1,49 +1,21 @@
 {
-  "generated_at": "2026-08-30T02:08:34.893749",
+  "generated_at": "2026-08-30T06:16:11.923948",
   "ticker": "ACET",
-  "count": 3,
+  "count": 1,
   "trades": [
     {
-      "score": 90.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T07:08:57.227066",
-      "stop": 8.994,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "current_price": 9.06,
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "setup": "TLINE_CONTINUATION",
-      "target": 9.192000000000002,
-      "entry": 9.06,
-      "ticker": "ACET"
-    },
-    {
-      "entry": 9.06,
-      "current_price": 9.06,
-      "direction": "Bullish",
-      "score": 92.0,
-      "status": "CONFIRMED",
-      "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
+      "updated_at": "2026-08-30T11:16:34.057720",
       "ticker": "ACET",
       "regime": "PRIMARY_DOWNTREND_RALLY",
-      "stop": 8.994,
-      "updated_at": "2026-08-29T18:57:21.352073",
-      "target": 9.192000000000002
-    },
-    {
-      "target": 9.192000000000002,
-      "updated_at": "2026-08-29T10:45:32.141795",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "direction": "Bullish",
-      "stop": 8.994,
-      "risk_reward": 2.0,
-      "score": 92.0,
-      "current_price": 9.06,
       "status": "CONFIRMED",
       "entry": 9.06,
-      "ticker": "ACET"
+      "risk_reward": 2.0,
+      "score": 90.0,
+      "current_price": 9.06,
+      "direction": "Bullish",
+      "setup": "TLINE_CONTINUATION",
+      "stop": 8.994,
+      "target": 9.192000000000002
     }
   ]
 }

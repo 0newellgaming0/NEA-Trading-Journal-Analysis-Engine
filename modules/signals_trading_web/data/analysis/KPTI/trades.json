@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 71.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T10:03:25.857507",
-      "stop": 1.892,
+      "ticker": "KPTI",
       "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "entry": 1.87,
+      "risk_reward": 2.0,
+      "score": 71.0,
       "current_price": 1.87,
       "direction": "Bearish",
-      "risk_reward": 2.0,
       "setup": "TLINE_CONTINUATION",
-      "target": 1.8260000000000005,
-      "entry": 1.87,
-      "ticker": "KPTI"
+      "stop": 1.892,
+      "target": 1.8260000000000005
     }
   ]
 }

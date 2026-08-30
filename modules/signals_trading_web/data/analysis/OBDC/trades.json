@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T20:05:13.544564",
   "ticker": "OBDC",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 11.285,
@@ -16,20 +16,6 @@
       "stop": 11.2465,
       "updated_at": "2026-08-30T01:05:46.709239",
       "target": 11.362000000000002
-    },
-    {
-      "target": 11.362000000000002,
-      "updated_at": "2026-08-29T14:05:54.777493",
-      "setup": "Pinbar",
-      "regime": "SHORT_TERM_STRENGTH",
-      "direction": "Bullish",
-      "stop": 11.2465,
-      "risk_reward": 2.0,
-      "score": 68.0,
-      "current_price": 11.3718,
-      "status": "CONFIRMED",
-      "entry": 11.285,
-      "ticker": "OBDC"
     }
   ]
 }

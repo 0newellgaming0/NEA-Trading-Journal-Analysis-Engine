@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T17:51:29.800634",
   "ticker": "FIGS",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 15.125,
@@ -16,20 +16,6 @@
       "stop": 14.9325,
       "updated_at": "2026-08-29T22:51:51.192993",
       "target": 15.510000000000002
-    },
-    {
-      "target": 15.510000000000002,
-      "updated_at": "2026-08-29T13:43:31.902247",
-      "setup": "Pinbar",
-      "regime": "BULLISH_CONSOLIDATION",
-      "direction": "Bullish",
-      "stop": 14.9325,
-      "risk_reward": 2.0,
-      "score": 75.0,
-      "current_price": 15.62,
-      "status": "CONFIRMED",
-      "entry": 15.125,
-      "ticker": "FIGS"
     }
   ]
 }

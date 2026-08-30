@@ -1,49 +1,21 @@
 {
   "generated_at": "2026-08-30T03:03:18.977032",
   "ticker": "FNKO",
-  "count": 4,
+  "count": 2,
   "trades": [
     {
-      "score": 90.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T08:03:40.166998",
-      "stop": 7.0335,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "current_price": 7.22,
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "setup": "Inside Bar",
-      "target": 7.577999999999999,
-      "entry": 7.215,
-      "ticker": "FNKO"
-    },
-    {
-      "entry": 7.215,
-      "current_price": 7.22,
-      "direction": "Bullish",
-      "score": 87.0,
-      "status": "CONFIRMED",
-      "setup": "Inside Bar",
-      "risk_reward": 2.0,
       "ticker": "FNKO",
       "regime": "FULL_BULLISH_ALIGNMENT",
-      "stop": 7.0335,
-      "updated_at": "2026-08-29T19:19:25.006919",
-      "target": 7.577999999999999
-    },
-    {
-      "target": 7.577999999999999,
-      "updated_at": "2026-08-29T12:47:26.163075",
-      "setup": "Inside Bar",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "direction": "Bullish",
-      "stop": 7.0335,
-      "risk_reward": 2.0,
-      "score": 87.0,
-      "current_price": 7.22,
       "status": "CONFIRMED",
       "entry": 7.215,
-      "ticker": "FNKO"
+      "risk_reward": 2.0,
+      "score": 90.0,
+      "current_price": 7.22,
+      "direction": "Bullish",
+      "setup": "Inside Bar",
+      "stop": 7.0335,
+      "target": 7.577999999999999
     },
     {
       "risk_reward": 2.0,

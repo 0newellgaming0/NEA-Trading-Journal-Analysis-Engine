@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T18:38:03.579511",
   "ticker": "MAT",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 14.92,
@@ -16,20 +16,6 @@
       "stop": 15.283,
       "updated_at": "2026-08-29T23:38:25.993124",
       "target": 14.194
-    },
-    {
-      "target": 14.194,
-      "updated_at": "2026-08-29T06:19:49.739501",
-      "setup": "Pinbar",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "direction": "Bearish",
-      "stop": 15.283,
-      "risk_reward": 2.0,
-      "score": 73.0,
-      "current_price": 15.14,
-      "status": "CONFIRMED",
-      "entry": 14.92,
-      "ticker": "MAT"
     }
   ]
 }

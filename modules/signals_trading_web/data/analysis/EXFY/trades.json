@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T18:32:04.102265",
   "ticker": "EXFY",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 2.59,
@@ -16,20 +16,6 @@
       "stop": 2.535,
       "updated_at": "2026-08-29T23:32:24.965555",
       "target": 2.6999999999999993
-    },
-    {
-      "target": 2.6999999999999993,
-      "updated_at": "2026-08-29T13:41:45.164544",
-      "setup": "Pinbar",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "direction": "Bullish",
-      "stop": 2.535,
-      "risk_reward": 2.0,
-      "score": 73.0,
-      "current_price": 2.56,
-      "status": "CONFIRMED",
-      "entry": 2.59,
-      "ticker": "EXFY"
     }
   ]
 }

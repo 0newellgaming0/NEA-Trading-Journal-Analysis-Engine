@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T15:54:07.133112",
   "ticker": "POWW",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 2.175,
@@ -16,20 +16,6 @@
       "stop": 2.208,
       "updated_at": "2026-08-29T20:54:30.755408",
       "target": 2.108999999999999
-    },
-    {
-      "target": 2.108999999999999,
-      "updated_at": "2026-08-29T08:50:20.187774",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "direction": "Bearish",
-      "stop": 2.208,
-      "risk_reward": 2.0,
-      "score": 80.0,
-      "current_price": 2.18,
-      "status": "CONFIRMED",
-      "entry": 2.175,
-      "ticker": "POWW"
     }
   ]
 }

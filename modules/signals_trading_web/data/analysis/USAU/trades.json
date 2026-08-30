@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T15:36:01.274136",
   "ticker": "USAU",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 15.93,
@@ -16,20 +16,6 @@
       "stop": 15.831,
       "updated_at": "2026-08-29T20:36:21.727123",
       "target": 16.128
-    },
-    {
-      "target": 16.128,
-      "updated_at": "2026-08-29T09:11:04.563263",
-      "setup": "Marubozu",
-      "regime": "SHORT_TERM_STRENGTH",
-      "direction": "Bullish",
-      "stop": 15.831,
-      "risk_reward": 2.0,
-      "score": 81.0,
-      "current_price": 16.1556,
-      "status": "CONFIRMED",
-      "entry": 15.93,
-      "ticker": "USAU"
     }
   ]
 }

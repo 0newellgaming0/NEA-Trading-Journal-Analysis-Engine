@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T16:58:13.049068",
   "ticker": "RADX",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 2.3,
@@ -16,20 +16,6 @@
       "stop": 2.4539999999999997,
       "updated_at": "2026-08-29T21:58:25.817825",
       "target": 1.992
-    },
-    {
-      "target": 1.992,
-      "updated_at": "2026-08-29T15:43:04.399470",
-      "setup": "Engulfing",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "direction": "Bearish",
-      "stop": 2.4539999999999997,
-      "risk_reward": 2.0,
-      "score": 77.0,
-      "current_price": 2.3238,
-      "status": "CONFIRMED",
-      "entry": 2.3,
-      "ticker": "RADX"
     }
   ]
 }

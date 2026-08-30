@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T18:48:48.910124",
   "ticker": "ZNTL",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 3.7,
@@ -16,20 +16,6 @@
       "stop": 3.832,
       "updated_at": "2026-08-29T23:49:08.211441",
       "target": 3.436000000000001
-    },
-    {
-      "target": 3.436000000000001,
-      "updated_at": "2026-08-29T05:39:43.791358",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "SHORT_TERM_STRENGTH",
-      "direction": "Bearish",
-      "stop": 3.832,
-      "risk_reward": 2.0,
-      "score": 72.0,
-      "current_price": 3.8,
-      "status": "CONFIRMED",
-      "entry": 3.7,
-      "ticker": "ZNTL"
     }
   ]
 }

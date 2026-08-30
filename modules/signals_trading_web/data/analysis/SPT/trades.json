@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T16:06:57.099352",
   "ticker": "SPT",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 11.47,
@@ -16,20 +16,6 @@
       "stop": 11.5855,
       "updated_at": "2026-08-29T21:07:17.518685",
       "target": 11.239000000000003
-    },
-    {
-      "target": 11.239000000000003,
-      "updated_at": "2026-08-29T12:41:20.992040",
-      "setup": "Harami",
-      "regime": "SHORT_TERM_STRENGTH",
-      "direction": "Bearish",
-      "stop": 11.5855,
-      "risk_reward": 2.0,
-      "score": 80.0,
-      "current_price": 11.44,
-      "status": "CONFIRMED",
-      "entry": 11.47,
-      "ticker": "SPT"
     }
   ]
 }

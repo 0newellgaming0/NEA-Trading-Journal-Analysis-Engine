@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T17:38:39.931046",
   "ticker": "IMRX",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 5.08,
@@ -16,20 +16,6 @@
       "stop": 5.19913,
       "updated_at": "2026-08-29T22:39:00.101144",
       "target": 4.84174
-    },
-    {
-      "target": 4.84174,
-      "updated_at": "2026-08-29T14:26:47.183743",
-      "setup": "Pinbar",
-      "regime": "SHORT_TERM_STRENGTH",
-      "direction": "Bearish",
-      "stop": 5.19913,
-      "risk_reward": 2.0,
-      "score": 75.0,
-      "current_price": 5.1,
-      "status": "CONFIRMED",
-      "entry": 5.08,
-      "ticker": "IMRX"
     }
   ]
 }

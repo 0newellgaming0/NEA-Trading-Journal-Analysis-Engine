@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-30T02:00:21.303074",
   "ticker": "LVLU",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 14.15,
@@ -16,20 +16,6 @@
       "stop": 14.1500000001,
       "updated_at": "2026-08-29T18:49:40.716106",
       "target": 14.149999999
-    },
-    {
-      "target": 14.149999999,
-      "updated_at": "2026-08-29T15:30:26.516603",
-      "setup": "AC_ZERO_CROSS_SELL",
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "direction": "Bearish",
-      "stop": 14.1500000001,
-      "risk_reward": 10.0,
-      "score": 97.0,
-      "current_price": 14.15,
-      "status": "CONFIRMED",
-      "entry": 14.15,
-      "ticker": "LVLU"
     }
   ]
 }

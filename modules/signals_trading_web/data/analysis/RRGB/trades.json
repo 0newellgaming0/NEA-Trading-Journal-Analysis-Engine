@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T16:17:41.108972",
   "ticker": "RRGB",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 9.54,
@@ -16,20 +16,6 @@
       "stop": 9.276000000000002,
       "updated_at": "2026-08-29T21:18:00.636558",
       "target": 10.067999999999994
-    },
-    {
-      "target": 10.067999999999994,
-      "updated_at": "2026-08-29T05:05:38.690721",
-      "setup": "Morning Star",
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "direction": "Bullish",
-      "stop": 9.276000000000002,
-      "risk_reward": 2.0,
-      "score": 79.0,
-      "current_price": 9.31,
-      "status": "CONFIRMED",
-      "entry": 9.54,
-      "ticker": "RRGB"
     }
   ]
 }

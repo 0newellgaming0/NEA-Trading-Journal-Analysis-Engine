@@ -1,35 +1,21 @@
 {
-  "generated_at": "2026-08-29T20:48:27.143685",
+  "generated_at": "2026-08-30T06:25:53.965140",
   "ticker": "ADT",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
-      "entry": 7.47,
-      "current_price": 7.51,
-      "direction": "Bullish",
-      "score": 69.0,
-      "status": "CONFIRMED",
-      "setup": "Engulfing",
-      "risk_reward": 2.0,
+      "updated_at": "2026-08-30T11:26:16.321538",
       "ticker": "ADT",
       "regime": "BULLISH_CONSOLIDATION",
-      "stop": 7.4205,
-      "updated_at": "2026-08-30T01:48:48.300797",
-      "target": 7.569
-    },
-    {
-      "target": 7.569,
-      "updated_at": "2026-08-29T11:02:18.498110",
-      "setup": "Engulfing",
-      "regime": "BULLISH_CONSOLIDATION",
-      "direction": "Bullish",
-      "stop": 7.4205,
-      "risk_reward": 2.0,
-      "score": 63.0,
-      "current_price": 7.51,
       "status": "CONFIRMED",
       "entry": 7.47,
-      "ticker": "ADT"
+      "risk_reward": 2.0,
+      "score": 69.0,
+      "current_price": 7.51,
+      "direction": "Bullish",
+      "setup": "Engulfing",
+      "stop": 7.4205,
+      "target": 7.569
     }
   ]
 }

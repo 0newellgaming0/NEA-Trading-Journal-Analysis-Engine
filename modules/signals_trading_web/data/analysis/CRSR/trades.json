@@ -1,63 +1,21 @@
 {
   "generated_at": "2026-08-30T02:37:41.266183",
   "ticker": "CRSR",
-  "count": 4,
+  "count": 1,
   "trades": [
     {
-      "score": 89.0,
-      "status": "CONFIRMED",
       "updated_at": "2026-08-30T07:38:05.352786",
-      "stop": 11.70504,
+      "ticker": "CRSR",
       "regime": "FULL_BULLISH_ALIGNMENT",
-      "current_price": 12.11,
-      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "entry": 12.0896,
       "risk_reward": 2.0,
-      "setup": "Inside Bar",
-      "target": 12.858720000000002,
-      "entry": 12.0896,
-      "ticker": "CRSR"
-    },
-    {
-      "entry": 12.0896,
-      "current_price": 12.11,
-      "direction": "Bullish",
       "score": 89.0,
-      "status": "CONFIRMED",
+      "current_price": 12.11,
+      "direction": "Bullish",
       "setup": "Inside Bar",
-      "risk_reward": 2.0,
-      "ticker": "CRSR",
-      "regime": "FULL_BULLISH_ALIGNMENT",
       "stop": 11.70504,
-      "updated_at": "2026-08-29T19:58:58.925168",
       "target": 12.858720000000002
-    },
-    {
-      "target": 12.858720000000002,
-      "updated_at": "2026-08-29T13:40:14.354167",
-      "setup": "Inside Bar",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "direction": "Bullish",
-      "stop": 11.70504,
-      "risk_reward": 2.0,
-      "score": 84.0,
-      "current_price": 12.11,
-      "status": "CONFIRMED",
-      "entry": 12.0896,
-      "ticker": "CRSR"
-    },
-    {
-      "risk_reward": 2.0,
-      "entry": 12.0896,
-      "current_price": 12.11,
-      "updated_at": "2026-08-29T07:42:14.965088",
-      "setup": "Inside Bar",
-      "status": "CONFIRMED",
-      "score": 84.0,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "target": 12.858720000000002,
-      "direction": "Bullish",
-      "ticker": "CRSR",
-      "stop": 11.70504
     }
   ]
 }

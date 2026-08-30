@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T20:02:26.321177",
   "ticker": "UAVS",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 1.08,
@@ -16,20 +16,6 @@
       "stop": 1.069,
       "updated_at": "2026-08-30T01:02:51.688594",
       "target": 1.1020000000000003
-    },
-    {
-      "target": 1.1020000000000003,
-      "updated_at": "2026-08-29T13:48:55.666893",
-      "setup": "Engulfing",
-      "regime": "SHORT_TERM_STRENGTH",
-      "direction": "Bullish",
-      "stop": 1.069,
-      "risk_reward": 2.0,
-      "score": 68.0,
-      "current_price": 1.0885,
-      "status": "CONFIRMED",
-      "entry": 1.08,
-      "ticker": "UAVS"
     }
   ]
 }

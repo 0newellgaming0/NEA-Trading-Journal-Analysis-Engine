@@ -1,7 +1,7 @@
 {
   "generated_at": "2026-08-29T17:23:34.932471",
   "ticker": "QUAD",
-  "count": 2,
+  "count": 1,
   "trades": [
     {
       "entry": 10.09,
@@ -16,20 +16,6 @@
       "stop": 10.100999999999999,
       "updated_at": "2026-08-29T22:23:59.261141",
       "target": 10.068000000000001
-    },
-    {
-      "target": 10.068000000000001,
-      "updated_at": "2026-08-29T05:37:48.633397",
-      "setup": "TLINE_CONTINUATION",
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "direction": "Bearish",
-      "stop": 10.100999999999999,
-      "risk_reward": 2.0,
-      "score": 76.0,
-      "current_price": 10.1,
-      "status": "CONFIRMED",
-      "entry": 10.09,
-      "ticker": "QUAD"
     }
   ]
 }
