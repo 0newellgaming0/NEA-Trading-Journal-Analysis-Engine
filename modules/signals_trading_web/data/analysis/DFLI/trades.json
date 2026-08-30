@@ -5,17 +5,17 @@
   "trades": [
     {
       "setup": "Inside Bar",
-      "target": 1.14368,
-      "direction": "Bullish",
-      "stop": 1.0780100000000001,
-      "updated_at": "2026-08-30T09:24:24.666946",
-      "entry": 1.0999,
-      "ticker": "DFLI",
       "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
+      "score": 39.0,
+      "updated_at": "2026-08-30T09:24:24.666946",
+      "stop": 1.0780100000000001,
+      "direction": "Bullish",
       "status": "CONFIRMED",
+      "entry": 1.0999,
+      "ticker": "DFLI",
       "current_price": 1.11,
-      "score": 39.0
+      "target": 1.14368
     }
   ]
 }

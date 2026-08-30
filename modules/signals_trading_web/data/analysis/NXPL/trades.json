@@ -5,17 +5,17 @@
   "trades": [
     {
       "setup": "RED_ZONE_SELL",
-      "target": 9.259999999,
-      "direction": "Bearish",
-      "stop": 9.2600000001,
-      "updated_at": "2026-08-30T07:03:00.881752",
-      "entry": 9.26,
-      "ticker": "NXPL",
       "risk_reward": 10.0,
       "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 91.0,
+      "updated_at": "2026-08-30T07:03:00.881752",
+      "stop": 9.2600000001,
+      "direction": "Bearish",
       "status": "CONFIRMED",
+      "entry": 9.26,
+      "ticker": "NXPL",
       "current_price": 9.26,
-      "score": 91.0
+      "target": 9.259999999
     }
   ]
 }

@@ -5,17 +5,17 @@
   "trades": [
     {
       "setup": "Marubozu",
-      "target": 16.748,
-      "direction": "Bullish",
-      "stop": 16.286,
-      "updated_at": "2026-08-30T08:55:50.876794",
-      "entry": 16.44,
-      "ticker": "ASIX",
       "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
+      "score": 48.0,
+      "updated_at": "2026-08-30T08:55:50.876794",
+      "stop": 16.286,
+      "direction": "Bullish",
       "status": "CONFIRMED",
+      "entry": 16.44,
+      "ticker": "ASIX",
       "current_price": 16.49,
-      "score": 48.0
+      "target": 16.748
     }
   ]
 }

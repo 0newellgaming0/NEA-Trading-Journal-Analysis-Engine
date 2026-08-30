@@ -5,17 +5,17 @@
   "trades": [
     {
       "setup": "Evening Star",
-      "target": 18.2,
-      "direction": "Bearish",
-      "stop": 18.365,
-      "updated_at": "2026-08-30T09:43:27.823866",
-      "entry": 18.31,
-      "ticker": "GME",
       "risk_reward": 2.0,
       "regime": "FULL_BEARISH_ALIGNMENT",
+      "score": 49.0,
+      "updated_at": "2026-08-30T09:43:27.823866",
+      "stop": 18.365,
+      "direction": "Bearish",
       "status": "CONFIRMED",
+      "entry": 18.31,
+      "ticker": "GME",
       "current_price": 17.93,
-      "score": 49.0
+      "target": 18.2
     }
   ]
 }

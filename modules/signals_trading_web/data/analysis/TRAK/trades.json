@@ -5,17 +5,17 @@
   "trades": [
     {
       "setup": "TLINE_CONTINUATION",
-      "target": 8.238000000000001,
-      "direction": "Bullish",
-      "stop": 8.106,
-      "updated_at": "2026-08-30T11:34:25.126976",
-      "entry": 8.15,
-      "ticker": "TRAK",
       "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
+      "score": 98.0,
+      "updated_at": "2026-08-30T11:34:25.126976",
+      "stop": 8.106,
+      "direction": "Bullish",
       "status": "CONFIRMED",
+      "entry": 8.15,
+      "ticker": "TRAK",
       "current_price": 8.21,
-      "score": 98.0
+      "target": 8.238000000000001
     }
   ]
 }

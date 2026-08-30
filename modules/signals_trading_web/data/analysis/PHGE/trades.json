@@ -5,17 +5,17 @@
   "trades": [
     {
       "setup": "Marubozu",
-      "target": 0.13704000000000005,
-      "direction": "Bullish",
-      "stop": 0.12647999999999998,
-      "updated_at": "2026-08-30T10:38:55.275322",
-      "entry": 0.13,
-      "ticker": "PHGE",
       "risk_reward": 2.0,
       "regime": "FULL_BEARISH_ALIGNMENT",
+      "score": 75.0,
+      "updated_at": "2026-08-30T10:38:55.275322",
+      "stop": 0.12647999999999998,
+      "direction": "Bullish",
       "status": "CONFIRMED",
+      "entry": 0.13,
+      "ticker": "PHGE",
       "current_price": 0.1274,
-      "score": 75.0
+      "target": 0.13704000000000005
     }
   ]
 }

@@ -5,17 +5,17 @@
   "trades": [
     {
       "setup": "TLINE_CONTINUATION",
-      "target": 5.060219999999998,
-      "direction": "Bullish",
-      "stop": 5.05989,
-      "updated_at": "2026-08-30T11:54:10.374483",
-      "entry": 5.06,
-      "ticker": "ABR",
       "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
+      "score": 48.0,
+      "updated_at": "2026-08-30T11:54:10.374483",
+      "stop": 5.05989,
+      "direction": "Bullish",
       "status": "CONFIRMED",
+      "entry": 5.06,
+      "ticker": "ABR",
       "current_price": 5.06,
-      "score": 48.0
+      "target": 5.060219999999998
     }
   ]
 }

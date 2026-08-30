@@ -5,17 +5,17 @@
   "trades": [
     {
       "setup": "Evening Star",
-      "target": 6.216000000000001,
-      "direction": "Bearish",
-      "stop": 8.757,
-      "updated_at": "2026-08-30T11:57:16.719008",
-      "entry": 7.91,
-      "ticker": "ABTC",
       "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
+      "score": 55.0,
+      "updated_at": "2026-08-30T11:57:16.719008",
+      "stop": 8.757,
+      "direction": "Bearish",
       "status": "CONFIRMED",
+      "entry": 7.91,
+      "ticker": "ABTC",
       "current_price": 7.82,
-      "score": 55.0
+      "target": 6.216000000000001
     }
   ]
 }
