@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T01:51:55.337390",
+  "generated_at": "2026-08-29T18:41:28.460483",
   "ticker": "AZ",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 6.365,
+      "current_price": 6.35,
+      "direction": "Bearish",
+      "score": 70.0,
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "risk_reward": 2.0,
+      "ticker": "AZ",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 6.447500000000001,
+      "updated_at": "2026-08-29T23:41:43.302694",
+      "target": 6.199999999999999
+    },
     {
       "target": 6.199999999999999,
       "updated_at": "2026-08-29T06:52:08.509831",

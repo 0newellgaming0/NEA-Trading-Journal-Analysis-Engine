@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T10:13:00.405896",
+  "generated_at": "2026-08-29T13:58:26.135387",
   "ticker": "GSIW",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 16.555,
+      "current_price": 16.16,
+      "direction": "Bullish",
+      "score": 91.0,
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION",
+      "risk_reward": 2.0,
+      "ticker": "GSIW",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "stop": 14.624500000000001,
+      "updated_at": "2026-08-29T18:58:39.489176",
+      "target": 20.415999999999997
+    },
     {
       "target": 20.415999999999997,
       "updated_at": "2026-08-29T15:13:13.803146",

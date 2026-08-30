@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T08:13:07.641302",
+  "generated_at": "2026-08-29T19:17:50.622426",
   "ticker": "NEXM",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 2.41,
+      "current_price": 2.43,
+      "direction": "Bearish",
+      "score": 71.0,
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION",
+      "risk_reward": 2.0,
+      "ticker": "NEXM",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "stop": 2.443,
+      "updated_at": "2026-08-30T00:18:10.643540",
+      "target": 2.3440000000000003
+    },
     {
       "target": 2.3440000000000003,
       "updated_at": "2026-08-29T13:13:31.698821",

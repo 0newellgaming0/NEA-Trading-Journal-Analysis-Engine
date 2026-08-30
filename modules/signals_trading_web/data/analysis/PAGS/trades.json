@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T01:36:30.925184",
+  "generated_at": "2026-08-29T16:33:34.285544",
   "ticker": "PAGS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 8.93,
+      "current_price": 8.92,
+      "direction": "Bearish",
+      "score": 80.0,
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "risk_reward": 2.0,
+      "ticker": "PAGS",
+      "regime": "BEARISH_CONSOLIDATION",
+      "stop": 9.0235,
+      "updated_at": "2026-08-29T21:33:49.479293",
+      "target": 8.742999999999999
+    },
     {
       "target": 8.742999999999999,
       "updated_at": "2026-08-29T06:36:44.436303",

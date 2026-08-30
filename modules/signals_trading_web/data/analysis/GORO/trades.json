@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T08:52:12.632482",
+  "generated_at": "2026-08-29T15:42:07.463710",
   "ticker": "GORO",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 3.61,
+      "current_price": 3.56,
+      "direction": "Bearish",
+      "score": 81.0,
+      "status": "CONFIRMED",
+      "setup": "Shooting Star",
+      "risk_reward": 2.0,
+      "ticker": "GORO",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 3.6870000000000003,
+      "updated_at": "2026-08-29T20:42:28.995786",
+      "target": 3.455999999999999
+    },
     {
       "target": 3.455999999999999,
       "updated_at": "2026-08-29T13:52:33.168117",

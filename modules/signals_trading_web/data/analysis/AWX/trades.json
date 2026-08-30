@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T01:58:58.247362",
+  "generated_at": "2026-08-29T15:16:38.369170",
   "ticker": "AWX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 2.67,
+      "current_price": 2.6718,
+      "direction": "Bearish",
+      "score": 82.0,
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION",
+      "risk_reward": 2.0,
+      "ticker": "AWX",
+      "regime": "BULLISH_CONSOLIDATION",
+      "stop": 2.692,
+      "updated_at": "2026-08-29T20:17:01.550556",
+      "target": 2.6259999999999994
+    },
     {
       "target": 2.6259999999999994,
       "updated_at": "2026-08-29T06:59:19.441986",

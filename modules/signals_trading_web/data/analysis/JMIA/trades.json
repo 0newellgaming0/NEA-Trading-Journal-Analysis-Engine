@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T13:10:57.577068",
+  "generated_at": "2026-08-29T18:33:56.853075",
   "ticker": "JMIA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 7.0,
+      "current_price": 6.92,
+      "direction": "Bullish",
+      "score": 78.0,
+      "status": "CONFIRMED",
+      "setup": "Harami",
+      "risk_reward": 2.0,
+      "ticker": "JMIA",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 6.8625,
+      "updated_at": "2026-08-29T23:34:11.589699",
+      "target": 7.275
+    },
     {
       "target": 7.275,
       "updated_at": "2026-08-29T18:11:12.346759",

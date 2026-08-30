@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T01:28:03.326064",
+  "generated_at": "2026-08-29T15:48:25.660935",
   "ticker": "FIRY",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 9.9015,
+      "current_price": 9.84,
+      "direction": "Bearish",
+      "score": 76.0,
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "risk_reward": 2.0,
+      "ticker": "FIRY",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "stop": 9.99632,
+      "updated_at": "2026-08-29T20:48:43.304113",
+      "target": 9.71186
+    },
     {
       "target": 9.054,
       "updated_at": "2026-08-29T06:28:20.188950",

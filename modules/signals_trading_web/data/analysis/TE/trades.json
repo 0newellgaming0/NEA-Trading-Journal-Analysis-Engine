@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T00:43:08.990343",
+  "generated_at": "2026-08-29T17:41:26.587251",
   "ticker": "TE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 4.95,
+      "current_price": 4.7977,
+      "direction": "Bearish",
+      "score": 81.0,
+      "status": "CONFIRMED",
+      "setup": "Three Inside Down",
+      "risk_reward": 2.0,
+      "ticker": "TE",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 5.092890000000001,
+      "updated_at": "2026-08-29T22:41:44.782711",
+      "target": 4.664219999999999
+    },
     {
       "target": 4.182639999999999,
       "updated_at": "2026-08-29T05:43:26.993213",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T00:33:23.360986",
+  "generated_at": "2026-08-29T18:22:07.231863",
   "ticker": "XP",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 17.419,
+      "current_price": 17.66,
+      "direction": "Bullish",
+      "score": 80.0,
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "risk_reward": 2.0,
+      "ticker": "XP",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "stop": 17.222099999999998,
+      "updated_at": "2026-08-29T23:22:22.413761",
+      "target": 17.812800000000006
+    },
     {
       "target": 17.812800000000006,
       "updated_at": "2026-08-29T05:33:36.728709",

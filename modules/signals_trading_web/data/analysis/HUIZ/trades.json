@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T03:14:34.596128",
+  "generated_at": "2026-08-29T16:04:27.776865",
   "ticker": "HUIZ",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 1.65,
+      "current_price": 1.64,
+      "direction": "Bearish",
+      "score": 78.0,
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "risk_reward": 2.0,
+      "ticker": "HUIZ",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 1.6829999999999998,
+      "updated_at": "2026-08-29T21:04:42.641967",
+      "target": 1.584
+    },
     {
       "target": 1.584,
       "updated_at": "2026-08-29T08:14:47.626226",

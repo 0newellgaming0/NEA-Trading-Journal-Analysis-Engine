@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T10:36:12.107716",
+  "generated_at": "2026-08-29T17:05:58.445380",
   "ticker": "COPR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 3.38,
+      "current_price": 3.38,
+      "direction": "Bullish",
+      "score": 77.0,
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION",
+      "risk_reward": 2.0,
+      "ticker": "COPR",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "stop": 3.204,
+      "updated_at": "2026-08-29T22:06:17.302764",
+      "target": 3.7319999999999993
+    },
     {
       "target": 3.7319999999999993,
       "updated_at": "2026-08-29T15:36:29.760148",

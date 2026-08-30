@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T03:03:06.301218",
+  "generated_at": "2026-08-29T17:36:14.099934",
   "ticker": "TNON",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 4.95,
+      "current_price": 5.0,
+      "direction": "Bearish",
+      "score": 76.0,
+      "status": "CONFIRMED",
+      "setup": "Three Black Crows",
+      "risk_reward": 2.0,
+      "ticker": "TNON",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "stop": 5.302,
+      "updated_at": "2026-08-29T22:36:31.628932",
+      "target": 4.246000000000001
+    },
     {
       "target": 4.246000000000001,
       "updated_at": "2026-08-29T08:03:22.495820",

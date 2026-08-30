@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T04:08:52.859871",
+  "generated_at": "2026-08-29T19:11:27.786751",
   "ticker": "DNUT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 3.48,
+      "current_price": 3.49,
+      "direction": "Bullish",
+      "score": 76.0,
+      "status": "CONFIRMED",
+      "setup": "Harami Cross",
+      "risk_reward": 2.0,
+      "ticker": "DNUT",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 3.458,
+      "updated_at": "2026-08-30T00:11:50.657076",
+      "target": 3.5239999999999996
+    },
     {
       "target": 3.5239999999999996,
       "updated_at": "2026-08-29T09:09:12.203996",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T06:27:52.950491",
+  "generated_at": "2026-08-29T17:21:16.994037",
   "ticker": "AMPG",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 3.38,
+      "current_price": 3.3887,
+      "direction": "Bearish",
+      "score": 81.0,
+      "status": "CONFIRMED",
+      "setup": "TLINE_ROLLOVER",
+      "risk_reward": 2.0,
+      "ticker": "AMPG",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 3.402,
+      "updated_at": "2026-08-29T22:21:39.035259",
+      "target": 3.3359999999999994
+    },
     {
       "target": 3.3359999999999994,
       "updated_at": "2026-08-29T11:28:13.412908",

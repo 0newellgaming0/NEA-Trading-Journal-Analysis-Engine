@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T09:24:34.345767",
+  "generated_at": "2026-08-29T16:35:46.071148",
   "ticker": "FLGT",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 19.57,
+      "current_price": 19.61,
+      "direction": "Bearish",
+      "score": 82.0,
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION",
+      "risk_reward": 2.0,
+      "ticker": "FLGT",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "stop": 19.756999999999998,
+      "updated_at": "2026-08-29T21:36:12.198587",
+      "target": 19.196000000000005
+    },
     {
       "target": 19.196000000000005,
       "updated_at": "2026-08-29T14:25:00.389012",

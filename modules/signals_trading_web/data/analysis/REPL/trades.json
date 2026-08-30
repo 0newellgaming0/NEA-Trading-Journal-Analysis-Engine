@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T02:02:44.628168",
+  "generated_at": "2026-08-29T17:46:19.655029",
   "ticker": "REPL",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 15.4,
+      "current_price": 15.45,
+      "direction": "Bearish",
+      "score": 80.0,
+      "status": "CONFIRMED",
+      "setup": "TLINE_JHOOK",
+      "risk_reward": 2.0,
+      "ticker": "REPL",
+      "regime": "BULLISH_CONSOLIDATION",
+      "stop": 15.62,
+      "updated_at": "2026-08-29T22:46:39.814801",
+      "target": 14.960000000000003
+    },
     {
       "target": 16.47778,
       "updated_at": "2026-08-29T07:03:03.419127",

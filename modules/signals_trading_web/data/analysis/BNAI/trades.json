@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T07:09:17.974745",
+  "generated_at": "2026-08-29T14:55:31.240005",
   "ticker": "BNAI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 12.6,
+      "current_price": 12.6,
+      "direction": "Bullish",
+      "score": 82.0,
+      "status": "CONFIRMED",
+      "setup": "TLINE_ROLLOVER",
+      "risk_reward": 2.0,
+      "ticker": "BNAI",
+      "regime": "BEARISH_CONSOLIDATION",
+      "stop": 12.59813,
+      "updated_at": "2026-08-29T19:55:50.077127",
+      "target": 12.60374
+    },
     {
       "target": 12.60374,
       "updated_at": "2026-08-29T12:09:33.165543",

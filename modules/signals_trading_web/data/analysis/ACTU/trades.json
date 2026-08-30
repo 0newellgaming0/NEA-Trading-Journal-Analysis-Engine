@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T05:53:39.794701",
+  "generated_at": "2026-08-29T17:47:49.111107",
   "ticker": "ACTU",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 1.6427,
+      "current_price": 1.63,
+      "direction": "Bearish",
+      "score": 73.0,
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "risk_reward": 2.0,
+      "ticker": "ACTU",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 1.7222300000000001,
+      "updated_at": "2026-08-29T22:48:06.866698",
+      "target": 1.4836399999999998
+    },
     {
       "target": 1.4836399999999998,
       "updated_at": "2026-08-29T10:53:55.534763",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T01:42:16.308983",
+  "generated_at": "2026-08-29T17:30:17.053707",
   "ticker": "PLUG",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 2.25,
+      "current_price": 2.2,
+      "direction": "Bearish",
+      "score": 83.0,
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "risk_reward": 2.0,
+      "ticker": "PLUG",
+      "regime": "SHORT_TERM_STRENGTH",
+      "stop": 2.27178,
+      "updated_at": "2026-08-29T22:30:43.112344",
+      "target": 2.2064399999999997
+    },
     {
       "target": 2.2064399999999997,
       "updated_at": "2026-08-29T06:42:39.580331",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T10:01:03.492617",
+  "generated_at": "2026-08-29T18:11:38.452266",
   "ticker": "FEMY",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 2.8006,
+      "current_price": 3.299,
+      "direction": "Bullish",
+      "score": 81.0,
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "risk_reward": 2.0,
+      "ticker": "FEMY",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "stop": 2.79994,
+      "updated_at": "2026-08-29T23:11:59.118388",
+      "target": 2.801920000000001
+    },
     {
       "target": 2.801920000000001,
       "updated_at": "2026-08-29T15:01:22.925967",
