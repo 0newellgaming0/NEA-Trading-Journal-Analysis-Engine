@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 9.45,
-      "ticker": "ADMA",
-      "risk_reward": 2.0,
       "target": 8.966000000000001,
+      "direction": "Bearish",
+      "ticker": "ADMA",
+      "entry": 9.34,
+      "stop": 9.527,
+      "score": 83.0,
+      "risk_reward": 2.0,
       "regime": "SHORT_TERM_WEAKNESS",
       "status": "CONFIRMED",
-      "score": 83.0,
-      "stop": 9.527,
-      "direction": "Bearish",
-      "entry": 9.34,
       "setup": "Pinbar",
       "updated_at": "2026-08-30T12:21:14.024819"
     }

@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 5.03,
-      "ticker": "ANGI",
-      "risk_reward": 2.0,
       "target": 4.854,
+      "direction": "Bearish",
+      "ticker": "ANGI",
+      "entry": 5.03,
+      "stop": 5.118,
+      "score": 72.0,
+      "risk_reward": 2.0,
       "regime": "PRIMARY_DOWNTREND_RALLY",
       "status": "CONFIRMED",
-      "score": 72.0,
-      "stop": 5.118,
-      "direction": "Bearish",
-      "entry": 5.03,
       "setup": "Shooting Star",
       "updated_at": "2026-08-30T13:19:06.712996"
     }

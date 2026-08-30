@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-30T02:14:15.184828",
+  "generated_at": "2026-08-30T11:12:01.547481",
   "ticker": "MTEX",
   "count": 1,
   "trades": [
     {
       "current_price": 7.11,
-      "ticker": "MTEX",
-      "risk_reward": 2.0,
       "target": 8.305999999999997,
+      "direction": "Bullish",
+      "ticker": "MTEX",
+      "entry": 6.81,
+      "stop": 6.062,
+      "score": 92.0,
+      "risk_reward": 2.0,
       "regime": "SHORT_TERM_STRENGTH",
       "status": "CONFIRMED",
-      "score": 92.0,
-      "stop": 6.062,
-      "direction": "Bullish",
-      "entry": 6.81,
       "setup": "Engulfing",
-      "updated_at": "2026-08-30T07:14:37.018757"
+      "updated_at": "2026-08-30T16:12:23.042229"
     }
   ]
 }

@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 7.2,
-      "ticker": "AEYE",
-      "risk_reward": 2.0,
       "target": 7.34752,
+      "direction": "Bullish",
+      "ticker": "AEYE",
+      "entry": 7.19,
+      "stop": 7.1112400000000004,
+      "score": 68.0,
+      "risk_reward": 2.0,
       "regime": "PRIMARY_DOWNTREND_RALLY",
       "status": "CONFIRMED",
-      "score": 68.0,
-      "stop": 7.1112400000000004,
-      "direction": "Bullish",
-      "entry": 7.19,
       "setup": "Inside Bar",
       "updated_at": "2026-08-30T12:36:44.907971"
     }

@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 2.2,
-      "ticker": "SIDU",
-      "risk_reward": 2.0,
       "target": 2.123999999999999,
+      "direction": "Bearish",
+      "ticker": "SIDU",
+      "entry": 2.19,
+      "stop": 2.2230000000000003,
+      "score": 79.0,
+      "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
-      "score": 79.0,
-      "stop": 2.2230000000000003,
-      "direction": "Bearish",
-      "entry": 2.19,
       "setup": "TLINE_ROLLOVER",
       "updated_at": "2026-08-30T15:44:55.914513"
     }

@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 2.218,
-      "ticker": "FFAI",
-      "risk_reward": 2.0,
       "target": 1.7423199999999994,
+      "direction": "Bearish",
+      "ticker": "FFAI",
+      "entry": 2.1601,
+      "stop": 2.36899,
+      "score": 72.0,
+      "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
-      "score": 72.0,
-      "stop": 2.36899,
-      "direction": "Bearish",
-      "entry": 2.1601,
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T09:34:20.923103"
     }

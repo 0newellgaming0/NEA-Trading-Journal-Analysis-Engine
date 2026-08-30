@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 3.58,
-      "ticker": "IMCC",
-      "risk_reward": 2.0,
       "target": 2.446479999999999,
+      "direction": "Bearish",
+      "ticker": "IMCC",
+      "entry": 3.4389,
+      "stop": 3.9351100000000003,
+      "score": 63.0,
+      "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
-      "score": 63.0,
-      "stop": 3.9351100000000003,
-      "direction": "Bearish",
-      "entry": 3.4389,
       "setup": "Evening Star",
       "updated_at": "2026-08-30T09:53:09.413248"
     }

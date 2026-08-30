@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 2.29,
-      "ticker": "RAYA",
-      "risk_reward": 2.0,
       "target": 2.114,
+      "direction": "Bearish",
+      "ticker": "RAYA",
+      "entry": 2.29,
+      "stop": 2.378,
+      "score": 55.0,
+      "risk_reward": 2.0,
       "regime": "PRIMARY_DOWNTREND_RALLY",
       "status": "CONFIRMED",
-      "score": 55.0,
-      "stop": 2.378,
-      "direction": "Bearish",
-      "entry": 2.29,
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T10:40:38.730249"
     }

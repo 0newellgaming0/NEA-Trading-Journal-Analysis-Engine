@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 10.82,
-      "ticker": "AKTX",
-      "risk_reward": 2.0,
       "target": 11.082000000000003,
+      "direction": "Bullish",
+      "ticker": "AKTX",
+      "entry": 9.63,
+      "stop": 8.904,
+      "score": 83.0,
+      "risk_reward": 2.0,
       "regime": "SHORT_TERM_STRENGTH",
       "status": "CONFIRMED",
-      "score": 83.0,
-      "stop": 8.904,
-      "direction": "Bullish",
-      "entry": 9.63,
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T12:52:25.166888"
     }

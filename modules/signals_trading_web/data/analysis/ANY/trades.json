@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 2.2299,
-      "ticker": "ANY",
-      "risk_reward": 2.0,
       "target": 2.056,
+      "direction": "Bearish",
+      "ticker": "ANY",
+      "entry": 2.21,
+      "stop": 2.287,
+      "score": 84.0,
+      "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
-      "score": 84.0,
-      "stop": 2.287,
-      "direction": "Bearish",
-      "entry": 2.21,
       "setup": "Engulfing",
       "updated_at": "2026-08-30T13:25:26.864393"
     }

@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 0.9059,
-      "ticker": "NUWE",
-      "risk_reward": 2.0,
       "target": 0.92916,
+      "direction": "Bullish",
+      "ticker": "NUWE",
+      "entry": 0.8889,
+      "stop": 0.86877,
+      "score": 74.0,
+      "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
-      "score": 74.0,
-      "stop": 0.86877,
-      "direction": "Bullish",
-      "entry": 0.8889,
       "setup": "Harami",
       "updated_at": "2026-08-30T10:34:33.678426"
     }

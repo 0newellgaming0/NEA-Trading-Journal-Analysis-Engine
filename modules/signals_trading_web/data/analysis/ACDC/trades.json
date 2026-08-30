@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 4.99,
-      "ticker": "ACDC",
-      "risk_reward": 2.0,
       "target": 5.1499999999999995,
+      "direction": "Bullish",
+      "ticker": "ACDC",
+      "entry": 5.04,
+      "stop": 4.985,
+      "score": 69.0,
+      "risk_reward": 2.0,
       "regime": "SHORT_TERM_STRENGTH",
       "status": "CONFIRMED",
-      "score": 69.0,
-      "stop": 4.985,
-      "direction": "Bullish",
-      "entry": 5.04,
       "setup": "Engulfing",
       "updated_at": "2026-08-30T12:00:55.341695"
     }

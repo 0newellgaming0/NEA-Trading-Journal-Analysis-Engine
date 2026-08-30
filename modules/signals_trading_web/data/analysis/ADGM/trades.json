@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 0.5116,
-      "ticker": "ADGM",
-      "risk_reward": 2.0,
       "target": 0.49438000000000004,
+      "direction": "Bearish",
+      "ticker": "ADGM",
+      "entry": 0.51,
+      "stop": 0.51781,
+      "score": 60.0,
+      "risk_reward": 2.0,
       "regime": "FULL_BEARISH_ALIGNMENT",
       "status": "CONFIRMED",
-      "score": 60.0,
-      "stop": 0.51781,
-      "direction": "Bearish",
-      "entry": 0.51,
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T12:18:24.040187"
     }

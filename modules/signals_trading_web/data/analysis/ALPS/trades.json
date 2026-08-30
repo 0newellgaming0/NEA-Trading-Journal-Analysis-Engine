@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 0.3849,
-      "ticker": "ALPS",
-      "risk_reward": 2.0,
       "target": 0.3280200000000001,
+      "direction": "Bearish",
+      "ticker": "ALPS",
+      "entry": 0.385,
+      "stop": 0.41348999999999997,
+      "score": 48.0,
+      "risk_reward": 2.0,
       "regime": "PRIMARY_DOWNTREND_RALLY",
       "status": "CONFIRMED",
-      "score": 48.0,
-      "stop": 0.41348999999999997,
-      "direction": "Bearish",
-      "entry": 0.385,
       "setup": "Marubozu",
       "updated_at": "2026-08-30T12:57:53.266786"
     }

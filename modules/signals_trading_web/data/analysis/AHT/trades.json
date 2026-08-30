@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 3.25,
-      "ticker": "AHT",
-      "risk_reward": 2.0,
       "target": 3.24648,
+      "direction": "Bearish",
+      "ticker": "AHT",
+      "entry": 3.2489,
+      "stop": 3.25011,
+      "score": 68.0,
+      "risk_reward": 2.0,
       "regime": "SHORT_TERM_WEAKNESS",
       "status": "CONFIRMED",
-      "score": 68.0,
-      "stop": 3.25011,
-      "direction": "Bearish",
-      "entry": 3.2489,
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T12:43:58.673098"
     }

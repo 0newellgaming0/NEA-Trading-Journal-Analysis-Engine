@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 4.07,
-      "ticker": "FIEE",
-      "risk_reward": 2.0,
       "target": 3.883000000000001,
+      "direction": "Bearish",
+      "ticker": "FIEE",
+      "entry": 4.07,
+      "stop": 4.1635,
+      "score": 84.0,
+      "risk_reward": 2.0,
       "regime": "PRIMARY_UPTREND_PULLBACK",
       "status": "CONFIRMED",
-      "score": 84.0,
-      "stop": 4.1635,
-      "direction": "Bearish",
-      "entry": 4.07,
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T08:25:02.467902"
     }

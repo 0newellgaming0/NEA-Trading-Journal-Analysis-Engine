@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 4.23,
-      "ticker": "YDES",
-      "risk_reward": 2.0,
       "target": 7.526019999999999,
+      "direction": "Bullish",
+      "ticker": "YDES",
+      "entry": 4.8,
+      "stop": 3.43699,
+      "score": 90.0,
+      "risk_reward": 2.0,
       "regime": "SHORT_TERM_STRENGTH",
       "status": "CONFIRMED",
-      "score": 90.0,
-      "stop": 3.43699,
-      "direction": "Bullish",
-      "entry": 4.8,
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T07:25:55.645665"
     }

@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 1.1,
-      "ticker": "RMCF",
-      "risk_reward": 2.0,
       "target": 1.0537599999999996,
+      "direction": "Bearish",
+      "ticker": "RMCF",
+      "entry": 1.0993,
+      "stop": 1.1220700000000001,
+      "score": 56.0,
+      "risk_reward": 2.0,
       "regime": "FULL_BEARISH_ALIGNMENT",
       "status": "CONFIRMED",
-      "score": 56.0,
-      "stop": 1.1220700000000001,
-      "direction": "Bearish",
-      "entry": 1.0993,
       "setup": "TLINE_ROLLOVER",
       "updated_at": "2026-08-30T10:44:35.057503"
     }

@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 2.48,
-      "ticker": "JELD",
-      "risk_reward": 2.0,
       "target": 2.6739999999999995,
+      "direction": "Bullish",
+      "ticker": "JELD",
+      "entry": 2.465,
+      "stop": 2.3605,
+      "score": 89.0,
+      "risk_reward": 2.0,
       "regime": "SHORT_TERM_STRENGTH",
       "status": "CONFIRMED",
-      "score": 89.0,
-      "stop": 2.3605,
-      "direction": "Bullish",
-      "entry": 2.465,
       "setup": "Three White Soldiers",
       "updated_at": "2026-08-30T07:41:35.908285"
     }

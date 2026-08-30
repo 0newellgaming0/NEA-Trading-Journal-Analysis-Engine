@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 16.9105,
-      "ticker": "AEO",
-      "risk_reward": 2.0,
       "target": 16.696999999999992,
+      "direction": "Bearish",
+      "ticker": "AEO",
+      "entry": 16.95,
+      "stop": 17.076500000000003,
+      "score": 85.0,
+      "risk_reward": 2.0,
       "regime": "SHORT_TERM_STRENGTH",
       "status": "CONFIRMED",
-      "score": 85.0,
-      "stop": 17.076500000000003,
-      "direction": "Bearish",
-      "entry": 16.95,
       "setup": "Inside Bar",
       "updated_at": "2026-08-30T12:34:53.348207"
     }

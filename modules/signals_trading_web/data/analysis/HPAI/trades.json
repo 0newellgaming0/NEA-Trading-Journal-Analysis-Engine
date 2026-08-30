@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 0.4195,
-      "ticker": "HPAI",
-      "risk_reward": 2.0,
       "target": 0.3796,
+      "direction": "Bearish",
+      "ticker": "HPAI",
+      "entry": 0.428,
+      "stop": 0.4522,
+      "score": 52.0,
+      "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
-      "score": 52.0,
-      "stop": 0.4522,
-      "direction": "Bearish",
-      "entry": 0.428,
       "setup": "Falling Three Methods",
       "updated_at": "2026-08-30T09:49:34.859933"
     }

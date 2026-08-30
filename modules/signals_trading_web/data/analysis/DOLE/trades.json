@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 13.78,
-      "ticker": "DOLE",
-      "risk_reward": 2.0,
       "target": 14.068999999999999,
+      "direction": "Bullish",
+      "ticker": "DOLE",
+      "entry": 13.805,
+      "stop": 13.673,
+      "score": 83.0,
+      "risk_reward": 2.0,
       "regime": "PRIMARY_DOWNTREND_RALLY",
       "status": "CONFIRMED",
-      "score": 83.0,
-      "stop": 13.673,
-      "direction": "Bullish",
-      "entry": 13.805,
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T09:28:40.668630"
     }

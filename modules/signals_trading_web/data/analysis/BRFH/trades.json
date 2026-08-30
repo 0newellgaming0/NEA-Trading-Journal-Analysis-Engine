@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 1.2414,
-      "ticker": "BRFH",
-      "risk_reward": 2.0,
       "target": 1.196,
+      "direction": "Bearish",
+      "ticker": "BRFH",
+      "entry": 1.24,
+      "stop": 1.262,
+      "score": 60.0,
+      "risk_reward": 2.0,
       "regime": "FULL_BEARISH_ALIGNMENT",
       "status": "CONFIRMED",
-      "score": 60.0,
-      "stop": 1.262,
-      "direction": "Bearish",
-      "entry": 1.24,
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T08:59:43.887840"
     }

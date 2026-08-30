@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 14.56,
-      "ticker": "SDOT",
-      "risk_reward": 2.0,
       "target": 11.386000000000001,
+      "direction": "Bearish",
+      "ticker": "SDOT",
+      "entry": 14.51,
+      "stop": 16.072,
+      "score": 90.0,
+      "risk_reward": 2.0,
       "regime": "PRIMARY_DOWNTREND_RALLY",
       "status": "CONFIRMED",
-      "score": 90.0,
-      "stop": 16.072,
-      "direction": "Bearish",
-      "entry": 14.51,
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T08:16:14.120146"
     }

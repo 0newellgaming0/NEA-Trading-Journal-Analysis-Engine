@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 1.99,
-      "ticker": "NIU",
-      "risk_reward": 2.0,
       "target": 1.99352,
+      "direction": "Bullish",
+      "ticker": "NIU",
+      "entry": 1.9801,
+      "stop": 1.97339,
+      "score": 42.0,
+      "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
-      "score": 42.0,
-      "stop": 1.97339,
-      "direction": "Bullish",
-      "entry": 1.9801,
       "setup": "Marubozu",
       "updated_at": "2026-08-30T10:25:28.283749"
     }

@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 14.9628,
-      "ticker": "CHCT",
-      "risk_reward": 2.0,
       "target": 15.881999999999998,
+      "direction": "Bullish",
+      "ticker": "CHCT",
+      "entry": 15.09,
+      "stop": 14.694,
+      "score": 87.0,
+      "risk_reward": 2.0,
       "regime": "FULL_BEARISH_ALIGNMENT",
       "status": "CONFIRMED",
-      "score": 87.0,
-      "stop": 14.694,
-      "direction": "Bullish",
-      "entry": 15.09,
       "setup": "Pinbar",
       "updated_at": "2026-08-30T08:11:45.325106"
     }

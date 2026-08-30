@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 1.68,
-      "ticker": "NMTC",
-      "risk_reward": 2.0,
       "target": 1.182,
+      "direction": "Bearish",
+      "ticker": "NMTC",
+      "entry": 1.71,
+      "stop": 1.974,
+      "score": 71.0,
+      "risk_reward": 2.0,
       "regime": "FULL_BEARISH_ALIGNMENT",
       "status": "CONFIRMED",
-      "score": 71.0,
-      "stop": 1.974,
-      "direction": "Bearish",
-      "entry": 1.71,
       "setup": "Bearish Long-Legged Doji Sandwich",
       "updated_at": "2026-08-30T10:27:21.782121"
     }

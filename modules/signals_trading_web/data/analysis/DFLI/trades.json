@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 1.11,
-      "ticker": "DFLI",
-      "risk_reward": 2.0,
       "target": 1.14368,
+      "direction": "Bullish",
+      "ticker": "DFLI",
+      "entry": 1.0999,
+      "stop": 1.0780100000000001,
+      "score": 39.0,
+      "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
-      "score": 39.0,
-      "stop": 1.0780100000000001,
-      "direction": "Bullish",
-      "entry": 1.0999,
       "setup": "Inside Bar",
       "updated_at": "2026-08-30T09:24:24.666946"
     }

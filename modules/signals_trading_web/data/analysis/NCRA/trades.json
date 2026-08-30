@@ -5,15 +5,15 @@
   "trades": [
     {
       "current_price": 2.6199,
-      "ticker": "NCRA",
-      "risk_reward": 2.0,
       "target": 3.654000000000001,
+      "direction": "Bullish",
+      "ticker": "NCRA",
+      "entry": 2.62,
+      "stop": 2.1029999999999998,
+      "score": 88.0,
+      "risk_reward": 2.0,
       "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
-      "score": 88.0,
-      "stop": 2.1029999999999998,
-      "direction": "Bullish",
-      "entry": 2.62,
       "setup": "TLINE_CRUNCH",
       "updated_at": "2026-08-30T08:18:27.536904"
     }
