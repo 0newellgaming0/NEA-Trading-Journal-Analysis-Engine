@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 12.36,
-      "risk_reward": 2.0,
       "score": 92.0,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T08:31:16.742179",
       "target": 12.571000000000002,
       "regime": "FULL_BULLISH_ALIGNMENT",
-      "status": "CONFIRMED",
-      "entry": 12.34,
-      "direction": "Bullish",
+      "setup": "Pinbar",
       "stop": 12.224499999999999,
-      "updated_at": "2026-08-30T08:31:16.742179",
+      "direction": "Bullish",
+      "current_price": 12.36,
       "ticker": "LFST",
-      "setup": "Pinbar"
+      "entry": 12.34
     }
   ]
 }

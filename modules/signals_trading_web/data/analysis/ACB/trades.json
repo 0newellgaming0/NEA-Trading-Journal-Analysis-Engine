@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 4.01,
-      "risk_reward": 2.0,
       "score": 74.0,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T11:59:01.097230",
       "target": 4.041999999999999,
       "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
-      "entry": 3.965,
-      "direction": "Bullish",
+      "setup": "Pinbar",
       "stop": 3.9265000000000003,
-      "updated_at": "2026-08-30T11:59:01.097230",
+      "direction": "Bullish",
+      "current_price": 4.01,
       "ticker": "ACB",
-      "setup": "Pinbar"
+      "entry": 3.965
     }
   ]
 }

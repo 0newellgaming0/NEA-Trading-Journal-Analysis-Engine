@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 4.65,
-      "risk_reward": 2.0,
       "score": 59.0,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T12:09:04.653495",
       "target": 5.161999999999998,
       "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
-      "entry": 4.81,
-      "direction": "Bullish",
+      "setup": "TLINE_CONTINUATION",
       "stop": 4.634,
-      "updated_at": "2026-08-30T12:09:04.653495",
+      "direction": "Bullish",
+      "current_price": 4.65,
       "ticker": "ACRE",
-      "setup": "TLINE_CONTINUATION"
+      "entry": 4.81
     }
   ]
 }

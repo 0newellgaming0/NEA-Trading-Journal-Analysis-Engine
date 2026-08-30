@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 3.09,
-      "risk_reward": 2.0,
       "score": 49.0,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T10:07:10.022442",
       "target": 2.759999999999999,
       "regime": "BEARISH_CONSOLIDATION",
-      "status": "CONFIRMED",
-      "entry": 3.09,
-      "direction": "Bearish",
+      "setup": "Three Inside Down",
       "stop": 3.2550000000000003,
-      "updated_at": "2026-08-30T10:07:10.022442",
+      "direction": "Bearish",
+      "current_price": 3.09,
       "ticker": "LAC",
-      "setup": "Three Inside Down"
+      "entry": 3.09
     }
   ]
 }

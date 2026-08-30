@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 4.0908,
-      "risk_reward": 2.0,
       "score": 57.0,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T10:18:47.690768",
       "target": 4.072,
       "regime": "BEARISH_CONSOLIDATION",
-      "status": "CONFIRMED",
-      "entry": 4.05,
-      "direction": "Bullish",
+      "setup": "Pinbar",
       "stop": 4.039,
-      "updated_at": "2026-08-30T10:18:47.690768",
+      "direction": "Bullish",
+      "current_price": 4.0908,
       "ticker": "MPT",
-      "setup": "Pinbar"
+      "entry": 4.05
     }
   ]
 }

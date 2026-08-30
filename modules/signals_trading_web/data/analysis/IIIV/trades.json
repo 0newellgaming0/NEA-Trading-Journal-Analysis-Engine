@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 16.28,
-      "risk_reward": 2.0,
       "score": 55.0,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T09:51:36.096809",
       "target": 15.539000000000001,
       "regime": "FULL_BEARISH_ALIGNMENT",
-      "status": "CONFIRMED",
-      "entry": 16.21,
-      "direction": "Bearish",
+      "setup": "TLINE_CONTINUATION",
       "stop": 16.5455,
-      "updated_at": "2026-08-30T09:51:36.096809",
+      "direction": "Bearish",
+      "current_price": 16.28,
       "ticker": "IIIV",
-      "setup": "TLINE_CONTINUATION"
+      "entry": 16.21
     }
   ]
 }
