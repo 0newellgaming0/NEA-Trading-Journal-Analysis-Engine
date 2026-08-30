@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 1.7309999999999999,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 1.6980000000000002,
-      "ticker": "DHY",
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T09:26:25.934286",
-      "score": 47.0,
-      "current_price": 1.7108,
-      "entry": 1.72,
       "setup": "Evening Star",
-      "regime": "BEARISH_CONSOLIDATION"
+      "target": 1.6980000000000002,
+      "direction": "Bearish",
+      "stop": 1.7309999999999999,
+      "updated_at": "2026-08-30T09:26:25.934286",
+      "entry": 1.72,
+      "ticker": "DHY",
+      "risk_reward": 2.0,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 1.7108,
+      "score": 47.0
     }
   ]
 }

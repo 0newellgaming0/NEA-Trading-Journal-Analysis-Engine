@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 0.18784,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 0.17331999999999997,
-      "ticker": "CAPS",
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T09:09:58.779472",
-      "score": 43.0,
-      "current_price": 0.1831,
-      "entry": 0.183,
       "setup": "TLINE_CONTINUATION",
-      "regime": "FULL_BEARISH_ALIGNMENT"
+      "target": 0.17331999999999997,
+      "direction": "Bearish",
+      "stop": 0.18784,
+      "updated_at": "2026-08-30T09:09:58.779472",
+      "entry": 0.183,
+      "ticker": "CAPS",
+      "risk_reward": 2.0,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "current_price": 0.1831,
+      "score": 43.0
     }
   ]
 }

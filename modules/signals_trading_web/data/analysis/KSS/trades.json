@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 17.48977,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 17.52046,
-      "ticker": "KSS",
-      "direction": "Bullish",
-      "updated_at": "2026-08-30T08:41:26.910028",
-      "score": 71.0,
-      "current_price": 17.4914,
-      "entry": 17.5,
       "setup": "Pinbar",
-      "regime": "PRIMARY_UPTREND_PULLBACK"
+      "target": 17.52046,
+      "direction": "Bullish",
+      "stop": 17.48977,
+      "updated_at": "2026-08-30T08:41:26.910028",
+      "entry": 17.5,
+      "ticker": "KSS",
+      "risk_reward": 2.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED",
+      "current_price": 17.4914,
+      "score": 71.0
     }
   ]
 }

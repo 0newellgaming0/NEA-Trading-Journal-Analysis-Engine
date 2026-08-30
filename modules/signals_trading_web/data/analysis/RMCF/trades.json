@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 1.1220700000000001,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 1.0537599999999996,
-      "ticker": "RMCF",
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T10:44:35.057503",
-      "score": 56.0,
-      "current_price": 1.1,
-      "entry": 1.0993,
       "setup": "TLINE_ROLLOVER",
-      "regime": "FULL_BEARISH_ALIGNMENT"
+      "target": 1.0537599999999996,
+      "direction": "Bearish",
+      "stop": 1.1220700000000001,
+      "updated_at": "2026-08-30T10:44:35.057503",
+      "entry": 1.0993,
+      "ticker": "RMCF",
+      "risk_reward": 2.0,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "current_price": 1.1,
+      "score": 56.0
     }
   ]
 }

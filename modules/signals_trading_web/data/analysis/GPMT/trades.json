@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 1.0745099999999999,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 1.0906800000000005,
-      "ticker": "GPMT",
-      "direction": "Bullish",
-      "updated_at": "2026-08-30T09:46:05.915710",
-      "score": 48.0,
-      "current_price": 1.08,
-      "entry": 1.0799,
       "setup": "Harami",
-      "regime": "BEARISH_CONSOLIDATION"
+      "target": 1.0906800000000005,
+      "direction": "Bullish",
+      "stop": 1.0745099999999999,
+      "updated_at": "2026-08-30T09:46:05.915710",
+      "entry": 1.0799,
+      "ticker": "GPMT",
+      "risk_reward": 2.0,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 1.08,
+      "score": 48.0
     }
   ]
 }

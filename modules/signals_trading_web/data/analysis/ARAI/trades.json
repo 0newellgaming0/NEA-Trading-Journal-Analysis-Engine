@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 0.22696,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 0.22827999999999998,
-      "ticker": "ARAI",
-      "direction": "Bullish",
-      "updated_at": "2026-08-30T13:38:19.293174",
-      "score": 58.0,
-      "current_price": 0.2274,
-      "entry": 0.2274,
       "setup": "TLINE_CONTINUATION",
-      "regime": "SHORT_TERM_WEAKNESS"
+      "target": 0.22827999999999998,
+      "direction": "Bullish",
+      "stop": 0.22696,
+      "updated_at": "2026-08-30T13:38:19.293174",
+      "entry": 0.2274,
+      "ticker": "ARAI",
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "current_price": 0.2274,
+      "score": 58.0
     }
   ]
 }

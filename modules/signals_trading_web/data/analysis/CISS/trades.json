@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 1.819,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 1.522,
-      "ticker": "CISS",
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T09:15:52.832954",
-      "score": 84.0,
-      "current_price": 1.6991,
-      "entry": 1.72,
       "setup": "TLINE_CONTINUATION",
-      "regime": "BEARISH_CONSOLIDATION"
+      "target": 1.522,
+      "direction": "Bearish",
+      "stop": 1.819,
+      "updated_at": "2026-08-30T09:15:52.832954",
+      "entry": 1.72,
+      "ticker": "CISS",
+      "risk_reward": 2.0,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 1.6991,
+      "score": 84.0
     }
   ]
 }

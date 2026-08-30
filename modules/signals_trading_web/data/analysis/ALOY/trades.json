@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 11.360240000000001,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 10.309519999999997,
-      "ticker": "ALOY",
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T12:56:18.441690",
-      "score": 76.0,
-      "current_price": 10.5768,
-      "entry": 11.01,
       "setup": "TLINE_CONTINUATION",
-      "regime": "PRIMARY_UPTREND_PULLBACK"
+      "target": 10.309519999999997,
+      "direction": "Bearish",
+      "stop": 11.360240000000001,
+      "updated_at": "2026-08-30T12:56:18.441690",
+      "entry": 11.01,
+      "ticker": "ALOY",
+      "risk_reward": 2.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED",
+      "current_price": 10.5768,
+      "score": 76.0
     }
   ]
 }

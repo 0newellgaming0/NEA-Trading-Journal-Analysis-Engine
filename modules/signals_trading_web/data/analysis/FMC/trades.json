@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "stop": 11.217,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 11.645999999999997,
-      "ticker": "FMC",
-      "direction": "Bullish",
-      "updated_at": "2026-08-30T09:38:31.957370",
-      "score": 54.0,
-      "current_price": 11.34,
-      "entry": 11.36,
       "setup": "TLINE_CONTINUATION",
-      "regime": "BEARISH_CONSOLIDATION"
+      "target": 11.645999999999997,
+      "direction": "Bullish",
+      "stop": 11.217,
+      "updated_at": "2026-08-30T09:38:31.957370",
+      "entry": 11.36,
+      "ticker": "FMC",
+      "risk_reward": 2.0,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 11.34,
+      "score": 54.0
     }
   ]
 }
