@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-30T06:16:11.923948",
+  "generated_at": "2026-08-30T07:02:14.244224",
   "ticker": "ACET",
   "count": 1,
   "trades": [
     {
-      "updated_at": "2026-08-30T11:16:34.057720",
-      "ticker": "ACET",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "status": "CONFIRMED",
-      "entry": 9.06,
+      "stop": 8.994,
       "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 9.192000000000002,
+      "ticker": "ACET",
+      "direction": "Bullish",
+      "updated_at": "2026-08-30T12:02:36.214570",
       "score": 90.0,
       "current_price": 9.06,
-      "direction": "Bullish",
+      "entry": 9.06,
       "setup": "TLINE_CONTINUATION",
-      "stop": 8.994,
-      "target": 9.192000000000002
+      "regime": "PRIMARY_DOWNTREND_RALLY"
     }
   ]
 }

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-30T03:50:53.894440",
+  "generated_at": "2026-08-30T06:56:53.455404",
   "ticker": "ABTC",
   "count": 1,
   "trades": [
     {
-      "updated_at": "2026-08-30T08:51:17.778805",
-      "ticker": "ABTC",
-      "regime": "BEARISH_CONSOLIDATION",
-      "status": "CONFIRMED",
-      "entry": 7.91,
+      "stop": 8.757,
       "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 6.216000000000001,
+      "ticker": "ABTC",
+      "direction": "Bearish",
+      "updated_at": "2026-08-30T11:57:16.719008",
       "score": 55.0,
       "current_price": 7.82,
-      "direction": "Bearish",
+      "entry": 7.91,
       "setup": "Evening Star",
-      "stop": 8.757,
-      "target": 6.216000000000001
+      "regime": "BEARISH_CONSOLIDATION"
     }
   ]
 }

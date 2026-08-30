@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "updated_at": "2026-08-30T08:23:01.558285",
-      "ticker": "SMMT",
-      "regime": "BULLISH_CONSOLIDATION",
-      "status": "CONFIRMED",
-      "entry": 13.76,
+      "stop": 13.6335,
       "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 14.013,
+      "ticker": "SMMT",
+      "direction": "Bullish",
+      "updated_at": "2026-08-30T08:23:01.558285",
       "score": 86.0,
       "current_price": 13.7145,
-      "direction": "Bullish",
+      "entry": 13.76,
       "setup": "Engulfing",
-      "stop": 13.6335,
-      "target": 14.013
+      "regime": "BULLISH_CONSOLIDATION"
     }
   ]
 }

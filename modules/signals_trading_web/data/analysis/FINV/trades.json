@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "updated_at": "2026-08-30T09:36:06.917399",
-      "ticker": "FINV",
-      "regime": "BEARISH_CONSOLIDATION",
-      "status": "CONFIRMED",
-      "entry": 3.3999,
+      "stop": 3.35051,
       "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 3.4986800000000007,
+      "ticker": "FINV",
+      "direction": "Bullish",
+      "updated_at": "2026-08-30T09:36:06.917399",
       "score": 55.0,
       "current_price": 3.46,
-      "direction": "Bullish",
+      "entry": 3.3999,
       "setup": "Harami Cross",
-      "stop": 3.35051,
-      "target": 3.4986800000000007
+      "regime": "BEARISH_CONSOLIDATION"
     }
   ]
 }

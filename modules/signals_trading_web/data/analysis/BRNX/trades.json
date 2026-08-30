@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "updated_at": "2026-08-30T09:01:24.779467",
-      "ticker": "BRNX",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "status": "CONFIRMED",
-      "entry": 3.97,
+      "stop": 3.673,
       "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 4.564,
+      "ticker": "BRNX",
+      "direction": "Bullish",
+      "updated_at": "2026-08-30T09:01:24.779467",
       "score": 80.0,
       "current_price": 3.7,
-      "direction": "Bullish",
+      "entry": 3.97,
       "setup": "Pinbar",
-      "stop": 3.673,
-      "target": 4.564
+      "regime": "PRIMARY_DOWNTREND_RALLY"
     }
   ]
 }

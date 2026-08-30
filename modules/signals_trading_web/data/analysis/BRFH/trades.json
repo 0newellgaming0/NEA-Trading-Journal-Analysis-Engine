@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "updated_at": "2026-08-30T08:59:43.887840",
-      "ticker": "BRFH",
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "status": "CONFIRMED",
-      "entry": 1.24,
+      "stop": 1.262,
       "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 1.196,
+      "ticker": "BRFH",
+      "direction": "Bearish",
+      "updated_at": "2026-08-30T08:59:43.887840",
       "score": 60.0,
       "current_price": 1.2414,
-      "direction": "Bearish",
+      "entry": 1.24,
       "setup": "TLINE_CONTINUATION",
-      "stop": 1.262,
-      "target": 1.196
+      "regime": "FULL_BEARISH_ALIGNMENT"
     }
   ]
 }
