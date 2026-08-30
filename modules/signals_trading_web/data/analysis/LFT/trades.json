@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 66.0,
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T10:09:34.132837",
-      "status": "CONFIRMED",
+      "current_price": 0.735,
       "risk_reward": 2.0,
-      "entry": 0.7288,
-      "ticker": "LFT",
-      "stop": 0.7356199999999999,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "setup": "TLINE_CONTINUATION",
+      "score": 66.0,
       "target": 0.7151600000000001,
-      "current_price": 0.735
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED",
+      "entry": 0.7288,
+      "direction": "Bearish",
+      "stop": 0.7356199999999999,
+      "updated_at": "2026-08-30T10:09:34.132837",
+      "ticker": "LFT",
+      "setup": "TLINE_CONTINUATION"
     }
   ]
 }

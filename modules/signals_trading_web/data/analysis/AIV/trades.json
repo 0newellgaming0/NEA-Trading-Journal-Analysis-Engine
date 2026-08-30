@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 70.0,
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T12:48:28.932868",
-      "status": "CONFIRMED",
+      "current_price": 2.53,
       "risk_reward": 2.0,
-      "entry": 2.5513,
-      "ticker": "AIV",
-      "stop": 2.60487,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "setup": "Pinbar",
+      "score": 70.0,
       "target": 2.4441599999999997,
-      "current_price": 2.53
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "entry": 2.5513,
+      "direction": "Bearish",
+      "stop": 2.60487,
+      "updated_at": "2026-08-30T12:48:28.932868",
+      "ticker": "AIV",
+      "setup": "Pinbar"
     }
   ]
 }

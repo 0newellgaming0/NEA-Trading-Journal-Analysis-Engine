@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 62.0,
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T11:51:36.862996",
-      "status": "CONFIRMED",
+      "current_price": 2.87,
       "risk_reward": 2.0,
-      "entry": 2.8801,
-      "ticker": "ABEV",
-      "stop": 2.9117800000000003,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "setup": "Inside Bar",
+      "score": 62.0,
       "target": 2.81674,
-      "current_price": 2.87
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "entry": 2.8801,
+      "direction": "Bearish",
+      "stop": 2.9117800000000003,
+      "updated_at": "2026-08-30T11:51:36.862996",
+      "ticker": "ABEV",
+      "setup": "Inside Bar"
     }
   ]
 }

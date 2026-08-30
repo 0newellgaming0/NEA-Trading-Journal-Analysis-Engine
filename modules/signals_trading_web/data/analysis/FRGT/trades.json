@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 75.0,
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T09:40:37.805767",
-      "status": "CONFIRMED",
+      "current_price": 1.41,
       "risk_reward": 2.0,
-      "entry": 1.41,
-      "ticker": "FRGT",
-      "stop": 1.4209999999999998,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "setup": "TLINE_CONTINUATION",
+      "score": 75.0,
       "target": 1.3880000000000001,
-      "current_price": 1.41
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "entry": 1.41,
+      "direction": "Bearish",
+      "stop": 1.4209999999999998,
+      "updated_at": "2026-08-30T09:40:37.805767",
+      "ticker": "FRGT",
+      "setup": "TLINE_CONTINUATION"
     }
   ]
 }

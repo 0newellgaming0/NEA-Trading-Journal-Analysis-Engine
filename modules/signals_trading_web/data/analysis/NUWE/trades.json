@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 74.0,
-      "direction": "Bullish",
-      "updated_at": "2026-08-30T10:34:33.678426",
-      "status": "CONFIRMED",
+      "current_price": 0.9059,
       "risk_reward": 2.0,
-      "entry": 0.8889,
-      "ticker": "NUWE",
-      "stop": 0.86877,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "Harami",
+      "score": 74.0,
       "target": 0.92916,
-      "current_price": 0.9059
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "entry": 0.8889,
+      "direction": "Bullish",
+      "stop": 0.86877,
+      "updated_at": "2026-08-30T10:34:33.678426",
+      "ticker": "NUWE",
+      "setup": "Harami"
     }
   ]
 }

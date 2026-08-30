@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 49.0,
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T09:43:27.823866",
-      "status": "CONFIRMED",
+      "current_price": 17.93,
       "risk_reward": 2.0,
-      "entry": 18.31,
-      "ticker": "GME",
-      "stop": 18.365,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "setup": "Evening Star",
+      "score": 49.0,
       "target": 18.2,
-      "current_price": 17.93
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "entry": 18.31,
+      "direction": "Bearish",
+      "stop": 18.365,
+      "updated_at": "2026-08-30T09:43:27.823866",
+      "ticker": "GME",
+      "setup": "Evening Star"
     }
   ]
 }

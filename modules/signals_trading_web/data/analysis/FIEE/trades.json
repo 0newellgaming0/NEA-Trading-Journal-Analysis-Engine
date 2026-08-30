@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 84.0,
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T08:25:02.467902",
-      "status": "CONFIRMED",
+      "current_price": 4.07,
       "risk_reward": 2.0,
-      "entry": 4.07,
-      "ticker": "FIEE",
-      "stop": 4.1635,
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "setup": "TLINE_CONTINUATION",
+      "score": 84.0,
       "target": 3.883000000000001,
-      "current_price": 4.07
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED",
+      "entry": 4.07,
+      "direction": "Bearish",
+      "stop": 4.1635,
+      "updated_at": "2026-08-30T08:25:02.467902",
+      "ticker": "FIEE",
+      "setup": "TLINE_CONTINUATION"
     }
   ]
 }

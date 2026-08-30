@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 87.0,
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T14:12:34.702593",
-      "status": "CONFIRMED",
+      "current_price": 1.49,
       "risk_reward": 2.0,
-      "entry": 1.61,
-      "ticker": "CELU",
-      "stop": 2.006,
-      "regime": "BULLISH_CONSOLIDATION",
-      "setup": "TLINE_CONTINUATION",
+      "score": 87.0,
       "target": 0.8180000000000007,
-      "current_price": 1.49
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "entry": 1.61,
+      "direction": "Bearish",
+      "stop": 2.006,
+      "updated_at": "2026-08-30T14:12:34.702593",
+      "ticker": "CELU",
+      "setup": "TLINE_CONTINUATION"
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 70.0,
-      "direction": "Bearish",
-      "updated_at": "2026-08-30T13:31:08.617714",
-      "status": "CONFIRMED",
+      "current_price": 5.35,
       "risk_reward": 2.0,
-      "entry": 5.4697,
-      "ticker": "APT",
-      "stop": 5.5797,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "setup": "Pinbar",
+      "score": 70.0,
       "target": 5.249699999999999,
-      "current_price": 5.35
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "entry": 5.4697,
+      "direction": "Bearish",
+      "stop": 5.5797,
+      "updated_at": "2026-08-30T13:31:08.617714",
+      "ticker": "APT",
+      "setup": "Pinbar"
     }
   ]
 }

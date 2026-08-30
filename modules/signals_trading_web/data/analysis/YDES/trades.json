@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 90.0,
-      "direction": "Bullish",
-      "updated_at": "2026-08-30T07:25:55.645665",
-      "status": "CONFIRMED",
+      "current_price": 4.23,
       "risk_reward": 2.0,
-      "entry": 4.8,
-      "ticker": "YDES",
-      "stop": 3.43699,
-      "regime": "SHORT_TERM_STRENGTH",
-      "setup": "TLINE_CONTINUATION",
+      "score": 90.0,
       "target": 7.526019999999999,
-      "current_price": 4.23
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "entry": 4.8,
+      "direction": "Bullish",
+      "stop": 3.43699,
+      "updated_at": "2026-08-30T07:25:55.645665",
+      "ticker": "YDES",
+      "setup": "TLINE_CONTINUATION"
     }
   ]
 }
