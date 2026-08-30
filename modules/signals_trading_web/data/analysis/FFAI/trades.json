@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-30T04:33:50.401258",
+  "ticker": "FFAI",
+  "count": 1,
+  "trades": [
+    {
+      "score": 72.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T09:34:20.923103",
+      "stop": 2.36899,
+      "regime": "BEARISH_CONSOLIDATION",
+      "current_price": 2.218,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "setup": "TLINE_CONTINUATION",
+      "target": 1.7423199999999994,
+      "entry": 2.1601,
+      "ticker": "FFAI"
+    }
+  ]
+}

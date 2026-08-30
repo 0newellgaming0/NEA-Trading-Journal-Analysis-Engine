@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-28T14:31:40.041358",
+  "generated_at": "2026-08-30T05:05:02.855671",
   "ticker": "KXIN",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "score": 80.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T10:05:18.338199",
+      "stop": 1.76585,
+      "regime": "BEARISH_CONSOLIDATION",
+      "current_price": 1.42,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "setup": "Pinbar",
+      "target": 0.5828,
+      "entry": 1.3715,
+      "ticker": "KXIN"
+    }
+  ]
 }

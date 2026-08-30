@@ -4,18 +4,18 @@
   "count": 3,
   "trades": [
     {
-      "ticker": "TBCH",
-      "entry": 12.42,
-      "stop": 12.695,
-      "updated_at": "2026-08-30T07:45:37.240716",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
-      "direction": "Bearish",
-      "current_price": 12.45,
-      "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
       "score": 88.0,
-      "target": 11.87
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T07:45:37.240716",
+      "stop": 12.695,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 12.45,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "setup": "TLINE_CONTINUATION",
+      "target": 11.87,
+      "entry": 12.42,
+      "ticker": "TBCH"
     },
     {
       "entry": 12.42,

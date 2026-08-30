@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-30T04:13:52.257192",
+  "ticker": "CHAI",
+  "count": 1,
+  "trades": [
+    {
+      "score": 86.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T09:14:09.928026",
+      "stop": 0.53435,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "current_price": 0.3681,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "setup": "Pinbar",
+      "target": 0.06080000000000002,
+      "entry": 0.3765,
+      "ticker": "CHAI"
+    }
+  ]
+}

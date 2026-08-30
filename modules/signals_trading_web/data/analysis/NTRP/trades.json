@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T20:23:58.141945",
+  "generated_at": "2026-08-30T05:30:56.295404",
   "ticker": "NTRP",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "score": 68.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T10:31:15.449518",
+      "stop": 1.38488,
+      "regime": "BEARISH_CONSOLIDATION",
+      "current_price": 1.46,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "setup": "Kicker",
+      "target": 1.5802399999999996,
+      "entry": 1.45,
+      "ticker": "NTRP"
+    },
     {
       "entry": 1.45,
       "current_price": 1.46,

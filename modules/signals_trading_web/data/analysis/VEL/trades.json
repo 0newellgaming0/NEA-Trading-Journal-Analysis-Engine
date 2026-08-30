@@ -4,18 +4,18 @@
   "count": 3,
   "trades": [
     {
-      "ticker": "VEL",
-      "entry": 18.0,
-      "stop": 18.165,
-      "updated_at": "2026-08-30T08:01:21.979185",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
-      "direction": "Bearish",
-      "current_price": 18.01,
-      "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
       "score": 91.0,
-      "target": 17.67
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T08:01:21.979185",
+      "stop": 18.165,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 18.01,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "setup": "TLINE_CONTINUATION",
+      "target": 17.67,
+      "entry": 18.0,
+      "ticker": "VEL"
     },
     {
       "entry": 18.0,

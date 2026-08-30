@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-30T05:34:03.536841",
+  "ticker": "NUWE",
+  "count": 1,
+  "trades": [
+    {
+      "score": 74.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T10:34:33.678426",
+      "stop": 0.86877,
+      "regime": "BEARISH_CONSOLIDATION",
+      "current_price": 0.9059,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "setup": "Harami",
+      "target": 0.92916,
+      "entry": 0.8889,
+      "ticker": "NUWE"
+    }
+  ]
+}

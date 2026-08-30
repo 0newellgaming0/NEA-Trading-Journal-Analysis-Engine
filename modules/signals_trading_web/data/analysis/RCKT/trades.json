@@ -4,18 +4,18 @@
   "count": 3,
   "trades": [
     {
-      "ticker": "RCKT",
-      "entry": 3.85,
-      "stop": 3.993,
-      "updated_at": "2026-08-30T08:13:33.847348",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
-      "direction": "Bearish",
-      "current_price": 3.82,
-      "setup": "Engulfing",
-      "risk_reward": 2.0,
       "score": 87.0,
-      "target": 3.5640000000000005
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T08:13:33.847348",
+      "stop": 3.993,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 3.82,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "setup": "Engulfing",
+      "target": 3.5640000000000005,
+      "entry": 3.85,
+      "ticker": "RCKT"
     },
     {
       "entry": 3.85,

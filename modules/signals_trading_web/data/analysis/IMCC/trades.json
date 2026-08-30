@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-28T16:08:34.232621",
+  "generated_at": "2026-08-30T04:52:54.666436",
   "ticker": "IMCC",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "score": 63.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T09:53:09.413248",
+      "stop": 3.9351100000000003,
+      "regime": "BEARISH_CONSOLIDATION",
+      "current_price": 3.58,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "setup": "Evening Star",
+      "target": 2.446479999999999,
+      "entry": 3.4389,
+      "ticker": "IMCC"
+    }
+  ]
 }

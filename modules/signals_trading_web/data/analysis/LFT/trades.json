@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-30T05:09:11.032494",
+  "ticker": "LFT",
+  "count": 1,
+  "trades": [
+    {
+      "score": 66.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-08-30T10:09:34.132837",
+      "stop": 0.7356199999999999,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "current_price": 0.735,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "setup": "TLINE_CONTINUATION",
+      "target": 0.7151600000000001,
+      "entry": 0.7288,
+      "ticker": "LFT"
+    }
+  ]
+}
