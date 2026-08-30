@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T14:16:30.906398",
+  "generated_at": "2026-08-30T03:00:52.155701",
   "ticker": "VEL",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "ticker": "VEL",
+      "entry": 18.0,
+      "stop": 18.165,
+      "updated_at": "2026-08-30T08:01:21.979185",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "current_price": 18.01,
+      "setup": "TLINE_CONTINUATION",
+      "risk_reward": 2.0,
+      "score": 91.0,
+      "target": 17.67
+    },
     {
       "entry": 18.0,
       "current_price": 18.01,

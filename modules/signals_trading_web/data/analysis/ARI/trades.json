@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T15:26:07.885155",
+  "generated_at": "2026-08-30T03:08:50.415925",
   "ticker": "ARI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "ticker": "ARI",
+      "entry": 6.815,
+      "stop": 6.7875,
+      "updated_at": "2026-08-30T08:09:14.355904",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "current_price": 6.85,
+      "setup": "Engulfing",
+      "risk_reward": 2.0,
+      "score": 87.0,
+      "target": 6.870000000000002
+    },
     {
       "entry": 6.815,
       "current_price": 6.85,
