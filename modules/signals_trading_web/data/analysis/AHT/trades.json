@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "target": 3.24648,
-      "score": 68.0,
-      "ticker": "AHT",
-      "setup": "TLINE_CONTINUATION",
-      "updated_at": "2026-08-30T12:43:58.673098",
       "current_price": 3.25,
-      "stop": 3.25011,
+      "ticker": "AHT",
       "risk_reward": 2.0,
+      "target": 3.24648,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "score": 68.0,
+      "stop": 3.25011,
+      "direction": "Bearish",
       "entry": 3.2489,
-      "regime": "SHORT_TERM_WEAKNESS"
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-30T12:43:58.673098"
     }
   ]
 }

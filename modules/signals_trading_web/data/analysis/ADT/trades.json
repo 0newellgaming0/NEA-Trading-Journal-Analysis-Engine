@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bullish",
-      "status": "CONFIRMED",
-      "target": 7.569,
-      "score": 69.0,
-      "ticker": "ADT",
-      "setup": "Engulfing",
-      "updated_at": "2026-08-30T12:23:55.940764",
       "current_price": 7.51,
-      "stop": 7.4205,
+      "ticker": "ADT",
       "risk_reward": 2.0,
+      "target": 7.569,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "score": 69.0,
+      "stop": 7.4205,
+      "direction": "Bullish",
       "entry": 7.47,
-      "regime": "BULLISH_CONSOLIDATION"
+      "setup": "Engulfing",
+      "updated_at": "2026-08-30T12:23:55.940764"
     }
   ]
 }

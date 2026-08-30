@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "target": 4.791999999999999,
-      "score": 75.0,
-      "ticker": "ALVO",
-      "setup": "Pinbar",
-      "updated_at": "2026-08-30T13:02:06.685064",
       "current_price": 4.94,
-      "stop": 5.0065,
+      "ticker": "ALVO",
       "risk_reward": 2.0,
+      "target": 4.791999999999999,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "score": 75.0,
+      "stop": 5.0065,
+      "direction": "Bearish",
       "entry": 4.935,
-      "regime": "SHORT_TERM_STRENGTH"
+      "setup": "Pinbar",
+      "updated_at": "2026-08-30T13:02:06.685064"
     }
   ]
 }

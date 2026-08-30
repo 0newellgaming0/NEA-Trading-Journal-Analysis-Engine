@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "target": 0.3280200000000001,
-      "score": 48.0,
-      "ticker": "ALPS",
-      "setup": "Marubozu",
-      "updated_at": "2026-08-30T12:57:53.266786",
       "current_price": 0.3849,
-      "stop": 0.41348999999999997,
+      "ticker": "ALPS",
       "risk_reward": 2.0,
+      "target": 0.3280200000000001,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED",
+      "score": 48.0,
+      "stop": 0.41348999999999997,
+      "direction": "Bearish",
       "entry": 0.385,
-      "regime": "PRIMARY_DOWNTREND_RALLY"
+      "setup": "Marubozu",
+      "updated_at": "2026-08-30T12:57:53.266786"
     }
   ]
 }

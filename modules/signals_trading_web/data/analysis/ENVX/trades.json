@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "target": 3.126,
-      "score": 69.0,
-      "ticker": "ENVX",
-      "setup": "Three Black Crows",
-      "updated_at": "2026-08-30T09:31:47.072240",
       "current_price": 3.4,
-      "stop": 3.6045,
+      "ticker": "ENVX",
       "risk_reward": 2.0,
+      "target": 3.126,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "score": 69.0,
+      "stop": 3.6045,
+      "direction": "Bearish",
       "entry": 3.445,
-      "regime": "BEARISH_CONSOLIDATION"
+      "setup": "Three Black Crows",
+      "updated_at": "2026-08-30T09:31:47.072240"
     }
   ]
 }

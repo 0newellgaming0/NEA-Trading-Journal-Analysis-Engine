@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bullish",
-      "status": "CONFIRMED",
-      "target": 6.6857999999999995,
-      "score": 87.0,
-      "ticker": "TRVG",
-      "setup": "TLINE_CONTINUATION",
-      "updated_at": "2026-08-30T08:20:10.249202",
       "current_price": 6.115,
-      "stop": 5.7321,
+      "ticker": "TRVG",
       "risk_reward": 2.0,
+      "target": 6.6857999999999995,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "score": 87.0,
+      "stop": 5.7321,
+      "direction": "Bullish",
       "entry": 6.05,
-      "regime": "FULL_BULLISH_ALIGNMENT"
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-30T08:20:10.249202"
     }
   ]
 }

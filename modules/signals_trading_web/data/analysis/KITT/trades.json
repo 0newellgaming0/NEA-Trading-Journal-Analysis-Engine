@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "target": 0.7738200000000002,
-      "score": 69.0,
-      "ticker": "KITT",
-      "setup": "Pinbar",
-      "updated_at": "2026-08-30T10:00:57.536778",
       "current_price": 0.81,
-      "stop": 0.81309,
+      "ticker": "KITT",
       "risk_reward": 2.0,
+      "target": 0.7738200000000002,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "score": 69.0,
+      "stop": 0.81309,
+      "direction": "Bearish",
       "entry": 0.8,
-      "regime": "BEARISH_CONSOLIDATION"
+      "setup": "Pinbar",
+      "updated_at": "2026-08-30T10:00:57.536778"
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "target": 0.8299999999999998,
-      "score": 68.0,
-      "ticker": "LUCY",
-      "setup": "Evening Star",
-      "updated_at": "2026-08-30T10:13:51.172676",
       "current_price": 0.9252,
-      "stop": 0.995,
+      "ticker": "LUCY",
       "risk_reward": 2.0,
+      "target": 0.8299999999999998,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "score": 68.0,
+      "stop": 0.995,
+      "direction": "Bearish",
       "entry": 0.94,
-      "regime": "SHORT_TERM_WEAKNESS"
+      "setup": "Evening Star",
+      "updated_at": "2026-08-30T10:13:51.172676"
     }
   ]
 }

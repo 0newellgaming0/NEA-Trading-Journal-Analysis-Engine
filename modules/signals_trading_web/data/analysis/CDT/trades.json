@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "target": 1.556,
-      "score": 69.0,
-      "ticker": "CDT",
-      "setup": "Inside Bar",
-      "updated_at": "2026-08-30T09:11:58.598021",
       "current_price": 1.68,
-      "stop": 1.787,
+      "ticker": "CDT",
       "risk_reward": 2.0,
+      "target": 1.556,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "score": 69.0,
+      "stop": 1.787,
+      "direction": "Bearish",
       "entry": 1.71,
-      "regime": "BEARISH_CONSOLIDATION"
+      "setup": "Inside Bar",
+      "updated_at": "2026-08-30T09:11:58.598021"
     }
   ]
 }

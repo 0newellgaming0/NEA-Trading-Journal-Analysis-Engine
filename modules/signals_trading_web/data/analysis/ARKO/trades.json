@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "target": 4.31632,
-      "score": 51.0,
-      "ticker": "ARKO",
-      "setup": "TLINE_ROLLOVER",
-      "updated_at": "2026-08-30T08:53:43.138065",
       "current_price": 4.38,
-      "stop": 4.38199,
+      "ticker": "ARKO",
       "risk_reward": 2.0,
+      "target": 4.31632,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "score": 51.0,
+      "stop": 4.38199,
+      "direction": "Bearish",
       "entry": 4.3601,
-      "regime": "BEARISH_CONSOLIDATION"
+      "setup": "TLINE_ROLLOVER",
+      "updated_at": "2026-08-30T08:53:43.138065"
     }
   ]
 }
