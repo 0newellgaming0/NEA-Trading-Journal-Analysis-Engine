@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
-      "regime": "BULLISH_CONSOLIDATION",
       "score": 88.0,
-      "updated_at": "2026-08-30T07:50:58.780789",
-      "stop": 11.9605,
       "direction": "Bullish",
+      "updated_at": "2026-08-30T07:50:58.780789",
       "status": "CONFIRMED",
+      "risk_reward": 2.0,
       "entry": 12.12,
       "ticker": "BGC",
-      "current_price": 12.12,
-      "target": 12.438999999999998
+      "stop": 11.9605,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "TLINE_CONTINUATION",
+      "target": 12.438999999999998,
+      "current_price": 12.12
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
-      "regime": "BEARISH_CONSOLIDATION",
       "score": 56.0,
-      "updated_at": "2026-08-30T10:29:18.307183",
-      "stop": 10.32825,
       "direction": "Bearish",
+      "updated_at": "2026-08-30T10:29:18.307183",
       "status": "CONFIRMED",
+      "risk_reward": 2.0,
       "entry": 10.32,
       "ticker": "NRDY",
-      "current_price": 10.32,
-      "target": 10.3035
+      "stop": 10.32825,
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "TLINE_CONTINUATION",
+      "target": 10.3035,
+      "current_price": 10.32
     }
   ]
 }

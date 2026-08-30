@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "Pinbar",
-      "risk_reward": 2.0,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
       "score": 86.0,
-      "updated_at": "2026-08-30T09:14:09.928026",
-      "stop": 0.53435,
       "direction": "Bearish",
+      "updated_at": "2026-08-30T09:14:09.928026",
       "status": "CONFIRMED",
+      "risk_reward": 2.0,
       "entry": 0.3765,
       "ticker": "CHAI",
-      "current_price": 0.3681,
-      "target": 0.06080000000000002
+      "stop": 0.53435,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "setup": "Pinbar",
+      "target": 0.06080000000000002,
+      "current_price": 0.3681
     }
   ]
 }

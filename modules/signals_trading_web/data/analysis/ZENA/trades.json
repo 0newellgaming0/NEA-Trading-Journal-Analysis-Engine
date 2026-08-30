@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "TLINE_ROLLOVER",
-      "risk_reward": 2.0,
-      "regime": "SHORT_TERM_WEAKNESS",
       "score": 73.0,
-      "updated_at": "2026-08-30T11:02:17.691681",
-      "stop": 1.7309999999999999,
       "direction": "Bearish",
+      "updated_at": "2026-08-30T11:02:17.691681",
       "status": "CONFIRMED",
+      "risk_reward": 2.0,
       "entry": 1.72,
       "ticker": "ZENA",
-      "current_price": 1.73,
-      "target": 1.6980000000000002
+      "stop": 1.7309999999999999,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "TLINE_ROLLOVER",
+      "target": 1.6980000000000002,
+      "current_price": 1.73
     }
   ]
 }

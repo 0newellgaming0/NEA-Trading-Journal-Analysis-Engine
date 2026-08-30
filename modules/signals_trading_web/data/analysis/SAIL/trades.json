@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "setup": "Inside Bar",
-      "risk_reward": 2.0,
-      "regime": "SHORT_TERM_WEAKNESS",
       "score": 94.0,
-      "updated_at": "2026-08-30T07:06:54.536066",
-      "stop": 20.77089,
       "direction": "Bearish",
+      "updated_at": "2026-08-30T07:06:54.536066",
       "status": "CONFIRMED",
+      "risk_reward": 2.0,
       "entry": 19.99,
       "ticker": "SAIL",
-      "current_price": 19.8403,
-      "target": 18.428219999999992
+      "stop": 20.77089,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Inside Bar",
+      "target": 18.428219999999992,
+      "current_price": 19.8403
     }
   ]
 }
