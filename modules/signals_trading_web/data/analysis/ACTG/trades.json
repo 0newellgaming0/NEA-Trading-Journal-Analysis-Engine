@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 61.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T12:10:59.754450",
-      "target": 4.598000000000001,
-      "regime": "SHORT_TERM_STRENGTH",
-      "setup": "TLINE_CONTINUATION",
-      "stop": 4.465999999999999,
       "direction": "Bullish",
-      "current_price": 4.5,
+      "status": "CONFIRMED",
+      "target": 4.598000000000001,
+      "score": 61.0,
       "ticker": "ACTG",
-      "entry": 4.51
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-30T12:10:59.754450",
+      "current_price": 4.5,
+      "stop": 4.465999999999999,
+      "risk_reward": 2.0,
+      "entry": 4.51,
+      "regime": "SHORT_TERM_STRENGTH"
     }
   ]
 }

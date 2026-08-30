@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 51.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T10:48:33.595619",
-      "target": 1.0113599999999998,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "Harami",
-      "stop": 0.90807,
       "direction": "Bullish",
-      "current_price": 0.9604,
+      "status": "CONFIRMED",
+      "target": 1.0113599999999998,
+      "score": 51.0,
       "ticker": "SUIG",
-      "entry": 0.9425
+      "setup": "Harami",
+      "updated_at": "2026-08-30T10:48:33.595619",
+      "current_price": 0.9604,
+      "stop": 0.90807,
+      "risk_reward": 2.0,
+      "entry": 0.9425,
+      "regime": "BEARISH_CONSOLIDATION"
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 55.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T09:07:41.790077",
-      "target": 13.969999999999999,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "Pinbar",
-      "stop": 13.805,
       "direction": "Bullish",
-      "current_price": 13.87,
+      "status": "CONFIRMED",
+      "target": 13.969999999999999,
+      "score": 55.0,
       "ticker": "BYND",
-      "entry": 13.86
+      "setup": "Pinbar",
+      "updated_at": "2026-08-30T09:07:41.790077",
+      "current_price": 13.87,
+      "stop": 13.805,
+      "risk_reward": 2.0,
+      "entry": 13.86,
+      "regime": "BEARISH_CONSOLIDATION"
     }
   ]
 }

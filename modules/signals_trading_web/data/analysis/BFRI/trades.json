@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 89.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T07:47:48.406217",
-      "target": 1.6299999999999997,
-      "regime": "BULLISH_CONSOLIDATION",
-      "setup": "Pinbar",
-      "stop": 1.5475,
       "direction": "Bullish",
-      "current_price": 1.5802,
+      "status": "CONFIRMED",
+      "target": 1.6299999999999997,
+      "score": 89.0,
       "ticker": "BFRI",
-      "entry": 1.575
+      "setup": "Pinbar",
+      "updated_at": "2026-08-30T07:47:48.406217",
+      "current_price": 1.5802,
+      "stop": 1.5475,
+      "risk_reward": 2.0,
+      "entry": 1.575,
+      "regime": "BULLISH_CONSOLIDATION"
     }
   ]
 }

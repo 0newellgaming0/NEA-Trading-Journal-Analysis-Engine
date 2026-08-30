@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 64.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T10:42:26.645890",
-      "target": 1.5320000000000005,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "TLINE_ROLLOVER",
-      "stop": 1.664,
       "direction": "Bearish",
-      "current_price": 1.66,
+      "status": "CONFIRMED",
+      "target": 1.5320000000000005,
+      "score": 64.0,
       "ticker": "RCON",
-      "entry": 1.62
+      "setup": "TLINE_ROLLOVER",
+      "updated_at": "2026-08-30T10:42:26.645890",
+      "current_price": 1.66,
+      "stop": 1.664,
+      "risk_reward": 2.0,
+      "entry": 1.62,
+      "regime": "BEARISH_CONSOLIDATION"
     }
   ]
 }

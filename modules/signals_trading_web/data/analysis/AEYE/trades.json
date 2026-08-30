@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 68.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T12:36:44.907971",
-      "target": 7.34752,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "setup": "Inside Bar",
-      "stop": 7.1112400000000004,
       "direction": "Bullish",
-      "current_price": 7.2,
+      "status": "CONFIRMED",
+      "target": 7.34752,
+      "score": 68.0,
       "ticker": "AEYE",
-      "entry": 7.19
+      "setup": "Inside Bar",
+      "updated_at": "2026-08-30T12:36:44.907971",
+      "current_price": 7.2,
+      "stop": 7.1112400000000004,
+      "risk_reward": 2.0,
+      "entry": 7.19,
+      "regime": "PRIMARY_DOWNTREND_RALLY"
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 65.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T10:46:31.439275",
-      "target": 0.7364400000000001,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "Evening Star",
-      "stop": 0.81828,
       "direction": "Bearish",
-      "current_price": 0.8,
+      "status": "CONFIRMED",
+      "target": 0.7364400000000001,
+      "score": 65.0,
       "ticker": "SUGP",
-      "entry": 0.791
+      "setup": "Evening Star",
+      "updated_at": "2026-08-30T10:46:31.439275",
+      "current_price": 0.8,
+      "stop": 0.81828,
+      "risk_reward": 2.0,
+      "entry": 0.791,
+      "regime": "BEARISH_CONSOLIDATION"
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 42.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T09:19:50.865948",
-      "target": 4.008959999999998,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "setup": "TLINE_CONTINUATION",
-      "stop": 4.33302,
       "direction": "Bearish",
-      "current_price": 4.23,
+      "status": "CONFIRMED",
+      "target": 4.008959999999998,
+      "score": 42.0,
       "ticker": "CLNN",
-      "entry": 4.225
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-30T09:19:50.865948",
+      "current_price": 4.23,
+      "stop": 4.33302,
+      "risk_reward": 2.0,
+      "entry": 4.225,
+      "regime": "FULL_BEARISH_ALIGNMENT"
     }
   ]
 }

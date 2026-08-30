@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 60.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T12:18:24.040187",
-      "target": 0.49438000000000004,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "setup": "TLINE_CONTINUATION",
-      "stop": 0.51781,
       "direction": "Bearish",
-      "current_price": 0.5116,
+      "status": "CONFIRMED",
+      "target": 0.49438000000000004,
+      "score": 60.0,
       "ticker": "ADGM",
-      "entry": 0.51
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-30T12:18:24.040187",
+      "current_price": 0.5116,
+      "stop": 0.51781,
+      "risk_reward": 2.0,
+      "entry": 0.51,
+      "regime": "FULL_BEARISH_ALIGNMENT"
     }
   ]
 }

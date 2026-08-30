@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 64.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T09:58:45.898488",
-      "target": 0.37354000000000004,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "Hammer",
-      "stop": 0.34153,
       "direction": "Bullish",
-      "current_price": 0.354,
+      "status": "CONFIRMED",
+      "target": 0.37354000000000004,
+      "score": 64.0,
       "ticker": "INVZ",
-      "entry": 0.3522
+      "setup": "Hammer",
+      "updated_at": "2026-08-30T09:58:45.898488",
+      "current_price": 0.354,
+      "stop": 0.34153,
+      "risk_reward": 2.0,
+      "entry": 0.3522,
+      "regime": "BEARISH_CONSOLIDATION"
     }
   ]
 }

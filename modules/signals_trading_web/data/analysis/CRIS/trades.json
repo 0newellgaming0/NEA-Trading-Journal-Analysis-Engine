@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 53.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T09:22:12.584020",
-      "target": 1.3079999999999998,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "setup": "Engulfing",
-      "stop": 1.506,
       "direction": "Bearish",
-      "current_price": 1.47,
+      "status": "CONFIRMED",
+      "target": 1.3079999999999998,
+      "score": 53.0,
       "ticker": "CRIS",
-      "entry": 1.44
+      "setup": "Engulfing",
+      "updated_at": "2026-08-30T09:22:12.584020",
+      "current_price": 1.47,
+      "stop": 1.506,
+      "risk_reward": 2.0,
+      "entry": 1.44,
+      "regime": "FULL_BEARISH_ALIGNMENT"
     }
   ]
 }

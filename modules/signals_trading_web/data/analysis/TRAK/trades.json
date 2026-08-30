@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 98.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T15:05:17.538582",
-      "target": 8.238000000000001,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "TLINE_CONTINUATION",
-      "stop": 8.106,
       "direction": "Bullish",
-      "current_price": 8.21,
+      "status": "CONFIRMED",
+      "target": 8.238000000000001,
+      "score": 98.0,
       "ticker": "TRAK",
-      "entry": 8.15
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-30T15:05:17.538582",
+      "current_price": 8.21,
+      "stop": 8.106,
+      "risk_reward": 2.0,
+      "entry": 8.15,
+      "regime": "BEARISH_CONSOLIDATION"
     }
   ]
 }

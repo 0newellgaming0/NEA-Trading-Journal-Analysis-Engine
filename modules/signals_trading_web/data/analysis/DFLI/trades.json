@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 39.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T09:24:24.666946",
-      "target": 1.14368,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "Inside Bar",
-      "stop": 1.0780100000000001,
       "direction": "Bullish",
-      "current_price": 1.11,
+      "status": "CONFIRMED",
+      "target": 1.14368,
+      "score": 39.0,
       "ticker": "DFLI",
-      "entry": 1.0999
+      "setup": "Inside Bar",
+      "updated_at": "2026-08-30T09:24:24.666946",
+      "current_price": 1.11,
+      "stop": 1.0780100000000001,
+      "risk_reward": 2.0,
+      "entry": 1.0999,
+      "regime": "BEARISH_CONSOLIDATION"
     }
   ]
 }

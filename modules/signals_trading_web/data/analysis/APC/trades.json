@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 75.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T13:27:00.623819",
-      "target": 18.871999999999996,
-      "regime": "HIGHER_TIMEFRAME_CONFLICT",
-      "setup": "TLINE_CONTINUATION",
-      "stop": 18.4265,
       "direction": "Bullish",
-      "current_price": 18.5,
+      "status": "CONFIRMED",
+      "target": 18.871999999999996,
+      "score": 75.0,
       "ticker": "APC",
-      "entry": 18.575
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-30T13:27:00.623819",
+      "current_price": 18.5,
+      "stop": 18.4265,
+      "risk_reward": 2.0,
+      "entry": 18.575,
+      "regime": "HIGHER_TIMEFRAME_CONFLICT"
     }
   ]
 }

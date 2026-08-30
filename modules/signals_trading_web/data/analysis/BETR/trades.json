@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 76.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T08:57:42.402043",
-      "target": 12.768360000000001,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "setup": "TLINE_CONTINUATION",
-      "stop": 14.57907,
       "direction": "Bearish",
-      "current_price": 13.85,
+      "status": "CONFIRMED",
+      "target": 12.768360000000001,
+      "score": 76.0,
       "ticker": "BETR",
-      "entry": 13.9755
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-30T08:57:42.402043",
+      "current_price": 13.85,
+      "stop": 14.57907,
+      "risk_reward": 2.0,
+      "entry": 13.9755,
+      "regime": "PRIMARY_DOWNTREND_RALLY"
     }
   ]
 }

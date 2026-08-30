@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "score": 58.0,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-08-30T12:04:52.304542",
-      "target": 1.1818400000000002,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "setup": "TLINE_CONTINUATION",
-      "stop": 1.21088,
       "direction": "Bearish",
-      "current_price": 1.2012,
+      "status": "CONFIRMED",
+      "target": 1.1818400000000002,
+      "score": 58.0,
       "ticker": "ACH",
-      "entry": 1.2012
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-30T12:04:52.304542",
+      "current_price": 1.2012,
+      "stop": 1.21088,
+      "risk_reward": 2.0,
+      "entry": 1.2012,
+      "regime": "FULL_BEARISH_ALIGNMENT"
     }
   ]
 }
