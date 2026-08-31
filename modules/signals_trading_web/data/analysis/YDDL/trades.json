@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T09:06:41.282142+00:00",
+  "ticker": "YDDL",
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "YDDL",
+      "stop": 1.33,
+      "entry": 3.38,
+      "updated_at": "2026-08-31T07:59:17.743097",
+      "status": "CONFIRMED",
+      "score": 66.0,
+      "direction": "Bullish",
+      "setup": "MACD_ZERO_LINE_RECLAIM",
+      "risk_reward": 2.0,
+      "current_price": 2.3,
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 7.4799999999999995
+    }
+  ]
+}

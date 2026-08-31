@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T09:06:41.153922+00:00",
+  "ticker": "OSG",
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "OSG",
+      "stop": 4.525,
+      "entry": 4.58,
+      "updated_at": "2026-08-31T08:41:49.172863",
+      "status": "CONFIRMED",
+      "score": 68.0,
+      "direction": "Bullish",
+      "setup": "Pinbar",
+      "risk_reward": 2.0,
+      "current_price": 4.6,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 4.6899999999999995
+    }
+  ]
+}

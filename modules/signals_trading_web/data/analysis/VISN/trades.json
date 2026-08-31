@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T09:06:41.266717+00:00",
+  "ticker": "VISN",
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "VISN",
+      "stop": 6.052,
+      "entry": 6.14,
+      "updated_at": "2026-08-31T09:06:40.604777",
+      "status": "CONFIRMED",
+      "score": 87.0,
+      "direction": "Bullish",
+      "setup": "Counterattack Lines",
+      "risk_reward": 2.0,
+      "current_price": 6.14,
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 6.316
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T09:06:41.207166+00:00",
+  "ticker": "SHIM",
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "SHIM",
+      "stop": 4.104,
+      "entry": 3.95,
+      "updated_at": "2026-08-31T08:12:07.730924",
+      "status": "CONFIRMED",
+      "score": 91.0,
+      "direction": "Bearish",
+      "setup": "TLINE_CONTINUATION",
+      "risk_reward": 2.0,
+      "current_price": 3.99,
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 3.6420000000000003
+    }
+  ]
+}

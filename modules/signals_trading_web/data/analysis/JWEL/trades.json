@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T09:06:41.071506+00:00",
+  "ticker": "JWEL",
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "JWEL",
+      "stop": 2.488,
+      "entry": 2.4,
+      "updated_at": "2026-08-31T08:20:35.704155",
+      "status": "CONFIRMED",
+      "score": 68.0,
+      "direction": "Bearish",
+      "setup": "Three Outside Down",
+      "risk_reward": 2.0,
+      "current_price": 2.35,
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 2.2239999999999998
+    }
+  ]
+}

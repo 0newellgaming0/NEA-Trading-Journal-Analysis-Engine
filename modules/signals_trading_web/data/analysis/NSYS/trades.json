@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T09:06:41.138364+00:00",
+  "ticker": "NSYS",
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "NSYS",
+      "stop": 12.758989999999999,
+      "entry": 12.0001,
+      "updated_at": "2026-08-31T08:22:08.336856",
+      "status": "CONFIRMED",
+      "score": 79.0,
+      "direction": "Bearish",
+      "setup": "EMA_PULLBACK",
+      "risk_reward": 2.0,
+      "current_price": 11.84,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "target": 10.482320000000001
+    }
+  ]
+}
