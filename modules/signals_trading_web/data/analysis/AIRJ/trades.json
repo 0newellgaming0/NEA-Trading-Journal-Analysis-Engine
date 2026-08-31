@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-29T19:00:00.956831",
+  "generated_at": "2026-08-31T12:26:24.560081+00:00",
   "ticker": "AIRJ",
   "count": 1,
   "trades": [
     {
-      "stop": 4.82046,
-      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "current_price": 4.61,
+      "setup": "Three Black Crows",
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "updated_at": "2026-08-31T09:22:11.314269",
       "target": 4.310280000000001,
       "ticker": "AIRJ",
-      "risk_reward": 2.0,
+      "stop": 4.82046,
       "entry": 4.6504,
-      "status": "CONFIRMED",
       "score": 74.0,
-      "setup": "Three Black Crows",
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "updated_at": "2026-08-31T05:15:31.961268",
-      "current_price": 4.5792
+      "direction": "Bearish"
     }
   ]
 }

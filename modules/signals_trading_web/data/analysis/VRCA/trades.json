@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-30T02:43:02.622018",
+  "generated_at": "2026-08-31T12:26:26.759922+00:00",
   "ticker": "VRCA",
   "count": 1,
   "trades": [
     {
-      "stop": 5.422000000000001,
-      "direction": "Bullish",
-      "target": 6.346,
-      "ticker": "VRCA",
       "risk_reward": 2.0,
-      "entry": 5.73,
-      "status": "CONFIRMED",
-      "score": 89.0,
+      "current_price": 5.65,
       "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
       "regime": "PRIMARY_DOWNTREND_RALLY",
       "updated_at": "2026-08-31T06:48:01.757793",
-      "current_price": 5.65
+      "target": 6.346,
+      "ticker": "VRCA",
+      "stop": 5.422000000000001,
+      "entry": 5.73,
+      "score": 89.0,
+      "direction": "Bullish"
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T12:26:25.079101+00:00",
+  "ticker": "CHOW",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 0.5864,
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-08-31T06:02:35.640415",
+      "target": 0.5682199999999998,
+      "ticker": "CHOW",
+      "stop": 0.60089,
+      "entry": 0.59,
+      "score": 69.0,
+      "direction": "Bearish"
+    }
+  ]
+}

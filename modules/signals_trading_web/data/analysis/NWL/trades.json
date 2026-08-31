@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T11:57:58.137018+00:00",
+  "generated_at": "2026-08-31T12:26:26.078782+00:00",
   "ticker": "NWL",
   "count": 1,
   "trades": [
     {
-      "ticker": "NWL",
-      "score": 71.0,
-      "updated_at": "2026-08-31T11:39:29.930610",
       "risk_reward": 2.0,
-      "regime": "BULLISH_CONSOLIDATION",
-      "setup": "Pinbar",
       "current_price": 5.9827,
-      "entry": 5.9783,
-      "direction": "Bullish",
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-08-31T11:39:29.930610",
       "target": 6.106559999999999,
+      "ticker": "NWL",
       "stop": 5.91417,
-      "status": "CONFIRMED"
+      "entry": 5.9783,
+      "score": 71.0,
+      "direction": "Bullish"
     }
   ]
 }

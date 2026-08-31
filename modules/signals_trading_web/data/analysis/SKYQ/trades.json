@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T20:54:12.603625",
+  "generated_at": "2026-08-31T12:26:26.491688+00:00",
   "ticker": "SKYQ",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 2.7895,
+      "setup": "EMA20_CROSS",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-08-31T11:45:10.099825",
+      "target": 3.6919999999999993,
+      "ticker": "SKYQ",
+      "stop": 2.669,
+      "entry": 3.01,
+      "score": 62.0,
+      "direction": "Bullish"
+    },
     {
       "entry": 2.63,
       "current_price": 2.63,

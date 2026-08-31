@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T09:06:41.082943+00:00",
+  "generated_at": "2026-08-31T12:26:25.832949+00:00",
   "ticker": "LPTH",
   "count": 1,
   "trades": [
     {
+      "risk_reward": 2.0,
+      "current_price": 11.3407,
+      "setup": "Three Black Crows",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-08-31T08:37:19.909801",
+      "target": 7.6899999999999995,
       "ticker": "LPTH",
       "stop": 12.805,
       "entry": 11.1,
-      "updated_at": "2026-08-31T08:37:19.909801",
-      "status": "CONFIRMED",
       "score": 82.0,
-      "direction": "Bearish",
-      "setup": "Three Black Crows",
-      "risk_reward": 2.0,
-      "current_price": 11.3407,
-      "regime": "SHORT_TERM_STRENGTH",
-      "target": 7.6899999999999995
+      "direction": "Bearish"
     }
   ]
 }

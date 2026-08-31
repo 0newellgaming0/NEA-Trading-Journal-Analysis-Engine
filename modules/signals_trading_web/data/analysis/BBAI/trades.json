@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T02:30:33.809931",
+  "generated_at": "2026-08-31T12:26:24.810970+00:00",
   "ticker": "BBAI",
   "count": 1,
   "trades": [
     {
-      "stop": 3.208,
-      "direction": "Bearish",
-      "target": 2.944,
-      "ticker": "BBAI",
       "risk_reward": 2.0,
-      "entry": 3.12,
-      "status": "CONFIRMED",
-      "score": 74.0,
+      "current_price": 3.07,
       "setup": "Three Inside Down",
+      "status": "CONFIRMED",
       "regime": "PRIMARY_DOWNTREND_RALLY",
       "updated_at": "2026-08-31T07:30:56.333879",
-      "current_price": 3.07
+      "target": 2.944,
+      "ticker": "BBAI",
+      "stop": 3.208,
+      "entry": 3.12,
+      "score": 74.0,
+      "direction": "Bearish"
     }
   ]
 }

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-29T09:20:56.860546",
+  "generated_at": "2026-08-31T12:26:25.741049+00:00",
   "ticker": "JTAI",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 1.5192,
+      "setup": "Falling Three Methods",
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "updated_at": "2026-08-31T12:26:24.163010",
+      "target": 1.4758800000000005,
+      "ticker": "JTAI",
+      "stop": 1.5471599999999999,
+      "entry": 1.5234,
+      "score": 46.0,
+      "direction": "Bearish"
+    }
+  ]
 }

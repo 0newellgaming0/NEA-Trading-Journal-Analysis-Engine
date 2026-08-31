@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-30T07:34:27.423254",
+  "generated_at": "2026-08-31T12:26:24.524688+00:00",
   "ticker": "AEO",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 17.1597,
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-08-31T09:20:01.645568",
+      "target": 17.069200000000002,
+      "ticker": "AEO",
+      "stop": 16.84315,
+      "entry": 16.9185,
+      "score": 85.0,
+      "direction": "Bullish"
+    },
     {
       "stop": 17.076500000000003,
       "direction": "Bearish",

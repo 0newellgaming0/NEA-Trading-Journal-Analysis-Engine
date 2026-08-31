@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-29T18:03:06.392934",
+  "generated_at": "2026-08-31T12:26:25.687887+00:00",
   "ticker": "IOVA",
   "count": 1,
   "trades": [
     {
-      "entry": 8.26,
-      "current_price": 8.03,
-      "direction": "Bearish",
-      "score": 80.0,
-      "status": "CONFIRMED",
-      "setup": "Pinbar",
       "risk_reward": 2.0,
-      "ticker": "IOVA",
+      "current_price": 8.06,
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
       "regime": "FULL_BULLISH_ALIGNMENT",
+      "updated_at": "2026-08-31T10:42:19.850022",
+      "target": 8.084000000000001,
+      "ticker": "IOVA",
       "stop": 8.347999999999999,
-      "updated_at": "2026-08-29T23:03:29.991579",
-      "target": 8.084000000000001
+      "entry": 8.26,
+      "score": 80.0,
+      "direction": "Bearish"
     }
   ]
 }

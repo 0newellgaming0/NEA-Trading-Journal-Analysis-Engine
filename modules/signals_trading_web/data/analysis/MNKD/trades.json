@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T10:49:12.640983+00:00",
+  "generated_at": "2026-08-31T12:26:25.899754+00:00",
   "ticker": "MNKD",
   "count": 1,
   "trades": [
     {
-      "ticker": "MNKD",
-      "setup": "TLINE_CONTINUATION",
-      "updated_at": "2026-08-31T10:44:22.601528",
       "risk_reward": 2.0,
+      "current_price": 3.87,
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "updated_at": "2026-08-31T10:44:22.601528",
+      "target": 3.776000000000001,
+      "ticker": "MNKD",
       "stop": 4.007,
       "entry": 3.93,
-      "direction": "Bearish",
-      "status": "CONFIRMED",
-      "current_price": 3.87,
       "score": 75.0,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "target": 3.776000000000001
+      "direction": "Bearish"
     }
   ]
 }

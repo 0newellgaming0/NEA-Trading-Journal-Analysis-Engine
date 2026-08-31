@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T11:57:59.069185+00:00",
+  "generated_at": "2026-08-31T12:26:26.309784+00:00",
   "ticker": "RBBN",
   "count": 1,
   "trades": [
     {
-      "ticker": "RBBN",
-      "score": 75.0,
-      "updated_at": "2026-08-31T11:10:51.750453",
       "risk_reward": 2.0,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "Engulfing",
       "current_price": 2.03,
-      "entry": 1.9979,
-      "direction": "Bearish",
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-08-31T11:10:51.750453",
       "target": 1.92728,
+      "ticker": "RBBN",
       "stop": 2.03321,
-      "status": "CONFIRMED"
+      "entry": 1.9979,
+      "score": 75.0,
+      "direction": "Bearish"
     }
   ]
 }

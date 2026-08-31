@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T12:26:24.925208+00:00",
+  "ticker": "BTCS",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 1.38,
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-08-31T05:54:01.165605",
+      "target": 1.4035600000000004,
+      "ticker": "BTCS",
+      "stop": 1.33822,
+      "entry": 1.36,
+      "score": 74.0,
+      "direction": "Bullish"
+    }
+  ]
+}

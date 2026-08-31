@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T12:26:25.187339+00:00",
+  "ticker": "CSAI",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 5.0501,
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-08-31T06:12:34.513663",
+      "target": 4.962319999999999,
+      "ticker": "CSAI",
+      "stop": 5.09399,
+      "entry": 5.0501,
+      "score": 64.0,
+      "direction": "Bearish"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T12:26:24.861881+00:00",
+  "ticker": "BITO",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 10.47,
+      "setup": "TLINE_ROLLOVER",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-08-31T05:41:40.493857",
+      "target": 10.405779999999996,
+      "ticker": "BITO",
+      "stop": 10.47211,
+      "entry": 10.45,
+      "score": 67.0,
+      "direction": "Bearish"
+    }
+  ]
+}

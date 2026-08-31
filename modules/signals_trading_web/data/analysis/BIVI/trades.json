@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-29T17:53:58.279379",
+  "generated_at": "2026-08-31T12:26:24.862940+00:00",
   "ticker": "BIVI",
   "count": 1,
   "trades": [
     {
-      "stop": 2.1229999999999998,
-      "direction": "Bullish",
-      "target": 2.354000000000001,
-      "ticker": "BIVI",
       "risk_reward": 2.0,
-      "entry": 2.2,
-      "status": "CONFIRMED",
-      "score": 78.0,
+      "current_price": 2.1888,
       "setup": "Marubozu",
+      "status": "CONFIRMED",
       "regime": "SHORT_TERM_STRENGTH",
       "updated_at": "2026-08-31T05:44:19.632704",
-      "current_price": 2.1888
+      "target": 2.354000000000001,
+      "ticker": "BIVI",
+      "stop": 2.1229999999999998,
+      "entry": 2.2,
+      "score": 78.0,
+      "direction": "Bullish"
     }
   ]
 }

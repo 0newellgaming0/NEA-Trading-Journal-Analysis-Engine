@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-30T11:18:28.417756",
+  "generated_at": "2026-08-31T12:26:24.518600+00:00",
   "ticker": "AEMD",
   "count": 1,
   "trades": [
     {
-      "stop": 2.7579000000000002,
-      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "current_price": 2.4,
+      "setup": "Three Black Crows",
+      "status": "CONFIRMED",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "updated_at": "2026-08-31T08:07:09.066133",
       "target": 1.8041999999999994,
       "ticker": "AEMD",
-      "risk_reward": 2.0,
+      "stop": 2.7579000000000002,
       "entry": 2.44,
-      "status": "CONFIRMED",
-      "score": 91.0,
-      "setup": "Three Black Crows",
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "updated_at": "2026-08-31T06:38:01.725537",
-      "current_price": 2.4001
+      "score": 84.0,
+      "direction": "Bearish"
     }
   ]
 }

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T11:57:54.780449+00:00",
+  "generated_at": "2026-08-31T12:26:25.324440+00:00",
   "ticker": "EGHT",
   "count": 1,
   "trades": [
     {
-      "ticker": "EGHT",
-      "score": 75.0,
-      "updated_at": "2026-08-31T11:13:46.992802",
       "risk_reward": 2.0,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "setup": "TLINE_CONTINUATION",
       "current_price": 1.8478,
-      "entry": 1.95,
-      "direction": "Bearish",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "updated_at": "2026-08-31T11:13:46.992802",
       "target": 1.8619999999999999,
+      "ticker": "EGHT",
       "stop": 1.994,
-      "status": "CONFIRMED"
+      "entry": 1.95,
+      "score": 75.0,
+      "direction": "Bearish"
     }
   ]
 }

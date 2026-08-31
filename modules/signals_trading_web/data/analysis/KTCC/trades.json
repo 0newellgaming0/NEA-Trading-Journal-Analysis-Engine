@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-28T14:48:39.908542",
+  "generated_at": "2026-08-31T12:26:25.762353+00:00",
   "ticker": "KTCC",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 2.73,
+      "setup": "Harami Cross",
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-08-31T08:24:48.242564",
+      "target": 2.606639999999999,
+      "ticker": "KTCC",
+      "stop": 2.86668,
+      "entry": 2.78,
+      "score": 78.0,
+      "direction": "Bearish"
+    }
+  ]
 }

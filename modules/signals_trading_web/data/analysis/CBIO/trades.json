@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T12:26:24.989718+00:00",
+  "ticker": "CBIO",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 17.75,
+      "setup": "Marubozu",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-08-31T05:57:56.577988",
+      "target": 17.151999999999994,
+      "ticker": "CBIO",
+      "stop": 18.1915,
+      "entry": 17.845,
+      "score": 71.0,
+      "direction": "Bearish"
+    }
+  ]
+}

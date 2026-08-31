@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T12:26:25.089974+00:00",
+  "ticker": "CJMB",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 2.0987,
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-08-31T06:07:01.348797",
+      "target": 1.9080000000000004,
+      "ticker": "CJMB",
+      "stop": 2.106,
+      "entry": 2.04,
+      "score": 69.0,
+      "direction": "Bearish"
+    }
+  ]
+}

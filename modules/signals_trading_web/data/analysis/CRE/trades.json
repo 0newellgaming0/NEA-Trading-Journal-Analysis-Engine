@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T12:26:25.163124+00:00",
+  "ticker": "CRE",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 3.7,
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-08-31T06:10:44.215706",
+      "target": 3.252,
+      "ticker": "CRE",
+      "stop": 6.189,
+      "entry": 5.21,
+      "score": 74.0,
+      "direction": "Bearish"
+    }
+  ]
+}

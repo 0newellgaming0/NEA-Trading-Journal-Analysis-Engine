@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T17:30:17.053707",
+  "generated_at": "2026-08-31T12:26:26.195662+00:00",
   "ticker": "PLUG",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 2.1796,
+      "setup": "MACD_BEARISH_MOMENTUM_EXPANSION",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-08-31T11:20:04.715692",
+      "target": 2.12,
+      "ticker": "PLUG",
+      "stop": 2.195,
+      "entry": 2.17,
+      "score": 83.0,
+      "direction": "Bearish"
+    },
     {
       "entry": 2.25,
       "current_price": 2.2,

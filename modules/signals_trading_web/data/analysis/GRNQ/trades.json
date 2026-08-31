@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T09:06:41.028363+00:00",
+  "generated_at": "2026-08-31T12:26:25.535794+00:00",
   "ticker": "GRNQ",
   "count": 1,
   "trades": [
     {
+      "risk_reward": 2.0,
+      "current_price": 12.6,
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "updated_at": "2026-08-31T08:18:56.983278",
+      "target": 8.947999999999999,
       "ticker": "GRNQ",
       "stop": 14.426,
       "entry": 12.6,
-      "updated_at": "2026-08-31T08:18:56.983278",
-      "status": "CONFIRMED",
       "score": 78.0,
-      "direction": "Bearish",
-      "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
-      "current_price": 12.6,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "target": 8.947999999999999
+      "direction": "Bearish"
     }
   ]
 }

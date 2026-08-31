@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T18:16:29.197409",
+  "generated_at": "2026-08-31T12:26:25.970695+00:00",
   "ticker": "NB",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 4.13,
+      "setup": "DRAGONFLY_DOJI",
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-08-31T11:57:48.551788",
+      "target": 4.178300000000001,
+      "ticker": "NB",
+      "stop": 4.22,
+      "entry": 4.2061,
+      "score": 78.0,
+      "direction": "Bearish"
+    },
     {
       "entry": 4.35,
       "current_price": 4.2196,

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T12:26:25.036788+00:00",
+  "ticker": "CDTG",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 1.0399,
+      "setup": "Falling Three Methods",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-08-31T05:59:38.708624",
+      "target": 0.8959999999999997,
+      "ticker": "CDTG",
+      "stop": 1.1270000000000002,
+      "entry": 1.05,
+      "score": 67.0,
+      "direction": "Bearish"
+    }
+  ]
+}

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T11:58:01.650684+00:00",
+  "generated_at": "2026-08-31T12:26:26.851727+00:00",
   "ticker": "YALA",
   "count": 1,
   "trades": [
     {
-      "ticker": "YALA",
-      "score": 82.0,
-      "updated_at": "2026-08-31T11:24:11.765306",
       "risk_reward": 2.0,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "setup": "TLINE_CONTINUATION",
       "current_price": 5.48,
-      "entry": 5.505,
-      "direction": "Bearish",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "updated_at": "2026-08-31T11:24:11.765306",
       "target": 5.460999999999999,
+      "ticker": "YALA",
       "stop": 5.527,
-      "status": "CONFIRMED"
+      "entry": 5.505,
+      "score": 82.0,
+      "direction": "Bearish"
     }
   ]
 }

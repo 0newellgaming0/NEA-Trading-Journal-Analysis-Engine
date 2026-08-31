@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-30T04:17:21.240255",
+  "generated_at": "2026-08-31T12:26:25.089974+00:00",
   "ticker": "CLBT",
   "count": 1,
   "trades": [
     {
-      "stop": 11.72963,
-      "direction": "Bullish",
-      "target": 12.51074,
-      "ticker": "CLBT",
       "risk_reward": 2.0,
-      "entry": 11.99,
-      "status": "CONFIRMED",
-      "score": 90.0,
+      "current_price": 11.8847,
       "setup": "Pinbar",
+      "status": "CONFIRMED",
       "regime": "PRIMARY_DOWNTREND_RALLY",
       "updated_at": "2026-08-31T06:54:21.952136",
-      "current_price": 11.8847
+      "target": 12.51074,
+      "ticker": "CLBT",
+      "stop": 11.72963,
+      "entry": 11.99,
+      "score": 90.0,
+      "direction": "Bullish"
     }
   ]
 }

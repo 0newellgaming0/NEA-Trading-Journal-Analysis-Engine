@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T17:41:26.587251",
+  "generated_at": "2026-08-31T12:26:26.630897+00:00",
   "ticker": "TE",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 4.7518,
+      "setup": "EMA20_CROSS",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-08-31T11:05:16.146906",
+      "target": 4.182639999999999,
+      "ticker": "TE",
+      "stop": 5.13898,
+      "entry": 4.8202,
+      "score": 82.0,
+      "direction": "Bearish"
+    },
     {
       "entry": 4.95,
       "current_price": 4.7977,

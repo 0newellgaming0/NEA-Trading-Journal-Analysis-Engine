@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T11:57:54.888000+00:00",
+  "generated_at": "2026-08-31T12:26:25.349699+00:00",
   "ticker": "F",
   "count": 1,
   "trades": [
     {
-      "ticker": "F",
-      "score": 69.0,
-      "updated_at": "2026-08-31T11:27:16.632132",
       "risk_reward": 2.0,
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "setup": "Engulfing",
       "current_price": 13.88,
-      "entry": 13.86,
-      "direction": "Bullish",
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "updated_at": "2026-08-31T11:27:16.632132",
       "target": 13.980999999999998,
+      "ticker": "F",
       "stop": 13.7995,
-      "status": "CONFIRMED"
+      "entry": 13.86,
+      "score": 69.0,
+      "direction": "Bullish"
     }
   ]
 }

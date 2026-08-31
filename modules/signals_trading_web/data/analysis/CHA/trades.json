@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-28T15:45:46.422822",
+  "generated_at": "2026-08-31T12:26:25.061853+00:00",
   "ticker": "CHA",
   "count": 1,
   "trades": [
     {
-      "stop": 10.646,
-      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "current_price": 10.82,
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-08-31T08:35:45.183347",
       "target": 11.108,
       "ticker": "CHA",
-      "risk_reward": 2.0,
+      "stop": 10.646,
       "entry": 10.8,
-      "status": "CONFIRMED",
-      "score": 81.0,
-      "setup": "TLINE_CONTINUATION",
-      "regime": "SHORT_TERM_STRENGTH",
-      "updated_at": "2026-08-31T06:00:51.144535",
-      "current_price": 10.7
+      "score": 78.0,
+      "direction": "Bullish"
     }
   ]
 }

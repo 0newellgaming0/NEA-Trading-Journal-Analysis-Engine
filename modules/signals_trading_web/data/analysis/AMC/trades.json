@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-30T08:07:16.211945",
+  "generated_at": "2026-08-31T12:26:24.636642+00:00",
   "ticker": "AMC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 2.5999,
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-08-31T11:02:27.020252",
+      "target": 2.6220000000000003,
+      "ticker": "AMC",
+      "stop": 2.589,
+      "entry": 2.6,
+      "score": 69.0,
+      "direction": "Bullish"
+    },
     {
       "setup": "Engulfing",
       "updated_at": "2026-08-31T00:32:41.165441",

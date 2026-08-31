@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T12:26:24.886082+00:00",
+  "ticker": "BMRA",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 2.14,
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-08-31T05:48:56.887894",
+      "target": 1.9263199999999996,
+      "ticker": "BMRA",
+      "stop": 2.15699,
+      "entry": 2.0801,
+      "score": 72.0,
+      "direction": "Bearish"
+    }
+  ]
+}

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-29T16:46:25.994208",
+  "generated_at": "2026-08-31T12:26:26.599084+00:00",
   "ticker": "SVM",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "current_price": 12.7,
+      "setup": "Harami",
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-08-31T11:16:37.068021",
+      "target": 13.016000000000002,
+      "ticker": "SVM",
+      "stop": 12.587,
+      "entry": 12.73,
+      "score": 79.0,
+      "direction": "Bullish"
+    },
     {
       "entry": 12.795,
       "current_price": 12.898,
