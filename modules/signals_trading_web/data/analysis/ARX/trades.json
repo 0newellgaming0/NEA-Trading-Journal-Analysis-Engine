@@ -1,6 +1,21 @@
 {
   "generated_at": "2026-08-28T23:35:08.621380",
   "ticker": "ARX",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "stop": 19.689,
+      "direction": "Bullish",
+      "target": 19.721999999999998,
+      "ticker": "ARX",
+      "risk_reward": 2.0,
+      "entry": 19.7,
+      "status": "CONFIRMED",
+      "score": 74.0,
+      "setup": "Pinbar",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-08-31T05:28:15.994190",
+      "current_price": 19.73
+    }
+  ]
 }

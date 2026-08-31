@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T02:25:40.613928",
+  "ticker": "AUR",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 5.594,
+      "direction": "Bullish",
+      "target": 6.121999999999998,
+      "ticker": "AUR",
+      "risk_reward": 2.0,
+      "entry": 5.77,
+      "status": "CONFIRMED",
+      "score": 74.0,
+      "setup": "Harami Cross",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-08-31T07:25:59.966613",
+      "current_price": 5.85
+    }
+  ]
+}

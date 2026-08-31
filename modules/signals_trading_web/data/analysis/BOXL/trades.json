@@ -4,17 +4,17 @@
   "count": 1,
   "trades": [
     {
-      "setup": "TLINE_CONTINUATION",
-      "updated_at": "2026-08-30T22:36:41.534587",
+      "stop": 5.955,
+      "direction": "Bearish",
       "target": 5.790000000000001,
-      "entry": 5.9,
       "ticker": "BOXL",
       "risk_reward": 2.0,
+      "entry": 5.9,
       "status": "CONFIRMED",
-      "direction": "Bearish",
       "score": 86.0,
-      "stop": 5.955,
+      "setup": "TLINE_CONTINUATION",
       "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-08-31T05:50:59.250178",
       "current_price": 5.95
     }
   ]
