@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.682797+00:00",
+  "generated_at": "2026-08-31T15:44:10.056962+00:00",
   "ticker": "IOTR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "IOTR",
+      "current_price": 2.21,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 88.0,
+      "stop": 2.374,
+      "updated_at": "2026-08-31T13:28:04.687991",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 1.8144999999999998,
+      "setup": "MACD_BEARISH_MOMENTUM_EXPANSION",
+      "entry": 2.1875
+    },
     {
       "risk_reward": 2.0,
       "current_price": 2.26,

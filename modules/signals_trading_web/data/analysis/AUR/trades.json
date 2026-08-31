@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.768419+00:00",
+  "generated_at": "2026-08-31T15:44:04.411659+00:00",
   "ticker": "AUR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "AUR",
+      "current_price": 5.51,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 69.0,
+      "stop": 5.875,
+      "updated_at": "2026-08-31T15:17:28.765114",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 4.75,
+      "setup": "MACD_BEARISH_MOMENTUM_EXPANSION",
+      "entry": 5.5
+    },
     {
       "risk_reward": 2.0,
       "current_price": 5.85,

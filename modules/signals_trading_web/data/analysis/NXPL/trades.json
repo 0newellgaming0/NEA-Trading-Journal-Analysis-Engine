@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.087066+00:00",
+  "generated_at": "2026-08-31T15:44:13.379853+00:00",
   "ticker": "NXPL",
   "count": 2,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "current_price": 9.26,
-      "setup": "EMA20_CROSS",
-      "status": "CONFIRMED",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "updated_at": "2026-08-31T06:34:00.258402",
-      "target": 8.33,
+      "direction": "Bearish",
       "ticker": "NXPL",
+      "current_price": 9.26,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 91.0,
       "stop": 9.485,
-      "entry": 9.1,
-      "score": 93.0,
-      "direction": "Bearish"
+      "updated_at": "2026-08-31T12:49:04.754605",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 8.33,
+      "setup": "EMA20_CROSS",
+      "entry": 9.1
     },
     {
       "setup": "RED_ZONE_SELL",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.801820+00:00",
+  "generated_at": "2026-08-31T15:44:04.540463+00:00",
   "ticker": "AZIO",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "AZIO",
+      "current_price": 1.32,
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 65.0,
+      "stop": 1.24355,
+      "updated_at": "2026-08-31T15:04:51.240602",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 1.4729000000000003,
+      "setup": "Inside Bar",
+      "entry": 1.32
+    },
     {
       "risk_reward": 2.0,
       "current_price": 1.3168,

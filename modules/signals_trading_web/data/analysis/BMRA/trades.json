@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.886082+00:00",
+  "generated_at": "2026-08-31T15:44:05.332657+00:00",
   "ticker": "BMRA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "BMRA",
+      "current_price": 2.08,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 66.0,
+      "stop": 2.04233,
+      "updated_at": "2026-08-31T15:40:34.718772",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 2.3053399999999993,
+      "setup": "EMA20_CROSS",
+      "entry": 2.13
+    },
     {
       "risk_reward": 2.0,
       "current_price": 2.14,

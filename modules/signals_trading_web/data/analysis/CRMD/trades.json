@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.170056+00:00",
+  "generated_at": "2026-08-31T15:44:07.095416+00:00",
   "ticker": "CRMD",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "CRMD",
+      "current_price": 8.2555,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 91.0,
+      "stop": 8.491,
+      "updated_at": "2026-08-31T13:01:45.853053",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 7.8541000000000025,
+      "setup": "Engulfing",
+      "entry": 8.2787
+    },
     {
       "risk_reward": 2.0,
       "current_price": 8.3,

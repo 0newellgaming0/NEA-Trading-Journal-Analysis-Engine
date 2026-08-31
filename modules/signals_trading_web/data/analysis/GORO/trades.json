@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.499687+00:00",
+  "generated_at": "2026-08-31T15:44:09.071876+00:00",
   "ticker": "GORO",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "GORO",
+      "current_price": 3.68,
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 69.0,
+      "stop": 3.601,
+      "updated_at": "2026-08-31T14:30:03.384556",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 3.8980000000000006,
+      "setup": "Counterattack Lines",
+      "entry": 3.7
+    },
     {
       "risk_reward": 2.0,
       "current_price": 3.68,

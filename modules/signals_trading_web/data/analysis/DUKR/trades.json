@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.310988+00:00",
+  "generated_at": "2026-08-31T15:44:07.870364+00:00",
   "ticker": "DUKR",
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "current_price": 5.62,
-      "setup": "TLINE_CONTINUATION",
-      "status": "CONFIRMED",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "updated_at": "2026-08-31T08:15:57.838592",
-      "target": 5.79256,
+      "direction": "Bullish",
       "ticker": "DUKR",
+      "current_price": 5.66,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 72.0,
       "stop": 5.54242,
-      "entry": 5.6258,
-      "score": 84.0,
-      "direction": "Bullish"
+      "updated_at": "2026-08-31T13:43:52.668136",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 5.79256,
+      "setup": "TLINE_CONTINUATION",
+      "entry": 5.6258
     }
   ]
 }

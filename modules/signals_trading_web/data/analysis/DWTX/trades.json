@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.319946+00:00",
+  "generated_at": "2026-08-31T15:44:07.970004+00:00",
   "ticker": "DWTX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "DWTX",
+      "current_price": 2.81,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 90.0,
+      "stop": 2.4616300000000004,
+      "updated_at": "2026-08-31T12:59:17.138367",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 3.3978399999999986,
+      "setup": "Three White Soldiers",
+      "entry": 2.7737
+    },
     {
       "risk_reward": 2.0,
       "current_price": 2.65,

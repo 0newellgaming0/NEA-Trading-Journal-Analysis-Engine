@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.630897+00:00",
+  "generated_at": "2026-08-31T15:44:17.544437+00:00",
   "ticker": "TE",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "TE",
+      "current_price": 4.6499,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "score": 75.0,
+      "stop": 4.79596,
+      "updated_at": "2026-08-31T13:55:48.046225",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 4.599280000000001,
+      "setup": "Counterattack Lines",
+      "entry": 4.7304
+    },
     {
       "risk_reward": 2.0,
       "current_price": 4.7518,

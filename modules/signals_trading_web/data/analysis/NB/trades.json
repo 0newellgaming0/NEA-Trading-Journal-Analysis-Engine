@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.970695+00:00",
+  "generated_at": "2026-08-31T15:44:11.757494+00:00",
   "ticker": "NB",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "NB",
+      "current_price": 4.165,
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 73.0,
+      "stop": 4.18,
+      "updated_at": "2026-08-31T14:37:30.233923",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 4.03,
+      "setup": "DOJI",
+      "entry": 4.13
+    },
     {
       "risk_reward": 2.0,
       "current_price": 4.13,

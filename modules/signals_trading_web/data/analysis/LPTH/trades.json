@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.832949+00:00",
+  "generated_at": "2026-08-31T15:44:10.776988+00:00",
   "ticker": "LPTH",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "LPTH",
+      "current_price": 10.785,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 73.0,
+      "stop": 11.11875,
+      "updated_at": "2026-08-31T13:59:20.841605",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 10.537500000000001,
+      "setup": "MACD_BEARISH_MOMENTUM_EXPANSION",
+      "entry": 10.925
+    },
     {
       "risk_reward": 2.0,
       "current_price": 11.3407,

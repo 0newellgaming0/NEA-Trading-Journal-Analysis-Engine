@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.024182+00:00",
+  "generated_at": "2026-08-31T15:44:12.126080+00:00",
   "ticker": "NOA",
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "current_price": 13.0,
-      "setup": "Inside Bar",
-      "status": "CONFIRMED",
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "updated_at": "2026-08-31T08:31:30.542476",
-      "target": 12.781000000000006,
+      "direction": "Bearish",
       "ticker": "NOA",
+      "current_price": 13.38,
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 64.0,
       "stop": 13.424499999999998,
-      "entry": 13.21,
-      "score": 79.0,
-      "direction": "Bearish"
+      "updated_at": "2026-08-31T14:23:37.360265",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 12.781000000000006,
+      "setup": "Inside Bar",
+      "entry": 13.21
     }
   ]
 }

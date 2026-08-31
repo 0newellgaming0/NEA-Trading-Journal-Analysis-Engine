@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.938176+00:00",
+  "generated_at": "2026-08-31T15:44:11.535737+00:00",
   "ticker": "MYO",
   "count": 2,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "current_price": 1.59,
-      "setup": "Pinbar",
-      "status": "CONFIRMED",
-      "regime": "SHORT_TERM_STRENGTH",
-      "updated_at": "2026-08-31T11:42:17.392292",
-      "target": 1.5660000000000005,
+      "direction": "Bearish",
       "ticker": "MYO",
+      "current_price": 1.6,
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 74.0,
       "stop": 1.632,
-      "entry": 1.61,
-      "score": 76.0,
-      "direction": "Bearish"
+      "updated_at": "2026-08-31T14:51:28.201431",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 1.5660000000000005,
+      "setup": "Pinbar",
+      "entry": 1.61
     },
     {
       "entry": 1.58,

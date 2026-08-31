@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.762353+00:00",
+  "generated_at": "2026-08-31T15:44:10.490734+00:00",
   "ticker": "KTCC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "KTCC",
+      "current_price": 2.665,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "score": 65.0,
+      "stop": 2.78482,
+      "updated_at": "2026-08-31T14:39:12.842001",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 2.6257599999999996,
+      "setup": "Inside Bar",
+      "entry": 2.7318
+    },
     {
       "risk_reward": 2.0,
       "current_price": 2.73,

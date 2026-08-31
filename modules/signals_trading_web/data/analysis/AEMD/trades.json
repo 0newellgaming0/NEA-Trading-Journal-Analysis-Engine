@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.518600+00:00",
+  "generated_at": "2026-08-31T15:44:02.032004+00:00",
   "ticker": "AEMD",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "AEMD",
+      "current_price": 1.96,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "score": 68.0,
+      "stop": 2.388,
+      "updated_at": "2026-08-31T13:47:30.376641",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 2.1239999999999997,
+      "setup": "Engulfing",
+      "entry": 2.3
+    },
     {
       "risk_reward": 2.0,
       "current_price": 2.4,

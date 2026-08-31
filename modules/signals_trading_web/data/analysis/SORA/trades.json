@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.535648+00:00",
+  "generated_at": "2026-08-31T15:44:16.967383+00:00",
   "ticker": "SORA",
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "current_price": 1.6128,
-      "setup": "TLINE_CONTINUATION",
-      "status": "CONFIRMED",
-      "regime": "SHORT_TERM_STRENGTH",
-      "updated_at": "2026-08-31T08:17:14.957591",
-      "target": 1.5540000000000007,
+      "direction": "Bearish",
       "ticker": "SORA",
-      "stop": 1.6529999999999998,
-      "entry": 1.62,
+      "current_price": 1.6135,
+      "regime": "SHORT_TERM_STRENGTH",
       "score": 90.0,
-      "direction": "Bearish"
+      "stop": 1.6529999999999998,
+      "updated_at": "2026-08-31T13:19:11.995465",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 1.5540000000000007,
+      "setup": "TLINE_CONTINUATION",
+      "entry": 1.62
     }
   ]
 }

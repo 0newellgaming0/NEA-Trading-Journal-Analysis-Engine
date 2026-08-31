@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.755840+00:00",
+  "generated_at": "2026-08-31T15:44:04.324894+00:00",
   "ticker": "ARX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "ARX",
+      "current_price": 19.75,
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 70.0,
+      "stop": 19.673750000000002,
+      "updated_at": "2026-08-31T15:31:47.727379",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 19.917499999999993,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "entry": 19.755
+    },
     {
       "risk_reward": 2.0,
       "current_price": 19.73,

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.639801+00:00",
+  "generated_at": "2026-08-31T15:44:17.617520+00:00",
   "ticker": "TJGC",
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "current_price": 9.21,
-      "setup": "TLINE_CONTINUATION",
-      "status": "CONFIRMED",
-      "regime": "SHORT_TERM_STRENGTH",
-      "updated_at": "2026-08-31T06:46:19.200081",
-      "target": 9.8,
+      "direction": "Bullish",
       "ticker": "TJGC",
-      "stop": 8.975,
-      "entry": 9.25,
+      "current_price": 9.4,
+      "regime": "SHORT_TERM_STRENGTH",
       "score": 89.0,
-      "direction": "Bullish"
+      "stop": 8.975,
+      "updated_at": "2026-08-31T13:26:55.711331",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 9.8,
+      "setup": "TLINE_CONTINUATION",
+      "entry": 9.25
     }
   ]
 }

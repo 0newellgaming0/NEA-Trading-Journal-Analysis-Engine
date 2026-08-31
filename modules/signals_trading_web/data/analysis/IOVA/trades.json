@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.687887+00:00",
+  "generated_at": "2026-08-31T15:44:10.136845+00:00",
   "ticker": "IOVA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "IOVA",
+      "current_price": 7.775,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 77.0,
+      "stop": 8.106,
+      "updated_at": "2026-08-31T14:11:18.211449",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 7.907999999999998,
+      "setup": "Shooting Star",
+      "entry": 8.04
+    },
     {
       "risk_reward": 2.0,
       "current_price": 8.06,

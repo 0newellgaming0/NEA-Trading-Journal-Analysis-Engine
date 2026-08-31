@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.816400+00:00",
+  "generated_at": "2026-08-31T15:44:10.686505+00:00",
   "ticker": "LFST",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "LFST",
+      "current_price": 12.64,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 92.0,
+      "stop": 12.04513,
+      "updated_at": "2026-08-31T12:54:43.979755",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 13.469739999999998,
+      "setup": "Bullish Standard Doji Sandwich",
+      "entry": 12.52
+    },
     {
       "risk_reward": 2.0,
       "current_price": 12.36,

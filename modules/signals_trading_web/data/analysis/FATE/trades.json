@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.354137+00:00",
+  "generated_at": "2026-08-31T15:44:08.161329+00:00",
   "ticker": "FATE",
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "current_price": 2.42,
-      "setup": "TLINE_CONTINUATION",
-      "status": "CONFIRMED",
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "updated_at": "2026-08-31T10:37:59.397768",
-      "target": 1.9177599999999995,
+      "direction": "Bearish",
       "ticker": "FATE",
+      "current_price": 2.385,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 73.0,
       "stop": 2.66257,
-      "entry": 2.4143,
-      "score": 78.0,
-      "direction": "Bearish"
+      "updated_at": "2026-08-31T14:34:49.734183",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "target": 1.9177599999999995,
+      "setup": "TLINE_CONTINUATION",
+      "entry": 2.4143
     }
   ]
 }
