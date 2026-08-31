@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T10:49:12.781837+00:00",
+  "ticker": "VG",
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "VG",
+      "setup": "Engulfing",
+      "updated_at": "2026-08-31T10:49:12.077994",
+      "risk_reward": 2.0,
+      "stop": 14.686069999999999,
+      "entry": 14.3201,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "current_price": 14.63,
+      "score": 77.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 13.588160000000002
+    }
+  ]
+}
