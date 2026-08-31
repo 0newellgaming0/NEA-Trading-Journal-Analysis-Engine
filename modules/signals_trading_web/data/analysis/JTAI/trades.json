@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:40:16.256444+00:00",
+  "generated_at": "2026-08-31T23:12:17.136189+00:00",
   "ticker": "JTAI",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 1.54,
+      "direction": "Bullish",
+      "target": 1.694,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "stop": 1.463,
+      "ticker": "JTAI",
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-31T23:12:04.290588",
+      "status": "CONFIRMED",
+      "entry": 1.54,
+      "score": 49.0,
+      "risk_reward": 2.0
+    },
     {
       "regime": "PRIMARY_UPTREND_PULLBACK",
       "entry": 1.5234,

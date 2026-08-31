@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T15:44:15.728418+00:00",
+  "generated_at": "2026-08-31T23:12:20.924543+00:00",
   "ticker": "RADX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 2.21,
+      "direction": "Bearish",
+      "target": -0.023379999999999512,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 3.07169,
+      "ticker": "RADX",
+      "setup": "Evening Star",
+      "updated_at": "2026-08-31T22:59:04.282980",
+      "status": "CONFIRMED",
+      "entry": 2.04,
+      "score": 58.0,
+      "risk_reward": 2.0
+    },
     {
       "direction": "Bearish",
       "ticker": "RADX",

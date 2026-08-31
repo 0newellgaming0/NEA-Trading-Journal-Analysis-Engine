@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T15:44:09.071876+00:00",
+  "generated_at": "2026-08-31T23:12:15.683715+00:00",
   "ticker": "GORO",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 3.7029,
+      "direction": "Bullish",
+      "target": 4.006,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "stop": 3.577,
+      "ticker": "GORO",
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-31T21:51:22.081217",
+      "status": "CONFIRMED",
+      "entry": 3.72,
+      "score": 76.0,
+      "risk_reward": 2.0
+    },
     {
       "direction": "Bullish",
       "ticker": "GORO",

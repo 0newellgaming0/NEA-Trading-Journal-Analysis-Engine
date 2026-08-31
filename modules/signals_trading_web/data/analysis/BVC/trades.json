@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T15:44:05.768719+00:00",
+  "generated_at": "2026-08-31T23:12:11.930612+00:00",
   "ticker": "BVC",
   "count": 1,
   "trades": [
     {
+      "current_price": 13.58,
       "direction": "Bullish",
-      "ticker": "BVC",
-      "current_price": 13.015,
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "score": 70.0,
-      "stop": 12.456,
-      "updated_at": "2026-08-31T13:45:24.328814",
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
       "target": 13.908,
+      "regime": "BULLISH_CONSOLIDATION",
+      "stop": 12.456,
+      "ticker": "BVC",
       "setup": "TLINE_CONTINUATION",
-      "entry": 12.94
+      "updated_at": "2026-08-31T21:20:30.283035",
+      "status": "CONFIRMED",
+      "entry": 12.94,
+      "score": 72.0,
+      "risk_reward": 2.0
     }
   ]
 }

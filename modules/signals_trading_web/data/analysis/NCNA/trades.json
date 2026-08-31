@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T18:02:42.161418+00:00",
+  "generated_at": "2026-08-31T23:12:18.831335+00:00",
   "ticker": "NCNA",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 1.47,
+      "direction": "Bearish",
+      "target": 1.2939999999999998,
+      "regime": "SHORT_TERM_STRENGTH",
+      "stop": 1.558,
+      "ticker": "NCNA",
+      "setup": "Engulfing",
+      "updated_at": "2026-08-31T20:13:04.823294",
+      "status": "CONFIRMED",
+      "entry": 1.47,
+      "score": 81.0,
+      "risk_reward": 2.0
+    },
     {
       "updated_at": "2026-08-31T15:56:26.534890",
       "risk_reward": 2.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T18:02:41.782101+00:00",
+  "generated_at": "2026-08-31T23:12:18.424660+00:00",
   "ticker": "MTEX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 6.91,
+      "direction": "Bullish",
+      "target": 8.798,
+      "regime": "SHORT_TERM_STRENGTH",
+      "stop": 6.356,
+      "ticker": "MTEX",
+      "setup": "Inverted Hammer",
+      "updated_at": "2026-08-31T19:19:59.426908",
+      "status": "CONFIRMED",
+      "entry": 7.17,
+      "score": 77.0,
+      "risk_reward": 2.0
+    },
     {
       "updated_at": "2026-08-31T16:17:02.322438",
       "risk_reward": 2.0,

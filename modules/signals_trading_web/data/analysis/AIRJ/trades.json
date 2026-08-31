@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T15:44:02.403428+00:00",
+  "generated_at": "2026-08-31T23:12:08.301352+00:00",
   "ticker": "AIRJ",
   "count": 2,
   "trades": [
     {
+      "current_price": 4.58,
       "direction": "Bearish",
-      "ticker": "AIRJ",
-      "current_price": 4.5,
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "score": 69.0,
-      "stop": 4.7126600000000005,
-      "updated_at": "2026-08-31T15:14:37.224504",
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
       "target": 4.29158,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "stop": 4.7126600000000005,
+      "ticker": "AIRJ",
       "setup": "Pinbar",
-      "entry": 4.5723
+      "updated_at": "2026-08-31T21:33:38.873255",
+      "status": "CONFIRMED",
+      "entry": 4.5723,
+      "score": 74.0,
+      "risk_reward": 2.0
     },
     {
       "risk_reward": 2.0,

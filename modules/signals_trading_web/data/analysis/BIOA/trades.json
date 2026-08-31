@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:24.853984+00:00",
+  "generated_at": "2026-08-31T23:12:11.059857+00:00",
   "ticker": "BIOA",
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "current_price": 9.75,
-      "setup": "TLINE_CONTINUATION",
-      "status": "CONFIRMED",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "updated_at": "2026-08-31T07:37:26.513102",
+      "current_price": 9.54,
+      "direction": "Bearish",
       "target": 9.48022,
-      "ticker": "BIOA",
+      "regime": "SHORT_TERM_STRENGTH",
       "stop": 9.80989,
+      "ticker": "BIOA",
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-31T23:09:23.550172",
+      "status": "CONFIRMED",
       "entry": 9.7,
-      "score": 47.0,
-      "direction": "Bearish"
+      "score": 79.0,
+      "risk_reward": 2.0
     }
   ]
 }

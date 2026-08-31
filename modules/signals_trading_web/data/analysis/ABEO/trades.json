@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T15:44:00.705602+00:00",
+  "generated_at": "2026-08-31T23:12:05.815631+00:00",
   "ticker": "ABEO",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 6.0,
+      "direction": "Bearish",
+      "target": 5.901999999999999,
+      "regime": "SHORT_TERM_STRENGTH",
+      "stop": 6.048850000000001,
+      "ticker": "ABEO",
+      "setup": "Marubozu",
+      "updated_at": "2026-08-31T22:32:41.638687",
+      "status": "CONFIRMED",
+      "entry": 5.9999,
+      "score": 76.0,
+      "risk_reward": 2.0
+    },
     {
       "direction": "Bearish",
       "ticker": "ABEO",

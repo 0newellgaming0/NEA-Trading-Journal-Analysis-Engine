@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.491688+00:00",
+  "generated_at": "2026-08-31T23:12:22.212540+00:00",
   "ticker": "SKYQ",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 2.68,
+      "direction": "Bullish",
+      "target": 2.8019999999999996,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 2.604,
+      "ticker": "SKYQ",
+      "setup": "Engulfing",
+      "updated_at": "2026-08-31T22:54:39.683840",
+      "status": "CONFIRMED",
+      "entry": 2.67,
+      "score": 68.0,
+      "risk_reward": 2.0
+    },
     {
       "risk_reward": 2.0,
       "current_price": 2.7895,

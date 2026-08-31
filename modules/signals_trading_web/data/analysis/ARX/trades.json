@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T15:44:04.324894+00:00",
+  "generated_at": "2026-08-31T23:12:10.236072+00:00",
   "ticker": "ARX",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 19.73,
+      "direction": "Bullish",
+      "target": 19.732000000000006,
+      "regime": "SHORT_TERM_STRENGTH",
+      "stop": 19.698999999999998,
+      "ticker": "ARX",
+      "setup": "Counterattack Lines",
+      "updated_at": "2026-08-31T21:28:59.694996",
+      "status": "CONFIRMED",
+      "entry": 19.71,
+      "score": 74.0,
+      "risk_reward": 2.0
+    },
     {
       "direction": "Bullish",
       "ticker": "ARX",

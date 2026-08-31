@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T15:44:04.411659+00:00",
+  "generated_at": "2026-08-31T23:12:10.334961+00:00",
   "ticker": "AUR",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 5.65,
+      "direction": "Bullish",
+      "target": 5.672,
+      "regime": "SHORT_TERM_STRENGTH",
+      "stop": 5.474,
+      "ticker": "AUR",
+      "setup": "Pinbar",
+      "updated_at": "2026-08-31T21:36:35.833018",
+      "status": "CONFIRMED",
+      "entry": 5.54,
+      "score": 73.0,
+      "risk_reward": 2.0
+    },
     {
       "direction": "Bearish",
       "ticker": "AUR",

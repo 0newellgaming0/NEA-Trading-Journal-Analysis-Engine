@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.985600+00:00",
+  "generated_at": "2026-08-31T23:12:12.124926+00:00",
   "ticker": "CAMP",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 3.96,
+      "direction": "Bearish",
+      "target": 3.688,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 4.051,
+      "ticker": "CAMP",
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-31T21:41:04.040969",
+      "status": "CONFIRMED",
+      "entry": 3.93,
+      "score": 66.0,
+      "risk_reward": 2.0
+    },
     {
       "risk_reward": 2.0,
       "current_price": 4.15,

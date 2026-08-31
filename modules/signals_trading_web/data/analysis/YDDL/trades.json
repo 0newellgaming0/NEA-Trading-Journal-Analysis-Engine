@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.859875+00:00",
+  "generated_at": "2026-08-31T23:12:25.037532+00:00",
   "ticker": "YDDL",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 2.19,
+      "direction": "Bullish",
+      "target": 2.688,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 2.061,
+      "ticker": "YDDL",
+      "setup": "Harami",
+      "updated_at": "2026-08-31T22:30:37.923055",
+      "status": "CONFIRMED",
+      "entry": 2.27,
+      "score": 74.0,
+      "risk_reward": 2.0
+    },
     {
       "risk_reward": 2.0,
       "current_price": 2.3,

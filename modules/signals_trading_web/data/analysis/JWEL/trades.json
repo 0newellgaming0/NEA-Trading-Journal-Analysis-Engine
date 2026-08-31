@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.745678+00:00",
+  "generated_at": "2026-08-31T23:12:17.174742+00:00",
   "ticker": "JWEL",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 2.4,
+      "direction": "Bearish",
+      "target": 2.312,
+      "regime": "BULLISH_CONSOLIDATION",
+      "stop": 2.444,
+      "ticker": "JWEL",
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-31T22:20:48.140824",
+      "status": "CONFIRMED",
+      "entry": 2.4,
+      "score": 73.0,
+      "risk_reward": 2.0
+    },
     {
       "risk_reward": 2.0,
       "current_price": 2.35,

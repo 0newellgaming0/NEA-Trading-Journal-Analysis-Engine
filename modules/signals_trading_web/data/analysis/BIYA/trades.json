@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.869870+00:00",
+  "generated_at": "2026-08-31T23:12:11.239381+00:00",
   "ticker": "BIYA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 2.24,
+      "direction": "Bearish",
+      "target": 2.121339999999999,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 2.2543300000000004,
+      "ticker": "BIYA",
+      "setup": "Evening Star",
+      "updated_at": "2026-08-31T23:00:54.465979",
+      "status": "CONFIRMED",
+      "entry": 2.21,
+      "score": 56.0,
+      "risk_reward": 2.0
+    },
     {
       "risk_reward": 2.0,
       "current_price": 2.22,

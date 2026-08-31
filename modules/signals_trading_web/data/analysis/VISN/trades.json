@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T18:02:45.569385+00:00",
+  "generated_at": "2026-08-31T23:12:24.328545+00:00",
   "ticker": "VISN",
   "count": 3,
   "trades": [
     {
-      "updated_at": "2026-08-31T16:19:03.837052",
-      "risk_reward": 2.0,
-      "setup": "TLINE_CONTINUATION",
-      "status": "CONFIRMED",
+      "current_price": 6.325,
       "direction": "Bullish",
-      "stop": 6.1690000000000005,
-      "current_price": 6.36,
-      "ticker": "VISN",
-      "score": 84.0,
-      "entry": 6.4,
       "target": 6.862,
-      "regime": "BEARISH_CONSOLIDATION"
+      "regime": "BEARISH_CONSOLIDATION",
+      "stop": 6.1690000000000005,
+      "ticker": "VISN",
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-31T19:45:12.388139",
+      "status": "CONFIRMED",
+      "entry": 6.4,
+      "score": 85.0,
+      "risk_reward": 2.0
     },
     {
       "direction": "Bearish",

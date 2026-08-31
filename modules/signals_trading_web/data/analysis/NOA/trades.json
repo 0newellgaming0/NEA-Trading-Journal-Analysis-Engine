@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T15:44:12.126080+00:00",
+  "generated_at": "2026-08-31T23:12:19.188739+00:00",
   "ticker": "NOA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 13.4185,
+      "direction": "Bullish",
+      "target": 13.591999999999997,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "stop": 13.3115,
+      "ticker": "NOA",
+      "setup": "Inside Bar",
+      "updated_at": "2026-08-31T22:46:22.043604",
+      "status": "CONFIRMED",
+      "entry": 13.405,
+      "score": 64.0,
+      "risk_reward": 2.0
+    },
     {
       "direction": "Bearish",
       "ticker": "NOA",

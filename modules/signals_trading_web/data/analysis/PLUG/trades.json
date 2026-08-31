@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T18:02:43.063710+00:00",
+  "generated_at": "2026-08-31T23:12:20.428986+00:00",
   "ticker": "PLUG",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 2.1503,
+      "direction": "Bearish",
+      "target": 2.082,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 2.214,
+      "ticker": "PLUG",
+      "setup": "Inside Bar",
+      "updated_at": "2026-08-31T20:22:24.946231",
+      "status": "CONFIRMED",
+      "entry": 2.17,
+      "score": 81.0,
+      "risk_reward": 2.0
+    },
     {
       "updated_at": "2026-08-31T17:11:15.035597",
       "risk_reward": 2.0,

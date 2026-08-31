@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T15:44:04.540463+00:00",
+  "generated_at": "2026-08-31T23:12:10.525932+00:00",
   "ticker": "AZIO",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 1.29,
+      "direction": "Bearish",
+      "target": 1.1052799999999998,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "stop": 1.38281,
+      "ticker": "AZIO",
+      "setup": "Three Inside Down",
+      "updated_at": "2026-08-31T22:44:58.648068",
+      "status": "CONFIRMED",
+      "entry": 1.2903,
+      "score": 64.0,
+      "risk_reward": 2.0
+    },
     {
       "direction": "Bullish",
       "ticker": "AZIO",

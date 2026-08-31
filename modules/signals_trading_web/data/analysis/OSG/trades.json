@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.122806+00:00",
+  "generated_at": "2026-08-31T23:12:19.961891+00:00",
   "ticker": "OSG",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 4.36,
+      "direction": "Bearish",
+      "target": 4.220000000000001,
+      "regime": "BEARISH_CONSOLIDATION",
+      "stop": 4.385,
+      "ticker": "OSG",
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-31T22:15:42.323590",
+      "status": "CONFIRMED",
+      "entry": 4.33,
+      "score": 73.0,
+      "risk_reward": 2.0
+    },
     {
       "risk_reward": 2.0,
       "current_price": 4.6,

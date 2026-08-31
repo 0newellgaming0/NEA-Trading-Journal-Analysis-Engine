@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T18:02:41.857767+00:00",
+  "generated_at": "2026-08-31T23:12:18.545866+00:00",
   "ticker": "MYO",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 1.49,
+      "direction": "Bearish",
+      "target": 1.4650000000000003,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 1.5474999999999999,
+      "ticker": "MYO",
+      "setup": "Engulfing",
+      "updated_at": "2026-08-31T20:39:29.030511",
+      "status": "CONFIRMED",
+      "entry": 1.52,
+      "score": 76.0,
+      "risk_reward": 2.0
+    },
     {
       "updated_at": "2026-08-31T17:29:25.375600",
       "risk_reward": 2.0,

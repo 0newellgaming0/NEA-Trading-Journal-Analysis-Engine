@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.406639+00:00",
+  "generated_at": "2026-08-31T23:12:15.084534+00:00",
   "ticker": "FINV",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 3.55,
+      "direction": "Bearish",
+      "target": 3.2260799999999987,
+      "regime": "BEARISH_CONSOLIDATION",
+      "stop": 3.7148100000000004,
+      "ticker": "FINV",
+      "setup": "Engulfing",
+      "updated_at": "2026-08-31T23:07:25.284158",
+      "status": "CONFIRMED",
+      "entry": 3.5519,
+      "score": 51.0,
+      "risk_reward": 2.0
+    },
     {
       "risk_reward": 2.0,
       "current_price": 3.46,

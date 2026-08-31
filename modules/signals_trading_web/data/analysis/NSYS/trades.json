@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T15:44:12.226414+00:00",
+  "generated_at": "2026-08-31T23:12:19.320180+00:00",
   "ticker": "NSYS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 11.579,
+      "direction": "Bearish",
+      "target": 10.773140000000001,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "stop": 11.998429999999999,
+      "ticker": "NSYS",
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-31T22:41:04.574415",
+      "status": "CONFIRMED",
+      "entry": 11.59,
+      "score": 67.0,
+      "risk_reward": 2.0
+    },
     {
       "direction": "Bearish",
       "ticker": "NSYS",

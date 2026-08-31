@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T18:02:42.085718+00:00",
+  "generated_at": "2026-08-31T23:12:18.736982+00:00",
   "ticker": "NB",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 4.1702,
+      "direction": "Bullish",
+      "target": 4.308120000000001,
+      "regime": "BEARISH_CONSOLIDATION",
+      "stop": 4.129589999999999,
+      "ticker": "NB",
+      "setup": "Inside Bar",
+      "updated_at": "2026-08-31T21:09:43.414282",
+      "status": "CONFIRMED",
+      "entry": 4.1891,
+      "score": 79.0,
+      "risk_reward": 2.0
+    },
     {
       "updated_at": "2026-08-31T17:40:33.753367",
       "risk_reward": 2.0,

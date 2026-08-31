@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.036788+00:00",
+  "generated_at": "2026-08-31T23:12:12.460669+00:00",
   "ticker": "CDTG",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 0.9999,
+      "direction": "Bearish",
+      "target": 0.9219999999999999,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 1.054,
+      "ticker": "CDTG",
+      "setup": "Engulfing",
+      "updated_at": "2026-08-31T22:29:18.716999",
+      "status": "CONFIRMED",
+      "entry": 1.01,
+      "score": 67.0,
+      "risk_reward": 2.0
+    },
     {
       "risk_reward": 2.0,
       "current_price": 1.0399,

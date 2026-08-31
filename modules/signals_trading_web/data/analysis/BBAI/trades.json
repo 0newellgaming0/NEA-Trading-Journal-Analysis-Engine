@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T15:44:04.635448+00:00",
+  "generated_at": "2026-08-31T23:12:10.622973+00:00",
   "ticker": "BBAI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 3.12,
+      "direction": "Bullish",
+      "target": 3.1877800000000005,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "stop": 3.05611,
+      "ticker": "BBAI",
+      "setup": "Pinbar",
+      "updated_at": "2026-08-31T21:26:26.457000",
+      "status": "CONFIRMED",
+      "entry": 3.1,
+      "score": 76.0,
+      "risk_reward": 2.0
+    },
     {
       "direction": "Bullish",
       "ticker": "BBAI",

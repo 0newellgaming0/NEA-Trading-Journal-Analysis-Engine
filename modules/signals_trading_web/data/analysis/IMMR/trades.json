@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T18:02:40.504549+00:00",
+  "generated_at": "2026-08-31T23:12:16.527899+00:00",
   "ticker": "IMMR",
   "count": 1,
   "trades": [
     {
-      "updated_at": "2026-08-31T17:35:41.092113",
-      "risk_reward": 2.0,
-      "setup": "TLINE_CONTINUATION",
-      "status": "CONFIRMED",
+      "current_price": 7.5811,
       "direction": "Bearish",
-      "stop": 7.654,
-      "current_price": 7.5,
-      "ticker": "IMMR",
-      "score": 73.0,
-      "entry": 7.61,
       "target": 7.522000000000001,
-      "regime": "BULLISH_CONSOLIDATION"
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "stop": 7.654,
+      "ticker": "IMMR",
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-31T21:02:37.770444",
+      "status": "CONFIRMED",
+      "entry": 7.61,
+      "score": 80.0,
+      "risk_reward": 2.0
     }
   ]
 }

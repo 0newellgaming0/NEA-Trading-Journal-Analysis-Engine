@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T15:44:02.678201+00:00",
+  "generated_at": "2026-08-31T23:12:08.532253+00:00",
   "ticker": "AKTX",
   "count": 2,
   "trades": [
+    {
+      "current_price": 9.6,
+      "direction": "Bullish",
+      "target": 11.082000000000003,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 8.904,
+      "ticker": "AKTX",
+      "setup": "TLINE_CONTINUATION",
+      "updated_at": "2026-08-31T22:36:08.991090",
+      "status": "CONFIRMED",
+      "entry": 9.63,
+      "score": 73.0,
+      "risk_reward": 2.0
+    },
     {
       "direction": "Bullish",
       "ticker": "AKTX",
@@ -16,20 +30,6 @@
       "target": 12.340660000000003,
       "setup": "Inside Bar",
       "entry": 10.8
-    },
-    {
-      "risk_reward": 2.0,
-      "current_price": 10.82,
-      "setup": "TLINE_CONTINUATION",
-      "status": "CONFIRMED",
-      "regime": "SHORT_TERM_STRENGTH",
-      "updated_at": "2026-08-31T05:17:09.215683",
-      "target": 11.082000000000003,
-      "ticker": "AKTX",
-      "stop": 8.904,
-      "entry": 9.63,
-      "score": 83.0,
-      "direction": "Bullish"
     }
   ]
 }

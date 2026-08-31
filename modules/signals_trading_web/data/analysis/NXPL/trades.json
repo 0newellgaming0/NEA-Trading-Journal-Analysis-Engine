@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T15:44:13.379853+00:00",
+  "generated_at": "2026-08-31T23:12:19.636180+00:00",
   "ticker": "NXPL",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 9.635,
+      "direction": "Bullish",
+      "target": 10.344999999999997,
+      "regime": "BULLISH_CONSOLIDATION",
+      "stop": 9.6325,
+      "ticker": "NXPL",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "updated_at": "2026-08-31T19:17:45.085666",
+      "status": "CONFIRMED",
+      "entry": 9.87,
+      "score": 82.0,
+      "risk_reward": 2.0
+    },
     {
       "direction": "Bearish",
       "ticker": "NXPL",
