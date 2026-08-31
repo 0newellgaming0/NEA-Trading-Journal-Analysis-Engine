@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T11:58:00.003923+00:00",
+  "ticker": "SNDL",
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "SNDL",
+      "score": 74.0,
+      "updated_at": "2026-08-31T11:52:50.400421",
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Engulfing",
+      "current_price": 1.3599,
+      "entry": 1.3532,
+      "direction": "Bearish",
+      "target": 1.3382399999999997,
+      "stop": 1.3606800000000001,
+      "status": "CONFIRMED"
+    }
+  ]
+}

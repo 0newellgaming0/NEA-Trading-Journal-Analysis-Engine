@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T11:57:55.620826+00:00",
+  "ticker": "GRNT",
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "GRNT",
+      "score": 74.0,
+      "updated_at": "2026-08-31T11:36:12.385294",
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Morning Star",
+      "current_price": 5.06,
+      "entry": 5.025,
+      "direction": "Bullish",
+      "target": 5.091000000000001,
+      "stop": 4.992,
+      "status": "CONFIRMED"
+    }
+  ]
+}
