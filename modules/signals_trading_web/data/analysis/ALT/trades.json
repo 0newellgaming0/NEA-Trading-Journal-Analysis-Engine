@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 3.1214,
-      "target": 3.2190000000000003,
-      "direction": "Bullish",
-      "ticker": "ALT",
-      "entry": 3.12,
-      "stop": 3.0705,
-      "score": 71.0,
-      "risk_reward": 2.0,
-      "regime": "SHORT_TERM_STRENGTH",
-      "status": "CONFIRMED",
       "setup": "Pinbar",
-      "updated_at": "2026-08-30T12:59:55.659590"
+      "updated_at": "2026-08-31T00:03:43.056233",
+      "target": 3.2190000000000003,
+      "entry": 3.12,
+      "ticker": "ALT",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "score": 71.0,
+      "stop": 3.0705,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 3.1214
     }
   ]
 }

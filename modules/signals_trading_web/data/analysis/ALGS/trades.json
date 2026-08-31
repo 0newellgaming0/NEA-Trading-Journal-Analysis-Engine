@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 7.02,
-      "target": 7.064,
-      "direction": "Bullish",
-      "ticker": "ALGS",
-      "entry": 6.91,
-      "stop": 6.833,
-      "score": 83.0,
-      "risk_reward": 2.0,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
       "setup": "Marubozu",
-      "updated_at": "2026-08-30T12:54:27.917666"
+      "updated_at": "2026-08-30T22:47:49.661814",
+      "target": 7.064,
+      "entry": 6.91,
+      "ticker": "ALGS",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "score": 83.0,
+      "stop": 6.833,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 7.02
     }
   ]
 }

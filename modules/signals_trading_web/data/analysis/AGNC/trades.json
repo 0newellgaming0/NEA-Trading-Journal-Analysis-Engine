@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 10.9498,
-      "target": 11.007999999999997,
-      "direction": "Bullish",
-      "ticker": "AGNC",
-      "entry": 10.92,
-      "stop": 10.876000000000001,
-      "score": 68.0,
-      "risk_reward": 2.0,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "status": "CONFIRMED",
       "setup": "Pinbar",
-      "updated_at": "2026-08-30T12:39:16.288740"
+      "updated_at": "2026-08-31T00:42:54.161964",
+      "target": 11.007999999999997,
+      "entry": 10.92,
+      "ticker": "AGNC",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "score": 68.0,
+      "stop": 10.876000000000001,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 10.9498
     }
   ]
 }

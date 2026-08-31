@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 2.2299,
-      "target": 2.056,
-      "direction": "Bearish",
-      "ticker": "ANY",
-      "entry": 2.21,
-      "stop": 2.287,
-      "score": 84.0,
-      "risk_reward": 2.0,
-      "regime": "BEARISH_CONSOLIDATION",
-      "status": "CONFIRMED",
       "setup": "Engulfing",
-      "updated_at": "2026-08-30T13:25:26.864393"
+      "updated_at": "2026-08-30T22:44:04.651478",
+      "target": 2.056,
+      "entry": 2.21,
+      "ticker": "ANY",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "score": 84.0,
+      "stop": 2.287,
+      "regime": "BEARISH_CONSOLIDATION",
+      "current_price": 2.2299
     }
   ]
 }

@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 13.75,
-      "target": 13.845999999999998,
-      "direction": "Bullish",
-      "ticker": "BXMT",
-      "entry": 13.78,
-      "stop": 13.747,
-      "score": 44.0,
-      "risk_reward": 2.0,
-      "regime": "BEARISH_CONSOLIDATION",
-      "status": "CONFIRMED",
       "setup": "Marubozu",
-      "updated_at": "2026-08-30T09:05:31.458295"
+      "updated_at": "2026-08-31T02:04:54.752168",
+      "target": 13.845999999999998,
+      "entry": 13.78,
+      "ticker": "BXMT",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "score": 44.0,
+      "stop": 13.747,
+      "regime": "BEARISH_CONSOLIDATION",
+      "current_price": 13.75
     }
   ]
 }

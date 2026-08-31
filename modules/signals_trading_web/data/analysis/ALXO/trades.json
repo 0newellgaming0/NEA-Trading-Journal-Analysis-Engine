@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 2.0,
-      "target": 1.9680000000000002,
-      "direction": "Bearish",
-      "ticker": "ALXO",
-      "entry": 1.99,
-      "stop": 2.001,
-      "score": 80.0,
-      "risk_reward": 2.0,
-      "regime": "BULLISH_CONSOLIDATION",
-      "status": "CONFIRMED",
       "setup": "TLINE_CONTINUATION",
-      "updated_at": "2026-08-30T13:04:33.846721"
+      "updated_at": "2026-08-30T23:06:29.828859",
+      "target": 1.9680000000000002,
+      "entry": 1.99,
+      "ticker": "ALXO",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "score": 80.0,
+      "stop": 2.001,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 2.0
     }
   ]
 }

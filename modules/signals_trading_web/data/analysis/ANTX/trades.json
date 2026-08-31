@@ -4,18 +4,18 @@
   "count": 1,
   "trades": [
     {
-      "current_price": 5.58,
-      "target": 5.372,
-      "direction": "Bearish",
-      "ticker": "ANTX",
-      "entry": 5.57,
-      "stop": 5.6690000000000005,
-      "score": 77.0,
-      "risk_reward": 2.0,
-      "regime": "BULLISH_CONSOLIDATION",
-      "status": "CONFIRMED",
       "setup": "TLINE_CONTINUATION",
-      "updated_at": "2026-08-30T13:23:31.728700"
+      "updated_at": "2026-08-30T23:14:39.573190",
+      "target": 5.372,
+      "entry": 5.57,
+      "ticker": "ANTX",
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "score": 77.0,
+      "stop": 5.6690000000000005,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 5.58
     }
   ]
 }
