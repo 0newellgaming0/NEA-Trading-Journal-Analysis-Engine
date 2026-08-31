@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T15:44:18.915788+00:00",
+  "generated_at": "2026-08-31T18:02:46.137995+00:00",
   "ticker": "ZH",
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "ticker": "ZH",
-      "current_price": 2.81,
-      "regime": "BEARISH_CONSOLIDATION",
-      "score": 72.0,
-      "stop": 2.8725,
-      "updated_at": "2026-08-31T14:07:19.919172",
+      "updated_at": "2026-08-31T17:42:04.628527",
       "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 2.7900000000000005,
       "setup": "TLINE_CONTINUATION",
-      "entry": 2.845
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "stop": 2.8725,
+      "current_price": 2.785,
+      "ticker": "ZH",
+      "score": 66.0,
+      "entry": 2.845,
+      "target": 2.7900000000000005,
+      "regime": "FULL_BEARISH_ALIGNMENT"
     }
   ]
 }

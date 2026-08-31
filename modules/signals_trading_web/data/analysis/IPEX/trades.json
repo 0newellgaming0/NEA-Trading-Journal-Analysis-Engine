@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.689906+00:00",
+  "generated_at": "2026-08-31T18:02:40.730150+00:00",
   "ticker": "IPEX",
   "count": 1,
   "trades": [
     {
+      "updated_at": "2026-08-31T17:59:05.910375",
       "risk_reward": 2.0,
-      "current_price": 10.6,
       "setup": "Pinbar",
       "status": "CONFIRMED",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "updated_at": "2026-08-31T08:04:10.889793",
-      "target": 10.564,
-      "ticker": "IPEX",
+      "direction": "Bullish",
       "stop": 10.498,
+      "current_price": 10.6,
+      "ticker": "IPEX",
+      "score": 60.0,
       "entry": 10.52,
-      "score": 71.0,
-      "direction": "Bullish"
+      "target": 10.564,
+      "regime": "SHORT_TERM_STRENGTH"
     }
   ]
 }

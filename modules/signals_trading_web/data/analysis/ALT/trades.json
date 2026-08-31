@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.600104+00:00",
+  "generated_at": "2026-08-31T18:02:31.297714+00:00",
   "ticker": "ALT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-08-31T17:54:42.898087",
+      "risk_reward": 2.0,
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "stop": 3.112,
+      "current_price": 3.08,
+      "ticker": "ALT",
+      "score": 67.0,
+      "entry": 3.09,
+      "target": 3.0459999999999994,
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
     {
       "risk_reward": 2.0,
       "current_price": 3.1214,

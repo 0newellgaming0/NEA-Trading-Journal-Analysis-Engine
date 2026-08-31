@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T15:44:15.380355+00:00",
+  "generated_at": "2026-08-31T18:02:43.063710+00:00",
   "ticker": "PLUG",
   "count": 3,
   "trades": [
     {
-      "direction": "Bearish",
-      "ticker": "PLUG",
-      "current_price": 2.1799,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "score": 76.0,
-      "stop": 2.201,
-      "updated_at": "2026-08-31T13:52:55.474404",
+      "updated_at": "2026-08-31T17:11:15.035597",
       "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 2.1679999999999997,
       "setup": "Pinbar",
-      "entry": 2.19
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "stop": 2.201,
+      "current_price": 2.155,
+      "ticker": "PLUG",
+      "score": 80.0,
+      "entry": 2.19,
+      "target": 2.1679999999999997,
+      "regime": "SHORT_TERM_WEAKNESS"
     },
     {
       "risk_reward": 2.0,

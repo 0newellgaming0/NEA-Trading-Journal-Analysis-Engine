@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T15:44:02.326529+00:00",
+  "generated_at": "2026-08-31T18:02:30.789497+00:00",
   "ticker": "AIOS",
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "ticker": "AIOS",
-      "current_price": 16.45,
-      "regime": "SHORT_TERM_STRENGTH",
-      "score": 77.0,
-      "stop": 18.479000000000003,
-      "updated_at": "2026-08-31T14:26:46.710540",
+      "updated_at": "2026-08-31T17:00:06.607881",
       "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 8.941999999999997,
       "setup": "TLINE_CONTINUATION",
-      "entry": 15.3
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "stop": 18.479000000000003,
+      "current_price": 15.8,
+      "ticker": "AIOS",
+      "score": 77.0,
+      "entry": 15.3,
+      "target": 8.941999999999997,
+      "regime": "SHORT_TERM_WEAKNESS"
     }
   ]
 }

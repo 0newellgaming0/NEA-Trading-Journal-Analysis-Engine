@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.700887+00:00",
+  "generated_at": "2026-08-31T18:02:40.797917+00:00",
   "ticker": "JFIN",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-08-31T16:43:49.446722",
+      "risk_reward": 2.0,
+      "setup": "Harami",
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "stop": 2.17,
+      "current_price": 2.005,
+      "ticker": "JFIN",
+      "score": 80.0,
+      "entry": 1.95,
+      "target": 1.51,
+      "regime": "BEARISH_CONSOLIDATION"
+    },
     {
       "risk_reward": 2.0,
       "current_price": 2.1278,

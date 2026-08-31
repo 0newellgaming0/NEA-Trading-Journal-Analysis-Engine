@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.989718+00:00",
+  "generated_at": "2026-08-31T18:02:34.240213+00:00",
   "ticker": "CBIO",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-08-31T17:52:30.590600",
+      "risk_reward": 2.0,
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "stop": 17.737,
+      "current_price": 16.31,
+      "ticker": "CBIO",
+      "score": 72.0,
+      "entry": 16.78,
+      "target": 14.866000000000007,
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
     {
       "risk_reward": 2.0,
       "current_price": 17.75,

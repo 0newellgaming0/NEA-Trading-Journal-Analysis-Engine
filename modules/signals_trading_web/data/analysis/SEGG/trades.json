@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T15:44:16.477442+00:00",
+  "generated_at": "2026-08-31T18:02:44.003697+00:00",
   "ticker": "SEGG",
   "count": 1,
   "trades": [
     {
-      "direction": "Bullish",
-      "ticker": "SEGG",
-      "current_price": 2.8003,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "score": 78.0,
-      "stop": 2.64215,
-      "updated_at": "2026-08-31T14:17:23.668036",
+      "updated_at": "2026-08-31T16:55:43.546287",
       "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 3.2344999999999997,
       "setup": "Pinbar",
-      "entry": 2.8396
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "stop": 2.64215,
+      "current_price": 2.8065,
+      "ticker": "SEGG",
+      "score": 79.0,
+      "entry": 2.8396,
+      "target": 3.2344999999999997,
+      "regime": "PRIMARY_DOWNTREND_RALLY"
     }
   ]
 }

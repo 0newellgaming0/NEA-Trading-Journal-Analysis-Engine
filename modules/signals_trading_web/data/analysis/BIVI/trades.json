@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-08-31T15:44:05.215799+00:00",
+  "generated_at": "2026-08-31T18:02:33.299292+00:00",
   "ticker": "BIVI",
   "count": 2,
   "trades": [
     {
-      "direction": "Bullish",
-      "ticker": "BIVI",
-      "current_price": 2.37,
-      "regime": "SHORT_TERM_STRENGTH",
-      "score": 85.0,
-      "stop": 2.262,
-      "updated_at": "2026-08-31T14:32:45.022622",
+      "updated_at": "2026-08-31T16:38:43.530564",
       "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "target": 2.5260000000000002,
       "setup": "TLINE_CONTINUATION",
-      "entry": 2.35
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "stop": 2.262,
+      "current_price": 2.385,
+      "ticker": "BIVI",
+      "score": 85.0,
+      "entry": 2.35,
+      "target": 2.5260000000000002,
+      "regime": "SHORT_TERM_STRENGTH"
     },
     {
       "risk_reward": 2.0,
