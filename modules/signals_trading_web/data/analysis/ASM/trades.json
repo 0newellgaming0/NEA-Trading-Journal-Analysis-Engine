@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-08-31T09:31:21.444069+00:00",
+  "ticker": "ASM",
+  "count": 1,
+  "trades": [
+    {
+      "target": 7.393999999999999,
+      "updated_at": "2026-08-31T09:30:20.226788",
+      "stop": 7.493,
+      "direction": "Bearish",
+      "score": 80.0,
+      "setup": "Shooting Star",
+      "current_price": 7.4677,
+      "entry": 7.46,
+      "ticker": "ASM",
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0
+    }
+  ]
+}
