@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.201030+00:00",
+  "generated_at": "2026-09-01T08:55:38.913947+00:00",
   "ticker": "CYCN",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "stop": 3.738,
+      "status": "CONFIRMED",
+      "target": 3.4739999999999998,
+      "entry": 3.65,
+      "updated_at": "2026-09-01T08:25:24.616721",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "current_price": 3.68,
+      "setup": "TLINE_CONTINUATION",
+      "score": 84.0,
+      "ticker": "CYCN"
+    }
+  ]
 }

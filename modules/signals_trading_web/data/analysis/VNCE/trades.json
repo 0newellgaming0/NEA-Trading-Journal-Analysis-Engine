@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T08:55:52.117325+00:00",
+  "ticker": "VNCE",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 7.15494,
+      "status": "CONFIRMED",
+      "target": 6.1801200000000005,
+      "entry": 6.83,
+      "updated_at": "2026-09-01T08:37:59.933351",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 7.0088,
+      "setup": "Inside Bar",
+      "score": 88.0,
+      "ticker": "VNCE"
+    }
+  ]
+}

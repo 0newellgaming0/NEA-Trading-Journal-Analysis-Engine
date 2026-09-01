@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T08:55:47.196429+00:00",
+  "ticker": "PETZ",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 1.0174999999999998,
+      "status": "CONFIRMED",
+      "target": 3.005,
+      "entry": 1.68,
+      "updated_at": "2026-09-01T07:50:55.983536",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 1.5908,
+      "setup": "MACD_ZERO_LINE_RECLAIM",
+      "score": 88.0,
+      "ticker": "PETZ"
+    }
+  ]
+}

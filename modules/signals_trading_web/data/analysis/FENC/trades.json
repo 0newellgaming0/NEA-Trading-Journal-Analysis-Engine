@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T08:55:40.254712+00:00",
+  "ticker": "FENC",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 12.25,
+      "status": "CONFIRMED",
+      "target": 12.579999999999998,
+      "entry": 12.36,
+      "updated_at": "2026-09-01T08:29:02.522405",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 12.3465,
+      "setup": "TLINE_CONTINUATION",
+      "score": 89.0,
+      "ticker": "FENC"
+    }
+  ]
+}

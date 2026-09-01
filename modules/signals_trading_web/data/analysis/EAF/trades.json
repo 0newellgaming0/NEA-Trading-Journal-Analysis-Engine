@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T08:55:39.857841+00:00",
+  "ticker": "EAF",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 7.888,
+      "status": "CONFIRMED",
+      "target": 6.304000000000001,
+      "entry": 7.36,
+      "updated_at": "2026-09-01T08:13:00.561343",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "regime": "BEARISH_CONSOLIDATION",
+      "current_price": 7.58,
+      "setup": "Evening Star",
+      "score": 72.0,
+      "ticker": "EAF"
+    }
+  ]
+}

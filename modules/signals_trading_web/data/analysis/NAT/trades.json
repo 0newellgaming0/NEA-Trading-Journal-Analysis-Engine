@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T08:55:45.328335+00:00",
+  "ticker": "NAT",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 6.8051699999999995,
+      "status": "CONFIRMED",
+      "target": 6.9645600000000005,
+      "entry": 6.8583,
+      "updated_at": "2026-09-01T08:42:22.682527",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 6.82,
+      "setup": "TLINE_CONTINUATION",
+      "score": 74.0,
+      "ticker": "NAT"
+    }
+  ]
+}

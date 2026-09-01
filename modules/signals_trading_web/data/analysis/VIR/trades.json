@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.752933+00:00",
+  "generated_at": "2026-09-01T08:55:51.998194+00:00",
   "ticker": "VIR",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "stop": 10.6875,
+      "status": "CONFIRMED",
+      "target": 11.099999999999998,
+      "entry": 10.825,
+      "updated_at": "2026-09-01T08:31:43.553943",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 10.95,
+      "setup": "Engulfing",
+      "score": 84.0,
+      "ticker": "VIR"
+    }
+  ]
 }

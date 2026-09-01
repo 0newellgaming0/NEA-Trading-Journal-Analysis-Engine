@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T08:55:40.963821+00:00",
+  "ticker": "FTFT",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 1.774,
+      "status": "CONFIRMED",
+      "target": 2.3019999999999996,
+      "entry": 1.95,
+      "updated_at": "2026-09-01T08:11:13.212960",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "regime": "BEARISH_CONSOLIDATION",
+      "current_price": 1.94,
+      "setup": "Inside Bar",
+      "score": 87.0,
+      "ticker": "FTFT"
+    }
+  ]
+}

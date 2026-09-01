@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T08:55:41.098112+00:00",
+  "ticker": "FWDI",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 5.984,
+      "status": "CONFIRMED",
+      "target": 6.841999999999999,
+      "entry": 6.27,
+      "updated_at": "2026-09-01T08:45:50.789124",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 6.23,
+      "setup": "TLINE_CONTINUATION",
+      "score": 85.0,
+      "ticker": "FWDI"
+    }
+  ]
+}

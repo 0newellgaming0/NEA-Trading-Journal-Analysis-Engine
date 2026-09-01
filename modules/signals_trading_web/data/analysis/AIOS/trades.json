@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:08.226748+00:00",
+  "generated_at": "2026-09-01T08:55:32.033411+00:00",
   "ticker": "AIOS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 17.46,
+      "status": "CONFIRMED",
+      "target": 12.944999999999999,
+      "entry": 15.955,
+      "updated_at": "2026-09-01T07:58:30.684701",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 16.65,
+      "setup": "GRAVESTONE_DOJI",
+      "score": 78.0,
+      "ticker": "AIOS"
+    },
     {
       "current_price": 16.16,
       "direction": "Bearish",

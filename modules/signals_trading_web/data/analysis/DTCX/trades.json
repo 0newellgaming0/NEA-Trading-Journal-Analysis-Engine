@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.306481+00:00",
+  "generated_at": "2026-09-01T08:55:39.682947+00:00",
   "ticker": "DTCX",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "stop": 2.58193,
+      "status": "CONFIRMED",
+      "target": 1.5249400000000004,
+      "entry": 2.2296,
+      "updated_at": "2026-09-01T08:05:15.753690",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "regime": "BEARISH_CONSOLIDATION",
+      "current_price": 2.2,
+      "setup": "Pinbar",
+      "score": 69.0,
+      "ticker": "DTCX"
+    }
+  ]
 }

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T08:55:50.532825+00:00",
+  "ticker": "SUPX",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 9.1235,
+      "status": "CONFIRMED",
+      "target": 10.328000000000001,
+      "entry": 9.525,
+      "updated_at": "2026-09-01T08:01:26.322185",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 9.74,
+      "setup": "Pinbar",
+      "score": 75.0,
+      "ticker": "SUPX"
+    }
+  ]
+}

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.569940+00:00",
+  "generated_at": "2026-09-01T08:55:32.241819+00:00",
   "ticker": "AIV",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 2.497,
+      "status": "CONFIRMED",
+      "target": 2.5959999999999996,
+      "entry": 2.53,
+      "updated_at": "2026-09-01T07:42:01.027523",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 2.5814,
+      "setup": "Inside Bar",
+      "score": 81.0,
+      "ticker": "AIV"
+    },
     {
       "setup": "Pinbar",
       "updated_at": "2026-08-31T00:16:00.476946",

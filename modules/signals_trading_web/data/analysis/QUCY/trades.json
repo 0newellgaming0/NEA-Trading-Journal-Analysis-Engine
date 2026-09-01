@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T08:55:47.922893+00:00",
+  "ticker": "QUCY",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 1.544,
+      "status": "CONFIRMED",
+      "target": 1.7420000000000002,
+      "entry": 1.61,
+      "updated_at": "2026-09-01T08:06:49.930646",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 1.63,
+      "setup": "Engulfing",
+      "score": 83.0,
+      "ticker": "QUCY"
+    }
+  ]
+}

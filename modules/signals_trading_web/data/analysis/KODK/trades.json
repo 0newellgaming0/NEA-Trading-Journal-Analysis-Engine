@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T08:55:43.320384+00:00",
+  "ticker": "KODK",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 8.9575,
+      "status": "CONFIRMED",
+      "target": 9.204999999999998,
+      "entry": 9.04,
+      "updated_at": "2026-09-01T08:34:48.953598",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "current_price": 9.05,
+      "setup": "Harami",
+      "score": 77.0,
+      "ticker": "KODK"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T08:55:47.826685+00:00",
+  "ticker": "QTTB",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 16.325,
+      "status": "CONFIRMED",
+      "target": 13.850000000000001,
+      "entry": 15.5,
+      "updated_at": "2026-09-01T08:14:46.216294",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "current_price": 15.6218,
+      "setup": "EMA200_CROSS",
+      "score": 77.0,
+      "ticker": "QTTB"
+    }
+  ]
+}

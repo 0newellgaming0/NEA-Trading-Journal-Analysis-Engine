@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.859875+00:00",
+  "generated_at": "2026-09-01T08:55:52.970432+00:00",
   "ticker": "YDES",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 3.5531099999999998,
+      "status": "CONFIRMED",
+      "target": 5.103780000000001,
+      "entry": 4.07,
+      "updated_at": "2026-09-01T07:56:56.073227",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "current_price": 4.12,
+      "setup": "Inside Bar",
+      "score": 85.0,
+      "ticker": "YDES"
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T21:46:34.464253",

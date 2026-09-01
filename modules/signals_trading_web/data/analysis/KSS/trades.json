@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.762353+00:00",
+  "generated_at": "2026-09-01T08:55:43.386207+00:00",
   "ticker": "KSS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 18.15,
+      "status": "CONFIRMED",
+      "target": 16.830000000000005,
+      "entry": 17.71,
+      "updated_at": "2026-09-01T08:40:21.696135",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "current_price": 17.5,
+      "setup": "Harami",
+      "score": 74.0,
+      "ticker": "KSS"
+    },
     {
       "setup": "Pinbar",
       "updated_at": "2026-08-31T00:10:42.312126",
