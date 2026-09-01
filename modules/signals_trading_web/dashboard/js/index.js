@@ -41,6 +41,9 @@ async function loadTickerTrades(index) {
             ? index.tickers
             : {};
 
+    const today =
+        getTodayDateKey();
+
     for (const ticker of Object.keys(tickers)) {
         const dates = Array.isArray(
             tickers[ticker]
@@ -52,8 +55,17 @@ async function loadTickerTrades(index) {
             continue;
         }
 
-        const latestDate =
-            [...dates].sort().reverse()[0];
+        /*
+         * TODAY ONLY.
+         *
+         * A ticker is eligible only when the index contains
+         * today's date for that ticker.
+         *
+         * Never fall back to the latest historical date.
+         */
+        if (!dates.includes(today)) {
+            continue;
+        }
 
         try {
             const data =
@@ -68,23 +80,197 @@ async function loadTickerTrades(index) {
                     ? data.trades
                     : [];
 
-            trades.forEach(trade => {
-                tickerTrades.push({
-                    ...trade,
-                    _ticker: ticker,
-                    _date: latestDate
-                });
+            /*
+             * Keep ONLY trade records whose actual trade
+             * date is today's date.
+             */
+            const todayTrades =
+                trades.filter(
+                    trade =>
+                        getTradeDate(trade) === today
+                );
+
+            if (!todayTrades.length) {
+                continue;
+            }
+
+            /*
+             * If multiple trade records exist for this
+             * ticker today, use ONLY the latest one.
+             */
+            todayTrades.sort(
+                (a, b) =>
+                    getTradeTimestamp(b) -
+                    getTradeTimestamp(a)
+            );
+
+            const latestTodayTrade =
+                todayTrades[0];
+
+            tickerTrades.push({
+                ...latestTodayTrade,
+                _ticker: ticker,
+                _date: today
             });
 
         } catch (error) {
             console.error(
-                `Failed to load trades for ${ticker}:`,
+                `Failed to load today's trades for ${ticker}:`,
                 error
             );
         }
     }
 
     return tickerTrades;
+}
+
+
+function getTodayDateKey() {
+    const now =
+        new Date();
+
+    const year =
+        now.getFullYear();
+
+    const month =
+        String(
+            now.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        );
+
+    const day =
+        String(
+            now.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+    return `${year}-${month}-${day}`;
+}
+
+
+function getTradeDate(trade) {
+    if (
+        !trade ||
+        typeof trade !== "object"
+    ) {
+        return null;
+    }
+
+    /*
+     * Use the actual date stored on the trade record.
+     *
+     * The index date is NOT used as the trade date.
+     */
+    const dateValue =
+        trade.trade_date ??
+        trade.tradeDate ??
+        trade.date ??
+        trade.created_at ??
+        trade.createdAt ??
+        trade.timestamp ??
+        trade.generated_at ??
+        trade.generatedAt ??
+        trade.updated_at ??
+        trade.updatedAt;
+
+    if (
+        dateValue === null ||
+        dateValue === undefined ||
+        dateValue === ""
+    ) {
+        return null;
+    }
+
+    const text =
+        String(
+            dateValue
+        ).trim();
+
+    /*
+     * YYYY-MM-DD is already the exact date we need.
+     */
+    const directMatch =
+        text.match(
+            /^(\d{4}-\d{2}-\d{2})/
+        );
+
+    if (directMatch) {
+        return directMatch[1];
+    }
+
+    /*
+     * Handle full ISO/date timestamps.
+     */
+    const parsed =
+        new Date(
+            dateValue
+        );
+
+    if (
+        Number.isNaN(
+            parsed.getTime()
+        )
+    ) {
+        return null;
+    }
+
+    return [
+        parsed.getFullYear(),
+        String(
+            parsed.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        ),
+        String(
+            parsed.getDate()
+        ).padStart(
+            2,
+            "0"
+        )
+    ].join("-");
+}
+
+
+function getTradeTimestamp(trade) {
+    if (
+        !trade ||
+        typeof trade !== "object"
+    ) {
+        return 0;
+    }
+
+    const timestamp =
+        trade.trade_date ??
+        trade.tradeDate ??
+        trade.timestamp ??
+        trade.created_at ??
+        trade.createdAt ??
+        trade.generated_at ??
+        trade.generatedAt ??
+        trade.updated_at ??
+        trade.updatedAt;
+
+    if (
+        timestamp === null ||
+        timestamp === undefined ||
+        timestamp === ""
+    ) {
+        return 0;
+    }
+
+    const parsed =
+        new Date(
+            timestamp
+        ).getTime();
+
+    return Number.isFinite(parsed)
+        ? parsed
+        : 0;
 }
 
 function renderTrades(data) {
