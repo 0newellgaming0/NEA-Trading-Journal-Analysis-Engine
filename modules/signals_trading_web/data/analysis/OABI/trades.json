@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.089586+00:00",
+  "generated_at": "2026-09-01T17:58:56.824676+00:00",
   "ticker": "OABI",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "ticker": "OABI",
+      "stop": 4.245,
+      "entry": 4.3,
+      "setup": "Engulfing",
+      "current_price": 4.385,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "score": 80.0,
+      "updated_at": "2026-09-01T17:51:53.180421",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 4.409999999999999
+    },
     {
       "entry": 4.425,
       "current_price": 4.4041,

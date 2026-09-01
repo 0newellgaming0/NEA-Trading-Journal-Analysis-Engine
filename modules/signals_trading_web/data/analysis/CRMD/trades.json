@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:13.544506+00:00",
+  "generated_at": "2026-09-01T17:58:56.423137+00:00",
   "ticker": "CRMD",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "ticker": "CRMD",
+      "stop": 8.4605,
+      "entry": 8.345,
+      "setup": "Counterattack Lines",
+      "current_price": 8.33,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "score": 87.0,
+      "updated_at": "2026-09-01T17:24:23.983935",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 8.114000000000003
+    },
     {
       "current_price": 8.26,
       "direction": "Bearish",

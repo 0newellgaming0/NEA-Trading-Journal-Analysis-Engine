@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T15:14:13.376403+00:00",
+  "generated_at": "2026-09-01T17:58:56.924925+00:00",
   "ticker": "SAIL",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "ticker": "SAIL",
+      "stop": 20.718899999999998,
+      "entry": 19.84,
+      "setup": "Shooting Star",
+      "current_price": 19.645,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "score": 88.0,
+      "updated_at": "2026-09-01T15:54:49.207640",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 18.082200000000004
+    },
     {
       "target": 18.935999999999996,
       "risk_reward": 2.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:18.831335+00:00",
+  "generated_at": "2026-09-01T17:58:56.738959+00:00",
   "ticker": "NCNA",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "ticker": "NCNA",
+      "stop": 1.34558,
+      "entry": 1.4492,
+      "setup": "Pinbar",
+      "current_price": 1.43,
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "score": 69.0,
+      "updated_at": "2026-09-01T16:01:35.042899",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 1.6564400000000001
+    },
     {
       "current_price": 1.47,
       "direction": "Bearish",

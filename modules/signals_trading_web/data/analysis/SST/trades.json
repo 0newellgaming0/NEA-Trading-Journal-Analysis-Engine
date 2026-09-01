@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T08:55:50.241105+00:00",
+  "generated_at": "2026-09-01T17:58:57.031313+00:00",
   "ticker": "SST",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "ticker": "SST",
+      "stop": 2.6020000000000003,
+      "entry": 2.36,
+      "setup": "Inside Bar",
+      "current_price": 2.4206,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "score": 79.0,
+      "updated_at": "2026-09-01T15:31:00.388853",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 1.875999999999999
+    },
     {
       "stop": 2.1590000000000003,
       "status": "CONFIRMED",

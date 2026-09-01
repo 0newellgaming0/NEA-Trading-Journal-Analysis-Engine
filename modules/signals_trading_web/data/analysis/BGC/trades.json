@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.841595+00:00",
+  "generated_at": "2026-09-01T17:58:56.329581+00:00",
   "ticker": "BGC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "ticker": "BGC",
+      "stop": 11.985,
+      "entry": 12.095,
+      "setup": "Hammer",
+      "current_price": 12.325,
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "score": 84.0,
+      "updated_at": "2026-09-01T17:45:01.939611",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 12.315000000000003
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T22:04:38.764545",

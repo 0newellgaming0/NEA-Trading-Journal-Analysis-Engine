@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:24.904166+00:00",
+  "generated_at": "2026-09-01T17:58:56.348955+00:00",
   "ticker": "BRBR",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "BRBR",
+      "stop": 10.495,
+      "entry": 10.88,
+      "setup": "Pinbar",
+      "current_price": 10.595,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "score": 86.0,
+      "updated_at": "2026-09-01T17:35:27.641030",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 11.650000000000004
+    }
+  ]
 }
