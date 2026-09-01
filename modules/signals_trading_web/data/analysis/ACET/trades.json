@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:06.924846+00:00",
+  "generated_at": "2026-09-01T09:28:40.789036+00:00",
   "ticker": "ACET",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "Bearish Standard Doji Sandwich",
+      "entry": 8.84,
+      "updated_at": "2026-09-01T09:23:38.662393",
+      "direction": "Bearish",
+      "current_price": 8.76,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "regime": "BEARISH_CONSOLIDATION",
+      "ticker": "ACET",
+      "score": 86.0,
+      "target": 8.400000000000002,
+      "stop": 9.059999999999999
+    },
     {
       "current_price": 8.695,
       "direction": "Bearish",

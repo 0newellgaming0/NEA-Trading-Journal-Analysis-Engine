@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T15:44:08.265853+00:00",
+  "generated_at": "2026-09-01T09:28:41.128005+00:00",
   "ticker": "FF",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Counterattack Lines",
+      "entry": 5.21,
+      "updated_at": "2026-09-01T09:21:29.567439",
+      "direction": "Bearish",
+      "current_price": 5.2037,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "ticker": "FF",
+      "score": 84.0,
+      "target": 4.88,
+      "stop": 5.375
+    },
     {
       "direction": "Bullish",
       "ticker": "FF",

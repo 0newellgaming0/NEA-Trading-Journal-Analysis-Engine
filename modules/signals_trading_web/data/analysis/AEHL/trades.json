@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:07.764326+00:00",
+  "generated_at": "2026-09-01T09:28:40.816005+00:00",
   "ticker": "AEHL",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "TLINE_CONTINUATION",
+      "entry": 5.05,
+      "updated_at": "2026-09-01T09:04:25.286150",
+      "direction": "Bearish",
+      "current_price": 5.3203,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "ticker": "AEHL",
+      "score": 89.0,
+      "target": 1.573999999999999,
+      "stop": 6.788
+    },
     {
       "current_price": 6.59,
       "direction": "Bullish",

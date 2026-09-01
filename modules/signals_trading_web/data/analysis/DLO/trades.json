@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:14.178655+00:00",
+  "generated_at": "2026-09-01T09:28:41.061216+00:00",
   "ticker": "DLO",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "setup": "Evening Star",
+      "entry": 14.995,
+      "updated_at": "2026-09-01T09:10:08.746307",
+      "direction": "Bearish",
+      "current_price": 14.83,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "ticker": "DLO",
+      "score": 90.0,
+      "target": 14.873999999999997,
+      "stop": 15.0555
+    },
     {
       "current_price": 14.88,
       "direction": "Bearish",
