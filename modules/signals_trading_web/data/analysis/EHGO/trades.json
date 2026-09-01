@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T11:37:10.352948+00:00",
+  "ticker": "EHGO",
+  "count": 1,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "EMA50_CROSS",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 1.32,
+      "current_price": 1.18,
+      "stop": 1.1109999999999998,
+      "target": 1.7380000000000007,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "updated_at": "2026-09-01T11:07:38.273894",
+      "ticker": "EHGO",
+      "score": 67.0
+    }
+  ]
+}
