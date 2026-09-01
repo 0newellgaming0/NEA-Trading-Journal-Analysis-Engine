@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T10:52:38.476163+00:00",
+  "ticker": "OXSQ",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 1.38,
+      "target": 1.37134,
+      "regime": "SHORT_TERM_STRENGTH",
+      "ticker": "OXSQ",
+      "risk_reward": 2.0,
+      "entry": 1.35,
+      "score": 65.0,
+      "direction": "Bullish",
+      "stop": 1.3393300000000001,
+      "updated_at": "2026-09-01T10:36:41.995790",
+      "setup": "Pinbar",
+      "status": "CONFIRMED"
+    }
+  ]
+}

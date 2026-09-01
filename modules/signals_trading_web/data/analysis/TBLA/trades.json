@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T10:52:38.710842+00:00",
+  "ticker": "TBLA",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 3.8,
+      "target": 3.8399999999999994,
+      "regime": "BEARISH_CONSOLIDATION",
+      "ticker": "TBLA",
+      "risk_reward": 2.0,
+      "entry": 3.73,
+      "score": 66.0,
+      "direction": "Bullish",
+      "stop": 3.6750000000000003,
+      "updated_at": "2026-09-01T10:32:24.534904",
+      "setup": "Pinbar",
+      "status": "CONFIRMED"
+    }
+  ]
+}

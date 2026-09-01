@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T04:28:20.385643",
+  "generated_at": "2026-09-01T05:08:37.050993",
   "tickers": {
     "LVLU": {
-      "generated_at": "2026-09-01T04:28:20.385643",
+      "generated_at": "2026-09-01T05:08:37.050993",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -37,7 +37,7 @@
         "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n",
         "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     LVLU\nDirection:  Bearish\nSetup:      MACD_BEARISH_MOMENTUM_EXPANSION\nRegime:     PRIMARY_UPTREND_PULLBACK\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          MACD_BEARISH_MOMENTUM_EXPANSION\nCount:          5476\nSuccess:        1157\nFailed:         3440\nUnresolved:     879\nResolved:       4597\nSuccess Rate:   25.17%\nFailure Rate:   74.83%\n\nTARGET 2 PERFORMANCE\n\nSetup:              MACD_BEARISH_MOMENTUM_EXPANSION\nCount:              1157\nTarget 2 Reached:   857\nTarget 2 Not Reached: 300\nTarget 2 Hit Rate:  74.07%"
       },
-      "current_performance_generated_at": "2026-09-01T04:28:40.615326"
+      "current_performance_generated_at": "2026-09-01T05:08:57.486290"
     }
   }
 }

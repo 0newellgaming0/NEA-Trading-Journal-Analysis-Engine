@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T10:52:38.821568+00:00",
+  "ticker": "XIFR",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 12.0,
+      "target": 12.044,
+      "regime": "BULLISH_CONSOLIDATION",
+      "ticker": "XIFR",
+      "risk_reward": 2.0,
+      "entry": 12.0,
+      "score": 79.0,
+      "direction": "Bullish",
+      "stop": 11.978,
+      "updated_at": "2026-09-01T09:52:11.407860",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

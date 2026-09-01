@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.103650+00:00",
+  "generated_at": "2026-09-01T10:52:38.069743+00:00",
   "ticker": "CLSK",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 11.41,
+      "target": 10.81698,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "ticker": "CLSK",
+      "risk_reward": 2.0,
+      "entry": 11.42,
+      "score": 75.0,
+      "direction": "Bearish",
+      "stop": 11.72151,
+      "updated_at": "2026-09-01T10:28:22.254273",
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 11.99,
       "current_price": 11.6501,

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T10:52:38.119237+00:00",
+  "ticker": "DCH",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 6.35,
+      "target": 6.094,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "ticker": "DCH",
+      "risk_reward": 2.0,
+      "entry": 6.325,
+      "score": 66.0,
+      "direction": "Bearish",
+      "stop": 6.4405,
+      "updated_at": "2026-09-01T10:30:22.180141",
+      "setup": "Evening Star",
+      "status": "CONFIRMED"
+    }
+  ]
+}

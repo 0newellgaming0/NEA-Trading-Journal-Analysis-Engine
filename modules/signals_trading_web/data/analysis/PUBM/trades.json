@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T10:52:38.505381+00:00",
+  "ticker": "PUBM",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 16.63,
+      "target": 16.971999999999998,
+      "regime": "BULLISH_CONSOLIDATION",
+      "ticker": "PUBM",
+      "risk_reward": 2.0,
+      "entry": 16.73,
+      "score": 76.0,
+      "direction": "Bullish",
+      "stop": 16.609,
+      "updated_at": "2026-09-01T09:54:12.354912",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T10:52:38.800635+00:00",
+  "ticker": "VSTS",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 12.51,
+      "target": 12.505999999999998,
+      "regime": "SHORT_TERM_STRENGTH",
+      "ticker": "VSTS",
+      "risk_reward": 2.0,
+      "entry": 12.33,
+      "score": 63.0,
+      "direction": "Bullish",
+      "stop": 12.242,
+      "updated_at": "2026-09-01T10:43:27.558085",
+      "setup": "Inverted Hammer",
+      "status": "CONFIRMED"
+    }
+  ]
+}

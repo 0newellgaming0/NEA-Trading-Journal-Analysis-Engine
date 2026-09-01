@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-01T09:28:41.290489+00:00",
+  "generated_at": "2026-09-01T10:52:38.392042+00:00",
   "ticker": "LVLU",
   "count": 2,
   "trades": [
     {
-      "setup": "MACD_BEARISH_MOMENTUM_EXPANSION",
-      "entry": 12.95,
-      "updated_at": "2026-09-01T09:28:40.534427",
-      "direction": "Bearish",
       "current_price": 13.28,
-      "status": "CONFIRMED",
-      "risk_reward": 2.0,
+      "target": 9.299999999999997,
       "regime": "PRIMARY_UPTREND_PULLBACK",
       "ticker": "LVLU",
+      "risk_reward": 2.0,
+      "entry": 12.95,
       "score": 92.0,
-      "target": 9.299999999999997,
-      "stop": 14.775
+      "direction": "Bearish",
+      "stop": 14.775,
+      "updated_at": "2026-09-01T10:08:57.410106",
+      "setup": "MACD_BEARISH_MOMENTUM_EXPANSION",
+      "status": "CONFIRMED"
     },
     {
       "entry": 14.15,

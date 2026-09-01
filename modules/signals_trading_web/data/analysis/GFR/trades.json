@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T10:52:38.258208+00:00",
+  "ticker": "GFR",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 6.05,
+      "target": 6.031,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "ticker": "GFR",
+      "risk_reward": 2.0,
+      "entry": 6.13,
+      "score": 68.0,
+      "direction": "Bearish",
+      "stop": 6.1795,
+      "updated_at": "2026-09-01T10:16:33.181776",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED"
+    }
+  ]
+}

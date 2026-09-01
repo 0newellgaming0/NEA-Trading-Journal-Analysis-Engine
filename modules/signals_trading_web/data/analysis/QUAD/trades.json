@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.270508+00:00",
+  "generated_at": "2026-09-01T10:52:38.523608+00:00",
   "ticker": "QUAD",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 10.06,
+      "target": 10.087000000000002,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "ticker": "QUAD",
+      "risk_reward": 2.0,
+      "entry": 10.01,
+      "score": 75.0,
+      "direction": "Bullish",
+      "stop": 9.971499999999999,
+      "updated_at": "2026-09-01T10:25:06.747407",
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 10.09,
       "current_price": 10.1,

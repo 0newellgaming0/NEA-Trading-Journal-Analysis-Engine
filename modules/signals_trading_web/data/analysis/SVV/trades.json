@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.602778+00:00",
+  "generated_at": "2026-09-01T10:52:38.694234+00:00",
   "ticker": "SVV",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 10.4,
+      "target": 10.587780000000002,
+      "regime": "SHORT_TERM_STRENGTH",
+      "ticker": "SVV",
+      "risk_reward": 2.0,
+      "entry": 10.39,
+      "score": 74.0,
+      "direction": "Bullish",
+      "stop": 10.29111,
+      "updated_at": "2026-09-01T10:45:16.229647",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 10.74,
       "current_price": 10.78,

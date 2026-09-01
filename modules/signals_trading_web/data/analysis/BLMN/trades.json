@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:24.875013+00:00",
+  "generated_at": "2026-09-01T10:52:37.993248+00:00",
   "ticker": "BLMN",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 10.3196,
+      "target": 10.559999999999999,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "ticker": "BLMN",
+      "risk_reward": 2.0,
+      "entry": 10.34,
+      "score": 80.0,
+      "direction": "Bullish",
+      "stop": 10.23,
+      "updated_at": "2026-09-01T10:34:32.252726",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED"
+    }
+  ]
 }

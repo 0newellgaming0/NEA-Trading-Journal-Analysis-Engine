@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.548964+00:00",
+  "generated_at": "2026-09-01T10:52:38.291387+00:00",
   "ticker": "GTE",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 10.23,
+      "target": 10.520880000000004,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "ticker": "GTE",
+      "risk_reward": 2.0,
+      "entry": 10.1559,
+      "score": 79.0,
+      "direction": "Bullish",
+      "stop": 9.97341,
+      "updated_at": "2026-09-01T10:13:06.897490",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED"
+    }
+  ]
 }

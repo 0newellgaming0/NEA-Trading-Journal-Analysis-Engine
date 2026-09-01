@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T10:52:38.644976+00:00",
+  "ticker": "SPXX",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 19.06,
+      "target": 19.112,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "ticker": "SPXX",
+      "risk_reward": 2.0,
+      "entry": 18.98,
+      "score": 63.0,
+      "direction": "Bullish",
+      "stop": 18.914,
+      "updated_at": "2026-09-01T10:15:04.049119",
+      "setup": "Rising Three Methods",
+      "status": "CONFIRMED"
+    }
+  ]
+}

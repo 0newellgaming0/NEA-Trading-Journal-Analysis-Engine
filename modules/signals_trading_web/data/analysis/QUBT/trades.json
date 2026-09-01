@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.279616+00:00",
+  "generated_at": "2026-09-01T10:52:38.541733+00:00",
   "ticker": "QUBT",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 8.1395,
+      "target": 7.915999999999997,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "ticker": "QUBT",
+      "risk_reward": 2.0,
+      "entry": 8.18,
+      "score": 78.0,
+      "direction": "Bearish",
+      "stop": 8.312000000000001,
+      "updated_at": "2026-09-01T10:07:27.750531",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED"
+    }
+  ]
 }
