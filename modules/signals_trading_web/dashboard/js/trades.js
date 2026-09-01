@@ -15,7 +15,8 @@ trades.json
 DATE BEHAVIOR
 
 Default:
--> TODAY only
+-> TODAY only, when today is published
+-> otherwise latest published date
 
 ?date=YYYY-MM-DD:
 -> only trades for that selected date
@@ -26,23 +27,30 @@ Default:
 ?ticker=AAPL&date=YYYY-MM-DD:
 -> AAPL trade for that actual date
 
+All Dates:
+-> explicit selector option
+-> NOT the default
+-> loads the latest trade for each ticker across all
+   published dates
+
 IMPORTANT:
 
-The ticker directory in index.json is authoritative.
+The ticker/date publication structure in index.json
+remains authoritative.
 
 The loader:
 1. Reads data/analysis/index.json
 2. Determines the selected publication date
-3. Loads only ticker directories published on that date
+3. Loads ticker directories authorized by index.json
 4. Loads that ticker's trades.json
 5. Normalizes records using the newsletter contract
 6. Inherits ticker from the directory when necessary
-7. Requires actual trade date == selected date
-8. Keeps the latest trade for ticker/date
+7. For a specific date, requires actual trade date
+   == selected date
+8. For All Dates, keeps the latest trade for each ticker
 9. Sends the resulting records to #trades
-
-There is NO "All Dates" default.
 ============================================================ */
+
 
 /* ============================================================
 STATE
@@ -59,21 +67,24 @@ let availableDates = [];
 
 let dateSelectorInitialized = false;
 
+
 /* ============================================================
 PATHS
 ============================================================ */
 
 const ANALYSIS_INDEX_URL =
-"data/analysis/index.json";
+    "data/analysis/index.json";
+
 
 /* ============================================================
 INITIALIZATION
 ============================================================ */
 
 document.addEventListener(
-"DOMContentLoaded",
-initializeTrades
+    "DOMContentLoaded",
+    initializeTrades
 );
+
 
 /* ============================================================
 GENERIC JSON LOADER
@@ -81,26 +92,24 @@ GENERIC JSON LOADER
 
 async function getJSON(file) {
 
+    const response =
+        await fetch(
+            `${file}?t=${Date.now()}`,
+            {
+                cache: "no-store"
+            }
+        );
 
-const response =
-    await fetch(
-        `${file}?t=${Date.now()}`,
-        {
-            cache: "no-store"
-        }
-    );
+    if (!response.ok) {
 
-if (!response.ok) {
+        throw new Error(
+            `Unable to load ${file}: ${response.status}`
+        );
+    }
 
-    throw new Error(
-        `Unable to load ${file}: ${response.status}`
-    );
+    return await response.json();
 }
 
-return await response.json();
-
-
-}
 
 /* ============================================================
 URL PARAMETERS
@@ -108,48 +117,44 @@ URL PARAMETERS
 
 function getRequestedDate() {
 
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
 
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
+    const date =
+        params.get("date");
 
-const date =
-    params.get("date");
+    if (
+        date &&
+        isValidDateString(date)
+    ) {
+        return date;
+    }
 
-if (
-    date &&
-    isValidDateString(date)
-) {
-    return date;
-}
-
-return null;
-
-
-}
-
-function getRequestedTicker() {
-
-
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
-
-const ticker =
-    params.get("ticker");
-
-if (!ticker) {
     return null;
 }
 
-return ticker
-    .trim()
-    .toUpperCase();
 
+function getRequestedTicker() {
 
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const ticker =
+        params.get("ticker");
+
+    if (!ticker) {
+        return null;
+    }
+
+    return ticker
+        .trim()
+        .toUpperCase();
 }
+
 
 /* ============================================================
 DATE HELPERS
@@ -157,189 +162,207 @@ DATE HELPERS
 
 function isValidDateString(value) {
 
-
-return (
-    typeof value === "string" &&
-    /^\d{4}-\d{2}-\d{2}$/.test(value)
-);
-
-
+    return (
+        typeof value === "string" &&
+        /^\d{4}-\d{2}-\d{2}$/.test(value)
+    );
 }
+
 
 function getTodayDateKey() {
 
+    const now =
+        new Date();
 
-const now =
-    new Date();
-
-return [
-    now.getFullYear(),
-    String(
-        now.getMonth() + 1
-    ).padStart(
-        2,
-        "0"
-    ),
-    String(
-        now.getDate()
-    ).padStart(
-        2,
-        "0"
-    )
-].join("-");
-
-
+    return [
+        now.getFullYear(),
+        String(
+            now.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        ),
+        String(
+            now.getDate()
+        ).padStart(
+            2,
+            "0"
+        )
+    ].join("-");
 }
+
 
 function formatDateLabel(date) {
 
-
-if (
-    !isValidDateString(date)
-) {
-    return date;
-}
-
-const [
-    year,
-    month,
-    day
-] =
-    date.split("-").map(Number);
-
-const dateObject =
-    new Date(
-        year,
-        month - 1,
-        day
-    );
-
-return dateObject.toLocaleDateString(
-    undefined,
-    {
-        year: "numeric",
-        month: "long",
-        day: "numeric"
+    if (
+        !isValidDateString(date)
+    ) {
+        return date;
     }
-);
 
+    const [
+        year,
+        month,
+        day
+    ] =
+        date.split("-").map(Number);
 
+    const dateObject =
+        new Date(
+            year,
+            month - 1,
+            day
+        );
+
+    return dateObject.toLocaleDateString(
+        undefined,
+        {
+            year: "numeric",
+            month: "long",
+            day: "numeric"
+        }
+    );
 }
+
+
+/* ============================================================
+DATE SELECTOR LOOKUP
+============================================================ */
+
+/*
+ * Locate the existing date selector in the page.
+ *
+ * The selector itself remains part of the page/UI.
+ * This function only finds it; it does not create a
+ * replacement control.
+ */
+function findDateSelector() {
+
+    return (
+        document.getElementById(
+            "dateSelector"
+        ) ||
+        document.getElementById(
+            "dateFilter"
+        ) ||
+        document.querySelector(
+            "select[data-date-selector]"
+        )
+    );
+}
+
 
 /* ============================================================
 DATE EXTRACTION
 ============================================================ */
 
 /*
+ * The actual trade/publication record remains authoritative.
+ *
+ * We intentionally check the same fields used by newsletter.js,
+ * with additional aliases used by the publication system.
+ */
+function getTradeDate(trade) {
 
-* The actual trade/publication record remains authoritative.
-*
-* We intentionally check the same fields used by newsletter.js,
-* with a few additional aliases used by the publication system.
-  */
-  function getTradeDate(trade) {
+    const raw =
+        trade &&
+        trade.raw
+            ? trade.raw
+            : trade;
 
-  const raw =
-  trade &&
-  trade.raw
-  ? trade.raw
-  : trade;
+    if (
+        !raw ||
+        typeof raw !== "object"
+    ) {
+        return null;
+    }
 
-  if (
-  !raw ||
-  typeof raw !== "object"
-  ) {
-  return null;
-  }
+    const dateValue =
+        firstValue(
+            raw.trade_date,
+            raw.tradeDate,
 
-  const dateValue =
-  firstValue(
-  raw.trade_date,
-  raw.tradeDate,
+            raw.trade_date_key,
+            raw.tradeDateKey,
 
-  
-       raw.trade_date_key,
-       raw.tradeDateKey,
+            raw.publication_date,
+            raw.publicationDate,
 
-       raw.publication_date,
-       raw.publicationDate,
+            raw.analysis_date,
+            raw.analysisDate,
 
-       raw.analysis_date,
-       raw.analysisDate,
+            raw.date,
 
-       raw.date,
+            raw.created_date,
+            raw.createdDate,
 
-       raw.created_date,
-       raw.createdDate,
+            raw.created_at,
+            raw.createdAt,
 
-       raw.created_at,
-       raw.createdAt,
+            raw.timestamp,
 
-       raw.timestamp,
+            raw.generated_at,
+            raw.generatedAt,
 
-       raw.generated_at,
-       raw.generatedAt,
+            raw.updated_at,
+            raw.updatedAt
+        );
 
-       raw.updated_at,
-       raw.updatedAt
-   );
-  
+    if (!dateValue) {
+        return null;
+    }
 
-  if (!dateValue) {
-  return null;
-  }
+    const text =
+        String(
+            dateValue
+        ).trim();
 
-  const text =
-  String(
-  dateValue
-  ).trim();
-
-  /*
-
-  * Preserve explicit YYYY-MM-DD prefixes.
-  *
-  * Example:
-  * 2026-09-01
-  * 2026-09-01T04:15:22
-    */
+    /*
+     * Preserve explicit YYYY-MM-DD prefixes.
+     *
+     * Example:
+     * 2026-09-01
+     * 2026-09-01T04:15:22
+     */
     const directMatch =
-    text.match(
-    /^(\d{4}-\d{2}-\d{2})/
-    );
+        text.match(
+            /^(\d{4}-\d{2}-\d{2})/
+        );
 
-  if (directMatch) {
-  return directMatch[1];
-  }
+    if (directMatch) {
+        return directMatch[1];
+    }
 
-  const parsed =
-  new Date(
-  dateValue
-  );
+    const parsed =
+        new Date(
+            dateValue
+        );
 
-  if (
-  Number.isNaN(
-  parsed.getTime()
-  )
-  ) {
-  return null;
-  }
+    if (
+        Number.isNaN(
+            parsed.getTime()
+        )
+    ) {
+        return null;
+    }
 
-  return [
-  parsed.getFullYear(),
-  String(
-  parsed.getMonth() + 1
-  ).padStart(
-  2,
-  "0"
-  ),
-  String(
-  parsed.getDate()
-  ).padStart(
-  2,
-  "0"
-  )
-  ].join("-");
-  }
+    return [
+        parsed.getFullYear(),
+        String(
+            parsed.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        ),
+        String(
+            parsed.getDate()
+        ).padStart(
+            2,
+            "0"
+        )
+    ].join("-");
+}
+
 
 /* ============================================================
 TRADE TIMESTAMP
@@ -347,287 +370,254 @@ TRADE TIMESTAMP
 
 function getTradeTimestamp(trade) {
 
+    const raw =
+        trade &&
+        trade.raw
+            ? trade.raw
+            : trade;
 
-const raw =
-    trade &&
-    trade.raw
-        ? trade.raw
-        : trade;
+    if (
+        !raw ||
+        typeof raw !== "object"
+    ) {
+        return 0;
+    }
 
-if (
-    !raw ||
-    typeof raw !== "object"
-) {
-    return 0;
+    const timestamp =
+        firstValue(
+            raw.trade_date,
+            raw.tradeDate,
+
+            raw.timestamp,
+
+            raw.created_at,
+            raw.createdAt,
+
+            raw.updated_at,
+            raw.updatedAt,
+
+            raw.generated_at,
+            raw.generatedAt
+        );
+
+    if (!timestamp) {
+        return 0;
+    }
+
+    const value =
+        new Date(
+            timestamp
+        ).getTime();
+
+    return Number.isFinite(value)
+        ? value
+        : 0;
 }
 
-const timestamp =
-    firstValue(
-        raw.trade_date,
-        raw.tradeDate,
-
-        raw.timestamp,
-
-        raw.created_at,
-        raw.createdAt,
-
-        raw.updated_at,
-        raw.updatedAt,
-
-        raw.generated_at,
-        raw.generatedAt
-    );
-
-if (!timestamp) {
-    return 0;
-}
-
-/*
- * Handle explicit ISO timestamps as well as
- * ordinary JavaScript date values.
- */
-const value =
-    new Date(
-        timestamp
-    ).getTime();
-
-return Number.isFinite(value)
-    ? value
-    : 0;
-
-
-}
 
 /* ============================================================
 NORMALIZATION
 ============================================================ */
 
 /*
-
-* This mirrors newsletter.js but is deliberately slightly
-* more tolerant of the publication files.
-*
-* Supported:
-*
-* []
-*
-* { trades: [] }
-*
-* { data: [] }
-*
-* { trade: {...} }
-*
-* a single trade object
-  */
-  function normalizeTradeData(
-  data,
-  fallbackTicker = null
-  ) {
-
-
-let source;
-
-
-
-if (Array.isArray(data)) {
-
-    source = data;
-
-} else if (
-    data &&
-    Array.isArray(data.trades)
+ * Supported:
+ *
+ * []
+ *
+ * { trades: [] }
+ *
+ * { data: [] }
+ *
+ * { trade: {...} }
+ *
+ * a single trade object
+ */
+function normalizeTradeData(
+    data,
+    fallbackTicker = null
 ) {
 
-    source = data.trades;
+    let source;
 
-} else if (
-    data &&
-    Array.isArray(data.data)
-) {
+    if (Array.isArray(data)) {
 
-    source = data.data;
+        source = data;
 
-} else if (
-    data &&
-    data.trade &&
-    typeof data.trade === "object"
-) {
+    } else if (
+        data &&
+        Array.isArray(data.trades)
+    ) {
 
-    source = [
-        data.trade
-    ];
+        source = data.trades;
 
-} else if (
-    data &&
-    typeof data === "object"
-) {
+    } else if (
+        data &&
+        Array.isArray(data.data)
+    ) {
 
-    /*
-     * Some publication files contain one trade object
-     * directly rather than wrapping it in {trades: []}.
-     */
-    source = [
-        data
-    ];
+        source = data.data;
 
-} else {
+    } else if (
+        data &&
+        data.trade &&
+        typeof data.trade === "object"
+    ) {
 
-    source = [];
+        source = [
+            data.trade
+        ];
+
+    } else if (
+        data &&
+        typeof data === "object"
+    ) {
+
+        source = [
+            data
+        ];
+
+    } else {
+
+        source = [];
+    }
+
+    return source
+        .map(
+            trade =>
+                normalizeTrade(
+                    trade,
+                    fallbackTicker
+                )
+        )
+        .filter(Boolean);
 }
 
-return source
-    .map(
-        trade =>
-            normalizeTrade(
-                trade,
-                fallbackTicker
-            )
-    )
-    .filter(Boolean);
-
-
-}
 
 /*
+ * Ticker may come from the authoritative ticker directory.
+ */
+function normalizeTrade(
+    trade,
+    fallbackTicker = null
+) {
 
-* IMPORTANT FIX:
-*
-* ticker is allowed to come from the authoritative
-* ticker directory.
-*
-* Therefore:
-*
-* data/analysis/LVLU/trades.json
-*
-* is sufficient to identify LVLU even if the individual
-* record does not contain:
-*
-* "ticker": "LVLU"
-  */
-  function normalizeTrade(
-  trade,
-  fallbackTicker = null
-  ) {
+    if (
+        !trade ||
+        typeof trade !== "object"
+    ) {
+        return null;
+    }
 
-  if (
-  !trade ||
-  typeof trade !== "object"
-  ) {
-  return null;
-  }
+    const ticker =
+        firstValue(
+            trade.ticker,
+            trade.symbol,
+            trade.Ticker,
+            trade.Symbol,
+            fallbackTicker
+        );
 
-  const ticker =
-  firstValue(
-  trade.ticker,
-  trade.symbol,
-  trade.Ticker,
-  trade.Symbol,
-  fallbackTicker
-  );
+    if (!ticker) {
+        return null;
+    }
 
-  if (!ticker) {
-  return null;
-  }
+    const entry =
+        numericValue(
+            firstValue(
+                trade.entry,
+                trade.entry_price,
+                trade.entryPrice,
+                trade.Entry
+            )
+        );
 
-  const entry =
-  numericValue(
-  firstValue(
-  trade.entry,
-  trade.entry_price,
-  trade.entryPrice,
-  trade.Entry
-  )
-  );
+    const stop =
+        numericValue(
+            firstValue(
+                trade.stop,
+                trade.stop_loss,
+                trade.stopLoss,
+                trade.Stop
+            )
+        );
 
-  const stop =
-  numericValue(
-  firstValue(
-  trade.stop,
-  trade.stop_loss,
-  trade.stopLoss,
-  trade.Stop
-  )
-  );
+    const target =
+        numericValue(
+            firstValue(
+                trade.target,
+                trade.target_price,
+                trade.targetPrice,
+                trade.Target
+            )
+        );
 
-  const target =
-  numericValue(
-  firstValue(
-  trade.target,
-  trade.target_price,
-  trade.targetPrice,
-  trade.Target
-  )
-  );
+    const score =
+        numericValue(
+            firstValue(
+                trade.score,
+                trade.rank_score,
+                trade.rankScore,
+                trade.Score
+            )
+        );
 
-  const score =
-  numericValue(
-  firstValue(
-  trade.score,
-  trade.rank_score,
-  trade.rankScore,
-  trade.Score
-  )
-  );
+    const currentPrice =
+        numericValue(
+            firstValue(
+                trade.current_price,
+                trade.currentPrice,
+                trade.current,
+                trade.price,
+                trade.Price
+            )
+        );
 
-  const currentPrice =
-  numericValue(
-  firstValue(
-  trade.current_price,
-  trade.currentPrice,
-  trade.current,
-  trade.price,
-  trade.Price
-  )
-  );
+    return {
 
-  return {
+        ticker:
+            String(
+                ticker
+            )
+            .trim()
+            .toUpperCase(),
 
-  
-   ticker:
-       String(
-           ticker
-       )
-       .trim()
-       .toUpperCase(),
+        direction:
+            firstValue(
+                trade.direction,
+                trade.side,
+                trade.Direction
+            ) || "—",
 
-   direction:
-       firstValue(
-           trade.direction,
-           trade.side,
-           trade.Direction
-       ) || "—",
+        setup:
+            firstValue(
+                trade.setup,
+                trade.setup_type,
+                trade.setupType,
+                trade.Setup
+            ) || "Trade Setup",
 
-   setup:
-       firstValue(
-           trade.setup,
-           trade.setup_type,
-           trade.setupType,
-           trade.Setup
-       ) || "Trade Setup",
+        entry,
 
-   entry,
+        stop,
 
-   stop,
+        target,
 
-   target,
+        score,
 
-   score,
+        status:
+            firstValue(
+                trade.status,
+                trade.Status
+            ) || "—",
 
-   status:
-       firstValue(
-           trade.status,
-           trade.Status
-       ) || "—",
+        current_price:
+            currentPrice,
 
-   current_price:
-       currentPrice,
+        raw:
+            trade
+    };
+}
 
-   raw:
-       trade
-  
-
-  };
-  }
 
 /* ============================================================
 AVAILABLE DATES
@@ -635,70 +625,52 @@ AVAILABLE DATES
 
 function getAvailableDates(index) {
 
+    const dateSet =
+        new Set();
 
-const dateSet =
-    new Set();
-
-if (
-    !index ||
-    typeof index.tickers !== "object" ||
-    index.tickers === null
-) {
-    return [];
-}
-
-Object.entries(
-    index.tickers
-).forEach(
-    ([ticker, dates]) => {
-
-        if (!Array.isArray(dates)) {
-            return;
-        }
-
-        dates.forEach(
-            date => {
-
-                if (
-                    isValidDateString(date)
-                ) {
-                    dateSet.add(date);
-                }
-            }
-        );
+    if (
+        !index ||
+        typeof index.tickers !== "object" ||
+        index.tickers === null
+    ) {
+        return [];
     }
-);
 
-return Array.from(
-    dateSet
-).sort(
-    (a, b) =>
-        b.localeCompare(a)
-);
+    Object.entries(
+        index.tickers
+    ).forEach(
+        ([ticker, dates]) => {
 
+            if (!Array.isArray(dates)) {
+                return;
+            }
 
+            dates.forEach(
+                date => {
+
+                    if (
+                        isValidDateString(date)
+                    ) {
+                        dateSet.add(date);
+                    }
+                }
+            );
+        }
+    );
+
+    return Array.from(
+        dateSet
+    ).sort(
+        (a, b) =>
+            b.localeCompare(a)
+    );
 }
+
 
 /* ============================================================
-   INITIAL DATE SELECTION
+INITIAL DATE SELECTION
 ============================================================ */
 
-/*
- * Determines the initially selected date.
- *
- * IMPORTANT:
- *
- * "All Dates" remains an available selector option.
- *
- * The DEFAULT is:
- *
- * 1. Existing selection during refresh
- * 2. Explicit ?date=YYYY-MM-DD
- * 3. TODAY, if published
- * 4. Latest published date
- *
- * All Dates is NOT the default.
- */
 function determineInitialDate(
     dates,
     preserveSelection = false
@@ -712,7 +684,7 @@ function determineInitialDate(
 
     /*
      * Preserve the user's current selection during
-     * auto-refresh, INCLUDING All Dates ("").
+     * auto-refresh, including All Dates.
      */
     if (
         preserveSelection
@@ -729,7 +701,8 @@ function determineInitialDate(
     }
 
     /*
-     * Explicit URL date takes priority.
+     * Explicit URL date takes priority when it is
+     * an available published date.
      */
     if (
         requestedDate &&
@@ -741,7 +714,7 @@ function determineInitialDate(
     }
 
     /*
-     * TODAY is the default.
+     * TODAY is the normal default.
      */
     if (
         dates.includes(
@@ -752,10 +725,8 @@ function determineInitialDate(
     }
 
     /*
-     * If today has not been published yet,
-     * use the newest published date.
-     *
-     * This does NOT mean All Dates.
+     * If today is not published yet, use the
+     * newest published date.
      */
     if (dates.length) {
         return dates[0];
@@ -766,7 +737,7 @@ function determineInitialDate(
 
 
 /* ============================================================
-   DATE SELECTOR
+DATE SELECTOR
 ============================================================ */
 
 function initializeDateSelector(
@@ -778,6 +749,11 @@ function initializeDateSelector(
         findDateSelector();
 
     if (!selector) {
+
+        console.warn(
+            "NEA28V1 trades: date selector was not found."
+        );
+
         return null;
     }
 
@@ -786,11 +762,14 @@ function initializeDateSelector(
 
     /*
      * ========================================================
-     * ALL DATES MUST REMAIN AVAILABLE
+     * ALL DATES
      * ========================================================
      *
-     * Empty string is the internal value representing
-     * All Dates.
+     * This is an explicit selector option.
+     *
+     * Empty string represents All Dates internally.
+     *
+     * It is intentionally NOT selected by default.
      */
     const allOption =
         document.createElement(
@@ -808,62 +787,43 @@ function initializeDateSelector(
     );
 
     /*
-     * No published dates at all.
+     * Add every published date.
      */
     if (
-        !Array.isArray(dates) ||
-        !dates.length
+        Array.isArray(dates)
     ) {
 
-        selector.disabled =
-            false;
+        dates.forEach(
+            date => {
 
-        selectedDate =
-            "";
+                const option =
+                    document.createElement(
+                        "option"
+                    );
 
-        selector.value =
-            "";
+                option.value =
+                    date;
 
-        updateUrlDate(
-            ""
+                option.textContent =
+                    formatDateLabel(
+                        date
+                    );
+
+                selector.appendChild(
+                    option
+                );
+            }
         );
-
-        return selector;
     }
 
     selector.disabled =
         false;
 
     /*
-     * Add every published date.
-     */
-    dates.forEach(
-        date => {
-
-            const option =
-                document.createElement(
-                    "option"
-                );
-
-            option.value =
-                date;
-
-            option.textContent =
-                formatDateLabel(
-                    date
-                );
-
-            selector.appendChild(
-                option
-            );
-        }
-    );
-
-    /*
-     * Determine the actual initial selection.
+     * Determine the actual selected date.
      *
-     * This returns TODAY when available,
-     * NOT All Dates.
+     * This is TODAY when available.
+     * All Dates is not the default.
      */
     selectedDate =
         determineInitialDate(
@@ -875,7 +835,7 @@ function initializeDateSelector(
         selectedDate;
 
     /*
-     * Install the change handler only once.
+     * Install the selector handler only once.
      */
     if (
         !dateSelectorInitialized
@@ -888,12 +848,6 @@ function initializeDateSelector(
                 selectedDate =
                     selector.value;
 
-                /*
-                 * Empty string means All Dates.
-                 *
-                 * Therefore the URL date parameter
-                 * is removed when All Dates is selected.
-                 */
                 updateUrlDate(
                     selectedDate
                 );
@@ -930,45 +884,44 @@ function initializeDateSelector(
     return selector;
 }
 
+
 /* ============================================================
 URL DATE SYNCHRONIZATION
 ============================================================ */
 
 function updateUrlDate(date) {
 
+    const url =
+        new URL(
+            window.location.href
+        );
 
-const url =
-    new URL(
-        window.location.href
-    );
+    if (
+        isValidDateString(date)
+    ) {
 
-if (
-    isValidDateString(date)
-) {
+        url.searchParams.set(
+            "date",
+            date
+        );
 
-    url.searchParams.set(
-        "date",
-        date
-    );
+    } else {
 
-} else {
+        url.searchParams.delete(
+            "date"
+        );
+    }
 
-    url.searchParams.delete(
-        "date"
+    window.history.replaceState(
+        {},
+        "",
+        url
     );
 }
 
-window.history.replaceState(
-    {},
-    "",
-    url
-);
-
-
-}
 
 /* ============================================================
-   LOAD TRADES
+LOAD TRADES
 ============================================================ */
 
 async function loadTradesForDate(
@@ -993,13 +946,9 @@ async function loadTradesForDate(
     }
 
     /*
-     * Empty date string means:
+     * Empty date string means All Dates.
      *
-     * ALL DATES
-     *
-     * A specific YYYY-MM-DD means:
-     *
-     * ONLY THAT DATE
+     * A specific YYYY-MM-DD means ONLY THAT DATE.
      */
     const isAllDates =
         date === "";
@@ -1049,7 +998,7 @@ async function loadTradesForDate(
 
     /*
      * ========================================================
-     * LOAD EACH AUTHORITATIVE TICKER DIRECTORY
+     * LOAD AUTHORITATIVE TICKER DIRECTORIES
      * ========================================================
      */
 
@@ -1077,26 +1026,20 @@ async function loadTradesForDate(
         }
 
         /*
-         * ====================================================
-         * PUBLICATION GATE
-         * ====================================================
-         *
-         * Specific date:
-         *
-         *     ticker must be published on that date.
-         *
-         * All Dates:
-         *
-         *     ticker is eligible if it has at least one
-         *     published date.
+         * A ticker must have at least one published date.
          */
-
         if (
             !publishedDates.length
         ) {
             continue;
         }
 
+        /*
+         * For a specific date, the ticker must actually
+         * be published on that date according to index.json.
+         *
+         * For All Dates, any published ticker is eligible.
+         */
         if (
             !isAllDates &&
             !publishedDates.includes(
@@ -1124,10 +1067,6 @@ async function loadTradesForDate(
 
             /*
              * The ticker directory is authoritative.
-             *
-             * Therefore the ticker is supplied as a
-             * fallback if the trade record itself does
-             * not contain one.
              */
             const trades =
                 normalizeTradeData(
@@ -1147,17 +1086,16 @@ async function loadTradesForDate(
 
             /*
              * =================================================
-             * DATE FILTER
+             * ACTUAL TRADE DATE FILTER
              * =================================================
              *
              * Specific date:
              *
-             *     require actual trade date === selected date.
+             *     actual trade date MUST equal selected date.
              *
              * All Dates:
              *
-             *     allow every valid trade date contained in
-             *     trades.json.
+             *     all valid actual trade dates are eligible.
              */
             const matchingTrades =
                 trades.filter(
@@ -1168,10 +1106,6 @@ async function loadTradesForDate(
                                 trade
                             );
 
-                        /*
-                         * Every displayed trade must have
-                         * an identifiable date.
-                         */
                         if (
                             !isValidDateString(
                                 tradeDate
@@ -1219,10 +1153,6 @@ async function loadTradesForDate(
                         getTradeTimestamp(b) -
                         getTradeTimestamp(a);
 
-                    /*
-                     * If timestamps are identical or unavailable,
-                     * fall back to the trade date.
-                     */
                     if (
                         timestampDifference !== 0
                     ) {
@@ -1242,16 +1172,14 @@ async function loadTradesForDate(
              * KEEP LATEST RECORD
              * =================================================
              *
-             * For a specific date:
+             * Specific date:
              *
-             *     one latest trade per ticker/date.
+             *     latest trade for that ticker/date.
              *
-             * For All Dates:
+             * All Dates:
              *
-             *     one latest trade per ticker.
-             *
-             * This prevents duplicate historical records
-             * for the same ticker from filling the table.
+             *     latest trade for that ticker across all
+             *     published dates.
              */
             const latest =
                 matchingTrades[0];
@@ -1304,825 +1232,12 @@ async function loadTradesForDate(
     renderTrades();
 }
 
+
 /* ============================================================
 INITIALIZE PAGE
 ============================================================ */
 
 async function initializeTrades() {
-
-
-try {
-
-    const index =
-        await getJSON(
-            ANALYSIS_INDEX_URL
-        );
-
-    if (
-        !index ||
-        typeof index.tickers !== "object" ||
-        index.tickers === null
-    ) {
-
-        throw new Error(
-            "Analysis index does not contain a valid tickers object."
-        );
-    }
-
-    window.__tradesIndex =
-        index;
-
-    availableDates =
-        getAvailableDates(
-            index
-        );
-
-    const selector =
-        initializeDateSelector(
-            availableDates
-        );
-
-    if (selector) {
-
-        selectedDate =
-            selector.value;
-    }
-
-    /*
-     * IMPORTANT:
-     *
-     * Load the selected date immediately.
-     */
-    await loadTradesForDate(
-        selectedDate,
-        getRequestedTicker()
-    );
-
-    initializeSorting();
-
-    initializeFilters();
-
-} catch (error) {
-
-    console.error(
-        "NEA28V1 trades initialization error:",
-        error
-    );
-
-    renderDataUnavailable(
-        "Unable to load trade history."
-    );
-}
-
-
-}
-
-/* ============================================================
-RENDER TABLE
-============================================================ */
-
-function renderTrades() {
-
-
-const body =
-    document.getElementById(
-        "trades"
-    );
-
-const noTrades =
-    document.getElementById(
-        "noTrades"
-    );
-
-const tradeCount =
-    document.getElementById(
-        "tradeCount"
-    );
-
-if (!body) {
-
-    console.error(
-        "Trades table body #trades was not found."
-    );
-
-    return;
-}
-
-const searchInput =
-    document.getElementById(
-        "tickerSearch"
-    );
-
-const directionFilter =
-    document.getElementById(
-        "directionFilter"
-    );
-
-const statusFilter =
-    document.getElementById(
-        "statusFilter"
-    );
-
-const search =
-    searchInput
-        ? searchInput.value
-            .trim()
-            .toUpperCase()
-        : "";
-
-const direction =
-    directionFilter
-        ? directionFilter.value
-            .trim()
-            .toUpperCase()
-        : "";
-
-const status =
-    statusFilter
-        ? statusFilter.value
-            .trim()
-            .toUpperCase()
-        : "";
-
-let trades =
-    allTrades.filter(
-        trade => {
-
-            const ticker =
-                String(
-                    trade.ticker ||
-                    trade._ticker ||
-                    ""
-                ).toUpperCase();
-
-            const tradeDirection =
-                String(
-                    trade.direction ||
-                    ""
-                ).toUpperCase();
-
-            const tradeStatus =
-                String(
-                    trade.status ||
-                    ""
-                ).toUpperCase();
-
-            return (
-                (
-                    !search ||
-                    ticker.includes(
-                        search
-                    )
-                ) &&
-                (
-                    !direction ||
-                    tradeDirection ===
-                        direction
-                ) &&
-                (
-                    !status ||
-                    tradeStatus ===
-                        status
-                )
-            );
-        }
-    );
-
-trades.sort(
-    (a, b) => {
-
-        const aValue =
-            getSortValue(
-                a,
-                sortColumn
-            );
-
-        const bValue =
-            getSortValue(
-                b,
-                sortColumn
-            );
-
-        let comparison;
-
-        if (
-            typeof aValue === "number" &&
-            typeof bValue === "number"
-        ) {
-
-            comparison =
-                aValue -
-                bValue;
-
-        } else {
-
-            comparison =
-                String(
-                    aValue
-                ).localeCompare(
-                    String(
-                        bValue
-                    ),
-                    undefined,
-                    {
-                        numeric: true,
-                        sensitivity: "base"
-                    }
-                );
-        }
-
-        return (
-            sortDirection === "asc"
-                ? comparison
-                : -comparison
-        );
-    }
-);
-
-body.innerHTML =
-    "";
-
-trades.forEach(
-    trade => {
-
-        const row =
-            document.createElement(
-                "tr"
-            );
-
-        row.className =
-            "trade-row";
-
-        const score =
-            trade.score;
-
-        row.innerHTML = `
-
-            <td>
-                <b>
-                    ${escapeHtml(
-                        trade.ticker ||
-                        trade._ticker ||
-                        ""
-                    )}
-                </b>
-            </td>
-
-            <td>
-                ${escapeHtml(
-                    trade.direction ||
-                    "—"
-                )}
-            </td>
-
-            <td>
-                ${escapeHtml(
-                    trade.setup ||
-                    "—"
-                )}
-            </td>
-
-            <td>
-                ${formatMoney(
-                    trade.entry
-                )}
-            </td>
-
-            <td>
-                ${formatMoney(
-                    trade.current_price
-                )}
-            </td>
-
-            <td>
-                ${formatMoney(
-                    trade.stop
-                )}
-            </td>
-
-            <td>
-                ${formatMoney(
-                    trade.target
-                )}
-            </td>
-
-            <td>
-                ${
-                    Number.isFinite(score)
-                        ? score.toFixed(2)
-                        : "—"
-                }
-            </td>
-
-            <td>
-                <span class="badge">
-                    ${escapeHtml(
-                        trade.status ||
-                        "—"
-                    )}
-                </span>
-            </td>
-        `;
-
-        /*
-         * Single-click ticker navigation.
-         */
-        row.addEventListener(
-            "click",
-            () => {
-
-                const ticker =
-                    String(
-                        trade.ticker ||
-                        trade._ticker ||
-                        ""
-                    )
-                    .trim()
-                    .toUpperCase();
-
-                if (!ticker) {
-                    return;
-                }
-
-                const profileDate =
-                    selectedDate ||
-                    getTradeDate(
-                        trade
-                    );
-
-                let url =
-                    `ticker-profile.html?ticker=${encodeURIComponent(
-                        ticker
-                    )}`;
-
-                if (
-                    isValidDateString(
-                        profileDate
-                    )
-                ) {
-
-                    url +=
-                        `&date=${encodeURIComponent(
-                            profileDate
-                        )}`;
-                }
-
-                window.location.href =
-                    url;
-            }
-        );
-
-        body.appendChild(
-            row
-        );
-    }
-);
-
-if (tradeCount) {
-
-    tradeCount.textContent =
-        `${trades.length} of ${allTrades.length} trades`;
-}
-
-if (noTrades) {
-
-    noTrades.hidden =
-        trades.length !== 0;
-}
-
-updateSortHeaders();
-
-updateDisplayedDate();
-
-
-}
-
-/* ============================================================
-DISPLAY DATE
-============================================================ */
-
-function updateDisplayedDate() {
-
-
-const updated =
-    document.getElementById(
-        "updated"
-    );
-
-if (!updated) {
-    return;
-}
-
-if (
-    !isValidDateString(
-        selectedDate
-    )
-) {
-
-    updated.textContent =
-        "No Published Date";
-
-    return;
-}
-
-updated.textContent =
-    formatDateLabel(
-        selectedDate
-    );
-
-
-}
-
-/* ============================================================
-SORTING
-============================================================ */
-
-function getSortValue(
-trade,
-column
-) {
-
-
-const numericColumns = [
-    "score",
-    "entry",
-    "current_price",
-    "stop",
-    "target"
-];
-
-if (
-    numericColumns.includes(
-        column
-    )
-) {
-
-    const value =
-        toNumber(
-            trade[column]
-        );
-
-    return value === null
-        ? -Infinity
-        : value;
-}
-
-return String(
-    trade[column] ?? ""
-);
-
-
-}
-
-function updateSortHeaders() {
-
-
-document
-    .querySelectorAll(
-        "th[data-sort]"
-    )
-    .forEach(
-        th => {
-
-            th.classList.remove(
-                "sort-asc",
-                "sort-desc"
-            );
-
-            if (
-                th.dataset.sort ===
-                sortColumn
-            ) {
-
-                th.classList.add(
-                    sortDirection === "asc"
-                        ? "sort-asc"
-                        : "sort-desc"
-                );
-            }
-        }
-    );
-
-
-}
-
-function initializeSorting() {
-
-
-document
-    .querySelectorAll(
-        "th[data-sort]"
-    )
-    .forEach(
-        th => {
-
-            th.addEventListener(
-                "click",
-                () => {
-
-                    const column =
-                        th.dataset.sort;
-
-                    if (
-                        sortColumn ===
-                        column
-                    ) {
-
-                        sortDirection =
-                            sortDirection === "asc"
-                                ? "desc"
-                                : "asc";
-
-                    } else {
-
-                        sortColumn =
-                            column;
-
-                        sortDirection =
-                            column === "score"
-                                ? "desc"
-                                : "asc";
-                    }
-
-                    renderTrades();
-                }
-            );
-        }
-    );
-
-
-}
-
-/* ============================================================
-FILTERS
-============================================================ */
-
-function initializeFilters() {
-
-
-const tickerSearch =
-    document.getElementById(
-        "tickerSearch"
-    );
-
-if (tickerSearch) {
-
-    tickerSearch.addEventListener(
-        "input",
-        renderTrades
-    );
-}
-
-const directionFilter =
-    document.getElementById(
-        "directionFilter"
-    );
-
-if (directionFilter) {
-
-    directionFilter.addEventListener(
-        "change",
-        renderTrades
-    );
-}
-
-const statusFilter =
-    document.getElementById(
-        "statusFilter"
-    );
-
-if (statusFilter) {
-
-    statusFilter.addEventListener(
-        "change",
-        renderTrades
-    );
-}
-
-const clearFilters =
-    document.getElementById(
-        "clearFilters"
-    );
-
-if (clearFilters) {
-
-    clearFilters.addEventListener(
-        "click",
-        () => {
-
-            if (tickerSearch) {
-                tickerSearch.value = "";
-            }
-
-            if (directionFilter) {
-                directionFilter.value = "";
-            }
-
-            if (statusFilter) {
-                statusFilter.value = "";
-            }
-
-            renderTrades();
-        }
-    );
-}
-
-
-}
-
-/* ============================================================
-ERROR / EMPTY STATE
-============================================================ */
-
-function renderDataUnavailable(
-message
-) {
-
-
-const body =
-    document.getElementById(
-        "trades"
-    );
-
-const noTrades =
-    document.getElementById(
-        "noTrades"
-    );
-
-const tradeCount =
-    document.getElementById(
-        "tradeCount"
-    );
-
-const updated =
-    document.getElementById(
-        "updated"
-    );
-
-if (updated) {
-
-    updated.textContent =
-        "Data unavailable";
-}
-
-if (body) {
-
-    body.innerHTML = `
-        <tr>
-            <td colspan="9">
-                ${escapeHtml(
-                    message
-                )}
-            </td>
-        </tr>
-    `;
-}
-
-if (tradeCount) {
-
-    tradeCount.textContent =
-        "0 trades";
-}
-
-if (noTrades) {
-
-    noTrades.hidden =
-        false;
-}
-
-
-}
-
-/* ============================================================
-UTILITIES
-============================================================ */
-
-function numericValue(value) {
-
-
-if (
-    value === null ||
-    value === undefined ||
-    value === ""
-) {
-    return NaN;
-}
-
-const number =
-    Number(
-        String(value)
-            .replace(
-                /[$,%]/g,
-                ""
-            )
-            .trim()
-    );
-
-return Number.isFinite(number)
-    ? number
-    : NaN;
-
-
-}
-
-function toNumber(value) {
-
-
-if (
-    value === null ||
-    value === undefined ||
-    value === ""
-) {
-    return null;
-}
-
-const number =
-    Number(value);
-
-return Number.isFinite(number)
-    ? number
-    : null;
-
-
-}
-
-function formatMoney(value) {
-
-
-if (
-    !Number.isFinite(value)
-) {
-    return "—";
-}
-
-return value < 1
-    ? `$${value.toFixed(4)}`
-    : `$${value.toFixed(2)}`;
-
-
-}
-
-function firstValue(
-...values
-) {
-
-
-for (
-    const value
-    of values
-) {
-
-    if (
-        value !== undefined &&
-        value !== null &&
-        value !== ""
-    ) {
-        return value;
-    }
-}
-
-return null;
-
-
-}
-
-function escapeHtml(value) {
-
-
-return String(
-    value ?? ""
-)
-.replace(
-    /&/g,
-    "&amp;"
-)
-.replace(
-    /</g,
-    "&lt;"
-)
-.replace(
-    />/g,
-    "&gt;"
-)
-.replace(
-    /"/g,
-    "&quot;"
-)
-.replace(
-    /'/g,
-    "&#039;"
-);
-
-
-}
-
-/* ============================================================
-AUTO REFRESH
-============================================================ */
-
-setInterval(
-async () => {
-
 
     try {
 
@@ -2136,56 +1251,849 @@ async () => {
             typeof index.tickers !== "object" ||
             index.tickers === null
         ) {
-            return;
+
+            throw new Error(
+                "Analysis index does not contain a valid tickers object."
+            );
         }
 
         window.__tradesIndex =
             index;
 
-        const newDates =
+        availableDates =
             getAvailableDates(
                 index
             );
 
-        const datesChanged =
-            JSON.stringify(
-                newDates
-            ) !==
-            JSON.stringify(
+        const selector =
+            initializeDateSelector(
                 availableDates
             );
 
-        if (
-            datesChanged
-        ) {
+        if (selector) {
 
-            availableDates =
-                newDates;
+            selectedDate =
+                selector.value;
+        } else {
 
-            initializeDateSelector(
-                availableDates,
-                true
-            );
+            /*
+             * If the existing selector is not present,
+             * retain the same date-selection behavior.
+             */
+            selectedDate =
+                determineInitialDate(
+                    availableDates
+                );
         }
 
         /*
-         * Continue using the currently selected date.
+         * Load the selected date immediately.
          */
         await loadTradesForDate(
             selectedDate,
             getRequestedTicker()
         );
 
+        initializeSorting();
+
+        initializeFilters();
+
     } catch (error) {
 
         console.error(
-            "NEA28V1 trades refresh error:",
+            "NEA28V1 trades initialization error:",
             error
+        );
+
+        renderDataUnavailable(
+            "Unable to load trade history."
+        );
+    }
+}
+
+
+/* ============================================================
+RENDER TABLE
+============================================================ */
+
+function renderTrades() {
+
+    const body =
+        document.getElementById(
+            "trades"
+        );
+
+    const noTrades =
+        document.getElementById(
+            "noTrades"
+        );
+
+    const tradeCount =
+        document.getElementById(
+            "tradeCount"
+        );
+
+    if (!body) {
+
+        console.error(
+            "Trades table body #trades was not found."
+        );
+
+        return;
+    }
+
+    const searchInput =
+        document.getElementById(
+            "tickerSearch"
+        );
+
+    const directionFilter =
+        document.getElementById(
+            "directionFilter"
+        );
+
+    const statusFilter =
+        document.getElementById(
+            "statusFilter"
+        );
+
+    const search =
+        searchInput
+            ? searchInput.value
+                .trim()
+                .toUpperCase()
+            : "";
+
+    const direction =
+        directionFilter
+            ? directionFilter.value
+                .trim()
+                .toUpperCase()
+            : "";
+
+    const status =
+        statusFilter
+            ? statusFilter.value
+                .trim()
+                .toUpperCase()
+            : "";
+
+    let trades =
+        allTrades.filter(
+            trade => {
+
+                const ticker =
+                    String(
+                        trade.ticker ||
+                        trade._ticker ||
+                        ""
+                    ).toUpperCase();
+
+                const tradeDirection =
+                    String(
+                        trade.direction ||
+                        ""
+                    ).toUpperCase();
+
+                const tradeStatus =
+                    String(
+                        trade.status ||
+                        ""
+                    ).toUpperCase();
+
+                return (
+                    (
+                        !search ||
+                        ticker.includes(
+                            search
+                        )
+                    ) &&
+                    (
+                        !direction ||
+                        tradeDirection ===
+                            direction
+                    ) &&
+                    (
+                        !status ||
+                        tradeStatus ===
+                            status
+                    )
+                );
+            }
+        );
+
+    trades.sort(
+        (a, b) => {
+
+            const aValue =
+                getSortValue(
+                    a,
+                    sortColumn
+                );
+
+            const bValue =
+                getSortValue(
+                    b,
+                    sortColumn
+                );
+
+            let comparison;
+
+            if (
+                typeof aValue === "number" &&
+                typeof bValue === "number"
+            ) {
+
+                comparison =
+                    aValue -
+                    bValue;
+
+            } else {
+
+                comparison =
+                    String(
+                        aValue
+                    ).localeCompare(
+                        String(
+                            bValue
+                        ),
+                        undefined,
+                        {
+                            numeric: true,
+                            sensitivity: "base"
+                        }
+                    );
+            }
+
+            return (
+                sortDirection === "asc"
+                    ? comparison
+                    : -comparison
+            );
+        }
+    );
+
+    body.innerHTML =
+        "";
+
+    trades.forEach(
+        trade => {
+
+            const row =
+                document.createElement(
+                    "tr"
+                );
+
+            row.className =
+                "trade-row";
+
+            const score =
+                trade.score;
+
+            row.innerHTML = `
+
+                <td>
+                    <b>
+                        ${escapeHtml(
+                            trade.ticker ||
+                            trade._ticker ||
+                            ""
+                        )}
+                    </b>
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        trade.direction ||
+                        "—"
+                    )}
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        trade.setup ||
+                        "—"
+                    )}
+                </td>
+
+                <td>
+                    ${formatMoney(
+                        trade.entry
+                    )}
+                </td>
+
+                <td>
+                    ${formatMoney(
+                        trade.current_price
+                    )}
+                </td>
+
+                <td>
+                    ${formatMoney(
+                        trade.stop
+                    )}
+                </td>
+
+                <td>
+                    ${formatMoney(
+                        trade.target
+                    )}
+                </td>
+
+                <td>
+                    ${
+                        Number.isFinite(score)
+                            ? score.toFixed(2)
+                            : "—"
+                    }
+                </td>
+
+                <td>
+                    <span class="badge">
+                        ${escapeHtml(
+                            trade.status ||
+                            "—"
+                        )}
+                    </span>
+                </td>
+            `;
+
+            /*
+             * Single-click ticker navigation.
+             */
+            row.addEventListener(
+                "click",
+                () => {
+
+                    const ticker =
+                        String(
+                            trade.ticker ||
+                            trade._ticker ||
+                            ""
+                        )
+                        .trim()
+                        .toUpperCase();
+
+                    if (!ticker) {
+                        return;
+                    }
+
+                    const profileDate =
+                        selectedDate ||
+                        getTradeDate(
+                            trade
+                        );
+
+                    let url =
+                        `ticker-profile.html?ticker=${encodeURIComponent(
+                            ticker
+                        )}`;
+
+                    if (
+                        isValidDateString(
+                            profileDate
+                        )
+                    ) {
+
+                        url +=
+                            `&date=${encodeURIComponent(
+                                profileDate
+                            )}`;
+                    }
+
+                    window.location.href =
+                        url;
+                }
+            );
+
+            body.appendChild(
+                row
+            );
+        }
+    );
+
+    if (tradeCount) {
+
+        tradeCount.textContent =
+            `${trades.length} of ${allTrades.length} trades`;
+    }
+
+    if (noTrades) {
+
+        noTrades.hidden =
+            trades.length !== 0;
+    }
+
+    updateSortHeaders();
+
+    updateDisplayedDate();
+}
+
+
+/* ============================================================
+DISPLAY DATE
+============================================================ */
+
+function updateDisplayedDate() {
+
+    const updated =
+        document.getElementById(
+            "updated"
+        );
+
+    if (!updated) {
+        return;
+    }
+
+    if (
+        !isValidDateString(
+            selectedDate
+        )
+    ) {
+
+        updated.textContent =
+            "All Dates";
+
+        return;
+    }
+
+    updated.textContent =
+        formatDateLabel(
+            selectedDate
+        );
+}
+
+
+/* ============================================================
+SORTING
+============================================================ */
+
+function getSortValue(
+    trade,
+    column
+) {
+
+    const numericColumns = [
+        "score",
+        "entry",
+        "current_price",
+        "stop",
+        "target"
+    ];
+
+    if (
+        numericColumns.includes(
+            column
+        )
+    ) {
+
+        const value =
+            toNumber(
+                trade[column]
+            );
+
+        return value === null
+            ? -Infinity
+            : value;
+    }
+
+    return String(
+        trade[column] ?? ""
+    );
+}
+
+
+function updateSortHeaders() {
+
+    document
+        .querySelectorAll(
+            "th[data-sort]"
+        )
+        .forEach(
+            th => {
+
+                th.classList.remove(
+                    "sort-asc",
+                    "sort-desc"
+                );
+
+                if (
+                    th.dataset.sort ===
+                    sortColumn
+                ) {
+
+                    th.classList.add(
+                        sortDirection === "asc"
+                            ? "sort-asc"
+                            : "sort-desc"
+                    );
+                }
+            }
+        );
+}
+
+
+function initializeSorting() {
+
+    document
+        .querySelectorAll(
+            "th[data-sort]"
+        )
+        .forEach(
+            th => {
+
+                th.addEventListener(
+                    "click",
+                    () => {
+
+                        const column =
+                            th.dataset.sort;
+
+                        if (
+                            sortColumn ===
+                            column
+                        ) {
+
+                            sortDirection =
+                                sortDirection === "asc"
+                                    ? "desc"
+                                    : "asc";
+
+                        } else {
+
+                            sortColumn =
+                                column;
+
+                            sortDirection =
+                                column === "score"
+                                    ? "desc"
+                                    : "asc";
+                        }
+
+                        renderTrades();
+                    }
+                );
+            }
+        );
+}
+
+
+/* ============================================================
+FILTERS
+============================================================ */
+
+function initializeFilters() {
+
+    const tickerSearch =
+        document.getElementById(
+            "tickerSearch"
+        );
+
+    if (tickerSearch) {
+
+        tickerSearch.addEventListener(
+            "input",
+            renderTrades
         );
     }
 
-},
-60000
+    const directionFilter =
+        document.getElementById(
+            "directionFilter"
+        );
+
+    if (directionFilter) {
+
+        directionFilter.addEventListener(
+            "change",
+            renderTrades
+        );
+    }
+
+    const statusFilter =
+        document.getElementById(
+            "statusFilter"
+        );
+
+    if (statusFilter) {
+
+        statusFilter.addEventListener(
+            "change",
+            renderTrades
+        );
+    }
+
+    const clearFilters =
+        document.getElementById(
+            "clearFilters"
+        );
+
+    if (clearFilters) {
+
+        clearFilters.addEventListener(
+            "click",
+            () => {
+
+                if (tickerSearch) {
+                    tickerSearch.value = "";
+                }
+
+                if (directionFilter) {
+                    directionFilter.value = "";
+                }
+
+                if (statusFilter) {
+                    statusFilter.value = "";
+                }
+
+                renderTrades();
+            }
+        );
+    }
+}
 
 
+/* ============================================================
+ERROR / EMPTY STATE
+============================================================ */
+
+function renderDataUnavailable(
+    message
+) {
+
+    const body =
+        document.getElementById(
+            "trades"
+        );
+
+    const noTrades =
+        document.getElementById(
+            "noTrades"
+        );
+
+    const tradeCount =
+        document.getElementById(
+            "tradeCount"
+        );
+
+    const updated =
+        document.getElementById(
+            "updated"
+        );
+
+    if (updated) {
+
+        updated.textContent =
+            "Data unavailable";
+    }
+
+    if (body) {
+
+        body.innerHTML = `
+            <tr>
+                <td colspan="9">
+                    ${escapeHtml(
+                        message
+                    )}
+                </td>
+            </tr>
+        `;
+    }
+
+    if (tradeCount) {
+
+        tradeCount.textContent =
+            "0 trades";
+    }
+
+    if (noTrades) {
+
+        noTrades.hidden =
+            false;
+    }
+}
+
+
+/* ============================================================
+UTILITIES
+============================================================ */
+
+function numericValue(value) {
+
+    if (
+        value === null ||
+        value === undefined ||
+        value === ""
+    ) {
+        return NaN;
+    }
+
+    const number =
+        Number(
+            String(value)
+                .replace(
+                    /[$,%]/g,
+                    ""
+                )
+                .trim()
+        );
+
+    return Number.isFinite(number)
+        ? number
+        : NaN;
+}
+
+
+function toNumber(value) {
+
+    if (
+        value === null ||
+        value === undefined ||
+        value === ""
+    ) {
+        return null;
+    }
+
+    const number =
+        Number(value);
+
+    return Number.isFinite(number)
+        ? number
+        : null;
+}
+
+
+function formatMoney(value) {
+
+    if (
+        !Number.isFinite(value)
+    ) {
+        return "—";
+    }
+
+    return value < 1
+        ? `$${value.toFixed(4)}`
+        : `$${value.toFixed(2)}`;
+}
+
+
+function firstValue(
+    ...values
+) {
+
+    for (
+        const value
+        of values
+    ) {
+
+        if (
+            value !== undefined &&
+            value !== null &&
+            value !== ""
+        ) {
+            return value;
+        }
+    }
+
+    return null;
+}
+
+
+function escapeHtml(value) {
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
+}
+
+
+/* ============================================================
+AUTO REFRESH
+============================================================ */
+
+setInterval(
+    async () => {
+
+        try {
+
+            const index =
+                await getJSON(
+                    ANALYSIS_INDEX_URL
+                );
+
+            if (
+                !index ||
+                typeof index.tickers !== "object" ||
+                index.tickers === null
+            ) {
+                return;
+            }
+
+            window.__tradesIndex =
+                index;
+
+            const newDates =
+                getAvailableDates(
+                    index
+                );
+
+            const datesChanged =
+                JSON.stringify(
+                    newDates
+                ) !==
+                JSON.stringify(
+                    availableDates
+                );
+
+            if (
+                datesChanged
+            ) {
+
+                availableDates =
+                    newDates;
+
+                initializeDateSelector(
+                    availableDates,
+                    true
+                );
+            }
+
+            /*
+             * Continue using the currently selected date.
+             */
+            await loadTradesForDate(
+                selectedDate,
+                getRequestedTicker()
+            );
+
+        } catch (error) {
+
+            console.error(
+                "NEA28V1 trades refresh error:",
+                error
+            );
+        }
+
+    },
+    60000
 );
