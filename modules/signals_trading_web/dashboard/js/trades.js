@@ -680,159 +680,254 @@ return Array.from(
 }
 
 /* ============================================================
-INITIAL DATE SELECTION
+   INITIAL DATE SELECTION
 ============================================================ */
 
+/*
+ * Determines the initially selected date.
+ *
+ * IMPORTANT:
+ *
+ * "All Dates" remains an available selector option.
+ *
+ * The DEFAULT is:
+ *
+ * 1. Existing selection during refresh
+ * 2. Explicit ?date=YYYY-MM-DD
+ * 3. TODAY, if published
+ * 4. Latest published date
+ *
+ * All Dates is NOT the default.
+ */
 function determineInitialDate(
-dates,
-preserveSelection = false
+    dates,
+    preserveSelection = false
 ) {
 
+    const requestedDate =
+        getRequestedDate();
 
-if (
-    !Array.isArray(dates) ||
-    !dates.length
-) {
+    const today =
+        getTodayDateKey();
+
+    /*
+     * Preserve the user's current selection during
+     * auto-refresh, INCLUDING All Dates ("").
+     */
+    if (
+        preserveSelection
+    ) {
+
+        if (
+            selectedDate === "" ||
+            dates.includes(
+                selectedDate
+            )
+        ) {
+            return selectedDate;
+        }
+    }
+
+    /*
+     * Explicit URL date takes priority.
+     */
+    if (
+        requestedDate &&
+        dates.includes(
+            requestedDate
+        )
+    ) {
+        return requestedDate;
+    }
+
+    /*
+     * TODAY is the default.
+     */
+    if (
+        dates.includes(
+            today
+        )
+    ) {
+        return today;
+    }
+
+    /*
+     * If today has not been published yet,
+     * use the newest published date.
+     *
+     * This does NOT mean All Dates.
+     */
+    if (dates.length) {
+        return dates[0];
+    }
+
     return "";
 }
 
-const today =
-    getTodayDateKey();
-
-const requestedDate =
-    getRequestedDate();
-
-/*
- * Refresh:
- * preserve the currently selected date.
- */
-if (
-    preserveSelection &&
-    selectedDate &&
-    dates.includes(
-        selectedDate
-    )
-) {
-    return selectedDate;
-}
-
-/*
- * Explicit URL date.
- */
-if (
-    requestedDate &&
-    dates.includes(
-        requestedDate
-    )
-) {
-    return requestedDate;
-}
-
-/*
- * TODAY IS THE DEFAULT.
- */
-if (
-    dates.includes(
-        today
-    )
-) {
-    return today;
-}
-
-/*
- * If today's publication does not exist yet,
- * use the newest published date.
- *
- * Never use All Dates.
- */
-return dates[0];
-
-
-}
 
 /* ============================================================
-DATE SELECTOR
+   DATE SELECTOR
 ============================================================ */
 
-function findDateSelector() {
+function initializeDateSelector(
+    dates,
+    preserveSelection = false
+) {
 
+    const selector =
+        findDateSelector();
 
-const existing =
-    document.getElementById(
-        "tradeDate"
+    if (!selector) {
+        return null;
+    }
+
+    selector.innerHTML =
+        "";
+
+    /*
+     * ========================================================
+     * ALL DATES MUST REMAIN AVAILABLE
+     * ========================================================
+     *
+     * Empty string is the internal value representing
+     * All Dates.
+     */
+    const allOption =
+        document.createElement(
+            "option"
+        );
+
+    allOption.value =
+        "";
+
+    allOption.textContent =
+        "All Dates";
+
+    selector.appendChild(
+        allOption
     );
 
-if (existing) {
-    return existing;
-}
+    /*
+     * No published dates at all.
+     */
+    if (
+        !Array.isArray(dates) ||
+        !dates.length
+    ) {
 
-const container =
-    document.querySelector(
-        ".trade-controls"
+        selector.disabled =
+            false;
+
+        selectedDate =
+            "";
+
+        selector.value =
+            "";
+
+        updateUrlDate(
+            ""
+        );
+
+        return selector;
+    }
+
+    selector.disabled =
+        false;
+
+    /*
+     * Add every published date.
+     */
+    dates.forEach(
+        date => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value =
+                date;
+
+            option.textContent =
+                formatDateLabel(
+                    date
+                );
+
+            selector.appendChild(
+                option
+            );
+        }
     );
 
-if (!container) {
+    /*
+     * Determine the actual initial selection.
+     *
+     * This returns TODAY when available,
+     * NOT All Dates.
+     */
+    selectedDate =
+        determineInitialDate(
+            dates,
+            preserveSelection
+        );
 
-    console.error(
-        "Trades page: .trade-controls was not found."
+    selector.value =
+        selectedDate;
+
+    /*
+     * Install the change handler only once.
+     */
+    if (
+        !dateSelectorInitialized
+    ) {
+
+        selector.addEventListener(
+            "change",
+            async () => {
+
+                selectedDate =
+                    selector.value;
+
+                /*
+                 * Empty string means All Dates.
+                 *
+                 * Therefore the URL date parameter
+                 * is removed when All Dates is selected.
+                 */
+                updateUrlDate(
+                    selectedDate
+                );
+
+                try {
+
+                    await loadTradesForDate(
+                        selectedDate,
+                        getRequestedTicker()
+                    );
+
+                } catch (error) {
+
+                    console.error(
+                        "Trades date selection error:",
+                        error
+                    );
+
+                    renderDataUnavailable(
+                        "Unable to load trades for the selected date."
+                    );
+                }
+            }
+        );
+
+        dateSelectorInitialized =
+            true;
+    }
+
+    updateUrlDate(
+        selectedDate
     );
 
-    return null;
-}
-
-const wrapper =
-    document.createElement(
-        "div"
-    );
-
-wrapper.id =
-    "tradeDateContainer";
-
-wrapper.className =
-    "trade-date-control";
-
-const label =
-    document.createElement(
-        "label"
-    );
-
-label.htmlFor =
-    "tradeDate";
-
-label.textContent =
-    "Trade Date";
-
-const selector =
-    document.createElement(
-        "select"
-    );
-
-selector.id =
-    "tradeDate";
-
-selector.name =
-    "tradeDate";
-
-selector.setAttribute(
-    "aria-label",
-    "Trade Date"
-);
-
-wrapper.appendChild(
-    label
-);
-
-wrapper.appendChild(
-    selector
-);
-
-container.prepend(
-    wrapper
-);
-
-return selector;
-
-
+    return selector;
 }
 
 function initializeDateSelector(
