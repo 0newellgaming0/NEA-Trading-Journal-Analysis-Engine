@@ -930,116 +930,6 @@ function initializeDateSelector(
     return selector;
 }
 
-function initializeDateSelector(
-dates,
-preserveSelection = false
-) {
-
-
-const selector =
-    findDateSelector();
-
-if (!selector) {
-    return null;
-}
-
-selector.innerHTML =
-    "";
-
-if (!dates.length) {
-
-    selector.disabled =
-        true;
-
-    selectedDate =
-        "";
-
-    return selector;
-}
-
-selector.disabled =
-    false;
-
-dates.forEach(
-    date => {
-
-        const option =
-            document.createElement(
-                "option"
-            );
-
-        option.value =
-            date;
-
-        option.textContent =
-            formatDateLabel(
-                date
-            );
-
-        selector.appendChild(
-            option
-        );
-    }
-);
-
-selectedDate =
-    determineInitialDate(
-        dates,
-        preserveSelection
-    );
-
-selector.value =
-    selectedDate;
-
-if (
-    !dateSelectorInitialized
-) {
-
-    selector.addEventListener(
-        "change",
-        async () => {
-
-            selectedDate =
-                selector.value;
-
-            updateUrlDate(
-                selectedDate
-            );
-
-            try {
-
-                await loadTradesForDate(
-                    selectedDate,
-                    getRequestedTicker()
-                );
-
-            } catch (error) {
-
-                console.error(
-                    "Trades date selection error:",
-                    error
-                );
-
-                renderDataUnavailable(
-                    "Unable to load trades for the selected date."
-                );
-            }
-        }
-    );
-
-    dateSelectorInitialized =
-        true;
-}
-
-updateUrlDate(
-    selectedDate
-);
-
-return selector;
-
-
-}
-
 /* ============================================================
 URL DATE SYNCHRONIZATION
 ============================================================ */
@@ -1078,240 +968,340 @@ window.history.replaceState(
 }
 
 /* ============================================================
-LOAD TRADES
+   LOAD TRADES
 ============================================================ */
 
 async function loadTradesForDate(
-date,
-requestedTicker = null
+    date,
+    requestedTicker = null
 ) {
 
-
-const index =
-    window.__tradesIndex;
-
-if (
-    !index ||
-    typeof index.tickers !== "object" ||
-    index.tickers === null
-) {
-
-    renderDataUnavailable(
-        "Trade index unavailable."
-    );
-
-    return;
-}
-
-if (
-    !isValidDateString(date)
-) {
-
-    renderDataUnavailable(
-        "No published trade date is available."
-    );
-
-    return;
-}
-
-const tickerEntries =
-    Object.entries(
-        index.tickers
-    );
-
-const entriesToLoad =
-    requestedTicker
-        ? tickerEntries.filter(
-            ([ticker]) =>
-                String(
-                    ticker
-                )
-                .trim()
-                .toUpperCase() ===
-                requestedTicker
-        )
-        : tickerEntries;
-
-const loadedTrades =
-    [];
-
-console.log(
-    `NEA28V1 trades: loading date ${date}`
-);
-
-console.log(
-    `NEA28V1 trades: candidate tickers ${entriesToLoad.length}`
-);
-
-/*
- * ========================================================
- * LOAD EACH AUTHORITATIVE TICKER DIRECTORY
- * ========================================================
- */
-
-for (
-    const [
-        ticker,
-        publishedDates
-    ]
-    of entriesToLoad
-) {
-
-    const normalizedTicker =
-        String(
-            ticker
-        )
-        .trim()
-        .toUpperCase();
+    const index =
+        window.__tradesIndex;
 
     if (
-        !Array.isArray(
-            publishedDates
-        )
+        !index ||
+        typeof index.tickers !== "object" ||
+        index.tickers === null
     ) {
-        continue;
+
+        renderDataUnavailable(
+            "Trade index unavailable."
+        );
+
+        return;
     }
 
     /*
-     * The index is the publication gate.
+     * Empty date string means:
+     *
+     * ALL DATES
+     *
+     * A specific YYYY-MM-DD means:
+     *
+     * ONLY THAT DATE
      */
+    const isAllDates =
+        date === "";
+
     if (
-        !publishedDates.includes(
-            date
-        )
+        !isAllDates &&
+        !isValidDateString(date)
     ) {
-        continue;
+
+        renderDataUnavailable(
+            "No published trade date is available."
+        );
+
+        return;
     }
 
-    const tradeFile =
-        `data/analysis/${encodeURIComponent(
-            normalizedTicker
-        )}/trades.json`;
-
-    try {
-
-        console.log(
-            `NEA28V1 trades: loading ${tradeFile}`
+    const tickerEntries =
+        Object.entries(
+            index.tickers
         );
 
-        const data =
-            await getJSON(
-                tradeFile
-            );
+    const entriesToLoad =
+        requestedTicker
+            ? tickerEntries.filter(
+                ([ticker]) =>
+                    String(ticker)
+                        .trim()
+                        .toUpperCase() ===
+                    requestedTicker
+            )
+            : tickerEntries;
 
-        /*
-         * IMPORTANT:
-         *
-         * Pass normalizedTicker as fallbackTicker.
-         *
-         * This prevents an otherwise valid trade from
-         * disappearing simply because trades.json does
-         * not repeat the ticker field.
-         */
-        const trades =
-            normalizeTradeData(
-                data,
-                normalizedTicker
-            );
+    const loadedTrades =
+        [];
 
-        console.log(
-            `NEA28V1 trades: ${normalizedTicker} normalized ${trades.length} record(s)`
-        );
+    console.log(
+        `NEA28V1 trades: loading ${
+            isAllDates
+                ? "ALL DATES"
+                : date
+        }`
+    );
 
-        if (!trades.length) {
+    console.log(
+        `NEA28V1 trades: candidate tickers ${entriesToLoad.length}`
+    );
+
+    /*
+     * ========================================================
+     * LOAD EACH AUTHORITATIVE TICKER DIRECTORY
+     * ========================================================
+     */
+
+    for (
+        const [
+            ticker,
+            publishedDates
+        ]
+        of entriesToLoad
+    ) {
+
+        const normalizedTicker =
+            String(
+                ticker
+            )
+            .trim()
+            .toUpperCase();
+
+        if (
+            !Array.isArray(
+                publishedDates
+            )
+        ) {
             continue;
         }
 
         /*
-         * =================================================
-         * ACTUAL TRADE DATE FILTER
-         * =================================================
+         * ====================================================
+         * PUBLICATION GATE
+         * ====================================================
          *
-         * This remains strict.
+         * Specific date:
          *
-         * A ticker being published on a date is NOT enough.
+         *     ticker must be published on that date.
          *
-         * The actual trade record must also belong to that
-         * selected date.
+         * All Dates:
+         *
+         *     ticker is eligible if it has at least one
+         *     published date.
          */
-        const matchingTrades =
-            trades.filter(
-                trade => {
 
-                    const tradeDate =
-                        getTradeDate(
-                            trade
+        if (
+            !publishedDates.length
+        ) {
+            continue;
+        }
+
+        if (
+            !isAllDates &&
+            !publishedDates.includes(
+                date
+            )
+        ) {
+            continue;
+        }
+
+        const tradeFile =
+            `data/analysis/${encodeURIComponent(
+                normalizedTicker
+            )}/trades.json`;
+
+        try {
+
+            console.log(
+                `NEA28V1 trades: loading ${tradeFile}`
+            );
+
+            const data =
+                await getJSON(
+                    tradeFile
+                );
+
+            /*
+             * The ticker directory is authoritative.
+             *
+             * Therefore the ticker is supplied as a
+             * fallback if the trade record itself does
+             * not contain one.
+             */
+            const trades =
+                normalizeTradeData(
+                    data,
+                    normalizedTicker
+                );
+
+            console.log(
+                `NEA28V1 trades: ${normalizedTicker} normalized ${trades.length} record(s)`
+            );
+
+            if (
+                !trades.length
+            ) {
+                continue;
+            }
+
+            /*
+             * =================================================
+             * DATE FILTER
+             * =================================================
+             *
+             * Specific date:
+             *
+             *     require actual trade date === selected date.
+             *
+             * All Dates:
+             *
+             *     allow every valid trade date contained in
+             *     trades.json.
+             */
+            const matchingTrades =
+                trades.filter(
+                    trade => {
+
+                        const tradeDate =
+                            getTradeDate(
+                                trade
+                            );
+
+                        /*
+                         * Every displayed trade must have
+                         * an identifiable date.
+                         */
+                        if (
+                            !isValidDateString(
+                                tradeDate
+                            )
+                        ) {
+                            return false;
+                        }
+
+                        if (
+                            isAllDates
+                        ) {
+                            return true;
+                        }
+
+                        return (
+                            tradeDate ===
+                            date
                         );
+                    }
+                );
+
+            console.log(
+                `NEA28V1 trades: ${normalizedTicker} has ${matchingTrades.length} trade(s) matching ${
+                    isAllDates
+                        ? "ALL DATES"
+                        : date
+                }`
+            );
+
+            if (
+                !matchingTrades.length
+            ) {
+                continue;
+            }
+
+            /*
+             * =================================================
+             * SORT NEWEST FIRST
+             * =================================================
+             */
+            matchingTrades.sort(
+                (a, b) => {
+
+                    const timestampDifference =
+                        getTradeTimestamp(b) -
+                        getTradeTimestamp(a);
+
+                    /*
+                     * If timestamps are identical or unavailable,
+                     * fall back to the trade date.
+                     */
+                    if (
+                        timestampDifference !== 0
+                    ) {
+                        return timestampDifference;
+                    }
 
                     return (
-                        tradeDate ===
-                        date
+                        getTradeDate(b) || ""
+                    ).localeCompare(
+                        getTradeDate(a) || ""
                     );
                 }
             );
 
-        console.log(
-            `NEA28V1 trades: ${normalizedTicker} has ${matchingTrades.length} trade(s) matching ${date}`
-        );
+            /*
+             * =================================================
+             * KEEP LATEST RECORD
+             * =================================================
+             *
+             * For a specific date:
+             *
+             *     one latest trade per ticker/date.
+             *
+             * For All Dates:
+             *
+             *     one latest trade per ticker.
+             *
+             * This prevents duplicate historical records
+             * for the same ticker from filling the table.
+             */
+            const latest =
+                matchingTrades[0];
 
-        if (!matchingTrades.length) {
-            continue;
+            const latestDate =
+                getTradeDate(
+                    latest
+                );
+
+            loadedTrades.push({
+
+                ...latest,
+
+                _ticker:
+                    normalizedTicker,
+
+                _date:
+                    latestDate,
+
+                _analysisDate:
+                    latestDate
+            });
+
+        } catch (error) {
+
+            console.warn(
+                `Unable to load trades for ${normalizedTicker}:`,
+                error
+            );
         }
-
-        /*
-         * Newest trade first.
-         */
-        matchingTrades.sort(
-            (a, b) =>
-                getTradeTimestamp(b) -
-                getTradeTimestamp(a)
-        );
-
-        /*
-         * Keep only the latest trade for this ticker/date.
-         */
-        const latest =
-            matchingTrades[0];
-
-        loadedTrades.push({
-
-            ...latest,
-
-            _ticker:
-                normalizedTicker,
-
-            _date:
-                date,
-
-            _analysisDate:
-                date
-        });
-
-    } catch (error) {
-
-        console.warn(
-            `Unable to load trades for ${normalizedTicker}:`,
-            error
-        );
     }
-}
 
-/*
- * ========================================================
- * AUTHORITATIVE TABLE DATASET
- * ========================================================
- */
+    /*
+     * ========================================================
+     * AUTHORITATIVE TABLE DATASET
+     * ========================================================
+     */
 
-allTrades =
-    loadedTrades;
+    allTrades =
+        loadedTrades;
 
-console.log(
-    `NEA28V1 trades: ${allTrades.length} trade(s) loaded for ${date}`
-);
+    console.log(
+        `NEA28V1 trades: ${allTrades.length} trade(s) loaded for ${
+            isAllDates
+                ? "ALL DATES"
+                : date
+        }`
+    );
 
-renderTrades();
-
-
+    renderTrades();
 }
 
 /* ============================================================
