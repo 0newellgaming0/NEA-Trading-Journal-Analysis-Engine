@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-01T15:14:07.798766+00:00",
+  "generated_at": "2026-09-01T19:29:30.725325+00:00",
   "ticker": "CLBT",
   "count": 6,
   "trades": [
     {
-      "target": 11.894000000000004,
-      "risk_reward": 2.0,
-      "current_price": 11.9,
       "setup": "Rising Three Methods",
-      "ticker": "CLBT",
-      "stop": 11.498,
-      "updated_at": "2026-09-01T15:04:13.856623",
-      "score": 86.0,
       "status": "CONFIRMED",
-      "direction": "Bullish",
+      "stop": 11.498,
+      "target": 11.894000000000004,
+      "current_price": 11.85,
+      "score": 87.0,
       "entry": 11.63,
-      "regime": "PRIMARY_DOWNTREND_RALLY"
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "updated_at": "2026-09-01T19:11:44.985030",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "ticker": "CLBT"
     },
     {
       "stop": 12.138000000000002,

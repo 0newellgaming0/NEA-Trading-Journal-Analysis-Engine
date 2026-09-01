@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.246071+00:00",
+  "generated_at": "2026-09-01T19:29:30.853666+00:00",
   "ticker": "DFSC",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "stop": 1.62601,
+      "target": 1.75768,
+      "current_price": 1.645,
+      "score": 77.0,
+      "entry": 1.6699,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "updated_at": "2026-09-01T18:08:04.925213",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "ticker": "DFSC"
+    }
+  ]
 }

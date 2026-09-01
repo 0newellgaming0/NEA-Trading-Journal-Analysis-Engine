@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.881528+00:00",
+  "generated_at": "2026-09-01T19:29:31.295854+00:00",
   "ticker": "MF",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "stop": 21.3425,
+      "target": 19.939999999999998,
+      "current_price": 18.8,
+      "score": 75.0,
+      "entry": 20.875,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "updated_at": "2026-09-01T18:19:37.050304",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "ticker": "MF"
+    }
+  ]
 }

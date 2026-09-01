@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:24.562747+00:00",
+  "generated_at": "2026-09-01T19:29:30.467350+00:00",
   "ticker": "AIRO",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "stop": 7.71325,
+      "target": 7.275999999999999,
+      "current_price": 7.34,
+      "score": 76.0,
+      "entry": 7.5675,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "updated_at": "2026-09-01T18:21:42.386668",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "ticker": "AIRO"
+    }
+  ]
 }

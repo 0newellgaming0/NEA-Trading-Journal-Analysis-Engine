@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T17:58:56.680543+00:00",
+  "generated_at": "2026-09-01T19:29:31.262947+00:00",
   "ticker": "LFST",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "setup": "Inside Bar",
+      "status": "CONFIRMED",
+      "stop": 12.235999999999999,
+      "target": 13.358,
+      "current_price": 12.465,
+      "score": 90.0,
+      "entry": 12.61,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "updated_at": "2026-09-01T19:02:35.642327",
+      "regime": "BULLISH_CONSOLIDATION",
+      "ticker": "LFST"
+    },
     {
       "ticker": "LFST",
       "stop": 12.584,

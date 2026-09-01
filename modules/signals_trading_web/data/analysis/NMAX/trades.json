@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.014938+00:00",
+  "generated_at": "2026-09-01T19:29:31.469113+00:00",
   "ticker": "NMAX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "stop": 10.741620000000001,
+      "target": 10.028159999999998,
+      "current_price": 10.41,
+      "score": 81.0,
+      "entry": 10.5038,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "updated_at": "2026-09-01T18:06:13.712822",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "ticker": "NMAX"
+    },
     {
       "setup": "Engulfing",
       "updated_at": "2026-08-30T22:32:04.063211",

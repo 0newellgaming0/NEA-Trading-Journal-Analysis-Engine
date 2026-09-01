@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T17:58:56.348955+00:00",
+  "generated_at": "2026-09-01T19:29:30.660202+00:00",
   "ticker": "BRBR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Inside Bar",
+      "status": "CONFIRMED",
+      "stop": 11.014000000000001,
+      "target": 9.892,
+      "current_price": 10.435,
+      "score": 85.0,
+      "entry": 10.64,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "updated_at": "2026-09-01T19:15:35.499233",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "ticker": "BRBR"
+    },
     {
       "ticker": "BRBR",
       "stop": 10.495,

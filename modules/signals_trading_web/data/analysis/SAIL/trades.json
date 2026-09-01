@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T17:58:56.924925+00:00",
+  "generated_at": "2026-09-01T19:29:31.647409+00:00",
   "ticker": "SAIL",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "setup": "Counterattack Lines",
+      "status": "CONFIRMED",
+      "stop": 20.718899999999998,
+      "target": 18.082200000000004,
+      "current_price": 19.46,
+      "score": 90.0,
+      "entry": 19.84,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "updated_at": "2026-09-01T18:54:36.734910",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "ticker": "SAIL"
+    },
     {
       "ticker": "SAIL",
       "stop": 20.718899999999998,

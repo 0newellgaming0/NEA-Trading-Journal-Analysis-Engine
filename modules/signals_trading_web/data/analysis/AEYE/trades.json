@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.528504+00:00",
+  "generated_at": "2026-09-01T19:29:30.434940+00:00",
   "ticker": "AEYE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "EMA20_CROSS",
+      "status": "CONFIRMED",
+      "stop": 7.328,
+      "target": 6.074,
+      "current_price": 7.08,
+      "score": 65.0,
+      "entry": 6.91,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "updated_at": "2026-09-01T18:14:14.235438",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "ticker": "AEYE"
+    },
     {
       "setup": "Inside Bar",
       "updated_at": "2026-08-31T00:38:43.696024",

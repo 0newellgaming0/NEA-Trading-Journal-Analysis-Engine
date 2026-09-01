@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T13:23:49.013805+00:00",
+  "generated_at": "2026-09-01T19:29:32.095384+00:00",
   "ticker": "YEXT",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "stop": 7.994,
+      "target": 4.232000000000001,
+      "current_price": 6.58,
+      "score": 98.0,
+      "entry": 6.74,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "updated_at": "2026-09-01T18:48:44.658456",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "ticker": "YEXT"
+    },
     {
       "stop": 6.545,
       "target": 9.92,

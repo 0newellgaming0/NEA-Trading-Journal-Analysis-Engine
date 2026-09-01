@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.806419+00:00",
+  "generated_at": "2026-09-01T19:29:30.589960+00:00",
   "ticker": "BANL",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Marubozu",
+      "status": "CONFIRMED",
+      "stop": 15.23705,
+      "target": 15.334400000000002,
+      "current_price": 15.24,
+      "score": 75.0,
+      "entry": 15.2695,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "updated_at": "2026-09-01T18:15:48.575106",
+      "regime": "BULLISH_CONSOLIDATION",
+      "ticker": "BANL"
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T21:45:24.239638",
