@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-01T12:37:43.966566+00:00",
+  "ticker": "YEXT",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "current_price": 7.53,
+      "target": 6.640999999999998,
+      "entry": 6.52,
+      "stop": 6.4595,
+      "ticker": "YEXT",
+      "setup": "Three White Soldiers",
+      "updated_at": "2026-09-01T12:37:33.926571",
+      "score": 86.0
+    }
+  ]
+}

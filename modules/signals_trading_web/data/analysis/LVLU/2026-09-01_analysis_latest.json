@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T05:08:37.050993",
+  "generated_at": "2026-09-01T06:58:23.918722",
   "tickers": {
     "LVLU": {
-      "generated_at": "2026-09-01T05:08:37.050993",
+      "generated_at": "2026-09-01T06:58:23.918722",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
-        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: Lulu's Fashion Lounge Holdings Inc\n🔤 Ticker: LVLU\n👤 CEO: Crystal Landsem\n👥 Employees: 523\n📅 Established: 2017-08-25\n📍 Address: 195 Humboldt Avenue,CHICO,CA,United States",
+        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: Lulu's Fashion Lounge Holdings Inc\n🔤 Ticker: LVLU\n👤 CEO: Crystal Landsem\n👥 Employees: 523\n📅 Established: 2017-08-25\n🏢 Company Age: 9.02 years\n📊 Profile Score: 60/100\n🏷️ Profile Age Classification: ESTABLISHING\n📍 Address: 195 Humboldt Avenue,CHICO,CA,United States",
         "fundamentals": "🏢 FUNDAMENTALS\n\n📊 FINANCIAL ANALYSIS: LVLU\n\nRevenue: 282284000.0\nNet Income: -13713000.0\nGross Profit: 122054000.0\nOperating Income: -12627000.0\n\nMargins:\n- Gross Margin: 43.23801561547945\n- Net Margin: -4.857873630811524\n\nBalance Sheet:\n- Total Assets: 89364000.0\n- Total Liabilities: 86350000.0\n- Equity: 3014000.0\n- Debt/Equity: 28.64963503649635\n\nCash Flow:\n- Operating Cash Flow: 1379000.0\n- Free Cash Flow: -787000.0\n\nInstitutional Score (5):\n2/5\n",
         "relative_strength": "\n📊 RELATIVE STRENGTH CONTEXT\n\nRelative Strength Score:\n→ 24.15/100\n\nMarket Leadership State:\n→ LAGGING\n\nAverage 10-Day Relative Performance:\n→ -10.29%\n\nBenchmark Participation:\n→ 0 improving\n→ 7 weakening\n→ 0 unchanged\n\nRotation State:\n→ Negative relative rotation\n\n\n🏆 MARKET BENCHMARK STRUCTURE\n\nStrongest Benchmark:\n→ IJR\n→ small_cap\n\nTicker Return:\n→ -11.94%\n\nBenchmark Return:\n→ -3.54%\n\nRelative Performance:\n→ -8.39%\n\n\nWeakest Benchmark:\n→ DIA\n→ mega_cap\n\nTicker Return:\n→ -11.94%\n\nBenchmark Return:\n→ -0.41%\n\nRelative Performance:\n→ -11.53%\n\n\n🏛 LEADERSHIP METADATA\n\nLeadership Relative Strength:\n→ 99\n\nIndustry:\n→ Apparel Retail\n\nIndustry Rank:\n→ Rank 40\n\nSector:\n→ Consumer Cyclical\n\nSector Strength:\n→ 54.33\n\n\n📈 ROTATION STRUCTURE\n\nImproving Against Benchmarks:\n→ 0\n\nWeakening Against Benchmarks:\n→ 7\n\nUnchanged:\n→ 0\n\nCurrent Rotation:\n→ Negative relative rotation\n\n\n📌 INSTITUTIONAL LEADERSHIP SUMMARY\n\nMarket Structure:\n→ LAGGING\n\nBenchmark Breadth:\n→ 0/7 benchmarks improving\n\nRelative Performance:\n→ -10.29%\n\nIndustry Position:\n→ Rank 40\n\nSector Strength:\n→ 54.33\n\nLeadership Metadata RS:\n→ 99\n\nInterpretation:\n→ Relative performance is deteriorating across the benchmark structure.\n\n\nDaily Benchmark Coverage:\n→ 7/7\n\nLatest Aligned Daily Observation:\n→ 2026-08-31 04:00:00+00:00\n",
         "tline_15m": "\n15M T-LINE ANALYSIS\n\nT-Line State:\nBearish Trend\n\nInterpretation:\nStrong intraday bearish expansion, EMA8 is sloping downward with sustained price rejection below trend. Institutional distribution is active with continuation pressure.\n\nT-Line Hold / Break:\nBearish Hold\n\nInterpretation:\nStrong bearish hold, price is repeatedly failing to reclaim EMA8 from below. Indicates persistent distribution pressure and weak demand response.\n\nEMA8:\n13.34\n\nEMA8 Slope:\n-0.0163\n\nT-LINE STOP:\n13.7124\n\nTrend Failure:\nBullish Failure\n\nRejection Signal:\nNone\n\nTREND STATE MACHINE:\nDOWNTREND\n\nT-LINE STATE:\nBearish Trend\n\nREGIME:\nTREND_DOWN\n\nT-LINE SCORE:\n0/100\n\nMETA CONSENSUS:\nBEARISH_META\n\nMETA SCORE:\n-3\n\nCONFLICT SCORE:\n0\n\nFORMATIONS:\n- J-Hook: None\n- Flag: Bear Flag\n- Squeeze: Squeeze\n- Trap: None\n- Ladder: None\n- Momentum: None\n\nWyckoff Phase:\nRange / Balance\n\nInterpretation:\nIntraday equilibrium phase, rotational balance between buyers and sellers. No dominant directional control, absorption and distribution both active.\n\n",
@@ -37,7 +37,7 @@
         "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n",
         "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     LVLU\nDirection:  Bearish\nSetup:      MACD_BEARISH_MOMENTUM_EXPANSION\nRegime:     PRIMARY_UPTREND_PULLBACK\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          MACD_BEARISH_MOMENTUM_EXPANSION\nCount:          5476\nSuccess:        1157\nFailed:         3440\nUnresolved:     879\nResolved:       4597\nSuccess Rate:   25.17%\nFailure Rate:   74.83%\n\nTARGET 2 PERFORMANCE\n\nSetup:              MACD_BEARISH_MOMENTUM_EXPANSION\nCount:              1157\nTarget 2 Reached:   857\nTarget 2 Not Reached: 300\nTarget 2 Hit Rate:  74.07%"
       },
-      "current_performance_generated_at": "2026-09-01T05:08:57.486290"
+      "current_performance_generated_at": "2026-09-01T06:58:45.188125"
     }
   }
 }

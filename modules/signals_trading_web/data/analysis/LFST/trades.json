@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-01T09:28:41.269787+00:00",
+  "generated_at": "2026-09-01T12:37:39.872000+00:00",
   "ticker": "LFST",
   "count": 3,
   "trades": [
     {
-      "setup": "Inverted Hammer",
-      "entry": 12.275,
-      "updated_at": "2026-09-01T09:19:38.118947",
-      "direction": "Bullish",
-      "current_price": 12.51,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
+      "direction": "Bullish",
       "regime": "BULLISH_CONSOLIDATION",
-      "ticker": "LFST",
-      "score": 92.0,
+      "status": "CONFIRMED",
+      "current_price": 12.51,
       "target": 12.363000000000001,
-      "stop": 12.231
+      "entry": 12.275,
+      "stop": 12.231,
+      "ticker": "LFST",
+      "setup": "Inverted Hammer",
+      "updated_at": "2026-09-01T11:56:55.310259",
+      "score": 92.0
     },
     {
       "updated_at": "2026-08-31T15:58:35.182029",

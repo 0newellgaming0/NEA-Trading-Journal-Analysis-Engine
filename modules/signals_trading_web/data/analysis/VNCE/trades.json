@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T08:55:52.117325+00:00",
+  "generated_at": "2026-09-01T12:37:43.581095+00:00",
   "ticker": "VNCE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 6.91,
+      "target": 5.647999999999999,
+      "entry": 6.88,
+      "stop": 7.496,
+      "ticker": "VNCE",
+      "setup": "Three Inside Down",
+      "updated_at": "2026-09-01T12:20:24.636210",
+      "score": 88.0
+    },
     {
       "stop": 7.15494,
       "status": "CONFIRMED",

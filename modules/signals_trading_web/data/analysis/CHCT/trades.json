@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-01T09:28:40.986035+00:00",
+  "generated_at": "2026-09-01T12:37:37.215552+00:00",
   "ticker": "CHCT",
   "count": 2,
   "trades": [
     {
-      "setup": "Pinbar",
-      "entry": 14.71,
-      "updated_at": "2026-09-01T09:02:39.112039",
-      "direction": "Bearish",
-      "current_price": 14.6899,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
+      "direction": "Bearish",
       "regime": "FULL_BEARISH_ALIGNMENT",
-      "ticker": "CHCT",
-      "score": 92.0,
+      "status": "CONFIRMED",
+      "current_price": 14.694,
       "target": 14.707800000000002,
-      "stop": 14.7111
+      "entry": 14.71,
+      "stop": 14.7111,
+      "ticker": "CHCT",
+      "setup": "Pinbar",
+      "updated_at": "2026-09-01T12:00:59.222874",
+      "score": 92.0
     },
     {
       "setup": "Pinbar",

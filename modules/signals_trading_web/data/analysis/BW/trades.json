@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T08:55:36.595892+00:00",
+  "generated_at": "2026-09-01T12:37:36.852231+00:00",
   "ticker": "BW",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 7.4,
+      "target": 7.532999999999999,
+      "entry": 7.39,
+      "stop": 7.3185,
+      "ticker": "BW",
+      "setup": "Pinbar",
+      "updated_at": "2026-09-01T12:30:43.690080",
+      "score": 84.0
+    },
     {
       "stop": 7.3185,
       "status": "CONFIRMED",

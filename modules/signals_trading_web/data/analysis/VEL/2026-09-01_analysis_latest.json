@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T04:25:29.707887",
+  "generated_at": "2026-09-01T07:14:54.593909",
   "tickers": {
     "VEL": {
-      "generated_at": "2026-09-01T04:25:29.707887",
+      "generated_at": "2026-09-01T07:14:54.593909",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
-        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: Velocity Financial Inc\n🔤 Ticker: VEL\n👤 CEO: Christopher D. Farrar\n👥 Employees: 371\n📅 Established: 2012-07-09\n📍 Address: 2945 Townsgate Road, Suite 110,WESTLAKE VILLAGE,CA,United States",
+        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: Velocity Financial Inc\n🔤 Ticker: VEL\n👤 CEO: Christopher D. Farrar\n👥 Employees: 371\n📅 Established: 2012-07-09\n🏢 Company Age: 14.15 years\n📊 Profile Score: 70/100\n🏷️ Profile Age Classification: ESTABLISHED\n📍 Address: 2945 Townsgate Road, Suite 110,WESTLAKE VILLAGE,CA,United States",
         "fundamentals": "🏢 FUNDAMENTALS\n\n📊 FINANCIAL ANALYSIS: VEL\n\nRevenue: 311525000.0\nNet Income: 105054000.0\nGross Profit: None\nOperating Income: None\n\nMargins:\n- Gross Margin: None\n- Net Margin: 33.72249418184736\n\nBalance Sheet:\n- Total Assets: 7381513000.0\n- Total Liabilities: 6705825000.0\n- Equity: 672535000.0\n- Debt/Equity: 9.970968053707242\n\nCash Flow:\n- Operating Cash Flow: 18161000.0\n- Free Cash Flow: 16595000.0\n\nInstitutional Score (5):\n4/5\n",
         "relative_strength": "\n📊 RELATIVE STRENGTH CONTEXT\n\nRelative Strength Score:\n→ 75.27/100\n\nMarket Leadership State:\n→ IMPROVING\n\nAverage 10-Day Relative Performance:\n→ +1.93%\n\nBenchmark Participation:\n→ 7 improving\n→ 0 weakening\n→ 0 unchanged\n\nRotation State:\n→ Positive relative rotation\n\n\n🏆 MARKET BENCHMARK STRUCTURE\n\nStrongest Benchmark:\n→ IJR\n→ small_cap\n\nTicker Return:\n→ +0.28%\n\nBenchmark Return:\n→ -3.54%\n\nRelative Performance:\n→ +3.82%\n\n\nWeakest Benchmark:\n→ DIA\n→ mega_cap\n\nTicker Return:\n→ +0.28%\n\nBenchmark Return:\n→ -0.41%\n\nRelative Performance:\n→ +0.69%\n\n\n🏛 LEADERSHIP METADATA\n\nLeadership Relative Strength:\n→ 1\n\nIndustry:\n→ Mortgage Finance\n\nIndustry Rank:\n→ Rank 40\n\nSector:\n→ Financial Services\n\nSector Strength:\n→ 68.72\n\n\n📈 ROTATION STRUCTURE\n\nImproving Against Benchmarks:\n→ 7\n\nWeakening Against Benchmarks:\n→ 0\n\nUnchanged:\n→ 0\n\nCurrent Rotation:\n→ Positive relative rotation\n\n\n📌 INSTITUTIONAL LEADERSHIP SUMMARY\n\nMarket Structure:\n→ IMPROVING\n\nBenchmark Breadth:\n→ 7/7 benchmarks improving\n\nRelative Performance:\n→ +1.93%\n\nIndustry Position:\n→ Rank 40\n\nSector Strength:\n→ 68.72\n\nLeadership Metadata RS:\n→ 1\n\nInterpretation:\n→ Relative strength is improving across the benchmark structure.\n\n\nDaily Benchmark Coverage:\n→ 7/7\n\nLatest Aligned Daily Observation:\n→ 2026-08-31 04:00:00+00:00\n",
         "tline_15m": "\n15M T-LINE ANALYSIS\n\nT-Line State:\nBearish Trend\n\nInterpretation:\nStrong intraday bearish expansion, EMA8 is sloping downward with sustained price rejection below trend. Institutional distribution is active with continuation pressure.\n\nT-Line Hold / Break:\nBearish Hold\n\nInterpretation:\nStrong bearish hold, price is repeatedly failing to reclaim EMA8 from below. Indicates persistent distribution pressure and weak demand response.\n\nEMA8:\n17.98\n\nEMA8 Slope:\n-0.0085\n\nT-LINE STOP:\n18.0374\n\nTrend Failure:\nBullish Failure\n\nRejection Signal:\nNone\n\nTREND STATE MACHINE:\nDOWNTREND\n\nT-LINE STATE:\nBearish Trend\n\nREGIME:\nTREND_DOWN\n\nT-LINE SCORE:\n0/100\n\nMETA CONSENSUS:\nBEARISH_META\n\nMETA SCORE:\n-3\n\nCONFLICT SCORE:\n0\n\nFORMATIONS:\n- J-Hook: None\n- Flag: Bear Flag\n- Squeeze: Squeeze\n- Trap: None\n- Ladder: None\n- Momentum: None\n\nWyckoff Phase:\nRange / Balance\n\nInterpretation:\nIntraday equilibrium phase, rotational balance between buyers and sellers. No dominant directional control, absorption and distribution both active.\n\n",
@@ -37,7 +37,7 @@
         "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n",
         "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     VEL\nDirection:  Bearish\nSetup:      TLINE_CONTINUATION\nRegime:     SHORT_TERM_WEAKNESS\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          TLINE_CONTINUATION\nCount:          11862\nSuccess:        4948\nFailed:         5389\nUnresolved:     1525\nResolved:       10337\nSuccess Rate:   47.87%\nFailure Rate:   52.13%\n\nTARGET 2 PERFORMANCE\n\nSetup:              TLINE_CONTINUATION\nCount:              4948\nTarget 2 Reached:   3698\nTarget 2 Not Reached: 1250\nTarget 2 Hit Rate:  74.74%"
       },
-      "current_performance_generated_at": "2026-09-01T04:25:57.226094"
+      "current_performance_generated_at": "2026-09-01T07:15:22.549771"
     }
   }
 }

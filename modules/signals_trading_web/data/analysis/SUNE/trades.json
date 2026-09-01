@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T08:55:50.517959+00:00",
+  "generated_at": "2026-09-01T12:37:42.806035+00:00",
   "ticker": "SUNE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "current_price": 2.32,
+      "target": 2.6380599999999994,
+      "entry": 2.38,
+      "stop": 2.25097,
+      "ticker": "SUNE",
+      "setup": "Inside Bar",
+      "updated_at": "2026-09-01T12:22:41.606849",
+      "score": 88.0
+    },
     {
       "stop": 2.1425,
       "status": "CONFIRMED",
