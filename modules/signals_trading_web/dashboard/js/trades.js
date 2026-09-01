@@ -6,7 +6,7 @@
 * TRADES PAGE
 * ============================================================
 *
-* Data structure:
+* PUBLIC DATA STRUCTURE
 *
 * data/
 * analysis/
@@ -17,15 +17,43 @@
   TICKER/
   
 * 
-    YYYY-MM-DD_analysis_latest.json
+    trades.json
+  
+*
+* analysis/index.json:
+*
+* {
+* 
+  "tickers": {
   
 * 
-    YYYY-MM-DD_trades.json
+      "AAPL": [
   
+* 
+          "2026-08-29",
+  
+* 
+          "2026-08-31",
+  
+* 
+          "2026-09-01"
+  
+* 
+      ],
+  
+* 
+      ...
+  
+* 
+  }
+  
+* }
 *
-* The date selector is populated from analysis/index.json.
+* Each ticker's trades.json may contain multiple historical
+* trade records.
 *
-* The selected date determines the actual JSON file loaded.
+* The selected date is matched against the ACTUAL trade date
+* stored inside each trade record.
 *
 * ============================================================
   */
@@ -39,11 +67,20 @@ let selectedTrade = null;
 
 let selectedDate = null;
 
+let availableDates = [];
+
+let dateSelectorInitialized = false;
+
+/* ============================================================
+
+* PATHS
+* ============================================================ */
+
 const ANALYSIS_DATA_PATH =
 "data/analysis";
 
 const ANALYSIS_INDEX_PATH =
-`${ANALYSIS_DATA_PATH}/index.json`;
+"analysis/index.json";
 
 /* ============================================================
 
@@ -63,8 +100,64 @@ initializeTrades();
 
 /* ============================================================
 
+* GENERIC JSON LOADER
+* ============================================================ */
+
+async function getJSON(file) {
+
+
+const response =
+    await fetch(
+        "./data/" +
+        file +
+        "?t=" +
+        Date.now(),
+        {
+            cache: "no-store"
+        }
+    );
+
+if (!response.ok) {
+
+    throw new Error(
+        `${file}: HTTP ${response.status}`
+    );
+}
+
+return response.json();
+
+
+}
+
+/* ============================================================
+
 * URL PARAMETERS
 * ============================================================ */
+
+function getRequestedDate() {
+
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const requestedDate =
+    params.get("date");
+
+if (
+    requestedDate &&
+    isValidDateString(
+        requestedDate
+    )
+) {
+    return requestedDate;
+}
+
+return null;
+
+
+}
 
 function getRequestedTicker() {
 
@@ -88,35 +181,42 @@ return ticker
 
 }
 
-function getRequestedDate() {
-
-
-const params =
-    new URLSearchParams(
-        window.location.search
-    );
-
-const requestedDate =
-    params.get("date");
-
-if (
-    requestedDate &&
-    /^\d{4}-\d{2}-\d{2}$/.test(
-        requestedDate
-    )
-) {
-    return requestedDate;
-}
-
-return null;
-
-
-}
-
 /* ============================================================
 
 * DATE HELPERS
 * ============================================================ */
+
+function getTodayDateKey() {
+
+
+const now =
+    new Date();
+
+const year =
+    now.getFullYear();
+
+const month =
+    String(
+        now.getMonth() + 1
+    ).padStart(
+        2,
+        "0"
+    );
+
+const day =
+    String(
+        now.getDate()
+    ).padStart(
+        2,
+        "0"
+    );
+
+return (
+    `${year}-${month}-${day}`
+);
+
+
+}
 
 function isValidDateString(
 value
@@ -138,7 +238,11 @@ date
 ) {
 
 
-if (!isValidDateString(date)) {
+if (
+    !isValidDateString(
+        date
+    )
+) {
     return date;
 }
 
@@ -146,7 +250,7 @@ const parts =
     date.split("-");
 
 const year =
-    parts[0];
+    Number(parts[0]);
 
 const month =
     Number(parts[1]);
@@ -156,7 +260,7 @@ const day =
 
 const dateObject =
     new Date(
-        Number(year),
+        year,
         month - 1,
         day
     );
@@ -175,203 +279,248 @@ return dateObject.toLocaleDateString(
 
 /* ============================================================
 
-* DATA URL
+* TRADE DATE
+* ============================================================
+*
+* IMPORTANT:
+*
+* The index date tells us which dates are available.
+*
+* The trade record itself determines the actual date of
+* that trade.
+*
 * ============================================================ */
 
-function getTradeDataUrl(
-ticker,
-date
+function getTradeDate(
+trade
 ) {
 
 
-return (
-    `${ANALYSIS_DATA_PATH}/` +
-    `${encodeURIComponent(ticker)}/` +
-    `${encodeURIComponent(date)}_trades.json`
-);
+if (
+    !trade ||
+    typeof trade !== "object"
+) {
+    return null;
+}
+
+const dateValue =
+    trade.trade_date ??
+    trade.tradeDate ??
+    trade.date ??
+    trade.created_at ??
+    trade.createdAt ??
+    trade.timestamp ??
+    trade.generated_at ??
+    trade.generatedAt ??
+    trade.updated_at ??
+    trade.updatedAt;
+
+if (
+    dateValue === null ||
+    dateValue === undefined ||
+    dateValue === ""
+) {
+    return null;
+}
+
+const text =
+    String(
+        dateValue
+    ).trim();
+
+/*
+ * Direct YYYY-MM-DD.
+ */
+const directMatch =
+    text.match(
+        /^(\d{4}-\d{2}-\d{2})/
+    );
+
+if (directMatch) {
+
+    return directMatch[1];
+}
+
+/*
+ * ISO / JavaScript date.
+ */
+const parsed =
+    new Date(
+        dateValue
+    );
+
+if (
+    Number.isNaN(
+        parsed.getTime()
+    )
+) {
+    return null;
+}
+
+return [
+    parsed.getFullYear(),
+    String(
+        parsed.getMonth() + 1
+    ).padStart(
+        2,
+        "0"
+    ),
+    String(
+        parsed.getDate()
+    ).padStart(
+        2,
+        "0"
+    )
+].join("-");
 
 
 }
 
 /* ============================================================
 
-* INDEX LOADING
+* TRADE TIMESTAMP
 * ============================================================ */
 
-async function loadAnalysisIndex() {
+function getTradeTimestamp(
+trade
+) {
 
 
-const response =
-    await fetch(
-        `${ANALYSIS_INDEX_PATH}?t=${Date.now()}`,
-        {
-            cache: "no-store"
-        }
-    );
-
-if (!response.ok) {
-    throw new Error(
-        `analysis/index.json HTTP ${response.status}`
-    );
+if (
+    !trade ||
+    typeof trade !== "object"
+) {
+    return 0;
 }
 
-return response.json();
+const timestamp =
+    trade.trade_date ??
+    trade.tradeDate ??
+    trade.timestamp ??
+    trade.created_at ??
+    trade.createdAt ??
+    trade.generated_at ??
+    trade.generatedAt ??
+    trade.updated_at ??
+    trade.updatedAt;
+
+if (
+    timestamp === null ||
+    timestamp === undefined ||
+    timestamp === ""
+) {
+    return 0;
+}
+
+const parsed =
+    new Date(
+        timestamp
+    ).getTime();
+
+return Number.isFinite(
+    parsed
+)
+    ? parsed
+    : 0;
 
 
 }
 
-/*
+/* ============================================================
 
-* Extract the available dates for a ticker.
+* GET AVAILABLE DATES
+* ============================================================
 *
-* This accepts the established index structure while also
-* tolerating the common array/object representations.
-  */
-  function getAvailableDates(
-  index,
-  ticker
-  ) {
+* Uses the EXACT index structure used by index.js:
+*
+* index.tickers[TICKER] = [
+* 
+  "YYYY-MM-DD",
+  
+* 
+  ...
+  
+* ]
+*
+* Dates are combined across all tickers.
+* ============================================================ */
 
-  if (!index) {
-  return [];
-  }
+function getAvailableDates(
+index
+) {
 
-  const upperTicker =
-  ticker.toUpperCase();
 
-  let tickerData = null;
+const dateSet =
+    new Set();
 
-  if (
-  index.tickers &&
-  typeof index.tickers === "object"
-  ) {
-  tickerData =
-  index.tickers[upperTicker] ||
-  index.tickers[ticker];
-  }
+const tickers =
+    index &&
+    typeof index.tickers === "object" &&
+    index.tickers !== null
+        ? index.tickers
+        : {};
 
-  if (!tickerData && index[upperTicker]) {
-  tickerData =
-  index[upperTicker];
-  }
+Object.keys(
+    tickers
+).forEach(
+    ticker => {
 
-  if (!tickerData) {
-  return [];
-  }
+        const dates =
+            Array.isArray(
+                tickers[ticker]
+            )
+                ? tickers[ticker]
+                : [];
 
-  let dates = [];
+        dates.forEach(
+            date => {
 
-  if (
-  Array.isArray(tickerData)
-  ) {
-  dates = tickerData;
-  }
+                if (
+                    isValidDateString(
+                        date
+                    )
+                ) {
+                    dateSet.add(
+                        date
+                    );
+                }
+            }
+        );
+    }
+);
 
-  else if (
-  Array.isArray(
-  tickerData.dates
-  )
-  ) {
-  dates =
-  tickerData.dates;
-  }
+return [
+    ...dateSet
+].sort(
+    (a, b) =>
+        b.localeCompare(a)
+);
 
-  else if (
-  Array.isArray(
-  tickerData.available_dates
-  )
-  ) {
-  dates =
-  tickerData.available_dates;
-  }
 
-  else if (
-  Array.isArray(
-  tickerData.analysis_dates
-  )
-  ) {
-  dates =
-  tickerData.analysis_dates;
-  }
-
-  /*
-
-  * Some index formats may expose files instead of
-  * explicit dates.
-    */
-    else if (
-    Array.isArray(
-    tickerData.files
-    )
-    ) {
-
-    dates =
-    tickerData.files
-    .map(
-    file => {
-
-    
-                 const match =
-                     String(file)
-                         .match(
-                             /(\d{4}-\d{2}-\d{2})/
-                         );
-
-                 return match
-                     ? match[1]
-                     : null;
-             }
-         )
-         .filter(Boolean);
-    
-
-  }
-
-  return [
-  ...new Set(
-  dates
-  .map(
-  date =>
-  String(date)
-  .trim()
-  )
-  .filter(
-  isValidDateString
-  )
-  )
-  ].sort(
-  (a, b) =>
-  b.localeCompare(a)
-  );
-  }
+}
 
 /* ============================================================
 
 * DATE SELECTOR
 * ============================================================ */
 
-function getDateSelector() {
+function findDateSelector() {
 
 
-return document.getElementById(
-    "tradeDate"
-);
+/*
+ * Prefer an existing selector if the HTML already has one.
+ */
+const existing =
+    document.getElementById(
+        "tradeDate"
+    );
 
-
-}
-
-function createDateSelector() {
-
-
-let selector =
-    getDateSelector();
-
-if (selector) {
-    return selector;
+if (existing) {
+    return existing;
 }
 
 /*
- * Look for a natural controls area first.
+ * Create the selector inside the existing filter area.
  */
 let container =
     document.getElementById(
@@ -394,15 +543,29 @@ if (!container) {
         );
 }
 
+/*
+ * If neither exists, use the table's parent.
+ */
 if (!container) {
 
-    container =
+    const table =
         document.querySelector(
-            "main"
+            "table"
         );
+
+    if (table) {
+
+        container =
+            table.parentElement;
+    }
 }
 
 if (!container) {
+
+    console.error(
+        "Unable to create trade date selector: no controls container found."
+    );
+
     return null;
 }
 
@@ -410,6 +573,9 @@ const wrapper =
     document.createElement(
         "div"
     );
+
+wrapper.id =
+    "tradeDateContainer";
 
 wrapper.className =
     "trade-date-control";
@@ -425,7 +591,7 @@ label.htmlFor =
 label.textContent =
     "Trade Date";
 
-selector =
+const selector =
     document.createElement(
         "select"
     );
@@ -438,7 +604,7 @@ selector.name =
 
 selector.setAttribute(
     "aria-label",
-    "Trade date"
+    "Trade Date"
 );
 
 wrapper.appendChild(
@@ -449,10 +615,6 @@ wrapper.appendChild(
     selector
 );
 
-/*
- * Insert at the beginning so the date selector
- * is always visible with the other controls.
- */
 container.prepend(
     wrapper
 );
@@ -462,20 +624,15 @@ return selector;
 
 }
 
-function populateDateSelector(
-dates,
-requestedDate
+function initializeDateSelector(
+dates
 ) {
 
 
 const selector =
-    createDateSelector();
+    findDateSelector();
 
 if (!selector) {
-    console.warn(
-        "Trade date selector could not be created."
-    );
-
     return null;
 }
 
@@ -506,17 +663,29 @@ if (!dates.length) {
 selector.disabled =
     false;
 
+const requestedDate =
+    getRequestedDate();
+
 /*
- * Use the URL date when it exists and is available.
- * Otherwise default to the newest available date.
+ * Requested date wins if it exists in the index.
+ *
+ * Otherwise use the newest published date.
  */
-const dateToSelect =
+if (
     requestedDate &&
     dates.includes(
         requestedDate
     )
-        ? requestedDate
-        : dates[0];
+) {
+
+    selectedDate =
+        requestedDate;
+
+} else {
+
+    selectedDate =
+        dates[0];
+}
 
 dates.forEach(
     date => {
@@ -536,8 +705,9 @@ dates.forEach(
 
         if (
             date ===
-            dateToSelect
+            selectedDate
         ) {
+
             option.selected =
                 true;
         }
@@ -548,36 +718,51 @@ dates.forEach(
     }
 );
 
-selectedDate =
-    dateToSelect;
+/*
+ * Do not attach the change handler more than once.
+ */
+if (
+    !dateSelectorInitialized
+) {
 
-selector.addEventListener(
-    "change",
-    () => {
+    selector.addEventListener(
+        "change",
+        async () => {
 
-        const newDate =
-            selector.value;
+            const date =
+                selector.value;
 
-        if (
-            !isValidDateString(
-                newDate
-            )
-        ) {
-            return;
+            if (
+                !isValidDateString(
+                    date
+                )
+            ) {
+                return;
+            }
+
+            selectedDate =
+                date;
+
+            updateUrlDate(
+                date
+            );
+
+            const ticker =
+                getRequestedTicker();
+
+            await loadTradesForDate(
+                date,
+                ticker
+            );
         }
+    );
 
-        selectedDate =
-            newDate;
+    dateSelectorInitialized =
+        true;
+}
 
-        updateUrlDate(
-            newDate
-        );
-
-        load(
-            getRequestedTicker(),
-            newDate
-        );
-    }
+updateUrlDate(
+    selectedDate
 );
 
 return selector;
@@ -587,13 +772,21 @@ return selector;
 
 /* ============================================================
 
-* URL DATE UPDATE
+* UPDATE URL
 * ============================================================ */
 
 function updateUrlDate(
 date
 ) {
 
+
+if (
+    !isValidDateString(
+        date
+    )
+) {
+    return;
+}
 
 const url =
     new URL(
@@ -616,80 +809,259 @@ window.history.replaceState(
 
 /* ============================================================
 
-* MAIN INITIALIZATION
+* LOAD ALL TRADES FOR DATE
+* ============================================================
+*
+* This is the main correction.
+*
+* We do NOT require a ticker.
+*
+* We iterate through every ticker in index.json.
+*
+* For the selected date:
+*
+* 
+  index.tickers[TICKER]
+  
+* 
+           ↓
+  
+* 
+  contains selected date?
+  
+* 
+           ↓
+  
+* 
+  load TICKER/trades.json
+  
+* 
+           ↓
+  
+* 
+  filter actual trade date
+  
+* 
+           ↓
+  
+* 
+  latest trade for that ticker
+  
+*
 * ============================================================ */
 
-async function initializeTrades() {
+async function loadTradesForDate(
+date,
+requestedTicker = null
+) {
 
 
-const ticker =
-    getRequestedTicker();
+allTrades = [];
 
-if (!ticker) {
+const index =
+    window.__tradesIndex;
+
+if (
+    !index ||
+    !index.tickers ||
+    typeof index.tickers !== "object"
+) {
 
     renderDataUnavailable(
-        "No ticker was specified."
+        "Trade index unavailable."
     );
 
     return;
 }
 
-try {
+const tickers =
+    index.tickers;
 
-    const index =
-        await loadAnalysisIndex();
+const tickerNames =
+    Object.keys(
+        tickers
+    );
+
+const loadedTrades = [];
+
+/*
+ * If a ticker is supplied in the URL, load only that
+ * ticker. Otherwise this is the global Trades page.
+ */
+const tickersToLoad =
+    requestedTicker
+        ? tickerNames.filter(
+            ticker =>
+                ticker.toUpperCase() ===
+                requestedTicker
+        )
+        : tickerNames;
+
+for (
+    const ticker of tickersToLoad
+) {
 
     const dates =
+        Array.isArray(
+            tickers[ticker]
+        )
+            ? tickers[ticker]
+            : [];
+
+    /*
+     * The index is the publication eligibility check.
+     *
+     * Never fall back to another date.
+     */
+    if (
+        !dates.includes(
+            date
+        )
+    ) {
+        continue;
+    }
+
+    try {
+
+        const data =
+            await getJSON(
+                `analysis/${encodeURIComponent(
+                    ticker
+                )}/trades.json`
+            );
+
+        const trades =
+            Array.isArray(
+                data.trades
+            )
+                ? data.trades
+                : [];
+
+        /*
+         * Keep only records whose ACTUAL trade date
+         * equals the selected date.
+         */
+        const matchingTrades =
+            trades.filter(
+                trade =>
+                    getTradeDate(
+                        trade
+                    ) === date
+            );
+
+        if (
+            !matchingTrades.length
+        ) {
+            continue;
+        }
+
+        /*
+         * If multiple records exist for this ticker on
+         * the selected date, use the latest one.
+         */
+        matchingTrades.sort(
+            (a, b) =>
+                getTradeTimestamp(b) -
+                getTradeTimestamp(a)
+        );
+
+        const latestTrade =
+            matchingTrades[0];
+
+        loadedTrades.push({
+            ...latestTrade,
+
+            _ticker:
+                ticker,
+
+            _date:
+                date
+        });
+
+    } catch (error) {
+
+        console.error(
+            `Failed to load trades for ${ticker} on ${date}:`,
+            error
+        );
+    }
+}
+
+allTrades =
+    loadedTrades;
+
+renderTrades();
+
+
+}
+
+/* ============================================================
+
+* INITIALIZATION
+* ============================================================ */
+
+async function initializeTrades() {
+
+
+try {
+
+    /*
+     * Load the exact same index used by index.js.
+     */
+    const index =
+        await getJSON(
+            "analysis/index.json"
+        );
+
+    /*
+     * Keep it available for date changes without
+     * downloading index.json every time.
+     */
+    window.__tradesIndex =
+        index;
+
+    availableDates =
         getAvailableDates(
-            index,
-            ticker
+            index
         );
 
-    const requestedDate =
-        getRequestedDate();
-
+    /*
+     * The selector is populated BEFORE loading trades.
+     */
     const selector =
-        populateDateSelector(
-            dates,
-            requestedDate
+        initializeDateSelector(
+            availableDates
         );
 
-    if (!dates.length) {
+    if (
+        !availableDates.length
+    ) {
 
         renderDataUnavailable(
-            `No trade dates are available for ${ticker}.`
+            "No published trade dates are available."
         );
 
         return;
     }
 
     /*
-     * populateDateSelector() determines the actual date
-     * selected from the URL or newest available date.
+     * Use the actual selector value if available.
      */
-    const date =
+    if (
         selector &&
         selector.value
-            ? selector.value
-            : (
-                requestedDate &&
-                dates.includes(
-                    requestedDate
-                )
-                    ? requestedDate
-                    : dates[0]
-            );
+    ) {
 
-    selectedDate =
-        date;
+        selectedDate =
+            selector.value;
+    }
 
-    updateUrlDate(
-        date
-    );
-
-    await load(
-        ticker,
-        date
+    /*
+     * Load all tickers for the selected date.
+     */
+    await loadTradesForDate(
+        selectedDate,
+        getRequestedTicker()
     );
 
     initializeSorting();
@@ -705,109 +1077,6 @@ try {
 
     renderDataUnavailable(
         "Unable to load trade history."
-    );
-}
-
-
-}
-
-/* ============================================================
-
-* LOAD TRADES
-* ============================================================ */
-
-async function load(
-ticker,
-date
-) {
-
-
-if (!ticker) {
-    return;
-}
-
-if (
-    !date ||
-    !isValidDateString(date)
-) {
-    renderDataUnavailable(
-        "No valid trade date was selected."
-    );
-
-    return;
-}
-
-selectedDate =
-    date;
-
-const dataUrl =
-    getTradeDataUrl(
-        ticker,
-        date
-    );
-
-try {
-
-    const response =
-        await fetch(
-            `${dataUrl}?t=${Date.now()}`,
-            {
-                cache: "no-store"
-            }
-        );
-
-    if (!response.ok) {
-
-        throw new Error(
-            `${dataUrl} HTTP ${response.status}`
-        );
-    }
-
-    const data =
-        await response.json();
-
-    const updated =
-        document.getElementById(
-            "updated"
-        );
-
-    if (updated) {
-
-        updated.textContent =
-            data.generated_at ||
-            date;
-    }
-
-    allTrades =
-        Array.isArray(
-            data.trades
-        )
-            ? data.trades
-            : [];
-
-    renderTrades();
-
-} catch (error) {
-
-    const updated =
-        document.getElementById(
-            "updated"
-        );
-
-    if (updated) {
-        updated.textContent =
-            "Data unavailable";
-    }
-
-    allTrades = [];
-
-    renderDataUnavailable(
-        `Unable to load ${ticker} trades for ${formatDateLabel(date)}.`
-    );
-
-    console.error(
-        "Failed to load ticker trade data:",
-        error
     );
 }
 
@@ -838,6 +1107,11 @@ const tradeCount =
     );
 
 if (!body) {
+
+    console.error(
+        "Trades table body #trades was not found."
+    );
+
     return;
 }
 
@@ -883,17 +1157,21 @@ let trades =
 
             const ticker =
                 String(
-                    trade.ticker || ""
+                    trade.ticker ||
+                    trade._ticker ||
+                    ""
                 ).toUpperCase();
 
             const tradeDirection =
                 String(
-                    trade.direction || ""
+                    trade.direction ||
+                    ""
                 ).toUpperCase();
 
             const tradeStatus =
                 String(
-                    trade.status || ""
+                    trade.status ||
+                    ""
                 ).toUpperCase();
 
             const matchesSearch =
@@ -995,7 +1273,9 @@ trades.forEach(
             <td>
                 <b>
                     ${escapeHtml(
-                        trade.ticker || ""
+                        trade.ticker ||
+                        trade._ticker ||
+                        ""
                     )}
                 </b>
             </td>
@@ -1042,7 +1322,9 @@ trades.forEach(
                 ${
                     score === null
                         ? "—"
-                        : score.toFixed(2)
+                        : score.toFixed(
+                            2
+                        )
                 }
             </td>
 
@@ -1062,7 +1344,9 @@ trades.forEach(
 
                 const ticker =
                     String(
-                        trade.ticker || ""
+                        trade.ticker ||
+                        trade._ticker ||
+                        ""
                     )
                         .trim()
                         .toUpperCase();
@@ -1071,14 +1355,8 @@ trades.forEach(
                     return;
                 }
 
-                /*
-                 * IMPORTANT:
-                 * Use the date currently being displayed.
-                 * Do NOT recalculate today's date.
-                 */
                 const date =
-                    selectedDate ||
-                    getRequestedDate();
+                    selectedDate;
 
                 window.location.href =
                     `ticker-profile.html?ticker=${encodeURIComponent(
@@ -1109,6 +1387,33 @@ if (noTrades) {
 }
 
 updateSortHeaders();
+
+updateDisplayedDate();
+
+
+}
+
+/* ============================================================
+
+* DISPLAY CURRENT DATE
+* ============================================================ */
+
+function updateDisplayedDate() {
+
+
+const updated =
+    document.getElementById(
+        "updated"
+    );
+
+if (!updated || !selectedDate) {
+    return;
+}
+
+updated.textContent =
+    formatDateLabel(
+        selectedDate
+    );
 
 
 }
@@ -1338,12 +1643,15 @@ if (!modal) {
 
 const ticker =
     String(
-        trade.ticker || ""
+        trade.ticker ||
+        trade._ticker ||
+        ""
     ).toUpperCase();
 
 const direction =
     String(
-        trade.direction || ""
+        trade.direction ||
+        ""
     ).toUpperCase();
 
 const side =
@@ -1386,22 +1694,30 @@ document.getElementById(
 document.getElementById(
     "summaryEntry"
 ).textContent =
-    money(trade.entry);
+    money(
+        trade.entry
+    );
 
 document.getElementById(
     "summaryCurrent"
 ).textContent =
-    money(trade.current_price);
+    money(
+        trade.current_price
+    );
 
 document.getElementById(
     "summaryStop"
 ).textContent =
-    money(trade.stop);
+    money(
+        trade.stop
+    );
 
 document.getElementById(
     "summaryTarget"
 ).textContent =
-    money(trade.target);
+    money(
+        trade.target
+    );
 
 const score =
     toNumber(
@@ -1413,7 +1729,9 @@ document.getElementById(
 ).textContent =
     score === null
         ? "—"
-        : score.toFixed(2);
+        : score.toFixed(
+            2
+        );
 
 clearOrderMessage();
 
@@ -1531,6 +1849,11 @@ message.className =
 
 }
 
+/* ============================================================
+
+* SUBMIT ORDER
+* ============================================================ */
+
 async function submitTradeOrder() {
 
 
@@ -1586,7 +1909,9 @@ if (!ticker) {
 }
 
 if (
-    !Number.isFinite(quantity) ||
+    !Number.isFinite(
+        quantity
+    ) ||
     quantity <= 0
 ) {
 
@@ -1657,7 +1982,8 @@ try {
         trade: {
 
             ticker:
-                selectedTrade.ticker,
+                selectedTrade.ticker ||
+                selectedTrade._ticker,
 
             direction:
                 selectedTrade.direction,
@@ -1765,6 +2091,11 @@ try {
 
 }
 
+/* ============================================================
+
+* ORDER DIALOG INITIALIZATION
+* ============================================================ */
+
 function initializeOrderDialog() {
 
 
@@ -1861,7 +2192,7 @@ document.addEventListener(
 
 /* ============================================================
 
-* DISPLAY ERROR
+* ERROR DISPLAY
 * ============================================================ */
 
 function renderDataUnavailable(
@@ -1945,7 +2276,9 @@ if (
 const number =
     Number(value);
 
-return Number.isFinite(number)
+return Number.isFinite(
+    number
+)
     ? number
     : null;
 
@@ -1969,7 +2302,12 @@ if (
 const number =
     Number(value);
 
-if (!Number.isFinite(number)) {
+if (
+    !Number.isFinite(
+        number
+    )
+) {
+
     return "—";
 }
 
@@ -2018,22 +2356,38 @@ return String(
 * ============================================================ */
 
 setInterval(
-() => {
+async () => {
 
-
-    const ticker =
-        getRequestedTicker();
 
     if (
-        ticker &&
-        selectedDate
+        !selectedDate
     ) {
+        return;
+    }
 
-        load(
-            ticker,
-            selectedDate
+    try {
+
+        const index =
+            await getJSON(
+                "analysis/index.json"
+            );
+
+        window.__tradesIndex =
+            index;
+
+        await loadTradesForDate(
+            selectedDate,
+            getRequestedTicker()
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Failed to refresh trade data:",
+            error
         );
     }
+
 },
 60000
 
