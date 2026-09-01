@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T12:37:43.581095+00:00",
+  "generated_at": "2026-09-01T13:23:48.967162+00:00",
   "ticker": "VNCE",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 7.01001,
+      "target": 7.006379999999999,
+      "ticker": "VNCE",
+      "setup": "Marubozu",
+      "direction": "Bearish",
+      "updated_at": "2026-09-01T13:09:17.331879",
+      "entry": 7.0088,
+      "current_price": 6.91,
+      "risk_reward": 2.0,
+      "score": 88.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "risk_reward": 2.0,
       "direction": "Bearish",

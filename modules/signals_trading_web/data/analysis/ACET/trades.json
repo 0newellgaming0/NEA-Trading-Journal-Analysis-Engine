@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T09:28:40.789036+00:00",
+  "generated_at": "2026-09-01T13:23:48.279607+00:00",
   "ticker": "ACET",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 8.75,
+      "target": 10.849999999999998,
+      "ticker": "ACET",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "direction": "Bullish",
+      "updated_at": "2026-09-01T13:20:29.514151",
+      "entry": 9.45,
+      "current_price": 9.22,
+      "risk_reward": 2.0,
+      "score": 90.0,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION"
+    },
     {
       "setup": "Bearish Standard Doji Sandwich",
       "entry": 8.84,

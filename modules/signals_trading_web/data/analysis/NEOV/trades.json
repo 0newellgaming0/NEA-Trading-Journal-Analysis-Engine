@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-01T12:37:40.620433+00:00",
+  "generated_at": "2026-09-01T13:23:48.726067+00:00",
   "ticker": "NEOV",
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "direction": "Bullish",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "status": "CONFIRMED",
-      "current_price": 4.24,
-      "target": 4.2780000000000005,
-      "entry": 4.025,
       "stop": 3.8985000000000003,
+      "target": 4.2780000000000005,
       "ticker": "NEOV",
       "setup": "TLINE_CONTINUATION",
-      "updated_at": "2026-09-01T12:13:19.632306",
-      "score": 88.0
+      "direction": "Bullish",
+      "updated_at": "2026-09-01T13:10:48.421011",
+      "entry": 4.025,
+      "current_price": 4.245,
+      "risk_reward": 2.0,
+      "score": 88.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT"
     }
   ]
 }

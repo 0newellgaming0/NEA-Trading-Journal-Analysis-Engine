@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-01T12:37:37.999126+00:00",
+  "generated_at": "2026-09-01T13:23:48.523352+00:00",
   "ticker": "DPRO",
   "count": 1,
   "trades": [
     {
-      "risk_reward": 2.0,
-      "direction": "Bullish",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
-      "current_price": 5.22,
-      "target": 6.262000000000001,
-      "entry": 5.36,
       "stop": 4.909,
+      "target": 6.262000000000001,
       "ticker": "DPRO",
       "setup": "TLINE_CONTINUATION",
-      "updated_at": "2026-09-01T11:48:43.476362",
-      "score": 87.0
+      "direction": "Bullish",
+      "updated_at": "2026-09-01T13:17:10.873523",
+      "entry": 5.36,
+      "current_price": 5.19,
+      "risk_reward": 2.0,
+      "score": 88.0,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH"
     }
   ]
 }

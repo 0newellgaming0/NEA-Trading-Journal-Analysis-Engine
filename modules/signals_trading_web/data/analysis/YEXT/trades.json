@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T12:37:43.966566+00:00",
+  "generated_at": "2026-09-01T13:23:49.013805+00:00",
   "ticker": "YEXT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 6.545,
+      "target": 9.92,
+      "ticker": "YEXT",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "direction": "Bullish",
+      "updated_at": "2026-09-01T13:18:44.102157",
+      "entry": 7.67,
+      "current_price": 7.7,
+      "risk_reward": 2.0,
+      "score": 89.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
     {
       "risk_reward": 2.0,
       "direction": "Bullish",
