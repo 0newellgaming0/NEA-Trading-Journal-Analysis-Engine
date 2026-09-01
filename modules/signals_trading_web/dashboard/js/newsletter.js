@@ -166,7 +166,6 @@ async function getJSON(file) {
     return await response.json();
 }
 
-
 async function loadTradeData() {
     const index =
         await getJSON(
@@ -183,6 +182,9 @@ async function loadTradeData() {
         );
     }
 
+    const today =
+        getTodayDateKey();
+
     const trades = [];
 
     const tickerEntries =
@@ -198,14 +200,15 @@ async function loadTradeData() {
             continue;
         }
 
-        if (!dates.length) {
-            continue;
-        }
-
-        const latestDate =
-            [...dates].sort().reverse()[0];
-
-        if (!latestDate) {
+        /*
+         * NEWSLETTER RULE:
+         * Only load the trade publication for TODAY.
+         *
+         * Do not fall back to the ticker's latest historical
+         * publication date. That was causing older trades to
+         * appear in today's newsletter.
+         */
+        if (!dates.includes(today)) {
             continue;
         }
 
@@ -228,7 +231,7 @@ async function loadTradeData() {
             tickerTrades.forEach(
                 trade => {
                     trade._analysisDate =
-                        latestDate;
+                        today;
 
                     trade._ticker =
                         ticker.toUpperCase();
@@ -241,21 +244,127 @@ async function loadTradeData() {
 
         } catch (error) {
             console.warn(
-                `Unable to load trades for ${ticker}:`,
+                `Unable to load today's trades for ${ticker}:`,
                 error
             );
         }
     }
 
+    /*
+     * NEWSLETTER RULE:
+     * A ticker may appear only once in Top Trades.
+     *
+     * If multiple records exist for the same ticker,
+     * retain the highest-scoring trade.
+     */
+    const uniqueTrades =
+        deduplicateTradesByTicker(
+            trades
+        );
+
     return {
         generated_at:
             new Date().toISOString(),
 
+        publication_date:
+            today,
+
         tickers:
             index.tickers,
 
-        trades
+        trades:
+            uniqueTrades
     };
+}
+
+
+function getTodayDateKey() {
+    const now =
+        new Date();
+
+    const year =
+        now.getFullYear();
+
+    const month =
+        String(
+            now.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        );
+
+    const day =
+        String(
+            now.getDate()
+        ).padStart(
+            2,
+            "0"
+        );
+
+    return `${year}-${month}-${day}`;
+}
+
+
+function deduplicateTradesByTicker(
+    trades
+) {
+    const byTicker =
+        new Map();
+
+    trades.forEach(
+        trade => {
+            if (!trade || !trade.ticker) {
+                return;
+            }
+
+            const ticker =
+                String(
+                    trade.ticker
+                ).toUpperCase();
+
+            const existing =
+                byTicker.get(
+                    ticker
+                );
+
+            if (!existing) {
+                byTicker.set(
+                    ticker,
+                    trade
+                );
+
+                return;
+            }
+
+            const existingScore =
+                Number.isFinite(
+                    existing.score
+                )
+                    ? existing.score
+                    : -Infinity;
+
+            const currentScore =
+                Number.isFinite(
+                    trade.score
+                )
+                    ? trade.score
+                    : -Infinity;
+
+            if (
+                currentScore >
+                existingScore
+            ) {
+                byTicker.set(
+                    ticker,
+                    trade
+                );
+            }
+        }
+    );
+
+    return Array.from(
+        byTicker.values()
+    );
 }
 
 
