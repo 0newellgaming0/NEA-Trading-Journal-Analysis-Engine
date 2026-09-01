@@ -182,6 +182,17 @@ async function loadTradeData() {
         );
     }
 
+    /*
+     * IMPORTANT:
+     * The newsletter is TODAY ONLY.
+     *
+     * Do not use the latest available publication date.
+     * Do not use yesterday's trades.
+     * Do not use historical trades.
+     *
+     * Every trade entering the newsletter must have
+     * today's calendar date.
+     */
     const today =
         getTodayDateKey();
 
@@ -201,12 +212,8 @@ async function loadTradeData() {
         }
 
         /*
-         * NEWSLETTER RULE:
-         * Only load the trade publication for TODAY.
-         *
-         * Do not fall back to the ticker's latest historical
-         * publication date. That was causing older trades to
-         * appear in today's newsletter.
+         * The ticker must actually have a publication
+         * for today's date.
          */
         if (!dates.includes(today)) {
             continue;
@@ -228,18 +235,43 @@ async function loadTradeData() {
                     data
                 );
 
-            tickerTrades.forEach(
-                trade => {
-                    trade._analysisDate =
-                        today;
+            /*
+             * Only trades whose actual trade/publication
+             * date is TODAY are eligible.
+             */
+            const todayTrades =
+                tickerTrades.filter(
+                    trade =>
+                        getTradeDate(
+                            trade
+                        ) === today
+                );
 
-                    trade._ticker =
-                        ticker.toUpperCase();
+            if (!todayTrades.length) {
+                continue;
+            }
 
-                    trades.push(
-                        trade
-                    );
-                }
+            /*
+             * If today's trades.json contains multiple
+             * records for this ticker, use ONLY the
+             * latest trade from TODAY.
+             */
+            const latestTodayTrade =
+                todayTrades
+                    .sort(
+                        (a, b) =>
+                            getTradeTimestamp(b) -
+                            getTradeTimestamp(a)
+                    )[0];
+
+            latestTodayTrade._analysisDate =
+                today;
+
+            latestTodayTrade._ticker =
+                ticker.toUpperCase();
+
+            trades.push(
+                latestTodayTrade
             );
 
         } catch (error) {
@@ -249,18 +281,6 @@ async function loadTradeData() {
             );
         }
     }
-
-    /*
-     * NEWSLETTER RULE:
-     * A ticker may appear only once in Top Trades.
-     *
-     * If multiple records exist for the same ticker,
-     * retain the highest-scoring trade.
-     */
-    const uniqueTrades =
-        deduplicateTradesByTicker(
-            trades
-        );
 
     return {
         generated_at:
@@ -272,8 +292,7 @@ async function loadTradeData() {
         tickers:
             index.tickers,
 
-        trades:
-            uniqueTrades
+        trades
     };
 }
 
@@ -302,6 +321,120 @@ function getTodayDateKey() {
         );
 
     return `${year}-${month}-${day}`;
+}
+
+
+function getTradeDate(trade) {
+    const raw =
+        trade &&
+        trade.raw
+            ? trade.raw
+            : trade;
+
+    if (!raw || typeof raw !== "object") {
+        return null;
+    }
+
+    const dateValue =
+        firstValue(
+            raw.trade_date,
+            raw.tradeDate,
+            raw.date,
+            raw.created_date,
+            raw.createdDate,
+            raw.timestamp,
+            raw.generated_at,
+            raw.generatedAt,
+            raw.updated_at,
+            raw.updatedAt
+        );
+
+    if (!dateValue) {
+        return null;
+    }
+
+    const date =
+        new Date(
+            dateValue
+        );
+
+    if (
+        Number.isNaN(
+            date.getTime()
+        )
+    ) {
+        /*
+         * Handle YYYY-MM-DD directly.
+         */
+        const text =
+            String(
+                dateValue
+            ).trim();
+
+        const match =
+            text.match(
+                /^(\d{4}-\d{2}-\d{2})/
+            );
+
+        return match
+            ? match[1]
+            : null;
+    }
+
+    return [
+        date.getFullYear(),
+        String(
+            date.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        ),
+        String(
+            date.getDate()
+        ).padStart(
+            2,
+            "0"
+        )
+    ].join("-");
+}
+
+
+function getTradeTimestamp(trade) {
+    const raw =
+        trade &&
+        trade.raw
+            ? trade.raw
+            : trade;
+
+    if (!raw || typeof raw !== "object") {
+        return 0;
+    }
+
+    const timestamp =
+        firstValue(
+            raw.trade_date,
+            raw.tradeDate,
+            raw.timestamp,
+            raw.generated_at,
+            raw.generatedAt,
+            raw.updated_at,
+            raw.updatedAt,
+            raw.created_at,
+            raw.createdAt
+        );
+
+    if (!timestamp) {
+        return 0;
+    }
+
+    const value =
+        new Date(
+            timestamp
+        ).getTime();
+
+    return Number.isFinite(value)
+        ? value
+        : 0;
 }
 
 
