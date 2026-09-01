@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T13:23:48.507830+00:00",
+  "generated_at": "2026-09-01T15:14:08.530895+00:00",
   "ticker": "DLO",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "target": 15.121339999999996,
+      "risk_reward": 2.0,
+      "current_price": 14.89,
+      "setup": "Pinbar",
+      "ticker": "DLO",
+      "stop": 14.594330000000001,
+      "updated_at": "2026-09-01T14:56:34.945346",
+      "score": 85.0,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "entry": 14.77,
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
     {
       "stop": 14.896,
       "target": 14.697999999999999,

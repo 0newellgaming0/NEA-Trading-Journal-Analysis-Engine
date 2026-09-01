@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.213005+00:00",
+  "generated_at": "2026-09-01T15:14:09.038878+00:00",
   "ticker": "FF",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "target": 5.93978,
+      "risk_reward": 2.0,
+      "current_price": 5.46,
+      "setup": "Engulfing",
+      "ticker": "FF",
+      "stop": 5.03261,
+      "updated_at": "2026-09-01T15:08:20.204264",
+      "score": 77.0,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "entry": 5.335,
+      "regime": "PRIMARY_UPTREND_PULLBACK"
+    },
     {
       "current_price": 5.2037,
       "target": 4.88,

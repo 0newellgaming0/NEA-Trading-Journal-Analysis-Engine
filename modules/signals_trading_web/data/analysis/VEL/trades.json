@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-01T13:23:48.949036+00:00",
+  "generated_at": "2026-09-01T15:14:15.094058+00:00",
   "ticker": "VEL",
   "count": 2,
   "trades": [
     {
-      "stop": 18.0935,
       "target": 17.648000000000003,
-      "ticker": "VEL",
-      "setup": "TLINE_CONTINUATION",
-      "direction": "Bearish",
-      "updated_at": "2026-09-01T13:04:50.011366",
-      "entry": 17.945,
-      "current_price": 17.95,
       "risk_reward": 2.0,
-      "score": 89.0,
+      "current_price": 18.0,
+      "setup": "TLINE_CONTINUATION",
+      "ticker": "VEL",
+      "stop": 18.0935,
+      "updated_at": "2026-09-01T15:11:46.781035",
+      "score": 82.0,
       "status": "CONFIRMED",
-      "regime": "SHORT_TERM_WEAKNESS"
+      "direction": "Bearish",
+      "entry": 17.945,
+      "regime": "SHORT_TERM_STRENGTH"
     },
     {
       "current_price": 17.95,
