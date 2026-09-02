@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T16:53:35.334859+00:00",
+  "generated_at": "2026-09-02T19:49:39.773983+00:00",
   "ticker": "ALGS",
   "count": 3,
   "trades": [
     {
-      "setup": "TLINE_CONTINUATION",
-      "target": 6.484000000000001,
-      "score": 86.0,
-      "status": "CONFIRMED",
-      "risk_reward": 2.0,
       "stop": 5.923,
-      "current_price": 6.29,
       "regime": "SHORT_TERM_STRENGTH",
-      "ticker": "ALGS",
-      "updated_at": "2026-09-02T16:39:26.136030",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T19:43:46.103778",
+      "current_price": 6.39,
+      "score": 87.0,
+      "target": 6.484000000000001,
+      "entry": 6.11,
       "direction": "Bullish",
-      "entry": 6.11
+      "ticker": "ALGS",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED"
     },
     {
       "ticker": "ALGS",
