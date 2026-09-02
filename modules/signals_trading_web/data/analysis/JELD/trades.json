@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:29.028828+00:00",
+  "generated_at": "2026-09-02T16:53:35.648944+00:00",
   "ticker": "JELD",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "setup": "Inside Bar",
+      "target": 2.6705799999999997,
+      "score": 81.0,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "stop": 2.11321,
+      "current_price": 2.315,
+      "regime": "SHORT_TERM_STRENGTH",
+      "ticker": "JELD",
+      "updated_at": "2026-09-02T16:47:44.122662",
+      "direction": "Bullish",
+      "entry": 2.299
+    },
     {
       "current_price": 2.15,
       "ticker": "JELD",
