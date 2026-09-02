@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T14:23:36.810729+00:00",
+  "generated_at": "2026-09-02T16:08:10.058584+00:00",
   "ticker": "FF",
   "count": 4,
   "trades": [
     {
-      "current_price": 5.5493,
-      "setup": "TLINE_CONTINUATION",
-      "score": 87.0,
-      "ticker": "FF",
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "updated_at": "2026-09-02T08:13:14.316619",
-      "target": 5.7463999999999995,
-      "stop": 5.45105,
+      "status": "CONFIRMED",
+      "current_price": 5.47,
       "entry": 5.5495,
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "status": "CONFIRMED"
+      "score": 79.0,
+      "target": 5.7463999999999995,
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-02T15:50:05.336138",
+      "setup": "TLINE_CONTINUATION",
+      "direction": "Bullish",
+      "stop": 5.45105,
+      "risk_reward": 2.0,
+      "ticker": "FF"
     },
     {
       "ticker": "FF",

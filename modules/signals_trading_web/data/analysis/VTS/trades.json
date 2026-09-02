@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:40.011391+00:00",
+  "generated_at": "2026-09-02T16:08:10.526529+00:00",
   "ticker": "VTS",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "current_price": 17.67,
+      "entry": 17.65,
+      "score": 79.0,
+      "target": 17.67816,
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-02T16:01:45.559712",
+      "setup": "Inside Bar",
+      "direction": "Bullish",
+      "stop": 17.63592,
+      "risk_reward": 2.0,
+      "ticker": "VTS"
+    },
     {
       "current_price": 17.64,
       "ticker": "VTS",
