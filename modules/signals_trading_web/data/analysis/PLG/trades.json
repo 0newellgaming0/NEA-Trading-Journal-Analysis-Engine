@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:46.371033+00:00",
+  "ticker": "PLG",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 1.44,
+      "setup": "Evening Star",
+      "score": 69.0,
+      "ticker": "PLG",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T13:19:54.302696",
+      "target": 1.3619999999999999,
+      "stop": 1.494,
+      "entry": 1.45,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    }
+  ]
+}

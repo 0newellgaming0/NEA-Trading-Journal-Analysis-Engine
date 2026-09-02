@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.505381+00:00",
+  "generated_at": "2026-09-02T14:23:46.951260+00:00",
   "ticker": "PUBM",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 16.0,
+      "setup": "TLINE_CONTINUATION",
+      "score": 76.0,
+      "ticker": "PUBM",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T10:43:03.034735",
+      "target": 15.926000000000005,
+      "stop": 16.4045,
+      "entry": 16.245,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    },
     {
       "current_price": 16.63,
       "target": 16.971999999999998,

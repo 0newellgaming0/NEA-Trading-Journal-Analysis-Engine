@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:38.010307+00:00",
+  "ticker": "GEVO",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 1.612,
+      "setup": "Marubozu",
+      "score": 76.0,
+      "ticker": "GEVO",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T09:59:11.593627",
+      "target": 1.5444,
+      "stop": 1.7027999999999999,
+      "entry": 1.65,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED"
+    }
+  ]
+}

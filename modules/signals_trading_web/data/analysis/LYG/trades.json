@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.862840+00:00",
+  "generated_at": "2026-09-02T14:23:42.330751+00:00",
   "ticker": "LYG",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 5.9,
+      "setup": "Pinbar",
+      "score": 75.0,
+      "ticker": "LYG",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:14:52.692837",
+      "target": 6.061999999999999,
+      "stop": 5.864,
+      "entry": 5.93,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    }
+  ]
 }

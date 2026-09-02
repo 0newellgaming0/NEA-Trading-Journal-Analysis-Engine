@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:44.590519+00:00",
+  "ticker": "NRGV",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 3.3,
+      "setup": "Counterattack Lines",
+      "score": 77.0,
+      "ticker": "NRGV",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:42:26.412513",
+      "target": 3.2622999999999993,
+      "stop": 3.2293000000000003,
+      "entry": 3.2403,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

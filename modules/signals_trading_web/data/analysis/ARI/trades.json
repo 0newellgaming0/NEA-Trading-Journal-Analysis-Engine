@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T00:48:34.674663+00:00",
+  "generated_at": "2026-09-02T14:23:27.265885+00:00",
   "ticker": "ARI",
   "count": 2,
   "trades": [
     {
-      "updated_at": "2026-09-01T22:44:32.811362",
-      "target": 6.728000000000001,
-      "setup": "Inside Bar",
-      "direction": "Bearish",
       "current_price": 6.8,
-      "stop": 6.926,
+      "setup": "Inside Bar",
       "score": 88.0,
-      "entry": 6.86,
       "ticker": "ARI",
-      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T08:07:38.814316",
+      "target": 6.728000000000001,
+      "stop": 6.926,
+      "entry": 6.86,
       "regime": "SHORT_TERM_WEAKNESS",
-      "risk_reward": 2.0
+      "status": "CONFIRMED"
     },
     {
       "setup": "Engulfing",

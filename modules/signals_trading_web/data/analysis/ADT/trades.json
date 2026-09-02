@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.490081+00:00",
+  "generated_at": "2026-09-02T14:23:22.840172+00:00",
   "ticker": "ADT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 7.26,
+      "setup": "Engulfing",
+      "score": 70.0,
+      "ticker": "ADT",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:25:22.297659",
+      "target": 7.099000000000002,
+      "stop": 7.445499999999999,
+      "entry": 7.33,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED"
+    },
     {
       "setup": "Engulfing",
       "updated_at": "2026-08-31T00:27:35.047712",

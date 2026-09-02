@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:46.742755+00:00",
+  "ticker": "PRQR",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 2.12,
+      "setup": "TLINE_CONTINUATION",
+      "score": 71.0,
+      "ticker": "PRQR",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:07:42.844988",
+      "target": 2.0322200000000006,
+      "stop": 2.16389,
+      "entry": 2.12,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    }
+  ]
+}

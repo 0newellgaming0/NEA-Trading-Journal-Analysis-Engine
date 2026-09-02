@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:54.121127+00:00",
+  "ticker": "WIT",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 1.815,
+      "setup": "Harami Cross",
+      "score": 64.0,
+      "ticker": "WIT",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T14:17:02.922729",
+      "target": 1.844,
+      "stop": 1.778,
+      "entry": 1.8,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    }
+  ]
+}

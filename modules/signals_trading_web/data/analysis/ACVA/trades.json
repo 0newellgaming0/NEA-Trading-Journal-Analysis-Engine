@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:07.266891+00:00",
+  "generated_at": "2026-09-02T14:23:22.530135+00:00",
   "ticker": "ACVA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 6.76,
+      "setup": "Harami",
+      "score": 70.0,
+      "ticker": "ACVA",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:38:40.587952",
+      "target": 6.706,
+      "stop": 7.0195,
+      "entry": 6.915,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "current_price": 7.03,
       "direction": "Bearish",

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:52.612426+00:00",
+  "ticker": "UPC",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 5.7129,
+      "setup": "TLINE_CONTINUATION",
+      "score": 75.0,
+      "ticker": "UPC",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T10:48:41.136490",
+      "target": 10.392,
+      "stop": 4.089,
+      "entry": 6.19,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

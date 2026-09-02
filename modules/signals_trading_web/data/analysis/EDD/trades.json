@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:36.000811+00:00",
+  "ticker": "EDD",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 5.815,
+      "setup": "TLINE_CONTINUATION",
+      "score": 61.0,
+      "ticker": "EDD",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T14:12:01.580097",
+      "target": 5.708,
+      "stop": 5.8235,
+      "entry": 5.785,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    }
+  ]
+}

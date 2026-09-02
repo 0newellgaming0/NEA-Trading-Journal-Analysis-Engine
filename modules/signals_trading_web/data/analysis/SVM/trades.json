@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:23.076967+00:00",
+  "generated_at": "2026-09-02T14:23:51.224609+00:00",
   "ticker": "SVM",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "current_price": 11.8119,
+      "setup": "Engulfing",
+      "score": 78.0,
+      "ticker": "SVM",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T08:41:46.141243",
+      "target": 11.611999999999997,
+      "stop": 12.239,
+      "entry": 12.03,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    },
     {
       "current_price": 12.4332,
       "direction": "Bearish",

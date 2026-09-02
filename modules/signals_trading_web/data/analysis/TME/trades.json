@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.649894+00:00",
+  "generated_at": "2026-09-02T14:23:52.161079+00:00",
   "ticker": "TME",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 8.29,
+      "setup": "Three Inside Up",
+      "score": 78.0,
+      "ticker": "TME",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T07:57:55.098225",
+      "target": 8.456999999999997,
+      "stop": 8.1765,
+      "entry": 8.27,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 8.575,
       "current_price": 8.58,

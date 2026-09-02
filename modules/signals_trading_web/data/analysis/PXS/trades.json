@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T19:29:31.585280+00:00",
+  "generated_at": "2026-09-02T14:23:47.000695+00:00",
   "ticker": "PXS",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 6.14,
+      "setup": "TLINE_CONTINUATION",
+      "score": 89.0,
+      "ticker": "PXS",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T14:23:20.745991",
+      "target": 6.685999999999999,
+      "stop": 6.0920000000000005,
+      "entry": 6.29,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "status": "CONFIRMED",

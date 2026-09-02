@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.209740+00:00",
+  "generated_at": "2026-09-02T14:23:46.575716+00:00",
   "ticker": "POLA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 1.4284,
+      "setup": "Harami",
+      "score": 61.0,
+      "ticker": "POLA",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T10:36:16.540116",
+      "target": 1.334,
+      "stop": 1.4329999999999998,
+      "entry": 1.4,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 1.41,
       "current_price": 1.4141,

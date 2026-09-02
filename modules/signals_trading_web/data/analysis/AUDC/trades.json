@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:27.720566+00:00",
+  "ticker": "AUDC",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 9.99,
+      "setup": "Engulfing",
+      "score": 76.0,
+      "ticker": "AUDC",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:03:00.979521",
+      "target": 10.148,
+      "stop": 9.850999999999999,
+      "entry": 9.95,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
+    }
+  ]
+}

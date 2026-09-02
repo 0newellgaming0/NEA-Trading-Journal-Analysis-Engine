@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.459803+00:00",
+  "generated_at": "2026-09-02T14:23:49.510689+00:00",
   "ticker": "SIDU",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 2.09,
+      "setup": "Engulfing",
+      "score": 82.0,
+      "ticker": "SIDU",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T09:35:58.528842",
+      "target": 2.032,
+      "stop": 2.164,
+      "entry": 2.12,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "setup": "TLINE_ROLLOVER",
       "updated_at": "2026-08-30T23:12:25.099022",

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:24.777246+00:00",
+  "generated_at": "2026-09-02T14:23:27.864025+00:00",
   "ticker": "AVAH",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 13.4337,
+      "setup": "Rising Three Methods",
+      "score": 72.0,
+      "ticker": "AVAH",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:49:49.551441",
+      "target": 14.161480000000003,
+      "stop": 13.25926,
+      "entry": 13.56,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
 }

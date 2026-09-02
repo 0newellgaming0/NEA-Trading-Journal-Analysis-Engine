@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:36.100628+00:00",
+  "ticker": "ELTX",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 2.57,
+      "setup": "TLINE_CONTINUATION",
+      "score": 68.0,
+      "ticker": "ELTX",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T13:46:35.246362",
+      "target": 2.494,
+      "stop": 2.593,
+      "entry": 2.56,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    }
+  ]
+}

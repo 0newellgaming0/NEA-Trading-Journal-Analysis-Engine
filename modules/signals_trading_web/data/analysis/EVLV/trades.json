@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:36.330643+00:00",
+  "ticker": "EVLV",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 5.04,
+      "setup": "TLINE_CONTINUATION",
+      "score": 75.0,
+      "ticker": "EVLV",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:32:37.468626",
+      "target": 4.868,
+      "stop": 5.066,
+      "entry": 5.0,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    }
+  ]
+}

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T07:23:13.290841+00:00",
+  "generated_at": "2026-09-02T14:23:25.042659+00:00",
   "ticker": "ALOY",
   "count": 3,
   "trades": [
     {
-      "current_price": 9.9001,
-      "ticker": "ALOY",
-      "target": 9.604480000000004,
-      "score": 82.0,
+      "current_price": 9.95,
       "setup": "TLINE_CONTINUATION",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
+      "score": 82.0,
+      "ticker": "ALOY",
+      "direction": "Bearish",
       "risk_reward": 2.0,
-      "entry": 10.1239,
+      "updated_at": "2026-09-02T10:11:34.380073",
+      "target": 9.604480000000004,
       "stop": 10.38361,
-      "updated_at": "2026-09-02T06:15:53.317065",
-      "direction": "Bearish"
+      "entry": 10.1239,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED"
     },
     {
       "current_price": 10.3799,

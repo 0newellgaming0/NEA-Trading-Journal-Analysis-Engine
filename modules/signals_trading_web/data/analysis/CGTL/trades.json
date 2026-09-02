@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.057341+00:00",
+  "generated_at": "2026-09-02T14:23:32.120797+00:00",
   "ticker": "CGTL",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 4.46,
+      "setup": "Pinbar",
+      "score": 72.0,
+      "ticker": "CGTL",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T09:46:48.707851",
+      "target": 4.482,
+      "stop": 4.449,
+      "entry": 4.46,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED"
+    }
+  ]
 }

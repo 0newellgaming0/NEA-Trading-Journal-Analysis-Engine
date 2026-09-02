@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T07:23:29.314870+00:00",
+  "generated_at": "2026-09-02T14:23:40.831505+00:00",
   "ticker": "KBDC",
   "count": 2,
   "trades": [
     {
       "current_price": 13.7,
-      "ticker": "KBDC",
-      "target": 14.048879999999997,
-      "score": 71.0,
       "setup": "Pinbar",
-      "regime": "SHORT_TERM_STRENGTH",
-      "status": "CONFIRMED",
+      "score": 71.0,
+      "ticker": "KBDC",
+      "direction": "Bullish",
       "risk_reward": 2.0,
-      "entry": 13.6509,
+      "updated_at": "2026-09-02T09:33:40.687405",
+      "target": 14.048879999999997,
       "stop": 13.451910000000002,
-      "updated_at": "2026-09-02T06:56:01.596638",
-      "direction": "Bullish"
+      "entry": 13.6509,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
     },
     {
       "entry": 13.55,

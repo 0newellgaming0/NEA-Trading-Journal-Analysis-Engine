@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.004763+00:00",
+  "generated_at": "2026-09-02T14:23:44.311059+00:00",
   "ticker": "NIPG",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 16.58,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "score": 79.0,
+      "ticker": "NIPG",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:16:37.648911",
+      "target": 18.5,
+      "stop": 16.25,
+      "entry": 17.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 17.62,
       "current_price": 13.5,

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T00:48:51.063287+00:00",
+  "generated_at": "2026-09-02T14:23:48.990624+00:00",
   "ticker": "SCNI",
   "count": 1,
   "trades": [
     {
-      "updated_at": "2026-09-02T00:09:48.267293",
-      "target": 2.2019999999999995,
-      "setup": "Evening Star",
-      "direction": "Bearish",
       "current_price": 2.39,
-      "stop": 2.499,
+      "setup": "Evening Star",
       "score": 71.0,
-      "entry": 2.4,
       "ticker": "SCNI",
-      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T09:14:28.526683",
+      "target": 2.2019999999999995,
+      "stop": 2.499,
+      "entry": 2.4,
       "regime": "FULL_BEARISH_ALIGNMENT",
-      "risk_reward": 2.0
+      "status": "CONFIRMED"
     }
   ]
 }

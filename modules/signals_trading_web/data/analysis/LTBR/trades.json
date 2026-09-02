@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:41.994049+00:00",
+  "ticker": "LTBR",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 7.45,
+      "setup": "Inside Bar",
+      "score": 68.0,
+      "ticker": "LTBR",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:36:23.052867",
+      "target": 7.246000000000002,
+      "stop": 7.476999999999999,
+      "entry": 7.4,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

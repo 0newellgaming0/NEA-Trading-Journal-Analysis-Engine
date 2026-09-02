@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.595383+00:00",
+  "generated_at": "2026-09-02T14:23:25.090868+00:00",
   "ticker": "ALPS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 0.3895,
+      "setup": "TLINE_CONTINUATION",
+      "score": 51.0,
+      "ticker": "ALPS",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:51:48.105933",
+      "target": 0.41072000000000003,
+      "stop": 0.37904,
+      "entry": 0.3896,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED"
+    },
     {
       "setup": "Marubozu",
       "updated_at": "2026-08-31T01:54:08.814130",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T08:55:43.571175+00:00",
+  "generated_at": "2026-09-02T14:23:41.448435+00:00",
   "ticker": "KXIN",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 1.3724,
+      "setup": "Separating Lines",
+      "score": 62.0,
+      "ticker": "KXIN",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T10:30:19.672727",
+      "target": 1.2760000000000002,
+      "stop": 1.4244999999999999,
+      "entry": 1.375,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    },
     {
       "stop": 1.516,
       "status": "CONFIRMED",

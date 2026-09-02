@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:46.213830+00:00",
+  "ticker": "PEPG",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 3.22,
+      "setup": "TLINE_CONTINUATION",
+      "score": 74.0,
+      "ticker": "PEPG",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:09:40.650068",
+      "target": 3.3120000000000007,
+      "stop": 3.114,
+      "entry": 3.18,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    }
+  ]
+}

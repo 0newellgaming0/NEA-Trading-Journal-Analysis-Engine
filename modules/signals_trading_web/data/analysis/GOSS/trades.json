@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:38.285461+00:00",
+  "ticker": "GOSS",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.1661,
+      "setup": "Engulfing",
+      "score": 64.0,
+      "ticker": "GOSS",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:32:33.782684",
+      "target": 0.18406000000000003,
+      "stop": 0.16161999999999999,
+      "entry": 0.1691,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

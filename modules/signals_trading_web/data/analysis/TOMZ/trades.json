@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:52.255900+00:00",
+  "ticker": "TOMZ",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 1.63,
+      "setup": "TLINE_CONTINUATION",
+      "score": 71.0,
+      "ticker": "TOMZ",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:06:13.390752",
+      "target": 1.5309999999999997,
+      "stop": 1.6795,
+      "entry": 1.63,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED"
+    }
+  ]
+}

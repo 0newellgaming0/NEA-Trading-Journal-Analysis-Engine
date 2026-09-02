@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T00:48:41.252151+00:00",
+  "generated_at": "2026-09-02T14:23:36.510462+00:00",
   "ticker": "F",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 13.98,
+      "setup": "Inside Bar",
+      "score": 60.0,
+      "ticker": "F",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T14:08:08.012432",
+      "target": 13.9996,
+      "stop": 13.7752,
+      "entry": 13.85,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    },
     {
       "updated_at": "2026-09-02T00:39:52.544761",
       "target": 14.081999999999997,

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T07:23:12.067504+00:00",
+  "generated_at": "2026-09-02T14:23:23.600480+00:00",
   "ticker": "AEO",
   "count": 4,
   "trades": [
     {
       "current_price": 16.5,
-      "ticker": "AEO",
-      "target": 16.328000000000003,
-      "score": 84.0,
       "setup": "Falling Three Methods",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
+      "score": 84.0,
+      "ticker": "AEO",
+      "direction": "Bearish",
       "risk_reward": 2.0,
-      "entry": 16.845,
+      "updated_at": "2026-09-02T07:46:40.544192",
+      "target": 16.328000000000003,
       "stop": 17.103499999999997,
-      "updated_at": "2026-09-02T06:38:13.943176",
-      "direction": "Bearish"
+      "entry": 16.845,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED"
     },
     {
       "current_price": 16.66,

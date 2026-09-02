@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T19:29:30.688314+00:00",
+  "generated_at": "2026-09-02T14:23:31.231635+00:00",
   "ticker": "BW",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 6.84,
+      "setup": "TLINE_CONTINUATION",
+      "score": 71.0,
+      "ticker": "BW",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T09:40:57.145050",
+      "target": 6.650000000000001,
+      "stop": 6.9799999999999995,
+      "entry": 6.87,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "status": "CONFIRMED",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.378850+00:00",
+  "generated_at": "2026-09-02T14:23:42.156990+00:00",
   "ticker": "LUNR",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 14.5439,
+      "setup": "TLINE_CONTINUATION",
+      "score": 81.0,
+      "ticker": "LUNR",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T08:54:37.511043",
+      "target": 13.959999999999997,
+      "stop": 15.445,
+      "entry": 14.95,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "current_price": 15.1,
       "target": 15.038219999999997,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.689931+00:00",
+  "generated_at": "2026-09-02T14:23:26.460356+00:00",
   "ticker": "APT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 5.26,
+      "setup": "TLINE_CONTINUATION",
+      "score": 73.0,
+      "ticker": "APT",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T13:09:47.612282",
+      "target": 5.127999999999998,
+      "stop": 5.3260000000000005,
+      "entry": 5.26,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    },
     {
       "setup": "Pinbar",
       "updated_at": "2026-08-31T00:17:48.724422",

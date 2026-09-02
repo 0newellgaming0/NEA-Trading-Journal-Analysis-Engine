@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:48.024055+00:00",
+  "ticker": "RLX",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 1.79,
+      "setup": "TLINE_CONTINUATION",
+      "score": 77.0,
+      "ticker": "RLX",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:55:53.870939",
+      "target": 1.8120000000000003,
+      "stop": 1.779,
+      "entry": 1.79,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

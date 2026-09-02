@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:37.693298+00:00",
+  "generated_at": "2026-09-02T14:23:51.033851+00:00",
   "ticker": "SUIG",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 0.91,
+      "setup": "Evening Star",
+      "score": 38.0,
+      "ticker": "SUIG",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T13:30:35.808981",
+      "target": 0.7580000000000001,
+      "stop": 0.956,
+      "entry": 0.89,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    },
     {
       "current_price": 0.95,
       "ticker": "SUIG",

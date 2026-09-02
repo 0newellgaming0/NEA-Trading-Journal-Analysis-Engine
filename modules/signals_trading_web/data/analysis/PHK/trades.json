@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:46.330757+00:00",
+  "ticker": "PHK",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 4.525,
+      "setup": "Pinbar",
+      "score": 57.0,
+      "ticker": "PHK",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T14:13:53.210270",
+      "target": 4.542,
+      "stop": 4.5089999999999995,
+      "entry": 4.52,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
+    }
+  ]
+}

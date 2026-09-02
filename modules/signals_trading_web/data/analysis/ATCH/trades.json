@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:27.660404+00:00",
+  "ticker": "ATCH",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.196,
+      "setup": "Counterattack Lines",
+      "score": 66.0,
+      "ticker": "ATCH",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:27:20.657791",
+      "target": 0.20426000000000002,
+      "stop": 0.18842,
+      "entry": 0.1937,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

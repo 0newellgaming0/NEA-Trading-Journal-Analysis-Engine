@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:39.390866+00:00",
+  "ticker": "HYFM",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.9335,
+      "setup": "TLINE_CONTINUATION",
+      "score": 74.0,
+      "ticker": "HYFM",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:22:39.277455",
+      "target": 0.2951999999999997,
+      "stop": 1.0839,
+      "entry": 0.821,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    }
+  ]
+}

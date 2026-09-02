@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.349825+00:00",
+  "generated_at": "2026-09-02T14:23:48.008351+00:00",
   "ticker": "RILY",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 6.72,
+      "setup": "Counterattack Lines",
+      "score": 81.0,
+      "ticker": "RILY",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T08:29:54.704080",
+      "target": 6.928000000000001,
+      "stop": 6.7135,
+      "entry": 6.785,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
 }

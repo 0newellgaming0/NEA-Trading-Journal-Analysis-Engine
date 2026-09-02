@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.768895+00:00",
+  "generated_at": "2026-09-02T14:23:52.760832+00:00",
   "ticker": "UTZ",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 14.103,
+      "setup": "Inside Bar",
+      "score": 70.0,
+      "ticker": "UTZ",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T10:28:10.963099",
+      "target": 14.155999999999995,
+      "stop": 14.222000000000001,
+      "entry": 14.2,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "current_price": 14.204,
       "target": 14.218520000000002,

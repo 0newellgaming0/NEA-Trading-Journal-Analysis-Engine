@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:50.068496+00:00",
+  "ticker": "SOAR",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.235,
+      "setup": "Three White Soldiers",
+      "score": 72.0,
+      "ticker": "SOAR",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T07:53:31.302583",
+      "target": 0.34158,
+      "stop": 0.19671,
+      "entry": 0.245,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED"
+    }
+  ]
+}

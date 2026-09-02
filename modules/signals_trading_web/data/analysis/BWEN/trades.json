@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:31.240510+00:00",
+  "ticker": "BWEN",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 4.2,
+      "setup": "Pinbar",
+      "score": 64.0,
+      "ticker": "BWEN",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T13:36:54.166277",
+      "target": 4.260000000000002,
+      "stop": 4.095,
+      "entry": 4.15,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    }
+  ]
+}

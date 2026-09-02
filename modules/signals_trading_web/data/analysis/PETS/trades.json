@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:46.240898+00:00",
+  "ticker": "PETS",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 1.81,
+      "setup": "TLINE_CONTINUATION",
+      "score": 72.0,
+      "ticker": "PETS",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T10:32:20.500610",
+      "target": 1.7110000000000003,
+      "stop": 1.8595,
+      "entry": 1.81,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:45.382284+00:00",
+  "ticker": "ORC",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 6.55,
+      "setup": "Harami Cross",
+      "score": 74.0,
+      "ticker": "ORC",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:39:43.269982",
+      "target": 6.544959999999999,
+      "stop": 6.64297,
+      "entry": 6.6103,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    }
+  ]
+}

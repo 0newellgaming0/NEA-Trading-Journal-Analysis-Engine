@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T08:55:32.241819+00:00",
+  "generated_at": "2026-09-02T14:23:24.612687+00:00",
   "ticker": "AIV",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 2.4,
+      "setup": "MACD_BEARISH_MOMENTUM_EXPANSION",
+      "score": 69.0,
+      "ticker": "AIV",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T09:56:17.707651",
+      "target": 1.975,
+      "stop": 2.6125,
+      "entry": 2.4,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    },
     {
       "stop": 2.497,
       "status": "CONFIRMED",

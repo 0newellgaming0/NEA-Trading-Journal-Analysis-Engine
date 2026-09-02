@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.534014+00:00",
+  "generated_at": "2026-09-02T14:23:23.837731+00:00",
   "ticker": "AGNC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 10.6,
+      "setup": "Harami Cross",
+      "score": 62.0,
+      "ticker": "AGNC",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T14:05:20.043950",
+      "target": 10.682479999999996,
+      "stop": 10.58876,
+      "entry": 10.62,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    },
     {
       "setup": "Pinbar",
       "updated_at": "2026-08-31T00:42:54.161964",

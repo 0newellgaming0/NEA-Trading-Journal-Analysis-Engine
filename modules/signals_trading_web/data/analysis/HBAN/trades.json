@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:38.885548+00:00",
+  "ticker": "HBAN",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 16.42,
+      "setup": "TLINE_CONTINUATION",
+      "score": 75.0,
+      "ticker": "HBAN",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:15:12.349629",
+      "target": 16.384219999999996,
+      "stop": 16.48289,
+      "entry": 16.45,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED"
+    }
+  ]
+}

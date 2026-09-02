@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:39.260472+00:00",
+  "ticker": "HUMA",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.5799,
+      "setup": "Side-by-Side White Lines",
+      "score": 73.0,
+      "ticker": "HUMA",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:12:12.806505",
+      "target": 0.5911200000000001,
+      "stop": 0.56934,
+      "entry": 0.5766,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

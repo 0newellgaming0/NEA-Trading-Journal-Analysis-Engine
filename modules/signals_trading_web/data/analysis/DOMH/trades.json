@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:35.260455+00:00",
+  "ticker": "DOMH",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 2.2275,
+      "setup": "Inverted Hammer",
+      "score": 63.0,
+      "ticker": "DOMH",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T14:21:05.168045",
+      "target": 2.3231200000000003,
+      "stop": 2.22709,
+      "entry": 2.2591,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

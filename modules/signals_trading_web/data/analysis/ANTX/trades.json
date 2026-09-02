@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T00:48:33.985081+00:00",
+  "generated_at": "2026-09-02T14:23:26.250657+00:00",
   "ticker": "ANTX",
   "count": 3,
   "trades": [
     {
-      "updated_at": "2026-09-02T00:23:49.382964",
-      "target": 5.337999999999998,
-      "setup": "TLINE_CONTINUATION",
-      "direction": "Bearish",
       "current_price": 5.48,
-      "stop": 5.5360000000000005,
+      "setup": "TLINE_CONTINUATION",
       "score": 76.0,
-      "entry": 5.47,
       "ticker": "ANTX",
-      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:05:12.359914",
+      "target": 5.337999999999998,
+      "stop": 5.5360000000000005,
+      "entry": 5.47,
       "regime": "PRIMARY_UPTREND_PULLBACK",
-      "risk_reward": 2.0
+      "status": "CONFIRMED"
     },
     {
       "current_price": 5.55,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.473656+00:00",
+  "generated_at": "2026-09-02T14:23:37.800354+00:00",
   "ticker": "FUN",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 14.36,
+      "setup": "TLINE_CONTINUATION",
+      "score": 79.0,
+      "ticker": "FUN",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T10:01:52.012361",
+      "target": 13.696000000000002,
+      "stop": 15.247,
+      "entry": 14.73,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 16.13,
       "current_price": 16.39,

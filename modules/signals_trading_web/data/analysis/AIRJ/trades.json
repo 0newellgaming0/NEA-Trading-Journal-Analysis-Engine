@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:08.301352+00:00",
+  "generated_at": "2026-09-02T14:23:24.270664+00:00",
   "ticker": "AIRJ",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 4.45,
+      "setup": "EMA20_CROSS",
+      "score": 76.0,
+      "ticker": "AIRJ",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:45:36.749108",
+      "target": 3.8834600000000004,
+      "stop": 4.62827,
+      "entry": 4.38,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    },
     {
       "current_price": 4.58,
       "direction": "Bearish",

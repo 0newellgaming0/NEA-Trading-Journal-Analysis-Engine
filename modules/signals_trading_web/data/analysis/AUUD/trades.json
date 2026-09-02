@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:24.772586+00:00",
+  "generated_at": "2026-09-02T14:23:27.832671+00:00",
   "ticker": "AUUD",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.96,
+      "setup": "Counterattack Lines",
+      "score": 78.0,
+      "ticker": "AUUD",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:50:25.394704",
+      "target": 0.9636800000000001,
+      "stop": 0.93926,
+      "entry": 0.9474,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED"
+    }
+  ]
 }

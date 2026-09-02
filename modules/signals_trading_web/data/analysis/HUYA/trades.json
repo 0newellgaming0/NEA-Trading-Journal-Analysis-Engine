@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T07:23:28.160083+00:00",
+  "generated_at": "2026-09-02T14:23:39.350564+00:00",
   "ticker": "HUYA",
   "count": 2,
   "trades": [
     {
-      "current_price": 2.11,
-      "ticker": "HUYA",
-      "target": 2.063999999999999,
-      "score": 74.0,
+      "current_price": 2.0904,
       "setup": "Inside Bar",
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "status": "CONFIRMED",
+      "score": 74.0,
+      "ticker": "HUYA",
+      "direction": "Bearish",
       "risk_reward": 2.0,
-      "entry": 2.13,
+      "updated_at": "2026-09-02T10:45:19.533341",
+      "target": 2.063999999999999,
       "stop": 2.1630000000000003,
-      "updated_at": "2026-09-02T06:53:35.768275",
-      "direction": "Bearish"
+      "entry": 2.13,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
     },
     {
       "setup": "TLINE_CONTINUATION",

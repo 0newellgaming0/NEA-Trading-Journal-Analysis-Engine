@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:23.370526+00:00",
+  "generated_at": "2026-09-02T14:23:51.791037+00:00",
   "ticker": "TE",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "current_price": 4.21,
+      "setup": "Pinbar",
+      "score": 81.0,
+      "ticker": "TE",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T09:19:46.314592",
+      "target": 4.156,
+      "stop": 4.387,
+      "entry": 4.31,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    },
     {
       "current_price": 4.47,
       "direction": "Bearish",

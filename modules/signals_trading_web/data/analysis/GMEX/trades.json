@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:38.132430+00:00",
+  "ticker": "GMEX",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.8496,
+      "setup": "Harami",
+      "score": 71.0,
+      "ticker": "GMEX",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:40:19.305277",
+      "target": 0.8067599999999998,
+      "stop": 0.87177,
+      "entry": 0.8501,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

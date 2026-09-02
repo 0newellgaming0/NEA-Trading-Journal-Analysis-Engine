@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T07:23:25.723851+00:00",
+  "generated_at": "2026-09-02T14:23:36.444920+00:00",
   "ticker": "EZRA",
   "count": 2,
   "trades": [
     {
       "current_price": 2.77,
-      "ticker": "EZRA",
-      "target": 2.9299999999999993,
-      "score": 87.0,
       "setup": "TLINE_CONTINUATION",
-      "regime": "SHORT_TERM_STRENGTH",
-      "status": "CONFIRMED",
+      "score": 87.0,
+      "ticker": "EZRA",
+      "direction": "Bullish",
       "risk_reward": 2.0,
-      "entry": 2.82,
+      "updated_at": "2026-09-02T09:45:19.811371",
+      "target": 2.9299999999999993,
       "stop": 2.765,
-      "updated_at": "2026-09-02T05:23:12.372928",
-      "direction": "Bullish"
+      "entry": 2.82,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
     },
     {
       "updated_at": "2026-09-01T22:46:53.962523",

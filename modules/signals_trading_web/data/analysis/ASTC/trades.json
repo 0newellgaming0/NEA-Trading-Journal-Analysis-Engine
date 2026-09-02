@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:27.640600+00:00",
+  "ticker": "ASTC",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 7.1653,
+      "setup": "TLINE_CONTINUATION",
+      "score": 71.0,
+      "ticker": "ASTC",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:09:35.638560",
+      "target": 8.240000000000002,
+      "stop": 6.92,
+      "entry": 7.36,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
+    }
+  ]
+}

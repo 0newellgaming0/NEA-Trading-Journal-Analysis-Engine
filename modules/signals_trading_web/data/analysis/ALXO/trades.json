@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.631674+00:00",
+  "generated_at": "2026-09-02T14:23:25.350407+00:00",
   "ticker": "ALXO",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 1.97,
+      "setup": "Engulfing",
+      "score": 79.0,
+      "ticker": "ALXO",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:22:59.473433",
+      "target": 2.1930000000000005,
+      "stop": 1.896,
+      "entry": 1.995,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T23:06:29.828859",

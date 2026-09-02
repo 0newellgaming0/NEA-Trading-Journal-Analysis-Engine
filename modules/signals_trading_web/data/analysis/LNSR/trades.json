@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:41.930453+00:00",
+  "ticker": "LNSR",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 8.46,
+      "setup": "TLINE_CONTINUATION",
+      "score": 69.0,
+      "ticker": "LNSR",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:46:20.100786",
+      "target": 8.286,
+      "stop": 8.517,
+      "entry": 8.44,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

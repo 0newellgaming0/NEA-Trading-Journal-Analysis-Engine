@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:45.080550+00:00",
+  "ticker": "NXXT",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.222,
+      "setup": "Shooting Star",
+      "score": 73.0,
+      "ticker": "NXXT",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:28:07.508000",
+      "target": 0.18859999999999996,
+      "stop": 0.22985,
+      "entry": 0.2161,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    }
+  ]
+}

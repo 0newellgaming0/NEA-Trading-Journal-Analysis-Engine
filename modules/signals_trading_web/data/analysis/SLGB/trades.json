@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.491688+00:00",
+  "generated_at": "2026-09-02T14:23:49.691040+00:00",
   "ticker": "SLGB",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 0.4691,
+      "setup": "Engulfing",
+      "score": 72.0,
+      "ticker": "SLGB",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:18:22.962690",
+      "target": 0.4844799999999999,
+      "stop": 0.45511,
+      "entry": 0.4649,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 0.5,
       "current_price": 0.499,

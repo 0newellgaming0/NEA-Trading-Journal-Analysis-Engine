@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:51.645952+00:00",
+  "ticker": "TBI",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 10.06,
+      "setup": "TLINE_CONTINUATION",
+      "score": 74.0,
+      "ticker": "TBI",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:20:23.037492",
+      "target": 9.086000000000004,
+      "stop": 10.306999999999999,
+      "entry": 9.9,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    }
+  ]
+}

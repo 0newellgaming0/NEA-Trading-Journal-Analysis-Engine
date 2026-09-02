@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T00:48:47.185837+00:00",
+  "generated_at": "2026-09-02T14:23:43.780527+00:00",
   "ticker": "NB",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "current_price": 3.9793,
+      "setup": "Pinbar",
+      "score": 78.0,
+      "ticker": "NB",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T10:07:30.899523",
+      "target": 3.9278399999999998,
+      "stop": 4.03608,
+      "entry": 4.0,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    },
     {
       "updated_at": "2026-09-01T23:28:35.589048",
       "target": 3.8900000000000006,

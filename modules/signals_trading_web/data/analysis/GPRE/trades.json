@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.273641+00:00",
+  "generated_at": "2026-09-02T14:23:38.470380+00:00",
   "ticker": "GPRE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 14.75,
+      "setup": "TLINE_CONTINUATION",
+      "score": 78.0,
+      "ticker": "GPRE",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T09:12:23.762266",
+      "target": 15.046000000000001,
+      "stop": 14.452,
+      "entry": 14.65,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "current_price": 14.7,
       "target": 15.020000000000001,

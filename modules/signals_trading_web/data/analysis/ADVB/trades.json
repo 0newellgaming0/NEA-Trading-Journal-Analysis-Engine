@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T00:48:31.741626+00:00",
+  "generated_at": "2026-09-02T14:23:23.180307+00:00",
   "ticker": "ADVB",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 10.62,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "score": 76.0,
+      "ticker": "ADVB",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T09:29:34.079900",
+      "target": 12.485000000000003,
+      "stop": 9.8225,
+      "entry": 10.71,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
+    },
     {
       "updated_at": "2026-09-02T00:19:46.833145",
       "target": 11.120000000000005,

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:27.690442+00:00",
+  "ticker": "ATOM",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 3.9,
+      "setup": "Pinbar",
+      "score": 73.0,
+      "ticker": "ATOM",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T10:19:44.774140",
+      "target": 3.8699999999999997,
+      "stop": 4.035,
+      "entry": 3.98,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    }
+  ]
+}

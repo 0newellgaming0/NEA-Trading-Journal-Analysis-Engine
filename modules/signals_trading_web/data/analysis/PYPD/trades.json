@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.255779+00:00",
+  "generated_at": "2026-09-02T14:23:47.030639+00:00",
   "ticker": "PYPD",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 5.33,
+      "setup": "Counterattack Lines",
+      "score": 74.0,
+      "ticker": "PYPD",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:44:17.617092",
+      "target": 5.0920000000000005,
+      "stop": 5.554,
+      "entry": 5.4,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 5.08,
       "current_price": 5.17,

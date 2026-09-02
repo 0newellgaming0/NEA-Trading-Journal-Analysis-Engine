@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:43.120540+00:00",
+  "ticker": "MTEN",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 1.06,
+      "setup": "Inside Bar",
+      "score": 74.0,
+      "ticker": "MTEN",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T08:31:41.396957",
+      "target": 1.1059999999999999,
+      "stop": 1.0070000000000001,
+      "entry": 1.04,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

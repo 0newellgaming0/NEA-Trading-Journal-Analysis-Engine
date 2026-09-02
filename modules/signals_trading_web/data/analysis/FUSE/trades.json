@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:37.814406+00:00",
+  "ticker": "FUSE",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.6374,
+      "setup": "TLINE_CONTINUATION",
+      "score": 50.0,
+      "ticker": "FUSE",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T13:23:50.621680",
+      "target": 0.6095599999999999,
+      "stop": 0.65147,
+      "entry": 0.6375,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    }
+  ]
+}

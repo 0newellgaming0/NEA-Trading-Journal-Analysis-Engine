@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.259986+00:00",
+  "generated_at": "2026-09-02T14:23:47.063712+00:00",
   "ticker": "PYXS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 3.5,
+      "setup": "Inside Bar",
+      "score": 78.0,
+      "ticker": "PYXS",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T09:43:15.367979",
+      "target": 3.624000000000001,
+      "stop": 3.393,
+      "entry": 3.47,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 3.2,
       "current_price": 3.2297,

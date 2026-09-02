@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.770045+00:00",
+  "generated_at": "2026-09-02T14:23:41.340861+00:00",
   "ticker": "KUST",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.89,
+      "setup": "Inverted Hammer",
+      "score": 87.0,
+      "ticker": "KUST",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:52:58.562053",
+      "target": 0.95324,
+      "stop": 0.87338,
+      "entry": 0.9,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
 }

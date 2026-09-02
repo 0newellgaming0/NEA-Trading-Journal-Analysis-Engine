@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.476163+00:00",
+  "generated_at": "2026-09-02T14:23:45.702602+00:00",
   "ticker": "OXSQ",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 1.3599,
+      "setup": "Pinbar",
+      "score": 58.0,
+      "ticker": "OXSQ",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T14:10:18.615115",
+      "target": 1.3380000000000003,
+      "stop": 1.371,
+      "entry": 1.36,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "current_price": 1.38,
       "target": 1.37134,

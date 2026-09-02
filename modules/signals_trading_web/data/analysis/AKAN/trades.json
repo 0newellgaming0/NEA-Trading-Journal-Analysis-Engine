@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.569940+00:00",
+  "generated_at": "2026-09-02T14:23:24.700458+00:00",
   "ticker": "AKAN",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 3.78,
+      "setup": "Pinbar",
+      "score": 79.0,
+      "ticker": "AKAN",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T08:02:31.218448",
+      "target": 3.949680000000001,
+      "stop": 3.6200099999999997,
+      "entry": 3.7299,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "setup": "Marubozu",
       "updated_at": "2026-08-30T23:10:14.718634",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.621948+00:00",
+  "generated_at": "2026-09-02T14:23:39.647633+00:00",
   "ticker": "ILLR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 0.99,
+      "setup": "Inside Bar",
+      "score": 77.0,
+      "ticker": "ILLR",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T07:40:09.610764",
+      "target": 1.0647,
+      "stop": 0.93765,
+      "entry": 0.98,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 0.9618,
       "current_price": 0.984,

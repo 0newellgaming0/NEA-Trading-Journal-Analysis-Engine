@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.486937+00:00",
+  "generated_at": "2026-09-02T14:23:37.980531+00:00",
   "ticker": "GENI",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 7.59,
+      "setup": "GRAVESTONE_DOJI",
+      "score": 69.0,
+      "ticker": "GENI",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T13:38:47.092334",
+      "target": 8.189999999999998,
+      "stop": 7.23,
+      "entry": 7.55,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
+    }
+  ]
 }

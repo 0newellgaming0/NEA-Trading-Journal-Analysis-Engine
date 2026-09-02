@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:44.890718+00:00",
+  "ticker": "NWG",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 18.53,
+      "setup": "Inside Bar",
+      "score": 70.0,
+      "ticker": "NWG",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T12:53:58.191865",
+      "target": 18.378800000000002,
+      "stop": 18.72035,
+      "entry": 18.6065,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    }
+  ]
+}

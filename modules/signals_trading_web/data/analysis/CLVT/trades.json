@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T07:23:20.107569+00:00",
+  "generated_at": "2026-09-02T14:23:33.150567+00:00",
   "ticker": "CLVT",
   "count": 1,
   "trades": [
     {
       "current_price": 2.04,
-      "ticker": "CLVT",
-      "target": 1.9540000000000002,
-      "score": 83.0,
       "setup": "TLINE_CONTINUATION",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "status": "CONFIRMED",
+      "score": 83.0,
+      "ticker": "CLVT",
+      "direction": "Bearish",
       "risk_reward": 2.0,
-      "entry": 2.02,
+      "updated_at": "2026-09-02T08:25:02.170641",
+      "target": 1.9540000000000002,
       "stop": 2.053,
-      "updated_at": "2026-09-02T07:03:42.352194",
-      "direction": "Bearish"
+      "entry": 2.02,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED"
     }
   ]
 }

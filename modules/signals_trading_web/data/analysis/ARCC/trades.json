@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:26.903265+00:00",
+  "ticker": "ARCC",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 20.0,
+      "setup": "Pinbar",
+      "score": 76.0,
+      "ticker": "ARCC",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:12:52.888630",
+      "target": 19.645999999999997,
+      "stop": 20.042,
+      "entry": 19.91,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    }
+  ]
+}

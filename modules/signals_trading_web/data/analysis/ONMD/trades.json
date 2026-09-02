@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:45.303128+00:00",
+  "ticker": "ONMD",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.5699,
+      "setup": "Harami Cross",
+      "score": 62.0,
+      "ticker": "ONMD",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T13:06:36.732879",
+      "target": 0.5789399999999999,
+      "stop": 0.56838,
+      "entry": 0.5719,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    }
+  ]
+}

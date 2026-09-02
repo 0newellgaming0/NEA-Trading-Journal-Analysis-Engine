@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T07:23:24.787701+00:00",
+  "generated_at": "2026-09-02T14:23:35.100708+00:00",
   "ticker": "DLO",
   "count": 9,
   "trades": [
     {
       "current_price": 14.83,
-      "ticker": "DLO",
-      "target": 15.098,
-      "score": 90.0,
       "setup": "Engulfing",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "status": "CONFIRMED",
+      "score": 90.0,
+      "ticker": "DLO",
+      "direction": "Bullish",
       "risk_reward": 2.0,
-      "entry": 14.845,
+      "updated_at": "2026-09-02T07:51:16.025736",
+      "target": 15.098,
       "stop": 14.7185,
-      "updated_at": "2026-09-02T05:00:33.064336",
-      "direction": "Bullish"
+      "entry": 14.845,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED"
     },
     {
       "setup": "Three Black Crows",

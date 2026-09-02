@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T14:23:39.550908+00:00",
+  "ticker": "ICMB",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.82,
+      "setup": "TLINE_CONTINUATION",
+      "score": 66.0,
+      "ticker": "ICMB",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T13:58:39.437457",
+      "target": 0.7985799999999998,
+      "stop": 0.83521,
+      "entry": 0.823,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    }
+  ]
+}

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.453791+00:00",
+  "generated_at": "2026-09-02T14:23:37.660544+00:00",
   "ticker": "FTRE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 17.94,
+      "setup": "TLINE_CONTINUATION",
+      "score": 81.0,
+      "ticker": "FTRE",
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:57:14.299395",
+      "target": 17.650000000000002,
+      "stop": 18.145,
+      "entry": 17.98,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 18.81,
       "current_price": 18.89,

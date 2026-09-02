@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T08:55:48.622417+00:00",
+  "generated_at": "2026-09-02T14:23:48.244385+00:00",
   "ticker": "RSKD",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 6.18,
+      "setup": "EMA200_CROSS",
+      "score": 77.0,
+      "ticker": "RSKD",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-02T11:16:15.705069",
+      "target": 6.384000000000001,
+      "stop": 5.9879999999999995,
+      "entry": 6.12,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "stop": 6.438,
       "status": "CONFIRMED",
