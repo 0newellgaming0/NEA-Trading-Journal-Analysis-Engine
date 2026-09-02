@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-01T23:37:50.463334",
+  "tickers": {
+    "CGBD": {
+      "generated_at": "2026-09-01T23:37:50.463334",
+      "journal_timestamp": "",
+      "stop_breached": false,
+      "analysis_blocks": {
+        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: Carlyle Secured Lending Inc\n🔤 Ticker: CGBD\n👤 CEO: Linda Pace\n👥 Employees: 0\n📅 Established: 2012-02-08\n🏢 Company Age: 14.56 years\n📊 Profile Score: 70/100\n🏷️ Profile Age Classification: ESTABLISHED\n📍 Address: One Vanderbilt Avenue, Suite 3400,NEW YORK,NY,United States",
+        "fundamentals": "🏢 FUNDAMENTALS\n\n📊 FINANCIAL ANALYSIS: CGBD\n\nRevenue: 80987000.0\nNet Income: 69972000.0\nGross Profit: None\nOperating Income: None\n\nMargins:\n- Gross Margin: None\n- Net Margin: 86.3990516996555\n\nBalance Sheet:\n- Total Assets: 2790167000.0\n- Total Liabilities: 1622779000.0\n- Equity: 1167388000.0\n- Debt/Equity: 1.3900939533385643\n\nCash Flow:\n- Operating Cash Flow: -204560000.0\n- Free Cash Flow: -204560000.0\n\nInstitutional Score (5):\n4/5\n",
+        "relative_strength": "\n📊 RELATIVE STRENGTH CONTEXT\n\nTicker:\n→ CGBD\n\nTimeframe:\n→ DAILY\n\n❌ STATUS:\nNo DAILY ticker dataset found.\n\nExpected:\n→ E:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\CGBD.csv\n",
+        "tline_15m": "\n15M T-LINE ANALYSIS\n\nT-Line State:\nBullish Trend\n\nInterpretation:\nStrong intraday bullish expansion, EMA8 is sloping upward with price holding above dynamic support. Momentum is accelerating, indicating active institutional continuation participation.\n\nT-Line Hold / Break:\nBullish Reclaim\n\nInterpretation:\nBullish reclaim event, price briefly lost EMA8 but quickly regained it. This reflects absorption of selling pressure and responsive institutional buying. Continuation probability increases if follow-through holds above EMA8.\n\nEMA8:\n11.75\n\nEMA8 Slope:\n0.1055\n\nT-LINE STOP:\n11.6340\n\nTrend Failure:\nNone\n\nRejection Signal:\nBullish Rejection\n\nTREND STATE MACHINE:\nUPTREND\n\nT-LINE STATE:\nBullish Trend\n\nREGIME:\nTREND_UP\n\nT-LINE SCORE:\n100/100\n\nMETA CONSENSUS:\nBULLISH_META\n\nMETA SCORE:\n3\n\nCONFLICT SCORE:\n0\n\nFORMATIONS:\n- J-Hook: None\n- Flag: Bull Flag\n- Squeeze: None\n- Trap: Reclaim Trap\n- Ladder: Higher Low Ladder\n- Momentum: None\n\nWyckoff Phase:\nTransition\n\nInterpretation:\nIntraday transition phase, market is unstable with no confirmed directional bias. Breakout or breakdown likely approaching as structure resolves.\n\n",
+        "tline_60m": "60M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "intraday_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\CGBD.csv",
+        "intraday_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\CGBD.csv",
+        "historical": "\nTREND STRUCTURE\n\nPrimary Trend Structure:\nMixed Structure\n\nClose Price:\n11.55\n\nEMA8: 11.53  \nEMA21: 11.22\nSMA20: 11.22 \nSMA50: 10.72 \nSMA200: 10.95 \n\n\nPERFORMANCE\n\n1D Return: -3.59%\n1W Return: 0.87%\n1M Return: 15.62%\n3M Return: 8.40%\n6M Return: 10.87%\n1Y Return: -4.55%\n\n\nLIQUIDITY\n\nRVOL:\n0.97\n\nLiquidity Score:\n1.14\n\nParticipation:\nNormal Participation\n\n\nVOLATILITY\n\nATR:\n0.27\n\nVolatility:\n28.97%\n\nCompression Score:\n0.98\n\nState:\nNormal Volatility\n\n\nMOMENTUM\n\nRSI:\n60.06\n\nState:\nBullish Momentum\n\nCLV:\n-1.00\n\n\nT-LINE ANALYSIS\n\nT-Line State:\nBullish Trend\n\nT-Line Hold / Break:\nBullish Hold\n\nEMA8:\n11.53\n\nEMA8 Normalized Slope:\n1.8852%\n\nT-Line Confidence:\n2.00\n\nTrend Failure:\nNone\n\nRejection Signal:\nNone\n\nStrong Continuation Candle:\nTrue\n\n\nWYCKOFF CONTEXT\n\nEstimated Structural Phase:\nPotential Sign of Strength / Phase D\n\n\nT-LINE INTERPRETATION\n\nT-Line Context:\nPrice is above the T-Line and the T-Line is rising, confirming aligned bullish short-term structure.\n\nHold / Break Context:\nPrice held above T-Line support through the session.\n\n\nRISK FRAMEWORK\n\nBullish Stop:\n11.25\n\nBearish Stop:\n11.82\n\nBullish Target:\n12.10\n\nBearish Target:\n11.00\n",
+        "daily_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\CGBD.csv",
+        "daily_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\CGBD.csv",
+        "risk_engine": "\nSTOP LOSS STATUS: VALID\nLATEST 1M CLOSE: 12.1176\nTREND DIRECTION: NONE\n\n60M T-LINE STOP: N/A\n60M T-LINE STATUS: UNAVAILABLE\n\nDAILY LATEST SWING HIGH: N/A\nDAILY LATEST SWING LOW: N/A\nSTRUCTURAL STOP: N/A\nSTRUCTURAL BREACH: False\n\nDAILY T-LINE STOP: N/A\nDAILY T-LINE STATUS: UNAVAILABLE\n\nDAILY T-LINE DIRECTION: UNAVAILABLE\n60M vs DAILY STOP: UNAVAILABLE\nPRICE vs STOP STRUCTURE: UNAVAILABLE\n",
+        "weekly_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\weekly\\CGBD.csv",
+        "dual_timeframe_momentum": "\n📊 DUAL TIME FRAME MOMENTUM ENGINE ERROR\n\nTicker: CGBD\nError: OHLCV input is invalid\n\n",
+        "top_signals": "📊 TOP SIGNALS\n\n1. Falling Three Methods\nCount: 3\nResolved: 3\nSuccess: 3\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n2. Pinbar\nCount: 3\nResolved: 3\nSuccess: 3\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n3. INSTITUTIONAL_TRADE_SYNTHESIS\nCount: 3\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 2\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n4. Loose Rising Mat Hold\nCount: 2\nResolved: 2\nSuccess: 2\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n5. Shooting Star\nCount: 2\nResolved: 2\nSuccess: 2\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n6. Counterattack Lines\nCount: 2\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 1\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n7. Tweezer Bottom\nCount: 2\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 1\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n8. Bearish Gravestone Doji Sandwich\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n9. Bearish Standard Doji Sandwich\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n10. Bullish Dragonfly Doji Sandwich\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n11. Dark Cloud Cover\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n12. Evening Star\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n13. Harami Cross\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n14. Loose Falling Mat Hold\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n15. Piercing Line\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n16. Three Inside Down\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n17. Inside Bar\nCount: 3\nResolved: 3\nSuccess: 2\nFailed: 1\nUnresolved: 0\nSuccess Rate: 66.67%\nFailure Rate: 33.33%\n\n18. Engulfing\nCount: 3\nResolved: 2\nSuccess: 1\nFailed: 1\nUnresolved: 1\nSuccess Rate: 50.00%\nFailure Rate: 50.00%\n\n19. Harami\nCount: 2\nResolved: 2\nSuccess: 1\nFailed: 1\nUnresolved: 0\nSuccess Rate: 50.00%\nFailure Rate: 50.00%\n\n20. Candle Over Candle\nCount: 3\nResolved: 3\nSuccess: 1\nFailed: 2\nUnresolved: 0\nSuccess Rate: 33.33%\nFailure Rate: 66.67%",
+        "existing_trades": "📊 TRADE PERFORMANCE ANALYSIS\n\nNo trades.json exists for CGBD.",
+        "candlestick_summary": "Candlestick analysis unavailable. See log.",
+        "point_and_figure": "No data",
+        "liquidity_phase": "Liquidity engine failed.",
+        "liquidity_engine": "Liquidity engine failed.",
+        "sec_earnings": "",
+        "sec_annual_growth": "",
+        "sec_float_analysis": "",
+        "sec_ownership": "",
+        "sec_capital_allocation": "",
+        "sec_balance_sheet": "",
+        "sec_cash_flow": "",
+        "sec_new_developments": "",
+        "sec_canslim": "",
+        "fractal": "Fractal analysis unavailable: invalid or empty dataset",
+        "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nNo current trade setup found for CGBD."
+      },
+      "current_performance_generated_at": "2026-09-01T23:38:37.531323"
+    }
+  }
+}

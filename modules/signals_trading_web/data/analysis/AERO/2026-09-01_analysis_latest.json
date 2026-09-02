@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-01T23:39:18.755563",
+  "tickers": {
+    "AERO": {
+      "generated_at": "2026-09-01T23:39:18.755563",
+      "journal_timestamp": "",
+      "stop_breached": false,
+      "analysis_blocks": {
+        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: N/A\n🔤 Ticker: AERO\n👤 CEO: N/A\n👥 Employees: N/A\n📅 Established: N/A\n🏢 Company Age: N/A\n📊 Profile Score: N/A\n🏷️ Profile Age Classification: UNKNOWN\n📍 Address: N/A",
+        "fundamentals": "🏢 FUNDAMENTALS\n\n📊 FINANCIAL ANALYSIS: AERO\n\nRevenue: 5360570000.0\nNet Income: 351861000.0\nGross Profit: 1479082000.0\nOperating Income: 928109000.0\n\nMargins:\n- Gross Margin: 27.591879221799175\n- Net Margin: 6.563872871728194\n\nBalance Sheet:\n- Total Assets: 7193091000.0\n- Total Liabilities: 7785307000.0\n- Equity: -594266000.0\n- Debt/Equity: -13.100710792809954\n\nCash Flow:\n- Operating Cash Flow: 913081000.0\n- Free Cash Flow: 527011000.0\n\nInstitutional Score (5):\n5/5\n",
+        "relative_strength": "\n📊 RELATIVE STRENGTH CONTEXT\n\nTicker:\n→ AERO\n\nTimeframe:\n→ DAILY\n\n❌ STATUS:\nNo DAILY ticker dataset found.\n\nExpected:\n→ E:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\AERO.csv\n",
+        "tline_15m": "\n15M T-LINE ANALYSIS\n\nT-Line State:\nBearish Trend\n\nInterpretation:\nStrong intraday bearish expansion, EMA8 is sloping downward with sustained price rejection below trend. Institutional distribution is active with continuation pressure.\n\nT-Line Hold / Break:\nBearish Hold\n\nInterpretation:\nStrong bearish hold, price is repeatedly failing to reclaim EMA8 from below. Indicates persistent distribution pressure and weak demand response.\n\nEMA8:\n14.66\n\nEMA8 Slope:\n-0.0272\n\nT-LINE STOP:\n14.8625\n\nTrend Failure:\nNone\n\nRejection Signal:\nNone\n\nTREND STATE MACHINE:\nDOWNTREND\n\nT-LINE STATE:\nBearish Trend\n\nREGIME:\nTREND_DOWN\n\nT-LINE SCORE:\n0/100\n\nMETA CONSENSUS:\nBEARISH_META\n\nMETA SCORE:\n-3\n\nCONFLICT SCORE:\n0\n\nFORMATIONS:\n- J-Hook: None\n- Flag: None\n- Squeeze: Squeeze\n- Trap: None\n- Ladder: Lower High Ladder\n- Momentum: None\n\nWyckoff Phase:\nRange / Balance\n\nInterpretation:\nIntraday equilibrium phase, rotational balance between buyers and sellers. No dominant directional control, absorption and distribution both active.\n\n",
+        "tline_60m": "60M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "intraday_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\AERO.csv",
+        "intraday_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\AERO.csv",
+        "historical": "\nTREND STRUCTURE\n\nPrimary Trend Structure:\nStrong Bearish Structure\n\nClose Price:\n14.56\n\nEMA8: 14.68  \nEMA21: 14.98\nSMA20: 15.07 \nSMA50: 15.83 \nSMA200: 17.09 \n\n\nPERFORMANCE\n\n1D Return: 0.34%\n1W Return: -3.58%\n1M Return: -9.17%\n3M Return: -12.08%\n6M Return: -14.45%\n1Y Return: nan%\n\n\nLIQUIDITY\n\nRVOL:\n1.55\n\nLiquidity Score:\n1.34\n\nParticipation:\nAbove-Normal Participation\n\n\nVOLATILITY\n\nATR:\n0.70\n\nVolatility:\n45.37%\n\nCompression Score:\n0.97\n\nState:\nNormal Volatility\n\n\nMOMENTUM\n\nRSI:\n43.91\n\nState:\nBearish Momentum\n\nCLV:\n0.56\n\n\nT-LINE ANALYSIS\n\nT-Line State:\nBearish Trend\n\nT-Line Hold / Break:\nBearish Hold\n\nEMA8:\n14.68\n\nEMA8 Normalized Slope:\n-0.8093%\n\nT-Line Confidence:\n-2.00\n\nTrend Failure:\nNone\n\nRejection Signal:\nNone\n\nStrong Continuation Candle:\nTrue\n\n\nWYCKOFF CONTEXT\n\nEstimated Structural Phase:\nMarkdown / Phase E\n\n\nT-LINE INTERPRETATION\n\nT-Line Context:\nPrice is below the T-Line and the T-Line is falling, confirming aligned bearish short-term structure.\n\nHold / Break Context:\nPrice remained below T-Line resistance through the session.\n\n\nRISK FRAMEWORK\n\nBullish Stop:\n13.86\n\nBearish Stop:\n15.38\n\nBullish Target:\n15.96\n\nBearish Target:\n13.16\n",
+        "daily_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\AERO.csv",
+        "daily_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\AERO.csv",
+        "risk_engine": "\nSTOP LOSS STATUS: VALID\nLATEST 1M CLOSE: 14.56\nTREND DIRECTION: NONE\n\n60M T-LINE STOP: N/A\n60M T-LINE STATUS: UNAVAILABLE\n\nDAILY LATEST SWING HIGH: N/A\nDAILY LATEST SWING LOW: N/A\nSTRUCTURAL STOP: N/A\nSTRUCTURAL BREACH: False\n\nDAILY T-LINE STOP: N/A\nDAILY T-LINE STATUS: UNAVAILABLE\n\nDAILY T-LINE DIRECTION: UNAVAILABLE\n60M vs DAILY STOP: UNAVAILABLE\nPRICE vs STOP STRUCTURE: UNAVAILABLE\n",
+        "weekly_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\weekly\\AERO.csv",
+        "dual_timeframe_momentum": "\n📊 DUAL TIME FRAME MOMENTUM ENGINE ERROR\n\nTicker: AERO\nError: OHLCV input is invalid\n\n",
+        "top_signals": "📊 TOP SIGNALS\n\n1. Inside Bar\nCount: 4\nResolved: 4\nSuccess: 4\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n2. INSTITUTIONAL_TRADE_SYNTHESIS\nCount: 4\nResolved: 4\nSuccess: 4\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n3. TLINE_CONTINUATION\nCount: 4\nResolved: 4\nSuccess: 4\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n4. Wyckoff LPS (Seed)\nCount: 4\nResolved: 4\nSuccess: 4\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n5. Loose Rising Mat Hold\nCount: 3\nResolved: 3\nSuccess: 3\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n6. Morning Star\nCount: 2\nResolved: 2\nSuccess: 2\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n7. RSI_ABOVE_50_CONTINUATION\nCount: 2\nResolved: 2\nSuccess: 2\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n8. Bearish Standard Doji Sandwich\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n9. Bullish Standard Doji Sandwich\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n10. Hammer\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n11. Left Right Combo\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n12. RSI_50_CROSS_UP\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n13. Three Inside Down\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n14. Three Inside Up\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n15. Tweezer Bottom\nCount: 1\nResolved: 1\nSuccess: 1\nFailed: 0\nUnresolved: 0\nSuccess Rate: 100.00%\nFailure Rate: 0.00%\n\n16. Candle Over Candle\nCount: 4\nResolved: 4\nSuccess: 3\nFailed: 1\nUnresolved: 0\nSuccess Rate: 75.00%\nFailure Rate: 25.00%\n\n17. EMA20_CROSS\nCount: 4\nResolved: 4\nSuccess: 3\nFailed: 1\nUnresolved: 0\nSuccess Rate: 75.00%\nFailure Rate: 25.00%\n\n18. Engulfing\nCount: 4\nResolved: 4\nSuccess: 3\nFailed: 1\nUnresolved: 0\nSuccess Rate: 75.00%\nFailure Rate: 25.00%\n\n19. Marubozu\nCount: 4\nResolved: 3\nSuccess: 2\nFailed: 1\nUnresolved: 1\nSuccess Rate: 66.67%\nFailure Rate: 33.33%\n\n20. Pinbar\nCount: 4\nResolved: 3\nSuccess: 2\nFailed: 1\nUnresolved: 1\nSuccess Rate: 66.67%\nFailure Rate: 33.33%",
+        "existing_trades": "📊 TRADE PERFORMANCE ANALYSIS\n\nNo trades.json exists for AERO.",
+        "candlestick_summary": "Candlestick analysis unavailable. See log.",
+        "point_and_figure": "No data",
+        "liquidity_phase": "Liquidity engine failed.",
+        "liquidity_engine": "Liquidity engine failed.",
+        "sec_earnings": "",
+        "sec_annual_growth": "",
+        "sec_float_analysis": "",
+        "sec_ownership": "",
+        "sec_capital_allocation": "",
+        "sec_balance_sheet": "",
+        "sec_cash_flow": "",
+        "sec_new_developments": "",
+        "sec_canslim": "",
+        "fractal": "Fractal analysis unavailable: invalid or empty dataset",
+        "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nNo current trade setup found for AERO."
+      },
+      "current_performance_generated_at": "2026-09-01T23:39:24.713198"
+    }
+  }
+}
