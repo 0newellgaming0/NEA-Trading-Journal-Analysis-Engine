@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T14:23:50.890824+00:00",
+  "generated_at": "2026-09-02T20:51:09.169307+00:00",
   "ticker": "STRW",
   "count": 1,
   "trades": [
     {
-      "current_price": 13.6,
       "setup": "TLINE_CONTINUATION",
-      "score": 84.0,
-      "ticker": "STRW",
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "updated_at": "2026-09-02T09:31:19.340226",
-      "target": 13.839999999999998,
-      "stop": 13.51,
       "entry": 13.62,
+      "updated_at": "2026-09-02T20:34:17.467946",
+      "ticker": "STRW",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "direction": "Bullish",
       "regime": "PRIMARY_UPTREND_PULLBACK",
-      "status": "CONFIRMED"
+      "target": 13.839999999999998,
+      "current_price": 13.6,
+      "stop": 13.51,
+      "score": 78.0
     }
   ]
 }

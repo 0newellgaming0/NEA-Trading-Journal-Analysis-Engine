@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:22.737943+00:00",
+  "generated_at": "2026-09-02T20:51:08.539594+00:00",
   "ticker": "ADMA",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "Counterattack Lines",
+      "entry": 9.52,
+      "updated_at": "2026-09-02T20:26:07.845915",
+      "ticker": "ADMA",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "target": 9.421,
+      "current_price": 9.51,
+      "stop": 9.5695,
+      "score": 85.0
+    },
     {
       "current_price": 9.45,
       "setup": "Inside Bar",

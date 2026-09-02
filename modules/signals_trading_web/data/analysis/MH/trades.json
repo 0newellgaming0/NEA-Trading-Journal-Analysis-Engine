@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:30.871111+00:00",
+  "generated_at": "2026-09-02T20:51:08.984165+00:00",
   "ticker": "MH",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "Shooting Star",
+      "entry": 12.93,
+      "updated_at": "2026-09-02T20:23:02.713839",
+      "ticker": "MH",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 12.819999999999997,
+      "current_price": 12.85,
+      "stop": 12.985000000000001,
+      "score": 80.0
+    },
     {
       "current_price": 12.95,
       "ticker": "MH",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T15:17:05.947638+00:00",
+  "generated_at": "2026-09-02T20:51:09.190628+00:00",
   "ticker": "SUNE",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "setup": "Pinbar",
+      "entry": 2.37,
+      "updated_at": "2026-09-02T20:45:19.154047",
+      "ticker": "SUNE",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 2.4800000000000004,
+      "current_price": 2.37,
+      "stop": 2.315,
+      "score": 88.0
+    },
     {
       "ticker": "SUNE",
       "updated_at": "2026-09-02T14:57:52.280712",
