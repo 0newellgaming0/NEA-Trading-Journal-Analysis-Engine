@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:51.224609+00:00",
+  "generated_at": "2026-09-02T16:15:16.987389+00:00",
   "ticker": "SVM",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "ticker": "SVM",
+      "entry": 12.79,
+      "score": 79.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "current_price": 12.635,
+      "target": 14.153999999999996,
+      "risk_reward": 2.0,
+      "stop": 12.108,
+      "updated_at": "2026-09-02T16:15:16.231324",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "setup": "EMA50_CROSS"
+    },
     {
       "current_price": 11.8119,
       "setup": "Engulfing",
