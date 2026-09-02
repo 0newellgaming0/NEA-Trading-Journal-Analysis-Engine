@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-02T14:23:53.460655+00:00",
+  "generated_at": "2026-09-02T15:17:06.114118+00:00",
   "ticker": "VIR",
   "count": 2,
   "trades": [
     {
-      "current_price": 11.5,
-      "setup": "TLINE_CONTINUATION",
-      "score": 90.0,
       "ticker": "VIR",
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "updated_at": "2026-09-02T08:48:58.577336",
-      "target": 12.687999999999999,
-      "stop": 10.741000000000001,
-      "entry": 11.39,
+      "updated_at": "2026-09-02T15:05:04.345747",
       "regime": "BULLISH_CONSOLIDATION",
+      "entry": 11.39,
+      "risk_reward": 2.0,
+      "target": 12.687999999999999,
+      "current_price": 11.48,
+      "score": 83.0,
+      "direction": "Bullish",
+      "stop": 10.741000000000001,
+      "setup": "TLINE_CONTINUATION",
       "status": "CONFIRMED"
     },
     {

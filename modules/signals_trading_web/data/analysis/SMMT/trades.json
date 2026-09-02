@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:36.607227+00:00",
+  "generated_at": "2026-09-02T15:17:05.861303+00:00",
   "ticker": "SMMT",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "ticker": "SMMT",
+      "updated_at": "2026-09-02T14:51:45.349370",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 14.06,
+      "risk_reward": 2.0,
+      "target": 13.598,
+      "current_price": 14.185,
+      "score": 82.0,
+      "direction": "Bearish",
+      "stop": 14.291,
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "current_price": 14.13,
       "ticker": "SMMT",

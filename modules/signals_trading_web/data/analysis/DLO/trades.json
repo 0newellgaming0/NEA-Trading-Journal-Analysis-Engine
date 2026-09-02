@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:35.100708+00:00",
+  "generated_at": "2026-09-02T15:17:04.848300+00:00",
   "ticker": "DLO",
-  "count": 9,
+  "count": 10,
   "trades": [
+    {
+      "ticker": "DLO",
+      "updated_at": "2026-09-02T15:00:00.230425",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "entry": 15.48,
+      "risk_reward": 2.0,
+      "target": 17.18,
+      "current_price": 15.43,
+      "score": 88.0,
+      "direction": "Bullish",
+      "stop": 14.63,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "status": "CONFIRMED"
+    },
     {
       "current_price": 14.83,
       "setup": "Engulfing",

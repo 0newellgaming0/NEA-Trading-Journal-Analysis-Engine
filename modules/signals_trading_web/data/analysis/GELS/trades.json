@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-02T14:23:37.894401+00:00",
+  "generated_at": "2026-09-02T15:17:05.091206+00:00",
   "ticker": "GELS",
   "count": 1,
   "trades": [
     {
-      "current_price": 0.6553,
-      "setup": "Marubozu",
-      "score": 91.0,
       "ticker": "GELS",
-      "direction": "Bearish",
-      "risk_reward": 2.0,
-      "updated_at": "2026-09-02T14:15:14.046122",
-      "target": 0.036880000000000024,
-      "stop": 0.81931,
-      "entry": 0.5585,
+      "updated_at": "2026-09-02T14:55:59.764239",
       "regime": "SHORT_TERM_STRENGTH",
+      "entry": 0.5585,
+      "risk_reward": 2.0,
+      "target": 0.036880000000000024,
+      "current_price": 0.6353,
+      "score": 92.0,
+      "direction": "Bearish",
+      "stop": 0.81931,
+      "setup": "Marubozu",
       "status": "CONFIRMED"
     }
   ]
