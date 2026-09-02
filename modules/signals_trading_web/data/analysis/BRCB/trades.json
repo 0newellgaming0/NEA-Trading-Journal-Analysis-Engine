@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:11.508707+00:00",
+  "generated_at": "2026-09-02T00:48:36.699151+00:00",
   "ticker": "BRCB",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-02T00:35:23.370024",
+      "target": 8.980999999999998,
+      "setup": "TLINE_CONTINUATION",
+      "direction": "Bearish",
+      "current_price": 9.32,
+      "stop": 9.624500000000001,
+      "score": 63.0,
+      "entry": 9.41,
+      "ticker": "BRCB",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 9.5711,
       "direction": "Bullish",

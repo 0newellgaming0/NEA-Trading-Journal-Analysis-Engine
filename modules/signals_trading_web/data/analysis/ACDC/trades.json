@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.427470+00:00",
+  "generated_at": "2026-09-02T00:48:30.782057+00:00",
   "ticker": "ACDC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-02T00:26:10.569323",
+      "target": 4.755800000000002,
+      "setup": "Pinbar",
+      "direction": "Bearish",
+      "current_price": 5.01,
+      "stop": 5.2871,
+      "score": 70.0,
+      "entry": 5.11,
+      "ticker": "ACDC",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0
+    },
     {
       "risk_reward": 2.0,
       "current_price": 4.99,

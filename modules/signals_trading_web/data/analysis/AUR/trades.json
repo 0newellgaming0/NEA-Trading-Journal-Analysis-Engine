@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:10.334961+00:00",
+  "generated_at": "2026-09-02T00:48:35.085136+00:00",
   "ticker": "AUR",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "updated_at": "2026-09-02T00:07:21.931610",
+      "target": 5.448000000000002,
+      "setup": "Harami",
+      "direction": "Bearish",
+      "current_price": 5.46,
+      "stop": 5.5634999999999994,
+      "score": 70.0,
+      "entry": 5.525,
+      "ticker": "AUR",
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 5.65,
       "direction": "Bullish",

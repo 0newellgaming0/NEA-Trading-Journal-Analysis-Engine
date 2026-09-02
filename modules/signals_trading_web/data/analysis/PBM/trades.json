@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.149800+00:00",
+  "generated_at": "2026-09-02T00:48:48.787357+00:00",
   "ticker": "PBM",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "updated_at": "2026-09-02T00:32:41.715254",
+      "target": 4.1519999999999975,
+      "setup": "Falling Three Methods",
+      "direction": "Bearish",
+      "current_price": 4.32,
+      "stop": 4.449000000000001,
+      "score": 65.0,
+      "entry": 4.35,
+      "ticker": "PBM",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0
+    }
+  ]
 }

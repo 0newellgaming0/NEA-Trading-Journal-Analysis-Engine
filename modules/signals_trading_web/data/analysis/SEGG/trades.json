@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:21.908697+00:00",
+  "generated_at": "2026-09-02T00:48:51.305847+00:00",
   "ticker": "SEGG",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-01T23:25:30.033749",
+      "target": 2.6878000000000006,
+      "setup": "TLINE_CONTINUATION",
+      "direction": "Bearish",
+      "current_price": 2.69,
+      "stop": 2.6910999999999996,
+      "score": 79.0,
+      "entry": 2.69,
+      "ticker": "SEGG",
+      "status": "CONFIRMED",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 2.76,
       "direction": "Bullish",

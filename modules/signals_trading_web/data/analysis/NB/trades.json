@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:18.736982+00:00",
+  "generated_at": "2026-09-02T00:48:47.185837+00:00",
   "ticker": "NB",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "updated_at": "2026-09-01T23:28:35.589048",
+      "target": 3.8900000000000006,
+      "setup": "Engulfing",
+      "direction": "Bearish",
+      "current_price": 4.0493,
+      "stop": 4.055,
+      "score": 79.0,
+      "entry": 4.0,
+      "ticker": "NB",
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 4.1702,
       "direction": "Bullish",

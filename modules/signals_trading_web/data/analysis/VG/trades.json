@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:24.264932+00:00",
+  "generated_at": "2026-09-02T00:48:54.735227+00:00",
   "ticker": "VG",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-01T23:19:29.328835",
+      "target": 15.59422,
+      "setup": "TLINE_CONTINUATION",
+      "direction": "Bullish",
+      "current_price": 15.03,
+      "stop": 14.70289,
+      "score": 83.0,
+      "entry": 15.0,
+      "ticker": "VG",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 14.6439,
       "direction": "Bullish",

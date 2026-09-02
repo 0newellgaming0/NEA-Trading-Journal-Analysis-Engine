@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:11.930612+00:00",
+  "generated_at": "2026-09-02T00:48:37.229776+00:00",
   "ticker": "BVC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-02T00:18:13.671346",
+      "target": 14.942,
+      "setup": "Three White Soldiers",
+      "direction": "Bullish",
+      "current_price": 13.31,
+      "stop": 12.434,
+      "score": 84.0,
+      "entry": 13.27,
+      "ticker": "BVC",
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 13.58,
       "direction": "Bullish",

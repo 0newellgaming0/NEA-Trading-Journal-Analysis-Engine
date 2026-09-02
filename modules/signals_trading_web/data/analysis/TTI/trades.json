@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:23.833441+00:00",
+  "generated_at": "2026-09-02T00:48:54.160622+00:00",
   "ticker": "TTI",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "updated_at": "2026-09-02T00:45:41.885581",
+      "target": 6.661479999999999,
+      "setup": "TLINE_CONTINUATION",
+      "direction": "Bearish",
+      "current_price": 6.52,
+      "stop": 7.0297600000000005,
+      "score": 54.0,
+      "entry": 6.907,
+      "ticker": "TTI",
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 6.8998,
       "direction": "Bullish",

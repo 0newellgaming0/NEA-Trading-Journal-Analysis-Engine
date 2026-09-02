@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.827680+00:00",
+  "generated_at": "2026-09-02T00:48:35.734178+00:00",
   "ticker": "BDTX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-02T00:14:44.310175",
+      "target": 2.168,
+      "setup": "TLINE_CROSS",
+      "direction": "Bullish",
+      "current_price": 2.08,
+      "stop": 2.036,
+      "score": 76.0,
+      "entry": 2.08,
+      "ticker": "BDTX",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0
+    },
     {
       "risk_reward": 2.0,
       "current_price": 2.23,

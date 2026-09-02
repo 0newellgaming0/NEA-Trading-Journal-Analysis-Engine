@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-08-31T23:12:12.291444+00:00",
+  "generated_at": "2026-09-02T00:48:37.709370+00:00",
   "ticker": "CCO",
   "count": 2,
   "trades": [
     {
-      "current_price": 2.37,
-      "direction": "Bullish",
-      "target": 2.3708799999999997,
-      "regime": "SHORT_TERM_STRENGTH",
-      "stop": 2.3695600000000003,
-      "ticker": "CCO",
+      "updated_at": "2026-09-02T00:42:23.612685",
+      "target": 2.3920000000000003,
       "setup": "TLINE_CONTINUATION",
-      "updated_at": "2026-08-31T22:51:53.085370",
-      "status": "CONFIRMED",
-      "entry": 2.37,
+      "direction": "Bullish",
+      "current_price": 2.37,
+      "stop": 2.359,
       "score": 60.0,
+      "entry": 2.37,
+      "ticker": "CCO",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
       "risk_reward": 2.0
     },
     {

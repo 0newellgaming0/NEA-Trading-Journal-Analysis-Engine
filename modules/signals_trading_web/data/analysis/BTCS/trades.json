@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:11.650715+00:00",
+  "generated_at": "2026-09-02T00:48:36.900756+00:00",
   "ticker": "BTCS",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "updated_at": "2026-09-02T00:28:10.902595",
+      "target": 1.116,
+      "setup": "Inside Bar",
+      "direction": "Bearish",
+      "current_price": 1.2554,
+      "stop": 1.347,
+      "score": 75.0,
+      "entry": 1.27,
+      "ticker": "BTCS",
+      "status": "CONFIRMED",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 1.38,
       "direction": "Bullish",

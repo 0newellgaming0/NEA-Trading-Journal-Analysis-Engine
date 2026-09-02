@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.235978+00:00",
+  "generated_at": "2026-09-02T00:48:41.945118+00:00",
   "ticker": "FLYW",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-01T22:58:57.135568",
+      "target": 17.747,
+      "setup": "TLINE_CONTINUATION",
+      "direction": "Bearish",
+      "current_price": 18.185,
+      "stop": 18.2915,
+      "score": 87.0,
+      "entry": 18.11,
+      "ticker": "FLYW",
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 18.97,
       "target": 18.925839999999994,

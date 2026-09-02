@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.539688+00:00",
+  "generated_at": "2026-09-02T00:48:52.246209+00:00",
   "ticker": "SOUN",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-01T23:15:04.356147",
+      "target": 6.738,
+      "setup": "Pinbar",
+      "direction": "Bearish",
+      "current_price": 6.86,
+      "stop": 6.936,
+      "score": 79.0,
+      "entry": 6.87,
+      "ticker": "SOUN",
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0
+    },
     {
       "entry": 7.08,
       "current_price": 7.0954,

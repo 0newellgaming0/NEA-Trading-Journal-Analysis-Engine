@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:14.779785+00:00",
+  "generated_at": "2026-09-02T00:48:41.252151+00:00",
   "ticker": "F",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-02T00:39:52.544761",
+      "target": 14.081999999999997,
+      "setup": "Morning Star",
+      "direction": "Bullish",
+      "current_price": 13.83,
+      "stop": 13.719000000000001,
+      "score": 61.0,
+      "entry": 13.84,
+      "ticker": "F",
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 13.97,
       "direction": "Bullish",

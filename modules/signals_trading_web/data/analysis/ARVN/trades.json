@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:10.177895+00:00",
+  "generated_at": "2026-09-02T00:48:34.843025+00:00",
   "ticker": "ARVN",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-01T23:30:52.244970",
+      "target": 9.038239999999998,
+      "setup": "Inside Bar",
+      "direction": "Bearish",
+      "current_price": 9.1014,
+      "stop": 9.30818,
+      "score": 72.0,
+      "entry": 9.2182,
+      "ticker": "ARVN",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 9.2,
       "direction": "Bullish",

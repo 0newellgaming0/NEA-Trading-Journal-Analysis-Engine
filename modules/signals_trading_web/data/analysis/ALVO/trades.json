@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:08.853166+00:00",
+  "generated_at": "2026-09-02T00:48:33.282091+00:00",
   "ticker": "ALVO",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-01T23:17:22.080139",
+      "target": 4.976999999999999,
+      "setup": "Harami",
+      "direction": "Bearish",
+      "current_price": 5.17,
+      "stop": 5.274,
+      "score": 77.0,
+      "entry": 5.175,
+      "ticker": "ALVO",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 5.19,
       "direction": "Bullish",

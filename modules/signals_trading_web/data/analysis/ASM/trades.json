@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:10.299732+00:00",
+  "generated_at": "2026-09-02T00:48:35.045052+00:00",
   "ticker": "ASM",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "updated_at": "2026-09-01T23:43:41.408021",
+      "target": 6.647000000000001,
+      "setup": "Harami",
+      "direction": "Bearish",
+      "current_price": 7.05,
+      "stop": 7.3565,
+      "score": 78.0,
+      "entry": 7.12,
+      "ticker": "ASM",
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 7.3,
       "direction": "Bullish",

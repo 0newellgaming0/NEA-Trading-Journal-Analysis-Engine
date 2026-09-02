@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:17.136189+00:00",
+  "generated_at": "2026-09-02T00:48:44.584113+00:00",
   "ticker": "JTAI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-02T00:48:29.164824",
+      "target": 1.3519999999999999,
+      "setup": "Pinbar",
+      "direction": "Bearish",
+      "current_price": 1.44,
+      "stop": 1.484,
+      "score": 46.0,
+      "entry": 1.44,
+      "ticker": "JTAI",
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 1.54,
       "direction": "Bullish",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:10.622973+00:00",
+  "generated_at": "2026-09-02T00:48:35.495082+00:00",
   "ticker": "BBAI",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "updated_at": "2026-09-01T23:46:44.377968",
+      "target": 2.7520000000000007,
+      "setup": "Three Black Crows",
+      "direction": "Bearish",
+      "current_price": 2.94,
+      "stop": 3.049,
+      "score": 76.0,
+      "entry": 2.95,
+      "ticker": "BBAI",
+      "status": "CONFIRMED",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 3.12,
       "direction": "Bullish",

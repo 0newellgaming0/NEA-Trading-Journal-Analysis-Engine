@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.709802+00:00",
+  "generated_at": "2026-09-02T00:48:54.497032+00:00",
   "ticker": "VEEE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-01T23:21:36.591857",
+      "target": 8.576,
+      "setup": "TLINE_CONTINUATION",
+      "direction": "Bearish",
+      "current_price": 9.6594,
+      "stop": 9.797,
+      "score": 83.0,
+      "entry": 9.39,
+      "ticker": "VEEE",
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0
+    },
     {
       "entry": 9.83,
       "current_price": 9.84,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:16.843737+00:00",
+  "generated_at": "2026-09-02T00:48:44.215320+00:00",
   "ticker": "IOVA",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "updated_at": "2026-09-01T23:01:34.016083",
+      "target": 8.636000000000001,
+      "setup": "Inverted Hammer",
+      "direction": "Bullish",
+      "current_price": 8.27,
+      "stop": 8.042,
+      "score": 81.0,
+      "entry": 8.24,
+      "ticker": "IOVA",
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 8.1305,
       "direction": "Bullish",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:14.694917+00:00",
+  "generated_at": "2026-09-02T00:48:41.077573+00:00",
   "ticker": "EPSN",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-01T22:51:11.906590",
+      "target": 6.423000000000001,
+      "setup": "TLINE_CONTINUATION",
+      "direction": "Bullish",
+      "current_price": 6.28,
+      "stop": 6.2085,
+      "score": 83.0,
+      "entry": 6.28,
+      "ticker": "EPSN",
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 6.23,
       "direction": "Bullish",

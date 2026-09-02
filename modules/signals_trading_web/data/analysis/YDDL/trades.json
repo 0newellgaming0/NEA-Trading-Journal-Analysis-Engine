@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:25.037532+00:00",
+  "generated_at": "2026-09-02T00:48:55.846184+00:00",
   "ticker": "YDDL",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-01T23:55:49.348556",
+      "target": 1.6459999999999997,
+      "setup": "Shooting Star",
+      "direction": "Bearish",
+      "current_price": 1.75,
+      "stop": 1.8770000000000002,
+      "score": 72.0,
+      "entry": 1.8,
+      "ticker": "YDDL",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 2.19,
       "direction": "Bullish",

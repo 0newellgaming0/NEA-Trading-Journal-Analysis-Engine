@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-01T19:29:31.841903+00:00",
+  "generated_at": "2026-09-02T00:48:52.592327+00:00",
   "ticker": "SSM",
   "count": 2,
   "trades": [
     {
-      "setup": "TLINE_CONTINUATION",
-      "status": "CONFIRMED",
-      "stop": 2.626,
+      "updated_at": "2026-09-01T23:36:39.745326",
       "target": 10.348,
-      "current_price": 3.925,
-      "score": 96.0,
-      "entry": 5.2,
-      "risk_reward": 2.0,
+      "setup": "TLINE_CONTINUATION",
       "direction": "Bullish",
-      "updated_at": "2026-09-01T18:45:46.152875",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "ticker": "SSM"
+      "current_price": 4.45,
+      "stop": 2.626,
+      "score": 100.0,
+      "entry": 5.2,
+      "ticker": "SSM",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0
     },
     {
       "risk_reward": 2.0,

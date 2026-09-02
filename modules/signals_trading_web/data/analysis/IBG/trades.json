@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.609901+00:00",
+  "generated_at": "2026-09-02T00:48:43.541389+00:00",
   "ticker": "IBG",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "updated_at": "2026-09-02T00:33:55.564829",
+      "target": 1.0519999999999998,
+      "setup": "Rising Three Methods",
+      "direction": "Bullish",
+      "current_price": 1.0199,
+      "stop": 1.0190000000000001,
+      "score": 67.0,
+      "entry": 1.03,
+      "ticker": "IBG",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0
+    }
+  ]
 }

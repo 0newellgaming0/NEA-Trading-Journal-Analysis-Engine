@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:19.188739+00:00",
+  "generated_at": "2026-09-02T00:48:47.731054+00:00",
   "ticker": "NOA",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-02T00:36:51.976651",
+      "target": 13.246,
+      "setup": "Pinbar",
+      "direction": "Bearish",
+      "current_price": 13.23,
+      "stop": 13.477,
+      "score": 65.0,
+      "entry": 13.4,
+      "ticker": "NOA",
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 13.4185,
       "direction": "Bullish",

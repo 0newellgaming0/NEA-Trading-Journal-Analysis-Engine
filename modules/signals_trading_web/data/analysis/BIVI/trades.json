@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:11.203772+00:00",
+  "generated_at": "2026-09-02T00:48:36.282832+00:00",
   "ticker": "BIVI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-01T23:12:15.256486",
+      "target": 1.9551000000000007,
+      "setup": "Harami Cross",
+      "direction": "Bearish",
+      "current_price": 2.24,
+      "stop": 2.38245,
+      "score": 78.0,
+      "entry": 2.24,
+      "ticker": "BIVI",
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0
+    },
     {
       "current_price": 2.36,
       "direction": "Bullish",
