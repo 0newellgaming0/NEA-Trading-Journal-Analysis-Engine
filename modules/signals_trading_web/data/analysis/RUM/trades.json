@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T00:48:50.649867+00:00",
+  "generated_at": "2026-09-02T07:23:35.325823+00:00",
   "ticker": "RUM",
   "count": 1,
   "trades": [
     {
-      "updated_at": "2026-09-01T23:06:14.687266",
-      "target": 7.906000000000002,
-      "setup": "Three Black Crows",
-      "direction": "Bearish",
-      "current_price": 8.485,
-      "stop": 8.796999999999999,
-      "score": 77.0,
-      "entry": 8.5,
+      "current_price": 8.5,
       "ticker": "RUM",
-      "status": "CONFIRMED",
+      "target": 7.906000000000002,
+      "score": 77.0,
+      "setup": "Three Black Crows",
       "regime": "BULLISH_CONSOLIDATION",
-      "risk_reward": 2.0
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 8.5,
+      "stop": 8.796999999999999,
+      "updated_at": "2026-09-02T06:42:52.282215",
+      "direction": "Bearish"
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T07:23:17.622502+00:00",
+  "ticker": "BRSL",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 11.17,
+      "ticker": "BRSL",
+      "target": 11.462999999999996,
+      "score": 74.0,
+      "setup": "Engulfing",
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 11.155,
+      "stop": 11.001000000000001,
+      "updated_at": "2026-09-02T06:25:35.810460",
+      "direction": "Bullish"
+    }
+  ]
+}

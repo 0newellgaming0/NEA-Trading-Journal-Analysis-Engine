@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:24.730063+00:00",
+  "generated_at": "2026-09-02T07:23:14.904569+00:00",
   "ticker": "ARCO",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 8.06,
+      "ticker": "ARCO",
+      "target": 8.170000000000003,
+      "score": 79.0,
+      "setup": "Pinbar",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 8.06,
+      "stop": 8.004999999999999,
+      "updated_at": "2026-09-02T06:23:44.690628",
+      "direction": "Bullish"
+    }
+  ]
 }

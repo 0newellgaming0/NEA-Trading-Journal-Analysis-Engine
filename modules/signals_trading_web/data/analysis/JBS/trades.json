@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T07:23:28.931779+00:00",
+  "ticker": "JBS",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 13.5535,
+      "ticker": "JBS",
+      "target": 14.20264,
+      "score": 77.0,
+      "setup": "Engulfing",
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 13.6577,
+      "stop": 13.38523,
+      "updated_at": "2026-09-02T06:04:18.526495",
+      "direction": "Bullish"
+    }
+  ]
+}

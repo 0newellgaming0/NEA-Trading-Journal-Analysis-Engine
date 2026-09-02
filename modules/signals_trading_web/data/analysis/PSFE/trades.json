@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.239836+00:00",
+  "generated_at": "2026-09-02T07:23:34.047759+00:00",
   "ticker": "PSFE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 6.22,
+      "ticker": "PSFE",
+      "target": 5.996000000000002,
+      "score": 68.0,
+      "setup": "TLINE_CONTINUATION",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 6.15,
+      "stop": 6.226999999999999,
+      "updated_at": "2026-09-02T06:00:25.688032",
+      "direction": "Bearish"
+    },
     {
       "entry": 6.7301,
       "current_price": 6.79,

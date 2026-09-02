@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T00:48:54.057870+00:00",
+  "generated_at": "2026-09-02T07:23:38.781653+00:00",
   "ticker": "TRAK",
   "count": 3,
   "trades": [
     {
-      "updated_at": "2026-09-01T22:34:03.221152",
-      "target": 7.7700000000000005,
-      "setup": "TLINE_CONTINUATION",
-      "direction": "Bearish",
       "current_price": 7.82,
-      "stop": 7.935,
-      "score": 81.0,
-      "entry": 7.88,
       "ticker": "TRAK",
+      "target": 7.7700000000000005,
+      "score": 81.0,
+      "setup": "TLINE_CONTINUATION",
+      "regime": "BEARISH_CONSOLIDATION",
       "status": "CONFIRMED",
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "risk_reward": 2.0
+      "risk_reward": 2.0,
+      "entry": 7.88,
+      "stop": 7.935,
+      "updated_at": "2026-09-02T05:56:29.430644",
+      "direction": "Bearish"
     },
     {
       "ticker": "TRAK",

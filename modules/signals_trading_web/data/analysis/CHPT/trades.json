@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T07:23:19.708287+00:00",
+  "ticker": "CHPT",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 5.363,
+      "ticker": "CHPT",
+      "target": 5.346,
+      "score": 78.0,
+      "setup": "Marubozu",
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 5.5,
+      "stop": 5.577,
+      "updated_at": "2026-09-02T07:12:58.329834",
+      "direction": "Bearish"
+    }
+  ]
+}

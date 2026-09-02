@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T07:23:24.935802+00:00",
+  "ticker": "DRCT",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 1.95,
+      "ticker": "DRCT",
+      "target": 1.8419199999999998,
+      "score": 72.0,
+      "setup": "Harami Cross",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 1.9506,
+      "stop": 2.00494,
+      "updated_at": "2026-09-02T07:23:09.352295",
+      "direction": "Bearish"
+    }
+  ]
+}

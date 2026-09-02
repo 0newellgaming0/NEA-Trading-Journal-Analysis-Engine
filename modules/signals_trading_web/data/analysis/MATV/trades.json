@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.870333+00:00",
+  "generated_at": "2026-09-02T07:23:30.609405+00:00",
   "ticker": "MATV",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 12.05,
+      "ticker": "MATV",
+      "target": 12.245040000000001,
+      "score": 81.0,
+      "setup": "TLINE_CONTINUATION",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 12.095,
+      "stop": 12.01998,
+      "updated_at": "2026-09-02T07:17:14.875407",
+      "direction": "Bullish"
+    },
     {
       "entry": 12.16,
       "current_price": 12.07,

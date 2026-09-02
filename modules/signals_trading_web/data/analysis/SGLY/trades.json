@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T07:23:36.054064+00:00",
+  "ticker": "SGLY",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 1.4301,
+      "ticker": "SGLY",
+      "target": 1.5199999999999994,
+      "score": 72.0,
+      "setup": "TLINE_CONTINUATION",
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 1.41,
+      "stop": 1.3550000000000002,
+      "updated_at": "2026-09-02T07:15:05.870234",
+      "direction": "Bullish"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T07:23:27.955828+00:00",
+  "ticker": "HNRG",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 16.13,
+      "ticker": "HNRG",
+      "target": 15.825999999999997,
+      "score": 72.0,
+      "setup": "TLINE_CONTINUATION",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 16.2,
+      "stop": 16.387,
+      "updated_at": "2026-09-02T06:11:46.427174",
+      "direction": "Bearish"
+    }
+  ]
+}

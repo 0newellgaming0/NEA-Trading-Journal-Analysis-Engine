@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.589636+00:00",
+  "generated_at": "2026-09-02T07:23:28.044925+00:00",
   "ticker": "HQI",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 16.07,
+      "ticker": "HQI",
+      "target": 15.586000000000006,
+      "score": 78.0,
+      "setup": "TLINE_CONTINUATION",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 16.07,
+      "stop": 16.311999999999998,
+      "updated_at": "2026-09-02T05:44:01.972242",
+      "direction": "Bearish"
+    }
+  ]
 }

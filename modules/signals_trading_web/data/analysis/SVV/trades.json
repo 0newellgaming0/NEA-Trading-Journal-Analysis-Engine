@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.694234+00:00",
+  "generated_at": "2026-09-02T07:23:37.920932+00:00",
   "ticker": "SVV",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 10.15,
+      "ticker": "SVV",
+      "target": 10.008000000000003,
+      "score": 75.0,
+      "setup": "TLINE_CONTINUATION",
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 10.14,
+      "stop": 10.206,
+      "updated_at": "2026-09-02T07:19:09.588811",
+      "direction": "Bearish"
+    },
     {
       "current_price": 10.4,
       "target": 10.587780000000002,

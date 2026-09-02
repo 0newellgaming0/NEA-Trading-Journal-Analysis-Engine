@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.291387+00:00",
+  "generated_at": "2026-09-02T07:23:27.680739+00:00",
   "ticker": "GTE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 10.1463,
+      "ticker": "GTE",
+      "target": 10.093999999999998,
+      "score": 82.0,
+      "setup": "Pinbar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 10.27,
+      "stop": 10.358,
+      "updated_at": "2026-09-02T06:35:04.128002",
+      "direction": "Bearish"
+    },
     {
       "current_price": 10.23,
       "target": 10.520880000000004,

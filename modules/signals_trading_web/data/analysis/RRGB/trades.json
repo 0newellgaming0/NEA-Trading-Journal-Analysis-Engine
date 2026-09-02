@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.369785+00:00",
+  "generated_at": "2026-09-02T07:23:35.191156+00:00",
   "ticker": "RRGB",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 8.6037,
+      "ticker": "RRGB",
+      "target": 8.862,
+      "score": 83.0,
+      "setup": "Pinbar",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 8.51,
+      "stop": 8.334,
+      "updated_at": "2026-09-02T06:57:57.272013",
+      "direction": "Bullish"
+    },
     {
       "entry": 9.54,
       "current_price": 9.31,

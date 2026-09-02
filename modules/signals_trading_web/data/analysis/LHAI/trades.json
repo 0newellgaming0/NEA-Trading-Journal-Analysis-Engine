@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-02T07:23:30.107797+00:00",
+  "ticker": "LHAI",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.8102,
+      "ticker": "LHAI",
+      "target": 0.7598400000000003,
+      "score": 72.0,
+      "setup": "TLINE_CONTINUATION",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 0.81,
+      "stop": 0.8350799999999999,
+      "updated_at": "2026-09-02T05:32:13.169262",
+      "direction": "Bearish"
+    }
+  ]
+}

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.732074+00:00",
+  "generated_at": "2026-09-02T07:23:39.480130+00:00",
   "ticker": "VFF",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 2.83,
+      "ticker": "VFF",
+      "target": 2.662,
+      "score": 82.0,
+      "setup": "Rising Three Methods",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 2.42,
+      "stop": 2.299,
+      "updated_at": "2026-09-02T07:00:39.642682",
+      "direction": "Bullish"
+    },
     {
       "entry": 2.865,
       "current_price": 2.95,

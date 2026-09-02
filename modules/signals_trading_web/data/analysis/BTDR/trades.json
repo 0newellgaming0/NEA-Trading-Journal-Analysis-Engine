@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.933858+00:00",
+  "generated_at": "2026-09-02T07:23:17.989450+00:00",
   "ticker": "BTDR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 10.4,
+      "ticker": "BTDR",
+      "target": 10.179999999999998,
+      "score": 73.0,
+      "setup": "Pinbar",
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 10.51,
+      "stop": 10.675,
+      "updated_at": "2026-09-02T06:20:00.880806",
+      "direction": "Bearish"
+    },
     {
       "entry": 10.25,
       "current_price": 10.32,

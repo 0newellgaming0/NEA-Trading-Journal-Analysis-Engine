@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:14.575047+00:00",
+  "generated_at": "2026-09-02T07:23:25.345524+00:00",
   "ticker": "DWTX",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "current_price": 2.7244,
+      "ticker": "DWTX",
+      "target": 2.8817799999999996,
+      "score": 87.0,
+      "setup": "Inside Bar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "entry": 2.695,
+      "stop": 2.60161,
+      "updated_at": "2026-09-02T05:09:21.292096",
+      "direction": "Bullish"
+    },
     {
       "current_price": 2.5806,
       "direction": "Bearish",
