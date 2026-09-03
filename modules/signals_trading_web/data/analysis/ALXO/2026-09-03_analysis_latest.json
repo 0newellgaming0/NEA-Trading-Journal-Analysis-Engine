@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-03T01:50:05.796173",
+  "generated_at": "2026-09-03T07:11:10.589747",
   "tickers": {
     "ALXO": {
-      "generated_at": "2026-09-03T01:50:05.796173",
+      "generated_at": "2026-09-03T07:11:10.589747",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -36,10 +36,8 @@
         "sec_cash_flow": "",
         "sec_new_developments": "",
         "sec_canslim": "",
-        "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n",
-        "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     ALXO\nDirection:  Bullish\nSetup:      TLINE_CONTINUATION\nRegime:     FULL_BULLISH_ALIGNMENT\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          TLINE_CONTINUATION\nCount:          18956\nSuccess:        7703\nFailed:         8915\nUnresolved:     2338\nResolved:       16618\nSuccess Rate:   46.35%\nFailure Rate:   53.65%\n\nTARGET 2 PERFORMANCE\n\nSetup:              TLINE_CONTINUATION\nCount:              7703\nTarget 2 Reached:   5794\nTarget 2 Not Reached: 1909\nTarget 2 Hit Rate:  75.22%"
-      },
-      "current_performance_generated_at": "2026-09-03T01:50:34.804567"
+        "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n"
+      }
     }
   }
 }

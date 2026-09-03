@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-03T09:15:40.716291+00:00",
+  "generated_at": "2026-09-03T16:06:13.852522+00:00",
   "ticker": "RSKD",
   "count": 4,
   "trades": [
     {
-      "stop": 6.695,
-      "ticker": "RSKD",
-      "updated_at": "2026-09-03T05:31:17.233462",
-      "entry": 6.75,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
       "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 6.736,
+      "direction": "Bullish",
       "target": 6.859999999999999,
       "setup": "TLINE_CONTINUATION",
-      "score": 90.0,
-      "direction": "Bullish",
-      "current_price": 6.72
+      "entry": 6.75,
+      "updated_at": "2026-09-03T11:31:25.037194",
+      "risk_reward": 2.0,
+      "ticker": "RSKD",
+      "score": 86.0,
+      "status": "CONFIRMED",
+      "stop": 6.695
     },
     {
       "current_price": 6.18,

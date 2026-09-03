@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:48.990624+00:00",
+  "generated_at": "2026-09-03T16:06:14.393858+00:00",
   "ticker": "SCNI",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "BEARISH_CONSOLIDATION",
+      "current_price": 2.06,
+      "direction": "Bearish",
+      "target": 1.81,
+      "setup": "TLINE_CONTINUATION",
+      "entry": 2.03,
+      "updated_at": "2026-09-03T14:17:09.667828",
+      "risk_reward": 2.0,
+      "ticker": "SCNI",
+      "score": 78.0,
+      "status": "CONFIRMED",
+      "stop": 2.1399999999999997
+    },
     {
       "current_price": 2.39,
       "setup": "Evening Star",

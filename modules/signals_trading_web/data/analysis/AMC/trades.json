@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:25.430521+00:00",
+  "generated_at": "2026-09-03T16:05:53.019585+00:00",
   "ticker": "AMC",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 2.645,
+      "direction": "Bearish",
+      "target": 2.6479999999999997,
+      "setup": "Harami Cross",
+      "entry": 2.67,
+      "updated_at": "2026-09-03T14:41:15.464468",
+      "risk_reward": 2.0,
+      "ticker": "AMC",
+      "score": 65.0,
+      "status": "CONFIRMED",
+      "stop": 2.681
+    },
     {
       "current_price": 2.59,
       "setup": "Engulfing",

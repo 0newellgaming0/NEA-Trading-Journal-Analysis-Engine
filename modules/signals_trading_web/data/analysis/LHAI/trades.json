@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:41.864053+00:00",
+  "generated_at": "2026-09-03T16:06:06.785166+00:00",
   "ticker": "LHAI",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 1.2503,
+      "direction": "Bullish",
+      "target": 1.5259999999999996,
+      "setup": "Bullish Dragonfly Doji Sandwich",
+      "entry": 1.24,
+      "updated_at": "2026-09-03T14:02:26.855083",
+      "risk_reward": 2.0,
+      "ticker": "LHAI",
+      "score": 83.0,
+      "status": "CONFIRMED",
+      "stop": 1.0970000000000002
+    },
     {
       "current_price": 0.8001,
       "setup": "TLINE_CONTINUATION",

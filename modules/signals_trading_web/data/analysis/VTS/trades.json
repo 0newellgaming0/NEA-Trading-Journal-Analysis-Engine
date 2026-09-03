@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-03T09:15:48.989839+00:00",
+  "generated_at": "2026-09-03T16:06:19.539895+00:00",
   "ticker": "VTS",
   "count": 4,
   "trades": [
     {
-      "stop": 17.84771,
-      "ticker": "VTS",
-      "updated_at": "2026-09-03T06:17:06.793334",
-      "entry": 17.5429,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
       "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 17.62,
+      "direction": "Bearish",
       "target": 16.93328,
       "setup": "Inside Bar",
+      "entry": 17.5429,
+      "updated_at": "2026-09-03T11:55:27.257335",
+      "risk_reward": 2.0,
+      "ticker": "VTS",
       "score": 84.0,
-      "direction": "Bearish",
-      "current_price": 17.52
+      "status": "CONFIRMED",
+      "stop": 17.84771
     },
     {
       "status": "CONFIRMED",

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-03T09:15:31.920127+00:00",
+  "generated_at": "2026-09-03T16:06:05.468995+00:00",
   "ticker": "JLHL",
   "count": 3,
   "trades": [
     {
-      "stop": 6.652,
-      "ticker": "JLHL",
-      "updated_at": "2026-09-03T09:15:12.321404",
-      "entry": 6.3,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
       "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 6.3014,
+      "direction": "Bearish",
       "target": 5.595999999999999,
       "setup": "TLINE_CONTINUATION",
+      "entry": 6.3,
+      "updated_at": "2026-09-03T10:59:59.497091",
+      "risk_reward": 2.0,
+      "ticker": "JLHL",
       "score": 97.0,
-      "direction": "Bearish",
-      "current_price": 6.3513
+      "status": "CONFIRMED",
+      "stop": 6.652
     },
     {
       "setup": "TLINE_CONTINUATION",

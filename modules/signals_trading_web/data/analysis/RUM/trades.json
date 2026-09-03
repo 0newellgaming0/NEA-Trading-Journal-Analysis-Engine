@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:40.855504+00:00",
+  "generated_at": "2026-09-03T16:06:13.944054+00:00",
   "ticker": "RUM",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 8.7629,
+      "direction": "Bullish",
+      "target": 9.051999999999996,
+      "setup": "Morning Star",
+      "entry": 8.645,
+      "updated_at": "2026-09-03T12:40:38.797145",
+      "risk_reward": 2.0,
+      "ticker": "RUM",
+      "score": 78.0,
+      "status": "CONFIRMED",
+      "stop": 8.441500000000001
+    },
     {
       "stop": 8.5145,
       "ticker": "RUM",

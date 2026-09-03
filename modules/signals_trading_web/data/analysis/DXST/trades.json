@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:35.943701+00:00",
+  "generated_at": "2026-09-03T16:06:00.284575+00:00",
   "ticker": "DXST",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 2.61,
+      "direction": "Bearish",
+      "target": 2.492,
+      "setup": "Engulfing",
+      "entry": 2.58,
+      "updated_at": "2026-09-03T13:46:40.905499",
+      "risk_reward": 2.0,
+      "ticker": "DXST",
+      "score": 68.0,
+      "status": "CONFIRMED",
+      "stop": 2.624
+    },
     {
       "current_price": 2.52,
       "setup": "TLINE_CONTINUATION",

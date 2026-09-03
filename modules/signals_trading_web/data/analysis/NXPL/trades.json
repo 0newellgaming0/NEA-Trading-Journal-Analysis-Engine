@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-03T09:15:36.956569+00:00",
+  "generated_at": "2026-09-03T16:06:10.395334+00:00",
   "ticker": "NXPL",
   "count": 6,
   "trades": [
     {
-      "stop": 9.986400000000001,
-      "ticker": "NXPL",
-      "updated_at": "2026-09-03T06:04:05.120192",
-      "entry": 9.52,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
       "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 9.06,
+      "direction": "Bearish",
       "target": 8.587199999999996,
       "setup": "TLINE_CONTINUATION",
+      "entry": 9.52,
+      "updated_at": "2026-09-03T11:50:12.056887",
+      "risk_reward": 2.0,
+      "ticker": "NXPL",
       "score": 85.0,
-      "direction": "Bearish",
-      "current_price": 9.26
+      "status": "CONFIRMED",
+      "stop": 9.986400000000001
     },
     {
       "current_price": 9.45,

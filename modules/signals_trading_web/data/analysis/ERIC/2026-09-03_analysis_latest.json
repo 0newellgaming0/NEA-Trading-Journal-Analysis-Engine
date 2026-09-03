@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-03T04:03:38.930480",
+  "generated_at": "2026-09-03T08:17:00.769696",
   "tickers": {
     "ERIC": {
-      "generated_at": "2026-09-03T04:03:38.930480",
+      "generated_at": "2026-09-03T08:17:00.769696",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -36,10 +36,8 @@
         "sec_cash_flow": "",
         "sec_new_developments": "## New Developments\n\n            {\n  \"ticker\": null,\n  \"filings_reviewed\": [],\n  \"events\": [],\n  \"external_events\": [],\n  \"new_products\": 0,\n  \"ai_mentions\": 0,\n  \"technology_mentions\": 0,\n  \"partnerships\": 0,\n  \"contracts\": 0,\n  \"expansions\": 0,\n  \"acquisitions\": 0,\n  \"management_changes\": 0,\n  \"innovation_state\": \"UNKNOWN\",\n  \"strategic_momentum\": \"UNKNOWN\",\n  \"catalyst_score\": 0,\n  \"sec_catalyst_count\": 0,\n  \"external_catalyst_count\": 0,\n  \"score\": 0,\n  \"quality\": \"NO DATA\"\n}",
         "sec_canslim": "## Institutional Sponsorship\n\n            Current Earnings: None\n            Annual Growth: None\n\n            Institutional Sponsorship: None\n            Leadership: None\n\n            Supply / Demand: None\n            New Development: None\n\n            CANSLIM Score: 22.22\n            Classification: WEAK",
-        "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n",
-        "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     ERIC\nDirection:  Bearish\nSetup:      Pinbar\nRegime:     BEARISH_CONSOLIDATION\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          Pinbar\nCount:          47419\nSuccess:        19080\nFailed:         23300\nUnresolved:     5039\nResolved:       42380\nSuccess Rate:   45.02%\nFailure Rate:   54.98%\n\nTARGET 2 PERFORMANCE\n\nSetup:              Pinbar\nCount:              19080\nTarget 2 Reached:   15096\nTarget 2 Not Reached: 3984\nTarget 2 Hit Rate:  79.12%"
-      },
-      "current_performance_generated_at": "2026-09-03T04:04:03.239247"
+        "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n"
+      }
     }
   }
 }

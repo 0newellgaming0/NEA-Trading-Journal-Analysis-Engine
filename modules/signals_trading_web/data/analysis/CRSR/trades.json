@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:24.861791+00:00",
+  "generated_at": "2026-09-03T16:05:58.697870+00:00",
   "ticker": "CRSR",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 12.355,
+      "direction": "Bullish",
+      "target": 12.276000000000003,
+      "setup": "TLINE_CONTINUATION",
+      "entry": 12.21,
+      "updated_at": "2026-09-03T15:17:30.199517",
+      "risk_reward": 2.0,
+      "ticker": "CRSR",
+      "score": 87.0,
+      "status": "CONFIRMED",
+      "stop": 12.177
+    },
     {
       "stop": 11.723,
       "ticker": "CRSR",

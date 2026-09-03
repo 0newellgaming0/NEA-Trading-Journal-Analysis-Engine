@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:49.696751+00:00",
+  "generated_at": "2026-09-03T16:06:19.955877+00:00",
   "ticker": "XHLD",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 9.33,
+      "direction": "Bearish",
+      "target": 8.652000000000001,
+      "setup": "Inside Bar",
+      "entry": 9.18,
+      "updated_at": "2026-09-03T12:51:34.039665",
+      "risk_reward": 2.0,
+      "ticker": "XHLD",
+      "score": 78.0,
+      "status": "CONFIRMED",
+      "stop": 9.443999999999999
+    },
     {
       "stop": 9.143229999999999,
       "ticker": "XHLD",

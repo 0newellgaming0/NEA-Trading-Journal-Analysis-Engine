@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-03T09:15:40.612097+00:00",
+  "generated_at": "2026-09-03T16:06:13.791589+00:00",
   "ticker": "RRGB",
   "count": 5,
   "trades": [
     {
-      "stop": 8.65862,
-      "ticker": "RRGB",
-      "updated_at": "2026-09-03T05:38:23.602303",
-      "entry": 8.3438,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
       "regime": "PRIMARY_UPTREND_PULLBACK",
+      "current_price": 8.5,
+      "direction": "Bearish",
       "target": 7.714159999999998,
       "setup": "TLINE_CONTINUATION",
+      "entry": 8.3438,
+      "updated_at": "2026-09-03T11:13:28.312261",
+      "risk_reward": 2.0,
+      "ticker": "RRGB",
       "score": 87.0,
-      "direction": "Bearish",
-      "current_price": 8.46
+      "status": "CONFIRMED",
+      "stop": 8.65862
     },
     {
       "status": "CONFIRMED",

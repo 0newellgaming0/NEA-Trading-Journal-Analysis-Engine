@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:38.010307+00:00",
+  "generated_at": "2026-09-03T16:06:02.720013+00:00",
   "ticker": "GEVO",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 1.69,
+      "direction": "Bullish",
+      "target": 1.7860000000000003,
+      "setup": "Pinbar",
+      "entry": 1.72,
+      "updated_at": "2026-09-03T14:23:59.127646",
+      "risk_reward": 2.0,
+      "ticker": "GEVO",
+      "score": 64.0,
+      "status": "CONFIRMED",
+      "stop": 1.6869999999999998
+    },
     {
       "current_price": 1.612,
       "setup": "Marubozu",

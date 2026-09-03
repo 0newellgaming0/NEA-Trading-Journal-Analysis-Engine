@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:47.866801+00:00",
+  "generated_at": "2026-09-03T16:06:18.794934+00:00",
   "ticker": "VFF",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 2.825,
+      "direction": "Bearish",
+      "target": 2.816079999999999,
+      "setup": "TLINE_CONTINUATION",
+      "entry": 2.8669,
+      "updated_at": "2026-09-03T15:21:22.595795",
+      "risk_reward": 2.0,
+      "ticker": "VFF",
+      "score": 82.0,
+      "status": "CONFIRMED",
+      "stop": 2.89231
+    },
     {
       "stop": 2.984,
       "ticker": "VFF",

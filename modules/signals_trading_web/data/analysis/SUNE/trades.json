@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:43.838652+00:00",
+  "generated_at": "2026-09-03T16:06:16.595155+00:00",
   "ticker": "SUNE",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 2.29,
+      "direction": "Bearish",
+      "target": 2.145999999999999,
+      "setup": "TLINE_CONTINUATION",
+      "entry": 2.3,
+      "updated_at": "2026-09-03T15:13:25.146620",
+      "risk_reward": 2.0,
+      "ticker": "SUNE",
+      "score": 81.0,
+      "status": "CONFIRMED",
+      "stop": 2.3770000000000002
+    },
     {
       "stop": 2.499,
       "ticker": "SUNE",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:32.467621+00:00",
+  "generated_at": "2026-09-03T16:06:09.829344+00:00",
   "ticker": "NRXP",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "regime": "BEARISH_CONSOLIDATION",
+      "current_price": 3.4513,
+      "direction": "Bullish",
+      "target": 3.5273399999999993,
+      "setup": "Separating Lines",
+      "entry": 3.44,
+      "updated_at": "2026-09-03T13:30:49.826912",
+      "risk_reward": 2.0,
+      "ticker": "NRXP",
+      "score": 77.0,
+      "status": "CONFIRMED",
+      "stop": 3.3963300000000003
+    },
     {
       "current_price": 3.4661,
       "ticker": "NRXP",

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-03T09:15:38.886141+00:00",
+  "generated_at": "2026-09-03T16:06:12.189016+00:00",
   "ticker": "PRGO",
   "count": 3,
   "trades": [
     {
-      "stop": 14.683,
-      "ticker": "PRGO",
-      "updated_at": "2026-09-03T08:58:43.518197",
-      "entry": 14.43,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
       "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 14.55,
+      "direction": "Bearish",
       "target": 13.924,
       "setup": "TLINE_CONTINUATION",
-      "score": 76.0,
-      "direction": "Bearish",
-      "current_price": 14.045
+      "entry": 14.43,
+      "updated_at": "2026-09-03T13:15:44.020118",
+      "risk_reward": 2.0,
+      "ticker": "PRGO",
+      "score": 77.0,
+      "status": "CONFIRMED",
+      "stop": 14.683
     },
     {
       "current_price": 14.43,

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-03T09:15:39.605958+00:00",
+  "generated_at": "2026-09-03T16:06:12.826313+00:00",
   "ticker": "QUAD",
   "count": 4,
   "trades": [
     {
-      "stop": 10.372,
-      "ticker": "QUAD",
-      "updated_at": "2026-09-03T07:05:21.203094",
-      "entry": 10.46,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
-      "regime": "BULLISH_CONSOLIDATION",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 10.48,
+      "direction": "Bullish",
       "target": 10.636000000000003,
       "setup": "TLINE_CONTINUATION",
-      "score": 81.0,
-      "direction": "Bullish",
-      "current_price": 10.39
+      "entry": 10.46,
+      "updated_at": "2026-09-03T12:21:58.278739",
+      "risk_reward": 2.0,
+      "ticker": "QUAD",
+      "score": 80.0,
+      "status": "CONFIRMED",
+      "stop": 10.372
     },
     {
       "current_price": 10.08,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:50.020751+00:00",
+  "generated_at": "2026-09-03T16:06:15.467244+00:00",
   "ticker": "SNDL",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 1.385,
+      "direction": "Bearish",
+      "target": 1.3880000000000001,
+      "setup": "Pinbar",
+      "entry": 1.41,
+      "updated_at": "2026-09-03T14:47:18.917637",
+      "risk_reward": 2.0,
+      "ticker": "SNDL",
+      "score": 63.0,
+      "status": "CONFIRMED",
+      "stop": 1.4209999999999998
+    },
     {
       "current_price": 1.34,
       "setup": "Pinbar",

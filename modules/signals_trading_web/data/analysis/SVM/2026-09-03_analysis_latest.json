@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-03T01:25:57.270207",
+  "generated_at": "2026-09-03T07:00:43.416310",
   "tickers": {
     "SVM": {
-      "generated_at": "2026-09-03T01:25:57.270207",
+      "generated_at": "2026-09-03T07:00:43.416310",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -36,10 +36,8 @@
         "sec_cash_flow": "",
         "sec_new_developments": "## New Developments\n\n            {\n  \"ticker\": null,\n  \"filings_reviewed\": [],\n  \"events\": [],\n  \"external_events\": [],\n  \"new_products\": 0,\n  \"ai_mentions\": 0,\n  \"technology_mentions\": 0,\n  \"partnerships\": 0,\n  \"contracts\": 0,\n  \"expansions\": 0,\n  \"acquisitions\": 0,\n  \"management_changes\": 0,\n  \"innovation_state\": \"UNKNOWN\",\n  \"strategic_momentum\": \"UNKNOWN\",\n  \"catalyst_score\": 0,\n  \"sec_catalyst_count\": 0,\n  \"external_catalyst_count\": 0,\n  \"score\": 0,\n  \"quality\": \"NO DATA\"\n}",
         "sec_canslim": "## Institutional Sponsorship\n\n            Current Earnings: None\n            Annual Growth: None\n\n            Institutional Sponsorship: None\n            Leadership: None\n\n            Supply / Demand: None\n            New Development: None\n\n            CANSLIM Score: 22.22\n            Classification: WEAK",
-        "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n",
-        "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     SVM\nDirection:  Bullish\nSetup:      TLINE_CONTINUATION\nRegime:     BULLISH_CONSOLIDATION\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          TLINE_CONTINUATION\nCount:          18956\nSuccess:        7703\nFailed:         8915\nUnresolved:     2338\nResolved:       16618\nSuccess Rate:   46.35%\nFailure Rate:   53.65%\n\nTARGET 2 PERFORMANCE\n\nSetup:              TLINE_CONTINUATION\nCount:              7703\nTarget 2 Reached:   5794\nTarget 2 Not Reached: 1909\nTarget 2 Hit Rate:  75.22%"
-      },
-      "current_performance_generated_at": "2026-09-03T01:26:20.684428"
+        "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n"
+      }
     }
   }
 }
