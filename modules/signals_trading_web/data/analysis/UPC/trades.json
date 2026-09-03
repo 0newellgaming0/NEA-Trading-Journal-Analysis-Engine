@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:52.612426+00:00",
+  "generated_at": "2026-09-03T09:15:46.631412+00:00",
   "ticker": "UPC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 4.9,
+      "ticker": "UPC",
+      "updated_at": "2026-09-03T05:26:23.848549",
+      "entry": 4.56,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 3.879999999999998,
+      "setup": "DOJI",
+      "score": 90.0,
+      "direction": "Bearish",
+      "current_price": 4.67
+    },
     {
       "current_price": 5.7129,
       "setup": "TLINE_CONTINUATION",

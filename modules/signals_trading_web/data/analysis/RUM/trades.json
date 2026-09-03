@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:35.325823+00:00",
+  "generated_at": "2026-09-03T09:15:40.855504+00:00",
   "ticker": "RUM",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 8.5145,
+      "ticker": "RUM",
+      "updated_at": "2026-09-03T07:51:49.481477",
+      "entry": 8.685,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 9.026000000000002,
+      "setup": "Inverted Hammer",
+      "score": 78.0,
+      "direction": "Bullish",
+      "current_price": 8.8
+    },
     {
       "current_price": 8.5,
       "ticker": "RUM",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:32.645994+00:00",
+  "generated_at": "2026-09-03T09:15:36.688241+00:00",
   "ticker": "NVCR",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 17.927500000000002,
+      "ticker": "NVCR",
+      "updated_at": "2026-09-03T06:38:12.500678",
+      "entry": 17.735,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 17.349999999999994,
+      "setup": "TLINE_CONTINUATION",
+      "score": 83.0,
+      "direction": "Bearish",
+      "current_price": 17.83
+    },
     {
       "current_price": 17.38,
       "ticker": "NVCR",

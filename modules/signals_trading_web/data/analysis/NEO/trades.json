@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T20:51:09.018852+00:00",
+  "generated_at": "2026-09-03T09:15:35.906657+00:00",
   "ticker": "NEO",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 17.294999999999998,
+      "ticker": "NEO",
+      "updated_at": "2026-09-03T06:23:29.608293",
+      "entry": 17.46,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 17.790000000000006,
+      "setup": "Inside Bar",
+      "score": 85.0,
+      "direction": "Bullish",
+      "current_price": 17.5
+    },
     {
       "setup": "Harami",
       "entry": 17.52,

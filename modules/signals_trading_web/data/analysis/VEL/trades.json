@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T16:08:10.486642+00:00",
+  "generated_at": "2026-09-03T09:15:47.699813+00:00",
   "ticker": "VEL",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 18.121,
+      "ticker": "VEL",
+      "updated_at": "2026-09-03T06:15:07.278320",
+      "entry": 18.22,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "target": 18.418,
+      "setup": "TLINE_CONTINUATION",
+      "score": 88.0,
+      "direction": "Bullish",
+      "current_price": 18.13
+    },
     {
       "status": "CONFIRMED",
       "current_price": 18.04,

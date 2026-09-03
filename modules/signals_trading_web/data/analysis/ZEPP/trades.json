@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:54.940970+00:00",
+  "generated_at": "2026-09-03T09:15:51.066296+00:00",
   "ticker": "ZEPP",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 4.984,
+      "ticker": "ZEPP",
+      "updated_at": "2026-09-03T07:02:47.015184",
+      "entry": 4.83,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 4.522,
+      "setup": "Pinbar",
+      "score": 82.0,
+      "direction": "Bearish",
+      "current_price": 4.84
+    },
     {
       "current_price": 4.58,
       "setup": "MACD_BEARISH_MOMENTUM_EXPANSION",

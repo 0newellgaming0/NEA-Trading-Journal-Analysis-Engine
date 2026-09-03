@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:27.680739+00:00",
+  "generated_at": "2026-09-03T09:15:29.985878+00:00",
   "ticker": "GTE",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 10.47,
+      "ticker": "GTE",
+      "updated_at": "2026-09-03T08:20:00.183522",
+      "entry": 10.305,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 9.974999999999998,
+      "setup": "Evening Star",
+      "score": 82.0,
+      "direction": "Bearish",
+      "current_price": 10.39
+    },
     {
       "current_price": 10.1463,
       "ticker": "GTE",

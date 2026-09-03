@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:25.942455+00:00",
+  "generated_at": "2026-09-03T09:15:17.289353+00:00",
   "ticker": "AMPG",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 3.4170000000000003,
+      "ticker": "AMPG",
+      "updated_at": "2026-09-03T07:08:25.311360",
+      "entry": 3.34,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "target": 3.185999999999999,
+      "setup": "EMA_PULLBACK",
+      "score": 81.0,
+      "direction": "Bearish",
+      "current_price": 3.3318
+    },
     {
       "current_price": 3.17,
       "setup": "Inside Bar",

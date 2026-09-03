@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T16:08:09.907812+00:00",
+  "generated_at": "2026-09-03T09:15:23.186199+00:00",
   "ticker": "CARS",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 12.03,
+      "ticker": "CARS",
+      "updated_at": "2026-09-03T06:28:30.966834",
+      "entry": 11.92,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 11.700000000000001,
+      "setup": "Harami Cross",
+      "score": 82.0,
+      "direction": "Bearish",
+      "current_price": 11.99
+    },
     {
       "status": "CONFIRMED",
       "current_price": 11.93,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:45.780792+00:00",
+  "generated_at": "2026-09-03T09:15:37.766088+00:00",
   "ticker": "PAGS",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 9.253,
+      "ticker": "PAGS",
+      "updated_at": "2026-09-03T08:04:54.215263",
+      "entry": 9.33,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 9.484,
+      "setup": "TLINE_CONTINUATION",
+      "score": 82.0,
+      "direction": "Bullish",
+      "current_price": 9.83
+    },
     {
       "current_price": 9.1777,
       "setup": "TLINE_CONTINUATION",

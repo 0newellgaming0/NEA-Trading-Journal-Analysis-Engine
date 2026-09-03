@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T16:08:10.058584+00:00",
+  "generated_at": "2026-09-03T09:15:27.626839+00:00",
   "ticker": "FF",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 5.481,
+      "ticker": "FF",
+      "updated_at": "2026-09-03T05:57:31.377731",
+      "entry": 5.36,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 5.118000000000001,
+      "setup": "TLINE_CONTINUATION",
+      "score": 86.0,
+      "direction": "Bearish",
+      "current_price": 5.3
+    },
     {
       "status": "CONFIRMED",
       "current_price": 5.47,

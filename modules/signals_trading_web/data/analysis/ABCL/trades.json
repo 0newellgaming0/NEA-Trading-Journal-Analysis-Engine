@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:21.320618+00:00",
+  "generated_at": "2026-09-03T09:15:13.195778+00:00",
   "ticker": "ABCL",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 10.95759,
+      "ticker": "ABCL",
+      "updated_at": "2026-09-03T09:08:35.276412",
+      "entry": 11.335,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 12.089820000000003,
+      "setup": "Three White Soldiers",
+      "score": 81.0,
+      "direction": "Bullish",
+      "current_price": 11.294
+    },
     {
       "current_price": 11.2797,
       "setup": "Marubozu",

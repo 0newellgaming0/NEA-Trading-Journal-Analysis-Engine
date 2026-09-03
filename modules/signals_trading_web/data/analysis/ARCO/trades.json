@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:26.970584+00:00",
+  "generated_at": "2026-09-03T09:15:18.282292+00:00",
   "ticker": "ARCO",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 8.174,
+      "ticker": "ARCO",
+      "updated_at": "2026-09-03T06:20:56.450639",
+      "entry": 8.24,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 8.372000000000002,
+      "setup": "TLINE_CONTINUATION",
+      "score": 84.0,
+      "direction": "Bullish",
+      "current_price": 8.21
+    },
     {
       "current_price": 8.01,
       "setup": "TLINE_CONTINUATION",

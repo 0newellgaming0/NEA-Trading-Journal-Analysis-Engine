@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:24.700458+00:00",
+  "generated_at": "2026-09-03T09:15:16.156063+00:00",
   "ticker": "AKAN",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 3.807,
+      "ticker": "AKAN",
+      "updated_at": "2026-09-03T07:35:52.075912",
+      "entry": 3.73,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 3.576,
+      "setup": "Falling Three Methods",
+      "score": 79.0,
+      "direction": "Bearish",
+      "current_price": 3.69
+    },
     {
       "current_price": 3.78,
       "setup": "Pinbar",

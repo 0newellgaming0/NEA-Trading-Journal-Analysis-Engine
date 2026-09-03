@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:37.740495+00:00",
+  "generated_at": "2026-09-03T09:15:28.716065+00:00",
   "ticker": "FUBO",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 11.095475,
+      "ticker": "FUBO",
+      "updated_at": "2026-09-03T06:09:32.735434",
+      "entry": 11.2681,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 11.61335,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "score": 88.0,
+      "direction": "Bullish",
+      "current_price": 11.1686
+    },
     {
       "current_price": 10.49,
       "setup": "Engulfing",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:33.290765+00:00",
+  "generated_at": "2026-09-03T09:15:24.475732+00:00",
   "ticker": "COMP",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 10.635909999999999,
+      "ticker": "COMP",
+      "updated_at": "2026-09-03T07:43:34.155267",
+      "entry": 10.4609,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "target": 10.110880000000003,
+      "setup": "Inside Bar",
+      "score": 79.0,
+      "direction": "Bearish",
+      "current_price": 10.421
+    },
     {
       "current_price": 10.33,
       "setup": "EMA20_CROSS",

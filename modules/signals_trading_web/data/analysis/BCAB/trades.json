@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:28.682604+00:00",
+  "generated_at": "2026-09-03T09:15:21.498259+00:00",
   "ticker": "BCAB",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 1.36,
+      "ticker": "BCAB",
+      "updated_at": "2026-09-03T07:58:20.480038",
+      "entry": 1.25,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "target": 1.0299999999999998,
+      "setup": "Inside Bar",
+      "score": 78.0,
+      "direction": "Bearish",
+      "current_price": 1.24
+    },
     {
       "current_price": 1.09,
       "setup": "EMA20_CROSS",

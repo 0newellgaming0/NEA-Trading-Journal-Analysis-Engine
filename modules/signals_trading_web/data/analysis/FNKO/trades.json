@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T15:17:05.032053+00:00",
+  "generated_at": "2026-09-03T09:15:28.418169+00:00",
   "ticker": "FNKO",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "stop": 6.295,
+      "ticker": "FNKO",
+      "updated_at": "2026-09-03T05:33:45.762852",
+      "entry": 6.13,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 5.8,
+      "setup": "TLINE_CONTINUATION",
+      "score": 89.0,
+      "direction": "Bearish",
+      "current_price": 6.02
+    },
     {
       "ticker": "FNKO",
       "updated_at": "2026-09-02T15:02:24.230152",

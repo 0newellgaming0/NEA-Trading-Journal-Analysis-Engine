@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:52.161079+00:00",
+  "generated_at": "2026-09-03T09:15:45.670258+00:00",
   "ticker": "TME",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 8.4445,
+      "ticker": "TME",
+      "updated_at": "2026-09-03T08:24:35.599409",
+      "entry": 8.395,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 8.296,
+      "setup": "Counterattack Lines",
+      "score": 78.0,
+      "direction": "Bearish",
+      "current_price": 8.35
+    },
     {
       "current_price": 8.29,
       "setup": "Three Inside Up",

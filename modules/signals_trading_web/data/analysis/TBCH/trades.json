@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T20:51:09.215383+00:00",
+  "generated_at": "2026-09-03T09:15:44.786284+00:00",
   "ticker": "TBCH",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 12.394,
+      "ticker": "TBCH",
+      "updated_at": "2026-09-03T06:45:48.189054",
+      "entry": 12.57,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 12.922,
+      "setup": "TLINE_CONTINUATION",
+      "score": 86.0,
+      "direction": "Bullish",
+      "current_price": 12.65
+    },
     {
       "setup": "Pinbar",
       "entry": 12.51,

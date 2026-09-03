@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:43.614868+00:00",
+  "generated_at": "2026-09-03T09:15:35.246087+00:00",
   "ticker": "NAMM",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 1.4426800000000002,
+      "ticker": "NAMM",
+      "updated_at": "2026-09-03T06:06:07.026039",
+      "entry": 1.4,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 1.3146399999999994,
+      "setup": "Inside Bar",
+      "score": 85.0,
+      "direction": "Bearish",
+      "current_price": 1.37
+    },
     {
       "current_price": 1.37,
       "setup": "Pinbar",

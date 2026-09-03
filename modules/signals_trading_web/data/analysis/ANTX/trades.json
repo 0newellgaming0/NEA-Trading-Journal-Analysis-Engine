@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:26.250657+00:00",
+  "generated_at": "2026-09-03T09:15:17.695829+00:00",
   "ticker": "ANTX",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 5.995,
+      "ticker": "ANTX",
+      "updated_at": "2026-09-03T08:34:56.529118",
+      "entry": 6.05,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 6.159999999999999,
+      "setup": "TLINE_CONTINUATION",
+      "score": 80.0,
+      "direction": "Bullish",
+      "current_price": 6.15
+    },
     {
       "current_price": 5.48,
       "setup": "TLINE_CONTINUATION",

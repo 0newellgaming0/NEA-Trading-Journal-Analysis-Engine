@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T16:08:10.388629+00:00",
+  "generated_at": "2026-09-03T09:15:42.056004+00:00",
   "ticker": "SLN",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 14.56,
+      "ticker": "SLN",
+      "updated_at": "2026-09-03T07:31:17.129228",
+      "entry": 14.78,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 15.219999999999997,
+      "setup": "Pinbar",
+      "score": 80.0,
+      "direction": "Bullish",
+      "current_price": 14.79
+    },
     {
       "status": "CONFIRMED",
       "current_price": 14.61,

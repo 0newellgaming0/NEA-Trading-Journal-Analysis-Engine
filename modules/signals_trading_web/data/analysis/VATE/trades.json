@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:52.833805+00:00",
+  "generated_at": "2026-09-03T09:15:47.126621+00:00",
   "ticker": "VATE",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 7.428,
+      "ticker": "VATE",
+      "updated_at": "2026-09-03T05:36:05.365598",
+      "entry": 7.34,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "target": 7.164,
+      "setup": "Shooting Star",
+      "score": 84.0,
+      "direction": "Bearish",
+      "current_price": 7.38
+    },
     {
       "current_price": 7.1,
       "setup": "TLINE_CONTINUATION",

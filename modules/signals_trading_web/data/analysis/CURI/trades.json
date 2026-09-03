@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:34.038209+00:00",
+  "generated_at": "2026-09-03T09:15:25.041816+00:00",
   "ticker": "CURI",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 2.8475,
+      "ticker": "CURI",
+      "updated_at": "2026-09-03T08:02:24.019171",
+      "entry": 2.93,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 3.095,
+      "setup": "Pinbar",
+      "score": 82.0,
+      "direction": "Bullish",
+      "current_price": 2.9186
+    },
     {
       "current_price": 2.8,
       "setup": "Pinbar",

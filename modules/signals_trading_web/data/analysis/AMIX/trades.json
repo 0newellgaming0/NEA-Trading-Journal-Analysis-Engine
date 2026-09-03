@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:25.810439+00:00",
+  "generated_at": "2026-09-03T09:15:17.135696+00:00",
   "ticker": "AMIX",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 4.625,
+      "ticker": "AMIX",
+      "updated_at": "2026-09-03T07:29:20.187029",
+      "entry": 4.57,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "target": 4.460000000000001,
+      "setup": "Pinbar",
+      "score": 79.0,
+      "direction": "Bearish",
+      "current_price": 4.5
+    },
     {
       "current_price": 4.5408,
       "setup": "Harami",

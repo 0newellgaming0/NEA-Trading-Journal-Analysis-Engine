@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:38.255408+00:00",
+  "generated_at": "2026-09-03T09:15:29.406004+00:00",
   "ticker": "GORO",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "stop": 3.7975999999999996,
+      "ticker": "GORO",
+      "updated_at": "2026-09-03T08:28:24.298417",
+      "entry": 3.9096,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 4.133600000000001,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "score": 77.0,
+      "direction": "Bullish",
+      "current_price": 3.9285
+    },
     {
       "current_price": 3.58,
       "setup": "Pinbar",

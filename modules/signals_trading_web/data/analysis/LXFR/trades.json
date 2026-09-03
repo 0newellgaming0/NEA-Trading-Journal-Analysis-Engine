@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:42.296484+00:00",
+  "generated_at": "2026-09-03T09:15:33.760294+00:00",
   "ticker": "LXFR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 17.223,
+      "ticker": "LXFR",
+      "updated_at": "2026-09-03T07:40:52.240284",
+      "entry": 17.19,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 17.124000000000006,
+      "setup": "TLINE_CONTINUATION",
+      "score": 79.0,
+      "direction": "Bearish",
+      "current_price": 17.14
+    },
     {
       "current_price": 17.19,
       "setup": "TLINE_CONTINUATION",

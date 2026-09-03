@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:36.355923+00:00",
+  "generated_at": "2026-09-03T09:15:27.086062+00:00",
   "ticker": "EXFY",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 2.447,
+      "ticker": "EXFY",
+      "updated_at": "2026-09-03T07:46:22.956410",
+      "entry": 2.48,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 2.546,
+      "setup": "TLINE_CONTINUATION",
+      "score": 79.0,
+      "direction": "Bullish",
+      "current_price": 2.45
+    },
     {
       "current_price": 2.3406,
       "setup": "TLINE_CONTINUATION",

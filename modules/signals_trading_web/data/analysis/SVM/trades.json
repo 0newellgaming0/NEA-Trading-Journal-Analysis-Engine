@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T16:15:16.987389+00:00",
+  "generated_at": "2026-09-03T09:15:44.116239+00:00",
   "ticker": "SVM",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "stop": 12.750799999999998,
+      "ticker": "SVM",
+      "updated_at": "2026-09-03T06:26:20.511954",
+      "entry": 12.83,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 12.988400000000004,
+      "setup": "TLINE_CONTINUATION",
+      "score": 84.0,
+      "direction": "Bullish",
+      "current_price": 12.77
+    },
     {
       "ticker": "SVM",
       "entry": 12.79,

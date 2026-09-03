@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:21.442481+00:00",
+  "generated_at": "2026-09-03T09:15:13.462168+00:00",
   "ticker": "ABEO",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 5.989000000000001,
+      "ticker": "ABEO",
+      "updated_at": "2026-09-03T07:26:56.056297",
+      "entry": 5.89,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "target": 5.6919999999999975,
+      "setup": "TLINE_CONTINUATION",
+      "score": 79.0,
+      "direction": "Bearish",
+      "current_price": 5.94
+    },
     {
       "current_price": 5.9,
       "setup": "Engulfing",

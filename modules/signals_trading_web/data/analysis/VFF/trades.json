@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:39.480130+00:00",
+  "generated_at": "2026-09-03T09:15:47.866801+00:00",
   "ticker": "VFF",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 2.984,
+      "ticker": "VFF",
+      "updated_at": "2026-09-03T06:53:21.963075",
+      "entry": 2.83,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 2.5220000000000002,
+      "setup": "Engulfing",
+      "score": 85.0,
+      "direction": "Bearish",
+      "current_price": 2.88
+    },
     {
       "current_price": 2.83,
       "ticker": "VFF",

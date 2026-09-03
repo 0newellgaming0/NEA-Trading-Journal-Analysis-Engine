@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:42.156990+00:00",
+  "generated_at": "2026-09-03T09:15:33.536262+00:00",
   "ticker": "LUNR",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 14.565,
+      "ticker": "LUNR",
+      "updated_at": "2026-09-03T08:32:26.063315",
+      "entry": 14.84,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 15.39,
+      "setup": "Engulfing",
+      "score": 80.0,
+      "direction": "Bullish",
+      "current_price": 15.03
+    },
     {
       "current_price": 14.5439,
       "setup": "TLINE_CONTINUATION",

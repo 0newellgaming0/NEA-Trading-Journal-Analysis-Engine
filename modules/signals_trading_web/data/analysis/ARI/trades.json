@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T16:08:09.838751+00:00",
+  "generated_at": "2026-09-03T09:15:18.586084+00:00",
   "ticker": "ARI",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 6.79893,
+      "ticker": "ARI",
+      "updated_at": "2026-09-03T06:55:58.304510",
+      "entry": 6.8899,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 7.071839999999999,
+      "setup": "Morning Star",
+      "score": 87.0,
+      "direction": "Bullish",
+      "current_price": 6.8899
+    },
     {
       "status": "CONFIRMED",
       "current_price": 6.84,

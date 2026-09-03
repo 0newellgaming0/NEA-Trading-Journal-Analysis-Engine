@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:24.040677+00:00",
+  "generated_at": "2026-09-03T09:15:15.515827+00:00",
   "ticker": "AIFA",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 2.934,
+      "ticker": "AIFA",
+      "updated_at": "2026-09-03T06:48:10.251713",
+      "entry": 2.89,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 2.802,
+      "setup": "TLINE_CONTINUATION",
+      "score": 80.0,
+      "direction": "Bearish",
+      "current_price": 2.8965
+    },
     {
       "current_price": 2.9518,
       "setup": "TLINE_CONTINUATION",

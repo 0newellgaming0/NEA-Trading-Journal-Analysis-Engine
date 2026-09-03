@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T15:17:06.114118+00:00",
+  "generated_at": "2026-09-03T09:15:48.156206+00:00",
   "ticker": "VIR",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 11.816,
+      "ticker": "VIR",
+      "updated_at": "2026-09-03T05:43:41.539457",
+      "entry": 11.64,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 11.288,
+      "setup": "Harami",
+      "score": 86.0,
+      "direction": "Bearish",
+      "current_price": 11.37
+    },
     {
       "ticker": "VIR",
       "updated_at": "2026-09-02T15:05:04.345747",

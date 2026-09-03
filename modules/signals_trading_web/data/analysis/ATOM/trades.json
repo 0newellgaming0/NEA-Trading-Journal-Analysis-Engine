@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:27.690442+00:00",
+  "generated_at": "2026-09-03T09:15:18.975879+00:00",
   "ticker": "ATOM",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 3.9890000000000003,
+      "ticker": "ATOM",
+      "updated_at": "2026-09-03T08:40:41.149953",
+      "entry": 4.0,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 4.021999999999999,
+      "setup": "TLINE_CONTINUATION",
+      "score": 76.0,
+      "direction": "Bullish",
+      "current_price": 4.0
+    },
     {
       "current_price": 3.9,
       "setup": "Pinbar",

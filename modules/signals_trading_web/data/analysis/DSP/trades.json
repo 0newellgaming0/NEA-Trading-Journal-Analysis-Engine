@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:35.570872+00:00",
+  "generated_at": "2026-09-03T09:15:26.176200+00:00",
   "ticker": "DSP",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 13.056000000000001,
+      "ticker": "DSP",
+      "updated_at": "2026-09-03T06:30:27.466882",
+      "entry": 13.32,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 13.847999999999999,
+      "setup": "TLINE_CONTINUATION",
+      "score": 83.0,
+      "direction": "Bullish",
+      "current_price": 13.12
+    },
     {
       "current_price": 12.63,
       "setup": "TLINE_CONTINUATION",

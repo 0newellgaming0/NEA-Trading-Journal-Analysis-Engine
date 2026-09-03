@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:31.620364+00:00",
+  "generated_at": "2026-09-03T09:15:23.291178+00:00",
   "ticker": "CCCC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 3.7355,
+      "ticker": "CCCC",
+      "updated_at": "2026-09-03T07:12:32.172190",
+      "entry": 3.785,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "target": 3.8840000000000003,
+      "setup": "Engulfing",
+      "score": 75.0,
+      "direction": "Bullish",
+      "current_price": 3.8
+    },
     {
       "current_price": 3.87,
       "setup": "TLINE_CONTINUATION",

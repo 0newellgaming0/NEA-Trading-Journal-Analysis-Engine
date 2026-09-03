@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-02T14:23:36.275493+00:00",
+  "generated_at": "2026-09-03T09:15:26.901114+00:00",
   "ticker": "ERIC",
   "count": 1,
   "trades": [
     {
-      "current_price": 9.96,
-      "setup": "Pinbar",
-      "score": 75.0,
-      "ticker": "ERIC",
-      "direction": "Bearish",
-      "risk_reward": 2.0,
-      "updated_at": "2026-09-02T09:28:07.108390",
-      "target": 9.752000000000004,
       "stop": 10.213999999999999,
+      "ticker": "ERIC",
+      "updated_at": "2026-09-03T09:04:02.930441",
       "entry": 10.06,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "status": "CONFIRMED"
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 9.752000000000004,
+      "setup": "Pinbar",
+      "score": 73.0,
+      "direction": "Bearish",
+      "current_price": 10.16
     }
   ]
 }

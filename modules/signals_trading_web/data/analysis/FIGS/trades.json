@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:26.211320+00:00",
+  "generated_at": "2026-09-03T09:15:27.810257+00:00",
   "ticker": "FIGS",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 15.089,
+      "ticker": "FIGS",
+      "updated_at": "2026-09-03T08:37:56.361753",
+      "entry": 14.99,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 14.792,
+      "setup": "Engulfing",
+      "score": 82.0,
+      "direction": "Bearish",
+      "current_price": 14.9
+    },
     {
       "current_price": 15.26,
       "ticker": "FIGS",

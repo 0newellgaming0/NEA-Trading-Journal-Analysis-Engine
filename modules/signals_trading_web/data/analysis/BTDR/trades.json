@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:17.989450+00:00",
+  "generated_at": "2026-09-03T09:15:22.685806+00:00",
   "ticker": "BTDR",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 10.2755,
+      "ticker": "BTDR",
+      "updated_at": "2026-09-03T09:06:08.168885",
+      "entry": 10.71,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 11.579000000000004,
+      "setup": "Three White Soldiers",
+      "score": 75.0,
+      "direction": "Bullish",
+      "current_price": 10.8
+    },
     {
       "current_price": 10.4,
       "ticker": "BTDR",

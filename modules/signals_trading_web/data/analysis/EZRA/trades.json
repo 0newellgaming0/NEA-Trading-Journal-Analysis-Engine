@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T16:08:10.039687+00:00",
+  "generated_at": "2026-09-03T09:15:27.214986+00:00",
   "ticker": "EZRA",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 2.89392,
+      "ticker": "EZRA",
+      "updated_at": "2026-09-03T06:58:12.110564",
+      "entry": 2.7408,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "target": 2.4345600000000003,
+      "setup": "Shooting Star",
+      "score": 85.0,
+      "direction": "Bearish",
+      "current_price": 2.7
+    },
     {
       "status": "CONFIRMED",
       "current_price": 2.7673,

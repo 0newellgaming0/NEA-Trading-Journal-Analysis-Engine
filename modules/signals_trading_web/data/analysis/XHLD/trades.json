@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:40.359622+00:00",
+  "generated_at": "2026-09-03T09:15:49.696751+00:00",
   "ticker": "XHLD",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 9.143229999999999,
+      "ticker": "XHLD",
+      "updated_at": "2026-09-03T08:12:29.537331",
+      "entry": 9.3717,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 9.828640000000004,
+      "setup": "Marubozu",
+      "score": 78.0,
+      "direction": "Bullish",
+      "current_price": 9.4444
+    },
     {
       "current_price": 9.2704,
       "ticker": "XHLD",

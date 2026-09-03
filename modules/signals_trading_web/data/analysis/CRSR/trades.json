@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:33.904452+00:00",
+  "generated_at": "2026-09-03T09:15:24.861791+00:00",
   "ticker": "CRSR",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 11.723,
+      "ticker": "CRSR",
+      "updated_at": "2026-09-03T05:29:44.166981",
+      "entry": 11.91,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "target": 12.283999999999999,
+      "setup": "Engulfing",
+      "score": 89.0,
+      "direction": "Bullish",
+      "current_price": 12.07
+    },
     {
       "current_price": 11.5087,
       "setup": "TLINE_CONTINUATION",

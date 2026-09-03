@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:46.951260+00:00",
+  "generated_at": "2026-09-03T09:15:39.183913+00:00",
   "ticker": "PUBM",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 17.618,
+      "ticker": "PUBM",
+      "updated_at": "2026-09-03T08:42:49.995975",
+      "entry": 17.31,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 16.694,
+      "setup": "Counterattack Lines",
+      "score": 79.0,
+      "direction": "Bearish",
+      "current_price": 17.38
+    },
     {
       "current_price": 16.0,
       "setup": "TLINE_CONTINUATION",

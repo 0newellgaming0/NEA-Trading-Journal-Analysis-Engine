@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:47.496706+00:00",
+  "generated_at": "2026-09-03T09:15:39.875953+00:00",
   "ticker": "RBBN",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 1.971,
+      "ticker": "RBBN",
+      "updated_at": "2026-09-03T08:17:39.170504",
+      "entry": 1.96,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 1.9379999999999997,
+      "setup": "Pinbar",
+      "score": 74.0,
+      "direction": "Bearish",
+      "current_price": 1.97
+    },
     {
       "current_price": 1.95,
       "setup": "TLINE_CONTINUATION",

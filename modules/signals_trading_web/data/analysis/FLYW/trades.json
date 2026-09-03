@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:37.270779+00:00",
+  "generated_at": "2026-09-03T09:15:28.156094+00:00",
   "ticker": "FLYW",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 16.73139,
+      "ticker": "FLYW",
+      "updated_at": "2026-09-03T05:50:45.967639",
+      "entry": 18.6081,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 22.36152,
+      "setup": "Marubozu",
+      "score": 85.0,
+      "direction": "Bullish",
+      "current_price": 19.0
+    },
     {
       "current_price": 18.185,
       "setup": "TLINE_CONTINUATION",

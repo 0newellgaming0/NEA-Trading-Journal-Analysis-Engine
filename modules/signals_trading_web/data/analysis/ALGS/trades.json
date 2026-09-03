@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T20:51:08.610402+00:00",
+  "generated_at": "2026-09-03T09:15:16.365885+00:00",
   "ticker": "ALGS",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 6.55253,
+      "ticker": "ALGS",
+      "updated_at": "2026-09-03T05:52:44.568110",
+      "entry": 5.67,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 3.90494,
+      "setup": "EMA200_CROSS",
+      "score": 82.0,
+      "direction": "Bearish",
+      "current_price": 6.09
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "entry": 6.11,

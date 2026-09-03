@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T07:23:24.470772+00:00",
+  "generated_at": "2026-09-03T09:15:25.519009+00:00",
   "ticker": "DFDV",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 5.2669999999999995,
+      "ticker": "DFDV",
+      "updated_at": "2026-09-03T05:59:29.139135",
+      "entry": 5.3,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 5.3660000000000005,
+      "setup": "TLINE_CONTINUATION",
+      "score": 85.0,
+      "direction": "Bullish",
+      "current_price": 5.3
+    },
     {
       "current_price": 5.1,
       "ticker": "DFDV",
