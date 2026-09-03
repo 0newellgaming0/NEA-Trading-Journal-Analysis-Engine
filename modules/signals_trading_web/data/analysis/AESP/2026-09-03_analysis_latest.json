@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-03T12:19:33.209993",
+  "tickers": {
+    "AESP": {
+      "generated_at": "2026-09-03T12:19:33.209993",
+      "journal_timestamp": "",
+      "stop_breached": false,
+      "analysis_blocks": {
+        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: Aeon Acquisition I Corp\n🔤 Ticker: AESP\n👤 CEO: Demetrios Mallios\n👥 Employees: N/A\n📅 Established: 2025-08-01\n🏢 Company Age: 1.09 years\n📊 Profile Score: 40/100\n🏷️ Profile Age Classification: NEW\n📍 Address: 66 West Flagler Street, Suite 900,MIAMI,FL,United States",
+        "fundamentals": "🏢 FUNDAMENTALS\n\n📊 FINANCIAL ANALYSIS: AESP\n\nRevenue: None\nNet Income: None\nGross Profit: None\nOperating Income: None\n\nMargins:\n- Gross Margin: None\n- Net Margin: None\n\nBalance Sheet:\n- Total Assets: 299009.0\n- Total Liabilities: 342760.0\n- Equity: -43751.0\n- Debt/Equity: -7.834335215195082\n\nCash Flow:\n- Operating Cash Flow: None\n- Free Cash Flow: None\n\nInstitutional Score (5):\n1/5\n",
+        "relative_strength": "\n📊 RELATIVE STRENGTH CONTEXT\n\nTicker:\n→ AESP\n\nTimeframe:\n→ DAILY\n\n❌ STATUS:\nNo DAILY ticker dataset found.\n\nExpected:\n→ E:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\AESP.csv\n",
+        "active_trades": "📊 ACTIVE TRADES ANALYSIS\n\nActive Trades: 0\nOpen / Unresolved: 0\n\nTICKER: AESP\n\nACTIVE TRADES\n\nNo active trades.\n\nOPEN / UNRESOLVED TRADES\n\nNo open / unresolved trades.",
+        "existing_trades": "📊 TRADE PERFORMANCE ANALYSIS\n\nNo trades exist for AESP.",
+        "top_signals": "Top signal analysis unavailable.",
+        "tline_15m": "15M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "tline_60m": "60M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "intraday_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\AESP.csv",
+        "intraday_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\AESP.csv",
+        "historical": "",
+        "daily_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\AESP.csv",
+        "daily_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\AESP.csv",
+        "risk_engine": "⚠️ Risk engine unavailable (no 1M price data)",
+        "weekly_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\weekly\\AESP.csv",
+        "dual_timeframe_momentum": "\n📊 DUAL TIME FRAME MOMENTUM ENGINE ERROR\n\nTicker: AESP\nError: OHLCV input is invalid\n\n",
+        "candlestick_summary": "Candlestick analysis unavailable. See log.",
+        "point_and_figure": "No data",
+        "liquidity_phase": "Liquidity engine failed.",
+        "liquidity_engine": "Liquidity engine failed.",
+        "sec_earnings": "",
+        "sec_annual_growth": "",
+        "sec_float_analysis": "",
+        "sec_ownership": "",
+        "sec_capital_allocation": "",
+        "sec_balance_sheet": "",
+        "sec_cash_flow": "",
+        "sec_new_developments": "",
+        "sec_canslim": "",
+        "fractal": "Fractal analysis unavailable: invalid or empty dataset"
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-03T12:22:43.635351",
+  "tickers": {
+    "ANVS": {
+      "generated_at": "2026-09-03T12:22:43.635351",
+      "journal_timestamp": "",
+      "stop_breached": false,
+      "analysis_blocks": {
+        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: Annovis Bio Inc\n🔤 Ticker: ANVS\n👤 CEO: Maria L. Maccecchini\n👥 Employees: 8\n📅 Established: 2008-04-29\n🏢 Company Age: 18.35 years\n📊 Profile Score: 70/100\n🏷️ Profile Age Classification: ESTABLISHED\n📍 Address: 101 LINDENWOOD DRIVE, SUITE 225,MALVERN,PA,United States",
+        "fundamentals": "🏢 FUNDAMENTALS\n\n📊 FINANCIAL ANALYSIS: ANVS\n\nRevenue: 0.0\nNet Income: -28854197.0\nGross Profit: None\nOperating Income: -29695258.0\n\nMargins:\n- Gross Margin: None\n- Net Margin: None\n\nBalance Sheet:\n- Total Assets: 21081625.0\n- Total Liabilities: 4230375.0\n- Equity: 16851250.0\n- Debt/Equity: 0.2510422075513686\n\nCash Flow:\n- Operating Cash Flow: -25619703.0\n- Free Cash Flow: -25619703.0\n\nInstitutional Score (5):\n1/5\n",
+        "relative_strength": "\n📊 RELATIVE STRENGTH CONTEXT\n\nTicker:\n→ ANVS\n\nTimeframe:\n→ DAILY\n\n❌ STATUS:\nNo DAILY ticker dataset found.\n\nExpected:\n→ E:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\ANVS.csv\n",
+        "active_trades": "📊 ACTIVE TRADES ANALYSIS\n\nActive Trades: 0\nOpen / Unresolved: 0\n\nTICKER: ANVS\n\nACTIVE TRADES\n\nNo active trades.\n\nOPEN / UNRESOLVED TRADES\n\nNo open / unresolved trades.",
+        "existing_trades": "📊 TRADE PERFORMANCE ANALYSIS\n\nNo trades exist for ANVS.",
+        "top_signals": "Top signal analysis unavailable.",
+        "tline_15m": "15M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "tline_60m": "60M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "intraday_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\ANVS.csv",
+        "intraday_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\ANVS.csv",
+        "historical": "\nTREND STRUCTURE\n\nPrimary Trend Structure:\nStrong Bearish Structure\n\nClose Price:\n1.35\n\nEMA8: 1.65  \nEMA21: 1.73\nSMA20: 1.77 \nSMA50: 1.79 \nSMA200: 2.47 \n\n\nPERFORMANCE\n\n1D Return: -20.59%\n1W Return: -25.41%\n1M Return: -27.81%\n3M Return: -32.16%\n6M Return: -45.56%\n1Y Return: -40.79%\n\n\nLIQUIDITY\n\nRVOL:\n10.96\n\nLiquidity Score:\n1.83\n\nParticipation:\nHigh Participation\n\n\nVOLATILITY\n\nATR:\n0.11\n\nVolatility:\n78.23%\n\nCompression Score:\n0.96\n\nState:\nNormal Volatility\n\n\nMOMENTUM\n\nRSI:\n26.55\n\nState:\nOversold / Weak Momentum\n\nCLV:\n-0.84\n\n\nT-LINE ANALYSIS\n\nT-Line State:\nBearish Trend\n\nT-Line Hold / Break:\nBearish Breakdown\n\nEMA8:\n1.65\n\nEMA8 Normalized Slope:\n-6.7272%\n\nT-Line Confidence:\n-2.00\n\nTrend Failure:\nNone\n\nRejection Signal:\nBearish Rejection\n\nStrong Continuation Candle:\nTrue\n\n\nWYCKOFF CONTEXT\n\nEstimated Structural Phase:\nMarkdown / Phase E\n\n\nT-LINE INTERPRETATION\n\nT-Line Context:\nPrice is below the T-Line and the T-Line is falling, confirming aligned bearish short-term structure.\n\nHold / Break Context:\nPrice traded above the T-Line but closed back below it.\n\n\nRISK FRAMEWORK\n\nBullish Stop:\n1.24\n\nBearish Stop:\n1.77\n\nBullish Target:\n1.58\n\nBearish Target:\n1.12\n",
+        "daily_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\ANVS.csv",
+        "daily_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\ANVS.csv",
+        "risk_engine": "⚠️ Risk engine unavailable (no 1M price data)",
+        "weekly_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\weekly\\ANVS.csv",
+        "dual_timeframe_momentum": "\n📊 DUAL TIME FRAME MOMENTUM ENGINE ERROR\n\nTicker: ANVS\nError: OHLCV input is invalid\n\n",
+        "candlestick_summary": "Candlestick analysis unavailable. See log.",
+        "point_and_figure": "No data",
+        "liquidity_phase": "Liquidity engine failed.",
+        "liquidity_engine": "Liquidity engine failed.",
+        "sec_earnings": "",
+        "sec_annual_growth": "",
+        "sec_float_analysis": "",
+        "sec_ownership": "",
+        "sec_capital_allocation": "",
+        "sec_balance_sheet": "",
+        "sec_cash_flow": "",
+        "sec_new_developments": "",
+        "sec_canslim": "",
+        "fractal": "Fractal analysis unavailable: invalid or empty dataset"
+      }
+    }
+  }
+}

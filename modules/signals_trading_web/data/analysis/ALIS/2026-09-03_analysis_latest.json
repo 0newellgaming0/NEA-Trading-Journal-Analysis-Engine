@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-03T12:20:56.706313",
+  "tickers": {
+    "ALIS": {
+      "generated_at": "2026-09-03T12:20:56.706313",
+      "journal_timestamp": "",
+      "stop_breached": false,
+      "analysis_blocks": {
+        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: Calisa Acquisition Corp\n🔤 Ticker: ALIS\n👤 CEO: Hongfei Zhang\n👥 Employees: N/A\n📅 Established: 2024-03-11\n🏢 Company Age: 2.48 years\n📊 Profile Score: 40/100\n🏷️ Profile Age Classification: NEW\n📍 Address: 205 W. 37th Street,NEW YORK,NY,United States",
+        "fundamentals": "🏢 FUNDAMENTALS\n\n📊 FINANCIAL ANALYSIS: ALIS\n\nRevenue: 0.0\nNet Income: 245454.0\nGross Profit: None\nOperating Income: -190582.0\n\nMargins:\n- Gross Margin: None\n- Net Margin: None\n\nBalance Sheet:\n- Total Assets: 61017446.0\n- Total Liabilities: 85186.0\n- Equity: 60932260.0\n- Debt/Equity: 0.0013980443200367096\n\nCash Flow:\n- Operating Cash Flow: -286505.0\n- Free Cash Flow: -286505.0\n\nInstitutional Score (5):\n2/5\n",
+        "relative_strength": "\n📊 RELATIVE STRENGTH CONTEXT\n\nTicker:\n→ ALIS\n\nTimeframe:\n→ DAILY\n\n❌ STATUS:\nNo DAILY ticker dataset found.\n\nExpected:\n→ E:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\ALIS.csv\n",
+        "active_trades": "📊 ACTIVE TRADES ANALYSIS\n\nActive Trades: 0\nOpen / Unresolved: 0\n\nTICKER: ALIS\n\nACTIVE TRADES\n\nNo active trades.\n\nOPEN / UNRESOLVED TRADES\n\nNo open / unresolved trades.",
+        "existing_trades": "📊 TRADE PERFORMANCE ANALYSIS\n\nNo trades exist for ALIS.",
+        "top_signals": "Top signal analysis unavailable.",
+        "tline_15m": "15M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "tline_60m": "60M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "intraday_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\ALIS.csv",
+        "intraday_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\ALIS.csv",
+        "historical": "",
+        "daily_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\ALIS.csv",
+        "daily_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\ALIS.csv",
+        "risk_engine": "⚠️ Risk engine unavailable (no 1M price data)",
+        "weekly_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\weekly\\ALIS.csv",
+        "dual_timeframe_momentum": "\n📊 DUAL TIME FRAME MOMENTUM ENGINE ERROR\n\nTicker: ALIS\nError: OHLCV input is invalid\n\n",
+        "candlestick_summary": "Candlestick analysis unavailable. See log.",
+        "point_and_figure": "No data",
+        "liquidity_phase": "Liquidity engine failed.",
+        "liquidity_engine": "Liquidity engine failed.",
+        "sec_earnings": "",
+        "sec_annual_growth": "",
+        "sec_float_analysis": "",
+        "sec_ownership": "",
+        "sec_capital_allocation": "",
+        "sec_balance_sheet": "",
+        "sec_cash_flow": "",
+        "sec_new_developments": "",
+        "sec_canslim": "",
+        "fractal": "Fractal analysis unavailable: invalid or empty dataset"
+      }
+    }
+  }
+}

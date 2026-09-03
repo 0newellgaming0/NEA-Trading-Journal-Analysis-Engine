@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-03T12:19:43.233420",
+  "tickers": {
+    "AGMB": {
+      "generated_at": "2026-09-03T12:19:43.233420",
+      "journal_timestamp": "",
+      "stop_breached": false,
+      "analysis_blocks": {
+        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: N/A\n🔤 Ticker: AGMB\n👤 CEO: N/A\n👥 Employees: N/A\n📅 Established: N/A\n🏢 Company Age: N/A\n📊 Profile Score: N/A\n🏷️ Profile Age Classification: UNKNOWN\n📍 Address: N/A",
+        "fundamentals": "🏢 FUNDAMENTALS\n\n📊 FINANCIAL ANALYSIS: AGMB\n\nRevenue: 0.0\nNet Income: -62547000.0\nGross Profit: None\nOperating Income: -59275000.0\n\nMargins:\n- Gross Margin: None\n- Net Margin: None\n\nBalance Sheet:\n- Total Assets: 153706000.0\n- Total Liabilities: 22804000.0\n- Equity: 130902000.0\n- Debt/Equity: 0.17420665841621977\n\nCash Flow:\n- Operating Cash Flow: -51741000.0\n- Free Cash Flow: -51745000.0\n\nInstitutional Score (5):\n1/5\n",
+        "relative_strength": "\n📊 RELATIVE STRENGTH CONTEXT\n\nTicker:\n→ AGMB\n\nTimeframe:\n→ DAILY\n\n❌ STATUS:\nNo DAILY ticker dataset found.\n\nExpected:\n→ E:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\AGMB.csv\n",
+        "active_trades": "📊 ACTIVE TRADES ANALYSIS\n\nActive Trades: 0\nOpen / Unresolved: 0\n\nTICKER: AGMB\n\nACTIVE TRADES\n\nNo active trades.\n\nOPEN / UNRESOLVED TRADES\n\nNo open / unresolved trades.",
+        "existing_trades": "📊 TRADE PERFORMANCE ANALYSIS\n\nNo trades exist for AGMB.",
+        "top_signals": "Top signal analysis unavailable.",
+        "tline_15m": "15M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "tline_60m": "60M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "intraday_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\AGMB.csv",
+        "intraday_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\AGMB.csv",
+        "historical": "\nTREND STRUCTURE\n\nPrimary Trend Structure:\nInsufficient Structure\n\nClose Price:\n14.56\n\nEMA8: 13.78  \nEMA21: 13.63\nSMA20: 13.83 \nSMA50: 13.32 \nSMA200: nan \n\n\nPERFORMANCE\n\n1D Return: 6.59%\n1W Return: 5.20%\n1M Return: 1.68%\n3M Return: 22.46%\n6M Return: 2.46%\n1Y Return: nan%\n\n\nLIQUIDITY\n\nRVOL:\n2.23\n\nLiquidity Score:\n1.37\n\nParticipation:\nHigh Participation\n\n\nVOLATILITY\n\nATR:\n1.06\n\nVolatility:\n65.25%\n\nCompression Score:\n0.82\n\nState:\nNormal Volatility\n\n\nMOMENTUM\n\nRSI:\n58.59\n\nState:\nBullish Momentum\n\nCLV:\n0.57\n\n\nT-LINE ANALYSIS\n\nT-Line State:\nBullish Trend\n\nT-Line Hold / Break:\nBullish Reclaim\n\nEMA8:\n13.78\n\nEMA8 Normalized Slope:\n1.9450%\n\nT-Line Confidence:\n2.00\n\nTrend Failure:\nNone\n\nRejection Signal:\nBullish Rejection\n\nStrong Continuation Candle:\nTrue\n\n\nWYCKOFF CONTEXT\n\nEstimated Structural Phase:\nMarkup / Phase E\n\n\nT-LINE INTERPRETATION\n\nT-Line Context:\nPrice is above the T-Line and the T-Line is rising, confirming aligned bullish short-term structure.\n\nHold / Break Context:\nPrice traded below the T-Line but recovered above it by the close.\n\n\nRISK FRAMEWORK\n\nBullish Stop:\n12.72\n\nBearish Stop:\n15.62\n\nBullish Target:\n16.68\n\nBearish Target:\n12.44\n",
+        "daily_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\AGMB.csv",
+        "daily_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\AGMB.csv",
+        "risk_engine": "⚠️ Risk engine unavailable (no 1M price data)",
+        "weekly_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\weekly\\AGMB.csv",
+        "dual_timeframe_momentum": "\n📊 DUAL TIME FRAME MOMENTUM ENGINE ERROR\n\nTicker: AGMB\nError: OHLCV input is invalid\n\n",
+        "candlestick_summary": "Candlestick analysis unavailable. See log.",
+        "point_and_figure": "No data",
+        "liquidity_phase": "Liquidity engine failed.",
+        "liquidity_engine": "Liquidity engine failed.",
+        "sec_earnings": "",
+        "sec_annual_growth": "",
+        "sec_float_analysis": "",
+        "sec_ownership": "",
+        "sec_capital_allocation": "",
+        "sec_balance_sheet": "",
+        "sec_cash_flow": "",
+        "sec_new_developments": "",
+        "sec_canslim": "",
+        "fractal": "Fractal analysis unavailable: invalid or empty dataset"
+      }
+    }
+  }
+}

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-03T16:05:59.542892+00:00",
+  "generated_at": "2026-09-03T17:44:23.969871+00:00",
   "ticker": "DLO",
   "count": 12,
   "trades": [
     {
-      "regime": "BULLISH_CONSOLIDATION",
-      "current_price": 15.75,
-      "direction": "Bullish",
-      "target": 15.677000000000001,
-      "setup": "TLINE_CONTINUATION",
-      "entry": 15.49,
-      "updated_at": "2026-09-03T15:08:48.395553",
+      "current_price": 15.925,
       "risk_reward": 2.0,
+      "target": 15.677000000000001,
+      "updated_at": "2026-09-03T17:44:23.191209",
+      "stop": 15.3965,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "direction": "Bullish",
+      "entry": 15.49,
       "ticker": "DLO",
-      "score": 90.0,
-      "status": "CONFIRMED",
-      "stop": 15.3965
+      "setup": "TLINE_CONTINUATION",
+      "score": 93.0,
+      "status": "CONFIRMED"
     },
     {
       "setup": "Marubozu",

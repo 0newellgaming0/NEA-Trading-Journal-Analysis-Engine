@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-03T12:23:05.246750",
+  "tickers": {
+    "APVO": {
+      "generated_at": "2026-09-03T12:23:05.246750",
+      "journal_timestamp": "",
+      "stop_breached": false,
+      "analysis_blocks": {
+        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: Aptevo Therapeutics Inc\n🔤 Ticker: APVO\n👤 CEO: Marvin L. White\n👥 Employees: 33\n📅 Established: 2016-02-22\n🏢 Company Age: 10.53 years\n📊 Profile Score: 70/100\n🏷️ Profile Age Classification: ESTABLISHED\n📍 Address: 2401 4th Ave Ste 1050,SEATTLE,WA,United States",
+        "fundamentals": "🏢 FUNDAMENTALS\n\n📊 FINANCIAL ANALYSIS: APVO\n\nRevenue: 0.0\nNet Income: -25967000.0\nGross Profit: None\nOperating Income: -26312000.0\n\nMargins:\n- Gross Margin: None\n- Net Margin: None\n\nBalance Sheet:\n- Total Assets: 27194000.0\n- Total Liabilities: 9813000.0\n- Equity: 17381000.0\n- Debt/Equity: 0.564582014843795\n\nCash Flow:\n- Operating Cash Flow: -25592000.0\n- Free Cash Flow: -25592000.0\n\nInstitutional Score (5):\n1/5\n",
+        "relative_strength": "\n📊 RELATIVE STRENGTH CONTEXT\n\nTicker:\n→ APVO\n\nTimeframe:\n→ DAILY\n\n❌ STATUS:\nNo DAILY ticker dataset found.\n\nExpected:\n→ E:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\APVO.csv\n",
+        "active_trades": "📊 ACTIVE TRADES ANALYSIS\n\nActive Trades: 0\nOpen / Unresolved: 0\n\nTICKER: APVO\n\nACTIVE TRADES\n\nNo active trades.\n\nOPEN / UNRESOLVED TRADES\n\nNo open / unresolved trades.",
+        "existing_trades": "📊 TRADE PERFORMANCE ANALYSIS\n\nNo trades exist for APVO.",
+        "top_signals": "Top signal analysis unavailable.",
+        "tline_15m": "15M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "tline_60m": "60M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "intraday_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\APVO.csv",
+        "intraday_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\APVO.csv",
+        "historical": "\nTREND STRUCTURE\n\nPrimary Trend Structure:\nStrong Bearish Structure\n\nClose Price:\n2.01\n\nEMA8: 2.41  \nEMA21: 2.86\nSMA20: 2.88 \nSMA50: 3.76 \nSMA200: 7.53 \n\n\nPERFORMANCE\n\n1D Return: -22.69%\n1W Return: -16.94%\n1M Return: -52.03%\n3M Return: -60.43%\n6M Return: -68.89%\n1Y Return: -93.39%\n\n\nLIQUIDITY\n\nRVOL:\n9.01\n\nLiquidity Score:\n2.66\n\nParticipation:\nHigh Participation\n\n\nVOLATILITY\n\nATR:\n0.27\n\nVolatility:\n104.33%\n\nCompression Score:\n1.22\n\nState:\nExpansion Regime\n\n\nMOMENTUM\n\nRSI:\n26.32\n\nState:\nOversold / Weak Momentum\n\nCLV:\n-0.62\n\n\nT-LINE ANALYSIS\n\nT-Line State:\nBearish Trend\n\nT-Line Hold / Break:\nBearish Hold\n\nEMA8:\n2.41\n\nEMA8 Normalized Slope:\n-5.6598%\n\nT-Line Confidence:\n-2.00\n\nTrend Failure:\nBullish Trend Failure\n\nRejection Signal:\nNone\n\nStrong Continuation Candle:\nFalse\n\n\nWYCKOFF CONTEXT\n\nEstimated Structural Phase:\nMarkdown / Phase E\n\n\nT-LINE INTERPRETATION\n\nT-Line Context:\nPrice is below the T-Line and the T-Line is falling, confirming aligned bearish short-term structure.\n\nHold / Break Context:\nPrice remained below T-Line resistance through the session.\n\n\nRISK FRAMEWORK\n\nBullish Stop:\n1.74\n\nBearish Stop:\n2.68\n\nBullish Target:\n2.55\n\nBearish Target:\n1.47\n",
+        "daily_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\APVO.csv",
+        "daily_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\APVO.csv",
+        "risk_engine": "⚠️ Risk engine unavailable (no 1M price data)",
+        "weekly_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\weekly\\APVO.csv",
+        "dual_timeframe_momentum": "\n📊 DUAL TIME FRAME MOMENTUM ENGINE ERROR\n\nTicker: APVO\nError: OHLCV input is invalid\n\n",
+        "candlestick_summary": "Candlestick analysis unavailable. See log.",
+        "point_and_figure": "No data",
+        "liquidity_phase": "Liquidity engine failed.",
+        "liquidity_engine": "Liquidity engine failed.",
+        "sec_earnings": "",
+        "sec_annual_growth": "",
+        "sec_float_analysis": "",
+        "sec_ownership": "",
+        "sec_capital_allocation": "",
+        "sec_balance_sheet": "",
+        "sec_cash_flow": "",
+        "sec_new_developments": "",
+        "sec_canslim": "",
+        "fractal": "Fractal analysis unavailable: invalid or empty dataset"
+      }
+    }
+  }
+}

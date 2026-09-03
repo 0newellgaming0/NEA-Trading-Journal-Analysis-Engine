@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-03T12:25:18.594544",
+  "tickers": {
+    "AVEX": {
+      "generated_at": "2026-09-03T12:25:18.594544",
+      "journal_timestamp": "",
+      "stop_breached": false,
+      "analysis_blocks": {
+        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: Aevex Corp\n🔤 Ticker: AVEX\n👤 CEO: Brian D. Raduenz\n👥 Employees: 650\n📅 Established: 2025-10-27\n🏢 Company Age: 0.85 years\n📊 Profile Score: 25/100\n🏷️ Profile Age Classification: VERY_NEW\n📍 Address: 440 Stevens Ave #150,SOLANA BEACH,CA,United States",
+        "fundamentals": "🏢 FUNDAMENTALS\n\n📊 FINANCIAL ANALYSIS: AVEX\n\nRevenue: 432933000.0\nNet Income: -847000.0\nGross Profit: 94303000.0\nOperating Income: 1891000.0\n\nMargins:\n- Gross Margin: 21.782354313484998\n- Net Margin: -0.19564228183113785\n\nBalance Sheet:\n- Total Assets: 805643000.0\n- Total Liabilities: 215574000.0\n- Equity: 246136000.0\n- Debt/Equity: 0.875832872883284\n\nCash Flow:\n- Operating Cash Flow: -97639000.0\n- Free Cash Flow: -106106000.0\n\nInstitutional Score (5):\n2/5\n",
+        "relative_strength": "\n📊 RELATIVE STRENGTH CONTEXT\n\nTicker:\n→ AVEX\n\nTimeframe:\n→ DAILY\n\n❌ STATUS:\nNo DAILY ticker dataset found.\n\nExpected:\n→ E:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\AVEX.csv\n",
+        "active_trades": "📊 ACTIVE TRADES ANALYSIS\n\nActive Trades: 0\nOpen / Unresolved: 0\n\nTICKER: AVEX\n\nACTIVE TRADES\n\nNo active trades.\n\nOPEN / UNRESOLVED TRADES\n\nNo open / unresolved trades.",
+        "existing_trades": "📊 TRADE PERFORMANCE ANALYSIS\n\nNo trades exist for AVEX.",
+        "top_signals": "Top signal analysis unavailable.",
+        "tline_15m": "15M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "tline_60m": "60M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "intraday_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\AVEX.csv",
+        "intraday_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\AVEX.csv",
+        "historical": "\nTREND STRUCTURE\n\nPrimary Trend Structure:\nInsufficient Structure\n\nClose Price:\n15.73\n\nEMA8: 17.09  \nEMA21: 18.02\nSMA20: 19.15 \nSMA50: 17.81 \nSMA200: nan \n\n\nPERFORMANCE\n\n1D Return: -0.06%\n1W Return: -16.15%\n1M Return: -20.15%\n3M Return: -36.08%\n6M Return: nan%\n1Y Return: nan%\n\n\nLIQUIDITY\n\nRVOL:\n0.60\n\nLiquidity Score:\n0.73\n\nParticipation:\nLow Participation\n\n\nVOLATILITY\n\nATR:\n1.41\n\nVolatility:\n81.55%\n\nCompression Score:\n0.87\n\nState:\nNormal Volatility\n\n\nMOMENTUM\n\nRSI:\n37.65\n\nState:\nBearish Momentum\n\nCLV:\n-0.25\n\n\nT-LINE ANALYSIS\n\nT-Line State:\nBearish Trend\n\nT-Line Hold / Break:\nBearish Hold\n\nEMA8:\n17.09\n\nEMA8 Normalized Slope:\n-6.7732%\n\nT-Line Confidence:\n-2.00\n\nTrend Failure:\nNone\n\nRejection Signal:\nNone\n\nStrong Continuation Candle:\nFalse\n\n\nWYCKOFF CONTEXT\n\nEstimated Structural Phase:\nPotential Sign of Weakness / Phase D\n\n\nT-LINE INTERPRETATION\n\nT-Line Context:\nPrice is below the T-Line and the T-Line is falling, confirming aligned bearish short-term structure.\n\nHold / Break Context:\nPrice remained below T-Line resistance through the session.\n\n\nRISK FRAMEWORK\n\nBullish Stop:\n14.32\n\nBearish Stop:\n18.49\n\nBullish Target:\n18.54\n\nBearish Target:\n12.92\n",
+        "daily_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\AVEX.csv",
+        "daily_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\AVEX.csv",
+        "risk_engine": "⚠️ Risk engine unavailable (no 1M price data)",
+        "weekly_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\weekly\\AVEX.csv",
+        "dual_timeframe_momentum": "\n📊 DUAL TIME FRAME MOMENTUM ENGINE ERROR\n\nTicker: AVEX\nError: OHLCV input is invalid\n\n",
+        "candlestick_summary": "Candlestick analysis unavailable. See log.",
+        "point_and_figure": "No data",
+        "liquidity_phase": "Liquidity engine failed.",
+        "liquidity_engine": "Liquidity engine failed.",
+        "sec_earnings": "",
+        "sec_annual_growth": "",
+        "sec_float_analysis": "",
+        "sec_ownership": "",
+        "sec_capital_allocation": "",
+        "sec_balance_sheet": "",
+        "sec_cash_flow": "",
+        "sec_new_developments": "",
+        "sec_canslim": "",
+        "fractal": "Fractal analysis unavailable: invalid or empty dataset"
+      }
+    }
+  }
+}
