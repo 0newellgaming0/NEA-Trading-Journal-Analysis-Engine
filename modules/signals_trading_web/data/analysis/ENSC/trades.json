@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:49.623390+00:00",
+  "generated_at": "2026-09-04T11:25:00.769467+00:00",
   "ticker": "ENSC",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "stop": 0.45049,
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 65.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-04T11:15:36.994373",
+      "target": 0.43432,
+      "current_price": 0.44,
+      "risk_reward": 2.0,
+      "setup": "Evening Star",
+      "entry": 0.4451,
+      "ticker": "ENSC"
+    }
+  ]
 }

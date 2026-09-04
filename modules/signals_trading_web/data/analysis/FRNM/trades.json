@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.444784+00:00",
+  "generated_at": "2026-09-04T11:25:00.817792+00:00",
   "ticker": "FRNM",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 17.1445,
+      "direction": "Bearish",
+      "regime": "HIGHER_TIMEFRAME_CONFLICT",
+      "score": 72.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-04T11:17:55.318754",
+      "target": 15.841000000000001,
+      "current_price": 16.4,
+      "risk_reward": 2.0,
+      "setup": "Evening Star",
+      "entry": 16.71,
+      "ticker": "FRNM"
+    },
     {
       "entry": 14.85,
       "current_price": 14.6,
