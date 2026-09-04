@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-04T05:29:22.712891+00:00",
+  "ticker": "VALE",
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "target": 14.370080000000002,
+      "entry": 15.5,
+      "regime": "BULLISH_CONSOLIDATION",
+      "ticker": "VALE",
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-04T05:19:51.707616",
+      "risk_reward": 2.0,
+      "score": 64.0,
+      "current_price": 15.3383,
+      "setup": "Evening Star",
+      "stop": 16.06496
+    }
+  ]
+}

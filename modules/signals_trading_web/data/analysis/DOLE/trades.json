@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.284824+00:00",
+  "generated_at": "2026-09-04T05:28:48.087698+00:00",
   "ticker": "DOLE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "target": 14.114999999999998,
+      "entry": 13.95,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "ticker": "DOLE",
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-04T05:24:48.092107",
+      "risk_reward": 2.0,
+      "score": 68.0,
+      "current_price": 13.9,
+      "setup": "Inverted Hammer",
+      "stop": 13.8675
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T22:52:56.579610",
