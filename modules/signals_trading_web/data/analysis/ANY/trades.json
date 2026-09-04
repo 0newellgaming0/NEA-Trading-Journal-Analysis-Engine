@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.676171+00:00",
+  "generated_at": "2026-09-04T10:57:44.135201+00:00",
   "ticker": "ANY",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Inside Bar",
+      "ticker": "ANY",
+      "current_price": 2.5389,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 2.5476,
+      "stop": 2.44695,
+      "score": 92.0,
+      "entry": 2.4805,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "updated_at": "2026-09-04T10:05:29.143831"
+    },
     {
       "setup": "Engulfing",
       "updated_at": "2026-08-30T22:44:04.651478",

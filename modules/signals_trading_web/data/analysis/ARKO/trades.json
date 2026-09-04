@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:27.340420+00:00",
+  "generated_at": "2026-09-04T10:57:44.293943+00:00",
   "ticker": "ARKO",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "EMA50_CROSS",
+      "ticker": "ARKO",
+      "current_price": 4.71,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 5.0076,
+      "stop": 4.4862,
+      "score": 71.0,
+      "entry": 4.66,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "updated_at": "2026-09-04T10:23:23.818920"
+    },
     {
       "current_price": 4.49,
       "setup": "MACD_BEARISH_MOMENTUM_EXPANSION",

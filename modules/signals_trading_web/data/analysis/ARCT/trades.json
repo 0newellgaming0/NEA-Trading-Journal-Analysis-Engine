@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:05:54.133031+00:00",
+  "generated_at": "2026-09-04T10:57:44.258234+00:00",
   "ticker": "ARCT",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "setup": "Hammer",
+      "ticker": "ARCT",
+      "current_price": 15.4096,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 16.332,
+      "stop": 15.309,
+      "score": 78.0,
+      "entry": 15.65,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "updated_at": "2026-09-04T10:19:00.173176"
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "current_price": 16.42,

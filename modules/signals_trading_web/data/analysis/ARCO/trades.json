@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-04T07:40:38.310448+00:00",
+  "generated_at": "2026-09-04T10:57:44.234736+00:00",
   "ticker": "ARCO",
   "count": 4,
   "trades": [
     {
-      "ticker": "ARCO",
-      "stop": 8.148,
-      "updated_at": "2026-09-04T06:48:56.886423",
       "setup": "Harami",
+      "ticker": "ARCO",
+      "current_price": 8.34,
       "status": "CONFIRMED",
-      "risk_reward": 2.0,
-      "score": 81.0,
-      "regime": "HIGHER_TIMEFRAME_CONFLICT",
-      "current_price": 8.3,
-      "direction": "Bullish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 8.379,
+      "stop": 8.148,
+      "score": 80.0,
       "entry": 8.225,
-      "target": 8.379
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "updated_at": "2026-09-04T10:16:09.778374"
     },
     {
       "stop": 8.174,
