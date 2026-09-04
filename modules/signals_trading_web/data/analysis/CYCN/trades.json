@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:38.737699+00:00",
+  "generated_at": "2026-09-04T18:25:02.695399+00:00",
   "ticker": "CYCN",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "current_price": 4.275,
+      "updated_at": "2026-09-04T17:52:26.717187",
+      "risk_reward": 2.0,
+      "ticker": "CYCN",
+      "direction": "Bearish",
+      "entry": 4.23,
+      "target": 3.900000000000002,
+      "stop": 4.39,
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 76.0
+    },
     {
       "ticker": "CYCN",
       "stop": 4.438,

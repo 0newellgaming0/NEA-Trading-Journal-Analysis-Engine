@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:39.549141+00:00",
+  "generated_at": "2026-09-04T18:25:20.469975+00:00",
   "ticker": "NEO",
   "count": 6,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "current_price": 17.28,
+      "updated_at": "2026-09-04T17:36:44.335271",
+      "risk_reward": 2.0,
+      "ticker": "NEO",
+      "direction": "Bearish",
+      "entry": 17.52,
+      "target": 16.486,
+      "stop": 18.04,
+      "setup": "Harami",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 77.0
+    },
     {
       "ticker": "NEO",
       "stop": 17.38,
@@ -16,20 +30,6 @@
       "direction": "Bullish",
       "entry": 17.6,
       "target": 18.040000000000006
-    },
-    {
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "current_price": 17.3,
-      "direction": "Bearish",
-      "target": 16.486,
-      "setup": "Harami",
-      "entry": 17.52,
-      "updated_at": "2026-09-03T15:28:42.166468",
-      "risk_reward": 2.0,
-      "ticker": "NEO",
-      "score": 80.0,
-      "status": "CONFIRMED",
-      "stop": 18.037
     },
     {
       "stop": 17.294999999999998,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:40.049313+00:00",
+  "generated_at": "2026-09-04T18:25:40.785347+00:00",
   "ticker": "SMMT",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "current_price": 17.36,
+      "updated_at": "2026-09-04T17:43:29.990573",
+      "risk_reward": 2.0,
+      "ticker": "SMMT",
+      "direction": "Bullish",
+      "entry": 17.0,
+      "target": 17.439999999999998,
+      "stop": 16.78,
+      "setup": "Counterattack Lines",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 80.0
+    },
     {
       "ticker": "SMMT",
       "stop": 15.791,

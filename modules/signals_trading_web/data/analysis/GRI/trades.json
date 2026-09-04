@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-04T18:25:12.311638+00:00",
+  "ticker": "GRI",
+  "count": 1,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "current_price": 2.95,
+      "updated_at": "2026-09-04T18:19:49.865084",
+      "risk_reward": 2.0,
+      "ticker": "GRI",
+      "direction": "Bullish",
+      "entry": 2.82,
+      "target": 3.4196500000000003,
+      "stop": 2.52,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 93.0
+    }
+  ]
+}

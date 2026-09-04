@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T12:47:51.413086+00:00",
+  "generated_at": "2026-09-04T18:25:02.402687+00:00",
   "ticker": "CURV",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "current_price": 2.51,
+      "updated_at": "2026-09-04T18:00:37.208168",
+      "risk_reward": 2.0,
+      "ticker": "CURV",
+      "direction": "Bullish",
+      "entry": 2.58,
+      "target": 2.9102399999999995,
+      "stop": 2.41,
+      "setup": "Engulfing",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 91.0
+    },
     {
       "direction": "Bearish",
       "entry": 2.46,

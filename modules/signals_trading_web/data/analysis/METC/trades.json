@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-04T18:25:24.299751+00:00",
+  "ticker": "METC",
+  "count": 1,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 79.0,
+      "direction": "Bullish",
+      "entry": 12.89,
+      "ticker": "METC",
+      "current_price": 13.155,
+      "stop": 12.16,
+      "target": 14.342000000000002,
+      "setup": "Engulfing",
+      "updated_at": "2026-09-04T18:25:23.071414",
+      "regime": "BEARISH_CONSOLIDATION"
+    }
+  ]
+}

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:40.140289+00:00",
+  "generated_at": "2026-09-04T18:25:41.654111+00:00",
   "ticker": "SPT",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 71.0,
+      "direction": "Bullish",
+      "entry": 11.09,
+      "ticker": "SPT",
+      "current_price": 11.3,
+      "stop": 10.77,
+      "target": 11.73,
+      "setup": "DRAGONFLY_DOJI",
+      "updated_at": "2026-09-04T18:18:58.222823",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
     {
       "ticker": "SPT",
       "stop": 11.089500000000001,

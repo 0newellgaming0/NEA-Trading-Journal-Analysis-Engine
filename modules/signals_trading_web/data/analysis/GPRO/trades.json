@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:53.359499+00:00",
+  "generated_at": "2026-09-04T18:25:12.208593+00:00",
   "ticker": "GPRO",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "current_price": 1.825,
+      "updated_at": "2026-09-04T18:13:39.314052",
+      "risk_reward": 2.0,
+      "ticker": "GPRO",
+      "direction": "Bullish",
+      "entry": 1.89,
+      "target": 2.29,
+      "stop": 1.69,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 84.0
+    }
+  ]
 }

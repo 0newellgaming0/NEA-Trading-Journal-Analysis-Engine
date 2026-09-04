@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T09:33:56.111494+00:00",
+  "generated_at": "2026-09-04T18:25:08.129998+00:00",
   "ticker": "EZRA",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "current_price": 2.79,
+      "updated_at": "2026-09-04T17:27:56.897818",
+      "risk_reward": 2.0,
+      "ticker": "EZRA",
+      "direction": "Bearish",
+      "entry": 2.76,
+      "target": 2.6862000000000004,
+      "stop": 2.8,
+      "setup": "Harami Cross",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 93.0
+    },
     {
       "risk_reward": 2.0,
       "direction": "Bullish",
