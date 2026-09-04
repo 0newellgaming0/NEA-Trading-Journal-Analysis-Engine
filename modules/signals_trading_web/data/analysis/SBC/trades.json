@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:39.906480+00:00",
+  "generated_at": "2026-09-04T16:55:10.577140+00:00",
   "ticker": "SBC",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "SBC",
+      "updated_at": "2026-09-04T16:50:16.500476",
+      "status": "CONFIRMED",
+      "stop": 4.21,
+      "entry": 4.11,
+      "score": 74.0,
+      "risk_reward": 2.0,
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 3.912,
+      "current_price": 4.1
+    },
     {
       "ticker": "SBC",
       "stop": 4.259499999999999,

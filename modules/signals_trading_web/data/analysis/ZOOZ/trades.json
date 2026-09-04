@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T12:47:52.177860+00:00",
+  "generated_at": "2026-09-04T16:55:19.409883+00:00",
   "ticker": "ZOOZ",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "ZOOZ",
+      "updated_at": "2026-09-04T16:51:59.863381",
+      "status": "CONFIRMED",
+      "stop": 8.02,
+      "entry": 7.8,
+      "score": 69.0,
+      "risk_reward": 2.0,
+      "setup": "TLINE_CONTINUATION",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 7.36,
+      "current_price": 7.66
+    },
     {
       "direction": "Bullish",
       "entry": 7.2999,
