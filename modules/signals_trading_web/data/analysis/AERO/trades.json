@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-02T04:45:51.242904+00:00",
+  "generated_at": "2026-09-04T09:33:37.181438+00:00",
   "ticker": "AERO",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "current_price": 15.43,
+      "score": 67.0,
+      "target": 16.49108,
+      "updated_at": "2026-09-04T09:20:24.167171",
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "TLINE_CONTINUATION",
+      "ticker": "AERO",
+      "stop": 14.91731,
+      "entry": 15.4419
+    }
+  ]
 }

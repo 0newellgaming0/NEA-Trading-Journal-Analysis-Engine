@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:15.195670+00:00",
+  "generated_at": "2026-09-04T09:33:37.023783+00:00",
   "ticker": "AEO",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "current_price": 17.01,
+      "score": 88.0,
+      "target": 17.161680000000004,
+      "updated_at": "2026-09-04T09:19:17.470696",
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "TLINE_CONTINUATION",
+      "ticker": "AEO",
+      "stop": 17.00526,
+      "entry": 17.0574
+    },
     {
       "stop": 16.878,
       "ticker": "AEO",

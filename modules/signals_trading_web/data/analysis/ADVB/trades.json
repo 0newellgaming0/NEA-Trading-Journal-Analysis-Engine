@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:23.180307+00:00",
+  "generated_at": "2026-09-04T09:33:36.533966+00:00",
   "ticker": "ADVB",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "current_price": 9.22,
+      "score": 69.0,
+      "target": 8.159999999999998,
+      "updated_at": "2026-09-04T09:10:03.257117",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Bearish Standard Doji Sandwich",
+      "ticker": "ADVB",
+      "stop": 9.81,
+      "entry": 9.26
+    },
     {
       "current_price": 10.62,
       "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",

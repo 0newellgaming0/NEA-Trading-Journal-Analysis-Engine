@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.405360+00:00",
+  "generated_at": "2026-09-04T09:33:34.938206+00:00",
   "ticker": "ABEV",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "current_price": 3.04,
+      "score": 59.0,
+      "target": 3.0840000000000005,
+      "updated_at": "2026-09-04T08:48:51.504976",
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Counterattack Lines",
+      "ticker": "ABEV",
+      "stop": 3.018,
+      "entry": 3.04
+    },
     {
       "setup": "Inside Bar",
       "updated_at": "2026-08-31T01:04:42.498129",

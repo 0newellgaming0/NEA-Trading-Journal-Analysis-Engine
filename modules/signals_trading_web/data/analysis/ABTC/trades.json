@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.415996+00:00",
+  "generated_at": "2026-09-04T09:33:35.111504+00:00",
   "ticker": "ABTC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "current_price": 9.35,
+      "score": 60.0,
+      "target": 10.661999999999999,
+      "updated_at": "2026-09-04T08:53:41.724868",
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Bullish Gravestone Doji Sandwich",
+      "ticker": "ABTC",
+      "stop": 8.649000000000001,
+      "entry": 9.32
+    },
     {
       "setup": "Evening Star",
       "updated_at": "2026-08-31T01:28:37.177459",

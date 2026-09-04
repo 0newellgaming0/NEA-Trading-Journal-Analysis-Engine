@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.509760+00:00",
+  "generated_at": "2026-09-04T09:33:36.675160+00:00",
   "ticker": "AEG",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "current_price": 9.2207,
+      "score": 74.0,
+      "target": 9.264000000000005,
+      "updated_at": "2026-09-04T09:12:31.987866",
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "TLINE_CONTINUATION",
+      "ticker": "AEG",
+      "stop": 9.197999999999999,
+      "entry": 9.22
+    },
     {
       "setup": "Pinbar",
       "updated_at": "2026-08-30T23:37:36.153430",
