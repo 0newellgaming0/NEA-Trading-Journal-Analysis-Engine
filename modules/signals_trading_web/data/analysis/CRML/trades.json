@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.170056+00:00",
+  "generated_at": "2026-09-04T12:19:38.290272+00:00",
   "ticker": "CRML",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "CRML",
+      "updated_at": "2026-09-04T12:17:02.763022",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 7.914,
+      "setup": "Inside Bar",
+      "current_price": 7.75,
+      "stop": 7.518000000000001,
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 82.0,
+      "risk_reward": 2.0,
+      "entry": 7.65
+    }
+  ]
 }

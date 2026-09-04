@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:00.157153+00:00",
+  "generated_at": "2026-09-04T12:19:42.846400+00:00",
   "ticker": "LZ",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "LZ",
+      "updated_at": "2026-09-04T12:12:21.582275",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 9.584999999999997,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "current_price": 7.28,
+      "stop": 6.1725,
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 78.0,
+      "risk_reward": 2.0,
+      "entry": 7.31
+    }
+  ]
 }
