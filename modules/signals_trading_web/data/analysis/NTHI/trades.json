@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-04T12:47:51.837953+00:00",
+  "ticker": "NTHI",
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "entry": 5.19,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-04T12:31:35.827670",
+      "stop": 5.2010000000000005,
+      "target": 5.168,
+      "risk_reward": 2.0,
+      "current_price": 5.1168,
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 73.0,
+      "ticker": "NTHI",
+      "setup": "Harami"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-04T12:47:52.177860+00:00",
+  "ticker": "ZOOZ",
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "entry": 7.2999,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-04T12:45:04.343947",
+      "stop": 6.54101,
+      "target": 8.81768,
+      "risk_reward": 2.0,
+      "current_price": 8.247,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 86.0,
+      "ticker": "ZOOZ",
+      "setup": "TLINE_CONTINUATION"
+    }
+  ]
+}

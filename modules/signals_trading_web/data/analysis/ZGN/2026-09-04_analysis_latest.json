@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-04T07:14:02.044497",
+  "generated_at": "2026-09-04T07:34:04.495476",
   "tickers": {
     "ZGN": {
-      "generated_at": "2026-09-04T07:14:02.044497",
+      "generated_at": "2026-09-04T07:34:04.495476",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

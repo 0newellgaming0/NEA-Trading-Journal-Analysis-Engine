@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-04T12:47:52.134285+00:00",
+  "ticker": "WRAP",
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "entry": 1.725,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-04T12:47:50.677734",
+      "stop": 1.7965,
+      "target": 1.5820000000000003,
+      "risk_reward": 2.0,
+      "current_price": 1.73,
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 75.0,
+      "ticker": "WRAP",
+      "setup": "Pinbar"
+    }
+  ]
+}
