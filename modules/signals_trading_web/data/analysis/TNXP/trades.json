@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:40.300673+00:00",
+  "generated_at": "2026-09-04T21:58:46.227318+00:00",
   "ticker": "TNXP",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "entry": 13.23,
+      "stop": 13.63,
+      "target": 12.438000000000002,
+      "score": 66.0,
+      "updated_at": "2026-09-04T21:11:47.422532",
+      "ticker": "TNXP",
+      "current_price": 13.24,
+      "setup": "Marubozu",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "TNXP",
       "stop": 13.238,

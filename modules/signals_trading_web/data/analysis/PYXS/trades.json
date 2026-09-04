@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-04T18:25:36.259923+00:00",
+  "generated_at": "2026-09-04T21:58:38.299599+00:00",
   "ticker": "PYXS",
   "count": 4,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "current_price": 3.95,
-      "updated_at": "2026-09-04T18:08:10.560735",
-      "risk_reward": 2.0,
-      "ticker": "PYXS",
       "direction": "Bullish",
-      "entry": 3.96,
-      "target": 4.11,
-      "stop": 3.88,
-      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
       "regime": "BULLISH_CONSOLIDATION",
-      "score": 78.0
+      "risk_reward": 2.0,
+      "entry": 3.96,
+      "stop": 3.88,
+      "target": 4.11,
+      "score": 77.0,
+      "updated_at": "2026-09-04T19:46:55.688267",
+      "ticker": "PYXS",
+      "current_price": 3.925,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "status": "CONFIRMED"
     },
     {
       "regime": "BULLISH_CONSOLIDATION",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T12:47:51.730777+00:00",
+  "generated_at": "2026-09-04T21:58:30.494119+00:00",
   "ticker": "LZ",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "entry": 6.52,
+      "stop": 7.36,
+      "target": 4.838400000000001,
+      "score": 72.0,
+      "updated_at": "2026-09-04T19:31:13.591966",
+      "ticker": "LZ",
+      "current_price": 6.295,
+      "setup": "Marubozu",
+      "status": "CONFIRMED"
+    },
     {
       "direction": "Bullish",
       "entry": 7.31,

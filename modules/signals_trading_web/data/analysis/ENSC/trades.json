@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T11:25:00.769467+00:00",
+  "generated_at": "2026-09-04T21:58:20.175411+00:00",
   "ticker": "ENSC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "entry": 0.44,
+      "stop": 0.43,
+      "target": 0.45990000000000003,
+      "score": 61.0,
+      "updated_at": "2026-09-04T21:37:59.514597",
+      "ticker": "ENSC",
+      "current_price": 0.444,
+      "setup": "Candle Over Candle",
+      "status": "CONFIRMED"
+    },
     {
       "stop": 0.45049,
       "direction": "Bearish",

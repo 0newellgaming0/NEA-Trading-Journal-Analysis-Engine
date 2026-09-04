@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:38.461431+00:00",
+  "generated_at": "2026-09-04T21:58:11.571888+00:00",
   "ticker": "BGC",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "entry": 12.1,
+      "stop": 12.02,
+      "target": 12.254,
+      "score": 69.0,
+      "updated_at": "2026-09-04T19:13:12.022496",
+      "ticker": "BGC",
+      "current_price": 12.155,
+      "setup": "Pinbar",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "BGC",
       "stop": 12.13405,

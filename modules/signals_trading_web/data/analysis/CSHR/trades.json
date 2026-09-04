@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:38.706599+00:00",
+  "generated_at": "2026-09-04T21:58:16.862875+00:00",
   "ticker": "CSHR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "entry": 5.8,
+      "stop": 5.82,
+      "target": 5.755999999999999,
+      "score": 60.0,
+      "updated_at": "2026-09-04T21:32:36.934148",
+      "ticker": "CSHR",
+      "current_price": 5.8,
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "CSHR",
       "stop": 5.952,

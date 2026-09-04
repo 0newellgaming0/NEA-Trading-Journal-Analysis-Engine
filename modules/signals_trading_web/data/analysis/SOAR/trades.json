@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:40.087965+00:00",
+  "generated_at": "2026-09-04T21:58:42.763525+00:00",
   "ticker": "SOAR",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "entry": 0.24,
+      "stop": 0.23,
+      "target": 0.24896,
+      "score": 67.0,
+      "updated_at": "2026-09-04T21:28:39.540082",
+      "ticker": "SOAR",
+      "current_price": 0.241,
+      "setup": "Marubozu",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "SOAR",
       "stop": 0.22311,

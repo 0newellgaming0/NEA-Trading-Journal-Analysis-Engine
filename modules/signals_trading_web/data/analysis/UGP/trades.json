@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:40.344152+00:00",
+  "generated_at": "2026-09-04T21:58:46.900917+00:00",
   "ticker": "UGP",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "entry": 7.29,
+      "stop": 7.17,
+      "target": 7.532000000000001,
+      "score": 67.0,
+      "updated_at": "2026-09-04T20:20:56.426027",
+      "ticker": "UGP",
+      "current_price": 7.28,
+      "setup": "Marubozu",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "UGP",
       "stop": 7.1450000000000005,

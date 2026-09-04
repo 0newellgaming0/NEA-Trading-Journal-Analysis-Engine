@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:40.065133+00:00",
+  "generated_at": "2026-09-04T21:58:42.519289+00:00",
   "ticker": "SMWB",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "entry": 9.05,
+      "stop": 9.2,
+      "target": 8.742000000000004,
+      "score": 65.0,
+      "updated_at": "2026-09-04T21:39:36.708071",
+      "ticker": "SMWB",
+      "current_price": 9.03,
+      "setup": "Marubozu",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "SMWB",
       "stop": 8.8035,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:39.485869+00:00",
+  "generated_at": "2026-09-04T21:58:31.860700+00:00",
   "ticker": "MQ",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "entry": 16.8,
+      "stop": 16.89,
+      "target": 16.624000000000006,
+      "score": 68.0,
+      "updated_at": "2026-09-04T21:13:56.576780",
+      "ticker": "MQ",
+      "current_price": 16.55,
+      "setup": "Marubozu",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "MQ",
       "stop": 16.834,

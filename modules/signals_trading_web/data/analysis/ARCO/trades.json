@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T10:57:44.234736+00:00",
+  "generated_at": "2026-09-04T21:58:08.471150+00:00",
   "ticker": "ARCO",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 8.23,
+      "stop": 8.14,
+      "target": 8.41518,
+      "score": 72.0,
+      "updated_at": "2026-09-04T19:26:16.341768",
+      "ticker": "ARCO",
+      "current_price": 8.165,
+      "setup": "Pinbar",
+      "status": "CONFIRMED"
+    },
     {
       "setup": "Harami",
       "ticker": "ARCO",

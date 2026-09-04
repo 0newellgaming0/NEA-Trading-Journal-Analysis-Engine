@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T09:33:35.111504+00:00",
+  "generated_at": "2026-09-04T21:58:01.689077+00:00",
   "ticker": "ABTC",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "entry": 8.0,
+      "stop": 7.86,
+      "target": 8.284400000000002,
+      "score": 55.0,
+      "updated_at": "2026-09-04T21:53:42.233297",
+      "ticker": "ABTC",
+      "current_price": 8.03,
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "risk_reward": 2.0,
       "direction": "Bullish",

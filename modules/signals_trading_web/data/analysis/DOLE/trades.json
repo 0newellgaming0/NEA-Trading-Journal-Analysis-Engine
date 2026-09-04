@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T05:28:48.087698+00:00",
+  "generated_at": "2026-09-04T21:58:18.514380+00:00",
   "ticker": "DOLE",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "entry": 14.03,
+      "stop": 13.78,
+      "target": 14.535999999999996,
+      "score": 69.0,
+      "updated_at": "2026-09-04T21:18:53.487234",
+      "ticker": "DOLE",
+      "current_price": 14.01,
+      "setup": "Marubozu",
+      "status": "CONFIRMED"
+    },
     {
       "direction": "Bullish",
       "target": 14.114999999999998,

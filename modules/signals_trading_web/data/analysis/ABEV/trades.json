@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T09:33:34.938206+00:00",
+  "generated_at": "2026-09-04T21:58:01.477235+00:00",
   "ticker": "ABEV",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "entry": 3.03,
+      "stop": 3.06,
+      "target": 2.963999999999999,
+      "score": 54.0,
+      "updated_at": "2026-09-04T21:56:01.595170",
+      "ticker": "ABEV",
+      "current_price": 3.02,
+      "setup": "Marubozu",
+      "status": "CONFIRMED"
+    },
     {
       "risk_reward": 2.0,
       "direction": "Bullish",

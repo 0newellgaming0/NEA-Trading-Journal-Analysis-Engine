@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:39.885255+00:00",
+  "generated_at": "2026-09-04T21:58:40.417070+00:00",
   "ticker": "SAN",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "entry": 14.93,
+      "stop": 14.86,
+      "target": 15.062000000000001,
+      "score": 63.0,
+      "updated_at": "2026-09-04T21:50:35.383292",
+      "ticker": "SAN",
+      "current_price": 14.93,
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "SAN",
       "stop": 14.895,

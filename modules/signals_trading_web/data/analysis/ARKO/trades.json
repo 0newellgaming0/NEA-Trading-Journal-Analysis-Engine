@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T10:57:44.293943+00:00",
+  "generated_at": "2026-09-04T21:58:08.954969+00:00",
   "ticker": "ARKO",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "entry": 4.88,
+      "stop": 4.83,
+      "target": 4.989999999999999,
+      "score": 74.0,
+      "updated_at": "2026-09-04T20:56:32.971120",
+      "ticker": "ARKO",
+      "current_price": 4.89,
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "setup": "EMA50_CROSS",
       "ticker": "ARKO",

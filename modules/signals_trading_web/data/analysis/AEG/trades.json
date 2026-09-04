@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T09:33:36.675160+00:00",
+  "generated_at": "2026-09-04T21:58:03.680681+00:00",
   "ticker": "AEG",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 9.21,
+      "stop": 9.23,
+      "target": 9.181999999999999,
+      "score": 66.0,
+      "updated_at": "2026-09-04T20:34:33.156154",
+      "ticker": "AEG",
+      "current_price": 9.14,
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "risk_reward": 2.0,
       "direction": "Bullish",

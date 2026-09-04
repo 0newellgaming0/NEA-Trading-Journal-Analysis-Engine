@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T12:47:51.837953+00:00",
+  "generated_at": "2026-09-04T21:58:34.270821+00:00",
   "ticker": "NTHI",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "entry": 5.45,
+      "stop": 4.26,
+      "target": 7.825,
+      "score": 71.0,
+      "updated_at": "2026-09-04T20:40:09.214243",
+      "ticker": "NTHI",
+      "current_price": 5.12,
+      "setup": "VWAP_BULLISH_PULLBACK",
+      "status": "CONFIRMED"
+    },
     {
       "direction": "Bearish",
       "entry": 5.19,

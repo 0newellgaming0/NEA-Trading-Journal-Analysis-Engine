@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T10:57:44.505518+00:00",
+  "generated_at": "2026-09-04T21:58:10.431927+00:00",
   "ticker": "AVTR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "entry": 15.09,
+      "stop": 14.9,
+      "target": 15.463999999999999,
+      "score": 64.0,
+      "updated_at": "2026-09-04T20:37:12.694423",
+      "ticker": "AVTR",
+      "current_price": 15.08,
+      "setup": "Rising Three Methods",
+      "status": "CONFIRMED"
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "ticker": "AVTR",

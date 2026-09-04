@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T11:35:00.337342+00:00",
+  "generated_at": "2026-09-04T21:58:08.214076+00:00",
   "ticker": "AQST",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "entry": 5.37,
+      "stop": 5.43,
+      "target": 5.249000000000001,
+      "score": 67.0,
+      "updated_at": "2026-09-04T20:58:52.306888",
+      "ticker": "AQST",
+      "current_price": 5.4,
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "stop": 5.2589999999999995,
       "score": 71.0,

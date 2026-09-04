@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:39.394057+00:00",
+  "generated_at": "2026-09-04T21:58:30.539319+00:00",
   "ticker": "LZMH",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "entry": 1.22,
+      "stop": 1.2,
+      "target": 1.264,
+      "score": 63.0,
+      "updated_at": "2026-09-04T21:42:22.223343",
+      "ticker": "LZMH",
+      "current_price": 1.27,
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "LZMH",
       "stop": 1.2275,

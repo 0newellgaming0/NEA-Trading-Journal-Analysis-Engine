@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:39.150442+00:00",
+  "generated_at": "2026-09-04T21:58:24.502377+00:00",
   "ticker": "GSM",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 4.52,
+      "stop": 4.47,
+      "target": 4.619999999999999,
+      "score": 61.0,
+      "updated_at": "2026-09-04T21:45:45.136057",
+      "ticker": "GSM",
+      "current_price": 4.67,
+      "setup": "DOJI",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "GSM",
       "stop": 4.463,

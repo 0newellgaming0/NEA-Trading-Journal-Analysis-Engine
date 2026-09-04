@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T09:33:37.509320+00:00",
+  "generated_at": "2026-09-04T21:58:04.468867+00:00",
   "ticker": "AHCO",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "entry": 6.41,
+      "stop": 6.53,
+      "target": 6.163000000000001,
+      "score": 59.0,
+      "updated_at": "2026-09-04T21:06:16.551260",
+      "ticker": "AHCO",
+      "current_price": 6.3,
+      "setup": "Candle Over Candle",
+      "status": "CONFIRMED"
+    },
     {
       "risk_reward": 2.0,
       "direction": "Bullish",

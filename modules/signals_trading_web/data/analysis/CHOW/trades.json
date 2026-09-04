@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:38.623178+00:00",
+  "generated_at": "2026-09-04T21:58:15.170262+00:00",
   "ticker": "CHOW",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "entry": 0.46,
+      "stop": 0.45,
+      "target": 0.4814,
+      "score": 57.0,
+      "updated_at": "2026-09-04T21:08:20.873913",
+      "ticker": "CHOW",
+      "current_price": 0.473,
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "CHOW",
       "stop": 0.4728,

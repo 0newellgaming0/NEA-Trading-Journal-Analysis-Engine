@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T12:47:51.392944+00:00",
+  "generated_at": "2026-09-04T21:58:16.505533+00:00",
   "ticker": "CRML",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "entry": 7.62,
+      "stop": 7.28,
+      "target": 8.30136,
+      "score": 82.0,
+      "updated_at": "2026-09-04T19:09:42.208891",
+      "ticker": "CRML",
+      "current_price": 7.34,
+      "setup": "Candle Over Candle",
+      "status": "CONFIRMED"
+    },
     {
       "direction": "Bullish",
       "entry": 7.65,

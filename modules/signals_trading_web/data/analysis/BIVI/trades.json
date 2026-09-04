@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:38.481615+00:00",
+  "generated_at": "2026-09-04T21:58:11.944658+00:00",
   "ticker": "BIVI",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "entry": 2.01,
+      "stop": 2.08,
+      "target": 1.8780000000000001,
+      "score": 65.0,
+      "updated_at": "2026-09-04T20:48:42.424245",
+      "ticker": "BIVI",
+      "current_price": 1.96,
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "BIVI",
       "stop": 2.0094700000000003,

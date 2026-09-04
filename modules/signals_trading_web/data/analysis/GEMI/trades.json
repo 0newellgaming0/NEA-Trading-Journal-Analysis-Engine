@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-04T18:25:11.307422+00:00",
+  "generated_at": "2026-09-04T21:58:23.106594+00:00",
   "ticker": "GEMI",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "current_price": 4.655,
-      "updated_at": "2026-09-04T17:45:17.908091",
-      "risk_reward": 2.0,
-      "ticker": "GEMI",
       "direction": "Bullish",
-      "entry": 4.63,
-      "target": 4.880120000000001,
-      "stop": 4.5,
-      "setup": "Pinbar",
       "regime": "SHORT_TERM_STRENGTH",
-      "score": 76.0
+      "risk_reward": 2.0,
+      "entry": 4.63,
+      "stop": 4.5,
+      "target": 4.880120000000001,
+      "score": 73.0,
+      "updated_at": "2026-09-04T20:15:25.052013",
+      "ticker": "GEMI",
+      "current_price": 4.67,
+      "setup": "Pinbar",
+      "status": "CONFIRMED"
     },
     {
       "ticker": "GEMI",

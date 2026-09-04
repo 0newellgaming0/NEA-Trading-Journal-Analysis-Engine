@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:38.962428+00:00",
+  "generated_at": "2026-09-04T21:58:21.437482+00:00",
   "ticker": "FIGS",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 14.61,
+      "stop": 14.71,
+      "target": 14.411999999999999,
+      "score": 75.0,
+      "updated_at": "2026-09-04T19:52:12.471966",
+      "ticker": "FIGS",
+      "current_price": 14.53,
+      "setup": "Pinbar",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "FIGS",
       "stop": 15.190999999999999,

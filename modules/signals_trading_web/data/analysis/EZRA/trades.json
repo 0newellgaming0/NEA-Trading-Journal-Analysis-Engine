@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T18:25:08.129998+00:00",
+  "generated_at": "2026-09-04T21:58:20.719370+00:00",
   "ticker": "EZRA",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "entry": 2.76,
+      "stop": 2.81,
+      "target": 2.6605599999999994,
+      "score": 89.0,
+      "updated_at": "2026-09-04T18:51:53.182939",
+      "ticker": "EZRA",
+      "current_price": 2.78,
+      "setup": "Engulfing",
+      "status": "CONFIRMED"
+    },
     {
       "status": "CONFIRMED",
       "current_price": 2.79,

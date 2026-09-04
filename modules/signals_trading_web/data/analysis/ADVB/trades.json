@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T09:33:36.533966+00:00",
+  "generated_at": "2026-09-04T21:58:03.554661+00:00",
   "ticker": "ADVB",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "entry": 9.23,
+      "stop": 9.35,
+      "target": 8.988000000000003,
+      "score": 60.0,
+      "updated_at": "2026-09-04T21:15:22.975229",
+      "ticker": "ADVB",
+      "current_price": 9.19,
+      "setup": "Marubozu",
+      "status": "CONFIRMED"
+    },
     {
       "risk_reward": 2.0,
       "direction": "Bearish",

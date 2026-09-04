@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:39.962090+00:00",
+  "generated_at": "2026-09-04T21:58:41.256822+00:00",
   "ticker": "SGHC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 14.1,
+      "stop": 13.79,
+      "target": 14.725599999999998,
+      "score": 71.0,
+      "updated_at": "2026-09-04T20:17:03.149095",
+      "ticker": "SGHC",
+      "current_price": 13.99,
+      "setup": "Marubozu",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "SGHC",
       "stop": 13.7917,

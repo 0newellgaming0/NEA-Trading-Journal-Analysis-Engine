@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:38.536809+00:00",
+  "generated_at": "2026-09-04T21:58:13.108978+00:00",
   "ticker": "BTG",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 5.65,
+      "stop": 5.49,
+      "target": 5.98,
+      "score": 74.0,
+      "updated_at": "2026-09-04T19:28:44.252011",
+      "ticker": "BTG",
+      "current_price": 5.615,
+      "setup": "Marubozu",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "BTG",
       "stop": 5.563000000000001,

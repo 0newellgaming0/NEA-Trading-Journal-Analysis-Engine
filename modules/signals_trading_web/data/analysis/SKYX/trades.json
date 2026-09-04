@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:40.012546+00:00",
+  "generated_at": "2026-09-04T21:58:41.905089+00:00",
   "ticker": "SKYX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 1.34,
+      "stop": 1.29,
+      "target": 1.4390000000000003,
+      "score": 73.0,
+      "updated_at": "2026-09-04T20:25:23.713199",
+      "ticker": "SKYX",
+      "current_price": 1.37,
+      "setup": "Candle Over Candle",
+      "status": "CONFIRMED"
+    },
     {
       "ticker": "SKYX",
       "stop": 1.267,
