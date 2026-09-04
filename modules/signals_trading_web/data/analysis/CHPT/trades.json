@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-04T14:38:23.680852+00:00",
+  "generated_at": "2026-09-04T14:51:02.236873+00:00",
   "ticker": "CHPT",
   "count": 4,
   "trades": [
     {
-      "entry": 9.36,
-      "updated_at": "2026-09-04T14:38:23.113832",
-      "direction": "Bullish",
       "status": "CONFIRMED",
       "target": 10.019999999999996,
-      "stop": 9.03,
+      "updated_at": "2026-09-04T14:51:01.549801",
       "ticker": "CHPT",
-      "score": 93.0,
+      "current_price": 9.49,
+      "stop": 9.03,
       "setup": "TLINE_CONTINUATION",
-      "risk_reward": 2.0,
       "regime": "SHORT_TERM_STRENGTH",
-      "current_price": 9.6
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "entry": 9.36,
+      "score": 92.0
     },
     {
       "regime": "SHORT_TERM_STRENGTH",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T10:57:44.135201+00:00",
+  "generated_at": "2026-09-04T14:51:02.105770+00:00",
   "ticker": "ANY",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "target": 2.63768,
+      "updated_at": "2026-09-04T14:45:22.770274",
+      "ticker": "ANY",
+      "current_price": 2.35,
+      "stop": 2.18,
+      "setup": "EMA20_CROSS",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "entry": 2.3299,
+      "score": 78.0
+    },
     {
       "setup": "Inside Bar",
       "ticker": "ANY",
