@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-04T06:52:04.060095",
+  "tickers": {
+    "BBCP": {
+      "generated_at": "2026-09-04T06:52:04.060095",
+      "journal_timestamp": "",
+      "stop_breached": false,
+      "analysis_blocks": {
+        "webull_profile": "🏢 TICKER PROFILE\n\n🏷️ Company Name: Concrete Pumping Holdings Inc\n🔤 Ticker: BBCP\n👤 CEO: Bruce Young\n👥 Employees: 1530\n📅 Established: 2018-08-29\n🏢 Company Age: 8.02 years\n📊 Profile Score: 60/100\n🏷️ Profile Age Classification: ESTABLISHING\n📍 Address: 500 E. 84th Avenue, Suite A-5,THORNTON,CO,United States",
+        "fundamentals": "🏢 FUNDAMENTALS\n\n📊 FINANCIAL ANALYSIS: BBCP\n\nRevenue: 392867000.0\nNet Income: 6373000.0\nGross Profit: 151116000.0\nOperating Income: 41531000.0\n\nMargins:\n- Gross Margin: 38.464925789134746\n- Net Margin: 1.622177479910504\n\nBalance Sheet:\n- Total Assets: 879542000.0\n- Total Liabilities: 614753000.0\n- Equity: 264789000.0\n- Debt/Equity: 2.3216712174599397\n\nCash Flow:\n- Operating Cash Flow: 64315000.0\n- Free Cash Flow: 17528000.0\n\nInstitutional Score (5):\n3/5\n",
+        "relative_strength": "\n📊 RELATIVE STRENGTH CONTEXT\n\nTicker:\n→ BBCP\n\nTimeframe:\n→ DAILY\n\n❌ STATUS:\nNo DAILY ticker dataset found.\n\nExpected:\n→ E:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\BBCP.csv\n",
+        "active_trades": "📊 ACTIVE TRADES ANALYSIS\n\nActive Trades: 0\nOpen / Unresolved: 0\n\nTICKER: BBCP\n\nACTIVE TRADES\n\nNo active trades.\n\nOPEN / UNRESOLVED TRADES\n\nNo open / unresolved trades.",
+        "existing_trades": "📊 TRADE PERFORMANCE ANALYSIS\n\nNo trades exist for BBCP.",
+        "top_signals": "Top signal analysis unavailable.",
+        "tline_15m": "\n15M T-LINE ANALYSIS\n\nT-Line State:\nBullish Trend\n\nInterpretation:\nStrong intraday bullish expansion, EMA8 is sloping upward with price holding above dynamic support. Momentum is accelerating, indicating active institutional continuation participation.\n\nT-Line Hold / Break:\nBullish Reclaim\n\nInterpretation:\nBullish reclaim event, price briefly lost EMA8 but quickly regained it. This reflects absorption of selling pressure and responsive institutional buying. Continuation probability increases if follow-through holds above EMA8.\n\nEMA8:\n10.64\n\nEMA8 Slope:\n0.0180\n\nT-LINE STOP:\n10.4958\n\nTrend Failure:\nBearish Failure\n\nRejection Signal:\nBullish Rejection\n\nTREND STATE MACHINE:\nUPTREND\n\nT-LINE STATE:\nBullish Trend\n\nREGIME:\nTREND_UP\n\nT-LINE SCORE:\n100/100\n\nMETA CONSENSUS:\nBULLISH_META\n\nMETA SCORE:\n3\n\nCONFLICT SCORE:\n0\n\nFORMATIONS:\n- J-Hook: None\n- Flag: Bull Flag\n- Squeeze: Squeeze\n- Trap: None\n- Ladder: Higher Low Ladder\n- Momentum: None\n\nWyckoff Phase:\nRange / Balance\n\nInterpretation:\nIntraday equilibrium phase, rotational balance between buyers and sellers. No dominant directional control, absorption and distribution both active.\n\n",
+        "tline_60m": "60M T-LINE ANALYSIS UNAVAILABLE (EMPTY DATA)",
+        "intraday_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\BBCP.csv",
+        "intraday_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\intraday_60m\\BBCP.csv",
+        "historical": "\nTREND STRUCTURE\n\nPrimary Trend Structure:\nBullish Recovery / Transition\n\nClose Price:\n9.05\n\nEMA8: 9.13  \nEMA21: 9.38\nSMA20: 9.31 \nSMA50: 10.13 \nSMA200: 8.01 \n\n\nPERFORMANCE\n\n1D Return: 1.91%\n1W Return: -4.03%\n1M Return: -7.08%\n3M Return: 13.41%\n6M Return: 33.48%\n1Y Return: 33.68%\n\n\nLIQUIDITY\n\nRVOL:\n2.54\n\nLiquidity Score:\n1.57\n\nParticipation:\nHigh Participation\n\n\nVOLATILITY\n\nATR:\n0.36\n\nVolatility:\n30.69%\n\nCompression Score:\n0.92\n\nState:\nNormal Volatility\n\n\nMOMENTUM\n\nRSI:\n39.33\n\nState:\nBearish Momentum\n\nCLV:\n0.32\n\n\nT-LINE ANALYSIS\n\nT-Line State:\nBearish Trend\n\nT-Line Hold / Break:\nBearish Breakdown\n\nEMA8:\n9.13\n\nEMA8 Normalized Slope:\n-1.8195%\n\nT-Line Confidence:\n-2.00\n\nTrend Failure:\nNone\n\nRejection Signal:\nBearish Rejection\n\nStrong Continuation Candle:\nFalse\n\n\nWYCKOFF CONTEXT\n\nEstimated Structural Phase:\nMarkdown / Phase E\n\n\nT-LINE INTERPRETATION\n\nT-Line Context:\nPrice is below the T-Line and the T-Line is falling, confirming aligned bearish short-term structure.\n\nHold / Break Context:\nPrice traded above the T-Line but closed back below it.\n\n\nRISK FRAMEWORK\n\nBullish Stop:\n8.69\n\nBearish Stop:\n9.49\n\nBullish Target:\n9.78\n\nBearish Target:\n8.32\n",
+        "daily_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\BBCP.csv",
+        "daily_volume": "No volume data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\daily\\BBCP.csv",
+        "risk_engine": "\nSTOP LOSS STATUS: VALID\nLATEST 1M CLOSE: 10.587\nTREND DIRECTION: NONE\nACTIVE TRADE STOP LOSS: N/A\n60M T-LINE STOP: N/A\n60M T-LINE STATUS: UNAVAILABLE\n\nDAILY LATEST SWING HIGH: N/A\nDAILY LATEST SWING LOW: N/A\nSTRUCTURAL STOP: N/A\nSTRUCTURAL BREACH: False\n\nDAILY T-LINE STOP: N/A\nDAILY T-LINE STATUS: UNAVAILABLE\n\nDAILY T-LINE DIRECTION: UNAVAILABLE\n60M vs DAILY STOP: UNAVAILABLE\nPRICE vs STOP STRUCTURE: UNAVAILABLE\n",
+        "weekly_context": "No historical data file found at:\nE:\\work\\NEA28v1\\journal\\modules\\stock_data\\weekly\\BBCP.csv",
+        "dual_timeframe_momentum": "\n📊 DUAL TIME FRAME MOMENTUM ENGINE ERROR\n\nTicker: BBCP\nError: OHLCV input is invalid\n\n",
+        "candlestick_summary": "Candlestick analysis unavailable. See log.",
+        "point_and_figure": "No data",
+        "liquidity_phase": "Liquidity engine failed.",
+        "liquidity_engine": "Liquidity engine failed.",
+        "sec_earnings": "",
+        "sec_annual_growth": "",
+        "sec_float_analysis": "",
+        "sec_ownership": "",
+        "sec_capital_allocation": "",
+        "sec_balance_sheet": "",
+        "sec_cash_flow": "",
+        "sec_new_developments": "",
+        "sec_canslim": "",
+        "fractal": "Fractal analysis unavailable: invalid or empty dataset"
+      }
+    }
+  }
+}
