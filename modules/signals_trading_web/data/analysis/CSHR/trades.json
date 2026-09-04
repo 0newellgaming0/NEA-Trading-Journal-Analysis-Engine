@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:46.455341+00:00",
+  "generated_at": "2026-09-04T07:40:38.706599+00:00",
   "ticker": "CSHR",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "CSHR",
+      "stop": 5.952,
+      "updated_at": "2026-09-04T06:59:22.556908",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 66.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 5.78,
+      "direction": "Bearish",
+      "entry": 5.875,
+      "target": 5.721
+    }
+  ]
 }

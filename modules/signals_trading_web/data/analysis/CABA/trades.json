@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:43.761305+00:00",
+  "generated_at": "2026-09-04T07:40:38.570632+00:00",
   "ticker": "CABA",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "CABA",
+      "stop": 3.4763,
+      "updated_at": "2026-09-04T06:29:05.283520",
+      "setup": "Inverted Hammer",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 79.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 3.5001,
+      "direction": "Bullish",
+      "entry": 3.517,
+      "target": 3.5983999999999994
+    }
+  ]
 }

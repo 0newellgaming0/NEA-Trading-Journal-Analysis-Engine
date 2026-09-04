@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:21.793701+00:00",
+  "generated_at": "2026-09-04T07:40:40.300673+00:00",
   "ticker": "TNXP",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "TNXP",
+      "stop": 13.238,
+      "updated_at": "2026-09-04T07:17:48.996137",
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 69.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 13.38,
+      "direction": "Bullish",
+      "entry": 13.37,
+      "target": 13.633999999999999
+    }
+  ]
 }

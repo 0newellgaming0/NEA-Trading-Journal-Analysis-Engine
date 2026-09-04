@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:00.184242+00:00",
+  "generated_at": "2026-09-04T07:40:39.394057+00:00",
   "ticker": "LZMH",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "LZMH",
+      "stop": 1.2275,
+      "updated_at": "2026-09-04T07:34:11.338856",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 65.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 1.23,
+      "direction": "Bullish",
+      "entry": 1.24,
+      "target": 1.265
+    }
+  ]
 }

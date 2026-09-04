@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.821568+00:00",
+  "generated_at": "2026-09-04T07:40:40.450485+00:00",
   "ticker": "XIFR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "ticker": "XIFR",
+      "stop": 11.984499999999999,
+      "updated_at": "2026-09-04T07:25:17.533049",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 68.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 12.2,
+      "direction": "Bullish",
+      "entry": 12.1,
+      "target": 12.331000000000001
+    },
     {
       "current_price": 12.0,
       "target": 12.044,

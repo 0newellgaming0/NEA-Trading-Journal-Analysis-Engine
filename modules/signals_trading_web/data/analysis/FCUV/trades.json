@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:50.378141+00:00",
+  "generated_at": "2026-09-04T07:40:38.933959+00:00",
   "ticker": "FCUV",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "FCUV",
+      "stop": 18.942030000000003,
+      "updated_at": "2026-09-04T05:58:02.799915",
+      "setup": "Inverted Hammer",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 86.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 19.69,
+      "direction": "Bullish",
+      "entry": 19.6897,
+      "target": 21.18503999999999
+    }
+  ]
 }

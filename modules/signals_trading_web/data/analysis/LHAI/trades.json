@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:06:06.785166+00:00",
+  "generated_at": "2026-09-04T07:40:39.330939+00:00",
   "ticker": "LHAI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "ticker": "LHAI",
+      "stop": 1.2069999999999999,
+      "updated_at": "2026-09-04T06:22:41.576574",
+      "setup": "Counterattack Lines",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 77.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 1.25,
+      "direction": "Bullish",
+      "entry": 1.24,
+      "target": 1.3060000000000003
+    },
     {
       "regime": "SHORT_TERM_STRENGTH",
       "current_price": 1.2503,

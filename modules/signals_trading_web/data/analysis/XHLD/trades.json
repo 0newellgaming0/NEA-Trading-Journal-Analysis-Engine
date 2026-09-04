@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:06:19.955877+00:00",
+  "generated_at": "2026-09-04T07:40:40.428682+00:00",
   "ticker": "XHLD",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "ticker": "XHLD",
+      "stop": 9.103000000000002,
+      "updated_at": "2026-09-04T06:25:59.880505",
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 74.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 9.2,
+      "direction": "Bullish",
+      "entry": 9.4,
+      "target": 9.993999999999998
+    },
     {
       "regime": "SHORT_TERM_STRENGTH",
       "current_price": 9.33,

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.482842+00:00",
+  "generated_at": "2026-09-04T07:40:39.039370+00:00",
   "ticker": "GEMI",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "GEMI",
+      "stop": 4.673159999999999,
+      "updated_at": "2026-09-04T05:59:53.939906",
+      "setup": "Harami Cross",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 83.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 4.85,
+      "direction": "Bullish",
+      "entry": 4.7484,
+      "target": 4.898880000000002
+    }
+  ]
 }

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:24.937916+00:00",
+  "generated_at": "2026-09-04T07:40:38.536809+00:00",
   "ticker": "BTG",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "BTG",
+      "stop": 5.563000000000001,
+      "updated_at": "2026-09-04T05:53:40.919477",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 80.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 5.68,
+      "direction": "Bullish",
+      "entry": 5.64,
+      "target": 5.793999999999998
+    }
+  ]
 }

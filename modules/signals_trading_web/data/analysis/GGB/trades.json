@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:52.693521+00:00",
+  "generated_at": "2026-09-04T07:40:39.064152+00:00",
   "ticker": "GGB",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "GGB",
+      "stop": 4.8759999999999994,
+      "updated_at": "2026-09-04T07:29:45.489176",
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 66.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 4.97,
+      "direction": "Bullish",
+      "entry": 4.92,
+      "target": 5.008000000000001
+    }
+  ]
 }

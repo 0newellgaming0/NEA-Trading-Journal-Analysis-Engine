@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.316593+00:00",
+  "generated_at": "2026-09-04T07:40:39.809282+00:00",
   "ticker": "RCEL",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "ticker": "RCEL",
+      "stop": 10.811,
+      "updated_at": "2026-09-04T06:09:48.325174",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 81.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 10.9401,
+      "direction": "Bullish",
+      "entry": 11.02,
+      "target": 11.437999999999999
+    },
     {
       "entry": 10.215,
       "current_price": 10.35,

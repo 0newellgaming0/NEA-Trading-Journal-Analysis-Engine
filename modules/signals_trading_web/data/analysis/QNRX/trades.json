@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.259986+00:00",
+  "generated_at": "2026-09-04T07:40:39.765172+00:00",
   "ticker": "QNRX",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "QNRX",
+      "stop": 6.1503,
+      "updated_at": "2026-09-04T06:01:45.041633",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 77.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 7.41,
+      "direction": "Bullish",
+      "entry": 7.797,
+      "target": 11.090399999999999
+    }
+  ]
 }

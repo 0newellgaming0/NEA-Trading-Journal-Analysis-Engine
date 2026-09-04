@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.399797+00:00",
+  "generated_at": "2026-09-04T07:40:39.919210+00:00",
   "ticker": "SBET",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "SBET",
+      "stop": 8.82094,
+      "updated_at": "2026-09-04T05:55:41.474435",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 80.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 8.9098,
+      "direction": "Bullish",
+      "entry": 8.9206,
+      "target": 9.11992
+    }
+  ]
 }

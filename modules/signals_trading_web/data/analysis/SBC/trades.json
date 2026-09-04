@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T19:29:31.681634+00:00",
+  "generated_at": "2026-09-04T07:40:39.906480+00:00",
   "ticker": "SBC",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "ticker": "SBC",
+      "stop": 4.259499999999999,
+      "updated_at": "2026-09-04T06:31:11.149286",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 86.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 4.3999,
+      "direction": "Bullish",
+      "entry": 4.32,
+      "target": 4.4410000000000025
+    },
     {
       "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
       "status": "CONFIRMED",

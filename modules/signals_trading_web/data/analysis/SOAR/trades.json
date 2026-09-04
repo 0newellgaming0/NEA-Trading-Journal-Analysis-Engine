@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:50.068496+00:00",
+  "generated_at": "2026-09-04T07:40:40.087965+00:00",
   "ticker": "SOAR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "ticker": "SOAR",
+      "stop": 0.22311,
+      "updated_at": "2026-09-04T07:27:49.533222",
+      "setup": "Inverted Hammer",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 67.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 0.23,
+      "direction": "Bullish",
+      "entry": 0.234,
+      "target": 0.25578
+    },
     {
       "current_price": 0.235,
       "setup": "Three White Soldiers",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:06:11.206491+00:00",
+  "generated_at": "2026-09-04T07:40:39.680656+00:00",
   "ticker": "PAGS",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "ticker": "PAGS",
+      "stop": 9.947999999999999,
+      "updated_at": "2026-09-04T06:41:17.839032",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 78.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 10.0,
+      "direction": "Bullish",
+      "entry": 9.97,
+      "target": 10.014000000000005
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "current_price": 9.7527,

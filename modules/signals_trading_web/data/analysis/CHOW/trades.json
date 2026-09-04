@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:12.848338+00:00",
+  "generated_at": "2026-09-04T07:40:38.623178+00:00",
   "ticker": "CHOW",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "ticker": "CHOW",
+      "stop": 0.4728,
+      "updated_at": "2026-09-04T07:13:23.553576",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 70.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 0.4836,
+      "direction": "Bullish",
+      "entry": 0.4882,
+      "target": 0.5190000000000001
+    },
     {
       "current_price": 0.57,
       "direction": "Bearish",

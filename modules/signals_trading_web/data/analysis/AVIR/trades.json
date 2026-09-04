@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:30.959047+00:00",
+  "generated_at": "2026-09-04T07:40:38.393115+00:00",
   "ticker": "AVIR",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "AVIR",
+      "stop": 5.7905,
+      "updated_at": "2026-09-04T06:38:52.073213",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 73.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 5.82,
+      "direction": "Bullish",
+      "entry": 5.84,
+      "target": 5.939
+    }
+  ]
 }

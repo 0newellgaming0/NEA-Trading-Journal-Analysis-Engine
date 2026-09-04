@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T08:55:38.913947+00:00",
+  "generated_at": "2026-09-04T07:40:38.737699+00:00",
   "ticker": "CYCN",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "ticker": "CYCN",
+      "stop": 4.438,
+      "updated_at": "2026-09-04T05:43:06.694233",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 89.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 4.96,
+      "direction": "Bullish",
+      "entry": 4.68,
+      "target": 5.164
+    },
     {
       "stop": 3.738,
       "status": "CONFIRMED",

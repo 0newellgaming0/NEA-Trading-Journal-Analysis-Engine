@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T15:14:13.949510+00:00",
+  "generated_at": "2026-09-04T07:40:40.115331+00:00",
   "ticker": "SORA",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "ticker": "SORA",
+      "stop": 2.22445,
+      "updated_at": "2026-09-04T06:46:37.024436",
+      "setup": "Three White Soldiers",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 77.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 2.41,
+      "direction": "Bullish",
+      "entry": 2.39,
+      "target": 2.7211000000000003
+    },
     {
       "target": 2.0859999999999994,
       "risk_reward": 2.0,

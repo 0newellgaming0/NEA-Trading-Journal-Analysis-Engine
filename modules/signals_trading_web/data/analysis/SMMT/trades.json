@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:42.225974+00:00",
+  "generated_at": "2026-09-04T07:40:40.049313+00:00",
   "ticker": "SMMT",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "ticker": "SMMT",
+      "stop": 15.791,
+      "updated_at": "2026-09-04T05:40:53.624814",
+      "setup": "Three White Soldiers",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 84.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 17.01,
+      "direction": "Bullish",
+      "entry": 16.77,
+      "target": 18.727999999999998
+    },
     {
       "stop": 14.139000000000001,
       "ticker": "SMMT",

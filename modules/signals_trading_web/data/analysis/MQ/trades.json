@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:01.936506+00:00",
+  "generated_at": "2026-09-04T07:40:39.485869+00:00",
   "ticker": "MQ",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "MQ",
+      "stop": 16.834,
+      "updated_at": "2026-09-04T07:20:32.208538",
+      "setup": "Inverted Hammer",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 69.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 16.98,
+      "direction": "Bullish",
+      "entry": 16.9,
+      "target": 17.031999999999996
+    }
+  ]
 }

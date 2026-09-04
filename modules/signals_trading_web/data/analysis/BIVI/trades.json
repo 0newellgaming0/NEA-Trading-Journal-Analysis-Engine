@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:21.966279+00:00",
+  "generated_at": "2026-09-04T07:40:38.481615+00:00",
   "ticker": "BIVI",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "ticker": "BIVI",
+      "stop": 2.0094700000000003,
+      "updated_at": "2026-09-04T07:07:45.163189",
+      "setup": "Harami",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 73.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 2.039,
+      "direction": "Bullish",
+      "entry": 2.0703,
+      "target": 2.1919599999999995
+    },
     {
       "stop": 2.28798,
       "ticker": "BIVI",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:22.020556+00:00",
+  "generated_at": "2026-09-04T07:40:38.164007+00:00",
   "ticker": "ACDC",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "ticker": "ACDC",
+      "stop": 5.299,
+      "updated_at": "2026-09-04T07:22:51.411457",
+      "setup": "DOJI",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 64.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 5.12,
+      "direction": "Bearish",
+      "entry": 5.1615,
+      "target": 4.8865
+    },
     {
       "current_price": 4.91,
       "setup": "TLINE_CONTINUATION",

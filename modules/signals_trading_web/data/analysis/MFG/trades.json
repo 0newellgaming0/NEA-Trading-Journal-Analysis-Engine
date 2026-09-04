@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:00.902034+00:00",
+  "generated_at": "2026-09-04T07:40:39.455638+00:00",
   "ticker": "MFG",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "MFG",
+      "stop": 10.825,
+      "updated_at": "2026-09-04T06:43:52.803615",
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 77.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 11.35,
+      "direction": "Bullish",
+      "entry": 11.1,
+      "target": 11.65
+    }
+  ]
 }

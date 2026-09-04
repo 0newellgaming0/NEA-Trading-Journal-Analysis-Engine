@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:53.643607+00:00",
+  "generated_at": "2026-09-04T07:40:39.150442+00:00",
   "ticker": "GSM",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "GSM",
+      "stop": 4.463,
+      "updated_at": "2026-09-04T07:15:26.158136",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 64.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 4.55,
+      "direction": "Bullish",
+      "entry": 4.54,
+      "target": 4.694
+    }
+  ]
 }

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:15.342806+00:00",
+  "generated_at": "2026-09-04T07:40:39.885255+00:00",
   "ticker": "SAN",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "SAN",
+      "stop": 14.895,
+      "updated_at": "2026-09-04T07:40:37.846953",
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 61.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 15.0498,
+      "direction": "Bullish",
+      "entry": 14.95,
+      "target": 15.059999999999999
+    }
+  ]
 }

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:17.090315+00:00",
+  "generated_at": "2026-09-04T07:40:40.012546+00:00",
   "ticker": "SKYX",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "SKYX",
+      "stop": 1.267,
+      "updated_at": "2026-09-04T06:57:34.597381",
+      "setup": "Inverted Hammer",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 74.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "current_price": 1.3,
+      "direction": "Bullish",
+      "entry": 1.3,
+      "target": 1.3660000000000003
+    }
+  ]
 }

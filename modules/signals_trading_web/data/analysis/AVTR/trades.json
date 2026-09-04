@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:30.975632+00:00",
+  "generated_at": "2026-09-04T07:40:38.410140+00:00",
   "ticker": "AVTR",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "AVTR",
+      "stop": 14.903,
+      "updated_at": "2026-09-04T07:10:33.903975",
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 71.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 15.3,
+      "direction": "Bullish",
+      "entry": 15.09,
+      "target": 15.463999999999999
+    }
+  ]
 }

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:53.190852+00:00",
+  "generated_at": "2026-09-04T07:40:39.104377+00:00",
   "ticker": "GOTU",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "GOTU",
+      "stop": 2.1535,
+      "updated_at": "2026-09-04T06:13:45.562806",
+      "setup": "Inside Bar",
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "score": 83.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "current_price": 2.24,
+      "direction": "Bullish",
+      "entry": 2.225,
+      "target": 2.368
+    }
+  ]
 }
