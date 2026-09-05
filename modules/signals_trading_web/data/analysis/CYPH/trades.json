@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.209639+00:00",
+  "generated_at": "2026-09-05T10:51:50.101005+00:00",
   "ticker": "CYPH",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 2.614,
+      "ticker": "CYPH",
+      "stop": 2.38,
+      "setup": "Engulfing",
+      "score": 79.0,
+      "status": "CONFIRMED",
+      "entry": 2.46,
+      "current_price": 2.48,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T09:52:59.540344"
+    }
+  ]
 }

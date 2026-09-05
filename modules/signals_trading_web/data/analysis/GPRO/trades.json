@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-05T08:34:54.486870+00:00",
+  "generated_at": "2026-09-05T10:51:58.703535+00:00",
   "ticker": "GPRO",
   "count": 2,
   "trades": [
     {
-      "setup": "Marubozu",
-      "score": 85.0,
-      "target": 1.1700000000000002,
-      "regime": "BULLISH_CONSOLIDATION",
-      "risk_reward": 2.0,
-      "updated_at": "2026-09-05T06:21:10.048935",
-      "entry": 1.72,
       "direction": "Bearish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 1.1700000000000002,
       "ticker": "GPRO",
       "stop": 1.99,
+      "setup": "Marubozu",
+      "score": 85.0,
       "status": "CONFIRMED",
-      "current_price": 1.72
+      "entry": 1.72,
+      "current_price": 1.72,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T09:37:53.176639"
     },
     {
       "direction": "Bullish",

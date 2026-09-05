@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:31.705393+00:00",
+  "generated_at": "2026-09-05T10:51:46.530855+00:00",
   "ticker": "CD",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 4.4848,
+      "ticker": "CD",
+      "stop": 3.55,
+      "setup": "Rising Three Methods",
+      "score": 74.0,
+      "status": "CONFIRMED",
+      "entry": 3.86,
+      "current_price": 4.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T10:27:18.119343"
+    },
     {
       "current_price": 2.95,
       "setup": "Pinbar",

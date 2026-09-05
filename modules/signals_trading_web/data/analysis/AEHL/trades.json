@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T18:24:16.942464+00:00",
+  "generated_at": "2026-09-05T10:51:36.355794+00:00",
   "ticker": "AEHL",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "target": 9.1298,
+      "ticker": "AEHL",
+      "stop": 7.95,
+      "setup": "Harami Cross",
+      "score": 76.0,
+      "status": "CONFIRMED",
+      "entry": 8.34,
+      "current_price": 8.13,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T09:50:51.540447"
+    },
     {
       "status": "CONFIRMED",
       "current_price": 8.355,

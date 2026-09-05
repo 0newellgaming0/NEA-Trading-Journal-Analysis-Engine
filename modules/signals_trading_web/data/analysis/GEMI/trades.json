@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:34:53.233500+00:00",
+  "generated_at": "2026-09-05T10:51:57.601060+00:00",
   "ticker": "GEMI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 4.533,
+      "ticker": "GEMI",
+      "stop": 4.73,
+      "setup": "Harami",
+      "score": 73.0,
+      "status": "CONFIRMED",
+      "entry": 4.67,
+      "current_price": 4.71,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T10:31:14.667210"
+    },
     {
       "setup": "Pinbar",
       "score": 74.0,

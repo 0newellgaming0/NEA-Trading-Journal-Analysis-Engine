@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T08:55:36.800943+00:00",
+  "generated_at": "2026-09-05T10:51:46.069601+00:00",
   "ticker": "CAPR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 10.070700000000002,
+      "ticker": "CAPR",
+      "stop": 9.18,
+      "setup": "Engulfing",
+      "score": 74.0,
+      "status": "CONFIRMED",
+      "entry": 9.48,
+      "current_price": 9.37,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T10:25:12.753599"
+    },
     {
       "stop": 9.764175,
       "status": "CONFIRMED",

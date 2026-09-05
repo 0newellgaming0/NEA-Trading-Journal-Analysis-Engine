@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T00:48:38.161477+00:00",
+  "generated_at": "2026-09-05T10:51:47.114964+00:00",
   "ticker": "CHA",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 11.313999999999998,
+      "ticker": "CHA",
+      "stop": 11.74,
+      "setup": "Engulfing",
+      "score": 73.0,
+      "status": "CONFIRMED",
+      "entry": 11.6,
+      "current_price": 11.66,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T10:39:23.558930"
+    },
     {
       "updated_at": "2026-09-01T22:35:27.432449",
       "target": 13.162000000000004,

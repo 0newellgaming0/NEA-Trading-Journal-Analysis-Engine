@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:58.412433+00:00",
+  "generated_at": "2026-09-05T10:52:06.095028+00:00",
   "ticker": "LPSN",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 3.37112,
+      "ticker": "LPSN",
+      "stop": 3.06,
+      "setup": "Candle Over Candle",
+      "score": 63.0,
+      "status": "CONFIRMED",
+      "entry": 3.16,
+      "current_price": 3.19,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T08:47:26.615001"
+    }
+  ]
 }

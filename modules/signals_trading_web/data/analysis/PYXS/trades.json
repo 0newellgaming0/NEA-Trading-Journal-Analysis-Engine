@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:38.299599+00:00",
+  "generated_at": "2026-09-05T10:52:13.337054+00:00",
   "ticker": "PYXS",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 3.617999999999999,
+      "ticker": "PYXS",
+      "stop": 3.98,
+      "setup": "Engulfing",
+      "score": 79.0,
+      "status": "CONFIRMED",
+      "entry": 3.86,
+      "current_price": 3.84,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T09:59:55.362412"
+    },
     {
       "direction": "Bullish",
       "regime": "BULLISH_CONSOLIDATION",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:12.306210+00:00",
+  "generated_at": "2026-09-05T10:51:44.211063+00:00",
   "ticker": "BNC",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 3.5780000000000003,
+      "ticker": "BNC",
+      "stop": 3.45,
+      "setup": "Pinbar",
+      "score": 73.0,
+      "status": "CONFIRMED",
+      "entry": 3.49,
+      "current_price": 3.47,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T10:35:32.056627"
+    },
     {
       "direction": "Bearish",
       "regime": "SHORT_TERM_STRENGTH",

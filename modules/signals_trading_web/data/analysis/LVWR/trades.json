@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.855180+00:00",
+  "generated_at": "2026-09-05T10:52:06.716272+00:00",
   "ticker": "LVWR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 1.304,
+      "ticker": "LVWR",
+      "stop": 1.24,
+      "setup": "Rising Three Methods",
+      "score": 83.0,
+      "status": "CONFIRMED",
+      "entry": 1.26,
+      "current_price": 1.28,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T09:06:06.568863"
+    },
     {
       "risk_reward": 2.0,
       "current_price": 1.33,

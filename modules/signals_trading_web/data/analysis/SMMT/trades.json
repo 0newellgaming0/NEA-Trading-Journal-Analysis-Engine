@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:42.400060+00:00",
+  "generated_at": "2026-09-05T10:52:16.899669+00:00",
   "ticker": "SMMT",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 17.813999999999997,
+      "ticker": "SMMT",
+      "stop": 17.5,
+      "setup": "Pinbar",
+      "score": 79.0,
+      "status": "CONFIRMED",
+      "entry": 17.61,
+      "current_price": 17.6259,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T10:51:33.266836"
+    },
     {
       "direction": "Bullish",
       "regime": "FULL_BULLISH_ALIGNMENT",

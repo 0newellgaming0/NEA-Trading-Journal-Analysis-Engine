@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-04T21:58:43.371039+00:00",
+  "generated_at": "2026-09-05T10:52:17.798253+00:00",
   "ticker": "SPT",
   "count": 4,
   "trades": [
     {
       "direction": "Bullish",
       "regime": "SHORT_TERM_STRENGTH",
-      "risk_reward": 2.0,
-      "entry": 11.33,
-      "stop": 11.14,
       "target": 11.703999999999999,
-      "score": 75.0,
-      "updated_at": "2026-09-04T21:03:35.822991",
       "ticker": "SPT",
-      "current_price": 11.5,
+      "stop": 11.14,
       "setup": "Engulfing",
-      "status": "CONFIRMED"
+      "score": 75.0,
+      "status": "CONFIRMED",
+      "entry": 11.33,
+      "current_price": 11.36,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T10:20:18.364511"
     },
     {
       "status": "CONFIRMED",

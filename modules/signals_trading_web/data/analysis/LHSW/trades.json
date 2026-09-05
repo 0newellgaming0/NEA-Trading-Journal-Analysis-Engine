@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.828440+00:00",
+  "generated_at": "2026-09-05T10:52:05.933707+00:00",
   "ticker": "LHSW",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 4.055999999999999,
+      "ticker": "LHSW",
+      "stop": 4.62,
+      "setup": "Pinbar",
+      "score": 74.0,
+      "status": "CONFIRMED",
+      "entry": 4.43,
+      "current_price": 4.51,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T08:39:21.563166"
+    },
     {
       "entry": 4.1597,
       "current_price": 4.1597,

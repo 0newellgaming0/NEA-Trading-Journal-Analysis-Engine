@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:34:53.996523+00:00",
+  "generated_at": "2026-09-05T10:51:58.287328+00:00",
   "ticker": "GORO",
-  "count": 10,
+  "count": 11,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 4.455999999999999,
+      "ticker": "GORO",
+      "stop": 3.86,
+      "setup": "Harami",
+      "score": 71.0,
+      "status": "CONFIRMED",
+      "entry": 4.06,
+      "current_price": 4.18,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T10:44:38.807738"
+    },
     {
       "setup": "Engulfing",
       "score": 72.0,

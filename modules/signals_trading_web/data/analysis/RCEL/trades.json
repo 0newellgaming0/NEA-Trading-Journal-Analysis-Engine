@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:38.917532+00:00",
+  "generated_at": "2026-09-05T10:52:13.921842+00:00",
   "ticker": "RCEL",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 11.469999999999999,
+      "ticker": "RCEL",
+      "stop": 11.14,
+      "setup": "Marubozu",
+      "score": 74.0,
+      "status": "CONFIRMED",
+      "entry": 11.25,
+      "current_price": 11.4,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T10:22:39.948231"
+    },
     {
       "direction": "Bullish",
       "regime": "BULLISH_CONSOLIDATION",

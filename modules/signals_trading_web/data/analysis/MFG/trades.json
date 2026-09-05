@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T07:40:39.455638+00:00",
+  "generated_at": "2026-09-05T10:52:07.830408+00:00",
   "ticker": "MFG",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 11.040000000000001,
+      "ticker": "MFG",
+      "stop": 11.29,
+      "setup": "Candle Over Candle",
+      "score": 72.0,
+      "status": "CONFIRMED",
+      "entry": 11.21,
+      "current_price": 11.21,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T10:02:47.507996"
+    },
     {
       "ticker": "MFG",
       "stop": 10.825,

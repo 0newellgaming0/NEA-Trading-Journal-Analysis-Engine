@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-05T08:34:54.655045+00:00",
+  "generated_at": "2026-09-05T10:51:58.835640+00:00",
   "ticker": "GRI",
   "count": 3,
   "trades": [
     {
-      "setup": "Pinbar",
-      "score": 102.0,
-      "target": 2.242,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "risk_reward": 2.0,
-      "updated_at": "2026-09-05T08:34:01.829787",
-      "entry": 2.55,
       "direction": "Bearish",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 2.242,
       "ticker": "GRI",
       "stop": 2.7,
+      "setup": "Pinbar",
+      "score": 102.0,
       "status": "CONFIRMED",
-      "current_price": 2.6246
+      "entry": 2.55,
+      "current_price": 2.6246,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T09:25:54.994067"
     },
     {
       "direction": "Bullish",

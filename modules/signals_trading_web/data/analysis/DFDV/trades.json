@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:25.519009+00:00",
+  "generated_at": "2026-09-05T10:51:50.649622+00:00",
   "ticker": "DFDV",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 6.3260000000000005,
+      "ticker": "DFDV",
+      "stop": 5.24,
+      "setup": "Marubozu",
+      "score": 76.0,
+      "status": "CONFIRMED",
+      "entry": 5.6,
+      "current_price": 5.8991,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T10:04:47.395528"
+    },
     {
       "stop": 5.2669999999999995,
       "ticker": "DFDV",

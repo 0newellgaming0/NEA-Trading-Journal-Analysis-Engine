@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:34.582336+00:00",
+  "generated_at": "2026-09-05T10:52:10.443628+00:00",
   "ticker": "NWGL",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 1.0877800000000002,
+      "ticker": "NWGL",
+      "stop": 0.96,
+      "setup": "Marubozu",
+      "score": 78.0,
+      "status": "CONFIRMED",
+      "entry": 1.0,
+      "current_price": 1.0015,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T10:07:46.650117"
+    },
     {
       "direction": "Bullish",
       "regime": "SHORT_TERM_STRENGTH",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.836948+00:00",
+  "generated_at": "2026-09-05T10:52:06.288002+00:00",
   "ticker": "LUCY",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 0.9719200000000002,
+      "ticker": "LUCY",
+      "stop": 0.89,
+      "setup": "Bullish Long-Legged Doji Sandwich",
+      "score": 56.0,
+      "status": "CONFIRMED",
+      "entry": 0.92,
+      "current_price": 0.9299,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T08:57:28.223236"
+    },
     {
       "setup": "Evening Star",
       "updated_at": "2026-08-31T00:46:53.670778",
