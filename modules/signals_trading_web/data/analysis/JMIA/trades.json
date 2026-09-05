@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:40.620691+00:00",
+  "generated_at": "2026-09-05T08:34:59.826694+00:00",
   "ticker": "JMIA",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "Pinbar",
+      "score": 68.0,
+      "target": 7.350600000000001,
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T07:53:59.183011",
+      "entry": 7.17,
+      "direction": "Bullish",
+      "ticker": "JMIA",
+      "stop": 7.08,
+      "status": "CONFIRMED",
+      "current_price": 7.331
+    },
     {
       "current_price": 6.91,
       "setup": "Pinbar",

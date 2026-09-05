@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-05T08:34:59.160836+00:00",
+  "ticker": "ITUB",
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Engulfing",
+      "score": 66.0,
+      "target": 8.260000000000003,
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T07:41:58.192745",
+      "entry": 8.15,
+      "direction": "Bullish",
+      "ticker": "ITUB",
+      "stop": 8.09,
+      "status": "CONFIRMED",
+      "current_price": 8.16
+    }
+  ]
+}

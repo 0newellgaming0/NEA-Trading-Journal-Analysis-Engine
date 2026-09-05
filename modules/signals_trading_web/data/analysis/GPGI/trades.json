@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T04:45:56.817511+00:00",
+  "generated_at": "2026-09-05T08:34:54.230122+00:00",
   "ticker": "GPGI",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Pinbar",
+      "score": 70.0,
+      "target": 13.926999999999996,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T06:14:40.931474",
+      "entry": 13.52,
+      "direction": "Bullish",
+      "ticker": "GPGI",
+      "stop": 13.32,
+      "status": "CONFIRMED",
+      "current_price": 13.63
+    },
     {
       "target": 13.243000000000004,
       "entry": 12.88,

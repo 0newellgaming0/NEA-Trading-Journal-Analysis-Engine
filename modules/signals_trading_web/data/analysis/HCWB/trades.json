@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.569829+00:00",
+  "generated_at": "2026-09-05T08:34:55.688426+00:00",
   "ticker": "HCWB",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Rising Three Methods",
+      "score": 75.0,
+      "target": 3.152000000000001,
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T06:45:51.649998",
+      "entry": 2.91,
+      "direction": "Bullish",
+      "ticker": "HCWB",
+      "stop": 2.79,
+      "status": "CONFIRMED",
+      "current_price": 2.85
+    },
     {
       "entry": 3.3,
       "current_price": 3.29,

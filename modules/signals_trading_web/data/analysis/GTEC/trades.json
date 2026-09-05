@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.552997+00:00",
+  "generated_at": "2026-09-05T08:34:55.308604+00:00",
   "ticker": "GTEC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Candle Over Candle",
+      "score": 67.0,
+      "target": 1.0906799999999999,
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T06:36:16.457859",
+      "entry": 0.97,
+      "direction": "Bullish",
+      "ticker": "GTEC",
+      "stop": 0.91,
+      "status": "CONFIRMED",
+      "current_price": 0.95
+    },
     {
       "entry": 0.8925,
       "current_price": 0.89,

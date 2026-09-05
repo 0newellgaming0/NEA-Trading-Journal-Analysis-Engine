@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-05T08:34:52.745542+00:00",
+  "ticker": "FXHO",
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Marubozu",
+      "score": 69.0,
+      "target": 10.695760000000002,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T05:42:31.181214",
+      "entry": 11.76,
+      "direction": "Bearish",
+      "ticker": "FXHO",
+      "stop": 12.3,
+      "status": "CONFIRMED",
+      "current_price": 11.92
+    }
+  ]
+}

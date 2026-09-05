@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.412441+00:00",
+  "generated_at": "2026-09-05T08:34:50.974200+00:00",
   "ticker": "FIRY",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "Engulfing",
+      "score": 71.0,
+      "target": 10.251999999999997,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T05:12:16.051069",
+      "entry": 10.12,
+      "direction": "Bullish",
+      "ticker": "FIRY",
+      "stop": 10.05,
+      "status": "CONFIRMED",
+      "current_price": 10.13
+    },
     {
       "entry": 9.9015,
       "current_price": 9.84,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:06:02.720013+00:00",
+  "generated_at": "2026-09-05T08:34:53.442500+00:00",
   "ticker": "GEVO",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "Engulfing",
+      "score": 70.0,
+      "target": 1.6086400000000005,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T05:55:26.480529",
+      "entry": 1.63,
+      "direction": "Bearish",
+      "ticker": "GEVO",
+      "stop": 1.64,
+      "status": "CONFIRMED",
+      "current_price": 1.64
+    },
     {
       "regime": "SHORT_TERM_WEAKNESS",
       "current_price": 1.69,

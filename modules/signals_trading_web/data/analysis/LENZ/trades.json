@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.811095+00:00",
+  "generated_at": "2026-09-05T08:35:01.264791+00:00",
   "ticker": "LENZ",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Candle Over Candle",
+      "score": 45.0,
+      "target": 6.099999999999999,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T08:22:39.543195",
+      "entry": 5.88,
+      "direction": "Bullish",
+      "ticker": "LENZ",
+      "stop": 5.77,
+      "status": "CONFIRMED",
+      "current_price": 6.0
+    },
     {
       "entry": 4.73,
       "current_price": 4.7222,

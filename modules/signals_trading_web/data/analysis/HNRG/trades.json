@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:39.075937+00:00",
+  "generated_at": "2026-09-05T08:34:56.156198+00:00",
   "ticker": "HNRG",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Pinbar",
+      "score": 67.0,
+      "target": 14.299999999999997,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T06:56:44.688430",
+      "entry": 16.5,
+      "direction": "Bearish",
+      "ticker": "HNRG",
+      "stop": 17.6,
+      "status": "CONFIRMED",
+      "current_price": 16.6
+    },
     {
       "current_price": 16.13,
       "setup": "TLINE_CONTINUATION",

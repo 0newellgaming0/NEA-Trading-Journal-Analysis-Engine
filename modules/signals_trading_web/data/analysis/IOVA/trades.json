@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T00:48:44.215320+00:00",
+  "generated_at": "2026-09-05T08:34:58.961968+00:00",
   "ticker": "IOVA",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "setup": "Rising Three Methods",
+      "score": 74.0,
+      "target": 8.524239999999999,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T07:36:47.834282",
+      "entry": 8.34,
+      "direction": "Bullish",
+      "ticker": "IOVA",
+      "stop": 8.24,
+      "status": "CONFIRMED",
+      "current_price": 8.7786
+    },
     {
       "updated_at": "2026-09-01T23:01:34.016083",
       "target": 8.636000000000001,

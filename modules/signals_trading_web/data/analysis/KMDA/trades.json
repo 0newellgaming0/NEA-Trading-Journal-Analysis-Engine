@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-02T14:23:41.010755+00:00",
+  "generated_at": "2026-09-05T08:35:00.373036+00:00",
   "ticker": "KMDA",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Engulfing",
+      "score": 76.0,
+      "target": 8.671999999999997,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T08:05:20.369552",
+      "entry": 8.54,
+      "direction": "Bullish",
+      "ticker": "KMDA",
+      "stop": 8.47,
+      "status": "CONFIRMED",
+      "current_price": 8.53
+    }
+  ]
 }

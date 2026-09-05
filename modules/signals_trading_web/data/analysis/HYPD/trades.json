@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-05T08:34:56.831574+00:00",
+  "ticker": "HYPD",
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Pinbar",
+      "score": 65.0,
+      "target": 3.5079999999999996,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T07:08:44.723068",
+      "entry": 3.31,
+      "direction": "Bullish",
+      "ticker": "HYPD",
+      "stop": 3.21,
+      "status": "CONFIRMED",
+      "current_price": 3.25
+    }
+  ]
+}

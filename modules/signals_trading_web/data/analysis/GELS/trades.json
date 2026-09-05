@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-04T21:58:23.004175+00:00",
+  "generated_at": "2026-09-05T08:34:53.098840+00:00",
   "ticker": "GELS",
   "count": 3,
   "trades": [
     {
-      "direction": "Bullish",
-      "regime": "SHORT_TERM_STRENGTH",
-      "risk_reward": 2.0,
-      "entry": 0.86,
-      "stop": 0.8,
-      "target": 0.9793000000000001,
-      "score": 62.0,
-      "updated_at": "2026-09-04T19:18:36.993821",
-      "ticker": "GELS",
-      "current_price": 0.8601,
       "setup": "Engulfing",
-      "status": "CONFIRMED"
+      "score": 61.0,
+      "target": 0.9793000000000001,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T05:48:51.510193",
+      "entry": 0.86,
+      "direction": "Bullish",
+      "ticker": "GELS",
+      "stop": 0.8,
+      "status": "CONFIRMED",
+      "current_price": 0.8498
     },
     {
       "direction": "Bearish",

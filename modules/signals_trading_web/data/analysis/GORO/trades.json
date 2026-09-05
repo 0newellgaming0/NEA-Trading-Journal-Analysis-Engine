@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-04T21:58:23.682065+00:00",
+  "generated_at": "2026-09-05T08:34:53.996523+00:00",
   "ticker": "GORO",
   "count": 10,
   "trades": [
     {
-      "direction": "Bullish",
-      "regime": "BULLISH_CONSOLIDATION",
-      "risk_reward": 2.0,
-      "entry": 4.07,
-      "stop": 3.86,
-      "target": 4.472000000000001,
-      "score": 73.0,
-      "updated_at": "2026-09-04T21:22:45.626325",
-      "ticker": "GORO",
-      "current_price": 4.1266,
       "setup": "Engulfing",
-      "status": "CONFIRMED"
+      "score": 72.0,
+      "target": 4.472000000000001,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T06:08:40.273936",
+      "entry": 4.07,
+      "direction": "Bullish",
+      "ticker": "GORO",
+      "stop": 3.86,
+      "status": "CONFIRMED",
+      "current_price": 4.18
     },
     {
       "ticker": "GORO",

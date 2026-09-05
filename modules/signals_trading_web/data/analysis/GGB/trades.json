@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:23.403097+00:00",
+  "generated_at": "2026-09-05T08:34:53.572789+00:00",
   "ticker": "GGB",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "Engulfing",
+      "score": 63.0,
+      "target": 4.774,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T05:57:48.403390",
+      "entry": 4.95,
+      "direction": "Bearish",
+      "ticker": "GGB",
+      "stop": 5.04,
+      "status": "CONFIRMED",
+      "current_price": 4.97
+    },
     {
       "direction": "Bullish",
       "regime": "BULLISH_CONSOLIDATION",

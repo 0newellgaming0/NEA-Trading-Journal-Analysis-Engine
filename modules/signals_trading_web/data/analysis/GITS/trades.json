@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.490041+00:00",
+  "generated_at": "2026-09-05T08:34:53.624107+00:00",
   "ticker": "GITS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Rising Three Methods",
+      "score": 60.0,
+      "target": 2.13728,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T05:59:20.737399",
+      "entry": 2.11,
+      "direction": "Bullish",
+      "ticker": "GITS",
+      "stop": 2.1,
+      "status": "CONFIRMED",
+      "current_price": 2.2
+    },
     {
       "entry": 1.94,
       "current_price": 1.9018,

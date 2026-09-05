@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-04T21:58:22.291230+00:00",
+  "generated_at": "2026-09-05T08:34:52.006169+00:00",
   "ticker": "FTCI",
   "count": 2,
   "trades": [
     {
-      "direction": "Bullish",
+      "setup": "Rising Three Methods",
+      "score": 38.0,
+      "target": 3.317600000000001,
       "regime": "BEARISH_CONSOLIDATION",
       "risk_reward": 2.0,
+      "updated_at": "2026-09-05T05:29:29.035153",
       "entry": 2.73,
-      "stop": 2.43,
-      "target": 3.317600000000001,
-      "score": 38.0,
-      "updated_at": "2026-09-04T21:58:00.158560",
+      "direction": "Bullish",
       "ticker": "FTCI",
-      "current_price": 2.51,
-      "setup": "Rising Three Methods",
-      "status": "CONFIRMED"
+      "stop": 2.43,
+      "status": "CONFIRMED",
+      "current_price": 2.51
     },
     {
       "direction": "Bullish",

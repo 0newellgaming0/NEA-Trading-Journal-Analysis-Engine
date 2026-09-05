@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:41.182913+00:00",
+  "generated_at": "2026-09-05T08:35:00.658987+00:00",
   "ticker": "KSS",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "setup": "Engulfing",
+      "score": 62.0,
+      "target": 19.9798,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T08:12:26.213056",
+      "entry": 19.52,
+      "direction": "Bullish",
+      "ticker": "KSS",
+      "stop": 19.29,
+      "status": "CONFIRMED",
+      "current_price": 19.488
+    },
     {
       "current_price": 17.81,
       "setup": "Pinbar",

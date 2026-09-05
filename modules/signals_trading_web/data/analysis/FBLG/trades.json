@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-04T21:58:20.949007+00:00",
+  "generated_at": "2026-09-05T08:34:50.227809+00:00",
   "ticker": "FBLG",
   "count": 1,
   "trades": [
     {
-      "direction": "Bearish",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "risk_reward": 2.0,
-      "entry": 1.87,
-      "stop": 1.98,
-      "target": 1.6502200000000005,
-      "score": 69.0,
-      "updated_at": "2026-09-04T20:45:42.505257",
-      "ticker": "FBLG",
-      "current_price": 1.8675,
       "setup": "Engulfing",
-      "status": "CONFIRMED"
+      "score": 68.0,
+      "target": 1.6502200000000005,
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T05:00:51.614493",
+      "entry": 1.87,
+      "direction": "Bearish",
+      "ticker": "FBLG",
+      "stop": 1.98,
+      "status": "CONFIRMED",
+      "current_price": 1.7841
     }
   ]
 }

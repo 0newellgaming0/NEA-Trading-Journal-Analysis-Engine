@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.490041+00:00",
+  "generated_at": "2026-09-05T08:34:53.719555+00:00",
   "ticker": "GME",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Marubozu",
+      "score": 49.0,
+      "target": 19.194000000000003,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-05T06:03:37.798309",
+      "entry": 19.04,
+      "direction": "Bullish",
+      "ticker": "GME",
+      "stop": 18.96,
+      "status": "CONFIRMED",
+      "current_price": 19.1833
+    },
     {
       "setup": "Evening Star",
       "updated_at": "2026-08-31T01:48:54.240087",
