@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T02:10:07.033743",
+  "generated_at": "2026-09-05T14:40:46.660977",
   "tickers": {
     "IBG": {
-      "generated_at": "2026-09-05T02:10:07.033743",
+      "generated_at": "2026-09-05T14:40:46.660977",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

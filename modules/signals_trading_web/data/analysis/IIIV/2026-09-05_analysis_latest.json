@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T02:16:32.480801",
+  "generated_at": "2026-09-05T14:46:55.607760",
   "tickers": {
     "IIIV": {
-      "generated_at": "2026-09-05T02:16:32.480801",
+      "generated_at": "2026-09-05T14:46:55.607760",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

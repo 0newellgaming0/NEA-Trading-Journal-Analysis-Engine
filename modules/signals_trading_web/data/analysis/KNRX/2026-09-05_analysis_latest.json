@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T03:05:41.034898",
+  "generated_at": "2026-09-05T15:34:09.821658",
   "tickers": {
     "KNRX": {
-      "generated_at": "2026-09-05T03:05:41.034898",
+      "generated_at": "2026-09-05T15:34:09.821658",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

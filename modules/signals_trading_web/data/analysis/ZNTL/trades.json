@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:55.055722+00:00",
+  "generated_at": "2026-09-06T06:07:57.237627+00:00",
   "ticker": "ZNTL",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-06T06:03:42.847095",
+      "direction": "Bearish",
+      "ticker": "ZNTL",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 4.02,
+      "setup": "Harami",
+      "target": 4.010420000000001,
+      "risk_reward": 2.0,
+      "score": 59.0,
+      "current_price": 4.02,
+      "status": "CONFIRMED",
+      "stop": 4.02
+    },
     {
       "current_price": 3.6921,
       "setup": "TLINE_CONTINUATION",

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T01:33:12.158330",
+  "generated_at": "2026-09-05T14:01:56.811416",
   "tickers": {
     "GTE": {
-      "generated_at": "2026-09-05T01:33:12.158330",
+      "generated_at": "2026-09-05T14:01:56.811416",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

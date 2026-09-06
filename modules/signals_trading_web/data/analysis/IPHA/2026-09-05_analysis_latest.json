@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T02:37:39.394483",
+  "generated_at": "2026-09-05T15:07:56.289522",
   "tickers": {
     "IPHA": {
-      "generated_at": "2026-09-05T02:37:39.394483",
+      "generated_at": "2026-09-05T15:07:56.289522",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

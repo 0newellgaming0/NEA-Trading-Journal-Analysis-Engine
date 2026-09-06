@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.804733+00:00",
+  "generated_at": "2026-09-06T06:07:55.766620+00:00",
   "ticker": "WSHP",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "updated_at": "2026-09-06T05:27:58.096592",
+      "direction": "Bullish",
+      "ticker": "WSHP",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 5.07,
+      "setup": "Harami",
+      "target": 5.1800000000000015,
+      "risk_reward": 2.0,
+      "score": 64.0,
+      "current_price": 5.11,
+      "status": "CONFIRMED",
+      "stop": 5.01
+    }
+  ]
 }

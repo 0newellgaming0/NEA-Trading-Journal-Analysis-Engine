@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T00:02:30.052438",
+  "generated_at": "2026-09-05T12:27:05.301652",
   "tickers": {
     "FEMY": {
-      "generated_at": "2026-09-05T00:02:30.052438",
+      "generated_at": "2026-09-05T12:27:05.301652",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

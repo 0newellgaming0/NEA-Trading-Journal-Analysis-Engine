@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T02:57:36.802775",
+  "generated_at": "2026-09-05T15:26:28.134865",
   "tickers": {
     "JWEL": {
-      "generated_at": "2026-09-05T02:57:36.802775",
+      "generated_at": "2026-09-05T15:26:28.134865",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

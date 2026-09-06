@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.812998+00:00",
+  "generated_at": "2026-09-06T06:07:55.910303+00:00",
   "ticker": "WYY",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "updated_at": "2026-09-06T05:33:54.289899",
+      "direction": "Bullish",
+      "ticker": "WYY",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 10.92,
+      "setup": "Pinbar",
+      "target": 11.338,
+      "risk_reward": 2.0,
+      "score": 66.0,
+      "current_price": 11.13,
+      "status": "CONFIRMED",
+      "stop": 10.71
+    }
+  ]
 }

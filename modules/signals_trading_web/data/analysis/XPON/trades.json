@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.846185+00:00",
+  "generated_at": "2026-09-06T06:07:56.416100+00:00",
   "ticker": "XPON",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "updated_at": "2026-09-06T05:46:26.466410",
+      "direction": "Bearish",
+      "ticker": "XPON",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 5.89,
+      "setup": "MACD_ZERO_LINE_BREAKDOWN",
+      "target": 5.4384,
+      "risk_reward": 2.0,
+      "score": 69.0,
+      "current_price": 5.78,
+      "status": "CONFIRMED",
+      "stop": 6.11
+    }
+  ]
 }

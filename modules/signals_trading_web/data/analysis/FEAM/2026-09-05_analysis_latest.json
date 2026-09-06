@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T00:01:25.402175",
+  "generated_at": "2026-09-05T12:26:09.797005",
   "tickers": {
     "FEAM": {
-      "generated_at": "2026-09-05T00:01:25.402175",
+      "generated_at": "2026-09-05T12:26:09.797005",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

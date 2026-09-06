@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T02:01:26.717544",
+  "generated_at": "2026-09-05T14:31:46.245022",
   "tickers": {
     "HUDI": {
-      "generated_at": "2026-09-05T02:01:26.717544",
+      "generated_at": "2026-09-05T14:31:46.245022",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T03:31:16.412098",
+  "generated_at": "2026-09-05T15:57:46.076809",
   "tickers": {
     "LGHL": {
-      "generated_at": "2026-09-05T03:31:16.412098",
+      "generated_at": "2026-09-05T15:57:46.076809",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

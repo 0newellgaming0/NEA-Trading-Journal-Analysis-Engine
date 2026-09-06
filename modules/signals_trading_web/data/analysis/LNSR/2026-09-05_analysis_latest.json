@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T03:41:08.222955",
+  "generated_at": "2026-09-05T16:04:09.059110",
   "tickers": {
     "LNSR": {
-      "generated_at": "2026-09-05T03:41:08.222955",
+      "generated_at": "2026-09-05T16:04:09.059110",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

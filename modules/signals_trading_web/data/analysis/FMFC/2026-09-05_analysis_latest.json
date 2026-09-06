@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T00:19:52.742750",
+  "generated_at": "2026-09-05T12:44:54.875987",
   "tickers": {
     "FMFC": {
-      "generated_at": "2026-09-05T00:19:52.742750",
+      "generated_at": "2026-09-05T12:44:54.875987",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

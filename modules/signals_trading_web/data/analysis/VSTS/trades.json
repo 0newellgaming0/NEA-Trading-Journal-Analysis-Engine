@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.800635+00:00",
+  "generated_at": "2026-09-06T06:07:54.575998+00:00",
   "ticker": "VSTS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-06T05:07:17.805698",
+      "direction": "Bearish",
+      "ticker": "VSTS",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 13.25,
+      "setup": "Marubozu",
+      "target": 13.139999999999997,
+      "risk_reward": 2.0,
+      "score": 59.0,
+      "current_price": 13.15,
+      "status": "CONFIRMED",
+      "stop": 13.31
+    },
     {
       "current_price": 12.51,
       "target": 12.505999999999998,

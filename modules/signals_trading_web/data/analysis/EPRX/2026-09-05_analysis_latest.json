@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T04:31:09.239142",
+  "generated_at": "2026-09-05T12:05:32.097118",
   "tickers": {
     "EPRX": {
-      "generated_at": "2026-09-05T04:31:09.239142",
+      "generated_at": "2026-09-05T12:05:32.097118",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -40,8 +40,8 @@
         "pending_60m_setups": "📋 PENDING 60M SETUPS\n\nTicker: EPRX\n\nPending Setups: 4\n\n### Setup 1\n- Module: Lines\n- Event Type: Side-by-Side White Lines\n- Direction: Bullish\n- Trade Type: MIXED\n- Entry: 8.45\n- Stop: 8.34\n- Wick Stop: 8.35\n- Target 1: 8.569999999999999\n- Target 2: 8.7\n- Detected: 2026-09-04 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 46.118737935886564%\n- Historical Failure Rate: 53.881262064113436%\n\n---\n\n### Setup 2\n- Module: RSI 50\n- Event Type: RSI_ABOVE_50_CONTINUATION\n- Direction: Bullish\n- Trade Type: CONTINUATION\n- Entry: 8.45\n- Stop: 8.34\n- Wick Stop: 8.35\n- Target 1: 8.549999999999999\n- Target 2: 8.649999999999999\n- Detected: 2026-09-04 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 34.209442060085834%\n- Historical Failure Rate: 65.79055793991417%\n\n---\n\n### Setup 3\n- Module: Marubozu\n- Event Type: Marubozu\n- Direction: Bullish\n- Trade Type: CONTINUATION\n- Entry: 8.46\n- Stop: 8.394\n- Wick Stop: 8.4\n- Target 1: 8.532000000000002\n- Target 2: 8.610000000000003\n- Detected: 2026-09-04 22:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 42.23279785531703%\n- Historical Failure Rate: 57.76720214468297%\n\n---\n\n### Setup 4\n- Module: Hammer\n- Event Type: Hammer\n- Direction: Bullish\n- Trade Type: REVERSAL\n- Entry: 8.47\n- Stop: 8.283000000000001\n- Wick Stop: 8.3\n- Target 1: 8.64\n- Target 2: 8.81\n- Detected: 2026-09-04 21:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 40.55851794843604%\n- Historical Failure Rate: 59.441482051563966%",
         "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     EPRX\nDirection:  Bullish\nSetup:      MACD_BULLISH_MOMENTUM_EXPANSION\nRegime:     FULL_BULLISH_ALIGNMENT\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          MACD_BULLISH_MOMENTUM_EXPANSION\nCount:          10922\nSuccess:        2856\nFailed:         6506\nUnresolved:     1560\nResolved:       9362\nSuccess Rate:   30.51%\nFailure Rate:   69.49%\n\nTARGET 2 PERFORMANCE\n\nSetup:              MACD_BULLISH_MOMENTUM_EXPANSION\nCount:              2856\nTarget 2 Reached:   2194\nTarget 2 Not Reached: 662\nTarget 2 Hit Rate:  76.82%"
       },
-      "pending_60m_generated_at": "2026-09-05T04:32:10.757315",
-      "current_performance_generated_at": "2026-09-05T04:32:25.212692"
+      "pending_60m_generated_at": "2026-09-05T12:06:33.486575",
+      "current_performance_generated_at": "2026-09-05T12:06:48.419068"
     }
   }
 }

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T03:16:06.226811",
+  "generated_at": "2026-09-05T15:43:36.738011",
   "tickers": {
     "KZIA": {
-      "generated_at": "2026-09-05T03:16:06.226811",
+      "generated_at": "2026-09-05T15:43:36.738011",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

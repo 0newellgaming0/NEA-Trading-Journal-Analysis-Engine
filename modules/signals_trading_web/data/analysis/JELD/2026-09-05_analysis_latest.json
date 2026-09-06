@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T02:49:52.569818",
+  "generated_at": "2026-09-05T15:19:16.062756",
   "tickers": {
     "JELD": {
-      "generated_at": "2026-09-05T02:49:52.569818",
+      "generated_at": "2026-09-05T15:19:16.062756",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

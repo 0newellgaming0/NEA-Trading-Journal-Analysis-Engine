@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T01:52:47.658479",
+  "generated_at": "2026-09-05T14:22:39.358730",
   "tickers": {
     "HKIT": {
-      "generated_at": "2026-09-05T01:52:47.658479",
+      "generated_at": "2026-09-05T14:22:39.358730",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

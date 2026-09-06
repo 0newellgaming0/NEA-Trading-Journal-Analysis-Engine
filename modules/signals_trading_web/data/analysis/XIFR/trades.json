@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-04T21:58:49.374836+00:00",
+  "generated_at": "2026-09-06T06:07:56.252256+00:00",
   "ticker": "XIFR",
   "count": 3,
   "trades": [
     {
+      "updated_at": "2026-09-06T05:41:36.107186",
       "direction": "Bullish",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "risk_reward": 2.0,
-      "entry": 12.11,
-      "stop": 12.05,
-      "target": 12.215000000000003,
-      "score": 68.0,
-      "updated_at": "2026-09-04T21:25:07.255970",
       "ticker": "XIFR",
-      "current_price": 12.18,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 12.11,
       "setup": "Engulfing",
-      "status": "CONFIRMED"
+      "target": 12.215000000000003,
+      "risk_reward": 2.0,
+      "score": 67.0,
+      "current_price": 12.1,
+      "status": "CONFIRMED",
+      "stop": 12.05
     },
     {
       "ticker": "XIFR",

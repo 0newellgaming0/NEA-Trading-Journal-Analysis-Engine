@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T01:46:22.469772",
+  "generated_at": "2026-09-05T14:16:11.167112",
   "tickers": {
     "HCWC": {
-      "generated_at": "2026-09-05T01:46:22.469772",
+      "generated_at": "2026-09-05T14:16:11.167112",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

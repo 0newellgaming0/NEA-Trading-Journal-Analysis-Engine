@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T01:15:34.496889",
+  "generated_at": "2026-09-05T13:43:23.751338",
   "tickers": {
     "GPMT": {
-      "generated_at": "2026-09-05T01:15:34.496889",
+      "generated_at": "2026-09-05T13:43:23.751338",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

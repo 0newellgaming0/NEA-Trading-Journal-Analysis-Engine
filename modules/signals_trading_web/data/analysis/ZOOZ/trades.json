@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:50.392707+00:00",
+  "generated_at": "2026-09-06T06:07:57.328094+00:00",
   "ticker": "ZOOZ",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "updated_at": "2026-09-06T06:05:48.254978",
+      "direction": "Bullish",
+      "ticker": "ZOOZ",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 8.16,
+      "setup": "Pinbar",
+      "target": 10.367040000000001,
+      "risk_reward": 2.0,
+      "score": 78.0,
+      "current_price": 7.76,
+      "status": "CONFIRMED",
+      "stop": 7.06
+    },
     {
       "direction": "Bearish",
       "regime": "SHORT_TERM_WEAKNESS",

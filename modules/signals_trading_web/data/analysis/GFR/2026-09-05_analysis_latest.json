@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-05T00:55:44.757913",
+  "generated_at": "2026-09-05T13:22:52.662916",
   "tickers": {
     "GFR": {
-      "generated_at": "2026-09-05T00:55:44.757913",
+      "generated_at": "2026-09-05T13:22:52.662916",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
