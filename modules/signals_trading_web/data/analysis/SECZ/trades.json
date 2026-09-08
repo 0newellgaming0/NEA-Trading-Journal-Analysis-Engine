@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:02:35.057480+00:00",
+  "generated_at": "2026-09-08T19:09:15.288041+00:00",
   "ticker": "SECZ",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Candle Over Candle",
+      "updated_at": "2026-09-08T19:09:13.377911",
+      "stop": 7.35,
+      "current_price": 8.17,
+      "target": 8.903680000000001,
+      "entry": 7.87,
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "ticker": "SECZ",
+      "direction": "Bullish",
+      "score": 51.0,
+      "status": "CONFIRMED"
+    },
     {
       "direction": "Bullish",
       "ticker": "SECZ",

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-08T19:09:15.558550+00:00",
+  "ticker": "TTRX",
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Marubozu",
+      "updated_at": "2026-09-08T18:30:00.464368",
+      "stop": 10.45,
+      "current_price": 12.355,
+      "target": 14.409679999999998,
+      "entry": 11.77,
+      "risk_reward": 2.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "ticker": "TTRX",
+      "direction": "Bullish",
+      "score": 82.0,
+      "status": "CONFIRMED"
+    }
+  ]
+}
