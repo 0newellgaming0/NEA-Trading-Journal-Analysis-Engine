@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:45.975535+00:00",
+  "generated_at": "2026-09-08T16:02:27.716778+00:00",
   "ticker": "PBM",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "PBM",
+      "target": 4.658959999999999,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 4.57,
+      "updated_at": "2026-09-08T14:39:28.766342",
+      "risk_reward": 2.0,
+      "score": 59.0,
+      "stop": 4.53,
+      "current_price": 4.595,
+      "setup": "Pinbar"
+    },
     {
       "current_price": 4.37,
       "setup": "Engulfing",

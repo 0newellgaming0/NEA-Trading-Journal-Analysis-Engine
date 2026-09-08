@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:38.365375+00:00",
+  "generated_at": "2026-09-08T16:02:30.873938+00:00",
   "ticker": "QNRX",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "QNRX",
+      "target": 11.090399999999999,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 7.8,
+      "updated_at": "2026-09-08T13:45:35.867196",
+      "risk_reward": 2.0,
+      "score": 61.0,
+      "stop": 6.15,
+      "current_price": 7.27,
+      "setup": "Rising Three Methods"
+    },
     {
       "direction": "Bullish",
       "regime": "SHORT_TERM_WEAKNESS",

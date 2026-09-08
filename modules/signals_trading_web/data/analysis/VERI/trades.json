@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:52.859194+00:00",
+  "generated_at": "2026-09-08T16:02:45.247341+00:00",
   "ticker": "VERI",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "VERI",
+      "target": 1.0996,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "entry": 0.95,
+      "updated_at": "2026-09-08T15:46:39.952180",
+      "risk_reward": 2.0,
+      "score": 44.0,
+      "stop": 0.88,
+      "current_price": 0.9468,
+      "setup": "Engulfing"
+    }
+  ]
 }

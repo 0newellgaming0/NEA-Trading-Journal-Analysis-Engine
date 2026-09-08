@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:34:55.084015+00:00",
+  "generated_at": "2026-09-08T16:02:09.126347+00:00",
   "ticker": "GSM",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "GSM",
+      "target": 4.668,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "entry": 4.69,
+      "updated_at": "2026-09-08T14:47:32.199631",
+      "risk_reward": 2.0,
+      "score": 62.0,
+      "stop": 4.7,
+      "current_price": 4.695,
+      "setup": "Marubozu"
+    },
     {
       "setup": "DOJI",
       "score": 61.0,

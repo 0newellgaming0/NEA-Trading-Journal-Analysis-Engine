@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.903859+00:00",
+  "generated_at": "2026-09-08T16:02:20.189930+00:00",
   "ticker": "MNRO",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "MNRO",
+      "target": 12.987,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "entry": 13.24,
+      "updated_at": "2026-09-08T13:21:53.994505",
+      "risk_reward": 2.0,
+      "score": 66.0,
+      "stop": 13.37,
+      "current_price": 13.29,
+      "setup": "Pinbar"
+    },
     {
       "entry": 12.84,
       "current_price": 12.97,

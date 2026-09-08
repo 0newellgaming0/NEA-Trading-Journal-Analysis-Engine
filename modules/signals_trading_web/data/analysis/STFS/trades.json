@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:50.751213+00:00",
+  "generated_at": "2026-09-08T16:02:39.497018+00:00",
   "ticker": "STFS",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "STFS",
+      "target": 3.9648200000000005,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 4.2,
+      "updated_at": "2026-09-08T14:43:28.880971",
+      "risk_reward": 2.0,
+      "score": 60.0,
+      "stop": 4.32,
+      "current_price": 4.19,
+      "setup": "Pinbar"
+    },
     {
       "current_price": 4.45,
       "setup": "TLINE_CONTINUATION",

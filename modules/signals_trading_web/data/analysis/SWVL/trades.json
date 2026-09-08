@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.609734+00:00",
+  "generated_at": "2026-09-08T16:02:40.773375+00:00",
   "ticker": "SWVL",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "SWVL",
+      "target": 5.401800000000001,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "entry": 5.03,
+      "updated_at": "2026-09-08T13:11:28.282517",
+      "risk_reward": 2.0,
+      "score": 67.0,
+      "stop": 4.84,
+      "current_price": 5.05,
+      "setup": "Harami"
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "updated_at": "2026-08-30T22:17:48.527733",

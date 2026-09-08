@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.205731+00:00",
+  "generated_at": "2026-09-08T16:02:29.290494+00:00",
   "ticker": "PMI",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "PMI",
+      "target": 4.159999999999998,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 4.6,
+      "updated_at": "2026-09-08T14:52:45.482377",
+      "risk_reward": 2.0,
+      "score": 52.0,
+      "stop": 4.82,
+      "current_price": 4.48,
+      "setup": "Engulfing"
+    }
+  ]
 }

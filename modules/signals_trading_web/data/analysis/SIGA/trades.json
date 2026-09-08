@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:44.036425+00:00",
+  "generated_at": "2026-09-08T16:02:36.207953+00:00",
   "ticker": "SIGA",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "SIGA",
+      "target": 3.339,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "entry": 3.19,
+      "updated_at": "2026-09-08T15:51:34.906480",
+      "risk_reward": 2.0,
+      "score": 36.0,
+      "stop": 3.11,
+      "current_price": 3.235,
+      "setup": "Engulfing"
+    }
+  ]
 }

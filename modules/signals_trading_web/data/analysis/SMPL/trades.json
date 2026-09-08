@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.509916+00:00",
+  "generated_at": "2026-09-08T16:02:37.406617+00:00",
   "ticker": "SMPL",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "SMPL",
+      "target": 12.043999999999997,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "entry": 11.45,
+      "updated_at": "2026-09-08T13:14:07.067643",
+      "risk_reward": 2.0,
+      "score": 67.0,
+      "stop": 11.15,
+      "current_price": 11.42,
+      "setup": "Pinbar"
+    },
     {
       "entry": 10.835,
       "current_price": 10.8999,

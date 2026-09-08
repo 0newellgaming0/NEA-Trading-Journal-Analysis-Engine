@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:34:57.909454+00:00",
+  "generated_at": "2026-09-08T16:02:12.306241+00:00",
   "ticker": "IMTX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "IMTX",
+      "target": 9.968000000000004,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 9.55,
+      "updated_at": "2026-09-08T15:15:26.001640",
+      "risk_reward": 2.0,
+      "score": 59.0,
+      "stop": 9.34,
+      "current_price": 9.4,
+      "setup": "Rising Three Methods"
+    },
     {
       "setup": "Engulfing",
       "score": 59.0,

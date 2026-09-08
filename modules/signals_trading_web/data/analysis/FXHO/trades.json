@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-05T08:34:52.745542+00:00",
+  "generated_at": "2026-09-08T16:02:06.426772+00:00",
   "ticker": "FXHO",
   "count": 1,
   "trades": [
     {
-      "setup": "Marubozu",
-      "score": 69.0,
-      "target": 10.695760000000002,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "risk_reward": 2.0,
-      "updated_at": "2026-09-05T05:42:31.181214",
-      "entry": 11.76,
       "direction": "Bearish",
       "ticker": "FXHO",
-      "stop": 12.3,
+      "target": 10.695760000000002,
       "status": "CONFIRMED",
-      "current_price": 11.92
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 11.76,
+      "updated_at": "2026-09-08T12:37:57.926717",
+      "risk_reward": 2.0,
+      "score": 69.0,
+      "stop": 12.3,
+      "current_price": 11.4,
+      "setup": "Marubozu"
     }
   ]
 }

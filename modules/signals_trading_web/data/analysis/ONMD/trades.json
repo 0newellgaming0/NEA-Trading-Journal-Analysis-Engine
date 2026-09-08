@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:45.303128+00:00",
+  "generated_at": "2026-09-08T16:02:26.076477+00:00",
   "ticker": "ONMD",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "ONMD",
+      "target": 0.49619999999999986,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 0.58,
+      "updated_at": "2026-09-08T12:58:13.358715",
+      "risk_reward": 2.0,
+      "score": 67.0,
+      "stop": 0.62,
+      "current_price": 0.6203,
+      "setup": "Falling Three Methods"
+    },
     {
       "current_price": 0.5699,
       "setup": "Harami Cross",

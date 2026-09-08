@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:49.529120+00:00",
+  "generated_at": "2026-09-08T16:02:01.646530+00:00",
   "ticker": "EMBC",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "EMBC",
+      "target": 5.173999999999998,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 5.02,
+      "updated_at": "2026-09-08T14:01:01.050983",
+      "risk_reward": 2.0,
+      "score": 53.0,
+      "stop": 4.94,
+      "current_price": 5.71,
+      "setup": "Rising Three Methods"
+    }
+  ]
 }

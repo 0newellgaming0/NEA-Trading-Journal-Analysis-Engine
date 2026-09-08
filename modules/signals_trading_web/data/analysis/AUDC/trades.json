@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:09.936087+00:00",
+  "generated_at": "2026-09-08T16:01:44.298273+00:00",
   "ticker": "AUDC",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "AUDC",
+      "target": 10.009999999999996,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "entry": 10.12,
+      "updated_at": "2026-09-08T13:24:04.900156",
+      "risk_reward": 2.0,
+      "score": 66.0,
+      "stop": 10.18,
+      "current_price": 10.05,
+      "setup": "Pinbar"
+    },
     {
       "direction": "Bullish",
       "regime": "BULLISH_CONSOLIDATION",

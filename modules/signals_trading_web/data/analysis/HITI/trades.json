@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:34:55.922737+00:00",
+  "generated_at": "2026-09-08T16:02:10.221229+00:00",
   "ticker": "HITI",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "HITI",
+      "target": 2.666000000000001,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 2.6,
+      "updated_at": "2026-09-08T14:49:34.057682",
+      "risk_reward": 2.0,
+      "score": 59.0,
+      "stop": 2.57,
+      "current_price": 2.62,
+      "setup": "Marubozu"
+    },
     {
       "setup": "Engulfing",
       "score": 62.0,

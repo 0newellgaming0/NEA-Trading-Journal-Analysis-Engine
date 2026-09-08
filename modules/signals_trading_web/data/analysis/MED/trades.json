@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:00.635958+00:00",
+  "generated_at": "2026-09-08T16:02:19.106837+00:00",
   "ticker": "MED",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "MED",
+      "target": 12.924000000000003,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 12.66,
+      "updated_at": "2026-09-08T15:27:40.160242",
+      "risk_reward": 2.0,
+      "score": 56.0,
+      "stop": 12.53,
+      "current_price": 12.615,
+      "setup": "Engulfing"
+    }
+  ]
 }

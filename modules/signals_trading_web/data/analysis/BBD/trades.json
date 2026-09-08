@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-02T14:23:28.530341+00:00",
+  "generated_at": "2026-09-08T16:01:45.946359+00:00",
   "ticker": "BBD",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "BBD",
+      "target": 3.551519999999999,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "entry": 3.52,
+      "updated_at": "2026-09-08T13:54:27.226899",
+      "risk_reward": 2.0,
+      "score": 68.0,
+      "stop": 3.5,
+      "current_price": 3.575,
+      "setup": "Marubozu"
+    }
+  ]
 }

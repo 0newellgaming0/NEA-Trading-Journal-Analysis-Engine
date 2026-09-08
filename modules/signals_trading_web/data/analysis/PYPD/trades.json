@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:47.030639+00:00",
+  "generated_at": "2026-09-08T16:02:30.526524+00:00",
   "ticker": "PYPD",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "PYPD",
+      "target": 5.1549999999999985,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 5.34,
+      "updated_at": "2026-09-08T15:12:12.011644",
+      "risk_reward": 2.0,
+      "score": 57.0,
+      "stop": 5.44,
+      "current_price": 5.3001,
+      "setup": "DOJI"
+    },
     {
       "current_price": 5.33,
       "setup": "Counterattack Lines",

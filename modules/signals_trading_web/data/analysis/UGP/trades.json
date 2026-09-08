@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:46.900917+00:00",
+  "generated_at": "2026-09-08T16:02:44.117134+00:00",
   "ticker": "UGP",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "UGP",
+      "target": 7.528599999999999,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 7.15,
+      "updated_at": "2026-09-08T12:56:00.310569",
+      "risk_reward": 2.0,
+      "score": 67.0,
+      "stop": 6.96,
+      "current_price": 7.28,
+      "setup": "Rising Three Methods"
+    },
     {
       "direction": "Bullish",
       "regime": "FULL_BULLISH_ALIGNMENT",

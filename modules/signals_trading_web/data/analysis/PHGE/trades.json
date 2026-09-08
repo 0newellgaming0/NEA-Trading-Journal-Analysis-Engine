@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.186096+00:00",
+  "generated_at": "2026-09-08T16:02:28.766664+00:00",
   "ticker": "PHGE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "PHGE",
+      "target": 0.16102000000000005,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "entry": 0.15,
+      "updated_at": "2026-09-08T12:20:02.851917",
+      "risk_reward": 2.0,
+      "score": 63.0,
+      "stop": 0.14,
+      "current_price": 0.148,
+      "setup": "Engulfing"
+    },
     {
       "setup": "Marubozu",
       "updated_at": "2026-08-30T23:35:10.361467",

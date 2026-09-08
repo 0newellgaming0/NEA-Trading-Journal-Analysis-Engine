@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.907890+00:00",
+  "generated_at": "2026-09-08T16:02:20.290336+00:00",
   "ticker": "MOBI",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "MOBI",
+      "target": 11.533999999999997,
+      "status": "CONFIRMED",
+      "regime": "HIGHER_TIMEFRAME_CONFLICT",
+      "entry": 11.6,
+      "updated_at": "2026-09-08T14:59:50.535910",
+      "risk_reward": 2.0,
+      "score": 61.0,
+      "stop": 11.63,
+      "current_price": 11.5,
+      "setup": "Marubozu"
+    }
+  ]
 }

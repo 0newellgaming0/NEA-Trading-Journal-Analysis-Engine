@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.569872+00:00",
+  "generated_at": "2026-09-08T16:02:39.366970+00:00",
   "ticker": "SSTK",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "SSTK",
+      "target": 5.402,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "entry": 5.71,
+      "updated_at": "2026-09-08T12:06:45.725307",
+      "risk_reward": 2.0,
+      "score": 70.0,
+      "stop": 5.86,
+      "current_price": 5.6,
+      "setup": "Falling Three Methods"
+    }
+  ]
 }

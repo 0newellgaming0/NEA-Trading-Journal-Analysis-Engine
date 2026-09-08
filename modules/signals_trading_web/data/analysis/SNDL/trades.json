@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:06:15.467244+00:00",
+  "generated_at": "2026-09-08T16:02:37.777035+00:00",
   "ticker": "SNDL",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "SNDL",
+      "target": 1.4080000000000001,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 1.43,
+      "updated_at": "2026-09-08T14:09:26.205103",
+      "risk_reward": 2.0,
+      "score": 59.0,
+      "stop": 1.44,
+      "current_price": 1.415,
+      "setup": "Marubozu"
+    },
     {
       "regime": "SHORT_TERM_WEAKNESS",
       "current_price": 1.385,

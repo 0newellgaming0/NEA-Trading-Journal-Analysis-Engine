@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T05:29:22.712891+00:00",
+  "generated_at": "2026-09-08T16:02:44.690079+00:00",
   "ticker": "VALE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "VALE",
+      "target": 15.8704,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 15.55,
+      "updated_at": "2026-09-08T15:34:19.870630",
+      "risk_reward": 2.0,
+      "score": 58.0,
+      "stop": 15.39,
+      "current_price": 15.7,
+      "setup": "Marubozu"
+    },
     {
       "direction": "Bearish",
       "target": 14.370080000000002,

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:44.011368+00:00",
+  "generated_at": "2026-09-08T16:01:51.276229+00:00",
   "ticker": "CBAT",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "CBAT",
+      "target": 0.95808,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 0.99,
+      "updated_at": "2026-09-08T15:19:47.987246",
+      "risk_reward": 2.0,
+      "score": 57.0,
+      "stop": 1.0,
+      "current_price": 0.9702,
+      "setup": "Marubozu"
+    }
+  ]
 }

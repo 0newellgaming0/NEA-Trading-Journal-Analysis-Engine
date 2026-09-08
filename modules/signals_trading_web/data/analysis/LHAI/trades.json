@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T10:52:05.881916+00:00",
+  "generated_at": "2026-09-08T16:02:16.806318+00:00",
   "ticker": "LHAI",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "LHAI",
+      "target": 1.25278,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 1.17,
+      "updated_at": "2026-09-08T12:33:20.344813",
+      "risk_reward": 2.0,
+      "score": 69.0,
+      "stop": 1.12,
+      "current_price": 1.1509,
+      "setup": "Marubozu"
+    },
     {
       "direction": "Bullish",
       "regime": "SHORT_TERM_STRENGTH",

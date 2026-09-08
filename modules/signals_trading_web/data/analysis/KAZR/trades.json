@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:35:00.140389+00:00",
+  "generated_at": "2026-09-08T16:02:14.696788+00:00",
   "ticker": "KAZR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "KAZR",
+      "target": 2.1020000000000003,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 2.08,
+      "updated_at": "2026-09-08T14:36:40.227906",
+      "risk_reward": 2.0,
+      "score": 66.0,
+      "stop": 2.07,
+      "current_price": 2.1,
+      "setup": "Marubozu"
+    },
     {
       "setup": "MACD_ZERO_LINE_BREAKDOWN",
       "score": 62.0,

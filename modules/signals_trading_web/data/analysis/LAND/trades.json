@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:35:01.181569+00:00",
+  "generated_at": "2026-09-08T16:02:16.126758+00:00",
   "ticker": "LAND",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "LAND",
+      "target": 9.676,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 9.83,
+      "updated_at": "2026-09-08T13:16:56.460389",
+      "risk_reward": 2.0,
+      "score": 67.0,
+      "stop": 9.91,
+      "current_price": 9.83,
+      "setup": "Pinbar"
+    },
     {
       "setup": "Engulfing",
       "score": 67.0,

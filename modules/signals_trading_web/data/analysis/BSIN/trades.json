@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:24.920685+00:00",
+  "generated_at": "2026-09-08T16:01:49.155891+00:00",
   "ticker": "BSIN",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "BSIN",
+      "target": 1.5480000000000003,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 1.57,
+      "updated_at": "2026-09-08T14:23:00.833422",
+      "risk_reward": 2.0,
+      "score": 63.0,
+      "stop": 1.58,
+      "current_price": 1.5434,
+      "setup": "Pinbar"
+    }
+  ]
 }

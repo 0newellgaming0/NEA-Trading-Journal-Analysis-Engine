@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.710842+00:00",
+  "generated_at": "2026-09-08T16:02:41.357377+00:00",
   "ticker": "TBLA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "TBLA",
+      "target": 3.7840000000000003,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "entry": 3.85,
+      "updated_at": "2026-09-08T13:19:31.912750",
+      "risk_reward": 2.0,
+      "score": 62.0,
+      "stop": 3.88,
+      "current_price": 3.8,
+      "setup": "Pinbar"
+    },
     {
       "current_price": 3.8,
       "target": 3.8399999999999994,

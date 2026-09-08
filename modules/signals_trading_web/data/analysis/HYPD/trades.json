@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:34:56.831574+00:00",
+  "generated_at": "2026-09-08T16:02:11.239612+00:00",
   "ticker": "HYPD",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "HYPD",
+      "target": 3.4400000000000004,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "entry": 3.33,
+      "updated_at": "2026-09-08T13:41:07.283578",
+      "risk_reward": 2.0,
+      "score": 69.0,
+      "stop": 3.27,
+      "current_price": 3.3297,
+      "setup": "Rising Three Methods"
+    },
     {
       "setup": "Pinbar",
       "score": 65.0,

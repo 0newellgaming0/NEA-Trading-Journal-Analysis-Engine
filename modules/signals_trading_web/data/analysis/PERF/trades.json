@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:08.592349+00:00",
+  "generated_at": "2026-09-08T16:02:28.373146+00:00",
   "ticker": "PERF",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "PERF",
+      "target": 1.9185999999999999,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 1.89,
+      "updated_at": "2026-09-08T14:51:04.937569",
+      "risk_reward": 2.0,
+      "score": 71.0,
+      "stop": 1.88,
+      "current_price": 1.895,
+      "setup": "Rising Three Methods"
+    }
+  ]
 }

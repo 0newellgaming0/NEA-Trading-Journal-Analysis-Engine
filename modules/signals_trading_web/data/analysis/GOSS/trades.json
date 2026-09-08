@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:34:54.083056+00:00",
+  "generated_at": "2026-09-08T16:02:07.913578+00:00",
   "ticker": "GOSS",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "GOSS",
+      "target": 0.16652000000000003,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "entry": 0.18,
+      "updated_at": "2026-09-08T15:03:44.276598",
+      "risk_reward": 2.0,
+      "score": 51.0,
+      "stop": 0.18,
+      "current_price": 0.1774,
+      "setup": "Harami"
+    },
     {
       "setup": "Engulfing",
       "score": 60.0,

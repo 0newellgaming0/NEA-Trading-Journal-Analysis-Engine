@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:35:00.658987+00:00",
+  "generated_at": "2026-09-08T16:02:15.426335+00:00",
   "ticker": "KSS",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "KSS",
+      "target": 19.234000000000005,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 19.41,
+      "updated_at": "2026-09-08T14:41:56.349121",
+      "risk_reward": 2.0,
+      "score": 57.0,
+      "stop": 19.5,
+      "current_price": 18.885,
+      "setup": "Marubozu"
+    },
     {
       "setup": "Engulfing",
       "score": 62.0,

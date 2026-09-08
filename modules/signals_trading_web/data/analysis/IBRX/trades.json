@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:34:57.214292+00:00",
+  "generated_at": "2026-09-08T16:02:11.576132+00:00",
   "ticker": "IBRX",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "IBRX",
+      "target": 8.014000000000001,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 8.08,
+      "updated_at": "2026-09-08T12:40:53.980044",
+      "risk_reward": 2.0,
+      "score": 68.0,
+      "stop": 8.11,
+      "current_price": 8.0399,
+      "setup": "Pinbar"
+    },
     {
       "setup": "Rising Three Methods",
       "score": 68.0,

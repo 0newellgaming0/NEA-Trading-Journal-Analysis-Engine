@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:53.860172+00:00",
+  "generated_at": "2026-09-08T16:02:46.223433+00:00",
   "ticker": "VMAR",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "VMAR",
+      "target": 10.325,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "entry": 7.95,
+      "updated_at": "2026-09-08T13:09:49.358440",
+      "risk_reward": 2.0,
+      "score": 66.0,
+      "stop": 6.76,
+      "current_price": 8.5956,
+      "setup": "VWAP_BULLISH_CONTINUATION"
+    }
+  ]
 }

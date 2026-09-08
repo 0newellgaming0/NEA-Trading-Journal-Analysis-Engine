@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:21.016388+00:00",
+  "generated_at": "2026-09-08T16:02:41.723438+00:00",
   "ticker": "TENX",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "TENX",
+      "target": 1.964,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "entry": 1.92,
+      "updated_at": "2026-09-08T12:42:54.246759",
+      "risk_reward": 2.0,
+      "score": 67.0,
+      "stop": 1.9,
+      "current_price": 1.95,
+      "setup": "Pinbar"
+    }
+  ]
 }

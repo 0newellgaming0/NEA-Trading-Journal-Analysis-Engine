@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:14.823370+00:00",
+  "generated_at": "2026-09-08T16:02:03.529307+00:00",
   "ticker": "FATE",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "FATE",
+      "target": 1.4099999999999993,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "entry": 2.26,
+      "updated_at": "2026-09-08T12:28:41.118903",
+      "risk_reward": 2.0,
+      "score": 69.0,
+      "stop": 2.69,
+      "current_price": 2.4861,
+      "setup": "MACD_BEARISH_MOMENTUM_EXPANSION"
+    },
     {
       "current_price": 2.39,
       "direction": "Bearish",

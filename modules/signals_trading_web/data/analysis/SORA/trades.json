@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:42.978260+00:00",
+  "generated_at": "2026-09-08T16:02:38.266612+00:00",
   "ticker": "SORA",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "SORA",
+      "target": 2.1700000000000004,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 2.39,
+      "updated_at": "2026-09-08T13:34:01.535472",
+      "risk_reward": 2.0,
+      "score": 66.0,
+      "stop": 2.5,
+      "current_price": 2.4,
+      "setup": "Pinbar"
+    },
     {
       "direction": "Bearish",
       "regime": "SHORT_TERM_STRENGTH",

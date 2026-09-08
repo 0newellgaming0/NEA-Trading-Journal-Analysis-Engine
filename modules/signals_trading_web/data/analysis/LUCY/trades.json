@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T10:52:06.288002+00:00",
+  "generated_at": "2026-09-08T16:02:17.389701+00:00",
   "ticker": "LUCY",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "LUCY",
+      "target": 0.64395,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 0.87,
+      "updated_at": "2026-09-08T15:29:46.796479",
+      "risk_reward": 2.0,
+      "score": 63.0,
+      "stop": 0.98,
+      "current_price": 0.8642,
+      "setup": "MACD_BEARISH_MOMENTUM_EXPANSION"
+    },
     {
       "direction": "Bullish",
       "regime": "SHORT_TERM_STRENGTH",

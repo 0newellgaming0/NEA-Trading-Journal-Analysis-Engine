@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.329694+00:00",
+  "generated_at": "2026-09-08T16:02:32.076734+00:00",
   "ticker": "RDIB",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "RDIB",
+      "target": 19.98,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 15.98,
+      "updated_at": "2026-09-08T15:07:24.969840",
+      "risk_reward": 2.0,
+      "score": 53.0,
+      "stop": 13.98,
+      "current_price": 15.9799,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION"
+    },
     {
       "entry": 16.41,
       "current_price": 16.51,

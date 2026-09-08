@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.459803+00:00",
+  "generated_at": "2026-09-08T16:02:36.136739+00:00",
   "ticker": "SIEB",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "SIEB",
+      "target": 2.6048800000000005,
+      "status": "CONFIRMED",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "entry": 2.5,
+      "updated_at": "2026-09-08T12:09:20.386235",
+      "risk_reward": 2.0,
+      "score": 70.0,
+      "stop": 2.45,
+      "current_price": 2.53,
+      "setup": "Marubozu"
+    },
     {
       "entry": 2.27,
       "current_price": 2.2016,

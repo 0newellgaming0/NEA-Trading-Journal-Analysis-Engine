@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:06:12.189016+00:00",
+  "generated_at": "2026-09-08T16:02:29.706732+00:00",
   "ticker": "PRGO",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "PRGO",
+      "target": 15.894000000000002,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 14.64,
+      "updated_at": "2026-09-08T12:36:12.984671",
+      "risk_reward": 2.0,
+      "score": 69.0,
+      "stop": 14.01,
+      "current_price": 14.95,
+      "setup": "Rising Three Methods"
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "current_price": 14.55,

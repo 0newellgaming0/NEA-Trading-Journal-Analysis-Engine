@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:10.297260+00:00",
+  "generated_at": "2026-09-08T16:01:44.747765+00:00",
   "ticker": "AVAH",
   "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "ticker": "AVAH",
+      "target": 14.245000000000001,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 13.64,
+      "updated_at": "2026-09-08T13:28:36.027606",
+      "risk_reward": 2.0,
+      "score": 69.0,
+      "stop": 13.34,
+      "current_price": 13.59,
+      "setup": "Rising Three Methods"
+    },
     {
       "direction": "Bearish",
       "regime": "BULLISH_CONSOLIDATION",
@@ -16,20 +30,6 @@
       "current_price": 13.32,
       "setup": "Engulfing",
       "status": "CONFIRMED"
-    },
-    {
-      "setup": "Rising Three Methods",
-      "ticker": "AVAH",
-      "current_price": 13.88,
-      "status": "CONFIRMED",
-      "regime": "BULLISH_CONSOLIDATION",
-      "target": 14.245000000000001,
-      "stop": 13.3375,
-      "score": 74.0,
-      "entry": 13.64,
-      "risk_reward": 2.0,
-      "direction": "Bullish",
-      "updated_at": "2026-09-04T10:41:06.094883"
     },
     {
       "current_price": 13.4337,

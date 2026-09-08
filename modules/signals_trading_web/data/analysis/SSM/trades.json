@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T00:48:52.592327+00:00",
+  "generated_at": "2026-09-08T16:02:39.146835+00:00",
   "ticker": "SSM",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "SSM",
+      "target": 3.561,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "entry": 3.66,
+      "updated_at": "2026-09-08T15:38:32.317883",
+      "risk_reward": 2.0,
+      "score": 43.0,
+      "stop": 3.71,
+      "current_price": 3.09,
+      "setup": "Falling Three Methods"
+    },
     {
       "updated_at": "2026-09-01T23:36:39.745326",
       "target": 10.348,

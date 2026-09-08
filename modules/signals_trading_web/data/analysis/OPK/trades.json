@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:06.802359+00:00",
+  "generated_at": "2026-09-08T16:02:26.339815+00:00",
   "ticker": "OPK",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "OPK",
+      "target": 1.618,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 1.64,
+      "updated_at": "2026-09-08T12:45:39.314402",
+      "risk_reward": 2.0,
+      "score": 66.0,
+      "stop": 1.65,
+      "current_price": 1.62,
+      "setup": "Counterattack Lines"
+    }
+  ]
 }

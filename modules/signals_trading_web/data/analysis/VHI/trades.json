@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:53.310278+00:00",
+  "generated_at": "2026-09-08T16:02:45.697032+00:00",
   "ticker": "VHI",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "VHI",
+      "target": 15.86888,
+      "status": "CONFIRMED",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "entry": 18.14,
+      "updated_at": "2026-09-08T15:21:59.002549",
+      "risk_reward": 2.0,
+      "score": 70.0,
+      "stop": 19.27,
+      "current_price": 18.53,
+      "setup": "Candle Over Candle"
+    }
+  ]
 }

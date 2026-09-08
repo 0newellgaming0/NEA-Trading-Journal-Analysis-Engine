@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:15.170262+00:00",
+  "generated_at": "2026-09-08T16:01:53.116242+00:00",
   "ticker": "CHOW",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "direction": "Bearish",
+      "ticker": "CHOW",
+      "target": 0.42481999999999986,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 0.47,
+      "updated_at": "2026-09-08T15:31:44.512455",
+      "risk_reward": 2.0,
+      "score": 55.0,
+      "stop": 0.5,
+      "current_price": 0.4637,
+      "setup": "Bearish Standard Doji Sandwich"
+    },
     {
       "direction": "Bullish",
       "regime": "SHORT_TERM_WEAKNESS",
