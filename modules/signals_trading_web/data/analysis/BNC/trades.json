@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T10:51:44.211063+00:00",
+  "generated_at": "2026-09-08T12:05:53.119126+00:00",
   "ticker": "BNC",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 5.6688,
+      "entry": 6.15,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "stop": 5.53,
+      "score": 73.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "target": 7.39265,
+      "updated_at": "2026-09-08T10:53:45.152765",
+      "risk_reward": 2.0,
+      "ticker": "BNC",
+      "direction": "Bullish"
+    },
     {
       "direction": "Bullish",
       "regime": "SHORT_TERM_WEAKNESS",

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-04T21:58:36.205669+00:00",
+  "generated_at": "2026-09-08T12:06:51.508624+00:00",
   "ticker": "PAGS",
   "count": 6,
   "trades": [
     {
-      "direction": "Bearish",
-      "regime": "BULLISH_CONSOLIDATION",
-      "risk_reward": 2.0,
+      "setup": "Marubozu",
+      "status": "CONFIRMED",
+      "target": 9.694,
+      "regime": "SHORT_TERM_STRENGTH",
       "entry": 9.87,
       "stop": 9.96,
-      "target": 9.694,
       "score": 71.0,
-      "updated_at": "2026-09-04T19:54:26.545823",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T11:29:39.024518",
+      "direction": "Bearish",
       "ticker": "PAGS",
-      "current_price": 9.755,
-      "setup": "Marubozu",
-      "status": "CONFIRMED"
+      "current_price": 9.85
     },
     {
       "ticker": "PAGS",

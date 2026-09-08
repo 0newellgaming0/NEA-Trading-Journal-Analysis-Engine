@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:34:52.303513+00:00",
+  "generated_at": "2026-09-08T12:06:12.759633+00:00",
   "ticker": "FUBO",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "current_price": 11.28,
+      "entry": 9.88,
+      "setup": "VWAP_BULLISH_PULLBACK",
+      "stop": 9.45,
+      "score": 76.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "target": 10.730000000000006,
+      "updated_at": "2026-09-08T09:56:08.436725",
+      "risk_reward": 2.0,
+      "ticker": "FUBO",
+      "direction": "Bullish"
+    },
     {
       "setup": "Bearish Long-Legged Doji Sandwich",
       "score": 76.0,

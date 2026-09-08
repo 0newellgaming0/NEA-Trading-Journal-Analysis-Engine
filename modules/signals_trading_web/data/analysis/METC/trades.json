@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T10:52:07.587021+00:00",
+  "generated_at": "2026-09-08T12:06:40.811014+00:00",
   "ticker": "METC",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "setup": "Marubozu",
+      "status": "CONFIRMED",
+      "target": 12.968079999999997,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "entry": 13.16,
+      "stop": 13.26,
+      "score": 80.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T09:08:35.888993",
+      "direction": "Bearish",
+      "ticker": "METC",
+      "current_price": 13.114
+    },
     {
       "direction": "Bearish",
       "regime": "PRIMARY_DOWNTREND_RALLY",

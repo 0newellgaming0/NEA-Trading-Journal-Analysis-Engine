@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-05T08:34:50.445865+00:00",
+  "generated_at": "2026-09-08T12:06:09.933526+00:00",
   "ticker": "FENC",
   "count": 2,
   "trades": [
     {
-      "setup": "Engulfing",
-      "score": 74.0,
-      "target": 12.325000000000001,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "risk_reward": 2.0,
-      "updated_at": "2026-09-05T05:04:45.565747",
+      "current_price": 12.39,
       "entry": 12.49,
-      "direction": "Bearish",
-      "ticker": "FENC",
+      "setup": "Engulfing",
       "stop": 12.57,
+      "score": 74.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
       "status": "CONFIRMED",
-      "current_price": 12.39
+      "target": 12.325000000000001,
+      "updated_at": "2026-09-08T10:39:31.767794",
+      "risk_reward": 2.0,
+      "ticker": "FENC",
+      "direction": "Bearish"
     },
     {
       "current_price": 12.3465,

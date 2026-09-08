@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:38.524753+00:00",
+  "generated_at": "2026-09-08T12:06:55.632028+00:00",
   "ticker": "PURR",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "target": 11.772,
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 12.08,
+      "stop": 12.23,
+      "score": 75.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T10:11:15.929441",
+      "direction": "Bearish",
+      "ticker": "PURR",
+      "current_price": 12.05
+    }
+  ]
 }

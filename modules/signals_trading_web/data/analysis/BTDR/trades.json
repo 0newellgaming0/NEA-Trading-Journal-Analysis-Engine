@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:13.059928+00:00",
+  "generated_at": "2026-09-08T12:05:54.529718+00:00",
   "ticker": "BTDR",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "current_price": 12.44,
+      "entry": 11.09,
+      "setup": "Rising Three Methods",
+      "stop": 10.66,
+      "score": 70.0,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED",
+      "target": 11.948,
+      "updated_at": "2026-09-08T11:42:06.951265",
+      "risk_reward": 2.0,
+      "ticker": "BTDR",
+      "direction": "Bullish"
+    },
     {
       "direction": "Bullish",
       "regime": "PRIMARY_DOWNTREND_RALLY",

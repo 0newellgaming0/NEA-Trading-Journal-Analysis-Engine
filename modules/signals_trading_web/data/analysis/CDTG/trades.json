@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T23:12:12.460669+00:00",
+  "generated_at": "2026-09-08T12:05:56.872343+00:00",
   "ticker": "CDTG",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 1.31,
+      "entry": 1.27,
+      "setup": "Pinbar",
+      "stop": 1.48,
+      "score": 83.0,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "target": 0.8520000000000003,
+      "updated_at": "2026-09-08T08:50:48.298353",
+      "risk_reward": 2.0,
+      "ticker": "CDTG",
+      "direction": "Bearish"
+    },
     {
       "current_price": 0.9999,
       "direction": "Bearish",

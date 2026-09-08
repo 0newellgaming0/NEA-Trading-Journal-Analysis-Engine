@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-05T10:51:49.986632+00:00",
+  "generated_at": "2026-09-08T12:06:02.261496+00:00",
   "ticker": "CYCN",
   "count": 4,
   "trades": [
     {
-      "direction": "Bullish",
-      "regime": "BULLISH_CONSOLIDATION",
-      "target": 4.752,
-      "ticker": "CYCN",
-      "stop": 4.06,
-      "setup": "Engulfing",
-      "score": 75.0,
-      "status": "CONFIRMED",
+      "current_price": 4.1936,
       "entry": 4.29,
-      "current_price": 4.25,
+      "setup": "Engulfing",
+      "stop": 4.06,
+      "score": 75.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "target": 4.752,
+      "updated_at": "2026-09-08T10:03:19.382163",
       "risk_reward": 2.0,
-      "updated_at": "2026-09-05T10:13:23.689228"
+      "ticker": "CYCN",
+      "direction": "Bullish"
     },
     {
       "direction": "Bearish",

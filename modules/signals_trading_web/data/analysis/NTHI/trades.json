@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:34.270821+00:00",
+  "generated_at": "2026-09-08T12:06:46.522788+00:00",
   "ticker": "NTHI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 5.2,
+      "entry": 4.9,
+      "setup": "Engulfing",
+      "stop": 5.22,
+      "score": 72.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "target": 4.251000000000001,
+      "updated_at": "2026-09-08T11:15:34.350085",
+      "risk_reward": 2.0,
+      "ticker": "NTHI",
+      "direction": "Bearish"
+    },
     {
       "direction": "Bullish",
       "regime": "SHORT_TERM_STRENGTH",

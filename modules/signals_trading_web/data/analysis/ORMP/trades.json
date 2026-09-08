@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.117974+00:00",
+  "generated_at": "2026-09-08T12:06:50.625678+00:00",
   "ticker": "ORMP",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Marubozu",
+      "status": "CONFIRMED",
+      "target": 5.112000000000002,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "entry": 4.98,
+      "stop": 4.91,
+      "score": 75.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T10:22:57.638918",
+      "direction": "Bullish",
+      "ticker": "ORMP",
+      "current_price": 5.02
+    },
     {
       "entry": 5.01,
       "current_price": 5.03,

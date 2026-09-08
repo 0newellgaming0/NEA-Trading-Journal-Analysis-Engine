@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T00:48:41.077573+00:00",
+  "generated_at": "2026-09-08T12:06:08.302762+00:00",
   "ticker": "EPSN",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 6.18,
+      "entry": 6.15,
+      "setup": "Candle Over Candle",
+      "stop": 6.07,
+      "score": 70.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "target": 6.304,
+      "updated_at": "2026-09-08T11:49:51.224254",
+      "risk_reward": 2.0,
+      "ticker": "EPSN",
+      "direction": "Bullish"
+    },
     {
       "updated_at": "2026-09-01T22:51:11.906590",
       "target": 6.423000000000001,

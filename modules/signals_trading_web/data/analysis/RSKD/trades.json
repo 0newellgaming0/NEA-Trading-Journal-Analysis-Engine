@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:06:13.852522+00:00",
+  "generated_at": "2026-09-08T12:07:00.102872+00:00",
   "ticker": "RSKD",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "setup": "Marubozu",
+      "status": "CONFIRMED",
+      "target": 6.568,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "entry": 6.59,
+      "stop": 6.6,
+      "score": 71.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T11:10:07.805677",
+      "direction": "Bearish",
+      "ticker": "RSKD",
+      "current_price": 6.5783
+    },
     {
       "regime": "FULL_BULLISH_ALIGNMENT",
       "current_price": 6.736,

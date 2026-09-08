@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:30.789027+00:00",
+  "generated_at": "2026-09-08T12:06:43.844277+00:00",
   "ticker": "NCI",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "target": 14.561999999999998,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 13.77,
+      "stop": 13.37,
+      "score": 70.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T11:14:15.699055",
+      "direction": "Bullish",
+      "ticker": "NCI",
+      "current_price": 13.54
+    }
+  ]
 }

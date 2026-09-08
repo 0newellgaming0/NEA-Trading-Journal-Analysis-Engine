@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.476178+00:00",
+  "generated_at": "2026-09-08T12:07:05.051951+00:00",
   "ticker": "SION",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 7.07,
+      "entry": 7.08,
+      "setup": "Pinbar",
+      "stop": 7.16,
+      "score": 71.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "target": 6.926,
+      "updated_at": "2026-09-08T11:31:49.433345",
+      "risk_reward": 2.0,
+      "ticker": "SION",
+      "direction": "Bearish"
+    },
     {
       "entry": 5.84,
       "current_price": 5.886,

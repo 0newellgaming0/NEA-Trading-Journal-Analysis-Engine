@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:43.025979+00:00",
+  "generated_at": "2026-09-08T12:06:41.975611+00:00",
   "ticker": "MODD",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 3.5568,
+      "entry": 3.61,
+      "setup": "Pinbar",
+      "stop": 3.66,
+      "score": 75.0,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED",
+      "target": 3.5010999999999997,
+      "updated_at": "2026-09-08T10:18:55.151368",
+      "risk_reward": 2.0,
+      "ticker": "MODD",
+      "direction": "Bearish"
+    },
     {
       "current_price": 3.8825,
       "setup": "TLINE_CONTINUATION",

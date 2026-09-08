@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-05T10:51:53.738322+00:00",
+  "generated_at": "2026-09-08T12:06:08.203882+00:00",
   "ticker": "EPRX",
   "count": 1,
   "trades": [
     {
-      "direction": "Bullish",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "target": 8.895000000000001,
-      "ticker": "EPRX",
-      "stop": 8.26,
-      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
-      "score": 86.0,
-      "status": "CONFIRMED",
+      "current_price": 8.65,
       "entry": 8.47,
-      "current_price": 8.45,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "stop": 8.26,
+      "score": 81.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "target": 8.895000000000001,
+      "updated_at": "2026-09-08T08:52:16.202979",
       "risk_reward": 2.0,
-      "updated_at": "2026-09-05T09:32:24.973141"
+      "ticker": "EPRX",
+      "direction": "Bullish"
     }
   ]
 }

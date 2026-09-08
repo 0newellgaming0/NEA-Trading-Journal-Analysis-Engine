@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:46.500821+00:00",
+  "generated_at": "2026-09-08T12:06:53.968260+00:00",
   "ticker": "PLX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Candle Over Candle",
+      "status": "CONFIRMED",
+      "target": 2.552,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 2.64,
+      "stop": 2.68,
+      "score": 69.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T12:02:07.134361",
+      "direction": "Bearish",
+      "ticker": "PLX",
+      "current_price": 2.55
+    },
     {
       "current_price": 2.65,
       "setup": "Inside Bar",

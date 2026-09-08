@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:24.928756+00:00",
+  "generated_at": "2026-09-08T12:05:54.401113+00:00",
   "ticker": "BTCT",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 1.72,
+      "entry": 1.77,
+      "setup": "Pinbar",
+      "stop": 1.81,
+      "score": 75.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "target": 1.682,
+      "updated_at": "2026-09-08T10:13:13.980122",
+      "risk_reward": 2.0,
+      "ticker": "BTCT",
+      "direction": "Bearish"
+    }
+  ]
 }

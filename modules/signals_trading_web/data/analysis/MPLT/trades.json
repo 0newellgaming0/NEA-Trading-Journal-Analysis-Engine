@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T19:29:31.328214+00:00",
+  "generated_at": "2026-09-08T12:06:42.032963+00:00",
   "ticker": "MPLT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Marubozu",
+      "status": "CONFIRMED",
+      "target": 13.996800000000002,
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 14.0,
+      "stop": 14.0,
+      "score": 78.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T09:34:31.879618",
+      "direction": "Bearish",
+      "ticker": "MPLT",
+      "current_price": 13.77
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "status": "CONFIRMED",

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.449678+00:00",
+  "generated_at": "2026-09-08T12:07:04.231653+00:00",
   "ticker": "SHIP",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "target": 19.489999999999995,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "entry": 18.83,
+      "stop": 18.5,
+      "score": 79.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T09:12:19.198396",
+      "direction": "Bullish",
+      "ticker": "SHIP",
+      "current_price": 19.0
+    }
+  ]
 }

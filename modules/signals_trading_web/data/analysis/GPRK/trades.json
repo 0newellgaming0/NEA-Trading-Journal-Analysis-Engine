@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:34:54.406611+00:00",
+  "generated_at": "2026-09-08T12:06:18.090825+00:00",
   "ticker": "GPRK",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 11.92,
+      "entry": 12.14,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "stop": 11.87,
+      "score": 76.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "target": 12.690000000000001,
+      "updated_at": "2026-09-08T09:10:15.430625",
+      "risk_reward": 2.0,
+      "ticker": "GPRK",
+      "direction": "Bullish"
+    },
     {
       "setup": "Marubozu",
       "score": 80.0,

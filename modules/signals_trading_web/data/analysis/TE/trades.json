@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:51.791037+00:00",
+  "generated_at": "2026-09-08T12:07:13.922851+00:00",
   "ticker": "TE",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "current_price": 4.66,
+      "entry": 4.67,
+      "setup": "Candle Over Candle",
+      "stop": 4.54,
+      "score": 75.0,
+      "regime": "BEARISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "target": 4.933999999999999,
+      "updated_at": "2026-09-08T10:09:43.360637",
+      "risk_reward": 2.0,
+      "ticker": "TE",
+      "direction": "Bullish"
+    },
     {
       "current_price": 4.21,
       "setup": "Pinbar",

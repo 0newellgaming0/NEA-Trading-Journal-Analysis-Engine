@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:26.062846+00:00",
+  "generated_at": "2026-09-08T12:06:46.849967+00:00",
   "ticker": "NU",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "target": 14.816000000000003,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 15.41,
+      "stop": 15.71,
+      "score": 74.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T10:33:41.276647",
+      "direction": "Bearish",
+      "ticker": "NU",
+      "current_price": 15.38
+    }
+  ]
 }

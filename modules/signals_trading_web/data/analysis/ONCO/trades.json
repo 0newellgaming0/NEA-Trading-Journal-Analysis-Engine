@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:34.449856+00:00",
+  "generated_at": "2026-09-08T12:06:48.846889+00:00",
   "ticker": "ONCO",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 0.8009,
+      "entry": 0.79,
+      "setup": "Marubozu",
+      "stop": 0.71,
+      "score": 81.0,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED",
+      "target": 0.9496200000000001,
+      "updated_at": "2026-09-08T08:54:49.491187",
+      "risk_reward": 2.0,
+      "ticker": "ONCO",
+      "direction": "Bullish"
+    }
+  ]
 }

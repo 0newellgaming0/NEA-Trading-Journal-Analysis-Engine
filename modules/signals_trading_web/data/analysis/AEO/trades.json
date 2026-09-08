@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T10:51:36.606144+00:00",
+  "generated_at": "2026-09-08T12:05:38.780383+00:00",
   "ticker": "AEO",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "current_price": 17.4637,
+      "entry": 17.39,
+      "setup": "Rising Three Methods",
+      "stop": 17.26,
+      "score": 80.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "target": 17.654000000000003,
+      "updated_at": "2026-09-08T09:18:02.852907",
+      "risk_reward": 2.0,
+      "ticker": "AEO",
+      "direction": "Bullish"
+    },
     {
       "direction": "Bullish",
       "regime": "SHORT_TERM_STRENGTH",

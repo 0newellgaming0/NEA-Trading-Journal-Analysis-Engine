@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:34:54.166800+00:00",
+  "generated_at": "2026-09-08T12:06:17.776933+00:00",
   "ticker": "GOTU",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 2.1754,
+      "entry": 2.19,
+      "setup": "Engulfing",
+      "stop": 2.21,
+      "score": 71.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "target": 2.1460000000000004,
+      "updated_at": "2026-09-08T11:35:46.026259",
+      "risk_reward": 2.0,
+      "ticker": "GOTU",
+      "direction": "Bearish"
+    },
     {
       "setup": "Marubozu",
       "score": 72.0,

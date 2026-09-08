@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T10:51:48.380626+00:00",
+  "generated_at": "2026-09-08T12:05:59.458553+00:00",
   "ticker": "CMMB",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 2.95,
+      "entry": 2.65,
+      "setup": "Rising Three Methods",
+      "stop": 2.29,
+      "score": 74.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "target": 3.3756800000000005,
+      "updated_at": "2026-09-08T10:20:43.786238",
+      "risk_reward": 2.0,
+      "ticker": "CMMB",
+      "direction": "Bullish"
+    },
     {
       "direction": "Bearish",
       "regime": "SHORT_TERM_WEAKNESS",

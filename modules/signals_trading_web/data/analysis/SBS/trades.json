@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:42.563504+00:00",
+  "generated_at": "2026-09-08T12:07:02.013160+00:00",
   "ticker": "SBS",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "VWAP_BEARISH_PULLBACK",
+      "status": "CONFIRMED",
+      "target": 3.25,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 5.0,
+      "stop": 5.88,
+      "score": 57.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T11:01:47.678952",
+      "direction": "Bearish",
+      "ticker": "SBS",
+      "current_price": 5.1135
+    }
+  ]
 }

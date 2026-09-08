@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:06:11.404659+00:00",
+  "generated_at": "2026-09-08T12:06:52.093707+00:00",
   "ticker": "PBYI",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "current_price": 9.19,
+      "entry": 9.46,
+      "setup": "Falling Three Methods",
+      "stop": 9.6,
+      "score": 76.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "target": 9.190000000000001,
+      "updated_at": "2026-09-08T10:15:29.702064",
+      "risk_reward": 2.0,
+      "ticker": "PBYI",
+      "direction": "Bearish"
+    },
     {
       "regime": "FULL_BULLISH_ALIGNMENT",
       "current_price": 9.58,

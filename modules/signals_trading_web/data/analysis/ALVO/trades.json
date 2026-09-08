@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:06.203928+00:00",
+  "generated_at": "2026-09-08T12:05:42.177614+00:00",
   "ticker": "ALVO",
   "count": 5,
   "trades": [
+    {
+      "current_price": 5.29,
+      "entry": 5.34,
+      "setup": "Pinbar",
+      "stop": 5.47,
+      "score": 69.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "target": 5.0760000000000005,
+      "updated_at": "2026-09-08T11:52:05.589658",
+      "risk_reward": 2.0,
+      "ticker": "ALVO",
+      "direction": "Bearish"
+    },
     {
       "direction": "Bullish",
       "regime": "SHORT_TERM_WEAKNESS",
@@ -16,20 +30,6 @@
       "current_price": 5.32,
       "setup": "Marubozu",
       "status": "CONFIRMED"
-    },
-    {
-      "stop": 5.4719999999999995,
-      "direction": "Bearish",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "score": 73.0,
-      "status": "CONFIRMED",
-      "updated_at": "2026-09-04T11:12:19.927770",
-      "target": 5.0760000000000005,
-      "current_price": 5.38,
-      "risk_reward": 2.0,
-      "setup": "Pinbar",
-      "entry": 5.34,
-      "ticker": "ALVO"
     },
     {
       "updated_at": "2026-09-01T23:17:22.080139",

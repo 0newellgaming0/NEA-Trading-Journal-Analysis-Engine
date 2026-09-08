@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-05T10:51:38.378125+00:00",
+  "generated_at": "2026-09-08T12:05:42.050930+00:00",
   "ticker": "ALT",
   "count": 5,
   "trades": [
     {
-      "direction": "Bullish",
-      "regime": "BULLISH_CONSOLIDATION",
-      "target": 3.5250000000000012,
-      "ticker": "ALT",
-      "stop": 3.41,
-      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
-      "score": 73.0,
-      "status": "CONFIRMED",
+      "current_price": 3.47,
       "entry": 3.45,
-      "current_price": 3.44,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "stop": 3.41,
+      "score": 72.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "target": 3.5250000000000012,
+      "updated_at": "2026-09-08T10:56:18.644869",
       "risk_reward": 2.0,
-      "updated_at": "2026-09-05T10:38:05.597543"
+      "ticker": "ALT",
+      "direction": "Bullish"
     },
     {
       "direction": "Bullish",

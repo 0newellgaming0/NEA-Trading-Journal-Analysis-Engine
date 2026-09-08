@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-05T10:51:50.523848+00:00",
+  "generated_at": "2026-09-08T12:06:03.093447+00:00",
   "ticker": "DDD",
   "count": 6,
   "trades": [
     {
-      "direction": "Bullish",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "target": 3.675,
-      "ticker": "DDD",
-      "stop": 3.41,
-      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
-      "score": 78.0,
-      "status": "CONFIRMED",
+      "current_price": 3.44,
       "entry": 3.5,
-      "current_price": 3.4997,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "stop": 3.41,
+      "score": 77.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "target": 3.675,
+      "updated_at": "2026-09-08T09:40:06.563732",
       "risk_reward": 2.0,
-      "updated_at": "2026-09-05T09:56:29.319390"
+      "ticker": "DDD",
+      "direction": "Bullish"
     },
     {
       "updated_at": "2026-09-01T23:09:29.955899",

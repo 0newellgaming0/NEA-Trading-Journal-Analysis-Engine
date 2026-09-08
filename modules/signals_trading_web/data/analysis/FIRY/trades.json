@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T08:34:50.974200+00:00",
+  "generated_at": "2026-09-08T12:06:10.751367+00:00",
   "ticker": "FIRY",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 10.13,
+      "entry": 10.12,
+      "setup": "Marubozu",
+      "stop": 10.05,
+      "score": 71.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "target": 10.251999999999997,
+      "updated_at": "2026-09-08T11:19:48.273643",
+      "risk_reward": 2.0,
+      "ticker": "FIRY",
+      "direction": "Bullish"
+    },
     {
       "setup": "Engulfing",
       "score": 71.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:06:11.272445+00:00",
+  "generated_at": "2026-09-08T12:06:51.862802+00:00",
   "ticker": "PBI",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "setup": "Marubozu",
+      "status": "CONFIRMED",
+      "target": 17.634000000000004,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "entry": 17.37,
+      "stop": 17.24,
+      "score": 75.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T10:26:13.250717",
+      "direction": "Bullish",
+      "ticker": "PBI",
+      "current_price": 17.38
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "current_price": 17.4,

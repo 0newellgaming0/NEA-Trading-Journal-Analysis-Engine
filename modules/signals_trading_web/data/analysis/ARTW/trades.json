@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:24.747964+00:00",
+  "generated_at": "2026-09-08T12:05:47.275656+00:00",
   "ticker": "ARTW",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 3.36,
+      "entry": 3.32,
+      "setup": "VWAP_BULLISH_PULLBACK",
+      "stop": 3.02,
+      "score": 78.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "target": 3.9199999999999995,
+      "updated_at": "2026-09-08T09:42:04.565256",
+      "risk_reward": 2.0,
+      "ticker": "ARTW",
+      "direction": "Bullish"
+    }
+  ]
 }

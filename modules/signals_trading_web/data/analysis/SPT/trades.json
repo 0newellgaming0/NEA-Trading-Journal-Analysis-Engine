@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T10:52:17.798253+00:00",
+  "generated_at": "2026-09-08T12:07:09.111813+00:00",
   "ticker": "SPT",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "current_price": 11.36,
+      "entry": 11.3,
+      "setup": "Pinbar",
+      "stop": 10.87,
+      "score": 74.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "target": 12.158000000000001,
+      "updated_at": "2026-09-08T10:44:25.905586",
+      "risk_reward": 2.0,
+      "ticker": "SPT",
+      "direction": "Bullish"
+    },
     {
       "direction": "Bullish",
       "regime": "SHORT_TERM_STRENGTH",

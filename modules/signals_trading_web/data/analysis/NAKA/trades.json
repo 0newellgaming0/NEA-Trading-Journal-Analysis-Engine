@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:30.183115+00:00",
+  "generated_at": "2026-09-08T12:06:43.082877+00:00",
   "ticker": "NAKA",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Rising Three Methods",
+      "status": "CONFIRMED",
+      "target": 9.090000000000003,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 8.27,
+      "stop": 7.85,
+      "score": 79.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-08T09:27:02.013483",
+      "direction": "Bullish",
+      "ticker": "NAKA",
+      "current_price": 8.2
+    }
+  ]
 }

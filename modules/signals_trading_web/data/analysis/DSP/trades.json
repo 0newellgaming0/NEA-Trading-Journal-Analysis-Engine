@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T10:51:52.064406+00:00",
+  "generated_at": "2026-09-08T12:06:05.660929+00:00",
   "ticker": "DSP",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "current_price": 13.66,
+      "entry": 13.67,
+      "setup": "Marubozu",
+      "stop": 13.66,
+      "score": 73.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "target": 13.691999999999998,
+      "updated_at": "2026-09-08T10:50:02.669857",
+      "risk_reward": 2.0,
+      "ticker": "DSP",
+      "direction": "Bullish"
+    },
     {
       "direction": "Bullish",
       "regime": "FULL_BULLISH_ALIGNMENT",

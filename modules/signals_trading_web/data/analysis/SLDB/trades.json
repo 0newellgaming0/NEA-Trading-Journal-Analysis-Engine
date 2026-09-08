@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:44.394498+00:00",
+  "generated_at": "2026-09-08T12:07:05.581497+00:00",
   "ticker": "SLDB",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 10.24,
+      "entry": 10.38,
+      "setup": "Bullish Gravestone Doji Sandwich",
+      "stop": 10.19,
+      "score": 68.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "target": 10.754,
+      "updated_at": "2026-09-08T11:23:33.296428",
+      "risk_reward": 2.0,
+      "ticker": "SLDB",
+      "direction": "Bullish"
+    }
+  ]
 }
