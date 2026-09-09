@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:54.287993+00:00",
+  "generated_at": "2026-09-09T15:42:55.337994+00:00",
   "ticker": "VRCA",
   "count": 3,
   "trades": [
     {
-      "updated_at": "2026-09-06T05:03:07.210954",
+      "current_price": 5.18,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "entry": 5.86,
       "direction": "Bullish",
       "ticker": "VRCA",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "entry": 5.86,
-      "setup": "Rising Three Methods",
       "target": 7.267780000000001,
-      "risk_reward": 2.0,
-      "score": 59.0,
-      "current_price": 5.3,
       "status": "CONFIRMED",
-      "stop": 5.16
+      "stop": 5.16,
+      "updated_at": "2026-09-09T15:39:07.466842",
+      "risk_reward": 2.0,
+      "setup": "Rising Three Methods",
+      "score": 59.0
     },
     {
       "current_price": 5.46,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-06T06:07:55.742134+00:00",
+  "generated_at": "2026-09-09T15:42:55.407081+00:00",
   "ticker": "WRAP",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 1.675,
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 1.68,
+      "direction": "Bullish",
+      "ticker": "WRAP",
+      "target": 1.7300000000000002,
+      "status": "CONFIRMED",
+      "stop": 1.65,
+      "updated_at": "2026-09-09T15:35:19.666563",
+      "risk_reward": 2.0,
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "score": 63.0
+    },
     {
       "updated_at": "2026-09-06T05:26:45.945833",
       "direction": "Bullish",

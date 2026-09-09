@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-06T06:07:57.237627+00:00",
+  "generated_at": "2026-09-09T15:42:55.555781+00:00",
   "ticker": "ZNTL",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 3.8776,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 3.94,
+      "direction": "Bearish",
+      "ticker": "ZNTL",
+      "target": 3.4279999999999995,
+      "status": "CONFIRMED",
+      "stop": 4.2,
+      "updated_at": "2026-09-09T15:41:08.821448",
+      "risk_reward": 2.0,
+      "setup": "Bearish Standard Doji Sandwich",
+      "score": 61.0
+    },
     {
       "updated_at": "2026-09-06T06:03:42.847095",
       "direction": "Bearish",
