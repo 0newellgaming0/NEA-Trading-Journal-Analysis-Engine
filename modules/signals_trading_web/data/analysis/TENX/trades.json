@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:02:41.723438+00:00",
+  "generated_at": "2026-09-09T13:27:50.649530+00:00",
   "ticker": "TENX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 2.07,
+      "setup": "Marubozu",
+      "direction": "Bullish",
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-09-09T13:23:18.355545",
+      "stop": 2.06,
+      "ticker": "TENX",
+      "risk_reward": 2.0,
+      "target": 2.1240000000000006,
+      "entry": 2.08,
+      "score": 66.0,
+      "status": "CONFIRMED"
+    },
     {
       "direction": "Bullish",
       "ticker": "TENX",

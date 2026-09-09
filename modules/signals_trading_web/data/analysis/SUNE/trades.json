@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:07:11.430200+00:00",
+  "generated_at": "2026-09-09T13:27:49.057066+00:00",
   "ticker": "SUNE",
-  "count": 9,
+  "count": 10,
   "trades": [
+    {
+      "current_price": 3.04,
+      "setup": "Candle Over Candle",
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-09T12:52:34.590878",
+      "stop": 2.25,
+      "ticker": "SUNE",
+      "risk_reward": 2.0,
+      "target": 5.0888,
+      "entry": 3.2,
+      "score": 88.0,
+      "status": "CONFIRMED"
+    },
     {
       "setup": "Pinbar",
       "status": "CONFIRMED",

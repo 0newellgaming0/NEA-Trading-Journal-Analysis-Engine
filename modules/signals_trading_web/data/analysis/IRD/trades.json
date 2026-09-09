@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-09T13:27:21.235078+00:00",
+  "ticker": "IRD",
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 5.4195,
+      "setup": "Rising Three Methods",
+      "direction": "Bullish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "updated_at": "2026-09-09T12:59:13.297109",
+      "stop": 3.47,
+      "ticker": "IRD",
+      "risk_reward": 2.0,
+      "target": 4.758000000000001,
+      "entry": 3.9,
+      "score": 73.0,
+      "status": "CONFIRMED"
+    }
+  ]
+}
