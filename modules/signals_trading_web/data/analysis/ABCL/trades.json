@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:13.195778+00:00",
+  "generated_at": "2026-09-09T17:21:53.506381+00:00",
   "ticker": "ABCL",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "ticker": "ABCL",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 11.37,
+      "current_price": 11.0848,
+      "score": 71.0,
+      "direction": "Bearish",
+      "target": 11.287760000000002,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "stop": 11.41,
+      "updated_at": "2026-09-09T16:05:24.656266",
+      "setup": "Marubozu"
+    },
     {
       "stop": 10.95759,
       "ticker": "ABCL",

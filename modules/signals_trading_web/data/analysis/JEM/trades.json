@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-05T08:34:59.542529+00:00",
+  "generated_at": "2026-09-09T17:23:21.437886+00:00",
   "ticker": "JEM",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "JEM",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 4.16,
+      "current_price": 4.155,
+      "score": 66.0,
+      "direction": "Bullish",
+      "target": 4.3580000000000005,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "stop": 4.06,
+      "updated_at": "2026-09-09T16:42:07.931754",
+      "setup": "Harami"
+    }
+  ]
 }

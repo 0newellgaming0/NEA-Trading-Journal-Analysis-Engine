@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:24.981632+00:00",
+  "generated_at": "2026-09-09T17:22:20.378612+00:00",
   "ticker": "BZ",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "BZ",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "entry": 16.63,
+      "current_price": 16.245,
+      "score": 65.0,
+      "direction": "Bearish",
+      "target": 16.475999999999996,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "stop": 16.71,
+      "updated_at": "2026-09-09T17:03:24.377174",
+      "setup": "Marubozu"
+    }
+  ]
 }

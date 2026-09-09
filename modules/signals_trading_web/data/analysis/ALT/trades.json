@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:05:42.050930+00:00",
+  "generated_at": "2026-09-09T17:21:59.831610+00:00",
   "ticker": "ALT",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "ticker": "ALT",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 3.37,
+      "current_price": 3.3195,
+      "score": 63.0,
+      "direction": "Bearish",
+      "target": 2.9739,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "stop": 3.57,
+      "updated_at": "2026-09-09T16:14:11.585191",
+      "setup": "Candle Over Candle"
+    },
     {
       "current_price": 3.47,
       "entry": 3.45,

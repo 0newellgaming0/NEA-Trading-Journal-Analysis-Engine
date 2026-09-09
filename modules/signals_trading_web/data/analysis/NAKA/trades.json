@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:43.082877+00:00",
+  "generated_at": "2026-09-09T17:23:30.757972+00:00",
   "ticker": "NAKA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "ticker": "NAKA",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 8.0,
+      "current_price": 7.9,
+      "score": 73.0,
+      "direction": "Bearish",
+      "target": 7.4588,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "stop": 8.27,
+      "updated_at": "2026-09-09T16:56:36.111046",
+      "setup": "Marubozu"
+    },
     {
       "setup": "Rising Three Methods",
       "status": "CONFIRMED",

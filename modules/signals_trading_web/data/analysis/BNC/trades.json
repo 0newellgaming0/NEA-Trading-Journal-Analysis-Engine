@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T19:09:14.095058+00:00",
+  "generated_at": "2026-09-09T17:22:17.541434+00:00",
   "ticker": "BNC",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "ticker": "BNC",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 4.63,
+      "current_price": 4.5,
+      "score": 76.0,
+      "direction": "Bearish",
+      "target": 3.197359999999999,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "stop": 5.35,
+      "updated_at": "2026-09-09T16:53:03.748916",
+      "setup": "Candle Over Candle"
+    },
     {
       "setup": "Pinbar",
       "updated_at": "2026-09-08T18:21:47.370663",

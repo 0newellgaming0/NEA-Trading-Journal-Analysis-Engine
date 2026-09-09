@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-05T10:51:47.571459+00:00",
+  "generated_at": "2026-09-09T17:22:27.068330+00:00",
   "ticker": "CHPT",
   "count": 6,
   "trades": [
+    {
+      "ticker": "CHPT",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 9.36,
+      "current_price": 9.04,
+      "score": 77.0,
+      "direction": "Bullish",
+      "target": 10.019999999999996,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "stop": 9.03,
+      "updated_at": "2026-09-09T17:20:58.093197",
+      "setup": "Engulfing"
+    },
     {
       "direction": "Bearish",
       "regime": "SHORT_TERM_WEAKNESS",
@@ -16,20 +30,6 @@
       "current_price": 9.954,
       "risk_reward": 2.0,
       "updated_at": "2026-09-05T09:28:45.699900"
-    },
-    {
-      "status": "CONFIRMED",
-      "current_price": 9.7,
-      "updated_at": "2026-09-04T17:48:34.147353",
-      "risk_reward": 2.0,
-      "ticker": "CHPT",
-      "direction": "Bullish",
-      "entry": 9.36,
-      "target": 10.019999999999996,
-      "stop": 9.03,
-      "setup": "Engulfing",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "score": 89.0
     },
     {
       "updated_at": "2026-09-04T17:08:57.046666",
