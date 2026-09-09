@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-09T14:57:52.285024+00:00",
+  "ticker": "ENGN",
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Marubozu",
+      "ticker": "ENGN",
+      "score": 59.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 1.6960000000000006,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 1.9,
+      "updated_at": "2026-09-09T14:54:08.927714",
+      "stop": 1.93,
+      "direction": "Bearish",
+      "entry": 1.85
+    }
+  ]
+}

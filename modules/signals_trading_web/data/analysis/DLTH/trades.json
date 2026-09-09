@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-09T14:57:52.231741+00:00",
+  "ticker": "DLTH",
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Marubozu",
+      "ticker": "DLTH",
+      "score": 56.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 4.624000000000001,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 4.485,
+      "updated_at": "2026-09-09T14:55:52.876394",
+      "stop": 4.23,
+      "direction": "Bullish",
+      "entry": 4.36
+    }
+  ]
+}

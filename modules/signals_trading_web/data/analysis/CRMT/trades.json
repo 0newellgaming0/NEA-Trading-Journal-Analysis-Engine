@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-05T08:34:44.081720+00:00",
+  "generated_at": "2026-09-09T14:57:52.168697+00:00",
   "ticker": "CRMT",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Pinbar",
+      "ticker": "CRMT",
+      "score": 81.0,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 2.4306400000000004,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 1.675,
+      "updated_at": "2026-09-09T14:30:05.480332",
+      "stop": 2.51,
+      "direction": "Bearish",
+      "entry": 2.49
+    }
+  ]
 }

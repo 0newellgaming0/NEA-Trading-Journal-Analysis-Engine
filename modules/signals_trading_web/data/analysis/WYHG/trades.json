@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:55.883328+00:00",
+  "generated_at": "2026-09-09T14:57:53.243399+00:00",
   "ticker": "WYHG",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Pinbar",
+      "ticker": "WYHG",
+      "score": 68.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 4.782,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 4.96,
+      "updated_at": "2026-09-09T14:31:30.888545",
+      "stop": 5.08,
+      "direction": "Bearish",
+      "entry": 4.98
+    }
+  ]
 }

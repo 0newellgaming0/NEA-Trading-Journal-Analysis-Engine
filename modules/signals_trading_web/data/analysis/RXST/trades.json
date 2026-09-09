@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:26.379770+00:00",
+  "generated_at": "2026-09-09T14:57:52.928994+00:00",
   "ticker": "RXST",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Falling Three Methods",
+      "ticker": "RXST",
+      "score": 53.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 5.702,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 6.63,
+      "updated_at": "2026-09-09T14:49:55.557212",
+      "stop": 7.15,
+      "direction": "Bearish",
+      "entry": 6.67
+    },
     {
       "entry": 7.06,
       "current_price": 7.0667,

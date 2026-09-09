@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-09T14:57:52.772733+00:00",
+  "ticker": "OCC",
+  "count": 1,
+  "trades": [
+    {
+      "setup": "EMA20_CROSS",
+      "ticker": "OCC",
+      "score": 93.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 2.516000000000002,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 13.1202,
+      "updated_at": "2026-09-09T14:33:59.635081",
+      "stop": 15.45,
+      "direction": "Bearish",
+      "entry": 11.14
+    }
+  ]
+}

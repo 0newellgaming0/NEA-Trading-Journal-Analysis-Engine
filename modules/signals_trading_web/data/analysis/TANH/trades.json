@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-09T14:57:53.087774+00:00",
+  "ticker": "TANH",
+  "count": 1,
+  "trades": [
+    {
+      "setup": "VWAP_BULLISH_PULLBACK",
+      "ticker": "TANH",
+      "score": 66.0,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 0.547,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 18.0501,
+      "updated_at": "2026-09-09T14:40:35.748586",
+      "stop": 0.33,
+      "direction": "Bullish",
+      "entry": 0.4
+    }
+  ]
+}

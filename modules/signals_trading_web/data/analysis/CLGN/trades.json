@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-09T14:57:52.132632+00:00",
+  "ticker": "CLGN",
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Pinbar",
+      "ticker": "CLGN",
+      "score": 75.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 3.8440000000000007,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 3.468,
+      "updated_at": "2026-09-09T14:47:04.289454",
+      "stop": 3.28,
+      "direction": "Bullish",
+      "entry": 3.47
+    }
+  ]
+}
