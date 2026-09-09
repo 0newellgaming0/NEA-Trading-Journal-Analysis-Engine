@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T15:42:55.463657+00:00",
+  "generated_at": "2026-09-09T20:34:11.661836+00:00",
   "ticker": "XHLD",
-  "count": 9,
+  "count": 10,
   "trades": [
+    {
+      "target": 16.292499999999997,
+      "status": "CONFIRMED",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "current_price": 10.4,
+      "risk_reward": 2.0,
+      "entry": 12.15,
+      "updated_at": "2026-09-09T20:29:01.237410",
+      "score": 78.0,
+      "stop": 10.09,
+      "direction": "Bullish",
+      "ticker": "XHLD",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
     {
       "current_price": 11.12,
       "regime": "SHORT_TERM_STRENGTH",

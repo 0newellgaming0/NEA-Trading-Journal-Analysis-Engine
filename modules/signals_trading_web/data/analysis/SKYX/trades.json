@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:07:05.495714+00:00",
+  "generated_at": "2026-09-09T20:34:00.227868+00:00",
   "ticker": "SKYX",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "target": 1.5020000000000002,
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "current_price": 1.395,
+      "risk_reward": 2.0,
+      "entry": 1.37,
+      "updated_at": "2026-09-09T19:48:00.176997",
+      "score": 63.0,
+      "stop": 1.3,
+      "direction": "Bullish",
+      "ticker": "SKYX",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "setup": "Pinbar",
       "status": "CONFIRMED",

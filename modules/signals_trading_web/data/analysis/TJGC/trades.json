@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-08T12:07:17.740897+00:00",
+  "generated_at": "2026-09-09T20:34:05.772385+00:00",
   "ticker": "TJGC",
   "count": 3,
   "trades": [
     {
-      "setup": "Engulfing",
-      "status": "CONFIRMED",
       "target": 11.49378,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "entry": 10.35,
-      "stop": 9.78,
-      "score": 79.0,
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "current_price": 10.65,
       "risk_reward": 2.0,
-      "updated_at": "2026-09-08T09:03:54.845197",
+      "entry": 10.35,
+      "updated_at": "2026-09-09T20:05:36.773355",
+      "score": 74.0,
+      "stop": 9.78,
       "direction": "Bullish",
       "ticker": "TJGC",
-      "current_price": 10.42
+      "regime": "SHORT_TERM_WEAKNESS"
     },
     {
       "updated_at": "2026-09-01T23:32:45.660111",

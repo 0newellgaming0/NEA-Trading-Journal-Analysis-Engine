@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-09T15:42:55.523735+00:00",
+  "generated_at": "2026-09-09T20:34:12.630980+00:00",
   "ticker": "YQ",
   "count": 6,
   "trades": [
     {
-      "current_price": 4.315,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "entry": 4.19,
-      "direction": "Bullish",
-      "ticker": "YQ",
       "target": 6.125780000000002,
       "status": "CONFIRMED",
-      "stop": 3.22,
-      "updated_at": "2026-09-09T15:33:13.220827",
-      "risk_reward": 2.0,
       "setup": "Engulfing",
-      "score": 83.0
+      "current_price": 4.31,
+      "risk_reward": 2.0,
+      "entry": 4.19,
+      "updated_at": "2026-09-09T20:31:10.397986",
+      "score": 85.0,
+      "stop": 3.22,
+      "direction": "Bullish",
+      "ticker": "YQ",
+      "regime": "BULLISH_CONSOLIDATION"
     },
     {
       "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",

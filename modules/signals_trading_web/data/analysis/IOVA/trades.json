@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:29.005537+00:00",
+  "generated_at": "2026-09-09T20:33:38.454164+00:00",
   "ticker": "IOVA",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "target": 8.654000000000002,
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "current_price": 8.575,
+      "risk_reward": 2.0,
+      "entry": 8.72,
+      "updated_at": "2026-09-09T18:27:07.454127",
+      "score": 74.0,
+      "stop": 8.75,
+      "direction": "Bearish",
+      "ticker": "IOVA",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "current_price": 8.67,
       "entry": 8.74,

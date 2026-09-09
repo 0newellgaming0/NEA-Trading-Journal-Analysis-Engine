@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-08T12:06:28.028947+00:00",
+  "generated_at": "2026-09-09T20:33:38.116792+00:00",
   "ticker": "INMB",
   "count": 2,
   "trades": [
     {
-      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
-      "status": "CONFIRMED",
       "target": 2.6871500000000004,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "entry": 2.45,
-      "stop": 2.33,
-      "score": 70.0,
+      "status": "CONFIRMED",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "current_price": 2.51,
       "risk_reward": 2.0,
-      "updated_at": "2026-09-08T11:56:45.603409",
+      "entry": 2.45,
+      "updated_at": "2026-09-09T18:24:25.618634",
+      "score": 65.0,
+      "stop": 2.33,
       "direction": "Bullish",
       "ticker": "INMB",
-      "current_price": 2.48
+      "regime": "BULLISH_CONSOLIDATION"
     },
     {
       "status": "CONFIRMED",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T00:48:46.630922+00:00",
+  "generated_at": "2026-09-09T20:33:45.890634+00:00",
   "ticker": "MTEX",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "target": 8.611999999999998,
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "current_price": 8.57,
+      "risk_reward": 2.0,
+      "entry": 8.7,
+      "updated_at": "2026-09-09T18:47:19.754815",
+      "score": 82.0,
+      "stop": 8.74,
+      "direction": "Bearish",
+      "ticker": "MTEX",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "updated_at": "2026-09-01T23:34:48.168471",
       "target": 7.992999999999999,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T15:42:55.570807+00:00",
+  "generated_at": "2026-09-09T20:34:13.267136+00:00",
   "ticker": "ZOOZ",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "target": 8.11792,
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "current_price": 7.62,
+      "risk_reward": 2.0,
+      "entry": 7.58,
+      "updated_at": "2026-09-09T20:32:37.961061",
+      "score": 65.0,
+      "stop": 7.32,
+      "direction": "Bullish",
+      "ticker": "ZOOZ",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
     {
       "current_price": 7.1588,
       "regime": "SHORT_TERM_WEAKNESS",

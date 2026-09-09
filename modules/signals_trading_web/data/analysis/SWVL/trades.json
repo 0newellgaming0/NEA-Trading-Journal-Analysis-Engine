@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-08T19:09:15.457327+00:00",
+  "generated_at": "2026-09-09T20:34:04.051295+00:00",
   "ticker": "SWVL",
   "count": 3,
   "trades": [
     {
-      "setup": "Pinbar",
-      "updated_at": "2026-09-08T18:27:15.881683",
-      "stop": 5.78,
-      "current_price": 6.451,
       "target": 6.854679999999999,
-      "entry": 6.14,
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "current_price": 7.146,
       "risk_reward": 2.0,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "ticker": "SWVL",
+      "entry": 6.14,
+      "updated_at": "2026-09-09T19:58:19.036618",
+      "score": 70.0,
+      "stop": 5.78,
       "direction": "Bullish",
-      "score": 73.0,
-      "status": "CONFIRMED"
+      "ticker": "SWVL",
+      "regime": "FULL_BULLISH_ALIGNMENT"
     },
     {
       "direction": "Bullish",

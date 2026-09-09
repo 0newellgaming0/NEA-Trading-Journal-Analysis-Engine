@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T00:48:45.375668+00:00",
+  "generated_at": "2026-09-09T20:33:41.470278+00:00",
   "ticker": "LFST",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "target": 11.074000000000002,
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "current_price": 12.675,
+      "risk_reward": 2.0,
+      "entry": 12.46,
+      "updated_at": "2026-09-09T18:33:13.106462",
+      "score": 92.0,
+      "stop": 13.15,
+      "direction": "Bearish",
+      "ticker": "LFST",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "updated_at": "2026-09-01T22:39:37.368908",
       "target": 12.621999999999998,

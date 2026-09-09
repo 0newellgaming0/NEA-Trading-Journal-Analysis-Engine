@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:55.632028+00:00",
+  "generated_at": "2026-09-09T20:33:54.308557+00:00",
   "ticker": "PURR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "target": 12.274,
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "current_price": 12.2401,
+      "risk_reward": 2.0,
+      "entry": 12.01,
+      "updated_at": "2026-09-09T19:16:43.042882",
+      "score": 75.0,
+      "stop": 11.88,
+      "direction": "Bullish",
+      "ticker": "PURR",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
     {
       "setup": "Pinbar",
       "status": "CONFIRMED",

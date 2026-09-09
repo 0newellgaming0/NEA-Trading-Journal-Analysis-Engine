@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:07:06.183959+00:00",
+  "generated_at": "2026-09-09T20:34:00.570213+00:00",
   "ticker": "SLN",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "target": 12.580000000000005,
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "current_price": 13.55,
+      "risk_reward": 2.0,
+      "entry": 13.46,
+      "updated_at": "2026-09-09T19:50:06.015259",
+      "score": 75.0,
+      "stop": 13.9,
+      "direction": "Bearish",
+      "ticker": "SLN",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "current_price": 13.75,
       "entry": 13.2,

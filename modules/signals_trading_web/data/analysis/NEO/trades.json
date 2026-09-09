@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:33.098119+00:00",
+  "generated_at": "2026-09-09T20:33:47.332411+00:00",
   "ticker": "NEO",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "target": 18.4315,
+      "status": "CONFIRMED",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "current_price": 17.82,
+      "risk_reward": 2.0,
+      "entry": 17.91,
+      "updated_at": "2026-09-09T18:50:55.418353",
+      "score": 74.0,
+      "stop": 17.65,
+      "direction": "Bullish",
+      "ticker": "NEO",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
     {
       "direction": "Bullish",
       "regime": "FULL_BULLISH_ALIGNMENT",

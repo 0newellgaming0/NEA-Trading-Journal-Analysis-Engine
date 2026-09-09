@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:02:09.506961+00:00",
+  "generated_at": "2026-09-09T20:33:34.994357+00:00",
   "ticker": "GWAV",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "target": 4.52,
+      "status": "CONFIRMED",
+      "setup": "DRAGONFLY_DOJI",
+      "current_price": 4.97,
+      "risk_reward": 2.0,
+      "entry": 5.0,
+      "updated_at": "2026-09-09T18:16:13.838466",
+      "score": 65.0,
+      "stop": 5.24,
+      "direction": "Bearish",
+      "ticker": "GWAV",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
     {
       "direction": "Bullish",
       "ticker": "GWAV",

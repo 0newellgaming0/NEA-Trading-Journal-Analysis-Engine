@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:09.933526+00:00",
+  "generated_at": "2026-09-09T20:33:29.776224+00:00",
   "ticker": "FENC",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "target": 11.906,
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "current_price": 11.91,
+      "risk_reward": 2.0,
+      "entry": 12.28,
+      "updated_at": "2026-09-09T17:54:20.646392",
+      "score": 72.0,
+      "stop": 12.47,
+      "direction": "Bearish",
+      "ticker": "FENC",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
     {
       "current_price": 12.39,
       "entry": 12.49,
