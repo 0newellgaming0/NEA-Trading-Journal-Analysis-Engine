@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:44.590519+00:00",
+  "generated_at": "2026-09-10T14:49:27.329268+00:00",
   "ticker": "NRGV",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-10T12:45:23.959964",
+      "status": "CONFIRMED",
+      "entry": 4.12,
+      "risk_reward": 2.0,
+      "ticker": "NRGV",
+      "score": 69.0,
+      "direction": "Bearish",
+      "stop": 4.48,
+      "setup": "Engulfing",
+      "current_price": 4.2311,
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 3.4050000000000002
+    },
     {
       "current_price": 3.3,
       "setup": "Counterattack Lines",

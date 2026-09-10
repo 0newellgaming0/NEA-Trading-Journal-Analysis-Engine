@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:07:29.074061+00:00",
+  "generated_at": "2026-09-10T14:49:56.449582+00:00",
   "ticker": "VFF",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "updated_at": "2026-09-10T11:00:14.769316",
+      "status": "CONFIRMED",
+      "entry": 2.97,
+      "risk_reward": 2.0,
+      "ticker": "VFF",
+      "score": 79.0,
+      "direction": "Bearish",
+      "stop": 3.01,
+      "setup": "Marubozu",
+      "current_price": 2.95,
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 2.882000000000001
+    },
     {
       "current_price": 2.94,
       "entry": 2.91,

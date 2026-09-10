@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:16.677517+00:00",
+  "generated_at": "2026-09-10T14:48:48.904621+00:00",
   "ticker": "CRSR",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "updated_at": "2026-09-10T09:55:55.435219",
+      "status": "CONFIRMED",
+      "entry": 12.33,
+      "risk_reward": 2.0,
+      "ticker": "CRSR",
+      "score": 82.0,
+      "direction": "Bearish",
+      "stop": 12.44,
+      "setup": "Pinbar",
+      "current_price": 12.33,
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 12.110000000000001
+    },
     {
       "direction": "Bullish",
       "regime": "BULLISH_CONSOLIDATION",

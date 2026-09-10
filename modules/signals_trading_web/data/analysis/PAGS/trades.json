@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:51.508624+00:00",
+  "generated_at": "2026-09-10T14:49:32.118529+00:00",
   "ticker": "PAGS",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "updated_at": "2026-09-10T11:45:46.847270",
+      "status": "CONFIRMED",
+      "entry": 9.71,
+      "risk_reward": 2.0,
+      "ticker": "PAGS",
+      "score": 75.0,
+      "direction": "Bullish",
+      "stop": 9.53,
+      "setup": "Marubozu",
+      "current_price": 9.61,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 10.057
+    },
     {
       "setup": "Marubozu",
       "status": "CONFIRMED",

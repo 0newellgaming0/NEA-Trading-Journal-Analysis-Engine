@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:01:44.747765+00:00",
+  "generated_at": "2026-09-10T14:48:34.584408+00:00",
   "ticker": "AVAH",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "updated_at": "2026-09-10T13:09:13.107876",
+      "status": "CONFIRMED",
+      "entry": 14.17,
+      "risk_reward": 2.0,
+      "ticker": "AVAH",
+      "score": 69.0,
+      "direction": "Bearish",
+      "stop": 14.19,
+      "setup": "Marubozu",
+      "current_price": 14.1459,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 14.124720000000005
+    },
     {
       "direction": "Bullish",
       "ticker": "AVAH",

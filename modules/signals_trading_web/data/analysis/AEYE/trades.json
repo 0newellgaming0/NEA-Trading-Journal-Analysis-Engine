@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:01:37.673926+00:00",
+  "generated_at": "2026-09-10T14:48:25.038179+00:00",
   "ticker": "AEYE",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "updated_at": "2026-09-10T14:03:25.297032",
+      "status": "CONFIRMED",
+      "entry": 7.73,
+      "risk_reward": 2.0,
+      "ticker": "AEYE",
+      "score": 62.0,
+      "direction": "Bearish",
+      "stop": 7.76,
+      "setup": "Marubozu",
+      "current_price": 7.59,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 7.6640000000000015
+    },
     {
       "direction": "Bullish",
       "ticker": "AEYE",

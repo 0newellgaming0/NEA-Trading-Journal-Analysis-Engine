@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:02:37.940280+00:00",
+  "generated_at": "2026-09-10T14:49:46.098244+00:00",
   "ticker": "SOAR",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "updated_at": "2026-09-10T13:21:34.040080",
+      "status": "CONFIRMED",
+      "entry": 0.21,
+      "risk_reward": 2.0,
+      "ticker": "SOAR",
+      "score": 63.0,
+      "direction": "Bullish",
+      "stop": 0.21,
+      "setup": "Engulfing",
+      "current_price": 0.2095,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 0.21807999999999997
+    },
     {
       "direction": "Bullish",
       "ticker": "SOAR",

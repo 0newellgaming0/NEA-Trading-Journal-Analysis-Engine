@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:53.968260+00:00",
+  "generated_at": "2026-09-10T14:49:34.590749+00:00",
   "ticker": "PLX",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-10T12:00:30.913872",
+      "status": "CONFIRMED",
+      "entry": 2.35,
+      "risk_reward": 2.0,
+      "ticker": "PLX",
+      "score": 66.0,
+      "direction": "Bullish",
+      "stop": 2.34,
+      "setup": "Rising Three Methods",
+      "current_price": 2.67,
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 2.368800000000001
+    },
     {
       "setup": "Candle Over Candle",
       "status": "CONFIRMED",

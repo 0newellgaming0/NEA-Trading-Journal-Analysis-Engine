@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:21.225963+00:00",
+  "generated_at": "2026-09-10T14:49:25.755827+00:00",
   "ticker": "NEO",
-  "count": 9,
+  "count": 10,
   "trades": [
+    {
+      "updated_at": "2026-09-10T10:34:00.580100",
+      "status": "CONFIRMED",
+      "entry": 17.7,
+      "risk_reward": 2.0,
+      "ticker": "NEO",
+      "score": 78.0,
+      "direction": "Bearish",
+      "stop": 17.93,
+      "setup": "Candle Over Candle",
+      "current_price": 17.7,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 17.240199999999998
+    },
     {
       "stop": 17.48,
       "ticker": "NEO",

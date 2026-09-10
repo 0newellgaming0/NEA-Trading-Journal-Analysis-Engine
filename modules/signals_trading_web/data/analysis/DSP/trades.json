@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:05.660929+00:00",
+  "generated_at": "2026-09-10T14:48:54.153112+00:00",
   "ticker": "DSP",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "updated_at": "2026-09-10T10:38:17.910791",
+      "status": "CONFIRMED",
+      "entry": 13.5,
+      "risk_reward": 2.0,
+      "ticker": "DSP",
+      "score": 72.0,
+      "direction": "Bearish",
+      "stop": 13.52,
+      "setup": "Marubozu",
+      "current_price": 12.82,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "target": 13.456
+    },
     {
       "current_price": 13.66,
       "entry": 13.67,

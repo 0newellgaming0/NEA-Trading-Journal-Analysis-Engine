@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T17:22:27.068330+00:00",
+  "generated_at": "2026-09-10T14:48:45.638185+00:00",
   "ticker": "CHPT",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "updated_at": "2026-09-10T10:15:05.602936",
+      "status": "CONFIRMED",
+      "entry": 8.92,
+      "risk_reward": 2.0,
+      "ticker": "CHPT",
+      "score": 76.0,
+      "direction": "Bearish",
+      "stop": 8.96,
+      "setup": "DRAGONFLY_DOJI",
+      "current_price": 8.9489,
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 8.839999999999998
+    },
     {
       "ticker": "CHPT",
       "regime": "SHORT_TERM_WEAKNESS",

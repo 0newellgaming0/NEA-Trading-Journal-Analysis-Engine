@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:02:30.526524+00:00",
+  "generated_at": "2026-09-10T14:49:36.394679+00:00",
   "ticker": "PYPD",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "updated_at": "2026-09-10T12:28:02.922218",
+      "status": "CONFIRMED",
+      "entry": 5.25,
+      "risk_reward": 2.0,
+      "ticker": "PYPD",
+      "score": 65.0,
+      "direction": "Bearish",
+      "stop": 5.34,
+      "setup": "Harami",
+      "current_price": 5.2,
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 5.089999999999999
+    },
     {
       "direction": "Bearish",
       "ticker": "PYPD",

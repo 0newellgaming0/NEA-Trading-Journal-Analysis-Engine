@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:29.596039+00:00",
+  "generated_at": "2026-09-10T14:49:05.684071+00:00",
   "ticker": "GPRE",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "updated_at": "2026-09-10T11:15:43.108400",
+      "status": "CONFIRMED",
+      "entry": 15.64,
+      "risk_reward": 2.0,
+      "ticker": "GPRE",
+      "score": 62.0,
+      "direction": "Bearish",
+      "stop": 15.83,
+      "setup": "Marubozu",
+      "current_price": 15.64,
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 15.266000000000002
+    },
     {
       "stop": 14.610000000000001,
       "ticker": "GPRE",

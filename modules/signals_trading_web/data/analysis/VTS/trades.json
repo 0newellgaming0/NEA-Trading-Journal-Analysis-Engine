@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:06:19.539895+00:00",
+  "generated_at": "2026-09-10T14:49:58.734871+00:00",
   "ticker": "VTS",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "updated_at": "2026-09-10T10:29:19.108821",
+      "status": "CONFIRMED",
+      "entry": 18.5,
+      "risk_reward": 2.0,
+      "ticker": "VTS",
+      "score": 85.0,
+      "direction": "Bullish",
+      "stop": 18.19,
+      "setup": "Marubozu",
+      "current_price": 18.9497,
+      "regime": "BULLISH_CONSOLIDATION",
+      "target": 19.116
+    },
     {
       "regime": "SHORT_TERM_WEAKNESS",
       "current_price": 17.62,
