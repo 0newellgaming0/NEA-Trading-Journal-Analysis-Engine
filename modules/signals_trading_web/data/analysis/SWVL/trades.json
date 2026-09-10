@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T20:34:04.051295+00:00",
+  "generated_at": "2026-09-10T08:59:41.960432+00:00",
   "ticker": "SWVL",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 6.97,
+      "ticker": "SWVL",
+      "target": 7.35,
+      "score": 71.0,
+      "direction": "Bullish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-10T07:34:33.865654",
+      "status": "CONFIRMED",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "risk_reward": 2.0,
+      "entry": 7.1,
+      "current_price": 7.0
+    },
     {
       "target": 6.854679999999999,
       "status": "CONFIRMED",

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-09T20:34:07.146848+00:00",
+  "generated_at": "2026-09-10T08:59:45.820726+00:00",
   "ticker": "TTRX",
   "count": 2,
   "trades": [
     {
+      "stop": 12.46,
+      "ticker": "TTRX",
       "target": 16.58,
+      "score": 78.0,
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-10T06:45:34.000726",
       "status": "CONFIRMED",
       "setup": "Candle Over Candle",
-      "current_price": 13.6603,
       "risk_reward": 2.0,
       "entry": 13.83,
-      "updated_at": "2026-09-09T20:09:17.145435",
-      "score": 78.0,
-      "stop": 12.46,
-      "direction": "Bullish",
-      "ticker": "TTRX",
-      "regime": "SHORT_TERM_STRENGTH"
+      "current_price": 13.65
     },
     {
       "setup": "Marubozu",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T15:42:55.422107+00:00",
+  "generated_at": "2026-09-10T08:59:50.802652+00:00",
   "ticker": "WSHP",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 5.0,
+      "ticker": "WSHP",
+      "target": 5.234,
+      "score": 64.0,
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-10T08:28:49.932641",
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "risk_reward": 2.0,
+      "entry": 5.08,
+      "current_price": 5.01
+    },
     {
       "current_price": 5.1001,
       "regime": "SHORT_TERM_WEAKNESS",

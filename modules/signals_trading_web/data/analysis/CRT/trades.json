@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T20:33:22.209292+00:00",
+  "generated_at": "2026-09-10T08:58:49.518844+00:00",
   "ticker": "CRT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 11.13,
+      "ticker": "CRT",
+      "target": 11.475999999999997,
+      "score": 63.0,
+      "direction": "Bullish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-10T08:35:04.301182",
+      "status": "CONFIRMED",
+      "setup": "Candle Over Candle",
+      "risk_reward": 2.0,
+      "entry": 11.24,
+      "current_price": 11.31
+    },
     {
       "target": 11.233400000000003,
       "status": "CONFIRMED",

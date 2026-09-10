@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T14:57:53.200860+00:00",
+  "generated_at": "2026-09-10T08:59:49.264776+00:00",
   "ticker": "VRM",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 12.07,
+      "ticker": "VRM",
+      "target": 7.350099999999996,
+      "score": 62.0,
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-10T08:47:27.385621",
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "risk_reward": 2.0,
+      "entry": 10.49,
+      "current_price": 10.45
+    },
     {
       "setup": "Rising Three Methods",
       "ticker": "VRM",

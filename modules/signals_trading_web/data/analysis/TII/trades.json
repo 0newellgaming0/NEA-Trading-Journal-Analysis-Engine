@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-09T20:34:05.627494+00:00",
+  "generated_at": "2026-09-10T08:59:43.937427+00:00",
   "ticker": "TII",
   "count": 4,
   "trades": [
     {
+      "stop": 3.17,
+      "ticker": "TII",
       "target": 3.372,
+      "score": 58.0,
+      "direction": "Bullish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-10T08:51:33.260756",
       "status": "CONFIRMED",
       "setup": "Pinbar",
-      "current_price": 3.19,
       "risk_reward": 2.0,
       "entry": 3.24,
-      "updated_at": "2026-09-09T20:03:29.117927",
-      "score": 58.0,
-      "stop": 3.17,
-      "direction": "Bullish",
-      "ticker": "TII",
-      "regime": "BULLISH_CONSOLIDATION"
+      "current_price": 3.3293
     },
     {
       "direction": "Bullish",

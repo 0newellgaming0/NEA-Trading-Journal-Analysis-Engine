@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-09T17:22:13.788899+00:00",
+  "generated_at": "2026-09-10T08:58:38.704689+00:00",
   "ticker": "BFRI",
   "count": 5,
   "trades": [
     {
-      "ticker": "BFRI",
-      "regime": "BULLISH_CONSOLIDATION",
-      "entry": 1.56,
-      "current_price": 1.565,
-      "score": 70.0,
-      "direction": "Bullish",
-      "target": 1.5979999999999999,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
       "stop": 1.55,
-      "updated_at": "2026-09-09T16:45:33.540001",
-      "setup": "Marubozu"
+      "ticker": "BFRI",
+      "target": 1.5979999999999999,
+      "score": 71.0,
+      "direction": "Bullish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "updated_at": "2026-09-10T07:32:52.342298",
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "risk_reward": 2.0,
+      "entry": 1.56,
+      "current_price": 1.5796
     },
     {
       "current_price": 1.74,

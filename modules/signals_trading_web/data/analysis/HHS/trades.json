@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T20:33:35.605115+00:00",
+  "generated_at": "2026-09-10T08:59:06.124867+00:00",
   "ticker": "HHS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 4.25,
+      "ticker": "HHS",
+      "target": 4.186000000000002,
+      "score": 69.0,
+      "direction": "Bearish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "updated_at": "2026-09-10T07:40:38.844552",
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "risk_reward": 2.0,
+      "entry": 4.23,
+      "current_price": 4.22
+    },
     {
       "target": 4.2620000000000005,
       "status": "CONFIRMED",

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-09T17:21:54.606216+00:00",
+  "generated_at": "2026-09-10T08:58:19.574866+00:00",
   "ticker": "ACET",
   "count": 6,
   "trades": [
     {
-      "ticker": "ACET",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "entry": 9.67,
-      "current_price": 9.52,
-      "score": 78.0,
-      "direction": "Bearish",
-      "target": 9.054,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
       "stop": 9.98,
-      "updated_at": "2026-09-09T16:09:22.921799",
-      "setup": "Pinbar"
+      "ticker": "ACET",
+      "target": 9.054,
+      "score": 85.0,
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-10T06:50:11.868808",
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "risk_reward": 2.0,
+      "entry": 9.67,
+      "current_price": 9.54
     },
     {
       "target": 10.415000000000001,

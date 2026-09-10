@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T20:33:20.878145+00:00",
+  "generated_at": "2026-09-10T08:58:47.808919+00:00",
   "ticker": "CMMB",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 2.65,
+      "ticker": "CMMB",
+      "target": 2.9996199999999997,
+      "score": 69.0,
+      "direction": "Bullish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-10T07:48:21.001842",
+      "status": "CONFIRMED",
+      "setup": "Inverted Hammer",
+      "risk_reward": 2.0,
+      "entry": 2.77,
+      "current_price": 2.83
+    },
     {
       "target": 3.3756800000000005,
       "status": "CONFIRMED",

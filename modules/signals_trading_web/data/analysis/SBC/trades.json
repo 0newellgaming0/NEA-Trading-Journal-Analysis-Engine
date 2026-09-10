@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-09T20:33:58.146809+00:00",
+  "generated_at": "2026-09-10T08:59:34.663723+00:00",
   "ticker": "SBC",
   "count": 5,
   "trades": [
     {
+      "stop": 4.45,
+      "ticker": "SBC",
       "target": 4.1564,
+      "score": 69.0,
+      "direction": "Bearish",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "updated_at": "2026-09-10T07:36:48.064270",
       "status": "CONFIRMED",
       "setup": "Candle Over Candle",
-      "current_price": 4.315,
       "risk_reward": 2.0,
       "entry": 4.35,
-      "updated_at": "2026-09-09T19:36:10.910100",
-      "score": 69.0,
-      "stop": 4.45,
-      "direction": "Bearish",
-      "ticker": "SBC",
-      "regime": "FULL_BULLISH_ALIGNMENT"
+      "current_price": 4.335
     },
     {
       "direction": "Bearish",

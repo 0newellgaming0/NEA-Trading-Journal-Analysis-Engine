@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T14:57:52.772733+00:00",
+  "generated_at": "2026-09-10T08:59:24.332507+00:00",
   "ticker": "OCC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 13.69,
+      "ticker": "OCC",
+      "target": 12.828000000000001,
+      "score": 98.0,
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-10T06:22:00.383090",
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "risk_reward": 2.0,
+      "entry": 13.4,
+      "current_price": 13.276
+    },
     {
       "setup": "EMA20_CROSS",
       "ticker": "OCC",

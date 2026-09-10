@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T17:22:14.255511+00:00",
+  "generated_at": "2026-09-10T08:58:39.083649+00:00",
   "ticker": "BIAF",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 10.44,
+      "ticker": "BIAF",
+      "target": 13.589999999999998,
+      "score": 91.0,
+      "direction": "Bullish",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "updated_at": "2026-09-10T06:26:05.485959",
+      "status": "CONFIRMED",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "risk_reward": 2.0,
+      "entry": 11.49,
+      "current_price": 10.91
+    },
     {
       "ticker": "BIAF",
       "regime": "BEARISH_CONSOLIDATION",

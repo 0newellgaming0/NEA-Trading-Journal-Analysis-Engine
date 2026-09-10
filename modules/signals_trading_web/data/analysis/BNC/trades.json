@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T17:22:17.541434+00:00",
+  "generated_at": "2026-09-10T08:58:40.370436+00:00",
   "ticker": "BNC",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "stop": 4.61,
+      "ticker": "BNC",
+      "target": 4.0939999999999985,
+      "score": 78.0,
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-10T06:58:45.415646",
+      "status": "CONFIRMED",
+      "setup": "Falling Three Methods",
+      "risk_reward": 2.0,
+      "entry": 4.43,
+      "current_price": 4.55
+    },
     {
       "ticker": "BNC",
       "regime": "BULLISH_CONSOLIDATION",

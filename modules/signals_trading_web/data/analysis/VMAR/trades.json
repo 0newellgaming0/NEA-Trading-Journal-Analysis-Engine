@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T17:23:56.663330+00:00",
+  "generated_at": "2026-09-10T08:59:48.756383+00:00",
   "ticker": "VMAR",
   "count": 2,
   "trades": [
+    {
+      "stop": 6.76,
+      "ticker": "VMAR",
+      "target": 10.325,
+      "score": 67.0,
+      "direction": "Bullish",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "updated_at": "2026-09-10T07:52:38.106664",
+      "status": "CONFIRMED",
+      "setup": "VWAP_BULLISH_CONTINUATION",
+      "risk_reward": 2.0,
+      "entry": 7.95,
+      "current_price": 8.21
+    },
     {
       "ticker": "VMAR",
       "regime": "PRIMARY_DOWNTREND_RALLY",
@@ -16,20 +30,6 @@
       "stop": 9.37,
       "updated_at": "2026-09-09T17:18:53.311204",
       "setup": "Candle Over Candle"
-    },
-    {
-      "direction": "Bullish",
-      "ticker": "VMAR",
-      "target": 10.325,
-      "status": "CONFIRMED",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "entry": 7.95,
-      "updated_at": "2026-09-08T13:09:49.358440",
-      "risk_reward": 2.0,
-      "score": 66.0,
-      "stop": 6.76,
-      "current_price": 8.5956,
-      "setup": "VWAP_BULLISH_CONTINUATION"
     }
   ]
 }

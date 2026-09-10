@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-09T17:22:01.356801+00:00",
+  "generated_at": "2026-09-10T08:58:32.213403+00:00",
   "ticker": "ANGX",
   "count": 2,
   "trades": [
     {
-      "ticker": "ANGX",
-      "regime": "SHORT_TERM_STRENGTH",
-      "entry": 4.9,
-      "current_price": 4.89,
-      "score": 62.0,
-      "direction": "Bearish",
-      "target": 4.6800000000000015,
-      "risk_reward": 2.0,
-      "status": "CONFIRMED",
       "stop": 5.01,
-      "updated_at": "2026-09-09T16:17:56.832944",
-      "setup": "Engulfing"
+      "ticker": "ANGX",
+      "target": 4.6800000000000015,
+      "score": 66.0,
+      "direction": "Bearish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-10T08:24:20.543800",
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "risk_reward": 2.0,
+      "entry": 4.9,
+      "current_price": 4.94
     },
     {
       "setup": "Pinbar",
