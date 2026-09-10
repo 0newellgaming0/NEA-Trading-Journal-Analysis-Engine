@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-10T21:26:59.697803+00:00",
+  "ticker": "VSTM",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "VWAP_BULLISH_CONTINUATION",
+      "updated_at": "2026-09-10T21:20:52.565437",
+      "target": 4.71,
+      "current_price": 7.7796,
+      "stop": 3.85,
+      "entry": 4.13,
+      "ticker": "VSTM",
+      "status": "CONFIRMED",
+      "score": 68.0
+    }
+  ]
+}

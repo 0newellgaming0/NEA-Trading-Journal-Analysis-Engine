@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:31:06.944922+00:00",
+  "generated_at": "2026-09-10T21:26:58.520327+00:00",
   "ticker": "ANGX",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Harami",
+      "updated_at": "2026-09-10T21:22:36.220346",
+      "target": 5.217999999999998,
+      "current_price": 5.3585,
+      "stop": 5.42,
+      "entry": 5.35,
+      "ticker": "ANGX",
+      "status": "CONFIRMED",
+      "score": 71.0
+    },
     {
       "current_price": 5.385,
       "entry": 5.32,

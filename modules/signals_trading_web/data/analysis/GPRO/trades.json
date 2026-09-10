@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:18.260885+00:00",
+  "generated_at": "2026-09-10T21:26:58.998491+00:00",
   "ticker": "GPRO",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "Inverted Hammer",
+      "updated_at": "2026-09-10T21:19:11.293012",
+      "target": 1.5199999999999994,
+      "current_price": 1.4002,
+      "stop": 1.36,
+      "entry": 1.41,
+      "ticker": "GPRO",
+      "status": "CONFIRMED",
+      "score": 69.0
+    },
     {
       "current_price": 1.7603,
       "entry": 1.72,

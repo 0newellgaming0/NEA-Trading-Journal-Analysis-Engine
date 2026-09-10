@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T13:27:44.355507+00:00",
+  "generated_at": "2026-09-10T21:26:59.458305+00:00",
   "ticker": "SGMT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Engulfing",
+      "updated_at": "2026-09-10T21:25:04.059555",
+      "target": 10.594,
+      "current_price": 11.06,
+      "stop": 11.35,
+      "entry": 11.1,
+      "ticker": "SGMT",
+      "status": "CONFIRMED",
+      "score": 75.0
+    },
     {
       "current_price": 11.37,
       "setup": "Marubozu",
