@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:32:41.764096+00:00",
+  "generated_at": "2026-09-10T19:35:39.995950+00:00",
   "ticker": "NUAI",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "entry": 6.25,
+      "target": 5.788,
+      "setup": "Marubozu",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "score": 73.0,
+      "current_price": 6.095,
+      "risk_reward": 2.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "ticker": "NUAI",
+      "updated_at": "2026-09-10T19:31:07.162833",
+      "stop": 6.48
+    },
     {
       "current_price": 6.015,
       "entry": 6.04,
