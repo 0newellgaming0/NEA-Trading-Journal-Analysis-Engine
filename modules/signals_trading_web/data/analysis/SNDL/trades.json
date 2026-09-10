@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T14:49:45.877149+00:00",
+  "generated_at": "2026-09-10T19:33:21.685347+00:00",
   "ticker": "SNDL",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "current_price": 1.3401,
+      "entry": 1.36,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 1.4040000000000001,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Rising Three Methods",
+      "stop": 1.34,
+      "updated_at": "2026-09-10T19:13:12.232189",
+      "risk_reward": 2.0,
+      "ticker": "SNDL",
+      "score": 62.0
+    },
     {
       "updated_at": "2026-09-10T14:09:44.421542",
       "status": "CONFIRMED",

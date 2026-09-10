@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:50.802652+00:00",
+  "generated_at": "2026-09-10T19:33:44.635837+00:00",
   "ticker": "WSHP",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 5.15,
+      "entry": 5.08,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "target": 4.640000000000001,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "GRAVESTONE_DOJI",
+      "stop": 5.3,
+      "updated_at": "2026-09-10T18:25:36.531351",
+      "risk_reward": 2.0,
+      "ticker": "WSHP",
+      "score": 61.0
+    },
     {
       "stop": 5.0,
       "ticker": "WSHP",

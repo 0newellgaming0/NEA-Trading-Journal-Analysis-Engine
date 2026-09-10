@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:58:52.842529+00:00",
+  "generated_at": "2026-09-10T19:31:47.300331+00:00",
   "ticker": "DLTH",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "current_price": 4.625,
+      "entry": 4.66,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 4.7540000000000004,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Pinbar",
+      "stop": 4.61,
+      "updated_at": "2026-09-10T19:17:19.446003",
+      "risk_reward": 2.0,
+      "ticker": "DLTH",
+      "score": 56.0
+    },
     {
       "stop": 4.23,
       "ticker": "DLTH",

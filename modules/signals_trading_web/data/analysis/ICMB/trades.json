@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T14:49:10.435195+00:00",
+  "generated_at": "2026-09-10T19:32:19.875195+00:00",
   "ticker": "ICMB",
   "count": 2,
   "trades": [
     {
-      "updated_at": "2026-09-10T14:13:30.802007",
-      "status": "CONFIRMED",
+      "current_price": 0.86,
       "entry": 0.87,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "target": 0.84856,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Marubozu",
+      "stop": 0.88,
+      "updated_at": "2026-09-10T19:03:27.856138",
       "risk_reward": 2.0,
       "ticker": "ICMB",
-      "score": 60.0,
-      "direction": "Bearish",
-      "stop": 0.88,
-      "setup": "Marubozu",
-      "current_price": 0.863,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "target": 0.84856
+      "score": 60.0
     },
     {
       "current_price": 0.82,

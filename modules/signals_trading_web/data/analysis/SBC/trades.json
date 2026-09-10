@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:34.663723+00:00",
+  "generated_at": "2026-09-10T19:33:08.741977+00:00",
   "ticker": "SBC",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "current_price": 4.36,
+      "entry": 4.34,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 4.406000000000001,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Engulfing",
+      "stop": 4.31,
+      "updated_at": "2026-09-10T17:36:30.058956",
+      "risk_reward": 2.0,
+      "ticker": "SBC",
+      "score": 69.0
+    },
     {
       "stop": 4.45,
       "ticker": "SBC",

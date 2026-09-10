@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:51.139897+00:00",
+  "generated_at": "2026-09-10T19:33:44.957043+00:00",
   "ticker": "WYY",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 11.01,
+      "entry": 10.96,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 11.218,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Candle Over Candle",
+      "stop": 10.84,
+      "updated_at": "2026-09-10T18:11:13.054973",
+      "risk_reward": 2.0,
+      "ticker": "WYY",
+      "score": 65.0
+    },
     {
       "stop": 10.82,
       "ticker": "WYY",

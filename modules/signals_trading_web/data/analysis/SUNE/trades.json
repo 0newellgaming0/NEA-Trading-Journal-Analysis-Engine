@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T14:49:48.969915+00:00",
+  "generated_at": "2026-09-10T19:33:28.085906+00:00",
   "ticker": "SUNE",
-  "count": 11,
+  "count": 12,
   "trades": [
+    {
+      "current_price": 3.8999,
+      "entry": 4.29,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 5.615000000000001,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "VWAP_BULLISH_PULLBACK",
+      "stop": 3.63,
+      "updated_at": "2026-09-10T15:58:39.070882",
+      "risk_reward": 2.0,
+      "ticker": "SUNE",
+      "score": 80.0
+    },
     {
       "updated_at": "2026-09-10T10:04:33.642549",
       "status": "CONFIRMED",

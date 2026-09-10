@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:02.790573+00:00",
+  "generated_at": "2026-09-10T19:32:14.524897+00:00",
   "ticker": "GGB",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "current_price": 5.0596,
+      "entry": 5.03,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 5.080000000000002,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Harami",
+      "stop": 5.0,
+      "updated_at": "2026-09-10T18:59:03.965948",
+      "risk_reward": 2.0,
+      "ticker": "GGB",
+      "score": 59.0
+    },
     {
       "stop": 4.94,
       "ticker": "GGB",

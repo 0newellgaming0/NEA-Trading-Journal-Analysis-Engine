@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:41.960432+00:00",
+  "generated_at": "2026-09-10T19:33:30.654095+00:00",
   "ticker": "SWVL",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "current_price": 8.19,
+      "entry": 7.1,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 7.5987599999999995,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Marubozu",
+      "stop": 6.85,
+      "updated_at": "2026-09-10T17:26:15.073211",
+      "risk_reward": 2.0,
+      "ticker": "SWVL",
+      "score": 71.0
+    },
     {
       "stop": 6.97,
       "ticker": "SWVL",

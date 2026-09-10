@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:58:42.605874+00:00",
+  "generated_at": "2026-09-10T19:31:26.775205+00:00",
   "ticker": "BVC",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 15.74,
+      "entry": 16.5,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 18.37896,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Inverted Hammer",
+      "stop": 15.56,
+      "updated_at": "2026-09-10T18:09:05.987783",
+      "risk_reward": 2.0,
+      "ticker": "BVC",
+      "score": 66.0
+    },
     {
       "stop": 10.12,
       "ticker": "BVC",

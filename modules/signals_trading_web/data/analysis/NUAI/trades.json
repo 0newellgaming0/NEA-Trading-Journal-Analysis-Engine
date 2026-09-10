@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T14:49:28.085061+00:00",
+  "generated_at": "2026-09-10T19:32:41.764096+00:00",
   "ticker": "NUAI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 6.015,
+      "entry": 6.04,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "target": 5.38,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Engulfing",
+      "stop": 6.37,
+      "updated_at": "2026-09-10T16:45:37.214934",
+      "risk_reward": 2.0,
+      "ticker": "NUAI",
+      "score": 72.0
+    },
     {
       "updated_at": "2026-09-10T09:23:01.279635",
       "status": "CONFIRMED",

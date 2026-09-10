@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:24.332507+00:00",
+  "generated_at": "2026-09-10T19:32:43.533447+00:00",
   "ticker": "OCC",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 14.36,
+      "entry": 15.82,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 19.645000000000003,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "stop": 13.91,
+      "updated_at": "2026-09-10T15:43:44.838510",
+      "risk_reward": 2.0,
+      "ticker": "OCC",
+      "score": 91.0
+    },
     {
       "stop": 13.69,
       "ticker": "OCC",

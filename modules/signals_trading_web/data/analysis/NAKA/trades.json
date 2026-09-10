@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:19.963438+00:00",
+  "generated_at": "2026-09-10T19:32:38.540976+00:00",
   "ticker": "NAKA",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 7.8,
+      "entry": 7.85,
+      "status": "CONFIRMED",
+      "direction": "BEARISH",
+      "target": 6.929999999999998,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "SWING_STRUCTURE",
+      "stop": 8.31,
+      "updated_at": "2026-09-10T16:11:38.623791",
+      "risk_reward": 2.0,
+      "ticker": "NAKA",
+      "score": 69.0
+    },
     {
       "stop": 8.27,
       "ticker": "NAKA",

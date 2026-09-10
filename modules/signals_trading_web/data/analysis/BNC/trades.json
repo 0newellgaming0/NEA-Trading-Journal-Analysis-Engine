@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:58:40.370436+00:00",
+  "generated_at": "2026-09-10T19:31:23.732920+00:00",
   "ticker": "BNC",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "current_price": 4.76,
+      "entry": 4.62,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "target": 4.1815999999999995,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Marubozu",
+      "stop": 4.84,
+      "updated_at": "2026-09-10T18:56:34.672238",
+      "risk_reward": 2.0,
+      "ticker": "BNC",
+      "score": 76.0
+    },
     {
       "stop": 4.61,
       "ticker": "BNC",

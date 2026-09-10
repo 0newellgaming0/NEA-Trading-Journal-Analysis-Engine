@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T14:48:51.475434+00:00",
+  "generated_at": "2026-09-10T19:31:44.167245+00:00",
   "ticker": "DFDV",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "current_price": 5.19,
+      "entry": 5.23,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 5.604000000000003,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Pinbar",
+      "stop": 5.04,
+      "updated_at": "2026-09-10T16:49:03.787678",
+      "risk_reward": 2.0,
+      "ticker": "DFDV",
+      "score": 74.0
+    },
     {
       "updated_at": "2026-09-10T10:18:54.807204",
       "status": "CONFIRMED",

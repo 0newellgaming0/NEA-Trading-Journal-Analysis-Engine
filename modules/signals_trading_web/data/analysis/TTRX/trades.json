@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T14:49:54.101255+00:00",
+  "generated_at": "2026-09-10T19:33:39.309823+00:00",
   "ticker": "TTRX",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 13.6564,
+      "entry": 13.93,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 14.678,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Marubozu",
+      "stop": 13.56,
+      "updated_at": "2026-09-10T16:33:02.917513",
+      "risk_reward": 2.0,
+      "ticker": "TTRX",
+      "score": 61.0
+    },
     {
       "updated_at": "2026-09-10T09:24:17.566687",
       "status": "CONFIRMED",

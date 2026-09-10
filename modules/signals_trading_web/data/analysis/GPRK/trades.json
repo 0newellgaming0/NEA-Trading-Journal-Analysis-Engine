@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:03.934026+00:00",
+  "generated_at": "2026-09-10T19:32:15.936594+00:00",
   "ticker": "GPRK",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "current_price": 11.985,
+      "entry": 9.87,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 9.997000000000002,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Rising Three Methods",
+      "stop": 9.8,
+      "updated_at": "2026-09-10T17:07:35.828732",
+      "risk_reward": 2.0,
+      "ticker": "GPRK",
+      "score": 70.0
+    },
     {
       "stop": 12.42,
       "ticker": "GPRK",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:44.104771+00:00",
+  "generated_at": "2026-09-10T19:33:36.541013+00:00",
   "ticker": "TJGC",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 10.5232,
+      "entry": 10.51,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "target": 10.136000000000001,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Marubozu",
+      "stop": 10.7,
+      "updated_at": "2026-09-10T17:05:08.576355",
+      "risk_reward": 2.0,
+      "ticker": "TJGC",
+      "score": 73.0
+    },
     {
       "stop": 9.78,
       "ticker": "TJGC",

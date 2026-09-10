@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:58:27.420833+00:00",
+  "generated_at": "2026-09-10T19:31:05.398844+00:00",
   "ticker": "ALT",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "current_price": 3.27,
+      "entry": 3.31,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "target": 3.222,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Pinbar",
+      "stop": 3.35,
+      "updated_at": "2026-09-10T17:57:47.068851",
+      "risk_reward": 2.0,
+      "ticker": "ALT",
+      "score": 63.0
+    },
     {
       "stop": 3.36,
       "ticker": "ALT",

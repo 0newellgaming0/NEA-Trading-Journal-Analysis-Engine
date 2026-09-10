@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T14:49:36.394679+00:00",
+  "generated_at": "2026-09-10T19:32:58.250785+00:00",
   "ticker": "PYPD",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "current_price": 5.16,
+      "entry": 5.19,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "target": 5.058000000000001,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Candle Over Candle",
+      "stop": 5.26,
+      "updated_at": "2026-09-10T18:21:55.040085",
+      "risk_reward": 2.0,
+      "ticker": "PYPD",
+      "score": 58.0
+    },
     {
       "updated_at": "2026-09-10T12:28:02.922218",
       "status": "CONFIRMED",

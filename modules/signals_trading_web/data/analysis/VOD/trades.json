@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:48.958845+00:00",
+  "generated_at": "2026-09-10T19:33:42.618216+00:00",
   "ticker": "VOD",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 17.28,
+      "entry": 17.27,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 17.27919999999999,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Marubozu",
+      "stop": 17.26,
+      "updated_at": "2026-09-10T19:09:05.989962",
+      "risk_reward": 2.0,
+      "ticker": "VOD",
+      "score": 59.0
+    },
     {
       "stop": 17.2,
       "ticker": "VOD",

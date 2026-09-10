@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:46.156829+00:00",
+  "generated_at": "2026-09-10T19:33:39.659414+00:00",
   "ticker": "UGP",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "current_price": 7.57,
+      "entry": 7.58,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 7.668000000000001,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Hammer",
+      "stop": 7.54,
+      "updated_at": "2026-09-10T17:59:50.121755",
+      "risk_reward": 2.0,
+      "ticker": "UGP",
+      "score": 65.0
+    },
     {
       "stop": 7.36,
       "ticker": "UGP",

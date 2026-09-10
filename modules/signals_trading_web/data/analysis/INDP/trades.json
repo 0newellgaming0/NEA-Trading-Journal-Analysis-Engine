@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-08T19:09:14.702704+00:00",
+  "generated_at": "2026-09-10T19:32:21.049883+00:00",
   "ticker": "INDP",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "current_price": 2.515,
+      "entry": 2.54,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 2.8079999999999985,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "stop": 2.4,
+      "updated_at": "2026-09-10T18:53:23.212913",
+      "risk_reward": 2.0,
+      "ticker": "INDP",
+      "score": 77.0
+    }
+  ]
 }

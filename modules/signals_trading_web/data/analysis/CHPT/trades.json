@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T14:48:45.638185+00:00",
+  "generated_at": "2026-09-10T19:31:34.240599+00:00",
   "ticker": "CHPT",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "current_price": 8.76,
+      "entry": 8.73,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "target": 7.927319999999998,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Harami",
+      "stop": 9.13,
+      "updated_at": "2026-09-10T19:01:49.407701",
+      "risk_reward": 2.0,
+      "ticker": "CHPT",
+      "score": 75.0
+    },
     {
       "updated_at": "2026-09-10T10:15:05.602936",
       "status": "CONFIRMED",

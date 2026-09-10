@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T08:59:16.219978+00:00",
+  "generated_at": "2026-09-10T19:32:32.011545+00:00",
   "ticker": "LZMH",
   "count": 3,
   "trades": [
     {
-      "stop": 1.21,
-      "ticker": "LZMH",
-      "target": 1.3699999999999999,
-      "score": 60.0,
-      "direction": "Bullish",
-      "regime": "SHORT_TERM_STRENGTH",
-      "updated_at": "2026-09-10T08:43:34.235801",
-      "status": "CONFIRMED",
-      "setup": "Candle Over Candle",
-      "risk_reward": 2.0,
+      "current_price": 1.255,
       "entry": 1.26,
-      "current_price": 1.28
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 1.3699999999999999,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Candle Over Candle",
+      "stop": 1.21,
+      "updated_at": "2026-09-10T19:05:59.819712",
+      "risk_reward": 2.0,
+      "ticker": "LZMH",
+      "score": 57.0
     },
     {
       "direction": "Bullish",

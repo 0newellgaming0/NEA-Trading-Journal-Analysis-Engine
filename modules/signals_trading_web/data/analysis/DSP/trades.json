@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T14:48:54.153112+00:00",
+  "generated_at": "2026-09-10T19:31:52.049108+00:00",
   "ticker": "DSP",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "current_price": 12.86,
+      "entry": 12.57,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 12.9516,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "setup": "Pinbar",
+      "stop": 12.37,
+      "updated_at": "2026-09-10T17:16:00.181200",
+      "risk_reward": 2.0,
+      "ticker": "DSP",
+      "score": 66.0
+    },
     {
       "updated_at": "2026-09-10T10:38:17.910791",
       "status": "CONFIRMED",

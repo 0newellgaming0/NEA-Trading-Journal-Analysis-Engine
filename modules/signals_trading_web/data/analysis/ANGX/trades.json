@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:58:32.213403+00:00",
+  "generated_at": "2026-09-10T19:31:06.944922+00:00",
   "ticker": "ANGX",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 5.385,
+      "entry": 5.32,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "target": 5.47035,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "stop": 5.24,
+      "updated_at": "2026-09-10T19:27:59.493971",
+      "risk_reward": 2.0,
+      "ticker": "ANGX",
+      "score": 71.0
+    },
     {
       "stop": 5.01,
       "ticker": "ANGX",

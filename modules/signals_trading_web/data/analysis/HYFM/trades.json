@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T14:49:09.720177+00:00",
+  "generated_at": "2026-09-10T19:32:19.306692+00:00",
   "ticker": "HYFM",
   "count": 2,
   "trades": [
     {
-      "updated_at": "2026-09-10T12:59:05.669968",
-      "status": "CONFIRMED",
+      "current_price": 0.9476,
       "entry": 0.93,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "target": 0.8600800000000002,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "setup": "Falling Three Methods",
+      "stop": 0.96,
+      "updated_at": "2026-09-10T18:05:22.508951",
       "risk_reward": 2.0,
       "ticker": "HYFM",
-      "score": 67.0,
-      "direction": "Bearish",
-      "stop": 0.96,
-      "setup": "Falling Three Methods",
-      "current_price": 0.9105,
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "target": 0.8600800000000002
+      "score": 61.0
     },
     {
       "current_price": 0.9335,
