@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.662692+00:00",
+  "generated_at": "2026-09-11T13:36:44.019058+00:00",
   "ticker": "INDI",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "entry": 3.36,
+      "current_price": 3.39,
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "score": 67.0,
+      "stop": 3.24,
+      "setup": "Counterattack Lines",
+      "updated_at": "2026-09-11T13:23:40.137532",
+      "ticker": "INDI",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 3.602
+    }
+  ]
 }

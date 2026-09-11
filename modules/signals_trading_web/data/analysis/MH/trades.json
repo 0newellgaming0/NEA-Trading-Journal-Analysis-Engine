@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:34.364565+00:00",
+  "generated_at": "2026-09-11T13:36:53.950164+00:00",
   "ticker": "MH",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "entry": 12.28,
+      "current_price": 12.11,
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "score": 74.0,
+      "stop": 12.54,
+      "setup": "Marubozu",
+      "updated_at": "2026-09-11T13:08:57.331826",
+      "ticker": "MH",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 11.751999999999997
+    },
     {
       "stop": 12.803,
       "ticker": "MH",

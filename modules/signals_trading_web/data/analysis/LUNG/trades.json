@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-08-31T12:26:25.841601+00:00",
+  "generated_at": "2026-09-11T13:36:50.719808+00:00",
   "ticker": "LUNG",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "entry": 1.86,
+      "current_price": 1.86,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "score": 75.0,
+      "stop": 1.85,
+      "setup": "Harami",
+      "updated_at": "2026-09-11T13:29:57.353749",
+      "ticker": "LUNG",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 1.882
+    }
+  ]
 }

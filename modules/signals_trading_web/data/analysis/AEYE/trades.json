@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:15:52.038243+00:00",
+  "generated_at": "2026-09-11T13:36:05.699429+00:00",
   "ticker": "AEYE",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "entry": 7.74,
+      "current_price": 7.5,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "score": 65.0,
+      "stop": 7.89,
+      "setup": "Candle Over Candle",
+      "updated_at": "2026-09-11T13:13:54.762186",
+      "ticker": "AEYE",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 7.443000000000001
+    },
     {
       "stop": 7.76,
       "risk_reward": 2.0,

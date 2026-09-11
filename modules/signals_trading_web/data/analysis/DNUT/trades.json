@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.281318+00:00",
+  "generated_at": "2026-09-11T13:36:29.141402+00:00",
   "ticker": "DNUT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 3.3,
+      "current_price": 3.22,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "score": 75.0,
+      "stop": 3.32,
+      "setup": "Harami",
+      "updated_at": "2026-09-11T13:19:01.979618",
+      "ticker": "DNUT",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 3.2559999999999993
+    },
     {
       "entry": 3.48,
       "current_price": 3.49,

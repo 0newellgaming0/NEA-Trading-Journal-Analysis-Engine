@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-05T08:34:59.147320+00:00",
+  "generated_at": "2026-09-11T13:36:44.969698+00:00",
   "ticker": "IPST",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "entry": 3.86,
+      "current_price": 3.75,
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "score": 74.0,
+      "stop": 3.64,
+      "setup": "Pinbar",
+      "updated_at": "2026-09-11T12:50:03.897614",
+      "ticker": "IPST",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 4.2989
+    }
+  ]
 }

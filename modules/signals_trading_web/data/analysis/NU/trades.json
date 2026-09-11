@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:46.849967+00:00",
+  "generated_at": "2026-09-11T13:37:02.064537+00:00",
   "ticker": "NU",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 15.13,
+      "current_price": 15.15,
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "score": 74.0,
+      "stop": 15.2,
+      "setup": "Harami Cross",
+      "updated_at": "2026-09-11T13:16:10.459829",
+      "ticker": "NU",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 15.0076
+    },
     {
       "setup": "Engulfing",
       "status": "CONFIRMED",

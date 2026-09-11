@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T19:29:31.295854+00:00",
+  "generated_at": "2026-09-11T13:36:53.255642+00:00",
   "ticker": "MF",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 12.2,
+      "current_price": 11.96,
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "score": 69.0,
+      "stop": 11.27,
+      "setup": "Pinbar",
+      "updated_at": "2026-09-11T12:55:26.239961",
+      "ticker": "MF",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 14.069999999999997
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "status": "CONFIRMED",

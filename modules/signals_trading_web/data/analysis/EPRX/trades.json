@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:08.203882+00:00",
+  "generated_at": "2026-09-11T13:36:32.653819+00:00",
   "ticker": "EPRX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 8.2,
+      "current_price": 8.16,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "score": 65.0,
+      "stop": 7.8,
+      "setup": "Hammer",
+      "updated_at": "2026-09-11T12:28:33.665613",
+      "ticker": "EPRX",
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 8.991559999999996
+    },
     {
       "current_price": 8.65,
       "entry": 8.47,

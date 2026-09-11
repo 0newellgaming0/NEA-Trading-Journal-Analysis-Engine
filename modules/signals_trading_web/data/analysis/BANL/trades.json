@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:10.776386+00:00",
+  "generated_at": "2026-09-11T13:36:14.879161+00:00",
   "ticker": "BANL",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "entry": 6.05,
+      "current_price": 5.1025,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "score": 70.0,
+      "stop": 6.18,
+      "setup": "Marubozu",
+      "updated_at": "2026-09-11T12:51:40.132928",
+      "ticker": "BANL",
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 5.785999999999999
+    },
     {
       "direction": "Bearish",
       "regime": "BULLISH_CONSOLIDATION",
