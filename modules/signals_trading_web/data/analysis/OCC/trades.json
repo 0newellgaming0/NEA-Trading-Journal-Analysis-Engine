@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T15:16:50.145300+00:00",
+  "generated_at": "2026-09-11T15:31:48.235362+00:00",
   "ticker": "OCC",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 14.74,
+      "risk_reward": 2.0,
+      "setup": "TLINE_CRUNCH",
+      "ticker": "OCC",
+      "updated_at": "2026-09-11T15:29:56.771730",
+      "direction": "Bullish",
+      "score": 85.0,
+      "current_price": 14.58,
+      "stop": 13.73,
+      "target": 16.76931891399031
+    },
     {
       "setup": "TLINE_FLAG",
       "regime": "SHORT_TERM_STRENGTH",

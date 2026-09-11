@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T15:15:06.774563+00:00",
+  "generated_at": "2026-09-11T15:31:47.243321+00:00",
   "ticker": "ACVA",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 10.46,
+      "risk_reward": 2.0,
+      "setup": "TLINE_CONTINUATION",
+      "ticker": "ACVA",
+      "updated_at": "2026-09-11T15:28:21.434488",
+      "direction": "Bullish",
+      "score": 89.0,
+      "current_price": 10.43,
+      "stop": 10.03,
+      "target": 11.321052812545918
+    },
     {
       "setup": "TLINE_FLAG",
       "regime": "SHORT_TERM_STRENGTH",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:17:49.461457+00:00",
+  "generated_at": "2026-09-11T15:31:48.441140+00:00",
   "ticker": "SIEB",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 2.65,
+      "risk_reward": 2.0,
+      "setup": "Pinbar",
+      "ticker": "SIEB",
+      "updated_at": "2026-09-11T15:18:06.127617",
+      "direction": "Bullish",
+      "score": 68.0,
+      "current_price": 2.71,
+      "stop": 2.61,
+      "target": 2.738
+    },
     {
       "stop": 2.62,
       "risk_reward": 2.0,
