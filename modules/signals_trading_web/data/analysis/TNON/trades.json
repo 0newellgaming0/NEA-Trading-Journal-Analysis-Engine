@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T11:04:57.445575+00:00",
+  "generated_at": "2026-09-11T11:24:33.805261+00:00",
   "ticker": "TNON",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "regime": "BEARISH_CONSOLIDATION",
+      "ticker": "TNON",
+      "target": 5.55296,
+      "direction": "Bearish",
+      "setup": "Falling Three Methods",
+      "risk_reward": 2.0,
+      "stop": 9.03,
+      "status": "CONFIRMED",
+      "current_price": 7.2,
+      "entry": 7.87,
+      "score": 89.0,
+      "updated_at": "2026-09-11T11:24:02.232396"
+    },
     {
       "stop": 5.21,
       "regime": "BEARISH_CONSOLIDATION",
