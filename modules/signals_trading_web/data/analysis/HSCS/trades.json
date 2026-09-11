@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-11T01:02:29.818702+00:00",
+  "ticker": "HSCS",
+  "count": 1,
+  "trades": [
+    {
+      "score": 76.0,
+      "risk_reward": 2.0,
+      "setup": "Harami",
+      "current_price": 3.4,
+      "entry": 3.48,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "updated_at": "2026-09-11T00:41:32.186703",
+      "ticker": "HSCS",
+      "stop": 3.37,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "target": 3.6999999999999997
+    }
+  ]
+}

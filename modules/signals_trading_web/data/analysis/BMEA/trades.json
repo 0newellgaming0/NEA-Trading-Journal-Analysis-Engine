@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-11T01:01:50.395142+00:00",
+  "ticker": "BMEA",
+  "count": 1,
+  "trades": [
+    {
+      "score": 71.0,
+      "risk_reward": 2.0,
+      "setup": "Marubozu",
+      "current_price": 1.8,
+      "entry": 1.76,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "updated_at": "2026-09-11T00:50:29.508781",
+      "ticker": "BMEA",
+      "stop": 1.74,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 1.804
+    }
+  ]
+}
