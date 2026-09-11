@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:16:10.436648+00:00",
+  "generated_at": "2026-09-11T12:22:03.574862+00:00",
   "ticker": "CHPT",
-  "count": 9,
+  "count": 10,
   "trades": [
+    {
+      "updated_at": "2026-09-11T12:22:03.007483",
+      "stop": 8.89,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 9.05,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "ticker": "CHPT",
+      "setup": "Inverted Hammer",
+      "target": 9.219999999999999,
+      "entry": 9.0,
+      "score": 77.0,
+      "direction": "Bullish"
+    },
     {
       "stop": 8.83,
       "risk_reward": 2.0,
