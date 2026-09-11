@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:16:55.717828+00:00",
+  "generated_at": "2026-09-11T12:13:53.201691+00:00",
   "ticker": "GTE",
   "count": 6,
   "trades": [
+    {
+      "score": 78.0,
+      "setup": "Rising Three Methods",
+      "stop": 10.22,
+      "target": 10.252880000000001,
+      "status": "CONFIRMED",
+      "ticker": "GTE",
+      "current_price": 10.62,
+      "updated_at": "2026-09-11T12:06:35.805071",
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "entry": 10.23,
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
     {
       "stop": 10.93,
       "risk_reward": 2.0,
@@ -30,20 +44,6 @@
       "risk_reward": 2.0,
       "ticker": "GTE",
       "score": 75.0
-    },
-    {
-      "updated_at": "2026-09-10T11:58:12.504968",
-      "status": "CONFIRMED",
-      "entry": 10.23,
-      "risk_reward": 2.0,
-      "ticker": "GTE",
-      "score": 79.0,
-      "direction": "Bullish",
-      "stop": 10.22,
-      "setup": "Rising Three Methods",
-      "current_price": 10.43,
-      "regime": "BULLISH_CONSOLIDATION",
-      "target": 10.252880000000001
     },
     {
       "regime": "BULLISH_CONSOLIDATION",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T11:58:45.415279+00:00",
+  "generated_at": "2026-09-11T12:13:52.928056+00:00",
   "ticker": "CIG",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "score": 65.0,
+      "setup": "Rising Three Methods",
+      "stop": 1.91,
+      "target": 1.9790599999999998,
+      "status": "CONFIRMED",
+      "ticker": "CIG",
+      "current_price": 2.1556,
+      "updated_at": "2026-09-11T12:11:27.656697",
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "entry": 1.93,
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
       "current_price": 2.22,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:15:48.850174+00:00",
+  "generated_at": "2026-09-11T12:13:52.624072+00:00",
   "ticker": "AEHL",
   "count": 11,
   "trades": [
+    {
+      "score": 70.0,
+      "setup": "Rising Three Methods",
+      "stop": 0.99,
+      "target": 0.9903199999999999,
+      "status": "CONFIRMED",
+      "ticker": "AEHL",
+      "current_price": 7.75,
+      "updated_at": "2026-09-11T12:13:51.625551",
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "entry": 0.99,
+      "regime": "BEARISH_CONSOLIDATION"
+    },
     {
       "stop": 7.75,
       "risk_reward": 2.0,
@@ -16,20 +30,6 @@
       "entry": 7.8,
       "direction": "Bullish",
       "score": 69.0
-    },
-    {
-      "current_price": 7.52,
-      "entry": 0.99,
-      "status": "CONFIRMED",
-      "direction": "Bullish",
-      "target": 0.9903199999999999,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "Rising Three Methods",
-      "stop": 0.99,
-      "updated_at": "2026-09-10T17:52:50.072269",
-      "risk_reward": 2.0,
-      "ticker": "AEHL",
-      "score": 67.0
     },
     {
       "stop": 8.54,
