@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:59:45.415389+00:00",
+  "generated_at": "2026-09-11T21:14:58.969200+00:00",
   "ticker": "TRVG",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "score": 59.0,
+      "updated_at": "2026-09-11T20:54:37.166891",
+      "setup": "SWING_STRUCTURE",
+      "current_price": 5.7,
+      "direction": "BEARISH",
+      "status": "CONFIRMED",
+      "target": 5.240999999999999,
+      "ticker": "TRVG",
+      "risk_reward": 2.0,
+      "entry": 5.64,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "stop": 5.84
+    },
     {
       "stop": 5.63,
       "ticker": "TRVG",

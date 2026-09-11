@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:21.456577+00:00",
+  "generated_at": "2026-09-11T21:14:58.938123+00:00",
   "ticker": "TK",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "score": 70.0,
+      "updated_at": "2026-09-11T20:52:35.584211",
+      "setup": "Engulfing",
+      "current_price": 14.38,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 14.59518,
+      "ticker": "TK",
+      "risk_reward": 2.0,
+      "entry": 14.25,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "stop": 14.08
+    }
+  ]
 }

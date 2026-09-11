@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T20:33:57.997300+00:00",
+  "generated_at": "2026-09-11T21:14:58.465003+00:00",
   "ticker": "SB",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "score": 73.0,
+      "updated_at": "2026-09-11T20:36:54.771099",
+      "setup": "TLINE_CONTINUATION",
+      "current_price": 8.51,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 8.760956084923153,
+      "ticker": "SB",
+      "risk_reward": 2.0,
+      "entry": 8.51,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "stop": 8.38
+    },
     {
       "target": 8.028,
       "status": "CONFIRMED",
