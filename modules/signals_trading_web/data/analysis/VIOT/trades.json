@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-11T16:14:05.540807+00:00",
+  "generated_at": "2026-09-11T16:35:21.187514+00:00",
   "ticker": "VIOT",
   "count": 4,
   "trades": [
     {
+      "updated_at": "2026-09-11T16:35:19.413618",
       "stop": 1.32,
+      "setup": "TLINE_CONTINUATION",
       "status": "CONFIRMED",
+      "direction": "Bullish",
+      "entry": 1.56,
+      "target": 2.0380621254719613,
+      "current_price": 1.355,
       "score": 77.0,
       "risk_reward": 2.0,
-      "updated_at": "2026-09-11T16:11:56.489577",
-      "ticker": "VIOT",
-      "entry": 1.56,
-      "setup": "TLINE_CONTINUATION",
-      "direction": "Bullish",
-      "current_price": 1.35,
       "regime": "FULL_BULLISH_ALIGNMENT",
-      "target": 2.0380621254719613
+      "ticker": "VIOT"
     },
     {
       "setup": "TLINE_CROSS",

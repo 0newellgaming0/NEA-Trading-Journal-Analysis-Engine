@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-11T16:14:04.274672+00:00",
+  "generated_at": "2026-09-11T16:35:19.900982+00:00",
   "ticker": "AENT",
   "count": 2,
   "trades": [
     {
+      "updated_at": "2026-09-11T16:24:08.249378",
       "stop": 8.92,
+      "setup": "TLINE_CONTINUATION",
       "status": "CONFIRMED",
+      "direction": "Bearish",
+      "entry": 6.89,
+      "target": 2.8119968385875254,
+      "current_price": 6.77,
       "score": 100.0,
       "risk_reward": 2.0,
-      "updated_at": "2026-09-11T16:02:40.557672",
-      "ticker": "AENT",
-      "entry": 6.89,
-      "setup": "TLINE_CONTINUATION",
-      "direction": "Bearish",
-      "current_price": 6.8707,
       "regime": "PRIMARY_DOWNTREND_RALLY",
-      "target": 2.8119968385875254
+      "ticker": "AENT"
     },
     {
       "setup": "TLINE_CROSS",

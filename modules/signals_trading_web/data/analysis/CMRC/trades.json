@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T16:14:04.587296+00:00",
+  "generated_at": "2026-09-11T16:35:20.208409+00:00",
   "ticker": "CMRC",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "updated_at": "2026-09-11T16:33:56.862740",
+      "stop": 3.14,
+      "setup": "TLINE_JHOOK",
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "entry": 3.56,
+      "target": 4.378806559093865,
+      "current_price": 3.5537,
+      "score": 82.0,
+      "risk_reward": 2.0,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "ticker": "CMRC"
+    },
     {
       "stop": 2.38,
       "status": "CONFIRMED",
