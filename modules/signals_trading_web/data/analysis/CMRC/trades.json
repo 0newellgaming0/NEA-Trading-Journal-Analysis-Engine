@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-10T19:31:36.944030+00:00",
+  "generated_at": "2026-09-11T09:16:13.061789+00:00",
   "ticker": "CMRC",
   "count": 1,
   "trades": [
     {
-      "current_price": 3.075,
-      "entry": 3.1,
-      "status": "CONFIRMED",
-      "direction": "Bearish",
+      "stop": 3.24,
+      "risk_reward": 2.0,
       "target": 2.8282,
       "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED",
+      "current_price": 3.0815,
+      "updated_at": "2026-09-11T06:03:28.399833",
       "setup": "Pinbar",
-      "stop": 3.24,
-      "updated_at": "2026-09-10T19:21:36.392189",
-      "risk_reward": 2.0,
       "ticker": "CMRC",
+      "entry": 3.1,
+      "direction": "Bearish",
       "score": 87.0
     }
   ]

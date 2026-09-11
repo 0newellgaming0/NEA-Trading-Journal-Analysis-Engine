@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:31:15.036631+00:00",
+  "generated_at": "2026-09-11T09:16:00.158234+00:00",
   "ticker": "AUR",
   "count": 6,
   "trades": [
     {
-      "current_price": 6.405,
-      "entry": 6.45,
-      "status": "CONFIRMED",
-      "direction": "Bearish",
+      "stop": 6.5,
+      "risk_reward": 2.0,
       "target": 6.340000000000001,
       "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 6.32,
+      "updated_at": "2026-09-11T07:59:02.962238",
       "setup": "Marubozu",
-      "stop": 6.5,
-      "updated_at": "2026-09-10T18:31:53.323957",
-      "risk_reward": 2.0,
       "ticker": "AUR",
-      "score": 65.0
+      "entry": 6.45,
+      "direction": "Bearish",
+      "score": 67.0
     },
     {
       "current_price": 5.45,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-09T20:33:34.994357+00:00",
+  "generated_at": "2026-09-11T09:16:56.574740+00:00",
   "ticker": "GWAV",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 4.79,
+      "risk_reward": 2.0,
+      "target": 4.661999999999999,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "current_price": 4.7,
+      "updated_at": "2026-09-11T08:34:05.493774",
+      "setup": "Engulfing",
+      "ticker": "GWAV",
+      "entry": 4.75,
+      "direction": "Bearish",
+      "score": 81.0
+    },
     {
       "target": 4.52,
       "status": "CONFIRMED",

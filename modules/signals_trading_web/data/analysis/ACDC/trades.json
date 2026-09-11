@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:30:59.401774+00:00",
+  "generated_at": "2026-09-11T09:15:28.402264+00:00",
   "ticker": "ACDC",
   "count": 7,
   "trades": [
     {
-      "current_price": 5.145,
-      "entry": 5.18,
-      "status": "CONFIRMED",
-      "direction": "Bullish",
+      "stop": 5.03,
+      "risk_reward": 2.0,
       "target": 5.503999999999999,
       "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "current_price": 5.19,
+      "updated_at": "2026-09-11T09:05:16.028333",
       "setup": "Candle Over Candle",
-      "stop": 5.03,
-      "updated_at": "2026-09-10T19:28:16.580000",
-      "risk_reward": 2.0,
       "ticker": "ACDC",
-      "score": 59.0
+      "entry": 5.18,
+      "direction": "Bullish",
+      "score": 60.0
     },
     {
       "direction": "Bullish",

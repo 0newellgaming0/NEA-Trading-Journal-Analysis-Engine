@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:32:27.514675+00:00",
+  "generated_at": "2026-09-11T09:17:07.742647+00:00",
   "ticker": "LHAI",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "stop": 1.08,
+      "risk_reward": 2.0,
+      "target": 1.07978,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "current_price": 1.08,
+      "updated_at": "2026-09-11T08:10:39.637428",
+      "setup": "Pinbar",
+      "ticker": "LHAI",
+      "entry": 1.08,
+      "direction": "Bearish",
+      "score": 60.0
+    },
     {
       "current_price": 1.11,
       "entry": 1.12,

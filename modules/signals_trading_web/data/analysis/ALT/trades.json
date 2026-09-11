@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:31:05.398844+00:00",
+  "generated_at": "2026-09-11T09:15:54.508593+00:00",
   "ticker": "ALT",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "stop": 3.34,
+      "risk_reward": 2.0,
+      "target": 3.18264,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "current_price": 3.28,
+      "updated_at": "2026-09-11T08:01:50.232502",
+      "setup": "Engulfing",
+      "ticker": "ALT",
+      "entry": 3.29,
+      "direction": "Bearish",
+      "score": 67.0
+    },
     {
       "current_price": 3.27,
       "entry": 3.31,

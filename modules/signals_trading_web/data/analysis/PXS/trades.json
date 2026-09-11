@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:32:57.923231+00:00",
+  "generated_at": "2026-09-11T09:17:38.896936+00:00",
   "ticker": "PXS",
   "count": 8,
   "trades": [
     {
-      "current_price": 6.84,
-      "entry": 6.77,
-      "status": "CONFIRMED",
-      "direction": "Bullish",
-      "target": 7.3089999999999975,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "setup": "Marubozu",
       "stop": 6.5,
-      "updated_at": "2026-09-10T17:29:33.133792",
       "risk_reward": 2.0,
+      "target": 7.3089999999999975,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 7.0,
+      "updated_at": "2026-09-11T06:51:03.202776",
+      "setup": "Marubozu",
       "ticker": "PXS",
-      "score": 72.0
+      "entry": 6.77,
+      "direction": "Bullish",
+      "score": 74.0
     },
     {
       "updated_at": "2026-09-10T09:49:21.598752",

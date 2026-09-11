@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:32:15.936594+00:00",
+  "generated_at": "2026-09-11T09:16:52.969358+00:00",
   "ticker": "GPRK",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "stop": 11.77,
+      "risk_reward": 2.0,
+      "target": 12.526,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "current_price": 11.97,
+      "updated_at": "2026-09-11T06:40:28.846758",
+      "setup": "Harami",
+      "ticker": "GPRK",
+      "entry": 12.02,
+      "direction": "Bullish",
+      "score": 76.0
+    },
     {
       "current_price": 11.985,
       "entry": 9.87,

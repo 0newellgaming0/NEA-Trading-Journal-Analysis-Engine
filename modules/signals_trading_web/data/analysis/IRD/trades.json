@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:32:22.067180+00:00",
+  "generated_at": "2026-09-11T09:17:02.501458+00:00",
   "ticker": "IRD",
   "count": 2,
   "trades": [
     {
-      "current_price": 5.825,
-      "entry": 5.95,
-      "status": "CONFIRMED",
-      "direction": "Bullish",
-      "target": 6.7860000000000005,
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "setup": "Engulfing",
       "stop": 5.53,
-      "updated_at": "2026-09-10T19:04:46.335588",
       "risk_reward": 2.0,
+      "target": 6.7860000000000005,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 6.0517,
+      "updated_at": "2026-09-11T06:09:51.771543",
+      "setup": "Engulfing",
       "ticker": "IRD",
-      "score": 80.0
+      "entry": 5.95,
+      "direction": "Bullish",
+      "score": 82.0
     },
     {
       "current_price": 5.4195,

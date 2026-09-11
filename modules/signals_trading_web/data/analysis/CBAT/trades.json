@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:31:29.752904+00:00",
+  "generated_at": "2026-09-11T09:16:08.148601+00:00",
   "ticker": "CBAT",
   "count": 1,
   "trades": [
     {
-      "current_price": 0.9777,
-      "entry": 0.99,
-      "status": "CONFIRMED",
-      "direction": "Bearish",
+      "stop": 1.01,
+      "risk_reward": 2.0,
       "target": 0.9485600000000002,
       "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 1.01,
+      "updated_at": "2026-09-11T08:58:20.614904",
       "setup": "Marubozu",
-      "stop": 1.01,
-      "updated_at": "2026-09-10T19:24:26.141527",
-      "risk_reward": 2.0,
       "ticker": "CBAT",
-      "score": 57.0
+      "entry": 0.99,
+      "direction": "Bearish",
+      "score": 61.0
     }
   ]
 }

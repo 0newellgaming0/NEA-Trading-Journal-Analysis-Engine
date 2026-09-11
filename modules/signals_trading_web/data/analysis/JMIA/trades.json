@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:32:23.212299+00:00",
+  "generated_at": "2026-09-11T09:17:03.554936+00:00",
   "ticker": "JMIA",
   "count": 5,
   "trades": [
     {
-      "current_price": 7.3714,
-      "entry": 7.44,
-      "status": "CONFIRMED",
-      "direction": "Bearish",
-      "target": 7.1040800000000015,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "setup": "Candle Over Candle",
       "stop": 7.61,
-      "updated_at": "2026-09-10T17:31:47.432069",
       "risk_reward": 2.0,
+      "target": 7.1040800000000015,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "current_price": 7.28,
+      "updated_at": "2026-09-11T08:07:59.547469",
+      "setup": "Candle Over Candle",
       "ticker": "JMIA",
-      "score": 66.0
+      "entry": 7.44,
+      "direction": "Bearish",
+      "score": 68.0
     },
     {
       "updated_at": "2026-09-10T12:53:20.864519",

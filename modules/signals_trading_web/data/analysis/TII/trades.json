@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:33:35.813628+00:00",
+  "generated_at": "2026-09-11T09:18:11.125101+00:00",
   "ticker": "TII",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "stop": 3.01,
+      "risk_reward": 2.0,
+      "target": 2.98306,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 2.91,
+      "updated_at": "2026-09-11T09:11:45.763985",
+      "setup": "Marubozu",
+      "ticker": "TII",
+      "entry": 3.0,
+      "direction": "Bearish",
+      "score": 60.0
+    },
     {
       "current_price": 3.0335,
       "entry": 3.08,

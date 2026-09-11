@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:33:09.128466+00:00",
+  "generated_at": "2026-09-11T09:17:45.836774+00:00",
   "ticker": "SBET",
   "count": 5,
   "trades": [
     {
-      "current_price": 8.505,
-      "entry": 8.52,
-      "status": "CONFIRMED",
-      "direction": "Bearish",
+      "stop": 8.67,
+      "risk_reward": 2.0,
       "target": 8.196000000000002,
       "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "current_price": 8.41,
+      "updated_at": "2026-09-11T07:07:26.401358",
       "setup": "Pinbar",
-      "stop": 8.67,
-      "updated_at": "2026-09-10T17:10:17.255957",
-      "risk_reward": 2.0,
       "ticker": "SBET",
-      "score": 71.0
+      "entry": 8.52,
+      "direction": "Bearish",
+      "score": 72.0
     },
     {
       "stop": 8.71,

@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-10T19:32:17.202547+00:00",
+  "generated_at": "2026-09-11T09:16:56.028447+00:00",
   "ticker": "GTEC",
   "count": 4,
   "trades": [
     {
-      "current_price": 1.04,
-      "entry": 1.1,
-      "status": "CONFIRMED",
-      "direction": "Bullish",
+      "stop": 1.03,
+      "risk_reward": 2.0,
       "target": 1.24608,
       "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 1.0499,
+      "updated_at": "2026-09-11T08:05:44.670804",
       "setup": "Engulfing",
-      "stop": 1.03,
-      "updated_at": "2026-09-10T17:48:17.148597",
-      "risk_reward": 2.0,
       "ticker": "GTEC",
+      "entry": 1.1,
+      "direction": "Bullish",
       "score": 66.0
     },
     {

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:33:44.559574+00:00",
+  "generated_at": "2026-09-11T09:18:26.739806+00:00",
   "ticker": "WRAP",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "stop": 1.64,
+      "risk_reward": 2.0,
+      "target": 1.592,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "current_price": 1.61,
+      "updated_at": "2026-09-11T08:38:53.492170",
+      "setup": "Engulfing",
+      "ticker": "WRAP",
+      "entry": 1.62,
+      "direction": "Bearish",
+      "score": 63.0
+    },
     {
       "current_price": 1.64,
       "entry": 1.72,

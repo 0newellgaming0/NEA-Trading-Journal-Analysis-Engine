@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:32:38.540976+00:00",
+  "generated_at": "2026-09-11T09:17:22.872816+00:00",
   "ticker": "NAKA",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 7.72,
+      "risk_reward": 2.0,
+      "target": 7.848000000000001,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "current_price": 7.72,
+      "updated_at": "2026-09-11T06:11:33.445776",
+      "setup": "Pinbar",
+      "ticker": "NAKA",
+      "entry": 7.76,
+      "direction": "Bullish",
+      "score": 79.0
+    },
     {
       "current_price": 7.8,
       "entry": 7.85,

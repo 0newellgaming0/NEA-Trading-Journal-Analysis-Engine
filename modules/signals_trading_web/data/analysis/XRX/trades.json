@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:33:45.971027+00:00",
+  "generated_at": "2026-09-11T09:18:28.927889+00:00",
   "ticker": "XRX",
   "count": 4,
   "trades": [
     {
-      "current_price": 3.185,
-      "entry": 3.13,
-      "status": "CONFIRMED",
-      "direction": "Bearish",
+      "stop": 3.24,
+      "risk_reward": 2.0,
       "target": 2.910219999999999,
       "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "current_price": 3.16,
+      "updated_at": "2026-09-11T07:54:09.766109",
       "setup": "Pinbar",
-      "stop": 3.24,
-      "updated_at": "2026-09-10T17:44:00.814211",
-      "risk_reward": 2.0,
       "ticker": "XRX",
-      "score": 65.0
+      "entry": 3.13,
+      "direction": "Bearish",
+      "score": 68.0
     },
     {
       "stop": 3.14,

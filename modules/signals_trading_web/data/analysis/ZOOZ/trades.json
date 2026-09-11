@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:33:47.384839+00:00",
+  "generated_at": "2026-09-11T09:18:33.567575+00:00",
   "ticker": "ZOOZ",
   "count": 7,
   "trades": [
+    {
+      "stop": 7.79,
+      "risk_reward": 2.0,
+      "target": 6.406000000000001,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "current_price": 7.25,
+      "updated_at": "2026-09-11T08:43:00.529009",
+      "setup": "Engulfing",
+      "ticker": "ZOOZ",
+      "entry": 7.33,
+      "direction": "Bearish",
+      "score": 62.0
+    },
     {
       "current_price": 7.15,
       "entry": 0.31,
@@ -30,20 +44,6 @@
       "risk_reward": 2.0,
       "entry": 7.58,
       "current_price": 7.55
-    },
-    {
-      "current_price": 7.1588,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "entry": 7.33,
-      "direction": "Bearish",
-      "ticker": "ZOOZ",
-      "target": 6.923,
-      "status": "CONFIRMED",
-      "stop": 7.53,
-      "updated_at": "2026-09-09T15:20:07.523726",
-      "risk_reward": 2.0,
-      "setup": "Engulfing",
-      "score": 63.0
     },
     {
       "updated_at": "2026-09-06T06:05:48.254978",

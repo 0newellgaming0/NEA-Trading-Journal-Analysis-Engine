@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:31:20.691238+00:00",
+  "generated_at": "2026-09-11T09:16:03.169157+00:00",
   "ticker": "BIAF",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 9.87,
+      "risk_reward": 2.0,
+      "target": 9.178000000000004,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED",
+      "current_price": 9.6,
+      "updated_at": "2026-09-11T06:29:35.383235",
+      "setup": "Pinbar",
+      "ticker": "BIAF",
+      "entry": 9.64,
+      "direction": "Bearish",
+      "score": 78.0
+    },
     {
       "current_price": 9.77,
       "entry": 10.74,

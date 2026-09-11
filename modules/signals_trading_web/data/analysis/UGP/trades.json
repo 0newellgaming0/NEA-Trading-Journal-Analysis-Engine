@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:33:39.659414+00:00",
+  "generated_at": "2026-09-11T09:18:17.862030+00:00",
   "ticker": "UGP",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "stop": 7.54,
+      "risk_reward": 2.0,
+      "target": 8.232,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 7.56,
+      "updated_at": "2026-09-11T08:24:49.969824",
+      "setup": "Engulfing",
+      "ticker": "UGP",
+      "entry": 7.77,
+      "direction": "Bullish",
+      "score": 66.0
+    },
     {
       "current_price": 7.57,
       "entry": 7.58,

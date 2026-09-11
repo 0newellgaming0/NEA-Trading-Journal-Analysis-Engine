@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:31:13.778249+00:00",
+  "generated_at": "2026-09-11T09:15:59.433847+00:00",
   "ticker": "ASTC",
   "count": 3,
   "trades": [
     {
-      "current_price": 7.355,
-      "entry": 7.39,
-      "status": "CONFIRMED",
-      "direction": "Bearish",
+      "stop": 7.59,
+      "risk_reward": 2.0,
       "target": 6.990699999999998,
       "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "current_price": 7.21,
+      "updated_at": "2026-09-11T08:21:02.316589",
       "setup": "Engulfing",
-      "stop": 7.59,
-      "updated_at": "2026-09-10T18:55:48.466216",
-      "risk_reward": 2.0,
       "ticker": "ASTC",
-      "score": 64.0
+      "entry": 7.39,
+      "direction": "Bearish",
+      "score": 65.0
     },
     {
       "updated_at": "2026-09-10T13:34:28.380672",

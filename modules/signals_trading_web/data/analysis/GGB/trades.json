@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:32:14.524897+00:00",
+  "generated_at": "2026-09-11T09:16:49.038384+00:00",
   "ticker": "GGB",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "stop": 4.99,
+      "risk_reward": 2.0,
+      "target": 5.283,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "current_price": 5.04,
+      "updated_at": "2026-09-11T08:50:05.057461",
+      "setup": "Inverted Hammer",
+      "ticker": "GGB",
+      "entry": 5.08,
+      "direction": "Bullish",
+      "score": 60.0
+    },
     {
       "current_price": 5.0596,
       "entry": 5.03,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T21:26:59.697803+00:00",
+  "generated_at": "2026-09-11T09:18:24.209081+00:00",
   "ticker": "VSTM",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 7.5,
+      "risk_reward": 2.0,
+      "target": 7.925999999999999,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED",
+      "current_price": 7.61,
+      "updated_at": "2026-09-11T07:20:08.558723",
+      "setup": "Engulfing",
+      "ticker": "VSTM",
+      "entry": 7.64,
+      "direction": "Bullish",
+      "score": 71.0
+    },
     {
       "regime": "PRIMARY_UPTREND_PULLBACK",
       "risk_reward": 2.0,

@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-10T19:33:43.150829+00:00",
+  "generated_at": "2026-09-11T09:18:23.911713+00:00",
   "ticker": "VRM",
   "count": 3,
   "trades": [
     {
-      "current_price": 10.22,
-      "entry": 10.41,
-      "status": "CONFIRMED",
-      "direction": "Bearish",
+      "stop": 10.78,
+      "risk_reward": 2.0,
       "target": 9.677999999999997,
       "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "current_price": 10.26,
+      "updated_at": "2026-09-11T08:30:17.858976",
       "setup": "Marubozu",
-      "stop": 10.78,
-      "updated_at": "2026-09-10T18:51:58.654196",
-      "risk_reward": 2.0,
       "ticker": "VRM",
+      "entry": 10.41,
+      "direction": "Bearish",
       "score": 65.0
     },
     {

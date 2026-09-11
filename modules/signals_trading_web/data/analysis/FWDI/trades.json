@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:32:13.281200+00:00",
+  "generated_at": "2026-09-11T09:16:45.737373+00:00",
   "ticker": "FWDI",
   "count": 6,
   "trades": [
     {
-      "current_price": 6.4,
-      "entry": 6.42,
-      "status": "CONFIRMED",
-      "direction": "Bullish",
+      "stop": 6.16,
+      "risk_reward": 2.0,
       "target": 6.948,
       "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 6.27,
+      "updated_at": "2026-09-11T06:54:50.546656",
       "setup": "Marubozu",
-      "stop": 6.16,
-      "updated_at": "2026-09-10T17:18:09.946553",
-      "risk_reward": 2.0,
       "ticker": "FWDI",
-      "score": 72.0
+      "entry": 6.42,
+      "direction": "Bullish",
+      "score": 74.0
     },
     {
       "stop": 6.7,

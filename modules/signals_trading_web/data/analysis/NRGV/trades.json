@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-11T01:03:06.495317+00:00",
+  "generated_at": "2026-09-11T09:17:29.555900+00:00",
   "ticker": "NRGV",
   "count": 4,
   "trades": [
     {
-      "score": 63.0,
-      "risk_reward": 2.0,
-      "setup": "Engulfing",
-      "current_price": 4.2479,
-      "entry": 4.3,
-      "status": "CONFIRMED",
-      "direction": "Bullish",
-      "updated_at": "2026-09-11T01:00:31.007499",
-      "ticker": "NRGV",
       "stop": 4.18,
-      "regime": "BULLISH_CONSOLIDATION",
-      "target": 4.537520000000001
+      "risk_reward": 2.0,
+      "target": 4.537520000000001,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "current_price": 4.2479,
+      "updated_at": "2026-09-11T07:32:24.192763",
+      "setup": "Engulfing",
+      "ticker": "NRGV",
+      "entry": 4.3,
+      "direction": "Bullish",
+      "score": 69.0
     },
     {
       "current_price": 4.245,

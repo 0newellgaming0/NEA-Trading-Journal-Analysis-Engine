@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-11T09:18:30.303421+00:00",
+  "ticker": "YMAT",
+  "count": 1,
+  "trades": [
+    {
+      "stop": 2.35,
+      "risk_reward": 2.0,
+      "target": 1.6580000000000004,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "current_price": 2.08,
+      "updated_at": "2026-09-11T09:07:17.285917",
+      "setup": "Marubozu",
+      "ticker": "YMAT",
+      "entry": 2.12,
+      "direction": "Bearish",
+      "score": 71.0
+    }
+  ]
+}

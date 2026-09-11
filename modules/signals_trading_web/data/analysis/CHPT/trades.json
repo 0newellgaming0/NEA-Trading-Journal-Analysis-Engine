@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:31:34.240599+00:00",
+  "generated_at": "2026-09-11T09:16:10.436648+00:00",
   "ticker": "CHPT",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "stop": 8.83,
+      "risk_reward": 2.0,
+      "target": 9.129999999999999,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED",
+      "current_price": 8.8717,
+      "updated_at": "2026-09-11T06:35:21.805329",
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "ticker": "CHPT",
+      "entry": 8.93,
+      "direction": "Bullish",
+      "score": 77.0
+    },
     {
       "current_price": 8.76,
       "entry": 8.73,

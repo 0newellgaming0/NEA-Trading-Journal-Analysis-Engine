@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:31:34.479291+00:00",
+  "generated_at": "2026-09-11T09:16:10.624846+00:00",
   "ticker": "CIG",
   "count": 3,
   "trades": [
     {
-      "current_price": 2.2055,
-      "entry": 2.21,
-      "status": "CONFIRMED",
-      "direction": "Bullish",
+      "stop": 2.18,
+      "risk_reward": 2.0,
       "target": 2.273119999999999,
       "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "current_price": 2.206,
+      "updated_at": "2026-09-11T07:50:56.337159",
       "setup": "Pinbar",
-      "stop": 2.18,
-      "updated_at": "2026-09-10T18:15:40.265736",
-      "risk_reward": 2.0,
       "ticker": "CIG",
-      "score": 66.0
+      "entry": 2.21,
+      "direction": "Bullish",
+      "score": 69.0
     },
     {
       "stop": 2.25,

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:32:26.536227+00:00",
+  "generated_at": "2026-09-11T09:17:05.589830+00:00",
   "ticker": "LAND",
   "count": 5,
   "trades": [
     {
-      "current_price": 9.51,
-      "entry": 9.54,
-      "status": "CONFIRMED",
-      "direction": "Bearish",
+      "stop": 9.78,
+      "risk_reward": 2.0,
       "target": 9.040000000000003,
       "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED",
+      "current_price": 9.54,
+      "updated_at": "2026-09-11T08:13:22.480845",
       "setup": "Engulfing",
-      "stop": 9.78,
-      "updated_at": "2026-09-10T18:18:16.302792",
-      "risk_reward": 2.0,
       "ticker": "LAND",
-      "score": 62.0
+      "entry": 9.54,
+      "direction": "Bearish",
+      "score": 66.0
     },
     {
       "direction": "Bearish",
