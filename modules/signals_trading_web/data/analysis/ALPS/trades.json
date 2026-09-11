@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-10T19:31:05.225694+00:00",
+  "generated_at": "2026-09-11T05:01:00.033973+00:00",
   "ticker": "ALPS",
   "count": 3,
   "trades": [
     {
-      "current_price": 0.3826,
+      "risk_reward": 2.0,
       "entry": 0.38,
-      "status": "CONFIRMED",
+      "score": 44.0,
       "direction": "Bullish",
-      "target": 0.402,
-      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "current_price": 0.3849,
       "setup": "Engulfing",
       "stop": 0.37,
-      "updated_at": "2026-09-10T19:30:53.070223",
-      "risk_reward": 2.0,
-      "ticker": "ALPS",
-      "score": 44.0
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-11T05:00:53.296979",
+      "target": 0.402,
+      "ticker": "ALPS"
     },
     {
       "current_price": 0.3895,
