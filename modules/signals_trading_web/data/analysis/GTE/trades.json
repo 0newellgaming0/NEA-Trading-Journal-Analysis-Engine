@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T12:13:53.201691+00:00",
+  "generated_at": "2026-09-11T15:16:22.445116+00:00",
   "ticker": "GTE",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "setup": "TLINE_CROSS",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "ticker": "GTE",
+      "target": 10.139852506298752,
+      "status": "CONFIRMED",
+      "entry": 10.71,
+      "current_price": 10.85,
+      "score": 73.0,
+      "stop": 11.0,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-11T15:10:00.756157",
+      "direction": "Bearish"
+    },
     {
       "score": 78.0,
       "setup": "Rising Three Methods",
