@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-11T16:52:04.716877+00:00",
+  "generated_at": "2026-09-11T18:15:50.022178+00:00",
   "ticker": "TNON",
   "count": 9,
   "trades": [
     {
-      "updated_at": "2026-09-11T16:52:03.156079",
       "regime": "BEARISH_CONSOLIDATION",
-      "score": 91.0,
-      "stop": 6.68,
       "status": "CONFIRMED",
-      "current_price": 9.18,
-      "direction": "Bullish",
-      "target": 17.158533306438873,
       "setup": "TLINE_JHOOK",
       "ticker": "TNON",
       "entry": 10.17,
-      "risk_reward": 2.0
+      "stop": 6.68,
+      "current_price": 9.0,
+      "direction": "Bullish",
+      "score": 91.0,
+      "target": 17.158533306438873,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-11T17:06:27.193136"
     },
     {
       "updated_at": "2026-09-11T16:26:09.768300",

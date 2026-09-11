@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T11:04:57.562380+00:00",
+  "generated_at": "2026-09-11T18:15:54.864253+00:00",
   "ticker": "VTS",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION",
+      "ticker": "VTS",
+      "entry": 18.41,
+      "stop": 18.8,
+      "current_price": 18.455,
+      "direction": "Bearish",
+      "score": 77.0,
+      "target": 17.621002087026643,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-11T18:12:07.279302"
+    },
     {
       "stop": 18.03,
       "regime": "BULLISH_CONSOLIDATION",

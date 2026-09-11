@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-11T15:31:47.373587+00:00",
+  "generated_at": "2026-09-11T18:13:05.466127+00:00",
   "ticker": "ANGX",
   "count": 7,
   "trades": [
     {
-      "status": "CONFIRMED",
       "regime": "FULL_BULLISH_ALIGNMENT",
-      "entry": 5.2,
-      "risk_reward": 2.0,
+      "status": "CONFIRMED",
       "setup": "TLINE_FLAG",
       "ticker": "ANGX",
-      "updated_at": "2026-09-11T15:31:46.826932",
-      "direction": "Bearish",
-      "score": 70.0,
-      "current_price": 5.39,
+      "entry": 5.2,
       "stop": 5.5,
-      "target": 4.575383923649591
+      "current_price": 5.415,
+      "direction": "Bearish",
+      "score": 69.0,
+      "target": 4.575383923649591,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-11T17:39:40.494403"
     },
     {
       "stop": 5.28,

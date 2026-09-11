@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:35.820456+00:00",
+  "generated_at": "2026-09-11T18:13:55.873713+00:00",
   "ticker": "DV",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "setup": "Rising Three Methods",
+      "ticker": "DV",
+      "entry": 13.37,
+      "stop": 13.34,
+      "current_price": 13.405,
+      "direction": "Bullish",
+      "score": 59.0,
+      "target": 13.435999999999998,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-11T17:57:18.983204"
+    },
     {
       "current_price": 13.375,
       "setup": "Harami Cross",

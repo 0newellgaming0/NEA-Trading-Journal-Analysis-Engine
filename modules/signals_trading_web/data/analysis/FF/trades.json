@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:27.626839+00:00",
+  "generated_at": "2026-09-11T18:14:09.244224+00:00",
   "ticker": "FF",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "ticker": "FF",
+      "entry": 5.35,
+      "stop": 5.33,
+      "current_price": 5.4,
+      "direction": "Bullish",
+      "score": 72.0,
+      "target": 5.393999999999998,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-11T18:03:43.119249"
+    },
     {
       "stop": 5.481,
       "ticker": "FF",

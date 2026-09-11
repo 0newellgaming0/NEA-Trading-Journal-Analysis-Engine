@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:16:04.521230+00:00",
+  "generated_at": "2026-09-11T18:13:27.123307+00:00",
   "ticker": "BNC",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION",
+      "ticker": "BNC",
+      "entry": 4.89,
+      "stop": 4.45,
+      "current_price": 4.99,
+      "direction": "Bullish",
+      "score": 72.0,
+      "target": 5.778,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-11T17:33:40.950549"
+    },
     {
       "stop": 4.84,
       "risk_reward": 2.0,

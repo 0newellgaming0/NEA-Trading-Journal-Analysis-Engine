@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:34.436552+00:00",
+  "generated_at": "2026-09-11T18:13:48.482240+00:00",
   "ticker": "DCTH",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "DCTH",
+      "entry": 15.82,
+      "stop": 15.68,
+      "current_price": 15.89,
+      "direction": "Bullish",
+      "score": 60.0,
+      "target": 16.106,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-11T17:51:55.972477"
+    },
     {
       "current_price": 16.08,
       "setup": "TLINE_CONTINUATION",

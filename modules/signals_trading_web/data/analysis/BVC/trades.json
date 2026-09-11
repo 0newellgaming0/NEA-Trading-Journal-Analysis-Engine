@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:16:06.680493+00:00",
+  "generated_at": "2026-09-11T18:13:30.306168+00:00",
   "ticker": "BVC",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED",
+      "setup": "TLINE_CONTINUATION",
+      "ticker": "BVC",
+      "entry": 15.61,
+      "stop": 16.54,
+      "current_price": 15.61,
+      "direction": "Bearish",
+      "score": 68.0,
+      "target": 13.74808913148265,
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-11T17:47:52.050820"
+    },
     {
       "stop": 15.56,
       "risk_reward": 2.0,
