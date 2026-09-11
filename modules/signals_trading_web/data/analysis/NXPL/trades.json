@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:06:10.395334+00:00",
+  "generated_at": "2026-09-11T19:13:36.383465+00:00",
   "ticker": "NXPL",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "ticker": "NXPL",
+      "score": 74.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED",
+      "entry": 9.1,
+      "target": 9.458000000000004,
+      "updated_at": "2026-09-11T18:27:46.810508",
+      "risk_reward": 2.0,
+      "current_price": 9.05,
+      "stop": 8.91,
+      "direction": "Bullish",
+      "setup": "Engulfing"
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "current_price": 9.06,

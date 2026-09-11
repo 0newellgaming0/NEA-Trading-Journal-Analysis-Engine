@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:07:04.231653+00:00",
+  "generated_at": "2026-09-11T19:13:36.740946+00:00",
   "ticker": "SHIP",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "ticker": "SHIP",
+      "score": 75.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED",
+      "entry": 18.5,
+      "target": 19.060541513366417,
+      "updated_at": "2026-09-11T19:09:00.033272",
+      "risk_reward": 2.0,
+      "current_price": 18.37,
+      "stop": 18.22,
+      "direction": "Bullish",
+      "setup": "TLINE_CONTINUATION"
+    },
     {
       "setup": "Engulfing",
       "status": "CONFIRMED",

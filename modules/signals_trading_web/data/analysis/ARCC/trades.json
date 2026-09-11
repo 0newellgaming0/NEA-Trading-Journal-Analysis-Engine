@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:26.903265+00:00",
+  "generated_at": "2026-09-11T19:13:34.379079+00:00",
   "ticker": "ARCC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "ticker": "ARCC",
+      "score": 73.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED",
+      "entry": 19.8,
+      "target": 20.031000000000002,
+      "updated_at": "2026-09-11T18:44:43.895615",
+      "risk_reward": 2.0,
+      "current_price": 19.77,
+      "stop": 19.68,
+      "direction": "Bullish",
+      "setup": "Marubozu"
+    },
     {
       "current_price": 20.0,
       "setup": "Pinbar",
