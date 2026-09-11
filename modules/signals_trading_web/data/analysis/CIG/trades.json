@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:16:10.624846+00:00",
+  "generated_at": "2026-09-11T11:58:45.415279+00:00",
   "ticker": "CIG",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "setup": "MACD_BULLISH_MOMENTUM_EXPANSION",
+      "current_price": 2.22,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "stop": 2.2,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-11T11:58:43.805886",
+      "entry": 2.22,
+      "target": 2.27,
+      "risk_reward": 2.0,
+      "score": 71.0,
+      "ticker": "CIG",
+      "direction": "Bullish"
+    },
     {
       "stop": 2.18,
       "risk_reward": 2.0,
