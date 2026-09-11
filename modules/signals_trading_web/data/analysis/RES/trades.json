@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-11T20:10:44.016828+00:00",
+  "ticker": "RES",
+  "count": 1,
+  "trades": [
+    {
+      "ticker": "RES",
+      "updated_at": "2026-09-11T19:22:14.079374",
+      "direction": "Bullish",
+      "setup": "TLINE_CONTINUATION",
+      "current_price": 6.495,
+      "status": "CONFIRMED",
+      "score": 59.0,
+      "stop": 6.4,
+      "target": 6.669797592775984,
+      "risk_reward": 2.0,
+      "entry": 6.49,
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    }
+  ]
+}

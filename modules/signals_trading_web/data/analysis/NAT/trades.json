@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T19:13:36.247072+00:00",
+  "generated_at": "2026-09-11T20:10:15.211624+00:00",
   "ticker": "NAT",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "ticker": "NAT",
+      "updated_at": "2026-09-11T19:59:13.271626",
+      "direction": "Bullish",
+      "setup": "TLINE_CONTINUATION",
+      "current_price": 7.42,
+      "status": "CONFIRMED",
+      "score": 67.0,
+      "stop": 7.24,
+      "target": 7.699319140404307,
+      "risk_reward": 2.0,
+      "entry": 7.39,
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
     {
       "ticker": "NAT",
       "score": 65.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T13:36:39.387864+00:00",
+  "generated_at": "2026-09-11T20:09:51.233596+00:00",
   "ticker": "GPRK",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "ticker": "GPRK",
+      "updated_at": "2026-09-11T19:34:10.051059",
+      "direction": "Bearish",
+      "setup": "TLINE_CONTINUATION",
+      "current_price": 11.39,
+      "status": "CONFIRMED",
+      "score": 72.0,
+      "stop": 11.73,
+      "target": 10.593282493920187,
+      "risk_reward": 2.0,
+      "entry": 11.35,
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "entry": 12.02,
       "current_price": 11.99,

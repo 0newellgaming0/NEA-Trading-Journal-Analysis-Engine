@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:17:16.024646+00:00",
+  "generated_at": "2026-09-11T20:10:09.311376+00:00",
   "ticker": "MFG",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "ticker": "MFG",
+      "updated_at": "2026-09-11T19:55:27.432803",
+      "direction": "Bullish",
+      "setup": "TLINE_CONTINUATION",
+      "current_price": 11.43,
+      "status": "CONFIRMED",
+      "score": 75.0,
+      "stop": 11.33,
+      "target": 11.720363308922508,
+      "risk_reward": 2.0,
+      "entry": 11.46,
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "stop": 11.03,
       "risk_reward": 2.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T18:13:55.873713+00:00",
+  "generated_at": "2026-09-11T20:09:15.905480+00:00",
   "ticker": "DV",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "ticker": "DV",
+      "updated_at": "2026-09-11T19:27:57.802445",
+      "direction": "Bullish",
+      "setup": "Pinbar",
+      "current_price": 13.405,
+      "status": "CONFIRMED",
+      "score": 59.0,
+      "stop": 13.38,
+      "target": 13.427999999999997,
+      "risk_reward": 2.0,
+      "entry": 13.39,
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "status": "CONFIRMED",
