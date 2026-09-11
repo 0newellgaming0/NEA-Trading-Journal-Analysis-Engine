@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:31:39.826342+00:00",
+  "generated_at": "2026-09-11T09:24:17.034440+00:00",
   "ticker": "CRT",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "current_price": 11.4387,
+      "stop": 11.25,
+      "ticker": "CRT",
+      "status": "CONFIRMED",
+      "entry": 11.33,
+      "target": 11.49328,
+      "regime": "BULLISH_CONSOLIDATION",
+      "direction": "Bullish",
+      "score": 55.0,
+      "updated_at": "2026-09-11T09:21:27.529422",
+      "risk_reward": 2.0,
+      "setup": "Inverted Hammer"
+    },
     {
       "current_price": 11.305,
       "entry": 11.24,

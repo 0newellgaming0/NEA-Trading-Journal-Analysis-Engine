@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:33:11.962316+00:00",
+  "generated_at": "2026-09-11T09:24:17.908339+00:00",
   "ticker": "SECZ",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "current_price": 8.19,
+      "stop": 8.0,
+      "ticker": "SECZ",
+      "status": "CONFIRMED",
+      "entry": 8.14,
+      "target": 8.426000000000002,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "direction": "Bullish",
+      "score": 46.0,
+      "updated_at": "2026-09-11T09:23:43.588192",
+      "risk_reward": 2.0,
+      "setup": "Pinbar"
+    },
     {
       "current_price": 8.0,
       "entry": 8.19,
