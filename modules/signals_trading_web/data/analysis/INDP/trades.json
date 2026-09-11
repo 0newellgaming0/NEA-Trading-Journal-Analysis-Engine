@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:17:01.445707+00:00",
+  "generated_at": "2026-09-11T11:04:56.857939+00:00",
   "ticker": "INDP",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 2.49,
+      "regime": "SHORT_TERM_STRENGTH",
+      "ticker": "INDP",
+      "setup": "Hammer",
+      "entry": 2.56,
+      "direction": "Bullish",
+      "score": 74.0,
+      "updated_at": "2026-09-11T10:42:09.387255",
+      "current_price": 2.6,
+      "risk_reward": 2.0,
+      "target": 2.6920000000000006,
+      "status": "CONFIRMED"
+    },
     {
       "stop": 2.4,
       "risk_reward": 2.0,

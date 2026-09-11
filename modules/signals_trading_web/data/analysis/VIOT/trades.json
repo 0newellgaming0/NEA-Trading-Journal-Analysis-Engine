@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:18:21.928333+00:00",
+  "generated_at": "2026-09-11T11:04:57.520581+00:00",
   "ticker": "VIOT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 1.31,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "ticker": "VIOT",
+      "setup": "VWAP_BULLISH_PULLBACK",
+      "entry": 1.39,
+      "direction": "Bullish",
+      "score": 80.0,
+      "updated_at": "2026-09-11T10:38:31.936893",
+      "current_price": 1.37,
+      "risk_reward": 2.0,
+      "target": 1.5437499999999995,
+      "status": "CONFIRMED"
+    },
     {
       "stop": 1.25,
       "risk_reward": 2.0,

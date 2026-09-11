@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-11T09:17:31.437637+00:00",
+  "generated_at": "2026-09-11T11:04:57.135690+00:00",
   "ticker": "OCC",
   "count": 4,
   "trades": [
     {
       "stop": 13.63,
-      "risk_reward": 2.0,
-      "target": 15.328000000000003,
       "regime": "SHORT_TERM_STRENGTH",
-      "status": "CONFIRMED",
-      "current_price": 14.15,
-      "updated_at": "2026-09-11T05:54:18.806591",
-      "setup": "Hammer",
       "ticker": "OCC",
+      "setup": "Hammer",
       "entry": 14.2,
       "direction": "Bullish",
-      "score": 94.0
+      "score": 91.0,
+      "updated_at": "2026-09-11T10:21:38.956004",
+      "current_price": 13.86,
+      "risk_reward": 2.0,
+      "target": 15.328000000000003,
+      "status": "CONFIRMED"
     },
     {
       "current_price": 14.36,

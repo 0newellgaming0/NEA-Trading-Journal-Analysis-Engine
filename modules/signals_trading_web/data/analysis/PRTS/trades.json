@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:17:37.132524+00:00",
+  "generated_at": "2026-09-11T11:04:57.212996+00:00",
   "ticker": "PRTS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "stop": 8.7,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "ticker": "PRTS",
+      "setup": "Engulfing",
+      "entry": 9.0,
+      "direction": "Bullish",
+      "score": 89.0,
+      "updated_at": "2026-09-11T10:27:41.401217",
+      "current_price": 9.18,
+      "risk_reward": 2.0,
+      "target": 9.598400000000002,
+      "status": "CONFIRMED"
+    },
     {
       "stop": 8.51,
       "risk_reward": 2.0,

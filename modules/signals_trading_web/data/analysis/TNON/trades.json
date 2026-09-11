@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:18:15.264096+00:00",
+  "generated_at": "2026-09-11T11:04:57.445575+00:00",
   "ticker": "TNON",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 5.21,
+      "regime": "BEARISH_CONSOLIDATION",
+      "ticker": "TNON",
+      "setup": "Marubozu",
+      "entry": 5.88,
+      "direction": "Bullish",
+      "score": 89.0,
+      "updated_at": "2026-09-11T10:23:38.185260",
+      "current_price": 6.751,
+      "risk_reward": 2.0,
+      "target": 7.222,
+      "status": "CONFIRMED"
+    },
     {
       "stop": 4.22,
       "risk_reward": 2.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:17:02.501458+00:00",
+  "generated_at": "2026-09-11T11:04:56.887016+00:00",
   "ticker": "IRD",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 6.08,
+      "regime": "BULLISH_CONSOLIDATION",
+      "ticker": "IRD",
+      "setup": "Harami",
+      "entry": 6.05,
+      "direction": "Bearish",
+      "score": 78.0,
+      "updated_at": "2026-09-11T10:35:14.022175",
+      "current_price": 6.06,
+      "risk_reward": 2.0,
+      "target": 5.983999999999999,
+      "status": "CONFIRMED"
+    },
     {
       "stop": 5.53,
       "risk_reward": 2.0,
