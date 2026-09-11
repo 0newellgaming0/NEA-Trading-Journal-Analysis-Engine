@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:32.610507+00:00",
+  "generated_at": "2026-09-11T19:19:45.302966+00:00",
   "ticker": "CHMI",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 2.9343999999999997,
+      "updated_at": "2026-09-11T19:18:07.453542",
+      "direction": "Bullish",
+      "entry": 2.9,
+      "stop": 2.88,
+      "score": 67.0,
+      "current_price": 2.895,
+      "ticker": "CHMI"
+    },
     {
       "current_price": 2.93,
       "setup": "Inside Bar",
