@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T20:09:04.060159+00:00",
+  "generated_at": "2026-09-12T14:49:06.059730+00:00",
   "ticker": "CRT",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "score": 66.0,
+      "ticker": "CRT",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 11.5,
+      "target": 11.885000000000002,
+      "direction": "Bullish",
+      "current_price": 11.7303,
+      "updated_at": "2026-09-12T14:07:06.739618",
+      "stop": 11.31
+    },
     {
       "ticker": "CRT",
       "updated_at": "2026-09-11T19:21:57.996804",

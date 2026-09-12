@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T19:13:34.379079+00:00",
+  "generated_at": "2026-09-12T14:48:44.902881+00:00",
   "ticker": "ARCC",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "TLINE_CROSS",
+      "status": "CONFIRMED",
+      "score": 74.0,
+      "ticker": "ARCC",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "risk_reward": 2.0,
+      "entry": 19.79,
+      "target": 19.97353632803258,
+      "direction": "Bullish",
+      "current_price": 19.788,
+      "updated_at": "2026-09-12T11:28:02.759351",
+      "stop": 19.7
+    },
     {
       "ticker": "ARCC",
       "score": 73.0,

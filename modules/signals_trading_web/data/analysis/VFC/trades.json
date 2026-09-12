@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:52.941825+00:00",
+  "generated_at": "2026-09-12T14:50:17.888157+00:00",
   "ticker": "VFC",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "score": 47.0,
+      "ticker": "VFC",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 13.23,
+      "target": 13.697653562776711,
+      "direction": "Bullish",
+      "current_price": 13.17,
+      "updated_at": "2026-09-12T10:45:02.637222",
+      "stop": 13.0
+    }
+  ]
 }

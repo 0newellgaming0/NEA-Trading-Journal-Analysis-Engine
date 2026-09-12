@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:04.504240+00:00",
+  "generated_at": "2026-09-12T14:49:45.818775+00:00",
   "ticker": "NOK",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "score": 60.0,
+      "ticker": "NOK",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "entry": 11.01,
+      "target": 11.654000000000002,
+      "direction": "Bullish",
+      "current_price": 11.1499,
+      "updated_at": "2026-09-12T14:29:48.495837",
+      "stop": 10.68
+    }
+  ]
 }

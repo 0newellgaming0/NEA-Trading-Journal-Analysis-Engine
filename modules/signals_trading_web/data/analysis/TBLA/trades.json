@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:02:41.357377+00:00",
+  "generated_at": "2026-09-12T14:50:11.569665+00:00",
   "ticker": "TBLA",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "SWING_STRUCTURE",
+      "status": "CONFIRMED",
+      "score": 82.0,
+      "ticker": "TBLA",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "entry": 3.7,
+      "target": 3.3200000000000003,
+      "direction": "BEARISH",
+      "current_price": 3.7525,
+      "updated_at": "2026-09-12T13:05:01.206795",
+      "stop": 3.89
+    },
     {
       "direction": "Bearish",
       "ticker": "TBLA",

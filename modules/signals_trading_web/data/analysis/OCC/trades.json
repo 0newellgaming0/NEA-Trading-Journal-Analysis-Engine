@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T18:15:30.622811+00:00",
+  "generated_at": "2026-09-12T14:49:48.446398+00:00",
   "ticker": "OCC",
-  "count": 11,
+  "count": 12,
   "trades": [
+    {
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "score": 86.0,
+      "ticker": "OCC",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "entry": 14.74,
+      "target": 15.714160000000001,
+      "direction": "Bullish",
+      "current_price": 14.75,
+      "updated_at": "2026-09-12T13:02:45.515659",
+      "stop": 14.25
+    },
     {
       "regime": "SHORT_TERM_STRENGTH",
       "status": "CONFIRMED",

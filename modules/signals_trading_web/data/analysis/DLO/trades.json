@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T13:36:28.839530+00:00",
+  "generated_at": "2026-09-12T14:49:09.913428+00:00",
   "ticker": "DLO",
-  "count": 16,
+  "count": 17,
   "trades": [
+    {
+      "setup": "TLINE_CROSS",
+      "status": "CONFIRMED",
+      "score": 87.0,
+      "ticker": "DLO",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "risk_reward": 2.0,
+      "entry": 14.92,
+      "target": 14.660801347279884,
+      "direction": "Bearish",
+      "current_price": 14.92,
+      "updated_at": "2026-09-12T11:07:46.697377",
+      "stop": 15.05
+    },
     {
       "entry": 14.98,
       "current_price": 14.95,

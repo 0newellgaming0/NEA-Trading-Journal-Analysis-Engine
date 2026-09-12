@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:06.269348+00:00",
+  "generated_at": "2026-09-12T14:49:48.530390+00:00",
   "ticker": "OCSL",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Inverted Hammer",
+      "status": "CONFIRMED",
+      "score": 60.0,
+      "ticker": "OCSL",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "entry": 12.62,
+      "target": 12.690999999999999,
+      "direction": "Bullish",
+      "current_price": 12.67,
+      "updated_at": "2026-09-12T14:27:24.713071",
+      "stop": 12.59
+    }
+  ]
 }

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:43.426146+00:00",
+  "generated_at": "2026-09-12T14:48:58.307081+00:00",
   "ticker": "BWAY",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "score": 67.0,
+      "ticker": "BWAY",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "entry": 13.91,
+      "target": 14.108,
+      "direction": "Bullish",
+      "current_price": 13.93,
+      "updated_at": "2026-09-12T13:44:56.957501",
+      "stop": 13.81
+    }
+  ]
 }

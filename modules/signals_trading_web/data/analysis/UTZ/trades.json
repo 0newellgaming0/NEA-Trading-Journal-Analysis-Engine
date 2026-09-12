@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-11T21:14:59.009034+00:00",
+  "generated_at": "2026-09-12T14:50:16.807238+00:00",
   "ticker": "UTZ",
   "count": 3,
   "trades": [
     {
-      "score": 67.0,
-      "updated_at": "2026-09-11T21:00:19.454514",
       "setup": "Marubozu",
-      "current_price": 14.28,
-      "direction": "Bullish",
       "status": "CONFIRMED",
-      "target": 14.251999999999999,
+      "score": 67.0,
       "ticker": "UTZ",
+      "regime": "FULL_BULLISH_ALIGNMENT",
       "risk_reward": 2.0,
       "entry": 14.23,
-      "regime": "FULL_BULLISH_ALIGNMENT",
+      "target": 14.251999999999999,
+      "direction": "Bullish",
+      "current_price": 14.28,
+      "updated_at": "2026-09-12T13:54:15.685865",
       "stop": 14.22
     },
     {

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:16:52.504944+00:00",
+  "generated_at": "2026-09-12T14:49:23.385214+00:00",
   "ticker": "GPRE",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "setup": "Falling Three Methods",
+      "status": "CONFIRMED",
+      "score": 67.0,
+      "ticker": "GPRE",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "entry": 15.19,
+      "target": 14.540999999999999,
+      "direction": "Bearish",
+      "current_price": 14.9,
+      "updated_at": "2026-09-12T13:47:59.823384",
+      "stop": 15.51
+    },
     {
       "stop": 15.99,
       "risk_reward": 2.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T20:09:15.905480+00:00",
+  "generated_at": "2026-09-12T14:49:12.049502+00:00",
   "ticker": "DV",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "score": 80.0,
+      "ticker": "DV",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 13.42,
+      "target": 13.453000000000001,
+      "direction": "Bullish",
+      "current_price": 13.45,
+      "updated_at": "2026-09-12T13:09:31.360427",
+      "stop": 13.4
+    },
     {
       "ticker": "DV",
       "updated_at": "2026-09-11T19:27:57.802445",

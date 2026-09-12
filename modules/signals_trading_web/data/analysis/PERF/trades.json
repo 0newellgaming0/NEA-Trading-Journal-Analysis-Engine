@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:02:28.373146+00:00",
+  "generated_at": "2026-09-12T14:49:52.568506+00:00",
   "ticker": "PERF",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "score": 57.0,
+      "ticker": "PERF",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "entry": 1.9,
+      "target": 1.8586528540938312,
+      "direction": "Bearish",
+      "current_price": 1.9012,
+      "updated_at": "2026-09-12T09:17:25.663544",
+      "stop": 1.92
+    },
     {
       "direction": "Bullish",
       "ticker": "PERF",

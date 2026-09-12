@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:33:28.085906+00:00",
+  "generated_at": "2026-09-12T14:50:09.897712+00:00",
   "ticker": "SUNE",
-  "count": 12,
+  "count": 13,
   "trades": [
+    {
+      "setup": "Marubozu",
+      "status": "CONFIRMED",
+      "score": 75.0,
+      "ticker": "SUNE",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "entry": 3.1,
+      "target": 2.4252800000000003,
+      "direction": "Bearish",
+      "current_price": 3.19,
+      "updated_at": "2026-09-12T13:30:54.467650",
+      "stop": 3.43
+    },
     {
       "current_price": 3.8999,
       "entry": 4.29,

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:58.065147+00:00",
+  "generated_at": "2026-09-12T14:49:35.845100+00:00",
   "ticker": "LFVN",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "score": 67.0,
+      "ticker": "LFVN",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 6.29,
+      "target": 5.522199999999999,
+      "direction": "Bearish",
+      "current_price": 6.17,
+      "updated_at": "2026-09-12T11:50:33.101800",
+      "stop": 6.67
+    }
+  ]
 }

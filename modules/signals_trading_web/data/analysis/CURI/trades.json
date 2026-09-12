@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:25.041816+00:00",
+  "generated_at": "2026-09-12T14:49:06.736109+00:00",
   "ticker": "CURI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "score": 75.0,
+      "ticker": "CURI",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 2.66,
+      "target": 2.6159999999999997,
+      "direction": "Bearish",
+      "current_price": 2.64,
+      "updated_at": "2026-09-12T12:33:10.042925",
+      "stop": 2.68
+    },
     {
       "stop": 2.8475,
       "ticker": "CURI",

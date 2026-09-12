@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:44.890718+00:00",
+  "generated_at": "2026-09-12T14:49:47.414555+00:00",
   "ticker": "NWG",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "Engulfing",
+      "status": "CONFIRMED",
+      "score": 66.0,
+      "ticker": "NWG",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "entry": 18.91,
+      "target": 19.015,
+      "direction": "Bullish",
+      "current_price": 18.86,
+      "updated_at": "2026-09-12T13:59:36.798953",
+      "stop": 18.85
+    },
     {
       "current_price": 18.53,
       "setup": "Inside Bar",

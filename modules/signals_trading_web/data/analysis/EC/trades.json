@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:49.226038+00:00",
+  "generated_at": "2026-09-12T14:49:12.777108+00:00",
   "ticker": "EC",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Harami",
+      "status": "CONFIRMED",
+      "score": 55.0,
+      "ticker": "EC",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 17.66,
+      "target": 17.924000000000003,
+      "direction": "Bullish",
+      "current_price": 17.9177,
+      "updated_at": "2026-09-12T14:40:15.693391",
+      "stop": 17.53
+    }
+  ]
 }

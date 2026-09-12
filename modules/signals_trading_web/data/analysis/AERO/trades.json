@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:01:37.507108+00:00",
+  "generated_at": "2026-09-12T14:48:37.044805+00:00",
   "ticker": "AERO",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "setup": "Pinbar",
+      "status": "CONFIRMED",
+      "score": 65.0,
+      "ticker": "AERO",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "entry": 15.2,
+      "target": 19.357779999999998,
+      "direction": "Bullish",
+      "current_price": 15.01,
+      "updated_at": "2026-09-12T12:43:25.946453",
+      "stop": 13.12
+    },
     {
       "direction": "Bearish",
       "ticker": "AERO",

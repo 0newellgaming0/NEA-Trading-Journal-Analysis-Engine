@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:15.745669+00:00",
+  "generated_at": "2026-09-12T14:48:38.469213+00:00",
   "ticker": "AIOT",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "score": 76.0,
+      "ticker": "AIOT",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 3.0,
+      "target": 3.0402823849266243,
+      "direction": "Bullish",
+      "current_price": 3.0,
+      "updated_at": "2026-09-12T10:00:11.902771",
+      "stop": 2.98
+    },
     {
       "stop": 3.0217,
       "ticker": "AIOT",

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:06.224940+00:00",
+  "generated_at": "2026-09-12T14:49:48.351323+00:00",
   "ticker": "OBE",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "setup": "Counterattack Lines",
+      "status": "CONFIRMED",
+      "score": 72.0,
+      "ticker": "OBE",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 12.5,
+      "target": 12.807680000000001,
+      "direction": "Bullish",
+      "current_price": 12.9593,
+      "updated_at": "2026-09-12T13:34:44.938901",
+      "stop": 12.35
+    }
+  ]
 }

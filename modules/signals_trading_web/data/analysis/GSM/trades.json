@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:02:09.126347+00:00",
+  "generated_at": "2026-09-12T14:49:24.615012+00:00",
   "ticker": "GSM",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "setup": "Marubozu",
+      "status": "CONFIRMED",
+      "score": 61.0,
+      "ticker": "GSM",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "entry": 4.3,
+      "target": 4.233999999999999,
+      "direction": "Bearish",
+      "current_price": 4.28,
+      "updated_at": "2026-09-12T14:22:00.654222",
+      "stop": 4.33
+    },
     {
       "direction": "Bearish",
       "ticker": "GSM",

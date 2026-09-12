@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:33.792101+00:00",
+  "generated_at": "2026-09-12T14:49:05.689590+00:00",
   "ticker": "CRNT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "setup": "TLINE_CONTINUATION",
+      "status": "CONFIRMED",
+      "score": 64.0,
+      "ticker": "CRNT",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "entry": 2.08,
+      "target": 2.1256589313638408,
+      "direction": "Bullish",
+      "current_price": 2.07,
+      "updated_at": "2026-09-12T07:43:27.585532",
+      "stop": 2.06
+    },
     {
       "current_price": 2.004,
       "setup": "TLINE_CONTINUATION",

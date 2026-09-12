@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:01:37.945714+00:00",
+  "generated_at": "2026-09-12T14:48:37.863240+00:00",
   "ticker": "AHCO",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "setup": "Harami",
+      "status": "CONFIRMED",
+      "score": 66.0,
+      "ticker": "AHCO",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "entry": 5.79,
+      "target": 5.917000000000002,
+      "direction": "Bullish",
+      "current_price": 6.06,
+      "updated_at": "2026-09-12T11:37:56.699046",
+      "stop": 5.72
+    },
     {
       "direction": "Bearish",
       "ticker": "AHCO",
