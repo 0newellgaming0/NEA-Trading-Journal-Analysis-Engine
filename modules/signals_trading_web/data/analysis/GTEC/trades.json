@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-11T20:09:52.790969+00:00",
+  "generated_at": "2026-09-13T14:01:52.612933+00:00",
   "ticker": "GTEC",
   "count": 5,
   "trades": [
     {
-      "ticker": "GTEC",
-      "updated_at": "2026-09-11T19:38:34.422293",
       "direction": "Bearish",
-      "setup": "Marubozu",
-      "current_price": 1.055,
-      "status": "CONFIRMED",
-      "score": 69.0,
-      "stop": 1.09,
-      "target": 1.0190800000000002,
       "risk_reward": 2.0,
       "entry": 1.06,
-      "regime": "SHORT_TERM_WEAKNESS"
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Marubozu",
+      "current_price": 1.05,
+      "ticker": "GTEC",
+      "target": 1.0190800000000002,
+      "score": 69.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T06:25:40.852040",
+      "stop": 1.09
     },
     {
       "stop": 1.03,

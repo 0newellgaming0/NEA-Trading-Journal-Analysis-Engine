@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T01:16:01.172970",
+  "generated_at": "2026-09-12T23:40:14.065644",
   "tickers": {
     "PRQR": {
-      "generated_at": "2026-09-12T01:16:01.172970",
+      "generated_at": "2026-09-12T23:40:14.065644",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

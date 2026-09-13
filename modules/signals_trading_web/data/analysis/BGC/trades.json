@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:48:53.510096+00:00",
+  "generated_at": "2026-09-13T14:01:04.043524+00:00",
   "ticker": "BGC",
   "count": 5,
   "trades": [
     {
-      "setup": "Falling Three Methods",
-      "status": "CONFIRMED",
-      "score": 78.0,
-      "ticker": "BGC",
-      "regime": "BULLISH_CONSOLIDATION",
+      "direction": "Bearish",
       "risk_reward": 2.0,
       "entry": 12.06,
-      "target": 11.818000000000003,
-      "direction": "Bearish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Falling Three Methods",
       "current_price": 12.13,
-      "updated_at": "2026-09-12T13:14:09.581475",
+      "ticker": "BGC",
+      "target": 11.818000000000003,
+      "score": 78.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T10:43:15.444915",
       "stop": 12.18
     },
     {

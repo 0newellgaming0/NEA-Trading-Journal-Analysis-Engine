@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T19:13:36.879206+00:00",
+  "generated_at": "2026-09-13T05:55:16.429453+00:00",
   "ticker": "SWVL",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "updated_at": "2026-09-13T05:32:10.406270",
+      "risk_reward": 2.0,
+      "stop": 8.02,
+      "current_price": 7.15,
+      "status": "CONFIRMED",
+      "score": 67.0,
+      "entry": 7.34,
+      "direction": "Bearish",
+      "setup": "Engulfing",
+      "ticker": "SWVL",
+      "target": 5.990199999999999,
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
     {
       "ticker": "SWVL",
       "score": 66.0,

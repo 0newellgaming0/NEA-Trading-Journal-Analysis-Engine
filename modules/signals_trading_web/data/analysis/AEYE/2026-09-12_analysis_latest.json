@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T04:44:45.851908",
+  "generated_at": "2026-09-12T12:44:58.231632",
   "tickers": {
     "AEYE": {
-      "generated_at": "2026-09-12T04:44:45.851908",
+      "generated_at": "2026-09-12T12:44:58.231632",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

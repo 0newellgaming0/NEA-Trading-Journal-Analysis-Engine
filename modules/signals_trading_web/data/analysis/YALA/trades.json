@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:50:23.577130+00:00",
+  "generated_at": "2026-09-13T14:03:25.540909+00:00",
   "ticker": "YALA",
   "count": 2,
   "trades": [
     {
-      "setup": "Marubozu",
-      "status": "CONFIRMED",
-      "score": 79.0,
-      "ticker": "YALA",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "direction": "Bullish",
       "risk_reward": 2.0,
       "entry": 5.49,
-      "target": 5.5230000000000015,
-      "direction": "Bullish",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "setup": "Marubozu",
       "current_price": 5.5,
-      "updated_at": "2026-09-12T12:02:13.794784",
+      "ticker": "YALA",
+      "target": 5.5230000000000015,
+      "score": 79.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T10:33:37.336123",
       "stop": 5.47
     },
     {

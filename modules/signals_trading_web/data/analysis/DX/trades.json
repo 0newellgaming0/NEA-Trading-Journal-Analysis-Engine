@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:28:49.128230+00:00",
+  "generated_at": "2026-09-13T14:01:26.384733+00:00",
   "ticker": "DX",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "entry": 12.57,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "setup": "Wyckoff Spring (Seed)",
+      "current_price": 12.5699,
+      "ticker": "DX",
+      "target": 12.760000000000002,
+      "score": 74.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T12:12:55.220975",
+      "stop": 12.47
+    }
+  ]
 }

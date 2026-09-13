@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T03:43:27.405216",
+  "generated_at": "2026-09-12T22:08:33.195048",
   "tickers": {
     "BTZ": {
-      "generated_at": "2026-09-12T03:43:27.405216",
+      "generated_at": "2026-09-12T22:08:33.195048",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

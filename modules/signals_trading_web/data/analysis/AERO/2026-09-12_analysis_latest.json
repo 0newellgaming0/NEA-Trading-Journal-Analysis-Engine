@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T09:08:50.544133",
+  "generated_at": "2026-09-12T19:38:57.948230",
   "tickers": {
     "AERO": {
-      "generated_at": "2026-09-12T09:08:50.544133",
+      "generated_at": "2026-09-12T19:38:57.948230",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -36,8 +36,12 @@
         "sec_cash_flow": "",
         "sec_new_developments": "",
         "sec_canslim": "",
-        "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n"
-      }
+        "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n",
+        "pending_60m_setups": "📋 PENDING 60M SETUPS\n\nTicker: AERO\n\nPending Setups: 4\n\n### Setup 1\n- Module: Doji Sandwiches\n- Event Type: Bullish Gravestone Doji Sandwich\n- Direction: Bullish\n- Trade Type: \n- Entry: 15.55\n- Stop: 13.08611\n- Wick Stop: 13.3101\n- Target 1: 17.789900000000003\n- Target 2: 20.0298\n- Detected: 2026-09-10 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 40.49347497498563%\n- Historical Failure Rate: 59.50652502501437%\n\n---\n\n### Setup 2\n- Module: Hammer\n- Event Type: Shooting Star\n- Direction: Bearish\n- Trade Type: REVERSAL\n- Entry: 15.01\n- Stop: 15.12\n- Wick Stop: 15.11\n- Target 1: 14.91\n- Target 2: 14.81\n- Detected: 2026-09-11 19:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 40.71608940985753%\n- Historical Failure Rate: 59.283910590142476%\n\n---\n\n### Setup 3\n- Module: Lines\n- Event Type: Counterattack Lines\n- Direction: Bearish\n- Trade Type: MIXED\n- Entry: 15.0\n- Stop: 15.165000000000001\n- Wick Stop: 15.15\n- Target 1: 14.85\n- Target 2: 14.7\n- Detected: 2026-09-11 18:30:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 45.928208902586746%\n- Historical Failure Rate: 54.07179109741325%\n\n---\n\n### Setup 4\n- Module: T Line\n- Event Type: TLINE_CONTINUATION\n- Direction: Bearish\n- Trade Type: TLINE_CONTINUATION\n- Entry: 15.01\n- Stop: 15.297943121528078\n- Wick Stop: \n- Target 1: 14.722056878471921\n- Target 2: 14.434113756943843\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 38.70655014471577%\n- Historical Failure Rate: 61.29344985528423%",
+        "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     AERO\nDirection:  Bullish\nSetup:      Pinbar\nRegime:     SHORT_TERM_WEAKNESS\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          Pinbar\nCount:          63633\nSuccess:        25837\nFailed:         31335\nUnresolved:     6461\nResolved:       57172\nSuccess Rate:   45.19%\nFailure Rate:   54.81%\n\nTARGET 2 PERFORMANCE\n\nSetup:              Pinbar\nCount:              25837\nTarget 2 Reached:   20568\nTarget 2 Not Reached: 5269\nTarget 2 Hit Rate:  79.61%"
+      },
+      "pending_60m_generated_at": "2026-09-12T19:40:45.489774",
+      "current_performance_generated_at": "2026-09-12T19:40:57.561636"
     }
   }
 }

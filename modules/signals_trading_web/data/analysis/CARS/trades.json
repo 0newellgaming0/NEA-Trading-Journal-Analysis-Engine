@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T09:15:23.186199+00:00",
+  "generated_at": "2026-09-13T14:01:10.717140+00:00",
   "ticker": "CARS",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "entry": 11.38,
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "Candle Over Candle",
+      "current_price": 11.61,
+      "ticker": "CARS",
+      "target": 11.639,
+      "score": 76.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T11:34:42.528995",
+      "stop": 11.24
+    },
     {
       "stop": 12.03,
       "ticker": "CARS",

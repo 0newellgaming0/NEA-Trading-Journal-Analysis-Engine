@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:50:18.094600+00:00",
+  "generated_at": "2026-09-13T14:03:19.986917+00:00",
   "ticker": "VFF",
   "count": 7,
   "trades": [
     {
-      "setup": "Engulfing",
-      "status": "CONFIRMED",
-      "score": 78.0,
-      "ticker": "VFF",
-      "regime": "BULLISH_CONSOLIDATION",
+      "direction": "Bullish",
       "risk_reward": 2.0,
       "entry": 2.89,
-      "target": 3.033,
-      "direction": "Bullish",
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Engulfing",
       "current_price": 2.88,
-      "updated_at": "2026-09-12T13:21:09.843984",
+      "ticker": "VFF",
+      "target": 3.033,
+      "score": 78.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T11:06:07.554681",
       "stop": 2.82
     },
     {

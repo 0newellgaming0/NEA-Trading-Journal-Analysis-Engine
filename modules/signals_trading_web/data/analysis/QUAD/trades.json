@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:56.829748+00:00",
+  "generated_at": "2026-09-13T16:09:51.928976+00:00",
   "ticker": "QUAD",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "target": 10.060279999999999,
+      "score": 67.0,
+      "current_price": 10.1,
+      "ticker": "QUAD",
+      "entry": 10.11,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T14:22:06.371629",
+      "setup": "Pinbar",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "stop": 10.13
+    },
     {
       "setup": "Marubozu",
       "status": "CONFIRMED",

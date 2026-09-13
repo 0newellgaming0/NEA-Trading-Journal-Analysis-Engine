@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.781566+00:00",
+  "generated_at": "2026-09-13T14:01:00.243682+00:00",
   "ticker": "AWX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "entry": 2.61,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Pinbar",
+      "current_price": 2.66,
+      "ticker": "AWX",
+      "target": 2.455999999999999,
+      "score": 74.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T11:54:36.763068",
+      "stop": 2.69
+    },
     {
       "entry": 2.67,
       "current_price": 2.6718,

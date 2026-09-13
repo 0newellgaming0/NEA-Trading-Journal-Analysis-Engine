@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:30.817974+00:00",
+  "generated_at": "2026-09-13T14:02:39.000591+00:00",
   "ticker": "NCMI",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "entry": 2.46,
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "Marubozu",
+      "current_price": 2.42,
+      "ticker": "NCMI",
+      "target": 2.367,
+      "score": 41.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T13:43:03.569577",
+      "stop": 2.5
+    }
+  ]
 }

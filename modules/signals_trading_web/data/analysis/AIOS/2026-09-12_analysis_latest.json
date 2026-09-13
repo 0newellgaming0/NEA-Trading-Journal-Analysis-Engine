@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T04:56:26.382903",
+  "generated_at": "2026-09-12T12:51:19.597658",
   "tickers": {
     "AIOS": {
-      "generated_at": "2026-09-12T04:56:26.382903",
+      "generated_at": "2026-09-12T12:51:19.597658",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

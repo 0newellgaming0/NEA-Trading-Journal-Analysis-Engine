@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:50:16.940945+00:00",
+  "generated_at": "2026-09-13T16:09:52.407858+00:00",
   "ticker": "VALE",
   "count": 3,
   "trades": [
     {
-      "setup": "Harami",
       "status": "CONFIRMED",
-      "score": 56.0,
-      "ticker": "VALE",
-      "regime": "BULLISH_CONSOLIDATION",
-      "risk_reward": 2.0,
-      "entry": 15.19,
       "target": 15.431999999999997,
-      "direction": "Bullish",
+      "score": 56.0,
       "current_price": 15.213,
-      "updated_at": "2026-09-12T14:37:23.528224",
+      "ticker": "VALE",
+      "entry": 15.19,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T15:56:40.471538",
+      "setup": "Harami",
+      "regime": "BULLISH_CONSOLIDATION",
       "stop": 15.07
     },
     {

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T21:14:58.377351+00:00",
+  "generated_at": "2026-09-13T05:35:55.373960+00:00",
   "ticker": "RSKD",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "current_price": 6.09,
+      "direction": "Bullish",
+      "entry": 6.08,
+      "stop": 5.95,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Loose Rising Mat Hold",
+      "ticker": "RSKD",
+      "updated_at": "2026-09-13T05:14:45.546860",
+      "risk_reward": 2.0,
+      "target": 6.34422,
+      "status": "CONFIRMED",
+      "score": 66.0
+    },
     {
       "score": 68.0,
       "updated_at": "2026-09-11T20:35:02.286889",

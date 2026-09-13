@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-11T21:14:59.090419+00:00",
+  "generated_at": "2026-09-13T05:36:39.213943+00:00",
   "ticker": "VREX",
   "count": 2,
   "trades": [
     {
-      "score": 69.0,
-      "updated_at": "2026-09-11T21:11:07.085805",
-      "setup": "Marubozu",
       "current_price": 18.46,
       "direction": "Bearish",
-      "status": "CONFIRMED",
-      "target": 18.413999999999998,
-      "ticker": "VREX",
-      "risk_reward": 2.0,
       "entry": 18.48,
+      "stop": 18.51,
       "regime": "PRIMARY_UPTREND_PULLBACK",
-      "stop": 18.51
+      "setup": "Marubozu",
+      "ticker": "VREX",
+      "updated_at": "2026-09-13T05:26:20.482058",
+      "risk_reward": 2.0,
+      "target": 18.413999999999998,
+      "status": "CONFIRMED",
+      "score": 69.0
     },
     {
       "entry": 18.505,

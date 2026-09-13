@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:49:22.068385+00:00",
+  "generated_at": "2026-09-13T16:09:51.004342+00:00",
   "ticker": "GGB",
   "count": 7,
   "trades": [
     {
-      "setup": "Rising Three Methods",
       "status": "CONFIRMED",
-      "score": 66.0,
-      "ticker": "GGB",
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "risk_reward": 2.0,
-      "entry": 4.78,
       "target": 4.839680000000001,
-      "direction": "Bullish",
+      "score": 66.0,
       "current_price": 4.9218,
-      "updated_at": "2026-09-12T14:04:16.918062",
+      "ticker": "GGB",
+      "entry": 4.78,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T15:01:19.146209",
+      "setup": "Rising Three Methods",
+      "regime": "FULL_BULLISH_ALIGNMENT",
       "stop": 4.76
     },
     {

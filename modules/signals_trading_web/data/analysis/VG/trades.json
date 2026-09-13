@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:50:18.234891+00:00",
+  "generated_at": "2026-09-13T14:03:20.124932+00:00",
   "ticker": "VG",
   "count": 4,
   "trades": [
     {
-      "setup": "Pinbar",
-      "status": "CONFIRMED",
-      "score": 78.0,
-      "ticker": "VG",
-      "regime": "SHORT_TERM_STRENGTH",
+      "direction": "Bullish",
       "risk_reward": 2.0,
       "entry": 15.86,
-      "target": 16.233999999999998,
-      "direction": "Bullish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Pinbar",
       "current_price": 15.8369,
-      "updated_at": "2026-09-12T13:18:21.657462",
+      "ticker": "VG",
+      "target": 16.233999999999998,
+      "score": 78.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T10:55:22.823445",
       "stop": 15.67
     },
     {

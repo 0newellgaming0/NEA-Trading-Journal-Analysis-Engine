@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T08:31:10.065339",
+  "generated_at": "2026-09-12T17:09:50.660351",
   "tickers": {
     "VIOT": {
-      "generated_at": "2026-09-12T08:31:10.065339",
+      "generated_at": "2026-09-12T17:09:50.660351",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -36,8 +36,12 @@
         "sec_cash_flow": "",
         "sec_new_developments": "## New Developments\n\n            {\n  \"ticker\": null,\n  \"filings_reviewed\": [],\n  \"events\": [],\n  \"external_events\": [],\n  \"new_products\": 0,\n  \"ai_mentions\": 0,\n  \"technology_mentions\": 0,\n  \"partnerships\": 0,\n  \"contracts\": 0,\n  \"expansions\": 0,\n  \"acquisitions\": 0,\n  \"management_changes\": 0,\n  \"innovation_state\": \"UNKNOWN\",\n  \"strategic_momentum\": \"UNKNOWN\",\n  \"catalyst_score\": 0,\n  \"sec_catalyst_count\": 0,\n  \"external_catalyst_count\": 0,\n  \"score\": 0,\n  \"quality\": \"NO DATA\"\n}",
         "sec_canslim": "## Institutional Sponsorship\n\n            Current Earnings: None\n            Annual Growth: None\n\n            Institutional Sponsorship: None\n            Leadership: None\n\n            Supply / Demand: None\n            New Development: None\n\n            CANSLIM Score: 23.7\n            Classification: WEAK",
-        "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n"
-      }
+        "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n",
+        "pending_60m_setups": "📋 PENDING 60M SETUPS\n\nTicker: VIOT\n\nPending Setups: 6\n\n### Setup 1\n- Module: Alligator\n- Event Type: GREEN_ZONE_BUY\n- Direction: Bullish\n- Trade Type: \n- Entry: 1.4500009999999999\n- Stop: 1.44989\n- Wick Stop: 1.4499\n- Target 1: 1.4501119999999998\n- Target 2: 1.4502229999999998\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 36.82904755960554%\n- Historical Failure Rate: 63.17095244039446%\n\n---\n\n### Setup 2\n- Module: Hammer\n- Event Type: Shooting Star\n- Direction: Bearish\n- Trade Type: REVERSAL\n- Entry: 1.45\n- Stop: 1.5710000000000002\n- Wick Stop: 1.56\n- Target 1: 1.3399999999999999\n- Target 2: 1.2299999999999998\n- Detected: 2026-09-11 22:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 40.58708224659398%\n- Historical Failure Rate: 59.41291775340601%\n\n---\n\n### Setup 3\n- Module: Lines\n- Event Type: Counterattack Lines\n- Direction: Bullish\n- Trade Type: MIXED\n- Entry: 1.45\n- Stop: 1.44989\n- Wick Stop: 1.4499\n- Target 1: 1.4501\n- Target 2: 1.4502\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 46.01298431991833%\n- Historical Failure Rate: 53.987015680081676%\n\n---\n\n### Setup 4\n- Module: Marubozu\n- Event Type: Marubozu\n- Direction: Bullish\n- Trade Type: CONTINUATION\n- Entry: 1.45\n- Stop: 1.44989\n- Wick Stop: 1.4499\n- Target 1: 1.4501199999999999\n- Target 2: 1.45025\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 42.00819672131148%\n- Historical Failure Rate: 57.99180327868852%\n\n---\n\n### Setup 5\n- Module: RSI 50\n- Event Type: RSI_ABOVE_50_CONTINUATION\n- Direction: Bullish\n- Trade Type: CONTINUATION\n- Entry: 1.45\n- Stop: 1.44989\n- Wick Stop: 1.4499\n- Target 1: 1.4501\n- Target 2: 1.4502\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 34.274583232664895%\n- Historical Failure Rate: 65.7254167673351%\n\n---\n\n### Setup 6\n- Module: T Line\n- Event Type: TLINE_CONTINUATION\n- Direction: Bullish\n- Trade Type: TLINE_CONTINUATION\n- Entry: 1.45\n- Stop: 1.3521190120501767\n- Wick Stop: \n- Target 1: 1.5478809879498232\n- Target 2: 1.6457619758996465\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 38.56856245638521%\n- Historical Failure Rate: 61.4314375436148%",
+        "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     VIOT\nDirection:  Bullish\nSetup:      Engulfing\nRegime:     FULL_BULLISH_ALIGNMENT\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          Engulfing\nCount:          60485\nSuccess:        23789\nFailed:         31008\nUnresolved:     5688\nResolved:       54797\nSuccess Rate:   43.41%\nFailure Rate:   56.59%\n\nTARGET 2 PERFORMANCE\n\nSetup:              Engulfing\nCount:              23789\nTarget 2 Reached:   18391\nTarget 2 Not Reached: 5398\nTarget 2 Hit Rate:  77.31%"
+      },
+      "pending_60m_generated_at": "2026-09-12T17:12:50.618925",
+      "current_performance_generated_at": "2026-09-12T17:13:08.124444"
     }
   }
 }

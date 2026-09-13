@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:08.954969+00:00",
+  "generated_at": "2026-09-13T14:00:56.891922+00:00",
   "ticker": "ARKO",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "entry": 4.49,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "setup": "Counterattack Lines",
+      "current_price": 4.52,
+      "ticker": "ARKO",
+      "target": 4.347000000000001,
+      "score": 49.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T06:29:49.728579",
+      "stop": 4.56
+    },
     {
       "direction": "Bullish",
       "regime": "PRIMARY_DOWNTREND_RALLY",

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T04:40:05.206660",
+  "generated_at": "2026-09-12T12:10:05.383894",
   "tickers": {
     "AAME": {
-      "generated_at": "2026-09-12T04:40:05.206660",
+      "generated_at": "2026-09-12T12:10:05.383894",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

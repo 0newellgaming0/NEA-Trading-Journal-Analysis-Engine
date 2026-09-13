@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T08:52:02.997281",
+  "generated_at": "2026-09-12T18:37:31.604080",
   "tickers": {
     "UTZ": {
-      "generated_at": "2026-09-12T08:52:02.997281",
+      "generated_at": "2026-09-12T18:37:31.604080",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -40,8 +40,8 @@
         "pending_60m_setups": "📋 PENDING 60M SETUPS\n\nTicker: UTZ\n\nPending Setups: 7\n\n### Setup 1\n- Module: Doji Sandwiches\n- Event Type: Bullish Long-Legged Doji Sandwich\n- Direction: Bullish\n- Trade Type: \n- Entry: 14.28\n- Stop: 14.24942\n- Wick Stop: 14.2522\n- Target 1: 14.307799999999999\n- Target 2: 14.335599999999998\n- Detected: 2026-09-11 18:30:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 40.435186824862754%\n- Historical Failure Rate: 59.564813175137246%\n\n---\n\n### Setup 2\n- Module: EMA 50\n- Event Type: EMA50_CRUNCH\n- Direction: Bullish\n- Trade Type: NEUTRAL\n- Entry: 14.28\n- Stop: 14.258\n- Wick Stop: 14.26\n- Target 1: 14.299999999999999\n- Target 2: 14.319999999999999\n- Detected: 2026-09-11 19:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 48.41829906314637%\n- Historical Failure Rate: 51.581700936853636%\n\n---\n\n### Setup 3\n- Module: Engulfing\n- Event Type: Engulfing\n- Direction: Bullish\n- Trade Type: \n- Entry: 14.28\n- Stop: 14.2635\n- Wick Stop: 14.265\n- Target 1: 14.294999999999998\n- Target 2: 14.309999999999997\n- Detected: 2026-09-11 18:30:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 43.412960563534504%\n- Historical Failure Rate: 56.5870394364655%\n\n---\n\n### Setup 4\n- Module: Hammer\n- Event Type: Hammer\n- Direction: Bullish\n- Trade Type: REVERSAL\n- Entry: 14.28\n- Stop: 14.258\n- Wick Stop: 14.26\n- Target 1: 14.299999999999999\n- Target 2: 14.319999999999999\n- Detected: 2026-09-11 19:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 40.58708224659398%\n- Historical Failure Rate: 59.41291775340601%\n\n---\n\n### Setup 5\n- Module: Lines\n- Event Type: Side-by-Side White Lines\n- Direction: Bullish\n- Trade Type: MIXED\n- Entry: 14.28\n- Stop: 14.258\n- Wick Stop: 14.26\n- Target 1: 14.303999999999998\n- Target 2: 14.329999999999998\n- Detected: 2026-09-11 19:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 46.01298431991833%\n- Historical Failure Rate: 53.987015680081676%\n\n---\n\n### Setup 6\n- Module: Pinbar\n- Event Type: Pinbar\n- Direction: Bullish\n- Trade Type: REVERSAL\n- Entry: 14.28\n- Stop: 14.258\n- Wick Stop: 14.26\n- Target 1: 14.299999999999999\n- Target 2: 14.319999999999999\n- Detected: 2026-09-11 19:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 45.17531097694042%\n- Historical Failure Rate: 54.824689023059584%\n\n---\n\n### Setup 7\n- Module: T Line\n- Event Type: TLINE_CONTINUATION\n- Direction: Bullish\n- Trade Type: TLINE_CONTINUATION\n- Entry: 14.28\n- Stop: 14.255433003071916\n- Wick Stop: \n- Target 1: 14.304566996928083\n- Target 2: 14.329133993856166\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 38.56856245638521%\n- Historical Failure Rate: 61.4314375436148%",
         "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     UTZ\nDirection:  Bullish\nSetup:      Marubozu\nRegime:     FULL_BULLISH_ALIGNMENT\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          Marubozu\nCount:          60490\nSuccess:        22960\nFailed:         31696\nUnresolved:     5834\nResolved:       54656\nSuccess Rate:   42.01%\nFailure Rate:   57.99%\n\nTARGET 2 PERFORMANCE\n\nSetup:              Marubozu\nCount:              22960\nTarget 2 Reached:   18632\nTarget 2 Not Reached: 4328\nTarget 2 Hit Rate:  81.15%"
       },
-      "pending_60m_generated_at": "2026-09-12T08:53:31.945386",
-      "current_performance_generated_at": "2026-09-12T08:54:15.870503"
+      "pending_60m_generated_at": "2026-09-12T18:39:54.425686",
+      "current_performance_generated_at": "2026-09-12T18:40:53.338499"
     }
   }
 }

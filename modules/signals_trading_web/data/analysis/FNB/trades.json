@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T14:23:37.360593+00:00",
+  "generated_at": "2026-09-13T16:09:50.939801+00:00",
   "ticker": "FNB",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "target": 18.37374000000001,
+      "score": 67.0,
+      "current_price": 18.31,
+      "ticker": "FNB",
+      "entry": 18.28,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T14:35:02.437260",
+      "setup": "Pinbar",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "stop": 18.23
+    },
     {
       "current_price": 17.93,
       "setup": "Inside Bar",

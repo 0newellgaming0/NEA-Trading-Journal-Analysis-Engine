@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:49:55.364519+00:00",
+  "generated_at": "2026-09-13T14:02:55.633405+00:00",
   "ticker": "PUMP",
   "count": 1,
   "trades": [
     {
-      "setup": "TLINE_CROSS",
-      "status": "CONFIRMED",
-      "score": 71.0,
-      "ticker": "PUMP",
-      "regime": "SHORT_TERM_STRENGTH",
+      "direction": "Bearish",
       "risk_reward": 2.0,
       "entry": 11.43,
-      "target": 10.863600332052663,
-      "direction": "Bearish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "TLINE_CROSS",
       "current_price": 11.43,
-      "updated_at": "2026-09-12T13:37:29.112134",
+      "ticker": "PUMP",
+      "target": 10.863600332052663,
+      "score": 71.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T13:11:13.366519",
       "stop": 11.71
     }
   ]

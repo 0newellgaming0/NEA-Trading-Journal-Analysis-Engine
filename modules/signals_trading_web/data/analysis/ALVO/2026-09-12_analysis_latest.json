@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T08:31:38.154659",
+  "generated_at": "2026-09-12T17:31:22.593456",
   "tickers": {
     "ALVO": {
-      "generated_at": "2026-09-12T08:31:38.154659",
+      "generated_at": "2026-09-12T17:31:22.593456",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -36,8 +36,12 @@
         "sec_cash_flow": "",
         "sec_new_developments": "## New Developments\n\n            {\n  \"ticker\": null,\n  \"filings_reviewed\": [],\n  \"events\": [],\n  \"external_events\": [],\n  \"new_products\": 0,\n  \"ai_mentions\": 0,\n  \"technology_mentions\": 0,\n  \"partnerships\": 0,\n  \"contracts\": 0,\n  \"expansions\": 0,\n  \"acquisitions\": 0,\n  \"management_changes\": 0,\n  \"innovation_state\": \"UNKNOWN\",\n  \"strategic_momentum\": \"UNKNOWN\",\n  \"catalyst_score\": 0,\n  \"sec_catalyst_count\": 0,\n  \"external_catalyst_count\": 0,\n  \"score\": 0,\n  \"quality\": \"NO DATA\"\n}",
         "sec_canslim": "## Institutional Sponsorship\n\n            Current Earnings: None\n            Annual Growth: None\n\n            Institutional Sponsorship: None\n            Leadership: None\n\n            Supply / Demand: None\n            New Development: None\n\n            CANSLIM Score: 18.52\n            Classification: WEAK",
-        "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n"
-      }
+        "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n",
+        "pending_60m_setups": "📋 PENDING 60M SETUPS\n\nTicker: ALVO\n\nPending Setups: 6\n\n### Setup 1\n- Module: Doji Sandwiches\n- Event Type: Bearish Gravestone Doji Sandwich\n- Direction: Bearish\n- Trade Type: \n- Entry: 5.27\n- Stop: 5.336\n- Wick Stop: 5.33\n- Target 1: 5.209999999999999\n- Target 2: 5.149999999999999\n- Detected: 2026-09-11 19:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 40.435186824862754%\n- Historical Failure Rate: 59.564813175137246%\n\n---\n\n### Setup 2\n- Module: EMA 50\n- Event Type: EMA50_CRUNCH\n- Direction: Bullish\n- Trade Type: NEUTRAL\n- Entry: 5.31\n- Stop: 5.277\n- Wick Stop: 5.28\n- Target 1: 5.339999999999999\n- Target 2: 5.369999999999998\n- Detected: 2026-09-11 19:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 48.41829906314637%\n- Historical Failure Rate: 51.581700936853636%\n\n---\n\n### Setup 3\n- Module: Engulfing\n- Event Type: Engulfing\n- Direction: Bearish\n- Trade Type: \n- Entry: 5.28\n- Stop: 5.313\n- Wick Stop: 5.31\n- Target 1: 5.250000000000001\n- Target 2: 5.2200000000000015\n- Detected: 2026-09-11 19:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 43.412960563534504%\n- Historical Failure Rate: 56.5870394364655%\n\n---\n\n### Setup 4\n- Module: Kickers\n- Event Type: Left Right Combo\n- Direction: Bullish\n- Trade Type: \n- Entry: 5.43\n- Stop: 5.089\n- Wick Stop: 5.12\n- Target 1: 5.739999999999999\n- Target 2: 6.049999999999999\n- Detected: 2026-09-11 12:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 39.91511836272753%\n- Historical Failure Rate: 60.08488163727247%\n\n---\n\n### Setup 5\n- Module: Lines\n- Event Type: Counterattack Lines\n- Direction: Bearish\n- Trade Type: MIXED\n- Entry: 5.27\n- Stop: 5.336\n- Wick Stop: 5.33\n- Target 1: 5.209999999999999\n- Target 2: 5.149999999999999\n- Detected: 2026-09-11 17:30:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 46.01298431991833%\n- Historical Failure Rate: 53.987015680081676%\n\n---\n\n### Setup 6\n- Module: T Line\n- Event Type: TLINE_CONTINUATION\n- Direction: Bearish\n- Trade Type: TLINE_CONTINUATION\n- Entry: 5.29\n- Stop: 5.340990226341632\n- Wick Stop: \n- Target 1: 5.239009773658368\n- Target 2: 5.188019547316736\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 38.56856245638521%\n- Historical Failure Rate: 61.4314375436148%",
+        "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     ALVO\nDirection:  Bearish\nSetup:      Pinbar\nRegime:     SHORT_TERM_STRENGTH\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          Pinbar\nCount:          61296\nSuccess:        24841\nFailed:         30147\nUnresolved:     6308\nResolved:       54988\nSuccess Rate:   45.18%\nFailure Rate:   54.82%\n\nTARGET 2 PERFORMANCE\n\nSetup:              Pinbar\nCount:              24841\nTarget 2 Reached:   19749\nTarget 2 Not Reached: 5092\nTarget 2 Hit Rate:  79.50%"
+      },
+      "pending_60m_generated_at": "2026-09-12T17:34:33.310451",
+      "current_performance_generated_at": "2026-09-12T17:36:00.570877"
     }
   }
 }

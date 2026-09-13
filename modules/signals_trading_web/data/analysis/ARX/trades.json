@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T00:48:34.944711+00:00",
+  "generated_at": "2026-09-12T22:55:20.911554+00:00",
   "ticker": "ARX",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "updated_at": "2026-09-12T18:37:37.548306",
+      "ticker": "ARX",
+      "entry": 19.86,
+      "target": 19.837999999999994,
+      "score": 64.0,
+      "setup": "Harami Cross",
+      "direction": "Bearish",
+      "stop": 19.87,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "current_price": 19.84,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0
+    },
     {
       "updated_at": "2026-09-01T23:58:27.498622",
       "target": 19.816999999999997,

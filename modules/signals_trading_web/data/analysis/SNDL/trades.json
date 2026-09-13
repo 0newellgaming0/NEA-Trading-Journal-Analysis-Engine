@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T19:33:21.685347+00:00",
+  "generated_at": "2026-09-13T14:03:07.488378+00:00",
   "ticker": "SNDL",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "entry": 1.34,
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "setup": "TLINE_CROSS",
+      "current_price": 1.3402,
+      "ticker": "SNDL",
+      "target": 1.3010224909660273,
+      "score": 65.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T05:59:31.241481",
+      "stop": 1.36
+    },
     {
       "current_price": 1.3401,
       "entry": 1.36,

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T05:16:15.025112",
+  "generated_at": "2026-09-12T13:02:15.560510",
   "tickers": {
     "ALPS": {
-      "generated_at": "2026-09-12T05:16:15.025112",
+      "generated_at": "2026-09-12T13:02:15.560510",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

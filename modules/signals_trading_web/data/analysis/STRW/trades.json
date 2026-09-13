@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T11:24:32.308613+00:00",
+  "generated_at": "2026-09-13T14:03:10.554374+00:00",
   "ticker": "STRW",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "entry": 13.93,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "setup": "Pinbar",
+      "current_price": 13.82,
+      "ticker": "STRW",
+      "target": 13.688000000000002,
+      "score": 72.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T12:51:15.838914",
+      "stop": 14.05
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "ticker": "STRW",

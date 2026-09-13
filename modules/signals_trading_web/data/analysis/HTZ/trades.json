@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-05T08:34:56.358166+00:00",
+  "generated_at": "2026-09-13T14:01:58.393178+00:00",
   "ticker": "HTZ",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "entry": 2.05,
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "TLINE_CROSS",
+      "current_price": 2.05,
+      "ticker": "HTZ",
+      "target": 2.1061146893046017,
+      "score": 79.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T10:37:58.381718",
+      "stop": 2.02
+    }
+  ]
 }

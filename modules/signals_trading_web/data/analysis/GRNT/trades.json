@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:49:24.256243+00:00",
+  "generated_at": "2026-09-13T16:09:51.067758+00:00",
   "ticker": "GRNT",
   "count": 4,
   "trades": [
     {
-      "setup": "Pinbar",
       "status": "CONFIRMED",
-      "score": 66.0,
-      "ticker": "GRNT",
-      "regime": "SHORT_TERM_STRENGTH",
-      "risk_reward": 2.0,
-      "entry": 5.05,
       "target": 5.092239999999999,
-      "direction": "Bullish",
+      "score": 66.0,
       "current_price": 5.1,
-      "updated_at": "2026-09-12T11:55:46.157682",
+      "ticker": "GRNT",
+      "entry": 5.05,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T14:53:11.619453",
+      "setup": "Pinbar",
+      "regime": "SHORT_TERM_STRENGTH",
       "stop": 5.03
     },
     {

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-12T14:48:42.628744+00:00",
+  "generated_at": "2026-09-13T16:09:50.125071+00:00",
   "ticker": "AMTX",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "target": 1.963999999999999,
+      "score": 62.0,
+      "current_price": 2.01,
+      "ticker": "AMTX",
+      "entry": 2.03,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T15:36:17.754332",
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 2.06
+    },
     {
       "setup": "TLINE_CONTINUATION",
       "status": "CONFIRMED",

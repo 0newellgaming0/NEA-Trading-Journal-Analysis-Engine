@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:48:41.264337+00:00",
+  "generated_at": "2026-09-13T14:00:51.931109+00:00",
   "ticker": "ALVO",
   "count": 6,
   "trades": [
     {
-      "setup": "Pinbar",
-      "status": "CONFIRMED",
-      "score": 74.0,
-      "ticker": "ALVO",
-      "regime": "SHORT_TERM_STRENGTH",
+      "direction": "Bearish",
       "risk_reward": 2.0,
       "entry": 5.3,
-      "target": 5.2719999999999985,
-      "direction": "Bearish",
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Pinbar",
       "current_price": 5.29,
-      "updated_at": "2026-09-12T11:44:33.285957",
+      "ticker": "ALVO",
+      "target": 5.2719999999999985,
+      "score": 69.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T13:51:08.923069",
       "stop": 5.32
     },
     {

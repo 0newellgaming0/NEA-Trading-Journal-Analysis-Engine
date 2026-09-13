@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:50:15.428810+00:00",
+  "generated_at": "2026-09-13T16:09:52.336048+00:00",
   "ticker": "TTI",
   "count": 5,
   "trades": [
     {
-      "setup": "Falling Three Methods",
       "status": "CONFIRMED",
-      "score": 49.0,
-      "ticker": "TTI",
-      "regime": "BEARISH_CONSOLIDATION",
-      "risk_reward": 2.0,
-      "entry": 7.01,
       "target": 6.459999999999999,
-      "direction": "Bearish",
+      "score": 49.0,
       "current_price": 6.81,
-      "updated_at": "2026-09-12T14:47:12.545965",
+      "ticker": "TTI",
+      "entry": 7.01,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T16:08:59.705234",
+      "setup": "Falling Three Methods",
+      "regime": "BEARISH_CONSOLIDATION",
       "stop": 7.29
     },
     {

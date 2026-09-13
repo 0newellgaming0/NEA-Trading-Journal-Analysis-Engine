@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:16:06.172022+00:00",
+  "generated_at": "2026-09-13T14:01:08.375110+00:00",
   "ticker": "BTDR",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "entry": 11.95,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "setup": "TLINE_CROSS",
+      "current_price": 11.92,
+      "ticker": "BTDR",
+      "target": 12.426472646619938,
+      "score": 72.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T12:16:22.549316",
+      "stop": 11.71
+    },
     {
       "stop": 10.66,
       "risk_reward": 2.0,

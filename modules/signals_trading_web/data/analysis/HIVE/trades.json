@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-13T16:09:51.162112+00:00",
+  "ticker": "HIVE",
+  "count": 1,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "target": 3.5469999999999997,
+      "score": 65.0,
+      "current_price": 3.03,
+      "ticker": "HIVE",
+      "entry": 3.15,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T15:14:42.280184",
+      "setup": "SWING_STRUCTURE",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 2.95
+    }
+  ]
+}

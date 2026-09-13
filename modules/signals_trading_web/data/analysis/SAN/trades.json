@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:50:01.284941+00:00",
+  "generated_at": "2026-09-13T16:09:52.016550+00:00",
   "ticker": "SAN",
   "count": 4,
   "trades": [
     {
-      "setup": "Rising Three Methods",
       "status": "CONFIRMED",
-      "score": 63.0,
-      "ticker": "SAN",
-      "regime": "BULLISH_CONSOLIDATION",
-      "risk_reward": 2.0,
-      "entry": 14.87,
       "target": 15.089039999999999,
-      "direction": "Bullish",
+      "score": 63.0,
       "current_price": 14.93,
-      "updated_at": "2026-09-12T14:11:50.287991",
+      "ticker": "SAN",
+      "entry": 14.87,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T15:24:23.688666",
+      "setup": "Rising Three Methods",
+      "regime": "BULLISH_CONSOLIDATION",
       "stop": 14.76
     },
     {

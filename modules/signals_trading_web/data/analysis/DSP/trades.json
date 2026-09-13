@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T09:16:27.093683+00:00",
+  "generated_at": "2026-09-13T14:01:25.349788+00:00",
   "ticker": "DSP",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "entry": 12.51,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Harami",
+      "current_price": 12.58,
+      "ticker": "DSP",
+      "target": 12.287860000000004,
+      "score": 72.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T12:19:52.855637",
+      "stop": 12.61
+    },
     {
       "stop": 12.37,
       "risk_reward": 2.0,

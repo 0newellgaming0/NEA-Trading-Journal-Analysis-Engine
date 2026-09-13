@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-05T08:34:48.646755+00:00",
+  "generated_at": "2026-09-13T16:09:50.859314+00:00",
   "ticker": "ENIC",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "target": 4.446000000000001,
+      "score": 52.0,
+      "current_price": 4.38,
+      "ticker": "ENIC",
+      "entry": 4.38,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T16:04:17.966504",
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_STRENGTH",
+      "stop": 4.35
+    }
+  ]
 }

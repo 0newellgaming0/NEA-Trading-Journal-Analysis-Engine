@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-01T10:52:38.258208+00:00",
+  "generated_at": "2026-09-13T14:01:45.136312+00:00",
   "ticker": "GFR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "entry": 6.32,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Falling Three Methods",
+      "current_price": 6.52,
+      "ticker": "GFR",
+      "target": 5.880320000000001,
+      "score": 72.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T12:25:58.576925",
+      "stop": 6.54
+    },
     {
       "current_price": 6.05,
       "target": 6.031,

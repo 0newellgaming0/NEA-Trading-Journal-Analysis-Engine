@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:49:14.843377+00:00",
+  "generated_at": "2026-09-13T14:01:29.565849+00:00",
   "ticker": "EQPT",
   "count": 2,
   "trades": [
     {
-      "setup": "TLINE_CROSS",
-      "status": "CONFIRMED",
-      "score": 87.0,
-      "ticker": "EQPT",
-      "regime": "SHORT_TERM_WEAKNESS",
+      "direction": "Bearish",
       "risk_reward": 2.0,
       "entry": 18.02,
-      "target": 17.332407491166617,
-      "direction": "Bearish",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "TLINE_CROSS",
       "current_price": 18.02,
-      "updated_at": "2026-09-12T11:29:47.725710",
+      "ticker": "EQPT",
+      "target": 17.332407491166617,
+      "score": 87.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T09:42:38.925868",
       "stop": 18.36
     },
     {

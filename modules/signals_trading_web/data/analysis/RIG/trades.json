@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-02T14:23:47.935555+00:00",
+  "generated_at": "2026-09-13T14:02:59.149403+00:00",
   "ticker": "RIG",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "entry": 5.67,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "TLINE_CROSS",
+      "current_price": 5.6695,
+      "ticker": "RIG",
+      "target": 5.767504201767785,
+      "score": 77.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T11:18:42.384531",
+      "stop": 5.62
+    }
+  ]
 }

@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T05:29:21.226279+00:00",
+  "generated_at": "2026-09-13T14:03:14.479368+00:00",
   "ticker": "TIC",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "entry": 9.59,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Engulfing",
+      "current_price": 9.6,
+      "ticker": "TIC",
+      "target": 9.829200000000004,
+      "score": 74.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T12:22:40.086757",
+      "stop": 9.46
+    }
+  ]
 }

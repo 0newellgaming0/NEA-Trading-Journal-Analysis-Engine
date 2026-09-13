@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-10T08:58:38.704689+00:00",
+  "generated_at": "2026-09-12T22:55:31.486195+00:00",
   "ticker": "BFRI",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "updated_at": "2026-09-12T19:24:58.285959",
+      "ticker": "BFRI",
+      "entry": 1.59,
+      "target": 1.6946628960632826,
+      "score": 86.0,
+      "setup": "TLINE_CROSS",
+      "direction": "Bullish",
+      "stop": 1.54,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 1.59,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0
+    },
     {
       "stop": 1.55,
       "ticker": "BFRI",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.562695+00:00",
+  "generated_at": "2026-09-13T14:01:53.827891+00:00",
   "ticker": "HCKT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "entry": 11.05,
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "Rising Three Methods",
+      "current_price": 10.98,
+      "ticker": "HCKT",
+      "target": 11.314000000000004,
+      "score": 70.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T13:35:08.450070",
+      "stop": 10.92
+    },
     {
       "entry": 11.36,
       "current_price": 11.34,

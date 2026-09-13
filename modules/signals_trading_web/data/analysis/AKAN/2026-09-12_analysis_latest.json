@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T05:10:00.257192",
+  "generated_at": "2026-09-12T23:15:24.709537",
   "tickers": {
     "AKAN": {
-      "generated_at": "2026-09-12T05:10:00.257192",
+      "generated_at": "2026-09-12T23:15:24.709537",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

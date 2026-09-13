@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:03.093447+00:00",
+  "generated_at": "2026-09-13T14:01:22.375806+00:00",
   "ticker": "DDD",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "entry": 3.32,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Marubozu",
+      "current_price": 3.3,
+      "ticker": "DDD",
+      "target": 3.2760000000000002,
+      "score": 78.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T13:26:32.153441",
+      "stop": 3.34
+    },
     {
       "current_price": 3.44,
       "entry": 3.5,

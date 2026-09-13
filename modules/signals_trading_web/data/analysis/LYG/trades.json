@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T20:10:07.053186+00:00",
+  "generated_at": "2026-09-13T14:02:22.374684+00:00",
   "ticker": "LYG",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "entry": 5.97,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Harami",
+      "current_price": 6.01,
+      "ticker": "LYG",
+      "target": 6.057999999999999,
+      "score": 71.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T13:10:06.723694",
+      "stop": 5.93
+    },
     {
       "ticker": "LYG",
       "updated_at": "2026-09-11T19:49:46.252564",

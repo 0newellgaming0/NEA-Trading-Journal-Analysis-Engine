@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-04T21:58:30.494119+00:00",
+  "generated_at": "2026-09-13T14:02:22.665986+00:00",
   "ticker": "LZ",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "entry": 6.05,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Pinbar",
+      "current_price": 6.13,
+      "ticker": "LZ",
+      "target": 6.106319999999999,
+      "score": 70.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T13:31:05.129668",
+      "stop": 6.02
+    },
     {
       "direction": "Bearish",
       "regime": "SHORT_TERM_STRENGTH",

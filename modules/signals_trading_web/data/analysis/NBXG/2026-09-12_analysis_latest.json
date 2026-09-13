@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-12T03:45:20.962250",
+  "generated_at": "2026-09-12T23:24:49.755482",
   "tickers": {
     "NBXG": {
-      "generated_at": "2026-09-12T03:45:20.962250",
+      "generated_at": "2026-09-12T23:24:49.755482",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

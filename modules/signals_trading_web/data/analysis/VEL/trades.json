@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:50:17.617388+00:00",
+  "generated_at": "2026-09-13T14:03:19.499917+00:00",
   "ticker": "VEL",
   "count": 5,
   "trades": [
     {
-      "setup": "SWING_STRUCTURE",
-      "status": "CONFIRMED",
-      "score": 78.0,
-      "ticker": "VEL",
-      "regime": "SHORT_TERM_WEAKNESS",
+      "direction": "BEARISH",
       "risk_reward": 2.0,
       "entry": 18.0,
-      "target": 17.200000000000003,
-      "direction": "BEARISH",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "SWING_STRUCTURE",
       "current_price": 17.97,
-      "updated_at": "2026-09-12T12:25:19.190611",
+      "ticker": "VEL",
+      "target": 17.200000000000003,
+      "score": 78.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T11:13:40.402378",
       "stop": 18.4
     },
     {

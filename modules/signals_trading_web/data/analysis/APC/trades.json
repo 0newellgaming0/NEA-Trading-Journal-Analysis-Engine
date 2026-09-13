@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:48:43.711581+00:00",
+  "generated_at": "2026-09-13T16:09:50.161439+00:00",
   "ticker": "APC",
   "count": 3,
   "trades": [
     {
-      "setup": "Counterattack Lines",
       "status": "CONFIRMED",
-      "score": 66.0,
-      "ticker": "APC",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "risk_reward": 2.0,
-      "entry": 19.01,
       "target": 18.79000000000001,
-      "direction": "Bearish",
+      "score": 66.0,
       "current_price": 18.92,
-      "updated_at": "2026-09-12T12:41:11.290232",
+      "ticker": "APC",
+      "entry": 19.01,
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T14:50:18.457658",
+      "setup": "Counterattack Lines",
+      "regime": "SHORT_TERM_WEAKNESS",
       "stop": 19.12
     },
     {

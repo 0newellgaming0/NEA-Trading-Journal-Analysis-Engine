@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T13:37:02.064537+00:00",
+  "generated_at": "2026-09-13T14:02:46.158777+00:00",
   "ticker": "NU",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "entry": 14.58,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Marubozu",
+      "current_price": 14.6468,
+      "ticker": "NU",
+      "target": 14.249999999999998,
+      "score": 74.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T11:59:21.249987",
+      "stop": 14.75
+    },
     {
       "entry": 15.13,
       "current_price": 15.15,

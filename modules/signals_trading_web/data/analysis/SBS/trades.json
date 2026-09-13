@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:07:02.013160+00:00",
+  "generated_at": "2026-09-13T14:03:02.476396+00:00",
   "ticker": "SBS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "direction": "Bearish",
+      "risk_reward": 2.0,
+      "entry": 5.29,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Marubozu",
+      "current_price": 5.28,
+      "ticker": "SBS",
+      "target": 5.114,
+      "score": 74.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T13:36:43.259685",
+      "stop": 5.38
+    },
     {
       "setup": "VWAP_BEARISH_PULLBACK",
       "status": "CONFIRMED",

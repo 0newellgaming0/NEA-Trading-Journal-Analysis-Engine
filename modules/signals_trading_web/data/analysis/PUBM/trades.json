@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-03T16:06:12.502767+00:00",
+  "generated_at": "2026-09-13T16:09:51.889143+00:00",
   "ticker": "PUBM",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "target": 17.362000000000002,
+      "score": 68.0,
+      "current_price": 16.49,
+      "ticker": "PUBM",
+      "entry": 16.35,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T14:08:17.190695",
+      "setup": "Engulfing",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "stop": 15.84
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "current_price": 17.07,

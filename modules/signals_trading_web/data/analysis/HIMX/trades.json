@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-13T16:09:51.148938+00:00",
+  "ticker": "HIMX",
+  "count": 1,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "target": 14.367999999999999,
+      "score": 62.0,
+      "current_price": 14.7754,
+      "ticker": "HIMX",
+      "entry": 13.95,
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-13T15:25:52.914176",
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "stop": 13.74
+    }
+  ]
+}

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T00:48:38.477779+00:00",
+  "generated_at": "2026-09-13T14:01:14.092999+00:00",
   "ticker": "CION",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "direction": "Bullish",
+      "risk_reward": 2.0,
+      "entry": 7.17,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "setup": "Inverted Hammer",
+      "current_price": 7.18,
+      "ticker": "CION",
+      "target": 7.37702,
+      "score": 71.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T06:17:40.213717",
+      "stop": 7.07
+    },
     {
       "updated_at": "2026-09-01T23:54:30.042444",
       "target": 7.517,

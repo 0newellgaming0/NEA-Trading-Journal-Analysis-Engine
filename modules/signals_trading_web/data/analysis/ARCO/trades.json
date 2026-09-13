@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-09-12T14:48:45.133035+00:00",
+  "generated_at": "2026-09-13T14:00:55.954201+00:00",
   "ticker": "ARCO",
   "count": 6,
   "trades": [
     {
-      "setup": "Marubozu",
-      "status": "CONFIRMED",
-      "score": 75.0,
-      "ticker": "ARCO",
-      "regime": "BEARISH_CONSOLIDATION",
+      "direction": "Bullish",
       "risk_reward": 2.0,
       "entry": 8.01,
-      "target": 8.087,
-      "direction": "Bullish",
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "Marubozu",
       "current_price": 8.1,
-      "updated_at": "2026-09-12T13:27:34.584021",
+      "ticker": "ARCO",
+      "target": 8.087,
+      "score": 75.0,
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-13T11:38:34.477392",
       "stop": 7.97
     },
     {
