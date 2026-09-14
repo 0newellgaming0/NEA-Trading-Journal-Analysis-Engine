@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T14:03:00.989429+00:00",
+  "generated_at": "2026-09-14T22:30:07.559079+00:00",
   "ticker": "RWAY",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "updated_at": "2026-09-14T14:45:26.100703",
+      "stop": 6.57,
+      "ticker": "RWAY",
+      "entry": 6.7,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 6.63,
+      "target": 6.96464115541649,
+      "direction": "Bullish",
+      "setup": "TLINE_CROSS",
+      "score": 70.0
+    },
     {
       "direction": "Bullish",
       "risk_reward": 2.0,

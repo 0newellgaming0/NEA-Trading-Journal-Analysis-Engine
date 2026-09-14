@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:40.585590+00:00",
+  "ticker": "CMRE",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T14:44:59.152595",
+      "stop": 15.24,
+      "ticker": "CMRE",
+      "entry": 14.98,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 14.8944,
+      "target": 14.45808096158057,
+      "direction": "Bearish",
+      "setup": "TLINE_CROSS",
+      "score": 74.0
+    }
+  ]
+}

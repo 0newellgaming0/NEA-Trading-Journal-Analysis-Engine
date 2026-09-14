@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:28:02.455077+00:00",
+  "ticker": "DH",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-14T17:22:33.808496",
+      "stop": 1.02,
+      "ticker": "DH",
+      "entry": 1.02,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 1.03,
+      "target": 1.0222399999999998,
+      "direction": "Bullish",
+      "setup": "Harami Cross",
+      "score": 56.0
+    }
+  ]
+}

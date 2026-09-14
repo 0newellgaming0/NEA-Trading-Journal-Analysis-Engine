@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T14:02:51.666567+00:00",
+  "generated_at": "2026-09-14T22:29:35.060242+00:00",
   "ticker": "PBYI",
   "count": 7,
   "trades": [
     {
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "entry": 9.01,
       "regime": "BULLISH_CONSOLIDATION",
-      "setup": "Pinbar",
-      "current_price": 9.0,
+      "updated_at": "2026-09-14T11:57:31.800019",
+      "stop": 8.92,
       "ticker": "PBYI",
-      "target": 9.170000000000003,
-      "score": 76.0,
+      "entry": 9.01,
       "status": "CONFIRMED",
-      "updated_at": "2026-09-13T11:22:57.440137",
-      "stop": 8.92
+      "risk_reward": 2.0,
+      "current_price": 9.0,
+      "target": 9.170000000000003,
+      "direction": "Bullish",
+      "setup": "Pinbar",
+      "score": 76.0
     },
     {
       "target": 8.722000000000001,

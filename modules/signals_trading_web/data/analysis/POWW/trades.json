@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T14:02:54.316563+00:00",
+  "generated_at": "2026-09-14T22:29:40.719908+00:00",
   "ticker": "POWW",
   "count": 2,
   "trades": [
     {
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "entry": 2.13,
       "regime": "SHORT_TERM_STRENGTH",
-      "setup": "Pinbar",
-      "current_price": 2.13,
+      "updated_at": "2026-09-14T12:45:30.243824",
+      "stop": 2.1,
       "ticker": "POWW",
-      "target": 2.1959999999999997,
-      "score": 71.0,
+      "entry": 2.13,
       "status": "CONFIRMED",
-      "updated_at": "2026-09-13T11:47:05.988108",
-      "stop": 2.1
+      "risk_reward": 2.0,
+      "current_price": 2.1004,
+      "target": 2.1959999999999997,
+      "direction": "Bullish",
+      "setup": "Pinbar",
+      "score": 70.0
     },
     {
       "entry": 2.175,

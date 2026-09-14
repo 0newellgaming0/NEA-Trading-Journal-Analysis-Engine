@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:28:19.634910+00:00",
+  "ticker": "EARN",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "updated_at": "2026-09-14T18:38:49.717615",
+      "stop": 4.36,
+      "ticker": "EARN",
+      "entry": 4.32,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 4.195,
+      "target": 4.245640000000002,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 70.0
+    }
+  ]
+}

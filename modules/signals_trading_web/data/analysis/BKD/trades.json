@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:03.913899+00:00",
+  "ticker": "BKD",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-14T11:08:21.890354",
+      "stop": 12.03,
+      "ticker": "BKD",
+      "entry": 12.16,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 12.25,
+      "target": 12.413,
+      "direction": "Bullish",
+      "setup": "Engulfing",
+      "score": 82.0
+    }
+  ]
+}

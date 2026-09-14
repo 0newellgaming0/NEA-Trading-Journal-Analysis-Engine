@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:28:34.005399+00:00",
+  "ticker": "FNRN",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-14T21:51:59.455373",
+      "stop": 17.37,
+      "ticker": "FNRN",
+      "entry": 17.33,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 17.26,
+      "target": 17.24199999999999,
+      "direction": "Bearish",
+      "setup": "Pinbar",
+      "score": 60.0
+    }
+  ]
+}

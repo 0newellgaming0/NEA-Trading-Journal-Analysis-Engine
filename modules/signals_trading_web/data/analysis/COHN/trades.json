@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:41.752036+00:00",
+  "ticker": "COHN",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T15:05:11.523780",
+      "stop": 10.47,
+      "ticker": "COHN",
+      "entry": 10.87,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 10.93,
+      "target": 11.661679999999999,
+      "direction": "Bullish",
+      "setup": "Engulfing",
+      "score": 73.0
+    }
+  ]
+}

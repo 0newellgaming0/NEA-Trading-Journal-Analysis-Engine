@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:28:03.072369+00:00",
+  "ticker": "DHF",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-14T17:31:21.104477",
+      "stop": 2.3,
+      "ticker": "DHF",
+      "entry": 2.28,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 2.275,
+      "target": 2.236,
+      "direction": "Bearish",
+      "setup": "Engulfing",
+      "score": 36.0
+    }
+  ]
+}

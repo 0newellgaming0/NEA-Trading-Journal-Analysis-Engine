@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:05.739068+00:00",
+  "ticker": "BOC",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-14T11:39:00.994637",
+      "stop": 13.89,
+      "ticker": "BOC",
+      "entry": 13.81,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 13.57,
+      "target": 13.656,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 61.0
+    }
+  ]
+}

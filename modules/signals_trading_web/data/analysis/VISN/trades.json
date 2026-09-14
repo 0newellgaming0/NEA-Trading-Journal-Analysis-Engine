@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-02T00:48:54.882158+00:00",
+  "generated_at": "2026-09-14T22:30:44.548157+00:00",
   "ticker": "VISN",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "updated_at": "2026-09-14T20:12:42.395624",
+      "stop": 6.62,
+      "ticker": "VISN",
+      "entry": 6.44,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 6.48,
+      "target": 6.072559089626597,
+      "direction": "Bearish",
+      "setup": "TLINE_CROSS",
+      "score": 78.0
+    },
     {
       "updated_at": "2026-09-01T22:56:15.226406",
       "target": 6.307800000000001,

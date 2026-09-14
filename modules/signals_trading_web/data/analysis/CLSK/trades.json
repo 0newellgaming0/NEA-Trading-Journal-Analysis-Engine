@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T14:01:14.929997+00:00",
+  "generated_at": "2026-09-14T22:27:38.155013+00:00",
   "ticker": "CLSK",
   "count": 3,
   "trades": [
     {
-      "direction": "Bearish",
-      "risk_reward": 2.0,
-      "entry": 13.6,
       "regime": "BULLISH_CONSOLIDATION",
-      "setup": "TLINE_CROSS",
-      "current_price": 13.6,
+      "updated_at": "2026-09-14T14:27:20.697084",
+      "stop": 13.84,
       "ticker": "CLSK",
-      "target": 13.1282560411713,
-      "score": 75.0,
+      "entry": 13.6,
       "status": "CONFIRMED",
-      "updated_at": "2026-09-13T11:01:11.442768",
-      "stop": 13.84
+      "risk_reward": 2.0,
+      "current_price": 13.5799,
+      "target": 13.1282560411713,
+      "direction": "Bearish",
+      "setup": "TLINE_CROSS",
+      "score": 71.0
     },
     {
       "current_price": 11.41,

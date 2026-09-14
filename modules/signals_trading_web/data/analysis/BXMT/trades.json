@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:24.972762+00:00",
+  "generated_at": "2026-09-14T22:27:18.432409+00:00",
   "ticker": "BXMT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "updated_at": "2026-09-14T12:42:20.679700",
+      "stop": 13.49,
+      "ticker": "BXMT",
+      "entry": 13.42,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 13.3593,
+      "target": 13.271405567527548,
+      "direction": "Bearish",
+      "setup": "TLINE_ROLLOVER",
+      "score": 41.0
+    },
     {
       "setup": "Marubozu",
       "updated_at": "2026-08-31T02:04:54.752168",

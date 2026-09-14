@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T16:09:52.016550+00:00",
+  "generated_at": "2026-09-14T22:30:08.838951+00:00",
   "ticker": "SAN",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T14:59:07.320407",
+      "stop": 14.95,
+      "ticker": "SAN",
+      "entry": 14.93,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 14.54,
+      "target": 14.886,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 62.0
+    },
     {
       "status": "CONFIRMED",
       "target": 15.089039999999999,

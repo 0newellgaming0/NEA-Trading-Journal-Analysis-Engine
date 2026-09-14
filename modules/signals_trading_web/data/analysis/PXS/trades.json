@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-11T21:14:58.232216+00:00",
+  "generated_at": "2026-09-14T22:29:45.035398+00:00",
   "ticker": "PXS",
-  "count": 10,
+  "count": 11,
   "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T13:16:30.318265",
+      "stop": 7.06,
+      "ticker": "PXS",
+      "entry": 6.96,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 6.88,
+      "target": 6.76222,
+      "direction": "Bearish",
+      "setup": "Harami",
+      "score": 68.0
+    },
     {
       "score": 70.0,
       "updated_at": "2026-09-11T20:28:44.012055",

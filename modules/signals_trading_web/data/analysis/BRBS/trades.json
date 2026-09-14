@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:07.964250+00:00",
+  "ticker": "BRBS",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T11:49:35.344375",
+      "stop": 4.1,
+      "ticker": "BRBS",
+      "entry": 4.08,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 4.0,
+      "target": 4.020000000000002,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 68.0
+    }
+  ]
+}

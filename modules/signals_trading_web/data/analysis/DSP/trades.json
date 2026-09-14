@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T14:01:25.349788+00:00",
+  "generated_at": "2026-09-14T22:28:17.742716+00:00",
   "ticker": "DSP",
-  "count": 9,
+  "count": 10,
   "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-14T18:12:12.760666",
+      "stop": 12.59,
+      "ticker": "DSP",
+      "entry": 12.73,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 12.801,
+      "target": 13.011459999999998,
+      "direction": "Bullish",
+      "setup": "Rising Three Methods",
+      "score": 71.0
+    },
     {
       "direction": "Bearish",
       "risk_reward": 2.0,

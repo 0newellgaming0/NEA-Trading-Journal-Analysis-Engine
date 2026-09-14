@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T16:09:52.274577+00:00",
+  "generated_at": "2026-09-14T22:30:26.859591+00:00",
   "ticker": "TH",
   "count": 1,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "target": 19.162,
-      "score": 82.0,
-      "current_price": 19.25,
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T18:09:04.393808",
+      "stop": 19.29,
       "ticker": "TH",
       "entry": 19.25,
-      "direction": "Bearish",
+      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "updated_at": "2026-09-13T14:28:33.276261",
+      "current_price": 18.805,
+      "target": 19.162,
+      "direction": "Bearish",
       "setup": "Engulfing",
-      "regime": "BULLISH_CONSOLIDATION",
-      "stop": 19.29
+      "score": 80.0
     }
   ]
 }

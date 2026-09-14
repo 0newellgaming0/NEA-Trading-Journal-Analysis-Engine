@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T14:01:26.384733+00:00",
+  "generated_at": "2026-09-14T22:28:19.215840+00:00",
   "ticker": "DX",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "updated_at": "2026-09-14T18:28:40.885920",
+      "stop": 12.59,
+      "ticker": "DX",
+      "entry": 12.52,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 12.3837,
+      "target": 12.387999999999998,
+      "direction": "Bearish",
+      "setup": "Engulfing",
+      "score": 76.0
+    },
     {
       "direction": "Bullish",
       "risk_reward": 2.0,

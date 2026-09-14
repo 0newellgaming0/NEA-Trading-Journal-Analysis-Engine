@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:28:29.690185+00:00",
+  "ticker": "FDUS",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "updated_at": "2026-09-14T20:52:59.284745",
+      "stop": 19.61,
+      "ticker": "FDUS",
+      "entry": 19.53,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 19.51,
+      "target": 19.362360000000002,
+      "direction": "Bearish",
+      "setup": "Engulfing",
+      "score": 68.0
+    }
+  ]
+}

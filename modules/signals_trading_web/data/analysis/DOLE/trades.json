@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T16:09:50.747057+00:00",
+  "generated_at": "2026-09-14T22:28:14.812076+00:00",
   "ticker": "DOLE",
   "count": 5,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "target": 13.190000000000001,
-      "score": 59.0,
-      "current_price": 13.33,
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T17:54:08.309544",
+      "stop": 13.52,
       "ticker": "DOLE",
       "entry": 13.41,
-      "direction": "Bearish",
+      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "updated_at": "2026-09-13T15:52:35.638918",
+      "current_price": 13.445,
+      "target": 13.190000000000001,
+      "direction": "Bearish",
       "setup": "Falling Three Methods",
-      "regime": "FULL_BEARISH_ALIGNMENT",
-      "stop": 13.52
+      "score": 75.0
     },
     {
       "setup": "TLINE_CONTINUATION",

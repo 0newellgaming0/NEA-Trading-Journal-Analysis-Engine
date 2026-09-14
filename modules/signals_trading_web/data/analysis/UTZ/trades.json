@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T16:09:52.387800+00:00",
+  "generated_at": "2026-09-14T22:30:38.561825+00:00",
   "ticker": "UTZ",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T19:29:57.646644",
+      "stop": 14.27,
+      "ticker": "UTZ",
+      "entry": 14.23,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 14.235,
+      "target": 14.145454753520319,
+      "direction": "Bearish",
+      "setup": "TLINE_CROSS",
+      "score": 65.0
+    },
     {
       "status": "CONFIRMED",
       "target": 14.251999999999999,

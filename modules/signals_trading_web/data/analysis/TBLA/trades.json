@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T14:03:12.999378+00:00",
+  "generated_at": "2026-09-14T22:30:24.794878+00:00",
   "ticker": "TBLA",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "updated_at": "2026-09-14T17:45:44.451193",
+      "stop": 3.67,
+      "ticker": "TBLA",
+      "entry": 3.84,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 3.875,
+      "target": 4.17,
+      "direction": "Bullish",
+      "setup": "Marubozu",
+      "score": 86.0
+    },
     {
       "direction": "BEARISH",
       "risk_reward": 2.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T14:03:08.910376+00:00",
+  "generated_at": "2026-09-14T22:30:18.024262+00:00",
   "ticker": "SPT",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-14T16:36:51.689866",
+      "stop": 10.95,
+      "ticker": "SPT",
+      "entry": 11.37,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 11.435,
+      "target": 12.19,
+      "direction": "Bullish",
+      "setup": "Bullish Gravestone Doji Sandwich",
+      "score": 69.0
+    },
     {
       "direction": "Bullish",
       "risk_reward": 2.0,

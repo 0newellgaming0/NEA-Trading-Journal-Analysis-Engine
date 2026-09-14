@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:02:36.207953+00:00",
+  "generated_at": "2026-09-14T22:30:13.154790+00:00",
   "ticker": "SIGA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T15:48:35.237171",
+      "stop": 3.12,
+      "ticker": "SIGA",
+      "entry": 2.95,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 3.045,
+      "target": 2.62,
+      "direction": "Bearish",
+      "setup": "Falling Three Methods",
+      "score": 36.0
+    },
     {
       "direction": "Bullish",
       "ticker": "SIGA",

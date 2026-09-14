@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:28:26.626035+00:00",
+  "ticker": "EVI",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "updated_at": "2026-09-14T20:16:10.549245",
+      "stop": 15.96,
+      "ticker": "EVI",
+      "entry": 16.75,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 17.2,
+      "target": 18.333999999999996,
+      "direction": "Bullish",
+      "setup": "Engulfing",
+      "score": 55.0
+    }
+  ]
+}

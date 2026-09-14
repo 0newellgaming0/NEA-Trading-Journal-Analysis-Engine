@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T16:09:52.336048+00:00",
+  "generated_at": "2026-09-14T22:30:34.277533+00:00",
   "ticker": "TTI",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T19:01:16.877536",
+      "stop": 6.82,
+      "ticker": "TTI",
+      "entry": 6.75,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 6.48,
+      "target": 6.618,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 43.0
+    },
     {
       "status": "CONFIRMED",
       "target": 6.459999999999999,

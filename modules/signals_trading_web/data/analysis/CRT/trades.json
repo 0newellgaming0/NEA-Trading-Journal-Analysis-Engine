@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T16:09:50.640599+00:00",
+  "generated_at": "2026-09-14T22:27:47.737194+00:00",
   "ticker": "CRT",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T15:55:40.123305",
+      "stop": 11.52,
+      "ticker": "CRT",
+      "entry": 11.9,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 11.955,
+      "target": 12.67,
+      "direction": "Bullish",
+      "setup": "Rising Three Methods",
+      "score": 58.0
+    },
     {
       "status": "CONFIRMED",
       "target": 11.885000000000002,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T05:35:57.312204+00:00",
+  "generated_at": "2026-09-14T22:30:09.020407+00:00",
   "ticker": "SB",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T15:02:21.295056",
+      "stop": 8.37,
+      "ticker": "SB",
+      "entry": 8.11,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 8.2864,
+      "target": 7.582000000000001,
+      "direction": "Bearish",
+      "setup": "Engulfing",
+      "score": 73.0
+    },
     {
       "current_price": 8.51,
       "direction": "Bullish",

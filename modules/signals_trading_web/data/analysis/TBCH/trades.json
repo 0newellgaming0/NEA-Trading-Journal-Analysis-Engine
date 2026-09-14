@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T14:03:12.719371+00:00",
+  "generated_at": "2026-09-14T22:30:24.217736+00:00",
   "ticker": "TBCH",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-14T17:39:05.040410",
+      "stop": 12.71,
+      "ticker": "TBCH",
+      "entry": 12.3,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 12.44,
+      "target": 11.501999999999999,
+      "direction": "Bearish",
+      "setup": "Candle Over Candle",
+      "score": 74.0
+    },
     {
       "direction": "Bullish",
       "risk_reward": 2.0,

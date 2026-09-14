@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:39.873702+00:00",
+  "generated_at": "2026-09-14T22:29:50.371923+00:00",
   "ticker": "RBNE",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-14T13:53:11.038856",
+      "stop": 2.74,
+      "ticker": "RBNE",
+      "entry": 2.57,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 2.69,
+      "target": 2.239999999999999,
+      "direction": "Bearish",
+      "setup": "Falling Three Methods",
+      "score": 61.0
+    }
+  ]
 }

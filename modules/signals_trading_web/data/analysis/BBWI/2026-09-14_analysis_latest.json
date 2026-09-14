@@ -37,4 +37,11 @@
         "sec_new_developments": "",
         "sec_canslim": "",
         "fractal": "\nWYCKOFF FRACTAL JOURNAL\nTicker: N/A\n\nScore: 0.0\n\n- Weekly: No events\n- Daily: No events\n- 60M: No events\n",
-        "pending_60m_
+        "pending_60m_setups": "📋 PENDING 60M SETUPS\n\nTicker: BBWI\n\nPending Setups: 5\n\n### Setup 1\n- Module: Kickers\n- Event Type: Best Friend\n- Direction: Bearish\n- Trade Type: \n- Entry: 18.3491\n- Stop: 18.51509\n- Wick Stop: 18.5\n- Target 1: 18.1982\n- Target 2: 18.0473\n- Detected: 2026-09-14 09:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 39.939239407584225%\n- Historical Failure Rate: 60.060760592415775%\n\n---\n\n### Setup 2\n- Module: Kikakke\n- Event Type: Bearish Kikkake\n- Direction: Bearish\n- Trade Type: \n- Entry: 18.0\n- Stop: 18.682000000000002\n- Wick Stop: 18.62\n- Target 1: 17.38\n- Target 2: 16.759999999999998\n- Detected: 2026-09-11 15:30:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 30.225387588483084%\n- Historical Failure Rate: 69.77461241151691%\n\n---\n\n### Setup 3\n- Module: Lines\n- Event Type: Counterattack Lines\n- Direction: Bullish\n- Trade Type: MIXED\n- Entry: 18.63\n- Stop: 18.200999999999997\n- Wick Stop: 18.24\n- Target 1: 19.02\n- Target 2: 19.41\n- Detected: 2026-09-11 18:30:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 45.90734297747665%\n- Historical Failure Rate: 54.09265702252335%\n\n---\n\n### Setup 4\n- Module: Marubozu\n- Event Type: Marubozu\n- Direction: Bearish\n- Trade Type: CONTINUATION\n- Entry: 18.3491\n- Stop: 18.51509\n- Wick Stop: 18.5\n- Target 1: 18.16802\n- Target 2: 17.97185\n- Detected: 2026-09-14 08:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 42.13189052454063%\n- Historical Failure Rate: 57.86810947545937%\n\n---\n\n### Setup 5\n- Module: T Line\n- Event Type: TLINE_CONTINUATION\n- Direction: Bearish\n- Trade Type: TLINE_CONTINUATION\n- Entry: 18.37\n- Stop: 18.58686005486222\n- Wick Stop: \n- Target 1: 18.15313994513778\n- Target 2: 17.93627989027556\n- Detected: 2026-09-14 09:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 38.72051045252288%\n- Historical Failure Rate: 61.27948954747712%",
+        "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nNo current trade setup found for BBWI."
+      },
+      "pending_60m_generated_at": "2026-09-14T05:16:00.776175",
+      "current_performance_generated_at": "2026-09-14T05:16:09.643282"
+    }
+  }
+}

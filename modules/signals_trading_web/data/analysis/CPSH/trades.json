@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:43.744918+00:00",
+  "ticker": "CPSH",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T15:25:22.799973",
+      "stop": 3.95,
+      "ticker": "CPSH",
+      "entry": 4.05,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 4.015,
+      "target": 4.24403906135725,
+      "direction": "Bullish",
+      "setup": "TLINE_CROSS",
+      "score": 61.0
+    }
+  ]
+}

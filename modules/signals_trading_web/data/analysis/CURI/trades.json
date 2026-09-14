@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T14:01:18.634921+00:00",
+  "generated_at": "2026-09-14T22:27:50.585426+00:00",
   "ticker": "CURI",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T16:15:37.301310",
+      "stop": 2.6,
+      "ticker": "CURI",
+      "entry": 2.67,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 2.715,
+      "target": 2.8046973900220973,
+      "direction": "Bullish",
+      "setup": "TLINE_CROSS",
+      "score": 70.0
+    },
     {
       "direction": "Bearish",
       "risk_reward": 2.0,

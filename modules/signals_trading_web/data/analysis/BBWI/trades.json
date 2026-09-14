@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:00.192682+00:00",
+  "ticker": "BBWI",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T10:16:09.242556",
+      "stop": 18.61,
+      "ticker": "BBWI",
+      "entry": 18.51,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 18.37,
+      "target": 18.312,
+      "direction": "Bearish",
+      "setup": "Pinbar",
+      "score": 65.0
+    }
+  ]
+}

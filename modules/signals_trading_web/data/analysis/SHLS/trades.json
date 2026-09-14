@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T14:03:04.629789+00:00",
+  "generated_at": "2026-09-14T22:30:12.524214+00:00",
   "ticker": "SHLS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T15:38:00.727285",
+      "stop": 7.24,
+      "ticker": "SHLS",
+      "entry": 6.9,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 6.97,
+      "target": 6.225982205316178,
+      "direction": "Bearish",
+      "setup": "TLINE_CROSS",
+      "score": 59.0
+    },
     {
       "direction": "Bearish",
       "risk_reward": 2.0,

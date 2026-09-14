@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:28:28.820685+00:00",
+  "ticker": "FBLA",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-14T20:41:00.658959",
+      "stop": 16.02,
+      "ticker": "FBLA",
+      "entry": 15.99,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 15.97,
+      "target": 15.924000000000001,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 65.0
+    }
+  ]
+}

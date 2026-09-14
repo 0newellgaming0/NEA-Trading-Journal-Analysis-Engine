@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T14:01:24.539790+00:00",
+  "generated_at": "2026-09-14T22:28:15.175290+00:00",
   "ticker": "DOMO",
   "count": 1,
   "trades": [
     {
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "entry": 3.83,
       "regime": "SHORT_TERM_STRENGTH",
-      "setup": "Pinbar",
-      "current_price": 3.83,
+      "updated_at": "2026-09-14T18:01:12.319899",
+      "stop": 3.81,
       "ticker": "DOMO",
-      "target": 3.8899999999999997,
-      "score": 72.0,
+      "entry": 3.83,
       "status": "CONFIRMED",
-      "updated_at": "2026-09-13T12:37:33.463839",
-      "stop": 3.81
+      "risk_reward": 2.0,
+      "current_price": 3.925,
+      "target": 3.8899999999999997,
+      "direction": "Bullish",
+      "setup": "Pinbar",
+      "score": 73.0
     }
   ]
 }

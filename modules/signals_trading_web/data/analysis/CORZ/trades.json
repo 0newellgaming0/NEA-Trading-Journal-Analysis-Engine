@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T16:09:50.569865+00:00",
+  "generated_at": "2026-09-14T22:27:42.797633+00:00",
   "ticker": "CORZ",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-14T15:17:24.803222",
+      "stop": 16.88,
+      "ticker": "CORZ",
+      "entry": 17.57,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 17.0268,
+      "target": 18.926925298116178,
+      "direction": "Bullish",
+      "setup": "TLINE_CROSS",
+      "score": 68.0
+    },
     {
       "status": "CONFIRMED",
       "target": 17.610000000000003,

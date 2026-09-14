@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T14:02:48.120774+00:00",
+  "generated_at": "2026-09-14T22:29:25.380888+00:00",
   "ticker": "ODD",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-14T10:45:09.110577",
+      "stop": 18.44,
+      "ticker": "ODD",
+      "entry": 18.39,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 18.36,
+      "target": 18.281919999999992,
+      "direction": "Bearish",
+      "setup": "Harami",
+      "score": 81.0
+    },
     {
       "direction": "Bullish",
       "risk_reward": 2.0,

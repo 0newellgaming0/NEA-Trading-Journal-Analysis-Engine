@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-09T13:26:55.742201+00:00",
+  "generated_at": "2026-09-14T22:27:10.878720+00:00",
   "ticker": "BSEM",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-14T12:02:29.135920",
+      "stop": 4.23,
+      "ticker": "BSEM",
+      "entry": 4.34,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 4.34,
+      "target": 4.569633149453155,
+      "direction": "Bullish",
+      "setup": "TLINE_CROSS",
+      "score": 67.0
+    }
+  ]
 }

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T14:03:20.124932+00:00",
+  "generated_at": "2026-09-14T22:30:42.630543+00:00",
   "ticker": "VG",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-14T19:59:41.149201",
+      "stop": 16.34,
+      "ticker": "VG",
+      "entry": 15.88,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 15.215,
+      "target": 14.967,
+      "direction": "Bearish",
+      "setup": "Candle Over Candle",
+      "score": 74.0
+    },
     {
       "direction": "Bullish",
       "risk_reward": 2.0,

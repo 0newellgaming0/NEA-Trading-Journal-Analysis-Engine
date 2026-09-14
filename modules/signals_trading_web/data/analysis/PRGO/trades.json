@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T14:02:54.590408+00:00",
+  "generated_at": "2026-09-14T22:29:41.595167+00:00",
   "ticker": "PRGO",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-14T12:52:10.207830",
+      "stop": 13.49,
+      "ticker": "PRGO",
+      "entry": 13.59,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 13.66,
+      "target": 13.788,
+      "direction": "Bullish",
+      "setup": "Pinbar",
+      "score": 69.0
+    },
     {
       "direction": "Bearish",
       "risk_reward": 2.0,

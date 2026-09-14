@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:38.762581+00:00",
+  "ticker": "CMBT",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T14:32:53.651883",
+      "stop": 19.49,
+      "ticker": "CMBT",
+      "entry": 19.07,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 19.29,
+      "target": 18.23499198877586,
+      "direction": "Bearish",
+      "setup": "TLINE_CROSS",
+      "score": 63.0
+    }
+  ]
+}

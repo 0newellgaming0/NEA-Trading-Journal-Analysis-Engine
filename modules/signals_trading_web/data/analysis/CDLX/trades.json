@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:27.820574+00:00",
+  "ticker": "CDLX",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "updated_at": "2026-09-14T13:28:14.094240",
+      "stop": 4.22,
+      "ticker": "CDLX",
+      "entry": 4.2,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 4.15,
+      "target": 4.150060000000001,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 60.0
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:28:24.299740+00:00",
+  "ticker": "EPM",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "updated_at": "2026-09-14T19:44:59.897838",
+      "stop": 3.81,
+      "ticker": "EPM",
+      "entry": 3.71,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 3.705,
+      "target": 3.5279999999999996,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 49.0
+    }
+  ]
+}

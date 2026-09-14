@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:04.506168+00:00",
+  "ticker": "BMBL",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-14T11:24:25.991608",
+      "stop": 3.08,
+      "ticker": "BMBL",
+      "entry": 3.04,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 2.9899,
+      "target": 2.968,
+      "direction": "Bearish",
+      "setup": "Engulfing",
+      "score": 73.0
+    }
+  ]
+}

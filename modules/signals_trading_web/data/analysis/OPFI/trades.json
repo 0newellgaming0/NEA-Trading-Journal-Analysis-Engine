@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:02:26.176778+00:00",
+  "generated_at": "2026-09-14T22:29:27.571360+00:00",
   "ticker": "OPFI",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-14T11:07:46.022059",
+      "stop": 7.64,
+      "ticker": "OPFI",
+      "entry": 7.7,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 7.98,
+      "target": 7.8128600000000015,
+      "direction": "Bullish",
+      "setup": "Engulfing",
+      "score": 82.0
+    },
     {
       "direction": "Bullish",
       "ticker": "OPFI",

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T16:09:51.663844+00:00",
+  "generated_at": "2026-09-14T22:29:22.993250+00:00",
   "ticker": "NXDT",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "target": 5.2488913223555835,
-      "score": 63.0,
-      "current_price": 5.32,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "updated_at": "2026-09-14T10:10:51.814405",
+      "stop": 5.42,
       "ticker": "NXDT",
       "entry": 5.36,
-      "direction": "Bearish",
+      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "updated_at": "2026-09-13T15:28:45.405280",
+      "current_price": 5.32,
+      "target": 5.2488913223555835,
+      "direction": "Bearish",
       "setup": "TLINE_ROLLOVER",
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "stop": 5.42
+      "score": 63.0
     },
     {
       "entry": 5.37,

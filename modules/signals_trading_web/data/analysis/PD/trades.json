@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:02:28.173187+00:00",
+  "generated_at": "2026-09-14T22:29:35.803090+00:00",
   "ticker": "PD",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-14T12:07:08.122901",
+      "stop": 14.26,
+      "ticker": "PD",
+      "entry": 14.35,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 14.39,
+      "target": 14.54614,
+      "direction": "Bullish",
+      "setup": "Marubozu",
+      "score": 63.0
+    },
     {
       "direction": "Bearish",
       "ticker": "PD",

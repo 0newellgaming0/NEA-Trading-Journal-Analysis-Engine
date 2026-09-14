@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T16:02:37.406617+00:00",
+  "generated_at": "2026-09-14T22:30:15.449579+00:00",
   "ticker": "SMPL",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T16:08:50.580146",
+      "stop": 10.35,
+      "ticker": "SMPL",
+      "entry": 9.94,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 9.985,
+      "target": 9.125999999999996,
+      "direction": "Bearish",
+      "setup": "Pinbar",
+      "score": 70.0
+    },
     {
       "direction": "Bullish",
       "ticker": "SMPL",

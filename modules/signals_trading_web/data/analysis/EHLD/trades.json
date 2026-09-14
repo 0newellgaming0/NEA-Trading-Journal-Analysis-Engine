@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:28:21.730061+00:00",
+  "ticker": "EHLD",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "SHORT_TERM_STRENGTH",
+      "updated_at": "2026-09-14T19:08:43.279512",
+      "stop": 15.24,
+      "ticker": "EHLD",
+      "entry": 14.2,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 14.2,
+      "target": 12.114679585883504,
+      "direction": "Bearish",
+      "setup": "TLINE_CROSS",
+      "score": 69.0
+    }
+  ]
+}

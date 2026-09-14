@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:34.409446+00:00",
+  "ticker": "CIM",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T13:56:40.147046",
+      "stop": 11.5,
+      "ticker": "CIM",
+      "entry": 11.27,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 11.15,
+      "target": 10.818999999999999,
+      "direction": "Bearish",
+      "setup": "Falling Three Methods",
+      "score": 37.0
+    }
+  ]
+}

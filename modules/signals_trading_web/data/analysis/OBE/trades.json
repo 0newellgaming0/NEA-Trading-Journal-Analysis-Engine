@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-14T10:11:56.282437+00:00",
+  "generated_at": "2026-09-14T22:29:24.551420+00:00",
   "ticker": "OBE",
   "count": 2,
   "trades": [
     {
-      "target": 13.142000000000001,
-      "current_price": 13.5,
-      "status": "CONFIRMED",
-      "entry": 13.01,
-      "risk_reward": 2.0,
-      "ticker": "OBE",
-      "direction": "Bullish",
-      "score": 73.0,
-      "updated_at": "2026-09-14T10:04:13.952590",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "updated_at": "2026-09-14T10:30:32.846117",
       "stop": 12.94,
+      "ticker": "OBE",
+      "entry": 13.01,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 13.5,
+      "target": 13.142000000000001,
+      "direction": "Bullish",
       "setup": "Pinbar",
-      "regime": "FULL_BULLISH_ALIGNMENT"
+      "score": 73.0
     },
     {
       "direction": "Bullish",

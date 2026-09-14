@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:13.755175+00:00",
+  "ticker": "BTE",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "updated_at": "2026-09-14T12:16:22.185745",
+      "stop": 5.01,
+      "ticker": "BTE",
+      "entry": 5.1,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 5.1,
+      "target": 5.281683080560633,
+      "direction": "Bullish",
+      "setup": "TLINE_CROSS",
+      "score": 64.0
+    }
+  ]
+}

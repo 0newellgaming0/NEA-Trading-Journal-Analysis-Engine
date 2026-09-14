@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:56.428117+00:00",
+  "generated_at": "2026-09-14T22:30:55.459564+00:00",
   "ticker": "XPRO",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "updated_at": "2026-09-14T21:53:38.991064",
+      "stop": 17.38,
+      "ticker": "XPRO",
+      "entry": 17.2,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 17.2,
+      "target": 16.848000000000003,
+      "direction": "Bearish",
+      "setup": "Pinbar",
+      "score": 66.0
+    }
+  ]
 }

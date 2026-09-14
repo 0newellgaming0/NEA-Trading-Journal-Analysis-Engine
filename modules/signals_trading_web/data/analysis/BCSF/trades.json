@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:27:00.683048+00:00",
+  "ticker": "BCSF",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "BEARISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T10:28:12.009633",
+      "stop": 11.44,
+      "ticker": "BCSF",
+      "entry": 11.46,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 11.46,
+      "target": 11.52,
+      "direction": "Bullish",
+      "setup": "Pinbar",
+      "score": 43.0
+    }
+  ]
+}

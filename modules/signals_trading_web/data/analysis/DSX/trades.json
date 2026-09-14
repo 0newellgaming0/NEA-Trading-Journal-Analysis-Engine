@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T22:28:17.776392+00:00",
+  "ticker": "DSX",
+  "count": 1,
+  "trades": [
+    {
+      "regime": "BULLISH_CONSOLIDATION",
+      "updated_at": "2026-09-14T18:14:45.489712",
+      "stop": 2.92,
+      "ticker": "DSX",
+      "entry": 2.97,
+      "status": "CONFIRMED",
+      "risk_reward": 2.0,
+      "current_price": 2.955,
+      "target": 3.077656691122758,
+      "direction": "Bullish",
+      "setup": "TLINE_CROSS",
+      "score": 68.0
+    }
+  ]
+}
