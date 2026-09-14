@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T07:04:01.000990",
+  "generated_at": "2026-09-13T20:01:01.965701",
   "tickers": {
     "ECC": {
-      "generated_at": "2026-09-13T07:04:01.000990",
+      "generated_at": "2026-09-13T20:01:01.965701",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

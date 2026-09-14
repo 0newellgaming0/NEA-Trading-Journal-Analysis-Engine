@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-04T11:58:37.724885+00:00",
+  "generated_at": "2026-09-14T10:08:39.711863+00:00",
   "ticker": "AOUT",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "target": 16.448,
+      "current_price": 15.68,
+      "status": "CONFIRMED",
+      "entry": 15.7,
+      "risk_reward": 2.0,
+      "ticker": "AOUT",
+      "direction": "Bullish",
+      "score": 84.0,
+      "updated_at": "2026-09-14T07:43:23.780545",
+      "stop": 15.33,
+      "setup": "Engulfing",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    }
+  ]
 }

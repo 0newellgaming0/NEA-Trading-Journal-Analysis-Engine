@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T14:02:25.449285+00:00",
+  "generated_at": "2026-09-14T10:11:36.545350+00:00",
   "ticker": "MED",
   "count": 2,
   "trades": [
     {
-      "direction": "Bearish",
-      "risk_reward": 2.0,
-      "entry": 11.93,
-      "regime": "SHORT_TERM_WEAKNESS",
-      "setup": "Falling Three Methods",
-      "current_price": 12.04,
-      "ticker": "MED",
       "target": 11.643999999999998,
-      "score": 56.0,
+      "current_price": 12.04,
       "status": "CONFIRMED",
-      "updated_at": "2026-09-13T06:13:58.420883",
-      "stop": 12.07
+      "entry": 11.93,
+      "risk_reward": 2.0,
+      "ticker": "MED",
+      "direction": "Bearish",
+      "score": 56.0,
+      "updated_at": "2026-09-14T07:20:02.371200",
+      "stop": 12.07,
+      "setup": "Falling Three Methods",
+      "regime": "SHORT_TERM_WEAKNESS"
     },
     {
       "direction": "Bullish",

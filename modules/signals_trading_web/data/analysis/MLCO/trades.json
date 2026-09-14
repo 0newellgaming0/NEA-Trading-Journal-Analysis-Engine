@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T14:02:29.420501+00:00",
+  "generated_at": "2026-09-14T10:11:41.333625+00:00",
   "ticker": "MLCO",
   "count": 1,
   "trades": [
     {
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "entry": 5.05,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "Engulfing",
-      "current_price": 5.05,
-      "ticker": "MLCO",
       "target": 5.109999999999999,
-      "score": 81.0,
+      "current_price": 5.05,
       "status": "CONFIRMED",
-      "updated_at": "2026-09-13T10:18:38.985764",
-      "stop": 5.03
+      "entry": 5.05,
+      "risk_reward": 2.0,
+      "ticker": "MLCO",
+      "direction": "Bullish",
+      "score": 81.0,
+      "updated_at": "2026-09-14T07:44:16.857348",
+      "stop": 5.03,
+      "setup": "Engulfing",
+      "regime": "BEARISH_CONSOLIDATION"
     }
   ]
 }

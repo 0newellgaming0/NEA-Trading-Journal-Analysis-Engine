@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T10:10:03.401368+00:00",
+  "ticker": "CRK",
+  "count": 1,
+  "trades": [
+    {
+      "target": 14.221823706573325,
+      "current_price": 14.7,
+      "status": "CONFIRMED",
+      "entry": 14.88,
+      "risk_reward": 2.0,
+      "ticker": "CRK",
+      "direction": "Bearish",
+      "score": 71.0,
+      "updated_at": "2026-09-14T10:08:02.960218",
+      "stop": 15.2,
+      "setup": "TLINE_ROLLOVER",
+      "regime": "SHORT_TERM_WEAKNESS"
+    }
+  ]
+}

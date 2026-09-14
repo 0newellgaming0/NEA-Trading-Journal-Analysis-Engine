@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-09T13:26:51.460312+00:00",
+  "generated_at": "2026-09-14T10:08:59.852792+00:00",
   "ticker": "AVO",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "target": 13.280000000000001,
+      "current_price": 13.0,
+      "status": "CONFIRMED",
+      "entry": 13.0,
+      "risk_reward": 2.0,
+      "ticker": "AVO",
+      "direction": "Bullish",
+      "score": 63.0,
+      "updated_at": "2026-09-14T09:16:51.571065",
+      "stop": 12.86,
+      "setup": "Wyckoff Spring (Seed)",
+      "regime": "SHORT_TERM_STRENGTH"
+    }
+  ]
 }

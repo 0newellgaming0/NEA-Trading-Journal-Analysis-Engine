@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-08T19:09:13.867204+00:00",
+  "generated_at": "2026-09-14T10:08:28.123893+00:00",
   "ticker": "ALAR",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "target": 1.8729800000000005,
+      "current_price": 2.0,
+      "status": "CONFIRMED",
+      "entry": 1.87,
+      "risk_reward": 2.0,
+      "ticker": "ALAR",
+      "direction": "Bullish",
+      "score": 59.0,
+      "updated_at": "2026-09-14T09:39:15.886102",
+      "stop": 1.87,
+      "setup": "Marubozu",
+      "regime": "PRIMARY_DOWNTREND_RALLY"
+    }
+  ]
 }

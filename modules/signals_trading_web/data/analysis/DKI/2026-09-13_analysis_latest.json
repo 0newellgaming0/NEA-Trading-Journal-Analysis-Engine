@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T08:54:06.693299",
+  "generated_at": "2026-09-13T19:11:45.904551",
   "tickers": {
     "DKI": {
-      "generated_at": "2026-09-13T08:54:06.693299",
+      "generated_at": "2026-09-13T19:11:45.904551",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

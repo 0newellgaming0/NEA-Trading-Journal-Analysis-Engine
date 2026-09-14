@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T14:02:21.931898+00:00",
+  "generated_at": "2026-09-14T10:11:30.869458+00:00",
   "ticker": "LXFR",
   "count": 3,
   "trades": [
     {
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "entry": 17.3,
-      "regime": "BULLISH_CONSOLIDATION",
-      "setup": "Marubozu",
-      "current_price": 17.3,
-      "ticker": "LXFR",
       "target": 17.41,
-      "score": 76.0,
+      "current_price": 17.3,
       "status": "CONFIRMED",
-      "updated_at": "2026-09-13T11:31:41.586765",
-      "stop": 17.25
+      "entry": 17.3,
+      "risk_reward": 2.0,
+      "ticker": "LXFR",
+      "direction": "Bullish",
+      "score": 75.0,
+      "updated_at": "2026-09-14T06:52:41.446819",
+      "stop": 17.25,
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION"
     },
     {
       "stop": 17.223,

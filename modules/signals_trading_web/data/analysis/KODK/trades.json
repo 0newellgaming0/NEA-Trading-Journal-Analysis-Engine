@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T16:09:51.327188+00:00",
+  "generated_at": "2026-09-14T10:11:17.125076+00:00",
   "ticker": "KODK",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
       "target": 8.832000000000004,
-      "score": 69.0,
       "current_price": 9.19,
-      "ticker": "KODK",
+      "status": "CONFIRMED",
       "entry": 9.14,
-      "direction": "Bearish",
       "risk_reward": 2.0,
-      "updated_at": "2026-09-13T14:03:46.451968",
+      "ticker": "KODK",
+      "direction": "Bearish",
+      "score": 69.0,
+      "updated_at": "2026-09-14T05:41:29.138586",
+      "stop": 9.29,
       "setup": "Falling Three Methods",
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "stop": 9.29
+      "regime": "PRIMARY_UPTREND_PULLBACK"
     },
     {
       "stop": 8.9575,

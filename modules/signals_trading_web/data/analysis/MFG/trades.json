@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T14:02:28.569647+00:00",
+  "generated_at": "2026-09-14T10:11:39.802992+00:00",
   "ticker": "MFG",
   "count": 7,
   "trades": [
     {
-      "direction": "Bearish",
-      "risk_reward": 2.0,
-      "entry": 11.43,
-      "regime": "BULLISH_CONSOLIDATION",
-      "setup": "Engulfing",
-      "current_price": 11.4249,
-      "ticker": "MFG",
       "target": 11.297999999999998,
-      "score": 74.0,
+      "current_price": 11.4249,
       "status": "CONFIRMED",
-      "updated_at": "2026-09-13T12:04:07.434970",
-      "stop": 11.5
+      "entry": 11.43,
+      "risk_reward": 2.0,
+      "ticker": "MFG",
+      "direction": "Bearish",
+      "score": 79.0,
+      "updated_at": "2026-09-14T07:33:37.811738",
+      "stop": 11.5,
+      "setup": "Engulfing",
+      "regime": "BULLISH_CONSOLIDATION"
     },
     {
       "ticker": "MFG",

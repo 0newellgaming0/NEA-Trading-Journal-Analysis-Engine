@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T10:08:36.049987+00:00",
+  "ticker": "AMCX",
+  "count": 1,
+  "trades": [
+    {
+      "target": 13.288239999999998,
+      "current_price": 12.17,
+      "status": "CONFIRMED",
+      "entry": 12.09,
+      "risk_reward": 2.0,
+      "ticker": "AMCX",
+      "direction": "Bullish",
+      "score": 65.0,
+      "updated_at": "2026-09-14T07:04:10.179051",
+      "stop": 11.5,
+      "setup": "Marubozu",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    }
+  ]
+}

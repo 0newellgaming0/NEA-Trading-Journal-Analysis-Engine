@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T10:09:03.274445+00:00",
+  "ticker": "BATL",
+  "count": 1,
+  "trades": [
+    {
+      "target": 1.4720000000000002,
+      "current_price": 1.359,
+      "status": "CONFIRMED",
+      "entry": 1.34,
+      "risk_reward": 2.0,
+      "ticker": "BATL",
+      "direction": "Bullish",
+      "score": 71.0,
+      "updated_at": "2026-09-14T09:55:11.708190",
+      "stop": 1.27,
+      "setup": "Candle Over Candle",
+      "regime": "BEARISH_CONSOLIDATION"
+    }
+  ]
+}

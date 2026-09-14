@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T06:43:31.901414",
+  "generated_at": "2026-09-13T19:40:32.246367",
   "tickers": {
     "DSY": {
-      "generated_at": "2026-09-13T06:43:31.901414",
+      "generated_at": "2026-09-13T19:40:32.246367",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -31,7 +31,7 @@
         "sec_annual_growth": "## Annual Growth\n\n            Revenue CAGR 3Y: None\n            Revenue CAGR 5Y: None\n            Revenue Trend: UNKNOWN\n            Revenue Acceleration: UNKNOWN\n\n            Earnings CAGR 3Y: None\n            Earnings CAGR 5Y: None\n            Earnings Trend: MIXED\n\n            Operating CF CAGR 3Y: None\n            Operating CF CAGR 5Y: None\n\n            Growth Profile: NEGATIVE GROWTH\n            Growth Profile Score: 0\n\n            Growth Quality: POOR QUALITY\n            Growth Quality Score: 0\n\n            Company Stage: UNKNOWN",
         "sec_float_analysis": "## Supply / Demand\n\n            Public Float: 86972928.0\n            Shares Outstanding: 81308523.0\n\n            Float Category: MODERATE FLOAT\n            Float Scarcity: MEDIUM\n\n            Supply Trend: STABLE SUPPLY\n            Dilution State: NONE\n\n            Buyback Support: UNKNOWN\n            Institutional Supply Impact: NEUTRAL\n\n            Float Quality: GOOD\n            Float Score: 25",
         "sec_ownership": "## Share Structure\n\n            Current Shares: 86972928.0\n            Previous Shares: 57080546.0\n\n            Current Share Change: 52.36877376751091%\n            3-Year Share CAGR: None%\n            5-Year Share CAGR: None%\n\n            Capital Base Trend: EXPANDING\n            Share Supply Direction: INCREASING\n\n            Buyback Support: UNKNOWN\n            Net Share Impact: DILUTIVE\n\n            Supply Impact: NEGATIVE\n            Ownership Trend: SHARE BASE EXPANDING\n\n            Dilution Risk: HIGH\n            Capital Quality: DILUTIVE",
-        "sec_capital_allocation": "## Capital Allocation\n\n            Net Position: -7821030.0\n            Capital Structure: NET DEBT\n\n            Balance Sheet Strength: WEAK\n            Financial Flexibility: HIGH\n\n            CapEx: 518262.0\n            CapEx State: ASSET-LIGHT\n\n            R&D: 30042.0\n            R&D / Revenue: 1.1747702429078555%\n\n            CapEx / OCF: 7.989912516145186\n\n            Investment Strategy: ASSET-LIGHT INNOVATION\n            Capital Efficiency: STRONG\n\n            Allocation Sustainability: HIGHLY SUSTAINABLE\n            Allocation Score: 40\n            Quality: HIGH QUALITY",
+        "sec_capital_allocation": "## Capital Allocation\n\n            Net Position: -924020.0\n            Capital Structure: NET DEBT\n\n            Balance Sheet Strength: WEAK\n            Financial Flexibility: HIGH\n\n            CapEx: 518262.0\n            CapEx State: ASSET-LIGHT\n\n            R&D: 30042.0\n            R&D / Revenue: 1.1747702429078555%\n\n            CapEx / OCF: 7.989912516145186\n\n            Investment Strategy: ASSET-LIGHT INNOVATION\n            Capital Efficiency: STRONG\n\n            Allocation Sustainability: HIGHLY SUSTAINABLE\n            Allocation Score: 40\n            Quality: HIGH QUALITY",
         "sec_balance_sheet": "",
         "sec_cash_flow": "",
         "sec_new_developments": "## New Developments\n\n            {\n  \"ticker\": null,\n  \"filings_reviewed\": [],\n  \"events\": [],\n  \"external_events\": [],\n  \"new_products\": 0,\n  \"ai_mentions\": 0,\n  \"technology_mentions\": 0,\n  \"partnerships\": 0,\n  \"contracts\": 0,\n  \"expansions\": 0,\n  \"acquisitions\": 0,\n  \"management_changes\": 0,\n  \"innovation_state\": \"UNKNOWN\",\n  \"strategic_momentum\": \"UNKNOWN\",\n  \"catalyst_score\": 0,\n  \"sec_catalyst_count\": 0,\n  \"external_catalyst_count\": 0,\n  \"score\": 0,\n  \"quality\": \"NO DATA\"\n}",

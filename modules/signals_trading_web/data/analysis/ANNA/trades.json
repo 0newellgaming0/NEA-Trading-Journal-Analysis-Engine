@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-03T17:44:23.729311+00:00",
+  "generated_at": "2026-09-14T10:08:38.335196+00:00",
   "ticker": "ANNA",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "target": 3.1959999999999997,
+      "current_price": 3.495,
+      "status": "CONFIRMED",
+      "entry": 3.13,
+      "risk_reward": 2.0,
+      "ticker": "ANNA",
+      "direction": "Bullish",
+      "score": 76.0,
+      "updated_at": "2026-09-14T07:34:37.581235",
+      "stop": 3.1,
+      "setup": "Rising Three Methods",
+      "regime": "SHORT_TERM_STRENGTH"
+    }
+  ]
 }

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T10:15:24.597283",
+  "generated_at": "2026-09-13T15:50:06.360423",
   "tickers": {
     "ASTC": {
-      "generated_at": "2026-09-13T10:15:24.597283",
+      "generated_at": "2026-09-13T15:50:06.360423",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

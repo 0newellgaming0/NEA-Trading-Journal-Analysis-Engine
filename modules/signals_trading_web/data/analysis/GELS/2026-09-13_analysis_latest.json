@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T07:18:04.172039",
+  "generated_at": "2026-09-13T21:29:27.211917",
   "tickers": {
     "GELS": {
-      "generated_at": "2026-09-13T07:18:04.172039",
+      "generated_at": "2026-09-13T21:29:27.211917",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

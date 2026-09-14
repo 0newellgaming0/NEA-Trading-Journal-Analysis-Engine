@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T10:16:18.622895",
+  "generated_at": "2026-09-13T18:16:53.210553",
   "tickers": {
     "CORZ": {
-      "generated_at": "2026-09-13T10:16:18.622895",
+      "generated_at": "2026-09-13T18:16:53.210553",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -40,8 +40,8 @@
         "pending_60m_setups": "📋 PENDING 60M SETUPS\n\nTicker: CORZ\n\nPending Setups: 5\n\n### Setup 1\n- Module: EMA 50\n- Event Type: EMA50_CRUNCH\n- Direction: Bullish\n- Trade Type: NEUTRAL\n- Entry: 18.0\n- Stop: 17.923\n- Wick Stop: 17.93\n- Target 1: 18.07\n- Target 2: 18.14\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 48.2958976758696%\n- Historical Failure Rate: 51.704102324130396%\n\n---\n\n### Setup 2\n- Module: Hammer\n- Event Type: Shooting Star\n- Direction: Bearish\n- Trade Type: REVERSAL\n- Entry: 17.93\n- Stop: 18.007\n- Wick Stop: 18.0\n- Target 1: 17.86\n- Target 2: 17.79\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 40.71608940985753%\n- Historical Failure Rate: 59.283910590142476%\n\n---\n\n### Setup 3\n- Module: Kickers\n- Event Type: Left Right Combo\n- Direction: Bearish\n- Trade Type: \n- Entry: 17.93\n- Stop: 18.117\n- Wick Stop: 18.1\n- Target 1: 17.759999999999998\n- Target 2: 17.589999999999996\n- Detected: 2026-09-11 22:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 39.94584476711432%\n- Historical Failure Rate: 60.05415523288568%\n\n---\n\n### Setup 4\n- Module: Kikakke\n- Event Type: Bearish Kikkake\n- Direction: Bearish\n- Trade Type: \n- Entry: 17.54\n- Stop: 18.46345\n- Wick Stop: 18.3795\n- Target 1: 16.700499999999998\n- Target 2: 15.860999999999997\n- Detected: 2026-09-11 15:30:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 30.209380600603225%\n- Historical Failure Rate: 69.79061939939677%\n\n---\n\n### Setup 5\n- Module: Pinbar\n- Event Type: Pinbar\n- Direction: Bearish\n- Trade Type: REVERSAL\n- Entry: 17.93\n- Stop: 18.007\n- Wick Stop: 18.0\n- Target 1: 17.86\n- Target 2: 17.79\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 45.191702231861754%\n- Historical Failure Rate: 54.808297768138246%",
         "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     CORZ\nDirection:  Bearish\nSetup:      Engulfing\nRegime:     SHORT_TERM_WEAKNESS\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          Engulfing\nCount:          62804\nSuccess:        24755\nFailed:         32231\nUnresolved:     5818\nResolved:       56986\nSuccess Rate:   43.44%\nFailure Rate:   56.56%\n\nTARGET 2 PERFORMANCE\n\nSetup:              Engulfing\nCount:              24755\nTarget 2 Reached:   19211\nTarget 2 Not Reached: 5544\nTarget 2 Hit Rate:  77.60%"
       },
-      "pending_60m_generated_at": "2026-09-13T10:17:42.411243",
-      "current_performance_generated_at": "2026-09-13T10:17:47.906884"
+      "pending_60m_generated_at": "2026-09-13T18:18:23.357266",
+      "current_performance_generated_at": "2026-09-13T18:18:31.497108"
     }
   }
 }

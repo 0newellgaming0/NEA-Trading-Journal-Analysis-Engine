@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T07:08:06.865065",
+  "generated_at": "2026-09-13T19:21:34.350592",
   "tickers": {
     "DLY": {
-      "generated_at": "2026-09-13T07:08:06.865065",
+      "generated_at": "2026-09-13T19:21:34.350592",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T10:09:03.454728+00:00",
+  "ticker": "BBAR",
+  "count": 1,
+  "trades": [
+    {
+      "target": 15.378000000000002,
+      "current_price": 14.89,
+      "status": "CONFIRMED",
+      "entry": 14.85,
+      "risk_reward": 2.0,
+      "ticker": "BBAR",
+      "direction": "Bullish",
+      "score": 61.0,
+      "updated_at": "2026-09-14T10:04:10.668052",
+      "stop": 14.59,
+      "setup": "Rising Three Methods",
+      "regime": "SHORT_TERM_WEAKNESS"
+    }
+  ]
+}

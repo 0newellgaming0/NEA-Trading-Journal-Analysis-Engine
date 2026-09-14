@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T02:35:25.293296",
+  "generated_at": "2026-09-13T18:02:18.218745",
   "tickers": {
     "CLRO": {
-      "generated_at": "2026-09-13T02:35:25.293296",
+      "generated_at": "2026-09-13T18:02:18.218745",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

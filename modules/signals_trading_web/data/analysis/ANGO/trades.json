@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T10:08:37.910581+00:00",
+  "ticker": "ANGO",
+  "count": 1,
+  "trades": [
+    {
+      "target": 15.658,
+      "current_price": 15.41,
+      "status": "CONFIRMED",
+      "entry": 15.24,
+      "risk_reward": 2.0,
+      "ticker": "ANGO",
+      "direction": "Bullish",
+      "score": 72.0,
+      "updated_at": "2026-09-14T07:27:35.438005",
+      "stop": 15.03,
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION"
+    }
+  ]
+}

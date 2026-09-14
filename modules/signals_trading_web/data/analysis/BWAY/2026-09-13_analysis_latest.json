@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T09:17:17.079155",
+  "generated_at": "2026-09-13T17:07:49.216142",
   "tickers": {
     "BWAY": {
-      "generated_at": "2026-09-13T09:17:17.079155",
+      "generated_at": "2026-09-13T17:07:49.216142",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -40,8 +40,8 @@
         "pending_60m_setups": "📋 PENDING 60M SETUPS\n\nTicker: BWAY\n\nPending Setups: 5\n\n### Setup 1\n- Module: Engulfing\n- Event Type: Engulfing\n- Direction: Bullish\n- Trade Type: \n- Entry: 13.93\n- Stop: 13.82\n- Wick Stop: 13.83\n- Target 1: 14.03\n- Target 2: 14.129999999999999\n- Detected: 2026-09-11 19:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 43.44049415645948%\n- Historical Failure Rate: 56.559505843540514%\n\n---\n\n### Setup 2\n- Module: Kickers\n- Event Type: Best Friend\n- Direction: Bullish\n- Trade Type: \n- Entry: 13.93\n- Stop: 13.82\n- Wick Stop: 13.83\n- Target 1: 14.03\n- Target 2: 14.129999999999999\n- Detected: 2026-09-11 20:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 39.94584476711432%\n- Historical Failure Rate: 60.05415523288568%\n\n---\n\n### Setup 3\n- Module: Lines\n- Event Type: Counterattack Lines\n- Direction: Bullish\n- Trade Type: MIXED\n- Entry: 13.93\n- Stop: 13.82\n- Wick Stop: 13.83\n- Target 1: 14.03\n- Target 2: 14.129999999999999\n- Detected: 2026-09-11 19:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 45.928208902586746%\n- Historical Failure Rate: 54.07179109741325%\n\n---\n\n### Setup 4\n- Module: Marubozu\n- Event Type: Marubozu\n- Direction: Bullish\n- Trade Type: CONTINUATION\n- Entry: 13.93\n- Stop: 13.82\n- Wick Stop: 13.83\n- Target 1: 14.049999999999999\n- Target 2: 14.18\n- Detected: 2026-09-11 19:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 42.115109691311176%\n- Historical Failure Rate: 57.88489030868882%\n\n---\n\n### Setup 5\n- Module: T Line\n- Event Type: TLINE_CONTINUATION\n- Direction: Bullish\n- Trade Type: TLINE_CONTINUATION\n- Entry: 13.93\n- Stop: 13.823237712405538\n- Wick Stop: \n- Target 1: 14.036762287594462\n- Target 2: 14.143524575188923\n- Detected: 2026-09-11 20:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 38.70655014471577%\n- Historical Failure Rate: 61.29344985528423%",
         "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     BWAY\nDirection:  Bullish\nSetup:      Pinbar\nRegime:     SHORT_TERM_STRENGTH\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          Pinbar\nCount:          63633\nSuccess:        25837\nFailed:         31335\nUnresolved:     6461\nResolved:       57172\nSuccess Rate:   45.19%\nFailure Rate:   54.81%\n\nTARGET 2 PERFORMANCE\n\nSetup:              Pinbar\nCount:              25837\nTarget 2 Reached:   20568\nTarget 2 Not Reached: 5269\nTarget 2 Hit Rate:  79.61%"
       },
-      "pending_60m_generated_at": "2026-09-13T09:18:37.261900",
-      "current_performance_generated_at": "2026-09-13T09:18:52.401170"
+      "pending_60m_generated_at": "2026-09-13T17:09:07.353268",
+      "current_performance_generated_at": "2026-09-13T17:09:26.506134"
     }
   }
 }

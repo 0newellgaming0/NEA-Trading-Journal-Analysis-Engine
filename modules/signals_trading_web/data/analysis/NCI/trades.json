@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-08T12:06:43.844277+00:00",
+  "generated_at": "2026-09-14T10:11:48.915699+00:00",
   "ticker": "NCI",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "target": 13.636000000000003,
+      "current_price": 12.95,
+      "status": "CONFIRMED",
+      "entry": 12.8,
+      "risk_reward": 2.0,
+      "ticker": "NCI",
+      "direction": "Bullish",
+      "score": 71.0,
+      "updated_at": "2026-09-14T08:44:05.846522",
+      "stop": 12.38,
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
     {
       "setup": "Engulfing",
       "status": "CONFIRMED",

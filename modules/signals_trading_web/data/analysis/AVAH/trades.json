@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T16:09:50.281446+00:00",
+  "generated_at": "2026-09-14T10:08:59.100668+00:00",
   "ticker": "AVAH",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "target": 14.627586422348699,
+      "current_price": 14.08,
+      "status": "CONFIRMED",
+      "entry": 14.09,
+      "risk_reward": 2.0,
+      "ticker": "AVAH",
+      "direction": "Bullish",
+      "score": 68.0,
+      "updated_at": "2026-09-14T09:08:08.954177",
+      "stop": 13.82,
+      "setup": "TLINE_CROSS",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "status": "CONFIRMED",
       "target": 14.519999999999998,

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T04:52:25.758959",
+  "generated_at": "2026-09-13T17:40:53.940746",
   "tickers": {
     "CGTL": {
-      "generated_at": "2026-09-13T04:52:25.758959",
+      "generated_at": "2026-09-13T17:40:53.940746",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

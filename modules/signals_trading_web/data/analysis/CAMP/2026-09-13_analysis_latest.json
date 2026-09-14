@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T06:01:14.783679",
+  "generated_at": "2026-09-13T17:17:40.059938",
   "tickers": {
     "CAMP": {
-      "generated_at": "2026-09-13T06:01:14.783679",
+      "generated_at": "2026-09-13T17:17:40.059938",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

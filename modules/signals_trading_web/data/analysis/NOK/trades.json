@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T16:09:51.611487+00:00",
+  "generated_at": "2026-09-14T10:11:52.064618+00:00",
   "ticker": "NOK",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "target": 10.419724212192332,
+      "current_price": 10.0012,
+      "status": "CONFIRMED",
+      "entry": 10.87,
+      "risk_reward": 2.0,
+      "ticker": "NOK",
+      "direction": "Bearish",
+      "score": 63.0,
+      "updated_at": "2026-09-14T09:22:30.037293",
+      "stop": 11.09,
+      "setup": "TLINE_ROLLOVER",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "status": "CONFIRMED",
       "target": 11.654000000000002,

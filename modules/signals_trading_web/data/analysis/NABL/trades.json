@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.947719+00:00",
+  "generated_at": "2026-09-14T10:11:46.657203+00:00",
   "ticker": "NABL",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "target": 3.8680000000000008,
+      "current_price": 3.87,
+      "status": "CONFIRMED",
+      "entry": 3.89,
+      "risk_reward": 2.0,
+      "ticker": "NABL",
+      "direction": "Bearish",
+      "score": 73.0,
+      "updated_at": "2026-09-14T08:30:19.748247",
+      "stop": 3.9,
+      "setup": "Marubozu",
+      "regime": "BEARISH_CONSOLIDATION"
+    },
     {
       "entry": 4.11,
       "current_price": 4.08,

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T14:00:47.302203+00:00",
+  "generated_at": "2026-09-14T10:08:13.305926+00:00",
   "ticker": "AEG",
   "count": 4,
   "trades": [
     {
-      "direction": "Bearish",
-      "risk_reward": 2.0,
-      "entry": 9.07,
-      "regime": "BULLISH_CONSOLIDATION",
-      "setup": "Falling Three Methods",
-      "current_price": 9.06,
-      "ticker": "AEG",
       "target": 8.96,
-      "score": 69.0,
+      "current_price": 9.06,
       "status": "CONFIRMED",
-      "updated_at": "2026-09-13T13:59:30.109864",
-      "stop": 9.12
+      "entry": 9.07,
+      "risk_reward": 2.0,
+      "ticker": "AEG",
+      "direction": "Bearish",
+      "score": 69.0,
+      "updated_at": "2026-09-14T05:16:47.898240",
+      "stop": 9.12,
+      "setup": "Falling Three Methods",
+      "regime": "BULLISH_CONSOLIDATION"
     },
     {
       "direction": "Bearish",

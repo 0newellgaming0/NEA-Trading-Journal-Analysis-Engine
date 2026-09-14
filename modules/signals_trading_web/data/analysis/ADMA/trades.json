@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T14:00:43.988778+00:00",
+  "generated_at": "2026-09-14T10:08:12.151954+00:00",
   "ticker": "ADMA",
   "count": 5,
   "trades": [
     {
-      "direction": "Bearish",
-      "risk_reward": 2.0,
-      "entry": 9.23,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "Pinbar",
-      "current_price": 9.2,
-      "ticker": "ADMA",
       "target": 8.922000000000004,
-      "score": 79.0,
+      "current_price": 9.2,
       "status": "CONFIRMED",
-      "updated_at": "2026-09-13T10:30:11.752566",
-      "stop": 9.38
+      "entry": 9.23,
+      "risk_reward": 2.0,
+      "ticker": "ADMA",
+      "direction": "Bearish",
+      "score": 79.0,
+      "updated_at": "2026-09-14T05:07:02.168165",
+      "stop": 9.38,
+      "setup": "Pinbar",
+      "regime": "BEARISH_CONSOLIDATION"
     },
     {
       "stop": 9.514149999999999,

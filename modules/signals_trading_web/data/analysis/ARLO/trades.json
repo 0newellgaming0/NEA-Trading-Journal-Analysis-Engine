@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T10:08:47.478705+00:00",
+  "ticker": "ARLO",
+  "count": 1,
+  "trades": [
+    {
+      "target": 12.185719380682993,
+      "current_price": 12.95,
+      "status": "CONFIRMED",
+      "entry": 12.95,
+      "risk_reward": 2.0,
+      "ticker": "ARLO",
+      "direction": "Bearish",
+      "score": 65.0,
+      "updated_at": "2026-09-14T08:22:22.273447",
+      "stop": 13.33,
+      "setup": "TLINE_CROSS",
+      "regime": "PRIMARY_UPTREND_PULLBACK"
+    }
+  ]
+}

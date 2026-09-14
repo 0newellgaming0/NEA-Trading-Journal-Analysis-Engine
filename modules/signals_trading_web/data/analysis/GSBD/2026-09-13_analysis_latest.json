@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T05:59:24.527102",
+  "generated_at": "2026-09-13T22:11:07.127137",
   "tickers": {
     "GSBD": {
-      "generated_at": "2026-09-13T05:59:24.527102",
+      "generated_at": "2026-09-13T22:11:07.127137",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {

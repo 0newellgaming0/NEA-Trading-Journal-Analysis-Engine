@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T16:09:51.522576+00:00",
+  "generated_at": "2026-09-14T10:11:44.183240+00:00",
   "ticker": "MQ",
   "count": 3,
   "trades": [
     {
-      "status": "CONFIRMED",
       "target": 16.776,
-      "score": 67.0,
       "current_price": 16.33,
-      "ticker": "MQ",
+      "status": "CONFIRMED",
       "entry": 16.27,
-      "direction": "Bullish",
       "risk_reward": 2.0,
-      "updated_at": "2026-09-13T14:39:50.631873",
+      "ticker": "MQ",
+      "direction": "Bullish",
+      "score": 67.0,
+      "updated_at": "2026-09-14T08:05:47.506196",
+      "stop": 16.02,
       "setup": "Pinbar",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "stop": 16.02
+      "regime": "SHORT_TERM_WEAKNESS"
     },
     {
       "direction": "Bearish",

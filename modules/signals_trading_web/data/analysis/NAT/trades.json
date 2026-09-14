@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-13T16:09:51.559770+00:00",
+  "generated_at": "2026-09-14T10:11:47.736700+00:00",
   "ticker": "NAT",
   "count": 4,
   "trades": [
     {
-      "status": "CONFIRMED",
       "target": 7.373000000000001,
-      "score": 66.0,
-      "current_price": 7.46,
-      "ticker": "NAT",
+      "current_price": 7.48,
+      "status": "CONFIRMED",
       "entry": 7.23,
-      "direction": "Bullish",
       "risk_reward": 2.0,
-      "updated_at": "2026-09-13T14:59:11.255510",
+      "ticker": "NAT",
+      "direction": "Bullish",
+      "score": 66.0,
+      "updated_at": "2026-09-14T08:38:29.126049",
+      "stop": 7.16,
       "setup": "Rising Three Methods",
-      "regime": "BULLISH_CONSOLIDATION",
-      "stop": 7.16
+      "regime": "BULLISH_CONSOLIDATION"
     },
     {
       "ticker": "NAT",

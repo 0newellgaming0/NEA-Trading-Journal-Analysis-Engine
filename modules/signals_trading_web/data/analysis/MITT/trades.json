@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-08-31T12:26:25.890052+00:00",
+  "generated_at": "2026-09-14T10:11:41.180236+00:00",
   "ticker": "MITT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "target": 6.49198,
+      "current_price": 6.56,
+      "status": "CONFIRMED",
+      "entry": 6.54,
+      "risk_reward": 2.0,
+      "ticker": "MITT",
+      "direction": "Bearish",
+      "score": 42.0,
+      "updated_at": "2026-09-14T07:40:45.792521",
+      "stop": 6.57,
+      "setup": "Engulfing",
+      "regime": "BEARISH_CONSOLIDATION"
+    },
     {
       "setup": "Pinbar",
       "updated_at": "2026-08-31T02:09:09.337416",

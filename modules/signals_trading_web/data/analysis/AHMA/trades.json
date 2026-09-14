@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-14T10:08:18.432349+00:00",
+  "ticker": "AHMA",
+  "count": 1,
+  "trades": [
+    {
+      "target": 1.39036,
+      "current_price": 1.42,
+      "status": "CONFIRMED",
+      "entry": 1.47,
+      "risk_reward": 2.0,
+      "ticker": "AHMA",
+      "direction": "Bearish",
+      "score": 77.0,
+      "updated_at": "2026-09-14T05:58:06.524127",
+      "stop": 1.51,
+      "setup": "Harami Cross",
+      "regime": "SHORT_TERM_WEAKNESS"
+    }
+  ]
+}

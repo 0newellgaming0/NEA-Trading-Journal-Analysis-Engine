@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T10:03:44.474698",
+  "generated_at": "2026-09-13T18:34:17.619568",
   "tickers": {
     "CRT": {
-      "generated_at": "2026-09-13T10:03:44.474698",
+      "generated_at": "2026-09-13T18:34:17.619568",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
@@ -40,8 +40,8 @@
         "pending_60m_setups": "📋 PENDING 60M SETUPS\n\nTicker: CRT\n\nPending Setups: 8\n\n### Setup 1\n- Module: Alligator\n- Event Type: GREEN_ZONE_BUY\n- Direction: Bullish\n- Trade Type: \n- Entry: 11.780496999999999\n- Stop: 11.72533\n- Wick Stop: 11.7303\n- Target 1: 11.835663999999998\n- Target 2: 11.890830999999997\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 37.03313253012048%\n- Historical Failure Rate: 62.96686746987952%\n\n---\n\n### Setup 2\n- Module: Kickers\n- Event Type: Left Right Combo\n- Direction: Bullish\n- Trade Type: \n- Entry: 11.9\n- Stop: 11.515\n- Wick Stop: 11.55\n- Target 1: 12.25\n- Target 2: 12.6\n- Detected: 2026-09-11 17:30:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 39.94584476711432%\n- Historical Failure Rate: 60.05415523288568%\n\n---\n\n### Setup 3\n- Module: Lines\n- Event Type: Counterattack Lines\n- Direction: Bullish\n- Trade Type: MIXED\n- Entry: 11.88\n- Stop: 11.627\n- Wick Stop: 11.65\n- Target 1: 12.110000000000001\n- Target 2: 12.340000000000002\n- Detected: 2026-09-11 18:30:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 45.928208902586746%\n- Historical Failure Rate: 54.07179109741325%\n\n---\n\n### Setup 4\n- Module: Marubozu\n- Event Type: Marubozu\n- Direction: Bearish\n- Trade Type: CONTINUATION\n- Entry: 11.7303\n- Stop: 11.78497\n- Wick Stop: 11.78\n- Target 1: 11.67066\n- Target 2: 11.60605\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 42.115109691311176%\n- Historical Failure Rate: 57.88489030868882%\n\n---\n\n### Setup 5\n- Module: RSI 50\n- Event Type: RSI_ABOVE_50_CONTINUATION\n- Direction: Bullish\n- Trade Type: CONTINUATION\n- Entry: 11.78\n- Stop: 11.72533\n- Wick Stop: 11.7303\n- Target 1: 11.829699999999999\n- Target 2: 11.879399999999999\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 34.44844194278419%\n- Historical Failure Rate: 65.55155805721581%\n\n---\n\n### Setup 6\n- Module: T Line\n- Event Type: TLINE_CONTINUATION\n- Direction: Bullish\n- Trade Type: TLINE_CONTINUATION\n- Entry: 11.78\n- Stop: 11.524334461669365\n- Wick Stop: \n- Target 1: 12.035665538330633\n- Target 2: 12.291331076661267\n- Detected: 2026-09-11 23:00:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 38.70655014471577%\n- Historical Failure Rate: 61.29344985528423%\n\n---\n\n### Setup 7\n- Module: Three Methods\n- Event Type: Rising Three Methods\n- Direction: Bullish\n- Trade Type: \n- Entry: 11.9\n- Stop: 11.515\n- Wick Stop: 11.55\n- Target 1: 12.425\n- Target 2: 12.95\n- Detected: 2026-09-11 16:30:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 37.38898444904694%\n- Historical Failure Rate: 62.61101555095306%\n\n---\n\n### Setup 8\n- Module: Tweezers\n- Event Type: Tweezer Bottom\n- Direction: Bullish\n- Trade Type: REVERSAL\n- Entry: 11.88\n- Stop: 11.627\n- Wick Stop: 11.65\n- Target 1: 12.110000000000001\n- Target 2: 12.340000000000002\n- Detected: 2026-09-11 18:30:00+00:00\n\nHistorical Module Performance:\n- Historical Success Rate: 46.01215608036004%\n- Historical Failure Rate: 53.98784391963996%",
         "current_performance": "CURRENT TRADE SETUP PERFORMANCE\n\nTicker:     CRT\nDirection:  Bullish\nSetup:      Engulfing\nRegime:     BULLISH_CONSOLIDATION\nStatus:     CONFIRMED\n\nSIGNAL SETUP PERFORMANCE\n\nSetup:          Engulfing\nCount:          62804\nSuccess:        24755\nFailed:         32231\nUnresolved:     5818\nResolved:       56986\nSuccess Rate:   43.44%\nFailure Rate:   56.56%\n\nTARGET 2 PERFORMANCE\n\nSetup:              Engulfing\nCount:              24755\nTarget 2 Reached:   19211\nTarget 2 Not Reached: 5544\nTarget 2 Hit Rate:  77.60%"
       },
-      "pending_60m_generated_at": "2026-09-13T10:05:01.748650",
-      "current_performance_generated_at": "2026-09-13T10:05:17.878249"
+      "pending_60m_generated_at": "2026-09-13T18:35:45.824780",
+      "current_performance_generated_at": "2026-09-13T18:36:05.563411"
     }
   }
 }

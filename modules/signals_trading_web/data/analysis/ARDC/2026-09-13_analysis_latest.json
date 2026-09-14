@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-13T07:48:07.535090",
+  "generated_at": "2026-09-13T15:35:39.784989",
   "tickers": {
     "ARDC": {
-      "generated_at": "2026-09-13T07:48:07.535090",
+      "generated_at": "2026-09-13T15:35:39.784989",
       "journal_timestamp": "",
       "stop_breached": false,
       "analysis_blocks": {
