@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:43:08.744778+00:00",
+  "generated_at": "2026-09-17T14:09:34.455165+00:00",
   "ticker": "ANGI",
   "count": 4,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_CROSS",
-      "ticker": "ANGI",
-      "current_price": 5.17,
       "entry": 5.16,
-      "risk_reward": 2.0,
-      "target": 5.549161833056837,
-      "score": 61.0,
+      "score": 74.0,
       "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 5.549161833056837,
+      "ticker": "ANGI",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:24:28.564894",
       "stop": 4.96,
-      "updated_at": "2026-09-16T17:34:48.897252",
-      "regime": "PRIMARY_DOWNTREND_RALLY"
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "TLINE_CROSS",
+      "current_price": 5.31
     },
     {
       "risk_reward": 2.0,

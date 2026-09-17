@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:43:04.261153+00:00",
+  "generated_at": "2026-09-17T14:09:30.008258+00:00",
   "ticker": "ALDF",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 10.8,
+      "score": 59.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 10.77209529033522,
+      "ticker": "ALDF",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T14:00:19.312409",
+      "stop": 10.81,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "TLINE_CROSS",
+      "current_price": 10.8
+    },
     {
       "status": "CONFIRMED",
       "setup": "GRAVESTONE_DOJI",

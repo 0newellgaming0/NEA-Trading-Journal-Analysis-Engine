@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:43:39.578996+00:00",
+  "generated_at": "2026-09-17T14:10:05.836369+00:00",
   "ticker": "CLSK",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "entry": 12.96,
+      "score": 74.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 13.59886293862056,
+      "ticker": "CLSK",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T08:51:19.897348",
+      "stop": 12.64,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "setup": "TLINE_CROSS",
+      "current_price": 13.17
+    },
     {
       "status": "CONFIRMED",
       "setup": "Marubozu",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:22:59.759133+00:00",
+  "generated_at": "2026-09-17T14:09:44.092673+00:00",
   "ticker": "AVTR",
-  "count": 9,
+  "count": 10,
   "trades": [
+    {
+      "entry": 15.62,
+      "score": 61.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 15.872999999999996,
+      "ticker": "AVTR",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T12:16:54.899190",
+      "stop": 15.49,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Counterattack Lines",
+      "current_price": 15.8
+    },
     {
       "updated_at": "2026-09-16T07:16:01.372709",
       "score": 64.0,

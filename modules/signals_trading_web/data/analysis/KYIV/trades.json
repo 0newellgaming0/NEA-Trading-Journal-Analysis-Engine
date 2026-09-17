@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T12:25:03.468634+00:00",
+  "generated_at": "2026-09-17T14:11:03.746218+00:00",
   "ticker": "KYIV",
   "count": 1,
   "trades": [
     {
-      "updated_at": "2026-09-16T06:40:05.430769",
+      "entry": 13.38,
       "score": 61.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 12.720000000000004,
       "ticker": "KYIV",
       "risk_reward": 2.0,
-      "setup": "Falling Three Methods",
-      "target": 12.720000000000004,
-      "current_price": 13.25,
-      "regime": "SHORT_TERM_WEAKNESS",
+      "updated_at": "2026-09-17T13:15:24.967565",
       "stop": 13.71,
-      "direction": "Bearish",
-      "entry": 13.38,
-      "status": "CONFIRMED"
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Falling Three Methods",
+      "current_price": 13.19
     }
   ]
 }

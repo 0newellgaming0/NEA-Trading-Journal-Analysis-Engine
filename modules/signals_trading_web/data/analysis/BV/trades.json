@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:43:30.320733+00:00",
+  "generated_at": "2026-09-17T14:09:56.296193+00:00",
   "ticker": "BV",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "entry": 11.07,
+      "score": 66.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 10.937999999999999,
+      "ticker": "BV",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:31:40.465403",
+      "stop": 11.14,
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "Counterattack Lines",
+      "current_price": 10.94
+    },
     {
       "status": "CONFIRMED",
       "setup": "SWING_STRUCTURE",

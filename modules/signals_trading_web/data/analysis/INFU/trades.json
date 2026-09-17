@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:24:45.319997+00:00",
+  "generated_at": "2026-09-17T14:10:54.867249+00:00",
   "ticker": "INFU",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 12.2,
+      "score": 65.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 12.463999999999999,
+      "ticker": "INFU",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:07:04.496677",
+      "stop": 12.07,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Rising Three Methods",
+      "current_price": 12.484
+    },
     {
       "updated_at": "2026-09-16T06:51:54.148655",
       "score": 62.0,

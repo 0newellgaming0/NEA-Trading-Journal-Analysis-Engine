@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:44:13.886169+00:00",
+  "generated_at": "2026-09-17T14:10:40.596565+00:00",
   "ticker": "GLRE",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 15.17,
+      "score": 85.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 14.487999999999998,
+      "ticker": "GLRE",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T06:48:49.341260",
+      "stop": 15.51,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Falling Three Methods",
+      "current_price": 15.12
+    },
     {
       "status": "CONFIRMED",
       "setup": "Pinbar",

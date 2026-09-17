@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:25:08.858833+00:00",
+  "generated_at": "2026-09-17T14:11:06.094997+00:00",
   "ticker": "LFVN",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 6.17,
+      "score": 59.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 6.23,
+      "ticker": "LFVN",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T12:55:14.683899",
+      "stop": 6.14,
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "DRAGONFLY_DOJI",
+      "current_price": 6.18
+    },
     {
       "updated_at": "2026-09-16T06:38:31.206662",
       "score": 62.0,

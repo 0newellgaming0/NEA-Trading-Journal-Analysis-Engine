@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:45:25.995112+00:00",
+  "generated_at": "2026-09-17T14:11:54.233612+00:00",
   "ticker": "RPAY",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_CROSS",
-      "ticker": "RPAY",
-      "current_price": 3.76,
       "entry": 3.84,
-      "risk_reward": 2.0,
-      "target": 4.054444593923697,
-      "score": 57.0,
+      "score": 58.0,
       "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 4.054444593923697,
+      "ticker": "RPAY",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:45:53.132536",
       "stop": 3.73,
-      "updated_at": "2026-09-16T19:03:46.833803",
-      "regime": "SHORT_TERM_WEAKNESS"
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "TLINE_CROSS",
+      "current_price": 3.835
     },
     {
       "risk_reward": 2.0,

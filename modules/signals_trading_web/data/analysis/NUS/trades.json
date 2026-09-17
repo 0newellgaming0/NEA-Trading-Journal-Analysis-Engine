@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:00.155681+00:00",
+  "generated_at": "2026-09-17T14:11:28.233437+00:00",
   "ticker": "NUS",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 4.58,
+      "score": 56.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 4.6211400000000005,
+      "ticker": "NUS",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:58:41.447505",
+      "stop": 4.56,
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "Pinbar",
+      "current_price": 4.66
+    },
     {
       "status": "CONFIRMED",
       "setup": "Falling Three Methods",

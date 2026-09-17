@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:44:47.033696+00:00",
+  "generated_at": "2026-09-17T14:11:15.066456+00:00",
   "ticker": "MH",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "entry": 13.28,
+      "score": 81.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 13.565999999999997,
+      "ticker": "MH",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T07:45:03.046801",
+      "stop": 13.14,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Engulfing",
+      "current_price": 13.32
+    },
     {
       "status": "CONFIRMED",
       "setup": "Counterattack Lines",

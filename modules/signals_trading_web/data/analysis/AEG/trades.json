@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:42:58.035351+00:00",
+  "generated_at": "2026-09-17T14:09:23.735031+00:00",
   "ticker": "AEG",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "entry": 9.12,
+      "score": 68.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 9.075999999999995,
+      "ticker": "AEG",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T10:28:49.786946",
+      "stop": 9.14,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "setup": "Marubozu",
+      "current_price": 9.1
+    },
     {
       "status": "CONFIRMED",
       "setup": "Falling Three Methods",

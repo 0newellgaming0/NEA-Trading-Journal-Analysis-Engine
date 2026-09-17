@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:25:00.895839+00:00",
+  "generated_at": "2026-09-17T14:11:01.849854+00:00",
   "ticker": "KODK",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "entry": 9.49,
+      "score": 67.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 9.511999999999999,
+      "ticker": "KODK",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T11:41:40.107329",
+      "stop": 9.48,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Marubozu",
+      "current_price": 9.64
+    },
     {
       "updated_at": "2026-09-16T05:14:25.786269",
       "score": 65.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:43:09.222317+00:00",
+  "generated_at": "2026-09-17T14:09:34.930175+00:00",
   "ticker": "ANNA",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "entry": 3.23,
+      "score": 76.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 3.553905358984148,
+      "ticker": "ANNA",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T10:37:03.706960",
+      "stop": 3.07,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "setup": "TLINE_CROSS",
+      "current_price": 3.23
+    },
     {
       "status": "CONFIRMED",
       "setup": "Candle Over Candle",

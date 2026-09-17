@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:45:25.762535+00:00",
+  "generated_at": "2026-09-17T14:11:54.011438+00:00",
   "ticker": "RNW",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "Pinbar",
-      "ticker": "RNW",
-      "current_price": 6.84,
       "entry": 6.83,
-      "risk_reward": 2.0,
-      "target": 6.845999999999999,
-      "score": 63.0,
+      "score": 68.0,
       "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 6.845999999999999,
+      "ticker": "RNW",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T12:47:36.036920",
       "stop": 6.83,
-      "updated_at": "2026-09-16T18:50:34.999606",
-      "regime": "BULLISH_CONSOLIDATION"
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Pinbar",
+      "current_price": 6.925
     },
     {
       "risk_reward": 2.0,

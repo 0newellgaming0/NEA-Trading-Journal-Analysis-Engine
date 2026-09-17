@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:38.141160+00:00",
+  "generated_at": "2026-09-17T14:12:06.821145+00:00",
   "ticker": "SPT",
-  "count": 9,
+  "count": 10,
   "trades": [
+    {
+      "entry": 11.4,
+      "score": 75.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 11.893992414066753,
+      "ticker": "SPT",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T12:06:01.796920",
+      "stop": 11.15,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "TLINE_CROSS",
+      "current_price": 11.4
+    },
     {
       "status": "CONFIRMED",
       "setup": "Candle Over Candle",

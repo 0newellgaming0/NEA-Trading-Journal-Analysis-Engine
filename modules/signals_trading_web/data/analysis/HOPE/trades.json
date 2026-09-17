@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:44:22.020574+00:00",
+  "generated_at": "2026-09-17T14:10:48.950750+00:00",
   "ticker": "HOPE",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 14.01,
+      "score": 79.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 13.646999999999997,
+      "ticker": "HOPE",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T09:41:32.544639",
+      "stop": 14.19,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "setup": "Engulfing",
+      "current_price": 14.02
+    },
     {
       "status": "CONFIRMED",
       "setup": "Engulfing",

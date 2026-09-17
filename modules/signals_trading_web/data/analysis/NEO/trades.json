@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:44:54.749093+00:00",
+  "generated_at": "2026-09-17T14:11:22.803785+00:00",
   "ticker": "NEO",
-  "count": 14,
+  "count": 15,
   "trades": [
+    {
+      "entry": 19.38,
+      "score": 75.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 23.5598,
+      "ticker": "NEO",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T07:31:51.023415",
+      "stop": 17.29,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "SWING_STRUCTURE",
+      "current_price": 18.94
+    },
     {
       "status": "CONFIRMED",
       "setup": "SWING_STRUCTURE",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:26:58.282800+00:00",
+  "generated_at": "2026-09-17T14:12:12.055433+00:00",
   "ticker": "TC",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "entry": 2.0,
+      "score": 65.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 2.22,
+      "ticker": "TC",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T11:54:01.033772",
+      "stop": 1.89,
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "Candle Over Candle",
+      "current_price": 1.99
+    },
     {
       "updated_at": "2026-09-16T05:47:52.109084",
       "score": 64.0,

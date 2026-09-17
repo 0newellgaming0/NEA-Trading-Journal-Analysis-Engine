@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:44:40.713877+00:00",
+  "generated_at": "2026-09-17T14:11:08.382183+00:00",
   "ticker": "LSBK",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_CROSS",
-      "ticker": "LSBK",
-      "current_price": 18.2599,
       "entry": 18.26,
-      "risk_reward": 2.0,
-      "target": 19.03008457392357,
-      "score": 67.0,
+      "score": 74.0,
       "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 19.03008457392357,
+      "ticker": "LSBK",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T10:47:48.543339",
       "stop": 17.87,
-      "updated_at": "2026-09-16T15:17:37.550368",
-      "regime": "BULLISH_CONSOLIDATION"
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "TLINE_CROSS",
+      "current_price": 18.1
     },
     {
       "risk_reward": 2.0,

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:45:13.776533+00:00",
+  "generated_at": "2026-09-17T14:11:42.129602+00:00",
   "ticker": "PLTK",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_ROLLOVER",
-      "ticker": "PLTK",
-      "current_price": 2.315,
       "entry": 2.36,
-      "risk_reward": 2.0,
-      "target": 2.2863570928638093,
-      "score": 42.0,
+      "score": 37.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 2.2863570928638093,
+      "ticker": "PLTK",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T14:09:15.646754",
       "stop": 2.39,
-      "updated_at": "2026-09-16T19:38:44.817478",
-      "regime": "FULL_BEARISH_ALIGNMENT"
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "TLINE_ROLLOVER",
+      "current_price": 2.3
     },
     {
       "risk_reward": 2.0,

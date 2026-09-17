@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:22:40.772325+00:00",
+  "generated_at": "2026-09-17T14:09:25.591666+00:00",
   "ticker": "AFRI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 11.09,
+      "score": 66.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 10.786159999999999,
+      "ticker": "AFRI",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T12:07:39.069820",
+      "stop": 11.24,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Candle Over Candle",
+      "current_price": 11.05
+    },
     {
       "updated_at": "2026-09-16T05:05:46.713288",
       "score": 64.0,

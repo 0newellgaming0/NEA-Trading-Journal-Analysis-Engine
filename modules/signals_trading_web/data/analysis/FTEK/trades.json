@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:24:18.014105+00:00",
+  "generated_at": "2026-09-17T14:10:36.017773+00:00",
   "ticker": "FTEK",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 1.75,
+      "score": 65.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 1.5457738615916714,
+      "ticker": "FTEK",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T10:52:05.184793",
+      "stop": 1.85,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "TLINE_CROSS",
+      "current_price": 1.75
+    },
     {
       "updated_at": "2026-09-16T06:05:55.157296",
       "score": 66.0,

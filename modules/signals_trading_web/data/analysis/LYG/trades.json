@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:44:43.219094+00:00",
+  "generated_at": "2026-09-17T14:11:11.066249+00:00",
   "ticker": "LYG",
   "count": 5,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_CROSS",
-      "ticker": "LYG",
-      "current_price": 5.965,
       "entry": 5.99,
-      "risk_reward": 2.0,
-      "target": 6.172410138341399,
-      "score": 70.0,
+      "score": 71.0,
       "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 6.172410138341399,
+      "ticker": "LYG",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T09:20:03.724939",
       "stop": 5.9,
-      "updated_at": "2026-09-16T16:08:09.785254",
-      "regime": "FULL_BULLISH_ALIGNMENT"
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "TLINE_CROSS",
+      "current_price": 5.91
     },
     {
       "risk_reward": 2.0,

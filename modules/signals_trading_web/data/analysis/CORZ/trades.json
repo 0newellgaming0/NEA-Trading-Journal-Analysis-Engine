@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:43:42.299421+00:00",
+  "generated_at": "2026-09-17T14:10:08.491722+00:00",
   "ticker": "CORZ",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "entry": 17.7,
+      "score": 67.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 19.24,
+      "ticker": "CORZ",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T10:07:09.509627",
+      "stop": 16.93,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Candle Over Candle",
+      "current_price": 18.0
+    },
     {
       "status": "CONFIRMED",
       "setup": "Inverted Hammer",

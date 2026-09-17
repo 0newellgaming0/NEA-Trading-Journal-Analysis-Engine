@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:45:28.410739+00:00",
+  "generated_at": "2026-09-17T14:11:56.717139+00:00",
   "ticker": "RXT",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "Engulfing",
-      "ticker": "RXT",
-      "current_price": 3.4817,
       "entry": 3.54,
-      "risk_reward": 2.0,
-      "target": 3.942,
-      "score": 75.0,
+      "score": 77.0,
       "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 3.942,
+      "ticker": "RXT",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T07:57:48.912381",
       "stop": 3.33,
-      "updated_at": "2026-09-16T17:57:42.375063",
-      "regime": "SHORT_TERM_STRENGTH"
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Engulfing",
+      "current_price": 3.4853
     },
     {
       "regime": "SHORT_TERM_STRENGTH",

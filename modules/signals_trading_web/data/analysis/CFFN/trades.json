@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:43:35.672651+00:00",
+  "generated_at": "2026-09-17T14:10:01.762452+00:00",
   "ticker": "CFFN",
   "count": 3,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_ROLLOVER",
-      "ticker": "CFFN",
-      "current_price": 8.865,
       "entry": 8.87,
-      "risk_reward": 2.0,
-      "target": 8.793327739402724,
-      "score": 69.0,
+      "score": 76.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 8.793327739402724,
+      "ticker": "CFFN",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T09:55:24.688627",
       "stop": 8.91,
-      "updated_at": "2026-09-16T14:40:40.429282",
-      "regime": "BULLISH_CONSOLIDATION"
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "TLINE_ROLLOVER",
+      "current_price": 8.86
     },
     {
       "risk_reward": 2.0,

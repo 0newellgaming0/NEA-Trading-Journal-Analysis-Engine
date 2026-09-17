@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:45:14.256952+00:00",
+  "generated_at": "2026-09-17T14:11:42.596932+00:00",
   "ticker": "PMA",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "Marubozu",
-      "ticker": "PMA",
-      "current_price": 1.24,
       "entry": 1.24,
-      "risk_reward": 2.0,
-      "target": 1.1739999999999997,
       "score": 56.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 1.1739999999999997,
+      "ticker": "PMA",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:56:16.081320",
       "stop": 1.27,
-      "updated_at": "2026-09-16T18:29:10.604204",
-      "regime": "SHORT_TERM_WEAKNESS"
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Marubozu",
+      "current_price": 1.23
     },
     {
       "risk_reward": 2.0,

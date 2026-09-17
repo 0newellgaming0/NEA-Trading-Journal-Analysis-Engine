@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:45:09.078459+00:00",
+  "generated_at": "2026-09-17T14:11:37.469246+00:00",
   "ticker": "PAYO",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "Falling Three Methods",
-      "ticker": "PAYO",
-      "current_price": 7.12,
       "entry": 7.13,
-      "risk_reward": 2.0,
-      "target": 7.097,
       "score": 68.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 7.097,
+      "ticker": "PAYO",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T10:14:34.886545",
       "stop": 7.15,
-      "updated_at": "2026-09-16T15:11:24.436627",
-      "regime": "BULLISH_CONSOLIDATION"
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Falling Three Methods",
+      "current_price": 7.07
     },
     {
       "risk_reward": 2.0,

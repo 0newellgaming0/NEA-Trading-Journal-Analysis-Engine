@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:44:17.251913+00:00",
+  "generated_at": "2026-09-17T14:10:44.082067+00:00",
   "ticker": "GRNT",
   "count": 6,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_CROSS",
-      "ticker": "GRNT",
-      "current_price": 5.0399,
       "entry": 5.05,
-      "risk_reward": 2.0,
-      "target": 4.5474329810642,
-      "score": 63.0,
+      "score": 68.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 4.5474329810642,
+      "ticker": "GRNT",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T12:27:53.446030",
       "stop": 5.3,
-      "updated_at": "2026-09-16T14:50:18.181137",
-      "regime": "SHORT_TERM_WEAKNESS"
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "setup": "TLINE_CROSS",
+      "current_price": 4.96
     },
     {
       "risk_reward": 2.0,

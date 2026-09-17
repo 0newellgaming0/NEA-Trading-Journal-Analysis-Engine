@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:44:14.383729+00:00",
+  "generated_at": "2026-09-17T14:10:41.144169+00:00",
   "ticker": "GMRS",
   "count": 1,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_CROSS",
-      "ticker": "GMRS",
-      "current_price": 12.42,
       "entry": 12.42,
-      "risk_reward": 2.0,
-      "target": 11.164773369267197,
-      "score": 83.0,
+      "score": 90.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 11.164773369267197,
+      "ticker": "GMRS",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T07:01:30.769093",
       "stop": 13.05,
-      "updated_at": "2026-09-16T12:36:51.681019",
-      "regime": "HIGHER_TIMEFRAME_CONFLICT"
+      "regime": "HIGHER_TIMEFRAME_CONFLICT",
+      "setup": "TLINE_CROSS",
+      "current_price": 12.63
     }
   ]
 }

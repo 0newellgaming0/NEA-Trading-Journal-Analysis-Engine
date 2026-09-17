@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:46:00.363985+00:00",
+  "generated_at": "2026-09-17T14:12:29.544461+00:00",
   "ticker": "YQ",
   "count": 13,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_CROSS",
-      "ticker": "YQ",
-      "current_price": 3.555,
       "entry": 3.56,
-      "risk_reward": 2.0,
-      "target": 3.9668313004572915,
       "score": 64.0,
       "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 3.9668313004572915,
+      "ticker": "YQ",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T12:18:43.052716",
       "stop": 3.35,
-      "updated_at": "2026-09-16T18:57:41.076245",
-      "regime": "PRIMARY_UPTREND_PULLBACK"
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "setup": "TLINE_CROSS",
+      "current_price": 3.55
     },
     {
       "risk_reward": 2.0,

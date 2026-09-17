@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:43:11.682752+00:00",
+  "generated_at": "2026-09-17T14:09:37.423138+00:00",
   "ticker": "ARCC",
   "count": 5,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "Pinbar",
-      "ticker": "ARCC",
-      "current_price": 19.495,
       "entry": 19.48,
-      "risk_reward": 2.0,
-      "target": 19.910760000000007,
-      "score": 71.0,
+      "score": 73.0,
       "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 19.910760000000007,
+      "ticker": "ARCC",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T09:00:17.255335",
       "stop": 19.26,
-      "updated_at": "2026-09-16T15:35:36.644411",
-      "regime": "PRIMARY_UPTREND_PULLBACK"
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "setup": "Pinbar",
+      "current_price": 19.41
     },
     {
       "risk_reward": 2.0,

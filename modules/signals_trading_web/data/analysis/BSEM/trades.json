@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:23:11.583884+00:00",
+  "generated_at": "2026-09-17T14:09:54.444603+00:00",
   "ticker": "BSEM",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 4.09,
+      "score": 59.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 3.5180000000000007,
+      "ticker": "BSEM",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T12:29:36.626899",
+      "stop": 4.38,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Engulfing",
+      "current_price": 4.08
+    },
     {
       "updated_at": "2026-09-16T05:00:58.751684",
       "score": 63.0,

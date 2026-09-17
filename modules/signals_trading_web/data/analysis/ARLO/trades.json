@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:22:54.003032+00:00",
+  "generated_at": "2026-09-17T14:09:39.200850+00:00",
   "ticker": "ARLO",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 13.3,
+      "score": 74.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 13.410000000000004,
+      "ticker": "ARLO",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T07:49:46.225830",
+      "stop": 13.24,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "setup": "Rising Three Methods",
+      "current_price": 13.4
+    },
     {
       "updated_at": "2026-09-16T05:45:39.248197",
       "score": 76.0,

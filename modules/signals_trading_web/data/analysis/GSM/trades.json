@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:24:27.414477+00:00",
+  "generated_at": "2026-09-17T14:10:44.852965+00:00",
   "ticker": "GSM",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "entry": 4.3,
+      "score": 60.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 4.387999999999999,
+      "ticker": "GSM",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:17:45.165290",
+      "stop": 4.26,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Rising Three Methods",
+      "current_price": 4.32
+    },
     {
       "updated_at": "2026-09-16T07:00:38.884368",
       "score": 61.0,

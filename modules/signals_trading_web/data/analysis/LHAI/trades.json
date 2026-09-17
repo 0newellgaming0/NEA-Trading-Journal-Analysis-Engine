@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T02:26:08.667483+00:00",
+  "generated_at": "2026-09-17T14:11:06.794359+00:00",
   "ticker": "LHAI",
-  "count": 12,
+  "count": 13,
   "trades": [
+    {
+      "entry": 1.28,
+      "score": 78.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 1.474045358695087,
+      "ticker": "LHAI",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T11:13:39.170477",
+      "stop": 1.18,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "TLINE_JHOOK",
+      "current_price": 1.25
+    },
     {
       "updated_at": "2026-09-17T01:46:43.968709",
       "stop": 1.03,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:43:25.275895+00:00",
+  "generated_at": "2026-09-17T14:09:51.138692+00:00",
   "ticker": "BMBL",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "entry": 3.0,
+      "score": 62.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 2.907,
+      "ticker": "BMBL",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:33:53.875855",
+      "stop": 3.04,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Candle Over Candle",
+      "current_price": 3.01
+    },
     {
       "status": "CONFIRMED",
       "setup": "Bullish Dragonfly Doji Sandwich",

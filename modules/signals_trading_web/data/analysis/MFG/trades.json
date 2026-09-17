@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:44:46.625994+00:00",
+  "generated_at": "2026-09-17T14:11:14.596544+00:00",
   "ticker": "MFG",
-  "count": 9,
+  "count": 10,
   "trades": [
+    {
+      "entry": 10.96,
+      "score": 73.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 11.186000000000002,
+      "ticker": "MFG",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T09:45:09.634936",
+      "stop": 10.84,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Harami",
+      "current_price": 11.04
+    },
     {
       "status": "CONFIRMED",
       "setup": "SWING_STRUCTURE",

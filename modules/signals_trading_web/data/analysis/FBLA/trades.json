@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:24:12.067411+00:00",
+  "generated_at": "2026-09-17T14:10:30.551727+00:00",
   "ticker": "FBLA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 15.94,
+      "score": 68.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 15.961999999999998,
+      "ticker": "FBLA",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T11:46:32.255310",
+      "stop": 15.93,
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Pinbar",
+      "current_price": 16.17
+    },
     {
       "updated_at": "2026-09-16T06:03:39.540994",
       "score": 65.0,

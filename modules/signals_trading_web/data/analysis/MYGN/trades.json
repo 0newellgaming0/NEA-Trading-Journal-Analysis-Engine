@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:44:51.667082+00:00",
+  "generated_at": "2026-09-17T14:11:19.687514+00:00",
   "ticker": "MYGN",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_CROSS",
-      "ticker": "MYGN",
-      "current_price": 3.82,
       "entry": 3.99,
-      "risk_reward": 2.0,
-      "target": 4.565090898115605,
-      "score": 65.0,
+      "score": 71.0,
       "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 4.565090898115605,
+      "ticker": "MYGN",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T11:48:45.728137",
       "stop": 3.7,
-      "updated_at": "2026-09-16T14:43:52.772721",
-      "regime": "SHORT_TERM_STRENGTH"
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "TLINE_CROSS",
+      "current_price": 4.0
     },
     {
       "risk_reward": 2.0,

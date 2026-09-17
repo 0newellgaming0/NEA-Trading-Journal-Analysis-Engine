@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:43:57.859069+00:00",
+  "generated_at": "2026-09-17T14:10:24.322848+00:00",
   "ticker": "EHLD",
   "count": 3,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "Candle Over Candle",
-      "ticker": "EHLD",
-      "current_price": 13.6157,
       "entry": 14.26,
-      "risk_reward": 2.0,
-      "target": 6.032000000000002,
       "score": 64.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 6.032000000000002,
+      "ticker": "EHLD",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T12:09:07.542120",
       "stop": 18.37,
-      "updated_at": "2026-09-16T18:12:58.119758",
-      "regime": "SHORT_TERM_WEAKNESS"
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Candle Over Candle",
+      "current_price": 13.67
     },
     {
       "risk_reward": 2.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:40.253598+00:00",
+  "generated_at": "2026-09-17T14:12:08.967131+00:00",
   "ticker": "STRW",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "entry": 13.75,
+      "score": 76.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 13.310000000000002,
+      "ticker": "STRW",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T09:35:35.298529",
+      "stop": 13.97,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "setup": "Marubozu",
+      "current_price": 13.67
+    },
     {
       "status": "CONFIRMED",
       "setup": "DRAGONFLY_DOJI",

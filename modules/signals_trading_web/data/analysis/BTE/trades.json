@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:43:29.518734+00:00",
+  "generated_at": "2026-09-17T14:09:55.458114+00:00",
   "ticker": "BTE",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "entry": 4.94,
+      "score": 64.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 4.799668384662667,
+      "ticker": "BTE",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:04:41.190213",
+      "stop": 5.02,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "TLINE_ROLLOVER",
+      "current_price": 4.88
+    },
     {
       "status": "CONFIRMED",
       "setup": "Marubozu",

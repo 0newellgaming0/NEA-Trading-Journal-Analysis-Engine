@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:45:29.868166+00:00",
+  "generated_at": "2026-09-17T14:11:58.218170+00:00",
   "ticker": "SBC",
   "count": 11,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_CROSS",
-      "ticker": "SBC",
-      "current_price": 4.52,
       "entry": 4.52,
-      "risk_reward": 2.0,
-      "target": 4.3116112860198115,
       "score": 71.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 4.3116112860198115,
+      "ticker": "SBC",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T08:46:56.195511",
       "stop": 4.62,
-      "updated_at": "2026-09-16T15:47:41.436181",
-      "regime": "BULLISH_CONSOLIDATION"
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "TLINE_CROSS",
+      "current_price": 4.5
     },
     {
       "risk_reward": 2.0,

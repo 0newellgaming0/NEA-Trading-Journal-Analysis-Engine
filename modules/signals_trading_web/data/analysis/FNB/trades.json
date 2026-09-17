@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:44:07.829399+00:00",
+  "generated_at": "2026-09-17T14:10:34.518339+00:00",
   "ticker": "FNB",
   "count": 5,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "Marubozu",
-      "ticker": "FNB",
-      "current_price": 18.155,
       "entry": 18.32,
-      "risk_reward": 2.0,
-      "target": 18.05446,
-      "score": 67.0,
+      "score": 70.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 18.05446,
+      "ticker": "FNB",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T10:32:42.689194",
       "stop": 18.45,
-      "updated_at": "2026-09-16T16:49:46.008736",
-      "regime": "PRIMARY_UPTREND_PULLBACK"
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "setup": "Marubozu",
+      "current_price": 17.9
     },
     {
       "risk_reward": 2.0,

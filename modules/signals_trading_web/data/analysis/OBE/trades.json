@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:02.632080+00:00",
+  "generated_at": "2026-09-17T14:11:30.762755+00:00",
   "ticker": "OBE",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "entry": 12.27,
+      "score": 73.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 12.093999999999998,
+      "ticker": "OBE",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T11:34:51.844521",
+      "stop": 12.36,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Marubozu",
+      "current_price": 12.0638
+    },
     {
       "status": "CONFIRMED",
       "setup": "Engulfing",

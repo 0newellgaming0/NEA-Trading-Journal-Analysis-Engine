@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:43:57.617372+00:00",
+  "generated_at": "2026-09-17T14:10:24.051694+00:00",
   "ticker": "EGY",
   "count": 3,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_ROLLOVER",
-      "ticker": "EGY",
-      "current_price": 6.3643,
       "entry": 6.49,
-      "risk_reward": 2.0,
-      "target": 6.348810426272507,
-      "score": 81.0,
+      "score": 80.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 6.348810426272507,
+      "ticker": "EGY",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T07:15:28.674261",
       "stop": 6.56,
-      "updated_at": "2026-09-16T13:22:41.675922",
-      "regime": "BULLISH_CONSOLIDATION"
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "TLINE_ROLLOVER",
+      "current_price": 6.1696
     },
     {
       "risk_reward": 2.0,

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:44:50.183164+00:00",
+  "generated_at": "2026-09-17T14:11:18.238404+00:00",
   "ticker": "MSGM",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_CROSS",
-      "ticker": "MSGM",
-      "current_price": 4.35,
       "entry": 4.64,
-      "risk_reward": 2.0,
-      "target": 5.300290184107721,
-      "score": 61.0,
+      "score": 65.0,
       "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 5.300290184107721,
+      "ticker": "MSGM",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:26:15.507802",
       "stop": 4.31,
-      "updated_at": "2026-09-16T14:52:05.298002",
-      "regime": "SHORT_TERM_WEAKNESS"
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "TLINE_CROSS",
+      "current_price": 4.65
     },
     {
       "risk_reward": 2.0,

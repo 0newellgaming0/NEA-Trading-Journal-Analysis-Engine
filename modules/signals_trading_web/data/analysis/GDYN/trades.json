@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:44:11.686282+00:00",
+  "generated_at": "2026-09-17T14:10:38.493044+00:00",
   "ticker": "GDYN",
   "count": 1,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "Marubozu",
-      "ticker": "GDYN",
-      "current_price": 8.05,
       "entry": 8.18,
-      "risk_reward": 2.0,
-      "target": 7.869579999999999,
-      "score": 66.0,
+      "score": 70.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 7.869579999999999,
+      "ticker": "GDYN",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T10:54:23.742948",
       "stop": 8.34,
-      "updated_at": "2026-09-16T16:29:28.684041",
-      "regime": "SHORT_TERM_WEAKNESS"
+      "regime": "SHORT_TERM_STRENGTH",
+      "setup": "Marubozu",
+      "current_price": 8.08
     }
   ]
 }

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:45:22.944087+00:00",
+  "generated_at": "2026-09-17T14:11:51.255273+00:00",
   "ticker": "REFI",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_CROSS",
-      "ticker": "REFI",
-      "current_price": 10.98,
       "entry": 10.99,
-      "risk_reward": 2.0,
-      "target": 10.745692496155163,
-      "score": 73.0,
+      "score": 75.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 10.745692496155163,
+      "ticker": "REFI",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T08:21:00.091537",
       "stop": 11.11,
-      "updated_at": "2026-09-16T18:22:14.351582",
-      "regime": "PRIMARY_DOWNTREND_RALLY"
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "setup": "TLINE_CROSS",
+      "current_price": 11.01
     },
     {
       "risk_reward": 2.0,

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:45:19.263354+00:00",
+  "generated_at": "2026-09-17T14:11:47.449768+00:00",
   "ticker": "QFIN",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "Candle Over Candle",
-      "ticker": "QFIN",
-      "current_price": 8.145,
       "entry": 8.14,
-      "risk_reward": 2.0,
-      "target": 8.401140000000002,
-      "score": 43.0,
+      "score": 35.0,
       "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 8.401140000000002,
+      "ticker": "QFIN",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T14:06:52.057550",
       "stop": 8.01,
-      "updated_at": "2026-09-16T19:42:50.005651",
-      "regime": "FULL_BEARISH_ALIGNMENT"
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "Candle Over Candle",
+      "current_price": 8.13
     },
     {
       "risk_reward": 2.0,

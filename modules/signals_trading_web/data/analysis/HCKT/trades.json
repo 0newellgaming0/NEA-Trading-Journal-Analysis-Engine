@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:24:29.523186+00:00",
+  "generated_at": "2026-09-17T14:10:46.784204+00:00",
   "ticker": "HCKT",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "entry": 10.99,
+      "score": 73.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 11.229300853501046,
+      "ticker": "HCKT",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T08:54:14.706818",
+      "stop": 10.87,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "setup": "TLINE_CROSS",
+      "current_price": 10.99
+    },
     {
       "updated_at": "2026-09-16T05:04:04.073415",
       "score": 71.0,

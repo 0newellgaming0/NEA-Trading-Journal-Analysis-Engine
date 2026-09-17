@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:43:04.093836+00:00",
+  "generated_at": "2026-09-17T14:09:29.902110+00:00",
   "ticker": "ALAR",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "entry": 2.14,
+      "score": 50.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 2.4480000000000004,
+      "ticker": "ALAR",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:42:04.215855",
+      "stop": 1.99,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "setup": "Pinbar",
+      "current_price": 2.185
+    },
     {
       "status": "CONFIRMED",
       "setup": "Pinbar",

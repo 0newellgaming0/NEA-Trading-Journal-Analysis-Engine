@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:24:26.432843+00:00",
+  "generated_at": "2026-09-17T14:10:44.222118+00:00",
   "ticker": "GROY",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 3.42,
+      "score": 54.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 3.3914,
+      "ticker": "GROY",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:40:23.555282",
+      "stop": 3.43,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Pinbar",
+      "current_price": 3.39
+    },
     {
       "updated_at": "2026-09-16T06:07:28.322688",
       "score": 59.0,

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:44:57.675021+00:00",
+  "generated_at": "2026-09-17T14:11:25.768770+00:00",
   "ticker": "NPB",
   "count": 2,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "Pinbar",
-      "ticker": "NPB",
-      "current_price": 16.91,
       "entry": 17.04,
-      "risk_reward": 2.0,
-      "target": 16.842,
-      "score": 68.0,
+      "score": 79.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 16.842,
+      "ticker": "NPB",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T10:04:56.313831",
       "stop": 17.14,
-      "updated_at": "2026-09-16T14:18:11.660141",
-      "regime": "SHORT_TERM_WEAKNESS"
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Pinbar",
+      "current_price": 16.67
     },
     {
       "risk_reward": 2.0,

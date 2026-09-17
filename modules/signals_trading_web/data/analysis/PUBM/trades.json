@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:45:17.896047+00:00",
+  "generated_at": "2026-09-17T14:11:46.115008+00:00",
   "ticker": "PUBM",
   "count": 7,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "TLINE_CROSS",
-      "ticker": "PUBM",
-      "current_price": 16.8,
       "entry": 16.74,
-      "risk_reward": 2.0,
-      "target": 16.084813579192097,
-      "score": 65.0,
+      "score": 69.0,
       "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 16.084813579192097,
+      "ticker": "PUBM",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T11:31:03.322558",
       "stop": 17.07,
-      "updated_at": "2026-09-16T19:06:09.969125",
-      "regime": "BULLISH_CONSOLIDATION"
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "TLINE_CROSS",
+      "current_price": 16.85
     },
     {
       "risk_reward": 2.0,

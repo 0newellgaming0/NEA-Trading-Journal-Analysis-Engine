@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:03.684722+00:00",
+  "generated_at": "2026-09-17T14:11:31.871944+00:00",
   "ticker": "OGN",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 13.68,
+      "score": 72.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 13.548319999999997,
+      "ticker": "OGN",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T09:57:55.103469",
+      "stop": 13.75,
+      "regime": "BULLISH_CONSOLIDATION",
+      "setup": "Falling Three Methods",
+      "current_price": 13.67
+    },
     {
       "status": "CONFIRMED",
       "setup": "Engulfing",

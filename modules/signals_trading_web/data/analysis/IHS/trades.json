@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:24:40.997887+00:00",
+  "generated_at": "2026-09-17T14:10:52.637313+00:00",
   "ticker": "IHS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "entry": 8.43,
+      "score": 70.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 8.414000000000001,
+      "ticker": "IHS",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T09:22:26.279555",
+      "stop": 8.43,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "setup": "Marubozu",
+      "current_price": 8.42
+    },
     {
       "updated_at": "2026-09-16T05:07:45.354879",
       "score": 70.0,

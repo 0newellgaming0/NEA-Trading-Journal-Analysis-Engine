@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:38.568535+00:00",
+  "generated_at": "2026-09-17T14:12:07.292203+00:00",
   "ticker": "SRAD",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "entry": 13.3,
+      "score": 78.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 13.102,
+      "ticker": "SRAD",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T07:26:48.131937",
+      "stop": 13.4,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "setup": "Engulfing",
+      "current_price": 13.24
+    },
     {
       "status": "CONFIRMED",
       "setup": "Pinbar",

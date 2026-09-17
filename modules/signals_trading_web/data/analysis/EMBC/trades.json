@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:43:58.857077+00:00",
+  "generated_at": "2026-09-17T14:10:25.281594+00:00",
   "ticker": "EMBC",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "entry": 5.13,
+      "score": 56.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 4.982893918476594,
+      "ticker": "EMBC",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:38:50.715702",
+      "stop": 5.2,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "TLINE_CROSS",
+      "current_price": 5.13
+    },
     {
       "status": "CONFIRMED",
       "setup": "Rising Three Methods",

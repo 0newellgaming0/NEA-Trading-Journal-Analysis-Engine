@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-16T19:43:51.095868+00:00",
+  "generated_at": "2026-09-17T14:10:17.372521+00:00",
   "ticker": "DHX",
   "count": 4,
   "trades": [
     {
-      "status": "CONFIRMED",
-      "setup": "Marubozu",
-      "ticker": "DHX",
-      "current_price": 5.085,
       "entry": 4.95,
-      "risk_reward": 2.0,
-      "target": 4.971839999999999,
-      "score": 77.0,
+      "score": 82.0,
       "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 4.971839999999999,
+      "ticker": "DHX",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T07:37:52.018493",
       "stop": 4.93,
-      "updated_at": "2026-09-16T14:59:33.824847",
-      "regime": "BULLISH_CONSOLIDATION"
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "setup": "Marubozu",
+      "current_price": 5.04
     },
     {
       "updated_at": "2026-09-16T12:22:31.608487",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:44:20.245270+00:00",
+  "generated_at": "2026-09-17T14:10:47.164739+00:00",
   "ticker": "HDSN",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 5.16,
+      "score": 57.0,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "target": 5.292000000000002,
+      "ticker": "HDSN",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T13:54:56.954154",
+      "stop": 5.09,
+      "regime": "BEARISH_CONSOLIDATION",
+      "setup": "Pinbar",
+      "current_price": 5.26
+    },
     {
       "status": "CONFIRMED",
       "setup": "SWING_STRUCTURE",

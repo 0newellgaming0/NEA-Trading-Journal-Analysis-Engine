@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:26:59.561319+00:00",
+  "generated_at": "2026-09-17T14:12:12.964614+00:00",
   "ticker": "TFSL",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "entry": 16.79,
+      "score": 69.0,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "target": 16.394,
+      "ticker": "TFSL",
+      "risk_reward": 2.0,
+      "updated_at": "2026-09-17T10:42:04.857631",
+      "stop": 16.99,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "setup": "Engulfing",
+      "current_price": 16.78
+    },
     {
       "updated_at": "2026-09-16T06:14:39.202721",
       "score": 67.0,
