@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T10:09:01.791134+00:00",
+  "generated_at": "2026-09-16T12:22:59.759133+00:00",
   "ticker": "AVTR",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "updated_at": "2026-09-16T07:16:01.372709",
+      "score": 64.0,
+      "ticker": "AVTR",
+      "risk_reward": 2.0,
+      "setup": "Engulfing",
+      "target": 15.141000000000002,
+      "current_price": 15.44,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 15.62,
+      "direction": "Bearish",
+      "entry": 15.46,
+      "status": "CONFIRMED"
+    },
     {
       "target": 14.176000000000002,
       "current_price": 14.81,

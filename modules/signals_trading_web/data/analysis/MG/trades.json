@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:46.707963+00:00",
+  "ticker": "MG",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Harami",
+      "ticker": "MG",
+      "current_price": 19.67,
+      "entry": 19.6,
+      "risk_reward": 2.0,
+      "target": 19.875,
+      "score": 83.0,
+      "direction": "Bullish",
+      "stop": 19.46,
+      "updated_at": "2026-09-16T12:53:27.485696",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 19.58,
+      "ticker": "MG",
+      "status": "CONFIRMED",
+      "target": 19.425999999999995,
+      "stop": 19.66,
+      "updated_at": "2026-09-15T05:14:38.579375",
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 83.0,
+      "current_price": 19.53,
+      "direction": "Bearish"
+    }
+  ]
+}

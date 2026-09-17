@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:29:50.175696+00:00",
+  "generated_at": "2026-09-15T17:20:50.454961+00:00",
   "ticker": "RBBN",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 2.04,
+      "ticker": "RBBN",
+      "status": "CONFIRMED",
+      "target": 1.9740000000000002,
+      "stop": 2.07,
+      "updated_at": "2026-09-15T15:00:45.122091",
+      "setup": "Falling Three Methods",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 67.0,
+      "current_price": 1.8795,
+      "direction": "Bearish"
+    },
     {
       "regime": "FULL_BEARISH_ALIGNMENT",
       "updated_at": "2026-09-14T13:49:17.591870",

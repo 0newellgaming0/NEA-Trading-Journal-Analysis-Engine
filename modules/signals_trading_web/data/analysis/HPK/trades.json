@@ -1,6 +1,35 @@
 {
-  "generated_at": "2026-09-12T22:57:10.681345+00:00",
+  "generated_at": "2026-09-16T19:44:22.210008+00:00",
   "ticker": "HPK",
-  "count": 0,
-  "trades": []
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "HPK",
+      "current_price": 8.43,
+      "entry": 8.41,
+      "risk_reward": 2.0,
+      "target": 7.849485884379369,
+      "score": 74.0,
+      "direction": "Bearish",
+      "stop": 8.69,
+      "updated_at": "2026-09-16T13:39:01.225427",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 8.38,
+      "ticker": "HPK",
+      "status": "CONFIRMED",
+      "target": 8.123572003808485,
+      "stop": 8.51,
+      "updated_at": "2026-09-15T10:05:35.406392",
+      "setup": "TLINE_CROSS",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 77.0,
+      "current_price": 8.4077,
+      "direction": "Bearish"
+    }
+  ]
 }

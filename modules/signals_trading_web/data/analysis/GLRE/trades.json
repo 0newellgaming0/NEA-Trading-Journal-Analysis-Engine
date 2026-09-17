@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:13.886169+00:00",
+  "ticker": "GLRE",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "ticker": "GLRE",
+      "current_price": 15.25,
+      "entry": 15.02,
+      "risk_reward": 2.0,
+      "target": 15.444000000000003,
+      "score": 86.0,
+      "direction": "Bullish",
+      "stop": 14.8,
+      "updated_at": "2026-09-16T12:32:45.035284",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 14.96,
+      "ticker": "GLRE",
+      "status": "CONFIRMED",
+      "target": 14.760231960793835,
+      "stop": 15.06,
+      "updated_at": "2026-09-15T08:21:27.899548",
+      "setup": "TLINE_ROLLOVER",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 87.0,
+      "current_price": 15.02,
+      "direction": "Bearish"
+    }
+  ]
+}

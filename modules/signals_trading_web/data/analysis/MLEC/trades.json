@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T10:11:41.449759+00:00",
+  "generated_at": "2026-09-16T19:44:47.833904+00:00",
   "ticker": "MLEC",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "ticker": "MLEC",
+      "current_price": 6.1,
+      "entry": 6.2,
+      "risk_reward": 2.0,
+      "target": 7.19,
+      "score": 51.0,
+      "direction": "Bullish",
+      "stop": 5.71,
+      "updated_at": "2026-09-16T17:52:22.505291",
+      "regime": "BEARISH_CONSOLIDATION"
+    },
     {
       "target": 10.406751820246415,
       "current_price": 8.1,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T10:09:03.454728+00:00",
+  "generated_at": "2026-09-15T17:16:11.371919+00:00",
   "ticker": "BBAR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 14.38,
+      "ticker": "BBAR",
+      "status": "CONFIRMED",
+      "target": 13.207061321042348,
+      "stop": 14.97,
+      "updated_at": "2026-09-15T15:32:39.223898",
+      "setup": "TLINE_CROSS",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 69.0,
+      "current_price": 14.43,
+      "direction": "Bearish"
+    },
     {
       "target": 15.378000000000002,
       "current_price": 14.89,

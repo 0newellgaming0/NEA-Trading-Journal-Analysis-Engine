@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:27:24.734307+00:00",
+  "generated_at": "2026-09-16T19:43:33.033456+00:00",
   "ticker": "CARS",
-  "count": 5,
+  "count": 7,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "CARS",
+      "current_price": 11.6,
+      "entry": 11.58,
+      "risk_reward": 2.0,
+      "target": 11.077582858113834,
+      "score": 71.0,
+      "direction": "Bearish",
+      "stop": 11.83,
+      "updated_at": "2026-09-16T14:33:19.358458",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 11.73,
+      "ticker": "CARS",
+      "status": "CONFIRMED",
+      "target": 11.906000000000002,
+      "stop": 11.64,
+      "updated_at": "2026-09-15T11:20:31.712496",
+      "setup": "Engulfing",
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 79.0,
+      "current_price": 11.74,
+      "direction": "Bullish"
+    },
     {
       "regime": "BEARISH_CONSOLIDATION",
       "updated_at": "2026-09-14T13:08:45.996212",

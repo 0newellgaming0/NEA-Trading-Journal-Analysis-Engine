@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:27:47.737194+00:00",
+  "generated_at": "2026-09-16T19:43:44.824633+00:00",
   "ticker": "CRT",
-  "count": 6,
+  "count": 7,
   "trades": [
     {
-      "regime": "BULLISH_CONSOLIDATION",
-      "updated_at": "2026-09-14T15:55:40.123305",
-      "stop": 11.52,
-      "ticker": "CRT",
-      "entry": 11.9,
       "status": "CONFIRMED",
+      "setup": "Harami",
+      "ticker": "CRT",
+      "current_price": 12.6499,
+      "entry": 12.71,
       "risk_reward": 2.0,
-      "current_price": 11.955,
+      "target": 11.742,
+      "score": 62.0,
+      "direction": "Bearish",
+      "stop": 13.19,
+      "updated_at": "2026-09-16T18:06:54.044326",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 11.9,
+      "ticker": "CRT",
+      "status": "CONFIRMED",
       "target": 12.67,
-      "direction": "Bullish",
+      "stop": 11.52,
+      "updated_at": "2026-09-15T16:30:44.507887",
       "setup": "Rising Three Methods",
-      "score": 58.0
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 65.0,
+      "current_price": 12.79,
+      "direction": "Bullish"
     },
     {
       "status": "CONFIRMED",

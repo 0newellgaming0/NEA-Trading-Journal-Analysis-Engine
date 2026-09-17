@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-13T14:01:53.827891+00:00",
+  "generated_at": "2026-09-16T12:24:29.523186+00:00",
   "ticker": "HCKT",
-  "count": 2,
+  "count": 3,
   "trades": [
     {
+      "updated_at": "2026-09-16T05:04:04.073415",
+      "score": 71.0,
+      "ticker": "HCKT",
+      "risk_reward": 2.0,
+      "setup": "Marubozu",
+      "target": 11.453120000000002,
+      "current_price": 11.12,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "stop": 11.11,
       "direction": "Bullish",
+      "entry": 11.22,
+      "status": "CONFIRMED"
+    },
+    {
       "risk_reward": 2.0,
       "entry": 11.05,
-      "regime": "BEARISH_CONSOLIDATION",
-      "setup": "Rising Three Methods",
-      "current_price": 10.98,
       "ticker": "HCKT",
-      "target": 11.314000000000004,
-      "score": 70.0,
       "status": "CONFIRMED",
-      "updated_at": "2026-09-13T13:35:08.450070",
-      "stop": 10.92
+      "target": 11.314000000000004,
+      "stop": 10.92,
+      "updated_at": "2026-09-15T13:30:36.404140",
+      "setup": "Rising Three Methods",
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 71.0,
+      "current_price": 11.49,
+      "direction": "Bullish"
     },
     {
       "entry": 11.36,

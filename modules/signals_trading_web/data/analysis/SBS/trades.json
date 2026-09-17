@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:30:09.633275+00:00",
+  "generated_at": "2026-09-16T19:45:30.259289+00:00",
   "ticker": "SBS",
-  "count": 2,
+  "count": 3,
   "trades": [
     {
-      "regime": "BULLISH_CONSOLIDATION",
-      "updated_at": "2026-09-14T15:12:32.450636",
-      "stop": 5.37,
-      "ticker": "SBS",
-      "entry": 5.29,
       "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "SBS",
+      "current_price": 5.245,
+      "entry": 5.23,
       "risk_reward": 2.0,
-      "current_price": 5.1676,
-      "target": 5.136,
+      "target": 5.098000000000001,
+      "score": 73.0,
       "direction": "Bearish",
+      "stop": 5.3,
+      "updated_at": "2026-09-16T16:46:04.933452",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 5.29,
+      "ticker": "SBS",
+      "status": "CONFIRMED",
+      "target": 5.136,
+      "stop": 5.37,
+      "updated_at": "2026-09-15T11:35:12.414473",
       "setup": "Marubozu",
-      "score": 76.0
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 56.0,
+      "current_price": 5.05,
+      "direction": "Bearish"
     },
     {
       "setup": "VWAP_BEARISH_PULLBACK",

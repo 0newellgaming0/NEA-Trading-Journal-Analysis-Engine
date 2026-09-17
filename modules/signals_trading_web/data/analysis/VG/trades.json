@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:30:42.630543+00:00",
+  "generated_at": "2026-09-16T19:45:52.504823+00:00",
   "ticker": "VG",
-  "count": 5,
+  "count": 6,
   "trades": [
     {
-      "regime": "SHORT_TERM_WEAKNESS",
-      "updated_at": "2026-09-14T19:59:41.149201",
-      "stop": 16.34,
-      "ticker": "VG",
-      "entry": 15.88,
       "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "VG",
+      "current_price": 15.0,
+      "entry": 15.22,
       "risk_reward": 2.0,
-      "current_price": 15.215,
-      "target": 14.967,
+      "target": 14.94786,
+      "score": 72.0,
       "direction": "Bearish",
+      "stop": 15.36,
+      "updated_at": "2026-09-16T17:06:15.784765",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 15.88,
+      "ticker": "VG",
+      "status": "CONFIRMED",
+      "target": 14.967,
+      "stop": 16.34,
+      "updated_at": "2026-09-15T12:51:46.032138",
       "setup": "Candle Over Candle",
-      "score": 74.0
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 74.0,
+      "current_price": 15.2997,
+      "direction": "Bearish"
     },
     {
       "direction": "Bullish",

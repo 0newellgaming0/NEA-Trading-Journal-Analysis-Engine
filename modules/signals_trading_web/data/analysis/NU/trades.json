@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T10:11:53.989352+00:00",
+  "generated_at": "2026-09-16T19:44:59.859911+00:00",
   "ticker": "NU",
-  "count": 3,
+  "count": 5,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "NU",
+      "current_price": 13.71,
+      "entry": 14.13,
+      "risk_reward": 2.0,
+      "target": 13.866000000000001,
+      "score": 71.0,
+      "direction": "Bearish",
+      "stop": 14.26,
+      "updated_at": "2026-09-16T18:09:26.518470",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 14.4,
+      "ticker": "NU",
+      "status": "CONFIRMED",
+      "target": 14.184708631601543,
+      "stop": 14.51,
+      "updated_at": "2026-09-15T12:45:45.217054",
+      "setup": "TLINE_CROSS",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 74.0,
+      "current_price": 14.37,
+      "direction": "Bearish"
+    },
     {
       "target": 14.249999999999998,
       "current_price": 14.48,

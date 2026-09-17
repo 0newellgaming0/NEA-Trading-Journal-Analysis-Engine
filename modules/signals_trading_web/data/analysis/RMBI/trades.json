@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:25.180558+00:00",
+  "ticker": "RMBI",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_ROLLOVER",
+      "ticker": "RMBI",
+      "current_price": 15.67,
+      "entry": 15.89,
+      "risk_reward": 2.0,
+      "target": 15.710160309606113,
+      "score": 84.0,
+      "direction": "Bearish",
+      "stop": 15.99,
+      "updated_at": "2026-09-16T19:30:14.684507",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 15.94,
+      "ticker": "RMBI",
+      "status": "CONFIRMED",
+      "target": 15.741999999999996,
+      "stop": 16.04,
+      "updated_at": "2026-09-15T16:18:15.494425",
+      "setup": "Pinbar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 54.0,
+      "current_price": 15.88,
+      "direction": "Bearish"
+    }
+  ]
+}

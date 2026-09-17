@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:29:27.571360+00:00",
+  "generated_at": "2026-09-16T19:45:05.440958+00:00",
   "ticker": "OPFI",
-  "count": 2,
+  "count": 4,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "OPFI",
+      "current_price": 7.298,
+      "entry": 7.1,
+      "risk_reward": 2.0,
+      "target": 6.467701027513277,
+      "score": 83.0,
+      "direction": "Bearish",
+      "stop": 7.42,
+      "updated_at": "2026-09-16T12:59:00.669572",
+      "regime": "BEARISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 7.73,
+      "ticker": "OPFI",
+      "status": "CONFIRMED",
+      "target": 7.686000000000002,
+      "stop": 7.75,
+      "updated_at": "2026-09-15T09:15:59.759577",
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 77.0,
+      "current_price": 7.71,
+      "direction": "Bearish"
+    },
     {
       "regime": "SHORT_TERM_STRENGTH",
       "updated_at": "2026-09-14T11:07:46.022059",

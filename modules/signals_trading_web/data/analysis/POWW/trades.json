@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:29:40.719908+00:00",
+  "generated_at": "2026-09-16T19:45:15.244755+00:00",
   "ticker": "POWW",
-  "count": 2,
+  "count": 4,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "SWING_STRUCTURE",
+      "ticker": "POWW",
+      "current_price": 2.155,
+      "entry": 2.18,
+      "risk_reward": 2.0,
+      "target": 2.3400000000000003,
+      "score": 66.0,
+      "direction": "Bullish",
+      "stop": 2.1,
+      "updated_at": "2026-09-16T17:45:01.449380",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 2.15,
+      "ticker": "POWW",
+      "status": "CONFIRMED",
+      "target": 2.192425668543071,
+      "stop": 2.14,
+      "updated_at": "2026-09-15T16:09:23.339165",
+      "setup": "TLINE_CROSS",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 71.0,
+      "current_price": 2.145,
+      "direction": "Bullish"
+    },
     {
       "regime": "SHORT_TERM_STRENGTH",
       "updated_at": "2026-09-14T12:45:30.243824",

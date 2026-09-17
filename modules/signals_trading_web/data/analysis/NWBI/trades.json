@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:00.733784+00:00",
+  "ticker": "NWBI",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "NWBI",
+      "current_price": 15.585,
+      "entry": 15.6,
+      "risk_reward": 2.0,
+      "target": 15.7815594837661,
+      "score": 67.0,
+      "direction": "Bullish",
+      "stop": 15.51,
+      "updated_at": "2026-09-16T17:39:45.161903",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 15.49,
+      "ticker": "NWBI",
+      "status": "CONFIRMED",
+      "target": 15.578000000000001,
+      "stop": 15.45,
+      "updated_at": "2026-09-15T07:55:29.373617",
+      "setup": "Pinbar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 67.0,
+      "current_price": 15.55,
+      "direction": "Bullish"
+    }
+  ]
+}

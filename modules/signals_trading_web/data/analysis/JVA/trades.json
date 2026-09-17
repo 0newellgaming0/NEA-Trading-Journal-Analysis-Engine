@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-15T17:19:25.612420+00:00",
+  "ticker": "JVA",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 4.09,
+      "ticker": "JVA",
+      "status": "CONFIRMED",
+      "target": 4.2256,
+      "stop": 4.02,
+      "updated_at": "2026-09-15T08:39:03.211800",
+      "setup": "Pinbar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 84.0,
+      "current_price": 4.0905,
+      "direction": "Bullish"
+    }
+  ]
+}

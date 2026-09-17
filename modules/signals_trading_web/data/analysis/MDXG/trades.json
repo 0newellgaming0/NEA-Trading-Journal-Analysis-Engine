@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:45.268971+00:00",
+  "ticker": "MDXG",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "ticker": "MDXG",
+      "current_price": 4.715,
+      "entry": 4.64,
+      "risk_reward": 2.0,
+      "target": 4.771999999999999,
+      "score": 68.0,
+      "direction": "Bullish",
+      "stop": 4.57,
+      "updated_at": "2026-09-16T16:57:14.463523",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 4.57,
+      "ticker": "MDXG",
+      "status": "CONFIRMED",
+      "target": 4.416000000000002,
+      "stop": 4.65,
+      "updated_at": "2026-09-15T05:05:39.159381",
+      "setup": "Pinbar",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 68.0,
+      "current_price": 4.64,
+      "direction": "Bearish"
+    }
+  ]
+}

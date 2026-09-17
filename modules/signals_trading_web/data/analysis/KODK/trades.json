@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T10:11:17.125076+00:00",
+  "generated_at": "2026-09-16T12:25:00.895839+00:00",
   "ticker": "KODK",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-16T05:14:25.786269",
+      "score": 65.0,
+      "ticker": "KODK",
+      "risk_reward": 2.0,
+      "setup": "TLINE_CROSS",
+      "target": 9.440138388379609,
+      "current_price": 9.25,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "stop": 9.15,
+      "direction": "Bullish",
+      "entry": 9.25,
+      "status": "CONFIRMED"
+    },
     {
       "target": 8.832000000000004,
       "current_price": 9.19,

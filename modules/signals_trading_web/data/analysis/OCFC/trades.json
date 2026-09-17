@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:02.910567+00:00",
+  "ticker": "OCFC",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "OCFC",
+      "current_price": 18.57,
+      "entry": 18.67,
+      "risk_reward": 2.0,
+      "target": 18.472,
+      "score": 64.0,
+      "direction": "Bearish",
+      "stop": 18.77,
+      "updated_at": "2026-09-16T18:04:53.904640",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 18.78,
+      "ticker": "OCFC",
+      "status": "CONFIRMED",
+      "target": 17.196000000000005,
+      "stop": 19.57,
+      "updated_at": "2026-09-15T08:27:58.342359",
+      "setup": "Pinbar",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 65.0,
+      "current_price": 18.5847,
+      "direction": "Bearish"
+    }
+  ]
+}

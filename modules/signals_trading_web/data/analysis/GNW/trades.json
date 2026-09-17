@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:14.637977+00:00",
+  "ticker": "GNW",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Inverted Hammer",
+      "ticker": "GNW",
+      "current_price": 10.01,
+      "entry": 9.97,
+      "risk_reward": 2.0,
+      "target": 10.150999999999998,
+      "score": 76.0,
+      "direction": "Bullish",
+      "stop": 9.89,
+      "updated_at": "2026-09-16T13:16:20.699569",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 10.49,
+      "ticker": "GNW",
+      "status": "CONFIRMED",
+      "target": 10.248000000000003,
+      "stop": 10.61,
+      "updated_at": "2026-09-15T15:34:58.613110",
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 70.0,
+      "current_price": 9.915,
+      "direction": "Bearish"
+    }
+  ]
+}

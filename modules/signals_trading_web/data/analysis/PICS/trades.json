@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-15T17:20:21.150257+00:00",
+  "ticker": "PICS",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 10.24,
+      "ticker": "PICS",
+      "status": "CONFIRMED",
+      "target": 8.997000000000002,
+      "stop": 10.86,
+      "updated_at": "2026-09-15T12:05:28.501661",
+      "setup": "Falling Three Methods",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 60.0,
+      "current_price": 10.3,
+      "direction": "Bearish"
+    }
+  ]
+}

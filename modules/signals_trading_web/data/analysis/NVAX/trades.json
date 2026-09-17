@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:00.350552+00:00",
+  "ticker": "NVAX",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "NVAX",
+      "current_price": 9.315,
+      "entry": 9.26,
+      "risk_reward": 2.0,
+      "target": 9.013000000000003,
+      "score": 64.0,
+      "direction": "Bearish",
+      "stop": 9.38,
+      "updated_at": "2026-09-16T15:38:00.591493",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 9.57,
+      "ticker": "NVAX",
+      "status": "CONFIRMED",
+      "target": 9.867830270610206,
+      "stop": 9.42,
+      "updated_at": "2026-09-15T07:48:20.305665",
+      "setup": "TLINE_CROSS",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 72.0,
+      "current_price": 9.5328,
+      "direction": "Bullish"
+    }
+  ]
+}

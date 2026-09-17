@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T10:11:31.093942+00:00",
+  "generated_at": "2026-09-16T19:44:42.922639+00:00",
   "ticker": "LXU",
-  "count": 1,
+  "count": 2,
   "trades": [
     {
-      "target": 11.647679999999996,
-      "current_price": 11.71,
       "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "LXU",
+      "current_price": 11.19,
       "entry": 11.75,
       "risk_reward": 2.0,
-      "ticker": "LXU",
+      "target": 11.647679999999996,
+      "score": 62.0,
       "direction": "Bearish",
-      "score": 68.0,
-      "updated_at": "2026-09-14T06:56:09.102218",
       "stop": 11.8,
-      "setup": "Marubozu",
-      "regime": "FULL_BULLISH_ALIGNMENT"
+      "updated_at": "2026-09-16T17:08:33.415515",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "current_price": 11.39,
+      "entry": 11.49,
+      "direction": "Bearish",
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-15T17:42:32.206973",
+      "stop": 12.02,
+      "target": 10.434,
+      "score": 64.0,
+      "risk_reward": 2.0,
+      "ticker": "LXU",
+      "setup": "Engulfing"
     }
   ]
 }

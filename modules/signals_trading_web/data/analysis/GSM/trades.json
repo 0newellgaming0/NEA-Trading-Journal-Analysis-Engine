@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-13T16:09:51.108290+00:00",
+  "generated_at": "2026-09-16T12:24:27.414477+00:00",
   "ticker": "GSM",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "updated_at": "2026-09-16T07:00:38.884368",
+      "score": 61.0,
+      "ticker": "GSM",
+      "risk_reward": 2.0,
+      "setup": "Pinbar",
+      "target": 4.313999999999998,
+      "current_price": 4.41,
+      "regime": "SHORT_TERM_STRENGTH",
+      "stop": 4.25,
+      "direction": "Bullish",
+      "entry": 4.27,
+      "status": "CONFIRMED"
+    },
     {
       "status": "CONFIRMED",
       "target": 4.233999999999999,

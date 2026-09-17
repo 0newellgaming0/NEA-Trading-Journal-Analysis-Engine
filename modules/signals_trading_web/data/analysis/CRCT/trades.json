@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-14T22:27:44.259881+00:00",
+  "generated_at": "2026-09-15T17:16:47.745564+00:00",
   "ticker": "CRCT",
   "count": 1,
   "trades": [
     {
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "updated_at": "2026-09-14T15:29:54.656013",
-      "stop": 5.69,
-      "ticker": "CRCT",
-      "entry": 5.57,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "current_price": 5.595,
+      "entry": 5.57,
+      "ticker": "CRCT",
+      "status": "CONFIRMED",
       "target": 5.319688311069615,
-      "direction": "Bearish",
+      "stop": 5.69,
+      "updated_at": "2026-09-15T16:35:12.506632",
       "setup": "TLINE_CROSS",
-      "score": 70.0
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 62.0,
+      "current_price": 5.64,
+      "direction": "Bearish"
     }
   ]
 }

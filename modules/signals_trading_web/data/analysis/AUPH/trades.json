@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T10:08:56.611120+00:00",
+  "generated_at": "2026-09-16T19:43:16.425442+00:00",
   "ticker": "AUPH",
-  "count": 1,
+  "count": 2,
   "trades": [
     {
-      "target": 16.80704,
-      "current_price": 16.096,
       "status": "CONFIRMED",
-      "entry": 16.25,
-      "risk_reward": 2.0,
+      "setup": "Pinbar",
       "ticker": "AUPH",
+      "current_price": 16.2927,
+      "entry": 16.1,
+      "risk_reward": 2.0,
+      "target": 16.232000000000006,
+      "score": 77.0,
       "direction": "Bullish",
-      "score": 78.0,
-      "updated_at": "2026-09-14T08:58:11.295846",
+      "stop": 16.03,
+      "updated_at": "2026-09-16T13:18:16.767312",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 16.25,
+      "ticker": "AUPH",
+      "status": "CONFIRMED",
+      "target": 16.80704,
       "stop": 15.97,
+      "updated_at": "2026-09-15T10:16:51.534656",
       "setup": "Marubozu",
-      "regime": "BULLISH_CONSOLIDATION"
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 78.0,
+      "current_price": 16.41,
+      "direction": "Bullish"
     }
   ]
 }

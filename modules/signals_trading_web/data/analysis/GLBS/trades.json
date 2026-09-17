@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-13T16:09:51.022676+00:00",
+  "generated_at": "2026-09-16T19:44:13.724609+00:00",
   "ticker": "GLBS",
-  "count": 1,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "GLBS",
+      "current_price": 3.855,
+      "entry": 3.83,
+      "risk_reward": 2.0,
+      "target": 4.3184000000000005,
+      "score": 71.0,
+      "direction": "Bullish",
+      "stop": 3.59,
+      "updated_at": "2026-09-16T18:45:23.151507",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 3.64,
+      "ticker": "GLBS",
+      "status": "CONFIRMED",
+      "target": 3.8095087416148528,
+      "stop": 3.56,
+      "updated_at": "2026-09-15T15:57:07.553167",
+      "setup": "TLINE_CROSS",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 60.0,
+      "current_price": 3.6013,
+      "direction": "Bullish"
+    },
     {
       "status": "CONFIRMED",
       "target": 4.095999999999999,

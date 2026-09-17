@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:26:59.618461+00:00",
+  "generated_at": "2026-09-16T12:23:01.880871+00:00",
   "ticker": "BBCP",
-  "count": 1,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-16T07:05:08.972597",
+      "score": 62.0,
+      "ticker": "BBCP",
+      "risk_reward": 2.0,
+      "setup": "Marubozu",
+      "target": 10.318000000000001,
+      "current_price": 10.25,
+      "regime": "BULLISH_CONSOLIDATION",
+      "stop": 10.19,
+      "direction": "Bullish",
+      "entry": 10.23,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 10.15,
+      "ticker": "BBCP",
+      "status": "CONFIRMED",
+      "target": 10.358560000000002,
+      "stop": 10.05,
+      "updated_at": "2026-09-15T15:21:09.966020",
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 55.0,
+      "current_price": 10.24,
+      "direction": "Bullish"
+    },
     {
       "regime": "FULL_BULLISH_ALIGNMENT",
       "updated_at": "2026-09-14T10:09:21.137091",

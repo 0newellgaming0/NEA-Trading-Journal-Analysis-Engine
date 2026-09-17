@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:27:10.878720+00:00",
+  "generated_at": "2026-09-16T12:23:11.583884+00:00",
   "ticker": "BSEM",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-16T05:00:58.751684",
+      "score": 63.0,
+      "ticker": "BSEM",
+      "risk_reward": 2.0,
+      "setup": "Rising Three Methods",
+      "target": 4.056,
+      "current_price": 3.88,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 3.79,
+      "direction": "Bullish",
+      "entry": 3.88,
+      "status": "CONFIRMED"
+    },
     {
       "regime": "SHORT_TERM_STRENGTH",
       "updated_at": "2026-09-14T12:02:29.135920",

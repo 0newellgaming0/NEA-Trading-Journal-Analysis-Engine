@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:30:20.589174+00:00",
+  "generated_at": "2026-09-16T19:45:40.253598+00:00",
   "ticker": "STRW",
-  "count": 5,
+  "count": 7,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "DRAGONFLY_DOJI",
+      "ticker": "STRW",
+      "current_price": 14.04,
+      "entry": 14.27,
+      "risk_reward": 2.0,
+      "target": 14.229000000000001,
+      "score": 69.0,
+      "direction": "Bearish",
+      "stop": 14.28,
+      "updated_at": "2026-09-16T16:55:08.633136",
+      "regime": "PRIMARY_UPTREND_PULLBACK"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 14.02,
+      "ticker": "STRW",
+      "status": "CONFIRMED",
+      "target": 13.669280000000002,
+      "stop": 14.2,
+      "updated_at": "2026-09-15T13:20:02.398889",
+      "setup": "Candle Over Candle",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 70.0,
+      "current_price": 13.95,
+      "direction": "Bearish"
+    },
     {
       "regime": "PRIMARY_UPTREND_PULLBACK",
       "updated_at": "2026-09-14T17:00:32.571643",

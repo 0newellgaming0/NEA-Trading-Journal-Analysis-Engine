@@ -1,8 +1,50 @@
 {
-  "generated_at": "2026-09-14T22:29:35.803090+00:00",
+  "generated_at": "2026-09-16T19:45:10.762254+00:00",
   "ticker": "PD",
-  "count": 3,
+  "count": 6,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "ticker": "PD",
+      "current_price": 14.3883,
+      "entry": 14.45,
+      "risk_reward": 2.0,
+      "target": 13.437999999999999,
+      "score": 69.0,
+      "direction": "Bearish",
+      "stop": 14.96,
+      "updated_at": "2026-09-16T14:01:33.357352",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
+    {
+      "updated_at": "2026-09-16T06:30:29.154289",
+      "score": 80.0,
+      "ticker": "PD",
+      "risk_reward": 2.0,
+      "setup": "TLINE_CROSS",
+      "target": 15.282164279077154,
+      "current_price": 14.7,
+      "regime": "SHORT_TERM_STRENGTH",
+      "stop": 14.41,
+      "direction": "Bullish",
+      "entry": 14.7,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 14.68,
+      "ticker": "PD",
+      "status": "CONFIRMED",
+      "target": 14.314731526870766,
+      "stop": 14.87,
+      "updated_at": "2026-09-15T15:13:19.106137",
+      "setup": "TLINE_ROLLOVER",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 76.0,
+      "current_price": 14.6,
+      "direction": "Bearish"
+    },
     {
       "regime": "SHORT_TERM_STRENGTH",
       "updated_at": "2026-09-14T12:07:08.122901",

@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:09.180333+00:00",
+  "ticker": "PAYS",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "PAYS",
+      "current_price": 11.7605,
+      "entry": 11.94,
+      "risk_reward": 2.0,
+      "target": 11.389999999999999,
+      "score": 64.0,
+      "direction": "Bearish",
+      "stop": 12.21,
+      "updated_at": "2026-09-16T17:10:41.216825",
+      "regime": "PRIMARY_UPTREND_PULLBACK"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 12.83,
+      "ticker": "PAYS",
+      "status": "CONFIRMED",
+      "target": 12.392144104809665,
+      "stop": 13.04,
+      "updated_at": "2026-09-15T10:46:46.230100",
+      "setup": "TLINE_CROSS",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 68.0,
+      "current_price": 12.8268,
+      "direction": "Bearish"
+    }
+  ]
+}

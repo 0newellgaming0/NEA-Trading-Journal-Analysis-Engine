@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:17.218807+00:00",
+  "ticker": "PTEN",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "ticker": "PTEN",
+      "current_price": 12.2301,
+      "entry": 12.25,
+      "risk_reward": 2.0,
+      "target": 12.833000000000002,
+      "score": 69.0,
+      "direction": "Bullish",
+      "stop": 11.96,
+      "updated_at": "2026-09-16T17:50:21.931287",
+      "regime": "PRIMARY_UPTREND_PULLBACK"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 12.41,
+      "ticker": "PTEN",
+      "status": "CONFIRMED",
+      "target": 12.480160000000001,
+      "stop": 12.38,
+      "updated_at": "2026-09-15T13:44:51.257331",
+      "setup": "Marubozu",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 66.0,
+      "current_price": 12.63,
+      "direction": "Bullish"
+    }
+  ]
+}

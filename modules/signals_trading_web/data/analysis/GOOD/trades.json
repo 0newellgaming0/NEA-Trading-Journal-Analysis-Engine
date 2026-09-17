@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:14.859351+00:00",
+  "ticker": "GOOD",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "GOOD",
+      "current_price": 12.815,
+      "entry": 12.95,
+      "risk_reward": 2.0,
+      "target": 13.379763611670773,
+      "score": 70.0,
+      "direction": "Bullish",
+      "stop": 12.73,
+      "updated_at": "2026-09-16T15:13:25.083144",
+      "regime": "PRIMARY_UPTREND_PULLBACK"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 12.76,
+      "ticker": "GOOD",
+      "status": "CONFIRMED",
+      "target": 12.958,
+      "stop": 12.66,
+      "updated_at": "2026-09-15T15:22:20.011907",
+      "setup": "Marubozu",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 69.0,
+      "current_price": 12.795,
+      "direction": "Bullish"
+    }
+  ]
+}

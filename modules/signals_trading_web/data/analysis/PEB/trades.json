@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:11.099474+00:00",
+  "ticker": "PEB",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "PEB",
+      "current_price": 18.2058,
+      "entry": 18.29,
+      "risk_reward": 2.0,
+      "target": 18.884,
+      "score": 68.0,
+      "direction": "Bullish",
+      "stop": 17.99,
+      "updated_at": "2026-09-16T13:46:40.633137",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 18.23,
+      "ticker": "PEB",
+      "status": "CONFIRMED",
+      "target": 17.64200000000001,
+      "stop": 18.52,
+      "updated_at": "2026-09-15T11:31:15.193728",
+      "setup": "Pinbar",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 77.0,
+      "current_price": 17.61,
+      "direction": "Bearish"
+    }
+  ]
+}

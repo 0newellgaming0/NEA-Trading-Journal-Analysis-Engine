@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:15.421142+00:00",
+  "ticker": "PPHC",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "PPHC",
+      "current_price": 11.92,
+      "entry": 11.82,
+      "risk_reward": 2.0,
+      "target": 12.04,
+      "score": 62.0,
+      "direction": "Bullish",
+      "stop": 11.71,
+      "updated_at": "2026-09-16T16:43:50.186115",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 12.06,
+      "ticker": "PPHC",
+      "status": "CONFIRMED",
+      "target": 11.818000000000003,
+      "stop": 12.18,
+      "updated_at": "2026-09-15T13:02:25.235273",
+      "setup": "Pinbar",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 69.0,
+      "current_price": 11.89,
+      "direction": "Bearish"
+    }
+  ]
+}

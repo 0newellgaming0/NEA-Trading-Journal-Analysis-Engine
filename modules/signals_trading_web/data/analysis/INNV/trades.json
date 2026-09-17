@@ -1,6 +1,35 @@
 {
-  "generated_at": "2026-09-09T13:27:20.652888+00:00",
+  "generated_at": "2026-09-16T19:44:28.496432+00:00",
   "ticker": "INNV",
-  "count": 0,
-  "trades": []
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "INNV",
+      "current_price": 10.86,
+      "entry": 10.7,
+      "risk_reward": 2.0,
+      "target": 9.949715508790366,
+      "score": 63.0,
+      "direction": "Bearish",
+      "stop": 11.07,
+      "updated_at": "2026-09-16T15:15:27.533013",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
+    {
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "current_price": 10.65,
+      "entry": 10.8,
+      "direction": "Bullish",
+      "status": "CONFIRMED",
+      "updated_at": "2026-09-15T17:31:17.228391",
+      "stop": 10.61,
+      "target": 11.188136119237011,
+      "score": 74.0,
+      "risk_reward": 2.0,
+      "ticker": "INNV",
+      "setup": "TLINE_CROSS"
+    }
+  ]
 }

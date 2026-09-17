@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:30:27.542444+00:00",
+  "generated_at": "2026-09-16T19:45:45.294835+00:00",
   "ticker": "TIC",
-  "count": 2,
+  "count": 4,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "TIC",
+      "current_price": 9.37,
+      "entry": 9.61,
+      "risk_reward": 2.0,
+      "target": 9.411999999999999,
+      "score": 69.0,
+      "direction": "Bearish",
+      "stop": 9.71,
+      "updated_at": "2026-09-16T14:16:26.052860",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 9.57,
+      "ticker": "TIC",
+      "status": "CONFIRMED",
+      "target": 10.112975556852291,
+      "stop": 9.31,
+      "updated_at": "2026-09-15T15:04:32.375952",
+      "setup": "TLINE_CROSS",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 71.0,
+      "current_price": 9.635,
+      "direction": "Bullish"
+    },
     {
       "regime": "SHORT_TERM_STRENGTH",
       "updated_at": "2026-09-14T18:17:30.512993",

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-15T17:20:10.836146+00:00",
+  "ticker": "ORN",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 9.09,
+      "ticker": "ORN",
+      "status": "CONFIRMED",
+      "target": 8.94264,
+      "stop": 9.16,
+      "updated_at": "2026-09-15T09:56:59.708902",
+      "setup": "Falling Three Methods",
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 76.0,
+      "current_price": 9.05,
+      "direction": "Bearish"
+    }
+  ]
+}

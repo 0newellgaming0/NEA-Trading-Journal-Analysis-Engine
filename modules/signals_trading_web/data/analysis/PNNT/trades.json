@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:37.649938+00:00",
+  "generated_at": "2026-09-15T17:20:25.245696+00:00",
   "ticker": "PNNT",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 3.71,
+      "ticker": "PNNT",
+      "status": "CONFIRMED",
+      "target": 3.556,
+      "stop": 3.79,
+      "updated_at": "2026-09-15T12:53:01.195624",
+      "setup": "Falling Three Methods",
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 60.0,
+      "current_price": 3.53,
+      "direction": "Bearish"
+    }
+  ]
 }

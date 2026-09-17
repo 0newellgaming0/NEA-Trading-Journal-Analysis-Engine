@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:28:17.742716+00:00",
+  "generated_at": "2026-09-15T17:17:25.319324+00:00",
   "ticker": "DSP",
-  "count": 10,
+  "count": 11,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 12.77,
+      "ticker": "DSP",
+      "status": "CONFIRMED",
+      "target": 12.477239854616897,
+      "stop": 12.92,
+      "updated_at": "2026-09-15T14:59:43.613268",
+      "setup": "TLINE_ROLLOVER",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 67.0,
+      "current_price": 12.555,
+      "direction": "Bearish"
+    },
     {
       "regime": "SHORT_TERM_WEAKNESS",
       "updated_at": "2026-09-14T18:12:12.760666",

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-16T19:45:08.824484+00:00",
+  "ticker": "PANL",
+  "count": 1,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "PANL",
+      "current_price": 8.38,
+      "entry": 8.35,
+      "risk_reward": 2.0,
+      "target": 8.444,
+      "score": 82.0,
+      "direction": "Bullish",
+      "stop": 8.3,
+      "updated_at": "2026-09-16T12:56:49.663871",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    }
+  ]
+}

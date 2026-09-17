@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T10:11:44.183240+00:00",
+  "generated_at": "2026-09-16T19:44:49.681866+00:00",
   "ticker": "MQ",
-  "count": 3,
+  "count": 5,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "MQ",
+      "current_price": 16.01,
+      "entry": 15.91,
+      "risk_reward": 2.0,
+      "target": 15.386678141759305,
+      "score": 66.0,
+      "direction": "Bearish",
+      "stop": 16.18,
+      "updated_at": "2026-09-16T18:53:13.293007",
+      "regime": "PRIMARY_DOWNTREND_RALLY"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 16.47,
+      "ticker": "MQ",
+      "status": "CONFIRMED",
+      "target": 16.197628649094565,
+      "stop": 16.6,
+      "updated_at": "2026-09-15T13:37:05.356491",
+      "setup": "TLINE_ROLLOVER",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 60.0,
+      "current_price": 16.27,
+      "direction": "Bearish"
+    },
     {
       "target": 16.776,
       "current_price": 16.33,

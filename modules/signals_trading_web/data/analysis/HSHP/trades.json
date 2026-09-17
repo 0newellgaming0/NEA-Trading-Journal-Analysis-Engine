@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:22.901196+00:00",
+  "ticker": "HSHP",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "HSHP",
+      "current_price": 18.65,
+      "entry": 18.6,
+      "risk_reward": 2.0,
+      "target": 19.715400000000002,
+      "score": 65.0,
+      "direction": "Bullish",
+      "stop": 18.04,
+      "updated_at": "2026-09-16T17:55:43.013171",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 18.02,
+      "ticker": "HSHP",
+      "status": "CONFIRMED",
+      "target": 18.591999999999995,
+      "stop": 17.73,
+      "updated_at": "2026-09-15T15:56:35.305410",
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 66.0,
+      "current_price": 18.15,
+      "direction": "Bullish"
+    }
+  ]
+}

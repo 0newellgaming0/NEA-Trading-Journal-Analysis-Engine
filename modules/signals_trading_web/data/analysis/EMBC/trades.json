@@ -1,8 +1,50 @@
 {
-  "generated_at": "2026-09-14T22:28:22.820060+00:00",
+  "generated_at": "2026-09-16T19:43:58.857077+00:00",
   "ticker": "EMBC",
-  "count": 2,
+  "count": 4,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Rising Three Methods",
+      "ticker": "EMBC",
+      "current_price": 5.125,
+      "entry": 5.02,
+      "risk_reward": 2.0,
+      "target": 5.173999999999998,
+      "score": 60.0,
+      "direction": "Bullish",
+      "stop": 4.94,
+      "updated_at": "2026-09-16T19:20:33.567264",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "updated_at": "2026-09-16T06:01:29.085180",
+      "score": 62.0,
+      "ticker": "EMBC",
+      "risk_reward": 2.0,
+      "setup": "Marubozu",
+      "target": 5.143,
+      "current_price": 5.09,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 5.26,
+      "direction": "Bearish",
+      "entry": 5.22,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 5.07,
+      "ticker": "EMBC",
+      "status": "CONFIRMED",
+      "target": 4.647337459452253,
+      "stop": 5.27,
+      "updated_at": "2026-09-15T14:36:27.188496",
+      "setup": "TLINE_CROSS",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 56.0,
+      "current_price": 5.085,
+      "direction": "Bearish"
+    },
     {
       "regime": "SHORT_TERM_STRENGTH",
       "updated_at": "2026-09-14T19:29:47.449585",
@@ -16,20 +58,6 @@
       "direction": "Bullish",
       "setup": "Marubozu",
       "score": 65.0
-    },
-    {
-      "status": "CONFIRMED",
-      "target": 5.173999999999998,
-      "score": 66.0,
-      "current_price": 5.03,
-      "ticker": "EMBC",
-      "entry": 5.02,
-      "direction": "Bullish",
-      "risk_reward": 2.0,
-      "updated_at": "2026-09-13T15:11:41.023694",
-      "setup": "Rising Three Methods",
-      "regime": "SHORT_TERM_STRENGTH",
-      "stop": 4.94
     }
   ]
 }

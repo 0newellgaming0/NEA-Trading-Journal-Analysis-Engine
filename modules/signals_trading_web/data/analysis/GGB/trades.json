@@ -1,8 +1,50 @@
 {
-  "generated_at": "2026-09-13T16:09:51.004342+00:00",
+  "generated_at": "2026-09-16T19:44:13.232592+00:00",
   "ticker": "GGB",
-  "count": 7,
+  "count": 10,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "GGB",
+      "current_price": 5.01,
+      "entry": 4.98,
+      "risk_reward": 2.0,
+      "target": 4.733602483217435,
+      "score": 64.0,
+      "direction": "Bearish",
+      "stop": 5.1,
+      "updated_at": "2026-09-16T18:27:39.366949",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "updated_at": "2026-09-16T06:11:34.487042",
+      "score": 68.0,
+      "ticker": "GGB",
+      "risk_reward": 2.0,
+      "setup": "TLINE_CROSS",
+      "target": 4.741986525056213,
+      "current_price": 4.96,
+      "regime": "BULLISH_CONSOLIDATION",
+      "stop": 5.07,
+      "direction": "Bearish",
+      "entry": 4.96,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 5.05,
+      "ticker": "GGB",
+      "status": "CONFIRMED",
+      "target": 5.4566725724499205,
+      "stop": 4.85,
+      "updated_at": "2026-09-15T14:50:02.493820",
+      "setup": "TLINE_CROSS",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 63.0,
+      "current_price": 4.99,
+      "direction": "Bullish"
+    },
     {
       "status": "CONFIRMED",
       "target": 4.839680000000001,

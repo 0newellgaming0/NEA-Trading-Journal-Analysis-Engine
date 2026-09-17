@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-11T13:36:53.950164+00:00",
+  "generated_at": "2026-09-16T19:44:47.033696+00:00",
   "ticker": "MH",
-  "count": 5,
+  "count": 7,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Counterattack Lines",
+      "ticker": "MH",
+      "current_price": 13.2185,
+      "entry": 13.24,
+      "risk_reward": 2.0,
+      "target": 13.064000000000002,
+      "score": 76.0,
+      "direction": "Bearish",
+      "stop": 13.33,
+      "updated_at": "2026-09-16T12:38:47.499180",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 12.99,
+      "ticker": "MH",
+      "status": "CONFIRMED",
+      "target": 15.124,
+      "stop": 11.92,
+      "updated_at": "2026-09-15T05:18:48.559107",
+      "setup": "Candle Over Candle",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 84.0,
+      "current_price": 13.24,
+      "direction": "Bullish"
+    },
     {
       "entry": 12.28,
       "current_price": 12.11,

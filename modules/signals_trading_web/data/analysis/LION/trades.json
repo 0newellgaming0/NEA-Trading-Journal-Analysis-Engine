@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:39.484923+00:00",
+  "ticker": "LION",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "LION",
+      "current_price": 11.26,
+      "entry": 11.3,
+      "risk_reward": 2.0,
+      "target": 11.256,
+      "score": 69.0,
+      "direction": "Bearish",
+      "stop": 11.32,
+      "updated_at": "2026-09-16T16:21:48.301243",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 11.69,
+      "ticker": "LION",
+      "status": "CONFIRMED",
+      "target": 12.150723552320068,
+      "stop": 11.46,
+      "updated_at": "2026-09-15T11:46:54.004237",
+      "setup": "TLINE_CROSS",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 75.0,
+      "current_price": 11.74,
+      "direction": "Bullish"
+    }
+  ]
+}

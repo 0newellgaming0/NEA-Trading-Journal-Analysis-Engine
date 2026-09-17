@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:25.682345+00:00",
+  "ticker": "RNGR",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "RNGR",
+      "current_price": 16.81,
+      "entry": 16.71,
+      "risk_reward": 2.0,
+      "target": 16.240064253807105,
+      "score": 70.0,
+      "direction": "Bearish",
+      "stop": 16.94,
+      "updated_at": "2026-09-16T16:40:14.049229",
+      "regime": "PRIMARY_UPTREND_PULLBACK"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 16.6,
+      "ticker": "RNGR",
+      "status": "CONFIRMED",
+      "target": 15.962000000000003,
+      "stop": 16.92,
+      "updated_at": "2026-09-15T16:30:23.642802",
+      "setup": "Marubozu",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 69.0,
+      "current_price": 16.765,
+      "direction": "Bearish"
+    }
+  ]
+}

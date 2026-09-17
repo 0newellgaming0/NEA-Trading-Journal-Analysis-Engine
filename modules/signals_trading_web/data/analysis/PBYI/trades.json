@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:29:35.060242+00:00",
+  "generated_at": "2026-09-16T19:45:09.959623+00:00",
   "ticker": "PBYI",
   "count": 7,
   "trades": [
     {
-      "regime": "BULLISH_CONSOLIDATION",
-      "updated_at": "2026-09-14T11:57:31.800019",
-      "stop": 8.92,
-      "ticker": "PBYI",
-      "entry": 9.01,
       "status": "CONFIRMED",
+      "setup": "Falling Three Methods",
+      "ticker": "PBYI",
+      "current_price": 9.4,
+      "entry": 9.46,
       "risk_reward": 2.0,
-      "current_price": 9.0,
+      "target": 9.190000000000001,
+      "score": 76.0,
+      "direction": "Bearish",
+      "stop": 9.6,
+      "updated_at": "2026-09-16T13:29:38.149619",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 9.01,
+      "ticker": "PBYI",
+      "status": "CONFIRMED",
       "target": 9.170000000000003,
-      "direction": "Bullish",
+      "stop": 8.92,
+      "updated_at": "2026-09-15T11:09:33.108330",
       "setup": "Pinbar",
-      "score": 76.0
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 76.0,
+      "current_price": 9.14,
+      "direction": "Bullish"
     },
     {
       "target": 8.722000000000001,
@@ -30,20 +44,6 @@
       "direction": "Bearish",
       "ticker": "PBYI",
       "regime": "BULLISH_CONSOLIDATION"
-    },
-    {
-      "current_price": 9.19,
-      "entry": 9.46,
-      "setup": "Falling Three Methods",
-      "stop": 9.6,
-      "score": 76.0,
-      "regime": "BULLISH_CONSOLIDATION",
-      "status": "CONFIRMED",
-      "target": 9.190000000000001,
-      "updated_at": "2026-09-08T10:15:29.702064",
-      "risk_reward": 2.0,
-      "ticker": "PBYI",
-      "direction": "Bearish"
     },
     {
       "regime": "FULL_BULLISH_ALIGNMENT",

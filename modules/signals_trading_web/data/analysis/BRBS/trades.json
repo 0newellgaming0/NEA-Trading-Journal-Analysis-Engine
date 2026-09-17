@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:27:07.964250+00:00",
+  "generated_at": "2026-09-16T19:43:27.512706+00:00",
   "ticker": "BRBS",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "BRBS",
+      "current_price": 4.01,
+      "entry": 4.03,
+      "risk_reward": 2.0,
+      "target": 3.942000000000001,
+      "score": 81.0,
+      "direction": "Bearish",
+      "stop": 4.07,
+      "updated_at": "2026-09-16T12:41:13.427293",
+      "regime": "PRIMARY_UPTREND_PULLBACK"
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "updated_at": "2026-09-14T11:49:35.344375",

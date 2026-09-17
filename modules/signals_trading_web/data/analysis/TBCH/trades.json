@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:30:24.217736+00:00",
+  "generated_at": "2026-09-16T19:45:42.807179+00:00",
   "ticker": "TBCH",
-  "count": 7,
+  "count": 8,
   "trades": [
     {
-      "regime": "SHORT_TERM_STRENGTH",
-      "updated_at": "2026-09-14T17:39:05.040410",
-      "stop": 12.71,
-      "ticker": "TBCH",
-      "entry": 12.3,
       "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "TBCH",
+      "current_price": 12.45,
+      "entry": 12.51,
       "risk_reward": 2.0,
-      "current_price": 12.44,
-      "target": 11.501999999999999,
+      "target": 12.278846342303877,
+      "score": 69.0,
       "direction": "Bearish",
+      "stop": 12.63,
+      "updated_at": "2026-09-16T14:46:52.974918",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 12.3,
+      "ticker": "TBCH",
+      "status": "CONFIRMED",
+      "target": 11.501999999999999,
+      "stop": 12.71,
+      "updated_at": "2026-09-15T12:19:04.980173",
       "setup": "Candle Over Candle",
-      "score": 74.0
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 76.0,
+      "current_price": 12.36,
+      "direction": "Bearish"
     },
     {
       "direction": "Bullish",

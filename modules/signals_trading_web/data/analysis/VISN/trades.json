@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:30:44.548157+00:00",
+  "generated_at": "2026-09-16T19:45:53.432700+00:00",
   "ticker": "VISN",
-  "count": 5,
+  "count": 6,
   "trades": [
     {
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "updated_at": "2026-09-14T20:12:42.395624",
-      "stop": 6.62,
-      "ticker": "VISN",
-      "entry": 6.44,
       "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "VISN",
+      "current_price": 6.68,
+      "entry": 6.79,
       "risk_reward": 2.0,
-      "current_price": 6.48,
-      "target": 6.072559089626597,
+      "target": 6.7551999999999985,
+      "score": 72.0,
       "direction": "Bearish",
+      "stop": 6.8,
+      "updated_at": "2026-09-16T16:15:45.073373",
+      "regime": "PRIMARY_DOWNTREND_RALLY"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 6.44,
+      "ticker": "VISN",
+      "status": "CONFIRMED",
+      "target": 6.072559089626597,
+      "stop": 6.62,
+      "updated_at": "2026-09-15T10:28:41.438359",
       "setup": "TLINE_CROSS",
-      "score": 78.0
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 78.0,
+      "current_price": 6.428,
+      "direction": "Bearish"
     },
     {
       "updated_at": "2026-09-01T22:56:15.226406",

@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:30:42.215952+00:00",
+  "generated_at": "2026-09-16T19:45:52.287165+00:00",
   "ticker": "VFF",
-  "count": 8,
+  "count": 9,
   "trades": [
     {
-      "regime": "BULLISH_CONSOLIDATION",
-      "updated_at": "2026-09-14T19:54:41.783735",
-      "stop": 2.96,
-      "ticker": "VFF",
-      "entry": 2.93,
       "status": "CONFIRMED",
-      "risk_reward": 2.0,
-      "current_price": 2.865,
-      "target": 2.8640000000000003,
-      "direction": "Bearish",
       "setup": "Marubozu",
-      "score": 79.0
+      "ticker": "VFF",
+      "current_price": 2.865,
+      "entry": 2.87,
+      "risk_reward": 2.0,
+      "target": 2.7600000000000007,
+      "score": 74.0,
+      "direction": "Bearish",
+      "stop": 2.92,
+      "updated_at": "2026-09-16T14:57:29.379088",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 2.93,
+      "ticker": "VFF",
+      "status": "CONFIRMED",
+      "target": 2.8640000000000003,
+      "stop": 2.96,
+      "updated_at": "2026-09-15T09:35:57.616007",
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 59.0,
+      "current_price": 2.83,
+      "direction": "Bearish"
     },
     {
       "direction": "Bullish",

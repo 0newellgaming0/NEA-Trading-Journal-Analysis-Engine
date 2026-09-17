@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:29:36.633016+00:00",
+  "generated_at": "2026-09-16T19:45:12.026178+00:00",
   "ticker": "PETZ",
-  "count": 5,
+  "count": 6,
   "trades": [
     {
-      "regime": "BULLISH_CONSOLIDATION",
-      "updated_at": "2026-09-14T12:19:19.780055",
-      "stop": 1.28,
-      "ticker": "PETZ",
-      "entry": 1.39,
       "status": "CONFIRMED",
-      "risk_reward": 2.0,
-      "current_price": 1.41,
-      "target": 1.6127,
-      "direction": "Bullish",
       "setup": "Pinbar",
-      "score": 58.0
+      "ticker": "PETZ",
+      "current_price": 1.39,
+      "entry": 1.36,
+      "risk_reward": 2.0,
+      "target": 1.51144,
+      "score": 57.0,
+      "direction": "Bullish",
+      "stop": 1.29,
+      "updated_at": "2026-09-16T19:15:29.419265",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 1.39,
+      "ticker": "PETZ",
+      "status": "CONFIRMED",
+      "target": 1.6127,
+      "stop": 1.28,
+      "updated_at": "2026-09-15T16:25:17.851643",
+      "setup": "Pinbar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 56.0,
+      "current_price": 1.33,
+      "direction": "Bullish"
     },
     {
       "setup": "Counterattack Lines",

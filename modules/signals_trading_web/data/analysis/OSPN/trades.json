@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:07.230619+00:00",
+  "ticker": "OSPN",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Rising Three Methods",
+      "ticker": "OSPN",
+      "current_price": 17.745,
+      "entry": 16.45,
+      "risk_reward": 2.0,
+      "target": 16.708,
+      "score": 72.0,
+      "direction": "Bullish",
+      "stop": 16.33,
+      "updated_at": "2026-09-16T17:20:26.371506",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 17.61,
+      "ticker": "OSPN",
+      "status": "CONFIRMED",
+      "target": 17.302,
+      "stop": 17.76,
+      "updated_at": "2026-09-15T10:04:38.160786",
+      "setup": "Engulfing",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 68.0,
+      "current_price": 17.52,
+      "direction": "Bearish"
+    }
+  ]
+}

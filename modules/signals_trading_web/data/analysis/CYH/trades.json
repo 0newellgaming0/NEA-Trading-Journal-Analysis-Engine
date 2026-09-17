@@ -1,21 +1,49 @@
 {
-  "generated_at": "2026-09-14T22:27:55.531118+00:00",
+  "generated_at": "2026-09-16T19:43:47.729726+00:00",
   "ticker": "CYH",
-  "count": 1,
+  "count": 3,
   "trades": [
     {
-      "regime": "BEARISH_CONSOLIDATION",
-      "updated_at": "2026-09-14T16:34:22.068881",
-      "stop": 2.88,
-      "ticker": "CYH",
-      "entry": 2.96,
       "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "CYH",
+      "current_price": 2.98,
+      "entry": 2.99,
       "risk_reward": 2.0,
-      "current_price": 2.945,
+      "target": 2.9460000000000015,
+      "score": 60.0,
+      "direction": "Bearish",
+      "stop": 3.01,
+      "updated_at": "2026-09-16T18:38:36.690339",
+      "regime": "PRIMARY_DOWNTREND_RALLY"
+    },
+    {
+      "updated_at": "2026-09-16T07:12:00.139822",
+      "score": 69.0,
+      "ticker": "CYH",
+      "risk_reward": 2.0,
+      "setup": "TLINE_ROLLOVER",
+      "target": 2.850023261951041,
+      "current_price": 2.91,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "stop": 2.99,
+      "direction": "Bearish",
+      "entry": 2.94,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 2.96,
+      "ticker": "CYH",
+      "status": "CONFIRMED",
       "target": 3.1252545089717776,
-      "direction": "Bullish",
+      "stop": 2.88,
+      "updated_at": "2026-09-15T15:37:47.981218",
       "setup": "TLINE_CROSS",
-      "score": 61.0
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 62.0,
+      "current_price": 2.9,
+      "direction": "Bullish"
     }
   ]
 }

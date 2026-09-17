@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:59.430755+00:00",
+  "ticker": "NTIC",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "NTIC",
+      "current_price": 7.96,
+      "entry": 8.03,
+      "risk_reward": 2.0,
+      "target": 8.160312088888531,
+      "score": 65.0,
+      "direction": "Bullish",
+      "stop": 7.96,
+      "updated_at": "2026-09-16T18:11:24.621712",
+      "regime": "BEARISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 8.12,
+      "ticker": "NTIC",
+      "status": "CONFIRMED",
+      "target": 8.471779999999997,
+      "stop": 7.94,
+      "updated_at": "2026-09-15T07:34:41.664393",
+      "setup": "Marubozu",
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 64.0,
+      "current_price": 8.045,
+      "direction": "Bullish"
+    }
+  ]
+}

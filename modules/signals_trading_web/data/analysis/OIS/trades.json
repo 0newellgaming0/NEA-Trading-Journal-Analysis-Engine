@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:03.800730+00:00",
+  "ticker": "OIS",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "ticker": "OIS",
+      "current_price": 8.57,
+      "entry": 8.61,
+      "risk_reward": 2.0,
+      "target": 8.532999999999998,
+      "score": 70.0,
+      "direction": "Bearish",
+      "stop": 8.65,
+      "updated_at": "2026-09-16T13:57:57.531790",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 8.48,
+      "ticker": "OIS",
+      "status": "CONFIRMED",
+      "target": 7.454999999999998,
+      "stop": 9.0,
+      "updated_at": "2026-09-15T08:48:50.788216",
+      "setup": "SWING_STRUCTURE",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 76.0,
+      "current_price": 8.39,
+      "direction": "BEARISH"
+    }
+  ]
+}

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T10:08:47.478705+00:00",
+  "generated_at": "2026-09-16T12:22:54.003032+00:00",
   "ticker": "ARLO",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-16T05:45:39.248197",
+      "score": 76.0,
+      "ticker": "ARLO",
+      "risk_reward": 2.0,
+      "setup": "Marubozu",
+      "target": 13.616000000000003,
+      "current_price": 13.57,
+      "regime": "BULLISH_CONSOLIDATION",
+      "stop": 13.52,
+      "direction": "Bullish",
+      "entry": 13.55,
+      "status": "CONFIRMED"
+    },
     {
       "target": 12.185719380682993,
       "current_price": 12.95,

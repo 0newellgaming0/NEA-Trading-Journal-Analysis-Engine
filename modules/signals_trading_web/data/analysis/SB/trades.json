@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:30:09.020407+00:00",
+  "generated_at": "2026-09-16T19:45:29.558682+00:00",
   "ticker": "SB",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "SB",
+      "current_price": 8.48,
+      "entry": 8.5,
+      "risk_reward": 2.0,
+      "target": 8.478000000000002,
+      "score": 78.0,
+      "direction": "Bearish",
+      "stop": 8.51,
+      "updated_at": "2026-09-16T13:24:30.249419",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "updated_at": "2026-09-14T15:02:21.295056",

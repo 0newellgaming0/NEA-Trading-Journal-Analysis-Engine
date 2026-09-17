@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:50.975780+00:00",
+  "ticker": "MTLS",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "ticker": "MTLS",
+      "current_price": 7.66,
+      "entry": 7.66,
+      "risk_reward": 2.0,
+      "target": 7.710000000000002,
+      "score": 72.0,
+      "direction": "Bullish",
+      "stop": 7.63,
+      "updated_at": "2026-09-16T13:20:02.023629",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 7.59,
+      "ticker": "MTLS",
+      "status": "CONFIRMED",
+      "target": 8.447039999999998,
+      "stop": 7.16,
+      "updated_at": "2026-09-15T06:14:35.224755",
+      "setup": "Candle Over Candle",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 79.0,
+      "current_price": 7.63,
+      "direction": "Bullish"
+    }
+  ]
+}

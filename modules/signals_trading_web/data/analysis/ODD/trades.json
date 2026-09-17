@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:29:25.380888+00:00",
+  "generated_at": "2026-09-16T19:45:03.315844+00:00",
   "ticker": "ODD",
-  "count": 2,
+  "count": 4,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "ODD",
+      "current_price": 18.27,
+      "entry": 18.17,
+      "risk_reward": 2.0,
+      "target": 17.532000000000004,
+      "score": 71.0,
+      "direction": "Bearish",
+      "stop": 18.49,
+      "updated_at": "2026-09-16T17:21:50.913058",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 18.58,
+      "ticker": "ODD",
+      "status": "CONFIRMED",
+      "target": 17.743999999999993,
+      "stop": 19.0,
+      "updated_at": "2026-09-15T09:08:01.216534",
+      "setup": "Engulfing",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 75.0,
+      "current_price": 18.5,
+      "direction": "Bearish"
+    },
     {
       "regime": "SHORT_TERM_WEAKNESS",
       "updated_at": "2026-09-14T10:45:09.110577",

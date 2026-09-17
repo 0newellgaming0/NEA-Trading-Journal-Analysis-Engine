@@ -1,21 +1,49 @@
 {
-  "generated_at": "2026-09-14T10:11:44.755589+00:00",
+  "generated_at": "2026-09-16T19:44:50.496667+00:00",
   "ticker": "MSS",
-  "count": 1,
+  "count": 3,
   "trades": [
     {
-      "target": 1.7699999999999994,
-      "current_price": 1.73,
       "status": "CONFIRMED",
-      "entry": 1.66,
-      "risk_reward": 2.0,
+      "setup": "TLINE_CROSS",
       "ticker": "MSS",
-      "direction": "Bullish",
+      "current_price": 1.57,
+      "entry": 1.57,
+      "risk_reward": 2.0,
+      "target": 1.413560306973616,
+      "score": 62.0,
+      "direction": "Bearish",
+      "stop": 1.65,
+      "updated_at": "2026-09-16T18:59:57.354685",
+      "regime": "FULL_BEARISH_ALIGNMENT"
+    },
+    {
+      "updated_at": "2026-09-16T07:27:05.470490",
       "score": 60.0,
-      "updated_at": "2026-09-14T08:11:09.947526",
+      "ticker": "MSS",
+      "risk_reward": 2.0,
+      "setup": "Engulfing",
+      "target": 1.5319999999999998,
+      "current_price": 1.52,
+      "regime": "BEARISH_CONSOLIDATION",
+      "stop": 1.5,
+      "direction": "Bullish",
+      "entry": 1.51,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 1.66,
+      "ticker": "MSS",
+      "status": "CONFIRMED",
+      "target": 1.7699999999999994,
       "stop": 1.61,
+      "updated_at": "2026-09-15T06:10:07.075482",
       "setup": "Harami",
-      "regime": "PRIMARY_DOWNTREND_RALLY"
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 59.0,
+      "current_price": 1.6122,
+      "direction": "Bullish"
     }
   ]
 }

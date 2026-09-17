@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-09-16T19:44:33.442005+00:00",
+  "ticker": "KD",
+  "count": 3,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "KD",
+      "current_price": 12.69,
+      "entry": 13.17,
+      "risk_reward": 2.0,
+      "target": 12.487999999999998,
+      "score": 55.0,
+      "direction": "Bearish",
+      "stop": 13.51,
+      "updated_at": "2026-09-16T19:26:50.169294",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "updated_at": "2026-09-16T07:24:15.877047",
+      "score": 57.0,
+      "ticker": "KD",
+      "risk_reward": 2.0,
+      "setup": "Pinbar",
+      "target": 13.301000000000002,
+      "current_price": 13.32,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 13.86,
+      "direction": "Bearish",
+      "entry": 13.68,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 13.8,
+      "ticker": "KD",
+      "status": "CONFIRMED",
+      "target": 14.650465438162087,
+      "stop": 13.37,
+      "updated_at": "2026-09-15T15:42:20.120531",
+      "setup": "TLINE_CROSS",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 55.0,
+      "current_price": 13.71,
+      "direction": "Bullish"
+    }
+  ]
+}

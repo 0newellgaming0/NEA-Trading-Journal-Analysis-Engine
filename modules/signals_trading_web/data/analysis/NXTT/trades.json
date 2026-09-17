@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-15T17:20:04.415805+00:00",
+  "ticker": "NXTT",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 5.88,
+      "ticker": "NXTT",
+      "status": "CONFIRMED",
+      "target": 6.056,
+      "stop": 5.79,
+      "updated_at": "2026-09-15T08:10:26.499488",
+      "setup": "Pinbar",
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 53.0,
+      "current_price": 5.85,
+      "direction": "Bullish"
+    }
+  ]
+}

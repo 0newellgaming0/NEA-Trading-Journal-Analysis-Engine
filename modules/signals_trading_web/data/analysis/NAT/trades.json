@@ -1,8 +1,50 @@
 {
-  "generated_at": "2026-09-14T10:11:47.736700+00:00",
+  "generated_at": "2026-09-16T19:44:53.031000+00:00",
   "ticker": "NAT",
-  "count": 4,
+  "count": 7,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "ticker": "NAT",
+      "current_price": 8.13,
+      "entry": 8.09,
+      "risk_reward": 2.0,
+      "target": 8.243680000000001,
+      "score": 64.0,
+      "direction": "Bullish",
+      "stop": 8.01,
+      "updated_at": "2026-09-16T18:25:30.155402",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
+    {
+      "updated_at": "2026-09-16T05:39:29.199756",
+      "score": 64.0,
+      "ticker": "NAT",
+      "risk_reward": 2.0,
+      "setup": "Harami",
+      "target": 7.776000000000001,
+      "current_price": 7.9,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "stop": 7.59,
+      "direction": "Bullish",
+      "entry": 7.66,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 7.68,
+      "ticker": "NAT",
+      "status": "CONFIRMED",
+      "target": 7.894334321541603,
+      "stop": 7.57,
+      "updated_at": "2026-09-15T14:16:20.132391",
+      "setup": "TLINE_CROSS",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 63.0,
+      "current_price": 7.86,
+      "direction": "Bullish"
+    },
     {
       "target": 7.373000000000001,
       "current_price": 7.48,

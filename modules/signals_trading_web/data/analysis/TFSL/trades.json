@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:30:26.028129+00:00",
+  "generated_at": "2026-09-16T12:26:59.561319+00:00",
   "ticker": "TFSL",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-16T06:14:39.202721",
+      "score": 67.0,
+      "ticker": "TFSL",
+      "risk_reward": 2.0,
+      "setup": "Counterattack Lines",
+      "target": 16.97,
+      "current_price": 17.07,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "stop": 17.13,
+      "direction": "Bearish",
+      "entry": 17.08,
+      "status": "CONFIRMED"
+    },
     {
       "regime": "PRIMARY_UPTREND_PULLBACK",
       "updated_at": "2026-09-14T18:01:12.997281",

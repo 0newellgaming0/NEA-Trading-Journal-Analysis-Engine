@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T10:09:03.274445+00:00",
+  "generated_at": "2026-09-16T19:43:19.845841+00:00",
   "ticker": "BATL",
-  "count": 1,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "BATL",
+      "current_price": 1.291,
+      "entry": 1.29,
+      "risk_reward": 2.0,
+      "target": 1.2423811820560862,
+      "score": 81.0,
+      "direction": "Bearish",
+      "stop": 1.31,
+      "updated_at": "2026-09-16T13:13:30.098326",
+      "regime": "FULL_BEARISH_ALIGNMENT"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 1.32,
+      "ticker": "BATL",
+      "status": "CONFIRMED",
+      "target": 1.3910749453984759,
+      "stop": 1.28,
+      "updated_at": "2026-09-15T15:42:12.724012",
+      "setup": "TLINE_CROSS",
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 78.0,
+      "current_price": 1.3099,
+      "direction": "Bullish"
+    },
     {
       "target": 1.4720000000000002,
       "current_price": 1.359,

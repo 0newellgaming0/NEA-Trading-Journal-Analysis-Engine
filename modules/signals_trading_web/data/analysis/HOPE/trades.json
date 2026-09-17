@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:22.020574+00:00",
+  "ticker": "HOPE",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "HOPE",
+      "current_price": 14.081,
+      "entry": 14.09,
+      "risk_reward": 2.0,
+      "target": 14.206000000000003,
+      "score": 69.0,
+      "direction": "Bullish",
+      "stop": 14.02,
+      "updated_at": "2026-09-16T13:55:20.669837",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 13.97,
+      "ticker": "HOPE",
+      "status": "CONFIRMED",
+      "target": 14.410000000000002,
+      "stop": 13.75,
+      "updated_at": "2026-09-15T12:05:57.837023",
+      "setup": "Candle Over Candle",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 78.0,
+      "current_price": 14.05,
+      "direction": "Bullish"
+    }
+  ]
+}

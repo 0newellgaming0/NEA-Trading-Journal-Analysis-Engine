@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:47.314964+00:00",
+  "ticker": "MIR",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_ROLLOVER",
+      "ticker": "MIR",
+      "current_price": 16.04,
+      "entry": 16.02,
+      "risk_reward": 2.0,
+      "target": 15.320294034303018,
+      "score": 63.0,
+      "direction": "Bearish",
+      "stop": 16.36,
+      "updated_at": "2026-09-16T17:18:28.950633",
+      "regime": "BEARISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 15.38,
+      "ticker": "MIR",
+      "status": "CONFIRMED",
+      "target": 14.629903439636498,
+      "stop": 15.76,
+      "updated_at": "2026-09-15T05:22:38.544609",
+      "setup": "TLINE_CROSS",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "score": 68.0,
+      "current_price": 15.38,
+      "direction": "Bearish"
+    }
+  ]
+}

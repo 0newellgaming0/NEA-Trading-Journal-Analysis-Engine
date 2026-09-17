@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:30:09.284439+00:00",
+  "generated_at": "2026-09-16T19:45:29.868166+00:00",
   "ticker": "SBC",
-  "count": 10,
+  "count": 11,
   "trades": [
     {
-      "regime": "FULL_BULLISH_ALIGNMENT",
-      "updated_at": "2026-09-14T15:06:25.154436",
-      "stop": 4.49,
-      "ticker": "SBC",
-      "entry": 4.5,
       "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "SBC",
+      "current_price": 4.52,
+      "entry": 4.52,
       "risk_reward": 2.0,
-      "current_price": 4.59,
+      "target": 4.3116112860198115,
+      "score": 71.0,
+      "direction": "Bearish",
+      "stop": 4.62,
+      "updated_at": "2026-09-16T15:47:41.436181",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 4.5,
+      "ticker": "SBC",
+      "status": "CONFIRMED",
       "target": 4.522,
-      "direction": "Bullish",
+      "stop": 4.49,
+      "updated_at": "2026-09-15T12:13:19.392831",
       "setup": "Marubozu",
-      "score": 74.0
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 82.0,
+      "current_price": 4.54,
+      "direction": "Bullish"
     },
     {
       "direction": "Bearish",

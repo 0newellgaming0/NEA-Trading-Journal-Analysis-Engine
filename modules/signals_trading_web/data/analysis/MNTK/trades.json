@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-15T17:19:47.683322+00:00",
+  "ticker": "MNTK",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 2.21,
+      "ticker": "MNTK",
+      "status": "CONFIRMED",
+      "target": 2.138,
+      "stop": 2.25,
+      "updated_at": "2026-09-15T05:40:40.734580",
+      "setup": "Engulfing",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 76.0,
+      "current_price": 2.21,
+      "direction": "Bearish"
+    }
+  ]
+}

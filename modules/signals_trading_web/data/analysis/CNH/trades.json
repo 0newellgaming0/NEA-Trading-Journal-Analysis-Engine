@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:27:40.956000+00:00",
+  "generated_at": "2026-09-16T19:43:41.295490+00:00",
   "ticker": "CNH",
-  "count": 1,
+  "count": 2,
   "trades": [
     {
-      "regime": "BULLISH_CONSOLIDATION",
-      "updated_at": "2026-09-14T14:51:24.738593",
-      "stop": 13.43,
-      "ticker": "CNH",
-      "entry": 13.78,
       "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "CNH",
+      "current_price": 13.6893,
+      "entry": 13.97,
       "risk_reward": 2.0,
-      "current_price": 13.7999,
+      "target": 13.798180000000004,
+      "score": 73.0,
+      "direction": "Bearish",
+      "stop": 14.06,
+      "updated_at": "2026-09-16T16:59:46.359657",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 13.78,
+      "ticker": "CNH",
+      "status": "CONFIRMED",
       "target": 14.46889848418652,
-      "direction": "Bullish",
+      "stop": 13.43,
+      "updated_at": "2026-09-15T12:39:01.050850",
       "setup": "TLINE_CROSS",
-      "score": 74.0
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 78.0,
+      "current_price": 13.62,
+      "direction": "Bullish"
     }
   ]
 }

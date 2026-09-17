@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:30:54.971584+00:00",
+  "generated_at": "2026-09-16T19:45:58.534338+00:00",
   "ticker": "XP",
-  "count": 3,
+  "count": 5,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "ticker": "XP",
+      "current_price": 19.665,
+      "entry": 19.57,
+      "risk_reward": 2.0,
+      "target": 19.944000000000003,
+      "score": 74.0,
+      "direction": "Bullish",
+      "stop": 19.38,
+      "updated_at": "2026-09-16T16:38:13.446460",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 19.6,
+      "ticker": "XP",
+      "status": "CONFIRMED",
+      "target": 19.061199999999996,
+      "stop": 19.87,
+      "updated_at": "2026-09-15T11:04:58.830902",
+      "setup": "Falling Three Methods",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 76.0,
+      "current_price": 19.39,
+      "direction": "Bearish"
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "updated_at": "2026-09-14T21:47:23.655228",

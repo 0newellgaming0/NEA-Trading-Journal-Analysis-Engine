@@ -1,8 +1,50 @@
 {
-  "generated_at": "2026-09-14T10:08:18.337361+00:00",
+  "generated_at": "2026-09-16T19:43:00.795949+00:00",
   "ticker": "AHCO",
-  "count": 5,
+  "count": 8,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Candle Over Candle",
+      "ticker": "AHCO",
+      "current_price": 6.04,
+      "entry": 5.84,
+      "risk_reward": 2.0,
+      "target": 6.021,
+      "score": 72.0,
+      "direction": "Bullish",
+      "stop": 5.76,
+      "updated_at": "2026-09-16T17:27:16.563613",
+      "regime": "BEARISH_CONSOLIDATION"
+    },
+    {
+      "updated_at": "2026-09-16T05:22:55.768274",
+      "score": 77.0,
+      "ticker": "AHCO",
+      "risk_reward": 2.0,
+      "setup": "SWING_STRUCTURE",
+      "target": 5.12,
+      "current_price": 5.82,
+      "regime": "BEARISH_CONSOLIDATION",
+      "stop": 6.02,
+      "direction": "BEARISH",
+      "entry": 5.72,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 5.86,
+      "ticker": "AHCO",
+      "status": "CONFIRMED",
+      "target": 5.008000000000001,
+      "stop": 6.28,
+      "updated_at": "2026-09-15T13:49:27.825308",
+      "setup": "Candle Over Candle",
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 67.0,
+      "current_price": 5.77,
+      "direction": "Bearish"
+    },
     {
       "target": 5.917000000000002,
       "current_price": 6.06,

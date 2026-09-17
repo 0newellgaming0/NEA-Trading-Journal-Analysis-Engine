@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:41.396832+00:00",
+  "ticker": "LUMN",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "LUMN",
+      "current_price": 6.9706,
+      "entry": 6.93,
+      "risk_reward": 2.0,
+      "target": 7.1632665788506475,
+      "score": 74.0,
+      "direction": "Bullish",
+      "stop": 6.81,
+      "updated_at": "2026-09-16T14:23:54.215309",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 6.95,
+      "ticker": "LUMN",
+      "status": "CONFIRMED",
+      "target": 6.572410709307396,
+      "stop": 7.14,
+      "updated_at": "2026-09-15T10:47:22.706687",
+      "setup": "TLINE_CROSS",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 77.0,
+      "current_price": 7.0,
+      "direction": "Bearish"
+    }
+  ]
+}

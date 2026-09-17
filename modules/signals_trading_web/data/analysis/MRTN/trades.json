@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-15T17:19:49.844939+00:00",
+  "ticker": "MRTN",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 14.06,
+      "ticker": "MRTN",
+      "status": "CONFIRMED",
+      "target": 13.818000000000003,
+      "stop": 14.18,
+      "updated_at": "2026-09-15T06:03:10.933084",
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 62.0,
+      "current_price": 13.99,
+      "direction": "Bearish"
+    }
+  ]
+}

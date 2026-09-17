@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:20.734952+00:00",
+  "ticker": "HGTY",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "HGTY",
+      "current_price": 13.955,
+      "entry": 13.89,
+      "risk_reward": 2.0,
+      "target": 13.476796709666896,
+      "score": 71.0,
+      "direction": "Bearish",
+      "stop": 14.1,
+      "updated_at": "2026-09-16T17:24:11.443154",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 13.56,
+      "ticker": "HGTY",
+      "status": "CONFIRMED",
+      "target": 13.839999999999998,
+      "stop": 13.43,
+      "updated_at": "2026-09-15T10:22:16.056979",
+      "setup": "Rising Three Methods",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 77.0,
+      "current_price": 13.9994,
+      "direction": "Bullish"
+    }
+  ]
+}

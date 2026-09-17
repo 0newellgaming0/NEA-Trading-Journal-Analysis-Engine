@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-16T12:24:28.782277+00:00",
+  "ticker": "HAFN",
+  "count": 1,
+  "trades": [
+    {
+      "updated_at": "2026-09-16T05:43:42.944858",
+      "score": 63.0,
+      "ticker": "HAFN",
+      "risk_reward": 2.0,
+      "setup": "SWING_STRUCTURE",
+      "target": 9.944000000000003,
+      "current_price": 9.44,
+      "regime": "BULLISH_CONSOLIDATION",
+      "stop": 9.25,
+      "direction": "Bullish",
+      "entry": 9.48,
+      "status": "CONFIRMED"
+    }
+  ]
+}

@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-11T20:10:17.031355+00:00",
+  "generated_at": "2026-09-16T19:44:54.749093+00:00",
   "ticker": "NEO",
-  "count": 12,
+  "count": 14,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "SWING_STRUCTURE",
+      "ticker": "NEO",
+      "current_price": 19.0339,
+      "entry": 19.37,
+      "risk_reward": 2.0,
+      "target": 23.539700000000003,
+      "score": 78.0,
+      "direction": "Bullish",
+      "stop": 17.29,
+      "updated_at": "2026-09-16T13:07:30.138030",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 18.3,
+      "ticker": "NEO",
+      "status": "CONFIRMED",
+      "target": 19.305999999999997,
+      "stop": 17.8,
+      "updated_at": "2026-09-15T06:50:13.624960",
+      "setup": "Marubozu",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 81.0,
+      "current_price": 18.438,
+      "direction": "Bullish"
+    },
     {
       "ticker": "NEO",
       "updated_at": "2026-09-11T20:07:33.354002",

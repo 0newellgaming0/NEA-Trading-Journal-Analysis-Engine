@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-15T17:19:55.941857+00:00",
+  "ticker": "NEOG",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 11.84,
+      "ticker": "NEOG",
+      "status": "CONFIRMED",
+      "target": 12.203,
+      "stop": 11.66,
+      "updated_at": "2026-09-15T06:52:25.080917",
+      "setup": "Engulfing",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 71.0,
+      "current_price": 11.8071,
+      "direction": "Bullish"
+    }
+  ]
+}

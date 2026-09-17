@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:28:26.626035+00:00",
+  "generated_at": "2026-09-16T19:44:02.101466+00:00",
   "ticker": "EVI",
-  "count": 1,
+  "count": 2,
   "trades": [
     {
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "updated_at": "2026-09-14T20:16:10.549245",
-      "stop": 15.96,
-      "ticker": "EVI",
-      "entry": 16.75,
       "status": "CONFIRMED",
-      "risk_reward": 2.0,
-      "current_price": 17.2,
-      "target": 18.333999999999996,
-      "direction": "Bullish",
       "setup": "Engulfing",
-      "score": 55.0
+      "ticker": "EVI",
+      "current_price": 17.18,
+      "entry": 16.75,
+      "risk_reward": 2.0,
+      "target": 18.333999999999996,
+      "score": 48.0,
+      "direction": "Bullish",
+      "stop": 15.96,
+      "updated_at": "2026-09-16T19:41:07.514418",
+      "regime": "PRIMARY_DOWNTREND_RALLY"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 17.11,
+      "ticker": "EVI",
+      "status": "CONFIRMED",
+      "target": 16.383999999999993,
+      "stop": 17.47,
+      "updated_at": "2026-09-15T16:54:09.329191",
+      "setup": "Pinbar",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 43.0,
+      "current_price": 16.84,
+      "direction": "Bearish"
     }
   ]
 }

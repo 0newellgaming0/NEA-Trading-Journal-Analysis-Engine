@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:28:17.776392+00:00",
+  "generated_at": "2026-09-16T19:43:54.241587+00:00",
   "ticker": "DSX",
-  "count": 1,
+  "count": 2,
   "trades": [
     {
-      "regime": "BULLISH_CONSOLIDATION",
-      "updated_at": "2026-09-14T18:14:45.489712",
-      "stop": 2.92,
-      "ticker": "DSX",
-      "entry": 2.97,
       "status": "CONFIRMED",
+      "setup": "TLINE_ROLLOVER",
+      "ticker": "DSX",
+      "current_price": 2.94,
+      "entry": 2.97,
       "risk_reward": 2.0,
-      "current_price": 2.955,
+      "target": 2.9097368424524817,
+      "score": 81.0,
+      "direction": "Bearish",
+      "stop": 2.99,
+      "updated_at": "2026-09-16T12:46:31.240157",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 2.97,
+      "ticker": "DSX",
+      "status": "CONFIRMED",
       "target": 3.077656691122758,
-      "direction": "Bullish",
+      "stop": 2.92,
+      "updated_at": "2026-09-15T13:10:41.197178",
       "setup": "TLINE_CROSS",
-      "score": 68.0
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 68.0,
+      "current_price": 2.9696,
+      "direction": "Bullish"
     }
   ]
 }

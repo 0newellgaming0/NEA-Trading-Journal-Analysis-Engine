@@ -1,8 +1,50 @@
 {
-  "generated_at": "2026-09-14T22:28:04.726297+00:00",
+  "generated_at": "2026-09-16T19:43:51.095868+00:00",
   "ticker": "DHX",
-  "count": 1,
+  "count": 4,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "DHX",
+      "current_price": 5.085,
+      "entry": 4.95,
+      "risk_reward": 2.0,
+      "target": 4.971839999999999,
+      "score": 77.0,
+      "direction": "Bullish",
+      "stop": 4.93,
+      "updated_at": "2026-09-16T14:59:33.824847",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "updated_at": "2026-09-16T12:22:31.608487",
+      "score": 76.0,
+      "ticker": "DHX",
+      "risk_reward": 2.0,
+      "setup": "Engulfing",
+      "target": 5.070000000000001,
+      "current_price": 4.9472,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "stop": 4.82,
+      "direction": "Bullish",
+      "entry": 4.91,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 4.79,
+      "ticker": "DHX",
+      "status": "CONFIRMED",
+      "target": 4.537,
+      "stop": 4.92,
+      "updated_at": "2026-09-15T10:59:02.145055",
+      "setup": "Pinbar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 81.0,
+      "current_price": 4.73,
+      "direction": "Bearish"
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "updated_at": "2026-09-14T17:34:57.031853",

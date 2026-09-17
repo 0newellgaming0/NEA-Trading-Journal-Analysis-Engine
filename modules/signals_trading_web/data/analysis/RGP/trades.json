@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-15T17:20:53.740200+00:00",
+  "ticker": "RGP",
+  "count": 1,
+  "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 4.21,
+      "ticker": "RGP",
+      "status": "CONFIRMED",
+      "target": 4.341219196059842,
+      "stop": 4.14,
+      "updated_at": "2026-09-15T15:53:06.678151",
+      "setup": "TLINE_CROSS",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 67.0,
+      "current_price": 4.19,
+      "direction": "Bullish"
+    }
+  ]
+}

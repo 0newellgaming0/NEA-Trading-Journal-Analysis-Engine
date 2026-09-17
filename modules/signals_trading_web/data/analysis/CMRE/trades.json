@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:27:40.585590+00:00",
+  "generated_at": "2026-09-16T19:43:40.971917+00:00",
   "ticker": "CMRE",
-  "count": 1,
+  "count": 2,
   "trades": [
     {
-      "regime": "BULLISH_CONSOLIDATION",
-      "updated_at": "2026-09-14T14:44:59.152595",
-      "stop": 15.24,
-      "ticker": "CMRE",
-      "entry": 14.98,
       "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "CMRE",
+      "current_price": 15.185,
+      "entry": 15.12,
       "risk_reward": 2.0,
-      "current_price": 14.8944,
+      "target": 15.603999999999997,
+      "score": 73.0,
+      "direction": "Bullish",
+      "stop": 14.88,
+      "updated_at": "2026-09-16T13:52:32.112942",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 14.98,
+      "ticker": "CMRE",
+      "status": "CONFIRMED",
       "target": 14.45808096158057,
-      "direction": "Bearish",
+      "stop": 15.24,
+      "updated_at": "2026-09-15T12:25:57.436709",
       "setup": "TLINE_CROSS",
-      "score": 74.0
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 81.0,
+      "current_price": 15.13,
+      "direction": "Bearish"
     }
   ]
 }

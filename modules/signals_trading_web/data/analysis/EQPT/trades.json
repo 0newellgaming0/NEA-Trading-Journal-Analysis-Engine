@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:28:24.967083+00:00",
+  "generated_at": "2026-09-16T19:44:00.702367+00:00",
   "ticker": "EQPT",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "ticker": "EQPT",
+      "current_price": 17.8041,
+      "entry": 17.84,
+      "risk_reward": 2.0,
+      "target": 18.367339999999995,
+      "score": 73.0,
+      "direction": "Bullish",
+      "stop": 17.58,
+      "updated_at": "2026-09-16T14:25:28.567973",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
     {
       "regime": "SHORT_TERM_WEAKNESS",
       "updated_at": "2026-09-14T19:49:42.375443",

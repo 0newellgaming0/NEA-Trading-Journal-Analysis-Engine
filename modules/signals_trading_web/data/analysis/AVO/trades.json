@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T10:08:59.852792+00:00",
+  "generated_at": "2026-09-16T19:43:17.965535+00:00",
   "ticker": "AVO",
-  "count": 1,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Pinbar",
+      "ticker": "AVO",
+      "current_price": 12.61,
+      "entry": 12.4,
+      "risk_reward": 2.0,
+      "target": 12.510000000000003,
+      "score": 62.0,
+      "direction": "Bullish",
+      "stop": 12.34,
+      "updated_at": "2026-09-16T18:20:15.011519",
+      "regime": "BEARISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 12.54,
+      "ticker": "AVO",
+      "status": "CONFIRMED",
+      "target": 11.789770024290286,
+      "stop": 12.92,
+      "updated_at": "2026-09-15T15:01:02.088798",
+      "setup": "TLINE_CROSS",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 63.0,
+      "current_price": 12.53,
+      "direction": "Bearish"
+    },
     {
       "target": 13.280000000000001,
       "current_price": 13.0,

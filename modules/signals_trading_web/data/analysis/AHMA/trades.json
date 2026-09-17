@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T10:08:18.432349+00:00",
+  "generated_at": "2026-09-15T17:15:36.561255+00:00",
   "ticker": "AHMA",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 1.37,
+      "ticker": "AHMA",
+      "status": "CONFIRMED",
+      "target": 1.4580000000000002,
+      "stop": 1.33,
+      "updated_at": "2026-09-15T10:42:09.841549",
+      "setup": "Pinbar",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 71.0,
+      "current_price": 1.3616,
+      "direction": "Bullish"
+    },
     {
       "target": 1.39036,
       "current_price": 1.42,

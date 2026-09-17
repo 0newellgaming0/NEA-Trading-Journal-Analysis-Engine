@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:27:38.762581+00:00",
+  "generated_at": "2026-09-16T12:23:30.505983+00:00",
   "ticker": "CMBT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-16T06:24:08.563783",
+      "score": 72.0,
+      "ticker": "CMBT",
+      "risk_reward": 2.0,
+      "setup": "Pinbar",
+      "target": 20.234,
+      "current_price": 19.62,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "stop": 19.01,
+      "direction": "Bullish",
+      "entry": 19.42,
+      "status": "CONFIRMED"
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "updated_at": "2026-09-14T14:32:53.651883",

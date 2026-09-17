@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T10:11:24.216391+00:00",
+  "generated_at": "2026-09-16T12:25:08.858833+00:00",
   "ticker": "LFVN",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-16T06:38:31.206662",
+      "score": 62.0,
+      "ticker": "LFVN",
+      "risk_reward": 2.0,
+      "setup": "Pinbar",
+      "target": 6.236000000000001,
+      "current_price": 6.18,
+      "regime": "BEARISH_CONSOLIDATION",
+      "stop": 6.14,
+      "direction": "Bullish",
+      "entry": 6.17,
+      "status": "CONFIRMED"
+    },
     {
       "target": 5.522199999999999,
       "current_price": 6.17,

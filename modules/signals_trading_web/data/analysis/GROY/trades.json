@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T12:24:26.432843+00:00",
+  "ticker": "GROY",
+  "count": 2,
+  "trades": [
+    {
+      "updated_at": "2026-09-16T06:07:28.322688",
+      "score": 59.0,
+      "ticker": "GROY",
+      "risk_reward": 2.0,
+      "setup": "Rising Three Methods",
+      "target": 3.5060000000000002,
+      "current_price": 3.36,
+      "regime": "SHORT_TERM_STRENGTH",
+      "stop": 3.24,
+      "direction": "Bullish",
+      "entry": 3.33,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 3.3,
+      "ticker": "GROY",
+      "status": "CONFIRMED",
+      "target": 3.0788009929152267,
+      "stop": 3.41,
+      "updated_at": "2026-09-15T14:40:07.271326",
+      "setup": "TLINE_CROSS",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 54.0,
+      "current_price": 3.315,
+      "direction": "Bearish"
+    }
+  ]
+}

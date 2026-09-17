@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:03.684722+00:00",
+  "ticker": "OGN",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "OGN",
+      "current_price": 13.675,
+      "entry": 13.67,
+      "risk_reward": 2.0,
+      "target": 13.648000000000001,
+      "score": 69.0,
+      "direction": "Bearish",
+      "stop": 13.68,
+      "updated_at": "2026-09-16T15:22:56.424038",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 13.63,
+      "ticker": "OGN",
+      "status": "CONFIRMED",
+      "target": 13.57952607251301,
+      "stop": 13.66,
+      "updated_at": "2026-09-15T08:43:14.131396",
+      "setup": "TLINE_CROSS",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 73.0,
+      "current_price": 13.65,
+      "direction": "Bearish"
+    }
+  ]
+}

@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:30:18.455857+00:00",
+  "generated_at": "2026-09-16T19:45:38.568535+00:00",
   "ticker": "SRAD",
-  "count": 4,
+  "count": 5,
   "trades": [
     {
-      "regime": "BEARISH_CONSOLIDATION",
-      "updated_at": "2026-09-14T16:43:15.883495",
-      "stop": 12.77,
-      "ticker": "SRAD",
-      "entry": 13.13,
       "status": "CONFIRMED",
-      "risk_reward": 2.0,
-      "current_price": 13.165,
-      "target": 13.856,
-      "direction": "Bullish",
       "setup": "Pinbar",
-      "score": 72.0
+      "ticker": "SRAD",
+      "current_price": 13.38,
+      "entry": 13.34,
+      "risk_reward": 2.0,
+      "target": 13.604,
+      "score": 79.0,
+      "direction": "Bullish",
+      "stop": 13.21,
+      "updated_at": "2026-09-16T13:27:01.477066",
+      "regime": "PRIMARY_DOWNTREND_RALLY"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 13.13,
+      "ticker": "SRAD",
+      "status": "CONFIRMED",
+      "target": 13.856,
+      "stop": 12.77,
+      "updated_at": "2026-09-15T13:56:40.066737",
+      "setup": "Pinbar",
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 73.0,
+      "current_price": 13.32,
+      "direction": "Bullish"
     },
     {
       "direction": "Bearish",

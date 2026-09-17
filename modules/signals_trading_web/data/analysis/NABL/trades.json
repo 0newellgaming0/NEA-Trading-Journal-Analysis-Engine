@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T10:11:46.657203+00:00",
+  "generated_at": "2026-09-16T19:44:52.260028+00:00",
   "ticker": "NABL",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Candle Over Candle",
+      "ticker": "NABL",
+      "current_price": 4.0,
+      "entry": 4.1,
+      "risk_reward": 2.0,
+      "target": 3.9158800000000022,
+      "score": 66.0,
+      "direction": "Bearish",
+      "stop": 4.19,
+      "updated_at": "2026-09-16T13:33:48.609119",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
     {
       "target": 3.8680000000000008,
       "current_price": 3.87,

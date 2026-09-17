@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:29.922303+00:00",
+  "ticker": "IRS",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Falling Three Methods",
+      "ticker": "IRS",
+      "current_price": 15.47,
+      "entry": 15.22,
+      "risk_reward": 2.0,
+      "target": 14.329000000000002,
+      "score": 68.0,
+      "direction": "Bearish",
+      "stop": 15.67,
+      "updated_at": "2026-09-16T16:31:03.930890",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 15.26,
+      "ticker": "IRS",
+      "status": "CONFIRMED",
+      "target": 15.05496,
+      "stop": 15.36,
+      "updated_at": "2026-09-15T12:55:50.426440",
+      "setup": "Pinbar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 74.0,
+      "current_price": 15.2472,
+      "direction": "Bearish"
+    }
+  ]
+}

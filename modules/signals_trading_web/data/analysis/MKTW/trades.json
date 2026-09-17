@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:47.642286+00:00",
+  "ticker": "MKTW",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_ROLLOVER",
+      "ticker": "MKTW",
+      "current_price": 17.83,
+      "entry": 18.11,
+      "risk_reward": 2.0,
+      "target": 17.75784372370719,
+      "score": 59.0,
+      "direction": "Bearish",
+      "stop": 18.28,
+      "updated_at": "2026-09-16T19:10:47.773076",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 18.35,
+      "ticker": "MKTW",
+      "status": "CONFIRMED",
+      "target": 17.833000000000006,
+      "stop": 18.61,
+      "updated_at": "2026-09-15T05:28:34.341004",
+      "setup": "Engulfing",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 57.0,
+      "current_price": 18.06,
+      "direction": "Bearish"
+    }
+  ]
+}

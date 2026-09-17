@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-14T22:27:35.672353+00:00",
+  "generated_at": "2026-09-15T17:16:38.917824+00:00",
   "ticker": "CLB",
   "count": 1,
   "trades": [
     {
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "updated_at": "2026-09-14T14:04:56.828414",
-      "stop": 11.9,
-      "ticker": "CLB",
-      "entry": 12.08,
-      "status": "CONFIRMED",
       "risk_reward": 2.0,
-      "current_price": 12.415,
+      "entry": 12.08,
+      "ticker": "CLB",
+      "status": "CONFIRMED",
       "target": 12.443000000000003,
-      "direction": "Bullish",
+      "stop": 11.9,
+      "updated_at": "2026-09-15T17:08:58.234168",
       "setup": "Rising Three Methods",
-      "score": 51.0
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 56.0,
+      "current_price": 12.485,
+      "direction": "Bullish"
     }
   ]
 }

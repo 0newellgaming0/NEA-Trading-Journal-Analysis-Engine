@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:33.651407+00:00",
+  "ticker": "KGEI",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "KGEI",
+      "current_price": 6.79,
+      "entry": 6.84,
+      "risk_reward": 2.0,
+      "target": 6.7016,
+      "score": 65.0,
+      "direction": "Bearish",
+      "stop": 6.91,
+      "updated_at": "2026-09-16T18:40:29.689940",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 6.49,
+      "ticker": "KGEI",
+      "status": "CONFIRMED",
+      "target": 5.646360000000001,
+      "stop": 6.92,
+      "updated_at": "2026-09-15T16:00:50.728697",
+      "setup": "Candle Over Candle",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 61.0,
+      "current_price": 6.86,
+      "direction": "Bearish"
+    }
+  ]
+}

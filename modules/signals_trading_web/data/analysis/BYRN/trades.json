@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:27:18.763359+00:00",
+  "generated_at": "2026-09-15T17:16:27.235688+00:00",
   "ticker": "BYRN",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 3.75,
+      "ticker": "BYRN",
+      "status": "CONFIRMED",
+      "target": 3.888099237346859,
+      "stop": 3.68,
+      "updated_at": "2026-09-15T11:53:55.120470",
+      "setup": "TLINE_CROSS",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 75.0,
+      "current_price": 3.75,
+      "direction": "Bullish"
+    },
     {
       "regime": "PRIMARY_DOWNTREND_RALLY",
       "updated_at": "2026-09-14T12:47:53.218959",

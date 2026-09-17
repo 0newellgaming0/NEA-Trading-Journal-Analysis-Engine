@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:28:20.221334+00:00",
+  "generated_at": "2026-09-16T19:43:56.831136+00:00",
   "ticker": "ECVT",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "ECVT",
+      "current_price": 10.62,
+      "entry": 10.61,
+      "risk_reward": 2.0,
+      "target": 10.851999999999997,
+      "score": 84.0,
+      "direction": "Bullish",
+      "stop": 10.49,
+      "updated_at": "2026-09-16T13:01:33.080715",
+      "regime": "PRIMARY_UPTREND_PULLBACK"
+    },
     {
       "regime": "BEARISH_CONSOLIDATION",
       "updated_at": "2026-09-14T18:50:56.306966",

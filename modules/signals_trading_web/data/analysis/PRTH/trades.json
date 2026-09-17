@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:45:16.386926+00:00",
+  "ticker": "PRTH",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "PRTH",
+      "current_price": 6.02,
+      "entry": 6.03,
+      "risk_reward": 2.0,
+      "target": 6.166922274887452,
+      "score": 66.0,
+      "direction": "Bullish",
+      "stop": 5.96,
+      "updated_at": "2026-09-16T14:54:11.343570",
+      "regime": "PRIMARY_DOWNTREND_RALLY"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 5.95,
+      "ticker": "PRTH",
+      "status": "CONFIRMED",
+      "target": 5.664000000000001,
+      "stop": 6.09,
+      "updated_at": "2026-09-15T13:27:44.494715",
+      "setup": "Pinbar",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 73.0,
+      "current_price": 6.02,
+      "direction": "Bearish"
+    }
+  ]
+}

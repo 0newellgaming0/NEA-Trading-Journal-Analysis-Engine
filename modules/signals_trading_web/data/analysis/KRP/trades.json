@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-09-16T19:44:35.153722+00:00",
+  "ticker": "KRP",
+  "count": 3,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "SWING_STRUCTURE",
+      "ticker": "KRP",
+      "current_price": 14.675,
+      "entry": 14.78,
+      "risk_reward": 2.0,
+      "target": 14.2462,
+      "score": 57.0,
+      "direction": "BEARISH",
+      "stop": 15.04,
+      "updated_at": "2026-09-16T19:01:56.578367",
+      "regime": "PRIMARY_UPTREND_PULLBACK"
+    },
+    {
+      "updated_at": "2026-09-16T06:28:00.267080",
+      "score": 67.0,
+      "ticker": "KRP",
+      "risk_reward": 2.0,
+      "setup": "Hammer",
+      "target": 15.017999999999997,
+      "current_price": 15.0394,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "stop": 14.89,
+      "direction": "Bullish",
+      "entry": 14.93,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 14.85,
+      "ticker": "KRP",
+      "status": "CONFIRMED",
+      "target": 15.014999999999999,
+      "stop": 14.77,
+      "updated_at": "2026-09-15T15:05:17.050591",
+      "setup": "Pinbar",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 59.0,
+      "current_price": 14.9501,
+      "direction": "Bullish"
+    }
+  ]
+}

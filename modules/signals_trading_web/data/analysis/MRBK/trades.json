@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-09-16T19:44:49.852276+00:00",
+  "ticker": "MRBK",
+  "count": 2,
+  "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_ROLLOVER",
+      "ticker": "MRBK",
+      "current_price": 19.75,
+      "entry": 19.78,
+      "risk_reward": 2.0,
+      "target": 19.609811577666022,
+      "score": 63.0,
+      "direction": "Bearish",
+      "stop": 19.87,
+      "updated_at": "2026-09-16T16:42:23.003624",
+      "regime": "PRIMARY_UPTREND_PULLBACK"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 19.8,
+      "ticker": "MRBK",
+      "status": "CONFIRMED",
+      "target": 19.535999999999998,
+      "stop": 19.93,
+      "updated_at": "2026-09-15T05:58:55.087526",
+      "setup": "Falling Three Methods",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 69.0,
+      "current_price": 19.77,
+      "direction": "Bearish"
+    }
+  ]
+}

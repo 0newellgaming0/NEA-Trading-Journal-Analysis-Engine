@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:29:24.551420+00:00",
+  "generated_at": "2026-09-16T19:45:02.632080+00:00",
   "ticker": "OBE",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Engulfing",
+      "ticker": "OBE",
+      "current_price": 12.105,
+      "entry": 12.68,
+      "risk_reward": 2.0,
+      "target": 12.262,
+      "score": 65.0,
+      "direction": "Bearish",
+      "stop": 12.89,
+      "updated_at": "2026-09-16T15:03:53.578791",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
     {
       "regime": "FULL_BULLISH_ALIGNMENT",
       "updated_at": "2026-09-14T10:30:32.846117",

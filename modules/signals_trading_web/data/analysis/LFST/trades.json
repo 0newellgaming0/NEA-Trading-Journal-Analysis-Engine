@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T10:11:23.609245+00:00",
+  "generated_at": "2026-09-16T19:44:38.167547+00:00",
   "ticker": "LFST",
-  "count": 11,
+  "count": 13,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "LFST",
+      "current_price": 13.0601,
+      "entry": 13.06,
+      "risk_reward": 2.0,
+      "target": 13.340710172062208,
+      "score": 90.0,
+      "direction": "Bullish",
+      "stop": 12.92,
+      "updated_at": "2026-09-16T12:23:11.971257",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 13.4,
+      "ticker": "LFST",
+      "status": "CONFIRMED",
+      "target": 13.580400000000003,
+      "stop": 13.31,
+      "updated_at": "2026-09-15T08:10:54.488537",
+      "setup": "Pinbar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 90.0,
+      "current_price": 13.45,
+      "direction": "Bullish"
+    },
     {
       "target": 13.49,
       "current_price": 12.9999,

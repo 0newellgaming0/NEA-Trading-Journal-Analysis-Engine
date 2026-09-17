@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:30:47.036091+00:00",
+  "generated_at": "2026-09-16T19:45:54.599752+00:00",
   "ticker": "VREX",
-  "count": 3,
+  "count": 4,
   "trades": [
     {
-      "regime": "PRIMARY_UPTREND_PULLBACK",
-      "updated_at": "2026-09-14T20:39:45.481614",
-      "stop": 18.49,
-      "ticker": "VREX",
-      "entry": 18.46,
       "status": "CONFIRMED",
-      "risk_reward": 2.0,
-      "current_price": 18.46,
-      "target": 18.403087027602254,
-      "direction": "Bearish",
       "setup": "TLINE_CROSS",
-      "score": 77.0
+      "ticker": "VREX",
+      "current_price": 18.48,
+      "entry": 18.47,
+      "risk_reward": 2.0,
+      "target": 18.42439570805051,
+      "score": 66.0,
+      "direction": "Bearish",
+      "stop": 18.49,
+      "updated_at": "2026-09-16T18:16:16.450590",
+      "regime": "PRIMARY_UPTREND_PULLBACK"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 18.46,
+      "ticker": "VREX",
+      "status": "CONFIRMED",
+      "target": 18.403087027602254,
+      "stop": 18.49,
+      "updated_at": "2026-09-15T10:53:48.348983",
+      "setup": "TLINE_CROSS",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 78.0,
+      "current_price": 18.46,
+      "direction": "Bearish"
     },
     {
       "current_price": 18.46,

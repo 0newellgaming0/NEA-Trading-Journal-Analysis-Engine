@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:30:56.405870+00:00",
+  "generated_at": "2026-09-16T19:45:59.433148+00:00",
   "ticker": "YALA",
-  "count": 3,
+  "count": 4,
   "trades": [
     {
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "updated_at": "2026-09-14T22:03:21.928932",
-      "stop": 5.5,
-      "ticker": "YALA",
-      "entry": 5.47,
       "status": "CONFIRMED",
-      "risk_reward": 2.0,
-      "current_price": 5.47,
-      "target": 5.418352050441377,
-      "direction": "Bearish",
       "setup": "TLINE_CROSS",
-      "score": 77.0
+      "ticker": "YALA",
+      "current_price": 5.485,
+      "entry": 5.54,
+      "risk_reward": 2.0,
+      "target": 5.799888193019712,
+      "score": 80.0,
+      "direction": "Bullish",
+      "stop": 5.41,
+      "updated_at": "2026-09-16T15:09:12.040176",
+      "regime": "BEARISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 5.47,
+      "ticker": "YALA",
+      "status": "CONFIRMED",
+      "target": 5.418352050441377,
+      "stop": 5.5,
+      "updated_at": "2026-09-15T10:38:38.910741",
+      "setup": "TLINE_CROSS",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "score": 77.0,
+      "current_price": 5.48,
+      "direction": "Bearish"
     },
     {
       "direction": "Bullish",

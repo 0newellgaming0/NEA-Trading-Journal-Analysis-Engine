@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:29:33.919104+00:00",
+  "generated_at": "2026-09-16T19:45:09.429316+00:00",
   "ticker": "PBI",
-  "count": 5,
+  "count": 7,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Candle Over Candle",
+      "ticker": "PBI",
+      "current_price": 17.24,
+      "entry": 17.27,
+      "risk_reward": 2.0,
+      "target": 16.878999999999998,
+      "score": 69.0,
+      "direction": "Bearish",
+      "stop": 17.47,
+      "updated_at": "2026-09-16T14:04:49.419704",
+      "regime": "FULL_BULLISH_ALIGNMENT"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 17.3,
+      "ticker": "PBI",
+      "status": "CONFIRMED",
+      "target": 17.128406083853992,
+      "stop": 17.39,
+      "updated_at": "2026-09-15T14:48:17.923869",
+      "setup": "TLINE_ROLLOVER",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 71.0,
+      "current_price": 17.26,
+      "direction": "Bearish"
+    },
     {
       "regime": "FULL_BULLISH_ALIGNMENT",
       "updated_at": "2026-09-14T11:52:15.917546",

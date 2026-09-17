@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-13T14:01:48.819727+00:00",
+  "generated_at": "2026-09-16T19:44:15.894197+00:00",
   "ticker": "GPRE",
-  "count": 6,
+  "count": 8,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "TLINE_ROLLOVER",
+      "ticker": "GPRE",
+      "current_price": 14.725,
+      "entry": 14.76,
+      "risk_reward": 2.0,
+      "target": 14.258063648268903,
+      "score": 77.0,
+      "direction": "Bearish",
+      "stop": 15.02,
+      "updated_at": "2026-09-16T14:30:36.777338",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 14.7,
+      "ticker": "GPRE",
+      "status": "CONFIRMED",
+      "target": 13.423339999999996,
+      "stop": 15.34,
+      "updated_at": "2026-09-15T09:20:23.316011",
+      "setup": "Pinbar",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 80.0,
+      "current_price": 14.4,
+      "direction": "Bearish"
+    },
     {
       "direction": "Bearish",
       "risk_reward": 2.0,

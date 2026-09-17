@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:27:50.585426+00:00",
+  "generated_at": "2026-09-16T19:43:46.299226+00:00",
   "ticker": "CURI",
-  "count": 4,
+  "count": 6,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "SWING_STRUCTURE",
+      "ticker": "CURI",
+      "current_price": 2.84,
+      "entry": 2.9,
+      "risk_reward": 2.0,
+      "target": 3.6,
+      "score": 60.0,
+      "direction": "Bullish",
+      "stop": 2.55,
+      "updated_at": "2026-09-16T15:52:47.621487",
+      "regime": "PRIMARY_DOWNTREND_RALLY"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 2.77,
+      "ticker": "CURI",
+      "status": "CONFIRMED",
+      "target": 2.878423014724694,
+      "stop": 2.72,
+      "updated_at": "2026-09-15T16:02:56.834879",
+      "setup": "TLINE_CROSS",
+      "regime": "BEARISH_CONSOLIDATION",
+      "score": 64.0,
+      "current_price": 2.775,
+      "direction": "Bullish"
+    },
     {
       "regime": "BEARISH_CONSOLIDATION",
       "updated_at": "2026-09-14T16:15:37.301310",

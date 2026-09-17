@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:27:45.125109+00:00",
+  "generated_at": "2026-09-16T19:43:43.618019+00:00",
   "ticker": "CRK",
-  "count": 1,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Falling Three Methods",
+      "ticker": "CRK",
+      "current_price": 13.65,
+      "entry": 14.84,
+      "risk_reward": 2.0,
+      "target": 13.916,
+      "score": 72.0,
+      "direction": "Bearish",
+      "stop": 15.3,
+      "updated_at": "2026-09-16T14:27:59.528235",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 14.25,
+      "ticker": "CRK",
+      "status": "CONFIRMED",
+      "target": 13.56350909830052,
+      "stop": 14.59,
+      "updated_at": "2026-09-15T10:33:29.942288",
+      "setup": "TLINE_CROSS",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "score": 82.0,
+      "current_price": 14.2477,
+      "direction": "Bearish"
+    },
     {
       "regime": "SHORT_TERM_WEAKNESS",
       "updated_at": "2026-09-14T15:40:01.670074",

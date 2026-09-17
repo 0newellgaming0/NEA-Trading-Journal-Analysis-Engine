@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-02T14:23:38.885548+00:00",
+  "generated_at": "2026-09-16T19:44:19.686891+00:00",
   "ticker": "HBAN",
-  "count": 1,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "HBAN",
+      "current_price": 16.395,
+      "entry": 16.75,
+      "risk_reward": 2.0,
+      "target": 16.202200000000005,
+      "score": 72.0,
+      "direction": "Bearish",
+      "stop": 17.02,
+      "updated_at": "2026-09-16T17:32:15.667720",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 16.69,
+      "ticker": "HBAN",
+      "status": "CONFIRMED",
+      "target": 16.239663860632295,
+      "stop": 16.92,
+      "updated_at": "2026-09-15T16:19:54.736059",
+      "setup": "TLINE_CROSS",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "score": 67.0,
+      "current_price": 16.69,
+      "direction": "Bearish"
+    },
     {
       "current_price": 16.42,
       "setup": "TLINE_CONTINUATION",

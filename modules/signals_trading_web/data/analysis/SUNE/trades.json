@@ -1,21 +1,35 @@
 {
-  "generated_at": "2026-09-14T22:30:21.775748+00:00",
+  "generated_at": "2026-09-16T19:45:41.009347+00:00",
   "ticker": "SUNE",
-  "count": 13,
+  "count": 14,
   "trades": [
     {
-      "regime": "SHORT_TERM_STRENGTH",
-      "updated_at": "2026-09-14T17:14:13.063886",
-      "stop": 3.43,
-      "ticker": "SUNE",
-      "entry": 3.1,
       "status": "CONFIRMED",
+      "setup": "TLINE_CROSS",
+      "ticker": "SUNE",
+      "current_price": 3.12,
+      "entry": 3.17,
       "risk_reward": 2.0,
-      "current_price": 3.21,
+      "target": 3.3920568465859926,
+      "score": 66.0,
+      "direction": "Bullish",
+      "stop": 3.06,
+      "updated_at": "2026-09-16T15:43:23.685556",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 3.1,
+      "ticker": "SUNE",
+      "status": "CONFIRMED",
       "target": 2.4252800000000003,
-      "direction": "Bearish",
+      "stop": 3.43,
+      "updated_at": "2026-09-15T13:40:55.418364",
       "setup": "Marubozu",
-      "score": 73.0
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 64.0,
+      "current_price": 3.165,
+      "direction": "Bearish"
     },
     {
       "current_price": 3.8999,

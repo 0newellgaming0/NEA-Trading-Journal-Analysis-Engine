@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:28:34.129927+00:00",
+  "generated_at": "2026-09-16T19:44:08.459150+00:00",
   "ticker": "FPI",
-  "count": 1,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "FPI",
+      "current_price": 10.85,
+      "entry": 10.81,
+      "risk_reward": 2.0,
+      "target": 11.008000000000001,
+      "score": 70.0,
+      "direction": "Bullish",
+      "stop": 10.71,
+      "updated_at": "2026-09-16T16:52:07.058422",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 10.69,
+      "ticker": "FPI",
+      "status": "CONFIRMED",
+      "target": 10.49471722675276,
+      "stop": 10.79,
+      "updated_at": "2026-09-15T13:45:55.862164",
+      "setup": "TLINE_CROSS",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "score": 66.0,
+      "current_price": 10.78,
+      "direction": "Bearish"
+    },
     {
       "regime": "FULL_BULLISH_ALIGNMENT",
       "updated_at": "2026-09-14T22:03:53.468727",

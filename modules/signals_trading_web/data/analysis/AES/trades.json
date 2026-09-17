@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T10:08:14.853719+00:00",
+  "generated_at": "2026-09-16T12:22:40.206071+00:00",
   "ticker": "AES",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-16T06:56:59.730667",
+      "score": 81.0,
+      "ticker": "AES",
+      "risk_reward": 2.0,
+      "setup": "TLINE_CROSS",
+      "target": 14.727696768076338,
+      "current_price": 14.7901,
+      "regime": "BULLISH_CONSOLIDATION",
+      "stop": 14.82,
+      "direction": "Bearish",
+      "entry": 14.79,
+      "status": "CONFIRMED"
+    },
     {
       "target": 14.713999999999997,
       "current_price": 14.77,

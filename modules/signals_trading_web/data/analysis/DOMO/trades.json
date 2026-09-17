@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:28:15.175290+00:00",
+  "generated_at": "2026-09-16T19:43:52.998975+00:00",
   "ticker": "DOMO",
-  "count": 1,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "DOMO",
+      "current_price": 3.815,
+      "entry": 3.9,
+      "risk_reward": 2.0,
+      "target": 3.8779999999999997,
+      "score": 66.0,
+      "direction": "Bearish",
+      "stop": 3.91,
+      "updated_at": "2026-09-16T16:11:14.247611",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 3.92,
+      "ticker": "DOMO",
+      "status": "CONFIRMED",
+      "target": 3.9196800000000005,
+      "stop": 3.92,
+      "updated_at": "2026-09-15T13:35:12.853383",
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 62.0,
+      "current_price": 3.89,
+      "direction": "Bearish"
+    },
     {
       "regime": "SHORT_TERM_STRENGTH",
       "updated_at": "2026-09-14T18:01:12.319899",

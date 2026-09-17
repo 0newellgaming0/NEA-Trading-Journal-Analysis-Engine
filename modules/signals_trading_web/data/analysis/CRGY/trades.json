@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:27:44.706440+00:00",
+  "generated_at": "2026-09-16T19:43:43.424833+00:00",
   "ticker": "CRGY",
-  "count": 1,
+  "count": 3,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Rising Three Methods",
+      "ticker": "CRGY",
+      "current_price": 14.775,
+      "entry": 14.97,
+      "risk_reward": 2.0,
+      "target": 15.976500000000003,
+      "score": 65.0,
+      "direction": "Bullish",
+      "stop": 14.47,
+      "updated_at": "2026-09-16T14:20:29.563328",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "entry": 14.97,
+      "status": "CONFIRMED",
+      "target": 15.852430491590573,
+      "stop": 14.53,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "ticker": "CRGY",
+      "direction": "Bullish",
+      "setup": "TLINE_CROSS",
+      "updated_at": "2026-09-15T17:39:57.198150",
+      "current_price": 15.41,
+      "score": 73.0
+    },
     {
       "regime": "FULL_BULLISH_ALIGNMENT",
       "updated_at": "2026-09-14T15:35:11.722146",

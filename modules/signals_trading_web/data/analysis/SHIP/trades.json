@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:30:12.402298+00:00",
+  "generated_at": "2026-09-15T17:21:15.175369+00:00",
   "ticker": "SHIP",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "risk_reward": 2.0,
+      "entry": 18.22,
+      "ticker": "SHIP",
+      "status": "CONFIRMED",
+      "target": 18.181659999999997,
+      "stop": 18.24,
+      "updated_at": "2026-09-15T14:02:47.674034",
+      "setup": "Pinbar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 67.0,
+      "current_price": 18.22,
+      "direction": "Bearish"
+    },
     {
       "regime": "BULLISH_CONSOLIDATION",
       "updated_at": "2026-09-14T15:34:14.243058",

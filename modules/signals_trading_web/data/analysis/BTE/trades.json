@@ -1,8 +1,50 @@
 {
-  "generated_at": "2026-09-14T22:27:13.755175+00:00",
+  "generated_at": "2026-09-16T19:43:29.518734+00:00",
   "ticker": "BTE",
-  "count": 1,
+  "count": 4,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Marubozu",
+      "ticker": "BTE",
+      "current_price": 4.93,
+      "entry": 5.06,
+      "risk_reward": 2.0,
+      "target": 4.842859999999999,
+      "score": 62.0,
+      "direction": "Bearish",
+      "stop": 5.17,
+      "updated_at": "2026-09-16T18:47:12.860278",
+      "regime": "BULLISH_CONSOLIDATION"
+    },
+    {
+      "updated_at": "2026-09-16T06:09:15.197398",
+      "score": 64.0,
+      "ticker": "BTE",
+      "risk_reward": 2.0,
+      "setup": "Rising Three Methods",
+      "target": 5.154599999999998,
+      "current_price": 5.17,
+      "regime": "BULLISH_CONSOLIDATION",
+      "stop": 4.9,
+      "direction": "Bullish",
+      "entry": 4.98,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 5.13,
+      "ticker": "BTE",
+      "status": "CONFIRMED",
+      "target": 5.469655148842041,
+      "stop": 4.96,
+      "updated_at": "2026-09-15T14:44:02.079789",
+      "setup": "TLINE_CROSS",
+      "regime": "BULLISH_CONSOLIDATION",
+      "score": 60.0,
+      "current_price": 5.1004,
+      "direction": "Bullish"
+    },
     {
       "regime": "FULL_BULLISH_ALIGNMENT",
       "updated_at": "2026-09-14T12:16:22.185745",

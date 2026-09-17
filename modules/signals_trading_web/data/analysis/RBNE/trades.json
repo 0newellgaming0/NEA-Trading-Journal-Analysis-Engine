@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:29:50.371923+00:00",
+  "generated_at": "2026-09-16T12:26:15.995432+00:00",
   "ticker": "RBNE",
-  "count": 1,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-16T07:20:35.080252",
+      "score": 73.0,
+      "ticker": "RBNE",
+      "risk_reward": 2.0,
+      "setup": "Falling Three Methods",
+      "target": 2.3599999999999994,
+      "current_price": 2.5999,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "stop": 3.02,
+      "direction": "Bearish",
+      "entry": 2.8,
+      "status": "CONFIRMED"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 2.81,
+      "ticker": "RBNE",
+      "status": "CONFIRMED",
+      "target": 2.370615242700056,
+      "stop": 3.03,
+      "updated_at": "2026-09-15T15:04:48.790786",
+      "setup": "TLINE_CROSS",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 76.0,
+      "current_price": 2.78,
+      "direction": "Bearish"
+    },
     {
       "regime": "SHORT_TERM_STRENGTH",
       "updated_at": "2026-09-14T13:53:11.038856",

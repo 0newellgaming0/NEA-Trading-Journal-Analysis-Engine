@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:30:18.024262+00:00",
+  "generated_at": "2026-09-16T19:45:38.141160+00:00",
   "ticker": "SPT",
-  "count": 7,
+  "count": 9,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Candle Over Candle",
+      "ticker": "SPT",
+      "current_price": 11.145,
+      "entry": 11.11,
+      "risk_reward": 2.0,
+      "target": 10.042999999999996,
+      "score": 64.0,
+      "direction": "Bearish",
+      "stop": 11.64,
+      "updated_at": "2026-09-16T13:36:46.222171",
+      "regime": "SHORT_TERM_WEAKNESS"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 11.38,
+      "ticker": "SPT",
+      "status": "CONFIRMED",
+      "target": 11.164400000000002,
+      "stop": 11.49,
+      "updated_at": "2026-09-15T17:14:16.111661",
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_STRENGTH",
+      "score": 75.0,
+      "current_price": 11.275,
+      "direction": "Bearish"
+    },
     {
       "regime": "SHORT_TERM_STRENGTH",
       "updated_at": "2026-09-14T16:36:51.689866",

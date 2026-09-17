@@ -1,8 +1,36 @@
 {
-  "generated_at": "2026-09-14T22:27:42.797633+00:00",
+  "generated_at": "2026-09-16T19:43:42.299421+00:00",
   "ticker": "CORZ",
-  "count": 2,
+  "count": 4,
   "trades": [
+    {
+      "status": "CONFIRMED",
+      "setup": "Inverted Hammer",
+      "ticker": "CORZ",
+      "current_price": 17.27,
+      "entry": 16.5,
+      "risk_reward": 2.0,
+      "target": 16.939999999999998,
+      "score": 68.0,
+      "direction": "Bullish",
+      "stop": 16.28,
+      "updated_at": "2026-09-16T15:58:43.968107",
+      "regime": "SHORT_TERM_STRENGTH"
+    },
+    {
+      "risk_reward": 2.0,
+      "entry": 17.01,
+      "ticker": "CORZ",
+      "status": "CONFIRMED",
+      "target": 17.511814867214163,
+      "stop": 16.76,
+      "updated_at": "2026-09-15T13:06:32.797091",
+      "setup": "TLINE_CROSS",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "score": 71.0,
+      "current_price": 17.01,
+      "direction": "Bullish"
+    },
     {
       "regime": "SHORT_TERM_WEAKNESS",
       "updated_at": "2026-09-14T15:17:24.803222",

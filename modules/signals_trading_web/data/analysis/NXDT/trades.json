@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T22:29:22.993250+00:00",
+  "generated_at": "2026-09-16T12:25:42.241877+00:00",
   "ticker": "NXDT",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "updated_at": "2026-09-16T06:33:30.901366",
+      "score": 62.0,
+      "ticker": "NXDT",
+      "risk_reward": 2.0,
+      "setup": "Inverted Hammer",
+      "target": 5.396000000000001,
+      "current_price": 5.35,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "stop": 5.3,
+      "direction": "Bullish",
+      "entry": 5.33,
+      "status": "CONFIRMED"
+    },
     {
       "regime": "PRIMARY_UPTREND_PULLBACK",
       "updated_at": "2026-09-14T10:10:51.814405",
