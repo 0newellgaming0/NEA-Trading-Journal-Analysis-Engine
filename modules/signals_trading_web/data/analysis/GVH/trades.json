@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-17T01:11:41.282835+00:00",
+  "generated_at": "2026-09-17T02:25:33.952062+00:00",
   "ticker": "GVH",
   "count": 2,
   "trades": [
     {
-      "updated_at": "2026-09-17T01:07:07.841618",
-      "target": 1.0879999999999999,
-      "risk_reward": 2.0,
-      "entry": 1.22,
-      "setup": "Pinbar",
-      "score": 75.0,
-      "ticker": "GVH",
-      "regime": "PRIMARY_DOWNTREND_RALLY",
-      "status": "CONFIRMED",
+      "updated_at": "2026-09-17T01:44:59.509555",
       "stop": 1.29,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "setup": "Pinbar",
       "current_price": 1.25,
-      "direction": "Bearish"
+      "entry": 1.22,
+      "ticker": "GVH",
+      "regime": "SHORT_TERM_STRENGTH",
+      "target": 1.0879999999999999,
+      "score": 75.0,
+      "risk_reward": 2.0
     },
     {
       "risk_reward": 2.0,

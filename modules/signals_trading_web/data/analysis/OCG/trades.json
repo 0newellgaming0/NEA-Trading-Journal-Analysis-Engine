@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-09-17T02:26:55.563167+00:00",
+  "ticker": "OCG",
+  "count": 1,
+  "trades": [
+    {
+      "updated_at": "2026-09-17T01:58:49.063914",
+      "stop": 1.63,
+      "status": "CONFIRMED",
+      "direction": "Bearish",
+      "setup": "Pinbar",
+      "current_price": 1.62,
+      "entry": 1.55,
+      "ticker": "OCG",
+      "regime": "BEARISH_CONSOLIDATION",
+      "target": 1.39696,
+      "score": 65.0,
+      "risk_reward": 2.0
+    }
+  ]
+}

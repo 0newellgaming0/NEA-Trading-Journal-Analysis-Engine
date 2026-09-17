@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-14T10:08:35.560464+00:00",
+  "generated_at": "2026-09-17T02:23:24.942934+00:00",
   "ticker": "AMBR",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "updated_at": "2026-09-17T01:59:42.652668",
+      "stop": 1.23,
+      "status": "CONFIRMED",
+      "direction": "Bullish",
+      "setup": "TLINE_CROSS",
+      "current_price": 1.2799,
+      "entry": 1.28,
+      "ticker": "AMBR",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "target": 1.3837536449398227,
+      "score": 77.0,
+      "risk_reward": 2.0
+    },
     {
       "target": 0.9554296514162584,
       "current_price": 1.04,
