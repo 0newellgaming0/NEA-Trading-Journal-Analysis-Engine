@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:15.481599+00:00",
+  "generated_at": "2026-09-18T20:49:36.400966+00:00",
   "ticker": "DCTH",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "target": 16.791999999999994,
+      "updated_at": "2026-09-18T16:57:59.997562",
+      "current_price": 16.205,
+      "stop": 16.1,
+      "ticker": "DCTH",
+      "entry": 16.33,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "Engulfing",
+      "score": 67.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 16.32,
       "score": 71.0,

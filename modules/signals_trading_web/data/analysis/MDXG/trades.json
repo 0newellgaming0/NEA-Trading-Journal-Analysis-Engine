@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:13.200751+00:00",
+  "generated_at": "2026-09-18T20:50:39.701962+00:00",
   "ticker": "MDXG",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "target": 4.778,
+      "updated_at": "2026-09-18T17:12:59.605781",
+      "current_price": 4.755,
+      "stop": 4.65,
+      "ticker": "MDXG",
+      "entry": 4.69,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "Marubozu",
+      "score": 69.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 4.64,
       "score": 70.0,

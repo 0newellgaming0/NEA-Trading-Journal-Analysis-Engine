@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:12:12.964614+00:00",
+  "generated_at": "2026-09-18T20:51:47.000084+00:00",
   "ticker": "TFSL",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "score": 66.0,
+      "stop": 16.68,
+      "risk_reward": 2.0,
+      "setup": "TLINE_CROSS",
+      "updated_at": "2026-09-18T18:03:33.568651",
+      "status": "CONFIRMED",
+      "ticker": "TFSL",
+      "target": 17.060795562186794,
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 16.81,
+      "current_price": 16.8,
+      "direction": "Bullish"
+    },
     {
       "entry": 16.79,
       "score": 69.0,

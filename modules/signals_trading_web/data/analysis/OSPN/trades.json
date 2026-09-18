@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:35.507652+00:00",
+  "generated_at": "2026-09-18T20:51:05.195563+00:00",
   "ticker": "OSPN",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "target": 17.676000000000005,
+      "updated_at": "2026-09-18T13:41:31.380703",
+      "current_price": 17.705,
+      "stop": 18.07,
+      "ticker": "OSPN",
+      "entry": 17.94,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Pinbar",
+      "score": 69.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 17.8,
       "score": 80.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:09:37.423138+00:00",
+  "generated_at": "2026-09-18T20:48:54.486625+00:00",
   "ticker": "ARCC",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "target": 19.516000000000005,
+      "updated_at": "2026-09-18T16:26:22.991141",
+      "current_price": 19.405,
+      "stop": 19.75,
+      "ticker": "ARCC",
+      "entry": 19.67,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 73.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 19.48,
       "score": 73.0,

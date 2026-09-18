@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:03.746218+00:00",
+  "generated_at": "2026-09-18T20:50:29.384612+00:00",
   "ticker": "KYIV",
-  "count": 1,
+  "count": 2,
   "trades": [
+    {
+      "score": 61.0,
+      "stop": 12.9,
+      "risk_reward": 2.0,
+      "setup": "Candle Over Candle",
+      "updated_at": "2026-09-18T19:45:22.349807",
+      "status": "CONFIRMED",
+      "ticker": "KYIV",
+      "target": 13.358,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 13.05,
+      "current_price": 13.04,
+      "direction": "Bullish"
+    },
     {
       "entry": 13.38,
       "score": 61.0,

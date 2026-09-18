@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:07.452381+00:00",
+  "generated_at": "2026-09-18T20:49:27.424173+00:00",
   "ticker": "CNH",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "score": 74.0,
+      "stop": 13.43,
+      "risk_reward": 2.0,
+      "setup": "TLINE_CROSS",
+      "updated_at": "2026-09-18T15:01:51.247208",
+      "status": "CONFIRMED",
+      "ticker": "CNH",
+      "target": 14.275217538407855,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 13.71,
+      "current_price": 13.595,
+      "direction": "Bullish"
+    },
     {
       "entry": 13.52,
       "score": 75.0,

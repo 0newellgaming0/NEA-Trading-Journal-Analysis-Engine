@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:15.334849+00:00",
+  "generated_at": "2026-09-18T20:50:42.169515+00:00",
   "ticker": "MIR",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "target": 16.401940000000003,
+      "updated_at": "2026-09-18T19:18:13.952240",
+      "current_price": 15.84,
+      "stop": 16.44,
+      "ticker": "MIR",
+      "entry": 16.43,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 63.0,
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 16.02,
       "score": 65.0,

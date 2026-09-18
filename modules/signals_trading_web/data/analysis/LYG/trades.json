@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:11.066249+00:00",
+  "generated_at": "2026-09-18T20:50:37.483986+00:00",
   "ticker": "LYG",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "score": 69.0,
+      "stop": 5.85,
+      "risk_reward": 2.0,
+      "setup": "Engulfing",
+      "updated_at": "2026-09-18T16:54:10.551315",
+      "status": "CONFIRMED",
+      "ticker": "LYG",
+      "target": 5.754000000000001,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 5.82,
+      "current_price": 5.8095,
+      "direction": "Bearish"
+    },
     {
       "entry": 5.99,
       "score": 71.0,

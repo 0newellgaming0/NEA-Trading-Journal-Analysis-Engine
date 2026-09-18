@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:41.413574+00:00",
+  "generated_at": "2026-09-18T20:50:04.947133+00:00",
   "ticker": "GNW",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "score": 69.0,
+      "stop": 10.25,
+      "risk_reward": 2.0,
+      "setup": "Pinbar",
+      "updated_at": "2026-09-18T14:25:00.869876",
+      "status": "CONFIRMED",
+      "ticker": "GNW",
+      "target": 10.186,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 10.23,
+      "current_price": 10.035,
+      "direction": "Bearish"
+    },
     {
       "entry": 10.05,
       "score": 77.0,

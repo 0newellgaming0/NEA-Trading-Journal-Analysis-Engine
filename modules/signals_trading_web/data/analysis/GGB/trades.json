@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:39.979941+00:00",
+  "generated_at": "2026-09-18T20:50:03.341173+00:00",
   "ticker": "GGB",
-  "count": 10,
+  "count": 11,
   "trades": [
+    {
+      "target": 5.018,
+      "updated_at": "2026-09-18T19:31:38.811313",
+      "current_price": 4.945,
+      "stop": 5.05,
+      "ticker": "GGB",
+      "entry": 5.04,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 66.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 4.98,
       "score": 64.0,

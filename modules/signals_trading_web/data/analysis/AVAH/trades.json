@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:09:43.319499+00:00",
+  "generated_at": "2026-09-18T20:49:00.967778+00:00",
   "ticker": "AVAH",
-  "count": 11,
+  "count": 12,
   "trades": [
+    {
+      "score": 74.0,
+      "stop": 14.17,
+      "risk_reward": 2.0,
+      "setup": "Engulfing",
+      "updated_at": "2026-09-18T17:27:46.569523",
+      "status": "CONFIRMED",
+      "ticker": "AVAH",
+      "target": 13.477999999999996,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "entry": 13.94,
+      "current_price": 13.695,
+      "direction": "Bearish"
+    },
     {
       "entry": 14.6,
       "score": 70.0,

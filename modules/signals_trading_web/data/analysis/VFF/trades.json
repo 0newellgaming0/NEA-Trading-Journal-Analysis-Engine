@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:12:21.122382+00:00",
+  "generated_at": "2026-09-18T20:51:55.809051+00:00",
   "ticker": "VFF",
   "count": 10,
   "trades": [
+    {
+      "target": 2.662,
+      "updated_at": "2026-09-18T13:33:17.537553",
+      "current_price": 2.88,
+      "stop": 2.3,
+      "ticker": "VFF",
+      "entry": 2.42,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "Rising Three Methods",
+      "score": 76.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 2.83,
       "score": 80.0,
@@ -114,20 +128,6 @@
       "score": 85.0,
       "direction": "Bearish",
       "current_price": 2.88
-    },
-    {
-      "current_price": 2.83,
-      "ticker": "VFF",
-      "target": 2.662,
-      "score": 82.0,
-      "setup": "Rising Three Methods",
-      "regime": "SHORT_TERM_WEAKNESS",
-      "status": "CONFIRMED",
-      "risk_reward": 2.0,
-      "entry": 2.42,
-      "stop": 2.299,
-      "updated_at": "2026-09-02T07:00:39.642682",
-      "direction": "Bullish"
     },
     {
       "entry": 2.865,

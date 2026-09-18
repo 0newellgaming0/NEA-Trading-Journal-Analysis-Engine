@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:01.762452+00:00",
+  "generated_at": "2026-09-18T20:49:21.267830+00:00",
   "ticker": "CFFN",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "score": 72.0,
+      "stop": 8.71,
+      "risk_reward": 2.0,
+      "setup": "Engulfing",
+      "updated_at": "2026-09-18T14:52:51.249427",
+      "status": "CONFIRMED",
+      "ticker": "CFFN",
+      "target": 9.188999999999998,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 8.87,
+      "current_price": 8.755,
+      "direction": "Bullish"
+    },
     {
       "entry": 8.87,
       "score": 76.0,

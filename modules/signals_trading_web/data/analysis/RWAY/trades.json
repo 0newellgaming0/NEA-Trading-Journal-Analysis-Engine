@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:56.171860+00:00",
+  "generated_at": "2026-09-18T20:51:28.659503+00:00",
   "ticker": "RWAY",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "target": 6.600387539313878,
+      "updated_at": "2026-09-18T18:21:42.378119",
+      "current_price": 6.68,
+      "stop": 6.72,
+      "ticker": "RWAY",
+      "entry": 6.68,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "TLINE_ROLLOVER",
+      "score": 66.0,
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 6.6,
       "score": 68.0,

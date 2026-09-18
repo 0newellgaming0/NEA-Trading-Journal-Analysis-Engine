@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:14.596544+00:00",
+  "generated_at": "2026-09-18T20:50:41.255482+00:00",
   "ticker": "MFG",
-  "count": 10,
+  "count": 11,
   "trades": [
+    {
+      "score": 73.0,
+      "stop": 10.74,
+      "risk_reward": 2.0,
+      "setup": "Marubozu",
+      "updated_at": "2026-09-18T16:21:00.595804",
+      "status": "CONFIRMED",
+      "ticker": "MFG",
+      "target": 10.835999999999999,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 10.77,
+      "current_price": 10.855,
+      "direction": "Bullish"
+    },
     {
       "entry": 10.96,
       "score": 73.0,

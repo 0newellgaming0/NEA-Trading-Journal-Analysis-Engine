@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:12:14.708364+00:00",
+  "generated_at": "2026-09-18T20:51:48.926396+00:00",
   "ticker": "TK",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "score": 66.0,
+      "stop": 14.91,
+      "risk_reward": 2.0,
+      "setup": "TLINE_CROSS",
+      "updated_at": "2026-09-18T17:44:31.888745",
+      "status": "CONFIRMED",
+      "ticker": "TK",
+      "target": 14.225483223128094,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 14.68,
+      "current_price": 14.715,
+      "direction": "Bearish"
+    },
     {
       "entry": 14.5,
       "score": 70.0,

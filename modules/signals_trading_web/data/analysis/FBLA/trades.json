@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:30.551727+00:00",
+  "generated_at": "2026-09-18T20:49:52.989975+00:00",
   "ticker": "FBLA",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "score": 65.0,
+      "stop": 16.2,
+      "risk_reward": 2.0,
+      "setup": "Engulfing",
+      "updated_at": "2026-09-18T18:36:46.511315",
+      "status": "CONFIRMED",
+      "ticker": "FBLA",
+      "target": 15.869999999999994,
+      "regime": "SHORT_TERM_STRENGTH",
+      "entry": 16.09,
+      "current_price": 16.065,
+      "direction": "Bearish"
+    },
     {
       "entry": 15.94,
       "score": 68.0,

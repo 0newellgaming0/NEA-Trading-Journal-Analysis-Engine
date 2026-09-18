@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:08.382183+00:00",
+  "generated_at": "2026-09-18T20:50:34.614235+00:00",
   "ticker": "LSBK",
   "count": 2,
   "trades": [
+    {
+      "target": 18.685000000000002,
+      "updated_at": "2026-09-18T15:55:21.205510",
+      "current_price": 18.25,
+      "stop": 19.1,
+      "ticker": "LSBK",
+      "entry": 18.96,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Pinbar",
+      "score": 70.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 18.26,
       "score": 74.0,
@@ -16,20 +30,6 @@
       "regime": "BULLISH_CONSOLIDATION",
       "setup": "TLINE_CROSS",
       "current_price": 18.1
-    },
-    {
-      "risk_reward": 2.0,
-      "entry": 18.96,
-      "ticker": "LSBK",
-      "status": "CONFIRMED",
-      "target": 18.685000000000002,
-      "stop": 19.1,
-      "updated_at": "2026-09-15T11:14:45.808282",
-      "setup": "Pinbar",
-      "regime": "BULLISH_CONSOLIDATION",
-      "score": 81.0,
-      "current_price": 18.25,
-      "direction": "Bearish"
     }
   ]
 }

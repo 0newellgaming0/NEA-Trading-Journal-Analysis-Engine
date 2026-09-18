@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:39.421113+00:00",
+  "generated_at": "2026-09-18T20:51:09.571304+00:00",
   "ticker": "PDYN",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "target": 5.490000000000001,
+      "updated_at": "2026-09-18T17:52:51.291653",
+      "current_price": 5.635,
+      "stop": 5.82,
+      "ticker": "PDYN",
+      "entry": 5.71,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Pinbar",
+      "score": 67.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 5.57,
       "score": 69.0,

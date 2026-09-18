@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:09.057280+00:00",
+  "generated_at": "2026-09-18T20:49:29.211133+00:00",
   "ticker": "CPSH",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "target": 3.7643200000000006,
+      "updated_at": "2026-09-18T20:13:12.039889",
+      "current_price": 4.02,
+      "stop": 4.04,
+      "ticker": "CPSH",
+      "entry": 3.95,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Pinbar",
+      "score": 67.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 3.9,
       "score": 60.0,

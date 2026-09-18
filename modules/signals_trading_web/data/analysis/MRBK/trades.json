@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:17.895704+00:00",
+  "generated_at": "2026-09-18T20:50:45.126892+00:00",
   "ticker": "MRBK",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "target": 19.629242921875807,
+      "updated_at": "2026-09-18T18:07:14.547608",
+      "current_price": 19.3,
+      "stop": 19.11,
+      "ticker": "MRBK",
+      "entry": 19.28,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "TLINE_CROSS",
+      "score": 62.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 19.78,
       "score": 68.0,

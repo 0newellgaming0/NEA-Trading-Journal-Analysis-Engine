@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:46.751512+00:00",
+  "generated_at": "2026-09-18T20:51:18.066290+00:00",
   "ticker": "PXS",
-  "count": 14,
+  "count": 15,
   "trades": [
+    {
+      "target": 7.762000000000002,
+      "updated_at": "2026-09-18T17:56:05.273609",
+      "current_price": 7.555,
+      "stop": 7.15,
+      "ticker": "PXS",
+      "entry": 7.36,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "Rising Three Methods",
+      "score": 82.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 6.91,
       "score": 69.0,

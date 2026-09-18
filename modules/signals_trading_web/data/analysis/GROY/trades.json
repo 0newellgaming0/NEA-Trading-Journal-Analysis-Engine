@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:44.222118+00:00",
+  "generated_at": "2026-09-18T20:50:07.971502+00:00",
   "ticker": "GROY",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "target": 3.7821000000000002,
+      "updated_at": "2026-09-18T20:38:10.568786",
+      "current_price": 3.35,
+      "stop": 3.33,
+      "ticker": "GROY",
+      "entry": 3.48,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "SWING_STRUCTURE",
+      "score": 57.0,
+      "regime": "SHORT_TERM_STRENGTH",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 3.42,
       "score": 54.0,

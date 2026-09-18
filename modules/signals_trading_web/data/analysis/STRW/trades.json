@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:12:08.967131+00:00",
+  "generated_at": "2026-09-18T20:51:42.584266+00:00",
   "ticker": "STRW",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "score": 71.0,
+      "stop": 13.77,
+      "risk_reward": 2.0,
+      "setup": "Marubozu",
+      "updated_at": "2026-09-18T14:39:33.347984",
+      "status": "CONFIRMED",
+      "ticker": "STRW",
+      "target": 14.345000000000002,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "entry": 13.96,
+      "current_price": 13.805,
+      "direction": "Bullish"
+    },
     {
       "entry": 13.75,
       "score": 76.0,

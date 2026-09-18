@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:49.855538+00:00",
+  "generated_at": "2026-09-18T20:50:14.227439+00:00",
   "ticker": "HSHP",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "target": 18.08646262795157,
+      "updated_at": "2026-09-18T18:10:53.522464",
+      "current_price": 18.74,
+      "stop": 19.13,
+      "ticker": "HSHP",
+      "entry": 18.78,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "TLINE_CROSS",
+      "score": 70.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 18.6,
       "score": 68.0,

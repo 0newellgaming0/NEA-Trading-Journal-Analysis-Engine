@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:09.662289+00:00",
+  "generated_at": "2026-09-18T20:49:29.900513+00:00",
   "ticker": "CRGY",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "target": 14.535848368843862,
+      "updated_at": "2026-09-18T15:38:58.606591",
+      "current_price": 14.135,
+      "stop": 13.97,
+      "ticker": "CRGY",
+      "entry": 14.16,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "TLINE_CROSS",
+      "score": 69.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 14.45,
       "score": 74.0,

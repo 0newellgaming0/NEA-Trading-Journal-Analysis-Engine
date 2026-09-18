@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:01.025187+00:00",
+  "generated_at": "2026-09-18T20:50:26.430251+00:00",
   "ticker": "KGEI",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "target": 6.846000000000001,
+      "updated_at": "2026-09-18T18:14:01.512318",
+      "current_price": 6.77,
+      "stop": 6.75,
+      "ticker": "KGEI",
+      "entry": 6.78,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "Marubozu",
+      "score": 61.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 6.86,
       "score": 68.0,

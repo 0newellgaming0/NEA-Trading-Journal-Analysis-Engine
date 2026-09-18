@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:31.525120+00:00",
+  "generated_at": "2026-09-18T20:51:00.562528+00:00",
   "ticker": "ODD",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "target": 18.726000000000006,
+      "updated_at": "2026-09-18T15:27:18.053804",
+      "current_price": 18.41,
+      "stop": 19.29,
+      "ticker": "ODD",
+      "entry": 19.1,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 69.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 18.17,
       "score": 75.0,

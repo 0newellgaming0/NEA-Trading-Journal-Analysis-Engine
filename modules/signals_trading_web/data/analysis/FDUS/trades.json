@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:31.231776+00:00",
+  "generated_at": "2026-09-18T20:49:53.785124+00:00",
   "ticker": "FDUS",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "target": 19.264939821677853,
+      "updated_at": "2026-09-18T15:14:36.033358",
+      "current_price": 19.27,
+      "stop": 19.61,
+      "ticker": "FDUS",
+      "entry": 19.5,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "TLINE_ROLLOVER",
+      "score": 73.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 19.33,
       "score": 75.0,

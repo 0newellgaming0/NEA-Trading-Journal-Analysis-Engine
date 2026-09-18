@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:34.496003+00:00",
+  "generated_at": "2026-09-18T20:51:04.101335+00:00",
   "ticker": "OPXS",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "target": 10.590439999999997,
+      "updated_at": "2026-09-18T15:30:06.364505",
+      "current_price": 10.695,
+      "stop": 10.75,
+      "ticker": "OPXS",
+      "entry": 10.7,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Pinbar",
+      "score": 74.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 10.36,
       "score": 74.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:48.950750+00:00",
+  "generated_at": "2026-09-18T20:50:13.277306+00:00",
   "ticker": "HOPE",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "target": 14.318,
+      "updated_at": "2026-09-18T13:55:44.662827",
+      "current_price": 13.805,
+      "stop": 13.69,
+      "ticker": "HOPE",
+      "entry": 13.9,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "Marubozu",
+      "score": 75.0,
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 14.01,
       "score": 79.0,

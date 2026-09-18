@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:30.762755+00:00",
+  "generated_at": "2026-09-18T20:50:59.656951+00:00",
   "ticker": "OBE",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "target": 12.449459999999998,
+      "updated_at": "2026-09-18T16:29:29.119782",
+      "current_price": 12.15,
+      "stop": 11.78,
+      "ticker": "OBE",
+      "entry": 12.0,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "Harami",
+      "score": 65.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 12.27,
       "score": 73.0,

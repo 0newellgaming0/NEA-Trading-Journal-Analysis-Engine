@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:04.622925+00:00",
+  "generated_at": "2026-09-18T20:50:30.370080+00:00",
   "ticker": "LAND",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "target": 9.479999999999997,
+      "updated_at": "2026-09-18T19:02:31.135583",
+      "current_price": 9.445,
+      "stop": 9.65,
+      "ticker": "LAND",
+      "entry": 9.59,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Marubozu",
+      "score": 62.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 9.4,
       "score": 67.0,

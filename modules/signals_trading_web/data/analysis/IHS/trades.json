@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:52.637313+00:00",
+  "generated_at": "2026-09-18T20:50:17.268213+00:00",
   "ticker": "IHS",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "target": 8.498390081674618,
+      "updated_at": "2026-09-18T17:30:16.528305",
+      "current_price": 8.435,
+      "stop": 8.43,
+      "ticker": "IHS",
+      "entry": 8.45,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "TLINE_CROSS",
+      "score": 71.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 8.43,
       "score": 70.0,

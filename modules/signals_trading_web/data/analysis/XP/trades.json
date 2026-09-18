@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:12:27.736376+00:00",
+  "generated_at": "2026-09-18T20:52:02.927822+00:00",
   "ticker": "XP",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "score": 74.0,
+      "stop": 20.54,
+      "risk_reward": 2.0,
+      "setup": "TLINE_ROLLOVER",
+      "updated_at": "2026-09-18T14:10:13.548997",
+      "status": "CONFIRMED",
+      "ticker": "XP",
+      "target": 19.664347713150345,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 20.25,
+      "current_price": 19.895,
+      "direction": "Bearish"
+    },
     {
       "entry": 19.88,
       "score": 78.0,

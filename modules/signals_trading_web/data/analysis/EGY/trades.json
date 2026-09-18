@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:24.051694+00:00",
+  "generated_at": "2026-09-18T20:49:45.771468+00:00",
   "ticker": "EGY",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "target": 5.924,
+      "updated_at": "2026-09-18T13:37:57.932238",
+      "current_price": 6.1801,
+      "stop": 6.27,
+      "ticker": "EGY",
+      "entry": 6.16,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Falling Three Methods",
+      "score": 69.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 6.49,
       "score": 80.0,

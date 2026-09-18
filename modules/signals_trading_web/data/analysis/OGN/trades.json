@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:31.871944+00:00",
+  "generated_at": "2026-09-18T20:51:01.017447+00:00",
   "ticker": "OGN",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "target": 13.711999999999998,
+      "updated_at": "2026-09-18T16:42:53.446977",
+      "current_price": 13.68,
+      "stop": 13.68,
+      "ticker": "OGN",
+      "entry": 13.69,
+      "risk_reward": 2.0,
+      "direction": "Bullish",
+      "setup": "Marubozu",
+      "score": 71.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 13.68,
       "score": 72.0,

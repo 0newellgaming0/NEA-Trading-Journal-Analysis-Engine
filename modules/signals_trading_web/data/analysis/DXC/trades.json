@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:22.196760+00:00",
+  "generated_at": "2026-09-18T20:49:43.627797+00:00",
   "ticker": "DXC",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "score": 66.0,
+      "stop": 11.05,
+      "risk_reward": 2.0,
+      "setup": "Engulfing",
+      "updated_at": "2026-09-18T19:06:13.678561",
+      "status": "CONFIRMED",
+      "ticker": "DXC",
+      "target": 10.650999999999996,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "entry": 10.91,
+      "current_price": 10.805,
+      "direction": "Bearish"
+    },
     {
       "entry": 11.63,
       "score": 67.0,

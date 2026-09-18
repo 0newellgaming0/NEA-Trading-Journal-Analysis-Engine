@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:09:25.097246+00:00",
+  "generated_at": "2026-09-18T20:48:41.637262+00:00",
   "ticker": "AES",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "target": 14.783999999999997,
+      "updated_at": "2026-09-18T13:13:34.191602",
+      "current_price": 14.88,
+      "stop": 14.88,
+      "ticker": "AES",
+      "entry": 14.85,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Bearish Gravestone Doji Sandwich",
+      "score": 77.0,
+      "regime": "BULLISH_CONSOLIDATION",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 14.79,
       "score": 81.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:35.156448+00:00",
+  "generated_at": "2026-09-18T20:49:58.101283+00:00",
   "ticker": "FPI",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "score": 70.0,
+      "stop": 11.09,
+      "risk_reward": 2.0,
+      "setup": "Marubozu",
+      "updated_at": "2026-09-18T15:51:45.681807",
+      "status": "CONFIRMED",
+      "ticker": "FPI",
+      "target": 10.945040000000004,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 11.04,
+      "current_price": 10.8725,
+      "direction": "Bearish"
+    },
     {
       "entry": 10.81,
       "score": 74.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:09:42.275773+00:00",
+  "generated_at": "2026-09-18T20:48:59.794417+00:00",
   "ticker": "AUPH",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "score": 80.0,
+      "stop": 17.03,
+      "risk_reward": 2.0,
+      "setup": "TLINE_CROSS",
+      "updated_at": "2026-09-18T13:04:57.803862",
+      "status": "CONFIRMED",
+      "ticker": "AUPH",
+      "target": 16.482395815381963,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 16.85,
+      "current_price": 16.85,
+      "direction": "Bearish"
+    },
     {
       "entry": 16.97,
       "score": 81.0,

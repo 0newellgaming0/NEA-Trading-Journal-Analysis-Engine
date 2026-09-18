@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:07.150227+00:00",
+  "generated_at": "2026-09-18T20:49:27.035178+00:00",
   "ticker": "CMRE",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "target": 15.177999999999999,
+      "updated_at": "2026-09-18T13:26:32.651955",
+      "current_price": 15.37,
+      "stop": 15.62,
+      "ticker": "CMRE",
+      "entry": 15.47,
+      "risk_reward": 2.0,
+      "direction": "Bearish",
+      "setup": "Candle Over Candle",
+      "score": 81.0,
+      "regime": "SHORT_TERM_WEAKNESS",
+      "status": "CONFIRMED"
+    },
     {
       "entry": 15.12,
       "score": 80.0,

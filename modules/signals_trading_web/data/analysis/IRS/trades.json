@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:57.166133+00:00",
+  "generated_at": "2026-09-18T20:50:22.325834+00:00",
   "ticker": "IRS",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "score": 69.0,
+      "stop": 15.14,
+      "risk_reward": 2.0,
+      "setup": "Marubozu",
+      "updated_at": "2026-09-18T16:14:42.634333",
+      "status": "CONFIRMED",
+      "ticker": "IRS",
+      "target": 15.928000000000003,
+      "regime": "BULLISH_CONSOLIDATION",
+      "entry": 15.4,
+      "current_price": 15.6605,
+      "direction": "Bullish"
+    },
     {
       "entry": 15.22,
       "score": 73.0,
