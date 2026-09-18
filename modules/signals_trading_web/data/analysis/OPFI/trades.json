@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:33.607972+00:00",
+  "generated_at": "2026-09-18T13:03:26.966012+00:00",
   "ticker": "OPFI",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 7.25,
+      "setup": "Engulfing",
+      "score": 80.0,
+      "ticker": "OPFI",
+      "current_price": 7.2,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BEARISH_CONSOLIDATION",
+      "direction": "Bearish",
+      "updated_at": "2026-09-18T12:24:45.404256",
+      "target": 6.9866399999999995,
+      "entry": 7.16
+    },
     {
       "entry": 7.1,
       "score": 85.0,

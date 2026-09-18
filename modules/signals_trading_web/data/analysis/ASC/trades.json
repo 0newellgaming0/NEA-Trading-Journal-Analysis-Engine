@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:09:40.424668+00:00",
+  "generated_at": "2026-09-18T12:59:27.414179+00:00",
   "ticker": "ASC",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 18.92,
+      "setup": "Harami",
+      "score": 80.0,
+      "ticker": "ASC",
+      "current_price": 19.0,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "direction": "Bullish",
+      "updated_at": "2026-09-18T12:51:06.687132",
+      "target": 19.362000000000005,
+      "entry": 19.07
+    },
     {
       "entry": 19.01,
       "score": 82.0,

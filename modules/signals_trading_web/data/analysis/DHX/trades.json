@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:17.372521+00:00",
+  "generated_at": "2026-09-18T13:00:47.203477+00:00",
   "ticker": "DHX",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 5.12,
+      "setup": "SWING_STRUCTURE",
+      "score": 73.0,
+      "ticker": "DHX",
+      "current_price": 4.9001,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "BULLISH_CONSOLIDATION",
+      "direction": "BEARISH",
+      "updated_at": "2026-09-18T12:37:44.737037",
+      "target": 4.429999999999999,
+      "entry": 4.89
+    },
     {
       "entry": 4.95,
       "score": 82.0,

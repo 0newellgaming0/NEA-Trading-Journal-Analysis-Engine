@@ -1,6 +1,21 @@
 {
-  "generated_at": "2026-09-06T06:07:57.340749+00:00",
+  "generated_at": "2026-09-18T13:05:56.811724+00:00",
   "ticker": "ZTG",
-  "count": 0,
-  "trades": []
+  "count": 1,
+  "trades": [
+    {
+      "stop": 1.03,
+      "setup": "TLINE_CROSS",
+      "score": 88.0,
+      "ticker": "ZTG",
+      "current_price": 1.46,
+      "risk_reward": 2.0,
+      "status": "CONFIRMED",
+      "regime": "SHORT_TERM_STRENGTH",
+      "direction": "Bullish",
+      "updated_at": "2026-09-18T12:58:31.016102",
+      "target": 2.4000749561729586,
+      "entry": 1.49
+    }
+  ]
 }
