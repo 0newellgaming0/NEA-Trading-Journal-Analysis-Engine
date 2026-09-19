@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:44:44.973080+00:00",
+  "generated_at": "2026-09-19T16:36:05.305902+00:00",
   "ticker": "MCHB",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 15.23,
+      "score": 94.0,
+      "entry": 15.35,
+      "setup": "Pinbar",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "risk_reward": 2.0,
+      "target": 15.591999999999997,
+      "current_price": 15.4,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T09:31:01.054742",
+      "status": "CONFIRMED",
+      "ticker": "MCHB"
+    },
     {
       "status": "CONFIRMED",
       "setup": "Marubozu",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:51:09.571304+00:00",
+  "generated_at": "2026-09-19T16:36:33.806582+00:00",
   "ticker": "PDYN",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 5.75,
+      "score": 78.0,
+      "entry": 5.66,
+      "setup": "TLINE_CROSS",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 5.484515290169872,
+      "current_price": 5.66,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T12:58:59.483770",
+      "status": "CONFIRMED",
+      "ticker": "PDYN"
+    },
     {
       "target": 5.490000000000001,
       "updated_at": "2026-09-18T17:52:51.291653",

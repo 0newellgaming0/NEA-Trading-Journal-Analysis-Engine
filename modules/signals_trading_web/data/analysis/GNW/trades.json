@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:04.947133+00:00",
+  "generated_at": "2026-09-19T16:35:32.419063+00:00",
   "ticker": "GNW",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 9.97,
+      "score": 80.0,
+      "entry": 10.05,
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 10.204,
+      "current_price": 10.0525,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T10:37:29.210958",
+      "status": "CONFIRMED",
+      "ticker": "GNW"
+    },
     {
       "score": 69.0,
       "stop": 10.25,

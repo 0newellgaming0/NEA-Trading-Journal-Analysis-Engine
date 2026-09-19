@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:51:52.687461+00:00",
+  "generated_at": "2026-09-19T16:37:14.229689+00:00",
   "ticker": "UGP",
-  "count": 12,
+  "count": 13,
   "trades": [
+    {
+      "stop": 7.64,
+      "score": 69.0,
+      "entry": 7.55,
+      "setup": "TLINE_ROLLOVER",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 7.370241903307938,
+      "current_price": 7.46,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T13:42:19.058361",
+      "status": "CONFIRMED",
+      "ticker": "UGP"
+    },
     {
       "score": 66.0,
       "stop": 7.5,

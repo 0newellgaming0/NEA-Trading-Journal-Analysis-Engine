@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:45.126892+00:00",
+  "generated_at": "2026-09-19T16:36:10.682497+00:00",
   "ticker": "MRBK",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 19.3,
+      "score": 68.0,
+      "entry": 19.27,
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 19.203999999999997,
+      "current_price": 19.05,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T15:04:47.277164",
+      "status": "CONFIRMED",
+      "ticker": "MRBK"
+    },
     {
       "target": 19.629242921875807,
       "updated_at": "2026-09-18T18:07:14.547608",

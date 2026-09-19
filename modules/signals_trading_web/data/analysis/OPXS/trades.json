@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:51:04.101335+00:00",
+  "generated_at": "2026-09-19T16:36:28.494904+00:00",
   "ticker": "OPXS",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 10.33,
+      "score": 72.0,
+      "entry": 10.36,
+      "setup": "Harami",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "target": 10.415120000000002,
+      "current_price": 10.66,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T10:50:09.819512",
+      "status": "CONFIRMED",
+      "ticker": "OPXS"
+    },
     {
       "target": 10.590439999999997,
       "updated_at": "2026-09-18T15:30:06.364505",

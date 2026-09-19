@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:00.733784+00:00",
+  "generated_at": "2026-09-19T16:36:22.298052+00:00",
   "ticker": "NWBI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 15.26,
+      "score": 79.0,
+      "entry": 15.37,
+      "setup": "Marubozu",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 15.578480000000004,
+      "current_price": 15.4625,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T13:22:05.450219",
+      "status": "CONFIRMED",
+      "ticker": "NWBI"
+    },
     {
       "status": "CONFIRMED",
       "setup": "TLINE_CROSS",

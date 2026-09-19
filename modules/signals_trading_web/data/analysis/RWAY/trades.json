@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:51:28.659503+00:00",
+  "generated_at": "2026-09-19T16:36:51.538261+00:00",
   "ticker": "RWAY",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "stop": 6.6,
+      "score": 68.0,
+      "entry": 6.7,
+      "setup": "Rising Three Methods",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 6.8916,
+      "current_price": 6.69,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T15:16:14.855444",
+      "status": "CONFIRMED",
+      "ticker": "RWAY"
+    },
     {
       "target": 6.600387539313878,
       "updated_at": "2026-09-18T18:21:42.378119",

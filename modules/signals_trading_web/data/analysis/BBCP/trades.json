@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:23:01.880871+00:00",
+  "generated_at": "2026-09-19T16:34:35.099482+00:00",
   "ticker": "BBCP",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 10.61,
+      "score": 59.0,
+      "entry": 10.46,
+      "setup": "Falling Three Methods",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "risk_reward": 2.0,
+      "target": 10.152000000000005,
+      "current_price": 9.76,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T15:46:14.133794",
+      "status": "CONFIRMED",
+      "ticker": "BBCP"
+    },
     {
       "updated_at": "2026-09-16T07:05:08.972597",
       "score": 62.0,

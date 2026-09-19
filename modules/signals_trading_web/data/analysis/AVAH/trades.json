@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:00.967778+00:00",
+  "generated_at": "2026-09-19T16:34:32.206178+00:00",
   "ticker": "AVAH",
-  "count": 12,
+  "count": 13,
   "trades": [
+    {
+      "stop": 14.1,
+      "score": 83.0,
+      "entry": 13.96,
+      "setup": "Loose Falling Mat Hold",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "risk_reward": 2.0,
+      "target": 13.674000000000003,
+      "current_price": 13.6628,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T15:53:50.999070",
+      "status": "CONFIRMED",
+      "ticker": "AVAH"
+    },
     {
       "score": 74.0,
       "stop": 14.17,

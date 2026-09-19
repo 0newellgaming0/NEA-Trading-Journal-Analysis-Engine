@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:46.076739+00:00",
+  "generated_at": "2026-09-19T16:35:14.671554+00:00",
   "ticker": "EHLD",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 14.28,
+      "score": 66.0,
+      "entry": 13.67,
+      "setup": "Pinbar",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 12.459999999999999,
+      "current_price": 13.02,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T14:51:53.295528",
+      "status": "CONFIRMED",
+      "ticker": "EHLD"
+    },
     {
       "target": 15.388502220583996,
       "updated_at": "2026-09-18T19:35:49.965190",

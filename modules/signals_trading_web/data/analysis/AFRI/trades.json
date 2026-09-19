@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-18T20:48:42.244868+00:00",
+  "generated_at": "2026-09-19T16:34:14.271325+00:00",
   "ticker": "AFRI",
   "count": 4,
   "trades": [
     {
-      "score": 67.0,
       "stop": 11.14,
-      "risk_reward": 2.0,
-      "setup": "Marubozu",
-      "updated_at": "2026-09-18T19:12:13.909031",
-      "status": "CONFIRMED",
-      "ticker": "AFRI",
-      "target": 11.309999999999999,
-      "regime": "BULLISH_CONSOLIDATION",
+      "score": 75.0,
       "entry": 11.2,
-      "current_price": 11.3069,
-      "direction": "Bullish"
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 11.309999999999999,
+      "current_price": 11.15,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T14:49:59.243985",
+      "status": "CONFIRMED",
+      "ticker": "AFRI"
     },
     {
       "entry": 11.09,

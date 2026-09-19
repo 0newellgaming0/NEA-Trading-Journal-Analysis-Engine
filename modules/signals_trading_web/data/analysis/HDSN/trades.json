@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:11.190981+00:00",
+  "generated_at": "2026-09-19T16:35:38.571867+00:00",
   "ticker": "HDSN",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 5.15,
+      "score": 64.0,
+      "entry": 5.17,
+      "setup": "Marubozu",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 5.187,
+      "current_price": 5.22,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T16:21:54.612891",
+      "status": "CONFIRMED",
+      "ticker": "HDSN"
+    },
     {
       "target": 5.2966741354506395,
       "updated_at": "2026-09-18T20:28:06.870309",

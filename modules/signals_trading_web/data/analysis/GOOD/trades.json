@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:44:14.859351+00:00",
+  "generated_at": "2026-09-19T16:35:32.726532+00:00",
   "ticker": "GOOD",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 12.63,
+      "score": 75.0,
+      "entry": 12.62,
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 12.597999999999997,
+      "current_price": 12.61,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T11:55:37.732658",
+      "status": "CONFIRMED",
+      "ticker": "GOOD"
+    },
     {
       "status": "CONFIRMED",
       "setup": "TLINE_CROSS",

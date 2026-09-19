@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:51:31.421477+00:00",
+  "generated_at": "2026-09-19T16:36:54.211228+00:00",
   "ticker": "SBS",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "stop": 5.35,
+      "score": 74.0,
+      "entry": 5.28,
+      "setup": "Pinbar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 5.137000000000001,
+      "current_price": 5.31,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T11:06:50.165032",
+      "status": "CONFIRMED",
+      "ticker": "SBS"
+    },
     {
       "target": 4.860000000000001,
       "updated_at": "2026-09-18T15:45:44.743748",

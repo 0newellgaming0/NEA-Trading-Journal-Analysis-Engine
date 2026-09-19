@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:11.099474+00:00",
+  "generated_at": "2026-09-19T16:36:33.886630+00:00",
   "ticker": "PEB",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 17.85,
+      "score": 83.0,
+      "entry": 17.94,
+      "setup": "Harami",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 18.127000000000006,
+      "current_price": 18.0425,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T12:56:38.456476",
+      "status": "CONFIRMED",
+      "ticker": "PEB"
+    },
     {
       "status": "CONFIRMED",
       "setup": "Engulfing",

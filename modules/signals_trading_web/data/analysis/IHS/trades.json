@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:17.268213+00:00",
+  "generated_at": "2026-09-19T16:35:44.312523+00:00",
   "ticker": "IHS",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 8.43,
+      "score": 74.0,
+      "entry": 8.43,
+      "setup": "Falling Three Methods",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 8.414000000000001,
+      "current_price": 8.42,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T11:59:33.417901",
+      "status": "CONFIRMED",
+      "ticker": "IHS"
+    },
     {
       "target": 8.498390081674618,
       "updated_at": "2026-09-18T17:30:16.528305",

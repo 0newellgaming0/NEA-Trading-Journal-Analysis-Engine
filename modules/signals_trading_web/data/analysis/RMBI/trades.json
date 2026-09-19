@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:53.386122+00:00",
+  "generated_at": "2026-09-19T16:36:48.579107+00:00",
   "ticker": "RMBI",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 15.93,
+      "score": 95.0,
+      "entry": 15.86,
+      "setup": "Falling Three Methods",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 15.727999999999998,
+      "current_price": 15.79,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T09:39:15.089643",
+      "status": "CONFIRMED",
+      "ticker": "RMBI"
+    },
     {
       "entry": 15.89,
       "score": 85.0,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:49.318804+00:00",
+  "generated_at": "2026-09-19T16:35:17.570305+00:00",
   "ticker": "EQPT",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "stop": 17.7,
+      "score": 91.0,
+      "entry": 18.07,
+      "setup": "TLINE_CROSS",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "target": 18.812094375000285,
+      "current_price": 18.07,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T10:57:52.017932",
+      "status": "CONFIRMED",
+      "ticker": "EQPT"
+    },
     {
       "score": 80.0,
       "stop": 19.04,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:44:34.127997+00:00",
+  "generated_at": "2026-09-19T16:35:53.435326+00:00",
   "ticker": "KLXE",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 1.49,
+      "score": 88.0,
+      "entry": 1.5,
+      "setup": "Marubozu",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "target": 1.5109999999999997,
+      "current_price": 1.52,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T11:48:48.319651",
+      "status": "CONFIRMED",
+      "ticker": "KLXE"
+    },
     {
       "status": "CONFIRMED",
       "setup": "Candle Over Candle",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:53.785124+00:00",
+  "generated_at": "2026-09-19T16:35:21.689315+00:00",
   "ticker": "FDUS",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 19.58,
+      "score": 74.0,
+      "entry": 19.48,
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 19.288719999999994,
+      "current_price": 19.36,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T12:51:07.022078",
+      "status": "CONFIRMED",
+      "ticker": "FDUS"
+    },
     {
       "target": 19.264939821677853,
       "updated_at": "2026-09-18T15:14:36.033358",

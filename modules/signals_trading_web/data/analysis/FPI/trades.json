@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:58.101283+00:00",
+  "generated_at": "2026-09-19T16:35:25.819165+00:00",
   "ticker": "FPI",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 10.59,
+      "score": 73.0,
+      "entry": 10.95,
+      "setup": "Pinbar",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 11.679959999999998,
+      "current_price": 10.95,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T12:02:14.159598",
+      "status": "CONFIRMED",
+      "ticker": "FPI"
+    },
     {
       "score": 70.0,
       "stop": 11.09,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:27.424173+00:00",
+  "generated_at": "2026-09-19T16:34:57.055681+00:00",
   "ticker": "CNH",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 13.42,
+      "score": 79.0,
+      "entry": 13.43,
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 13.451999999999998,
+      "current_price": 13.4525,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T11:02:22.740075",
+      "status": "CONFIRMED",
+      "ticker": "CNH"
+    },
     {
       "score": 74.0,
       "stop": 13.43,

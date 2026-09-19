@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:35.780245+00:00",
+  "generated_at": "2026-09-19T16:35:04.953909+00:00",
   "ticker": "DBRG",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 15.88,
+      "score": 77.0,
+      "entry": 15.93,
+      "setup": "TLINE_CROSS",
+      "regime": "PRIMARY_UPTREND_PULLBACK",
+      "risk_reward": 2.0,
+      "target": 16.034732076912643,
+      "current_price": 15.93,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T12:04:35.402997",
+      "status": "CONFIRMED",
+      "ticker": "DBRG"
+    },
     {
       "target": 15.946000000000003,
       "updated_at": "2026-09-18T14:01:31.959531",

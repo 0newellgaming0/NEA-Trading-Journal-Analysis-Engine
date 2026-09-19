@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:51:01.017447+00:00",
+  "generated_at": "2026-09-19T16:36:25.687757+00:00",
   "ticker": "OGN",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 13.37,
+      "score": 78.0,
+      "entry": 13.69,
+      "setup": "Loose Rising Mat Hold",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 14.327999999999998,
+      "current_price": 13.6825,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T12:33:06.376882",
+      "status": "CONFIRMED",
+      "ticker": "OGN"
+    },
     {
       "target": 13.711999999999998,
       "updated_at": "2026-09-18T16:42:53.446977",

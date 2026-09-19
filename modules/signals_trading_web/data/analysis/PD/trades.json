@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:10.762254+00:00",
+  "generated_at": "2026-09-19T16:36:33.479810+00:00",
   "ticker": "PD",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "stop": 13.35,
+      "score": 84.0,
+      "entry": 13.88,
+      "setup": "Pinbar",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 14.936000000000002,
+      "current_price": 13.95,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T12:24:35.745518",
+      "status": "CONFIRMED",
+      "ticker": "PD"
+    },
     {
       "status": "CONFIRMED",
       "setup": "Pinbar",

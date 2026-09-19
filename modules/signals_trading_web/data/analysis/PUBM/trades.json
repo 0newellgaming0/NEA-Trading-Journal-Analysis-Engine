@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:51:17.350544+00:00",
+  "generated_at": "2026-09-19T16:36:40.930588+00:00",
   "ticker": "PUBM",
-  "count": 8,
+  "count": 9,
   "trades": [
+    {
+      "stop": 17.09,
+      "score": 71.0,
+      "entry": 17.25,
+      "setup": "DOJI",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 17.57,
+      "current_price": 17.53,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T14:16:54.153625",
+      "status": "CONFIRMED",
+      "ticker": "PUBM"
+    },
     {
       "score": 63.0,
       "stop": 17.08,

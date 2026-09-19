@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-18T20:51:14.562376+00:00",
+  "generated_at": "2026-09-19T16:36:38.414584+00:00",
   "ticker": "PPHC",
   "count": 3,
   "trades": [
     {
-      "score": 73.0,
       "stop": 12.48,
-      "risk_reward": 2.0,
-      "setup": "Pinbar",
-      "updated_at": "2026-09-18T17:20:09.004628",
-      "status": "CONFIRMED",
-      "ticker": "PPHC",
-      "target": 13.043999999999999,
-      "regime": "SHORT_TERM_STRENGTH",
+      "score": 86.0,
       "entry": 12.67,
-      "current_price": 13.305,
-      "direction": "Bullish"
+      "setup": "Pinbar",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "target": 13.043999999999999,
+      "current_price": 13.11,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T15:34:43.645663",
+      "status": "CONFIRMED",
+      "ticker": "PPHC"
     },
     {
       "entry": 11.82,

@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-18T20:48:46.544474+00:00",
+  "generated_at": "2026-09-19T16:34:18.420848+00:00",
   "ticker": "ALDF",
   "count": 2,
   "trades": [
     {
-      "score": 54.0,
       "stop": 10.7,
-      "risk_reward": 2.0,
-      "setup": "GRAVESTONE_DOJI",
-      "updated_at": "2026-09-18T20:22:04.214031",
-      "status": "CONFIRMED",
-      "ticker": "ALDF",
-      "target": 10.7201,
-      "regime": "SHORT_TERM_STRENGTH",
+      "score": 54.0,
       "entry": 10.71,
-      "current_price": 10.8098,
-      "direction": "Bullish"
+      "setup": "GRAVESTONE_DOJI",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "target": 10.7201,
+      "current_price": 10.8174,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T16:26:49.773040",
+      "status": "CONFIRMED",
+      "ticker": "ALDF"
     },
     {
       "entry": 10.8,

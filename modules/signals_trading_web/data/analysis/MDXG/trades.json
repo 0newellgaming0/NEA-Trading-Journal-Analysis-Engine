@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:39.701962+00:00",
+  "generated_at": "2026-09-19T16:36:05.639016+00:00",
   "ticker": "MDXG",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 4.72,
+      "score": 82.0,
+      "entry": 4.79,
+      "setup": "Engulfing",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "target": 4.949,
+      "current_price": 4.78,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T12:38:35.398687",
+      "status": "CONFIRMED",
+      "ticker": "MDXG"
+    },
     {
       "target": 4.778,
       "updated_at": "2026-09-18T17:12:59.605781",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:45.771468+00:00",
+  "generated_at": "2026-09-19T16:35:14.381049+00:00",
   "ticker": "EGY",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 6.24,
+      "score": 85.0,
+      "entry": 6.13,
+      "setup": "Pinbar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 5.909999999999999,
+      "current_price": 6.06,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T09:59:50.052774",
+      "status": "CONFIRMED",
+      "ticker": "EGY"
+    },
     {
       "target": 5.924,
       "updated_at": "2026-09-18T13:37:57.932238",

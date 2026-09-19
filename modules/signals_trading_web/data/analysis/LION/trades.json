@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:33.247406+00:00",
+  "generated_at": "2026-09-19T16:35:59.342276+00:00",
   "ticker": "LION",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 11.3,
+      "score": 79.0,
+      "entry": 10.87,
+      "setup": "Falling Three Methods",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 10.011999999999999,
+      "current_price": 10.72,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T12:13:18.705954",
+      "status": "CONFIRMED",
+      "ticker": "LION"
+    },
     {
       "target": 10.984,
       "updated_at": "2026-09-18T17:09:55.575229",

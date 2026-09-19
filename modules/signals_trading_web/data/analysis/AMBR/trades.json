@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:48:49.154139+00:00",
+  "generated_at": "2026-09-19T16:34:20.881182+00:00",
   "ticker": "AMBR",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 1.92,
+      "score": 83.0,
+      "entry": 2.05,
+      "setup": "Engulfing",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "target": 2.3108400000000002,
+      "current_price": 2.1,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T10:16:53.773390",
+      "status": "CONFIRMED",
+      "ticker": "AMBR"
+    },
     {
       "score": 68.0,
       "stop": 1.36,

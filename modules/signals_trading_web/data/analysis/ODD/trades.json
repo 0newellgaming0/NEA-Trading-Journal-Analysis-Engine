@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:51:00.562528+00:00",
+  "generated_at": "2026-09-19T16:36:25.278696+00:00",
   "ticker": "ODD",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "stop": 18.11,
+      "score": 78.0,
+      "entry": 18.15,
+      "setup": "GRAVESTONE_DOJI",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 18.230799999999995,
+      "current_price": 18.11,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T11:42:53.386669",
+      "status": "CONFIRMED",
+      "ticker": "ODD"
+    },
     {
       "target": 18.726000000000006,
       "updated_at": "2026-09-18T15:27:18.053804",

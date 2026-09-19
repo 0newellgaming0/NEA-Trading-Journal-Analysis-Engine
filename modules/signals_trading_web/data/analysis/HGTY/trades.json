@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:11.789181+00:00",
+  "generated_at": "2026-09-19T16:35:39.174047+00:00",
   "ticker": "HGTY",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 13.8,
+      "score": 80.0,
+      "entry": 13.93,
+      "setup": "Pinbar",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 14.183,
+      "current_price": 14.11,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T11:45:26.683060",
+      "status": "CONFIRMED",
+      "ticker": "HGTY"
+    },
     {
       "target": 13.646965830276576,
       "updated_at": "2026-09-18T17:01:04.745828",

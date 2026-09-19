@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:13.137505+00:00",
+  "generated_at": "2026-09-19T16:34:43.581226+00:00",
   "ticker": "BSEM",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 4.86,
+      "score": 87.0,
+      "entry": 4.74,
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 4.498000000000001,
+      "current_price": 4.74,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T15:09:38.288254",
+      "status": "CONFIRMED",
+      "ticker": "BSEM"
+    },
     {
       "target": 3.7531479615456442,
       "updated_at": "2026-09-18T20:19:26.109265",

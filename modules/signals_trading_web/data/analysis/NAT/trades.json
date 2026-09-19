@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:48.691595+00:00",
+  "generated_at": "2026-09-19T16:36:14.239613+00:00",
   "ticker": "NAT",
-  "count": 9,
+  "count": 10,
   "trades": [
+    {
+      "stop": 8.11,
+      "score": 64.0,
+      "entry": 8.18,
+      "setup": "Candle Over Candle",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 8.312000000000001,
+      "current_price": 8.24,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T14:44:52.224032",
+      "status": "CONFIRMED",
+      "ticker": "NAT"
+    },
     {
       "target": 7.996,
       "updated_at": "2026-09-18T19:24:52.356498",

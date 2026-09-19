@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:52.504823+00:00",
+  "generated_at": "2026-09-19T16:37:17.513839+00:00",
   "ticker": "VG",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "stop": 14.5,
+      "score": 72.0,
+      "entry": 14.38,
+      "setup": "DOJI",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 14.140000000000002,
+      "current_price": 14.14,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T11:17:42.244775",
+      "status": "CONFIRMED",
+      "ticker": "VG"
+    },
     {
       "status": "CONFIRMED",
       "setup": "Marubozu",

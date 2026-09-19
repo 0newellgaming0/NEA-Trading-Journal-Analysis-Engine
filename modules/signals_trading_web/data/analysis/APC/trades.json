@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:48:52.767379+00:00",
+  "generated_at": "2026-09-19T16:34:24.404378+00:00",
   "ticker": "APC",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "stop": 18.39,
+      "score": 75.0,
+      "entry": 18.57,
+      "setup": "Harami Cross",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "target": 18.922000000000004,
+      "current_price": 18.82,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T11:51:18.125539",
+      "status": "CONFIRMED",
+      "ticker": "APC"
+    },
     {
       "score": 67.0,
       "stop": 18.91,

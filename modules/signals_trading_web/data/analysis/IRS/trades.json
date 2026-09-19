@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:22.325834+00:00",
+  "generated_at": "2026-09-19T16:35:49.036120+00:00",
   "ticker": "IRS",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 16.47,
+      "score": 74.0,
+      "entry": 15.73,
+      "setup": "Pinbar",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 14.263199999999998,
+      "current_price": 15.47,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T12:44:43.371086",
+      "status": "CONFIRMED",
+      "ticker": "IRS"
+    },
     {
       "score": 69.0,
       "stop": 15.14,

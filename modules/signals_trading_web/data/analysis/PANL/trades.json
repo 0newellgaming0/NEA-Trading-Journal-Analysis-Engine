@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T13:03:37.416103+00:00",
+  "generated_at": "2026-09-19T16:36:31.266407+00:00",
   "ticker": "PANL",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 8.18,
+      "score": 91.0,
+      "entry": 8.31,
+      "setup": "Rising Three Methods",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 8.589999999999998,
+      "current_price": 8.48,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T09:52:41.050071",
+      "status": "CONFIRMED",
+      "ticker": "PANL"
+    },
     {
       "stop": 8.51,
       "setup": "Marubozu",

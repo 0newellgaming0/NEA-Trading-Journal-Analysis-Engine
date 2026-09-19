@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:41.801001+00:00",
+  "generated_at": "2026-09-19T16:36:07.642304+00:00",
   "ticker": "MH",
-  "count": 9,
+  "count": 10,
   "trades": [
+    {
+      "stop": 13.15,
+      "score": 78.0,
+      "entry": 13.07,
+      "setup": "Engulfing",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 12.905000000000001,
+      "current_price": 12.86,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T10:28:39.612893",
+      "status": "CONFIRMED",
+      "ticker": "MH"
+    },
     {
       "target": 12.929999999999996,
       "updated_at": "2026-09-18T13:01:10.726334",

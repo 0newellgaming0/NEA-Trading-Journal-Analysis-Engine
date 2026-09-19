@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:59.433148+00:00",
+  "generated_at": "2026-09-19T16:37:24.972613+00:00",
   "ticker": "YALA",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 5.49,
+      "score": 75.0,
+      "entry": 5.47,
+      "setup": "Harami Cross",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 5.452999999999998,
+      "current_price": 5.44,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T10:08:55.346831",
+      "status": "CONFIRMED",
+      "ticker": "YALA"
+    },
     {
       "status": "CONFIRMED",
       "setup": "TLINE_CROSS",

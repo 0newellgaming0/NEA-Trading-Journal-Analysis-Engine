@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:28.537861+00:00",
+  "generated_at": "2026-09-19T16:34:58.141908+00:00",
   "ticker": "CORZ",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "stop": 17.08,
+      "score": 67.0,
+      "entry": 17.75,
+      "setup": "Engulfing",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "target": 19.092,
+      "current_price": 17.97,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T12:42:23.550984",
+      "status": "CONFIRMED",
+      "ticker": "CORZ"
+    },
     {
       "score": 69.0,
       "stop": 17.29,

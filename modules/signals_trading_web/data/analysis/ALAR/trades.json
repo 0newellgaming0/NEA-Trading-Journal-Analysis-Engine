@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:48:46.420601+00:00",
+  "generated_at": "2026-09-19T16:34:18.288238+00:00",
   "ticker": "ALAR",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "stop": 2.13,
+      "score": 51.0,
+      "entry": 2.07,
+      "setup": "TLINE_CROSS",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "target": 1.951759522020668,
+      "current_price": 2.07,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T16:08:57.531143",
+      "status": "CONFIRMED",
+      "ticker": "ALAR"
+    },
     {
       "score": 51.0,
       "stop": 2.04,

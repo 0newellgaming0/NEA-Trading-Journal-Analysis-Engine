@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:46.375995+00:00",
+  "generated_at": "2026-09-19T16:36:11.923882+00:00",
   "ticker": "MTLS",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 7.73,
+      "score": 77.0,
+      "entry": 7.78,
+      "setup": "Pinbar",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 7.89,
+      "current_price": 7.92,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T11:22:15.673759",
+      "status": "CONFIRMED",
+      "ticker": "MTLS"
+    },
     {
       "score": 73.0,
       "stop": 7.76,

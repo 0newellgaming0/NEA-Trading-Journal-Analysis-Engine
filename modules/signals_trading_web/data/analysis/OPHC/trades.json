@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-18T20:51:03.359903+00:00",
+  "generated_at": "2026-09-19T16:36:27.832897+00:00",
   "ticker": "OPHC",
   "count": 5,
   "trades": [
     {
-      "score": 67.0,
       "stop": 9.36,
-      "risk_reward": 2.0,
-      "setup": "Pinbar",
-      "updated_at": "2026-09-18T14:57:49.227322",
-      "status": "CONFIRMED",
-      "ticker": "OPHC",
-      "target": 8.934000000000003,
-      "regime": "BULLISH_CONSOLIDATION",
+      "score": 74.0,
       "entry": 9.22,
-      "current_price": 9.145,
-      "direction": "Bearish"
+      "setup": "Pinbar",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 8.934000000000003,
+      "current_price": 9.35,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T12:36:09.187308",
+      "status": "CONFIRMED",
+      "ticker": "OPHC"
     },
     {
       "entry": 9.14,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:44:50.496667+00:00",
+  "generated_at": "2026-09-19T16:36:11.380138+00:00",
   "ticker": "MSS",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 1.71,
+      "score": 59.0,
+      "entry": 1.56,
+      "setup": "Loose Falling Mat Hold",
+      "regime": "FULL_BEARISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 1.24368,
+      "current_price": 1.5179,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T15:27:28.537979",
+      "status": "CONFIRMED",
+      "ticker": "MSS"
+    },
     {
       "status": "CONFIRMED",
       "setup": "TLINE_CROSS",

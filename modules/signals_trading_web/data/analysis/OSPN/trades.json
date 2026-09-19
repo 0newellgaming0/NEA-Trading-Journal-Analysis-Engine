@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:51:05.195563+00:00",
+  "generated_at": "2026-09-19T16:36:29.539121+00:00",
   "ticker": "OSPN",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 17.65,
+      "score": 92.0,
+      "entry": 17.53,
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 17.288000000000004,
+      "current_price": 17.51,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T11:20:25.943725",
+      "status": "CONFIRMED",
+      "ticker": "OSPN"
+    },
     {
       "target": 17.676000000000005,
       "updated_at": "2026-09-18T13:41:31.380703",

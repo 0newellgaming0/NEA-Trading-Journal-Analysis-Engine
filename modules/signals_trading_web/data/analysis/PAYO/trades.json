@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:51:07.360019+00:00",
+  "generated_at": "2026-09-19T16:36:31.595562+00:00",
   "ticker": "PAYO",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 7.11,
+      "score": 73.0,
+      "entry": 7.12,
+      "setup": "Engulfing",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 7.142,
+      "current_price": 7.1325,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T12:47:09.379518",
+      "status": "CONFIRMED",
+      "ticker": "PAYO"
+    },
     {
       "target": 7.077807088690077,
       "updated_at": "2026-09-18T18:17:11.737393",

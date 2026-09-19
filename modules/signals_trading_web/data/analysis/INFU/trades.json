@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:54.867249+00:00",
+  "generated_at": "2026-09-19T16:35:46.662052+00:00",
   "ticker": "INFU",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 12.85,
+      "score": 74.0,
+      "entry": 12.85,
+      "setup": "Pinbar",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 12.852199999999998,
+      "current_price": 12.85,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T15:43:54.340577",
+      "status": "CONFIRMED",
+      "ticker": "INFU"
+    },
     {
       "entry": 12.2,
       "score": 65.0,

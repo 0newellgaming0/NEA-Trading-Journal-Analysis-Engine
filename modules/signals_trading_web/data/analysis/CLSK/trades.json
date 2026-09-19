@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:25.537630+00:00",
+  "generated_at": "2026-09-19T16:34:55.221340+00:00",
   "ticker": "CLSK",
-  "count": 7,
+  "count": 8,
   "trades": [
+    {
+      "stop": 13.43,
+      "score": 77.0,
+      "entry": 13.77,
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 14.44606,
+      "current_price": 14.4,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T11:35:07.229832",
+      "status": "CONFIRMED",
+      "ticker": "CLSK"
+    },
     {
       "score": 74.0,
       "stop": 13.36,

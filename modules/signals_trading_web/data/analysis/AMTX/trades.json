@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:48:50.899507+00:00",
+  "generated_at": "2026-09-19T16:34:22.629526+00:00",
   "ticker": "AMTX",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "stop": 1.99,
+      "score": 75.0,
+      "entry": 2.04,
+      "setup": "Rising Three Methods",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "target": 2.132739999999999,
+      "current_price": 2.2021,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T15:39:35.082331",
+      "status": "CONFIRMED",
+      "ticker": "AMTX"
+    },
     {
       "target": 2.072,
       "updated_at": "2026-09-18T19:50:17.389078",

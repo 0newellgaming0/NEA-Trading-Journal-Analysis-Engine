@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:05.096587+00:00",
+  "generated_at": "2026-09-19T16:36:27.192273+00:00",
   "ticker": "ONT",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 17.93,
+      "score": 66.0,
+      "entry": 18.04,
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "target": 18.259999999999998,
+      "current_price": 18.11,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T16:19:50.669546",
+      "status": "CONFIRMED",
+      "ticker": "ONT"
+    },
     {
       "status": "CONFIRMED",
       "setup": "Marubozu",

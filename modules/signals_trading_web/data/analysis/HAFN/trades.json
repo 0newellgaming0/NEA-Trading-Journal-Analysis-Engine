@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:09.908476+00:00",
+  "generated_at": "2026-09-19T16:35:37.342130+00:00",
   "ticker": "HAFN",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 9.65,
+      "score": 65.0,
+      "entry": 9.78,
+      "setup": "Pinbar",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 10.043999999999999,
+      "current_price": 10.14,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T15:11:31.837684",
+      "status": "CONFIRMED",
+      "ticker": "HAFN"
+    },
     {
       "target": 9.927999999999997,
       "updated_at": "2026-09-18T18:46:18.496943",

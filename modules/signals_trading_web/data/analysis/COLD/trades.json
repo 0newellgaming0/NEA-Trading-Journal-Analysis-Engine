@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T12:23:33.672061+00:00",
+  "generated_at": "2026-09-19T16:34:57.641550+00:00",
   "ticker": "COLD",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 14.93,
+      "score": 71.0,
+      "entry": 14.86,
+      "setup": "Marubozu",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 14.72448,
+      "current_price": 14.41,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T13:59:25.007415",
+      "status": "CONFIRMED",
+      "ticker": "COLD"
+    },
     {
       "updated_at": "2026-09-16T06:17:00.688479",
       "score": 66.0,

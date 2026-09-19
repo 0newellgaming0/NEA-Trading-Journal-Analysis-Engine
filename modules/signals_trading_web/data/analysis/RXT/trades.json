@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:56.717139+00:00",
+  "generated_at": "2026-09-19T16:36:52.129196+00:00",
   "ticker": "RXT",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 3.85,
+      "score": 81.0,
+      "entry": 3.77,
+      "setup": "TLINE_CROSS",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 3.6045386805076904,
+      "current_price": 3.77,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T10:40:50.883114",
+      "status": "CONFIRMED",
+      "ticker": "RXT"
+    },
     {
       "entry": 3.54,
       "score": 77.0,

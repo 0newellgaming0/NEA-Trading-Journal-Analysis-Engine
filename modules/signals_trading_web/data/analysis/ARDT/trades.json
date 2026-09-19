@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:43:12.533473+00:00",
+  "generated_at": "2026-09-19T16:34:26.929456+00:00",
   "ticker": "ARDT",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 10.4,
+      "score": 71.0,
+      "entry": 10.46,
+      "setup": "Pinbar",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 10.570000000000004,
+      "current_price": 10.48,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T14:06:09.454273",
+      "status": "CONFIRMED",
+      "ticker": "ARDT"
+    },
     {
       "status": "CONFIRMED",
       "setup": "Pinbar",

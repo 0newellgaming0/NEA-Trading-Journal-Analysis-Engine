@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:51:42.584266+00:00",
+  "generated_at": "2026-09-19T16:37:04.538920+00:00",
   "ticker": "STRW",
-  "count": 9,
+  "count": 10,
   "trades": [
+    {
+      "stop": 13.98,
+      "score": 83.0,
+      "entry": 13.76,
+      "setup": "Marubozu",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 13.32022,
+      "current_price": 13.73,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T12:11:19.902815",
+      "status": "CONFIRMED",
+      "ticker": "STRW"
+    },
     {
       "score": 71.0,
       "stop": 13.77,

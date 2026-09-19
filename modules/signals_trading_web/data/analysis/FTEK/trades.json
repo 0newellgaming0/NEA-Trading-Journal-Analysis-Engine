@@ -1,21 +1,21 @@
 {
-  "generated_at": "2026-09-18T20:49:59.049898+00:00",
+  "generated_at": "2026-09-19T16:35:26.717202+00:00",
   "ticker": "FTEK",
   "count": 4,
   "trades": [
     {
-      "score": 56.0,
       "stop": 1.71,
-      "risk_reward": 2.0,
-      "setup": "Pinbar",
-      "updated_at": "2026-09-18T19:15:29.158146",
-      "status": "CONFIRMED",
-      "ticker": "FTEK",
-      "target": 1.8699999999999999,
-      "regime": "BULLISH_CONSOLIDATION",
+      "score": 56.0,
       "entry": 1.76,
-      "current_price": 1.725,
-      "direction": "Bullish"
+      "setup": "Pinbar",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 1.8699999999999999,
+      "current_price": 1.76,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T13:32:16.013391",
+      "status": "CONFIRMED",
+      "ticker": "FTEK"
     },
     {
       "entry": 1.75,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:45:41.009347+00:00",
+  "generated_at": "2026-09-19T16:37:05.317620+00:00",
   "ticker": "SUNE",
-  "count": 14,
+  "count": 15,
   "trades": [
+    {
+      "stop": 3.19,
+      "score": 72.0,
+      "entry": 2.88,
+      "setup": "Falling Three Methods",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 2.2639999999999993,
+      "current_price": 2.49,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T13:52:35.422611",
+      "status": "CONFIRMED",
+      "ticker": "SUNE"
+    },
     {
       "status": "CONFIRMED",
       "setup": "TLINE_CROSS",

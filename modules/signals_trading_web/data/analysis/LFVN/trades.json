@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:32.018780+00:00",
+  "generated_at": "2026-09-19T16:35:58.219680+00:00",
   "ticker": "LFVN",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 6.25,
+      "score": 65.0,
+      "entry": 6.36,
+      "setup": "TLINE_CROSS",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 6.5818740893300225,
+      "current_price": 6.36,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T15:30:38.060278",
+      "status": "CONFIRMED",
+      "ticker": "LFVN"
+    },
     {
       "target": 6.729679999999999,
       "updated_at": "2026-09-18T20:17:04.279089",

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:27.035178+00:00",
+  "generated_at": "2026-09-19T16:34:56.687880+00:00",
   "ticker": "CMRE",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 15.27,
+      "score": 85.0,
+      "entry": 15.46,
+      "setup": "Engulfing",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "target": 15.834000000000003,
+      "current_price": 15.46,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T10:59:36.491473",
+      "status": "CONFIRMED",
+      "ticker": "CMRE"
+    },
     {
       "target": 15.177999999999999,
       "updated_at": "2026-09-18T13:26:32.651955",

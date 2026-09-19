@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:48:51.765222+00:00",
+  "generated_at": "2026-09-19T16:34:23.404000+00:00",
   "ticker": "ANNA",
-  "count": 5,
+  "count": 6,
   "trades": [
+    {
+      "stop": 3.59,
+      "score": 73.0,
+      "entry": 3.06,
+      "setup": "SWING_STRUCTURE",
+      "regime": "PRIMARY_DOWNTREND_RALLY",
+      "risk_reward": 2.0,
+      "target": 2.0000000000000004,
+      "current_price": 3.3037,
+      "direction": "BEARISH",
+      "updated_at": "2026-09-19T13:14:18.494480",
+      "status": "CONFIRMED",
+      "ticker": "ANNA"
+    },
     {
       "score": 69.0,
       "stop": 3.07,

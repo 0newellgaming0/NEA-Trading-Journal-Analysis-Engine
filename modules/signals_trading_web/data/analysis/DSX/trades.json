@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:49:41.901115+00:00",
+  "generated_at": "2026-09-19T16:35:10.734019+00:00",
   "ticker": "DSX",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 3.04,
+      "score": 85.0,
+      "entry": 3.11,
+      "setup": "Pinbar",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 3.240679999999999,
+      "current_price": 3.1616,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T09:54:46.674921",
+      "status": "CONFIRMED",
+      "ticker": "DSX"
+    },
     {
       "target": 3.1100000000000008,
       "updated_at": "2026-09-18T14:04:47.563192",

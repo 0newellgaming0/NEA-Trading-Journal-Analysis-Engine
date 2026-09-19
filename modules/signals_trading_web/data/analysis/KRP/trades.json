@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:11:02.592445+00:00",
+  "generated_at": "2026-09-19T16:35:54.608632+00:00",
   "ticker": "KRP",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 14.58,
+      "score": 60.0,
+      "entry": 14.62,
+      "setup": "Pinbar",
+      "regime": "SHORT_TERM_STRENGTH",
+      "risk_reward": 2.0,
+      "target": 14.724,
+      "current_price": 14.7,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T16:15:26.786015",
+      "status": "CONFIRMED",
+      "ticker": "KRP"
+    },
     {
       "entry": 14.57,
       "score": 61.0,

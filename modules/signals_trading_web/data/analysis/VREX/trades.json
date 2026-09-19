@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:12:23.543542+00:00",
+  "generated_at": "2026-09-19T16:37:19.833408+00:00",
   "ticker": "VREX",
-  "count": 4,
+  "count": 5,
   "trades": [
+    {
+      "stop": 18.49,
+      "score": 70.0,
+      "entry": 18.45,
+      "setup": "Falling Three Methods",
+      "regime": "BULLISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 18.362,
+      "current_price": 18.49,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T14:03:57.030822",
+      "status": "CONFIRMED",
+      "ticker": "VREX"
+    },
     {
       "entry": 18.47,
       "score": 70.0,

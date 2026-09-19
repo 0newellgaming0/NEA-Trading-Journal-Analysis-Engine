@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-16T19:44:51.455738+00:00",
+  "generated_at": "2026-09-19T16:36:12.542555+00:00",
   "ticker": "MXC",
-  "count": 2,
+  "count": 3,
   "trades": [
+    {
+      "stop": 10.73,
+      "score": 74.0,
+      "entry": 11.24,
+      "setup": "Engulfing",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 12.252,
+      "current_price": 11.76,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T10:26:27.951416",
+      "status": "CONFIRMED",
+      "ticker": "MXC"
+    },
     {
       "status": "CONFIRMED",
       "setup": "Pinbar",

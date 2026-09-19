@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-17T14:10:44.082067+00:00",
+  "generated_at": "2026-09-19T16:35:35.270917+00:00",
   "ticker": "GRNT",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "stop": 4.95,
+      "score": 71.0,
+      "entry": 4.92,
+      "setup": "Pinbar",
+      "regime": "BEARISH_CONSOLIDATION",
+      "risk_reward": 2.0,
+      "target": 4.848999999999999,
+      "current_price": 4.9,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T15:07:55.052396",
+      "status": "CONFIRMED",
+      "ticker": "GRNT"
+    },
     {
       "entry": 5.05,
       "score": 68.0,

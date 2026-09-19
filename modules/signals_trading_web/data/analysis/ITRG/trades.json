@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:50:22.600937+00:00",
+  "generated_at": "2026-09-19T16:35:49.319012+00:00",
   "ticker": "ITRG",
-  "count": 3,
+  "count": 4,
   "trades": [
+    {
+      "stop": 2.81,
+      "score": 64.0,
+      "entry": 2.77,
+      "setup": "TLINE_ROLLOVER",
+      "regime": "SHORT_TERM_WEAKNESS",
+      "risk_reward": 2.0,
+      "target": 2.690359222293579,
+      "current_price": 2.7611,
+      "direction": "Bearish",
+      "updated_at": "2026-09-19T13:00:44.205229",
+      "status": "CONFIRMED",
+      "ticker": "ITRG"
+    },
     {
       "score": 64.0,
       "stop": 2.82,

@@ -1,8 +1,22 @@
 {
-  "generated_at": "2026-09-18T20:51:48.926396+00:00",
+  "generated_at": "2026-09-19T16:37:10.683593+00:00",
   "ticker": "TK",
-  "count": 6,
+  "count": 7,
   "trades": [
+    {
+      "stop": 14.71,
+      "score": 72.0,
+      "entry": 14.72,
+      "setup": "Marubozu",
+      "regime": "FULL_BULLISH_ALIGNMENT",
+      "risk_reward": 2.0,
+      "target": 14.733039999999997,
+      "current_price": 14.83,
+      "direction": "Bullish",
+      "updated_at": "2026-09-19T12:54:22.500369",
+      "status": "CONFIRMED",
+      "ticker": "TK"
+    },
     {
       "score": 66.0,
       "stop": 14.91,
